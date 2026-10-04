@@ -1,0 +1,398 @@
+"""
+Deterministic printer environment used by the E2E scenarios: files on the
+"eMMC", the Klipper object state served by the fake Moonraker, gcode metadata,
+the file tree and the wifi environment.
+
+Scenario specific variations are selected through OPTIONS[scenario].
+"""
+
+import hashlib
+import json
+import os
+import shutil
+
+GCODES = "/home/mks/gcode_files"
+
+CONFIG_MKSINI = """
+[fila]
+enable                         = 1
+
+
+[target]
+extruder                       = 220
+heaterbed                      = 60
+hot                            = 55
+
+
+[babystep]
+value                          = 0.000
+adxl_offset                    = 0.15
+
+
+[oobe]
+enable                         = %(oobe)d
+
+
+[mks_ethernet]
+enable                         = 0
+
+
+[app_connection]
+method                         = %(method)d
+
+
+[app_server]
+name                           = aws
+
+[app]
+device_code                    =
+subdomain                      =
+token                          =
+username                       =
+avatar                         =
+bind_status                    =
+
+"""
+
+VERSION = """[version]
+mcu             = V0.10.0
+ui              = V4.4.21
+soc             = V4.4.21
+"""
+
+SAVED_VARIABLES = """[Variables]
+bed_temp = 80.0
+filepath = '%(filepath)s'
+hot_temp = 0.0
+last_file = ''
+power_resume_z = 0.8
+print_temp = 245.0
+profile_name = 'kamp'
+was_interrupted = %(interrupted)s
+z_offset = 0.0
+"""
+
+FRPC_TOML = """serverAddr = "old.example.invalid"
+serverPort = 7000
+
+[[proxies]]
+name = "web"
+type = "http"
+"""
+
+SERVER_LIST = {
+    "1": {"address": "aws.example.invalid", "name": "aws"},
+    "2": {"address": "eu.example.invalid", "name": "eu"},
+    "3": {"address": "asia.example.invalid", "name": "asia"},
+    "4": {"address": "us.example.invalid", "name": "us"},
+    "5": {"address": "ru.example.invalid", "name": "ru"},
+}
+
+# Scenario options
+DEFAULTS = {
+    "oobe": 0,
+    "method": 1,
+    "interrupted": "False",
+    "tft_update": False,
+    "usb": False,
+    "wifi": False,
+    "wifi_connected": False,
+    "small_chelper": False,
+    "cache_file": True,
+    "server_list": False,
+    "qrcode": False,
+    "update_files": False,
+    "online_files": False,
+    "state": {},
+}
+
+OPTIONS = {
+    "boot_main": {},
+    "boot_oobe": {"oobe": 1},
+    "oobe_calibrate": {"oobe": 1},
+    "boot_tft_update": {"tft_update": True, "small_chelper": True},
+    "boot_interrupted": {"interrupted": "True"},
+    "file_list": {"usb": True},
+    "print_flow": {},
+    "print_events": {},
+    "temperatures": {},
+    "move_page": {},
+    "levelling": {},
+    "bed_calibration": {},
+    "wifi": {"wifi": True},
+    "wifi_connected": {"wifi": True, "wifi_connected": True, "server_list": True, "qrcode": True},
+    "settings": {"usb": True},
+    "local_update": {"usb": True, "update_files": True},
+    "errors": {},
+    "notifications": {},
+    "screen_sleep": {},
+    "filament": {},
+    "no_cache": {"cache_file": False},
+    "online_update": {"online_files": True, "wifi": True, "wifi_connected": True},
+}
+
+
+def opts(scenario):
+    o = dict(DEFAULTS)
+    o.update(OPTIONS.get(scenario, {}))
+    return o
+
+
+def _write(path, data, mode=0o644):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if isinstance(data, str):
+        data = data.encode("utf-8")
+    with open(path, "wb") as f:
+        f.write(data)
+    os.chmod(path, mode)
+
+
+def _image(path, size, seed, fmt, mode="RGBA"):
+    """Deterministic test picture."""
+    from PIL import Image, ImageDraw
+    w, h = size
+    img = Image.new(mode, (w, h), (0, 0, 0, 0) if mode == "RGBA" else (0, 0, 0))
+    d = ImageDraw.Draw(img)
+    for y in range(h):
+        for x in range(0, w, 4):
+            r = (x * 3 + seed * 17) % 256
+            g = (y * 5 + seed * 31) % 256
+            b = ((x ^ y) + seed * 7) % 256
+            a = 255 if (x + y + seed) % 23 else 0
+            d.rectangle([x, y, x + 3, y], fill=(r, g, b, a) if mode == "RGBA" else (r, g, b))
+    d.ellipse([w // 4, h // 4, 3 * w // 4, 3 * h // 4], fill=(250, 200, 20, 255) if mode == "RGBA" else (250, 200, 20))
+    d.text((5, 5), "Q1-%d" % seed, fill=(255, 255, 255, 255) if mode == "RGBA" else (255, 255, 255))
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if fmt == "JPEG":
+        img.convert("RGB").save(path, "JPEG", quality=85)
+    else:
+        img.save(path, fmt)
+
+
+class Fixture(object):
+    def __init__(self, scenario):
+        self.scenario = scenario
+        self.o = opts(scenario)
+
+    # -- files -------------------------------------------------------------
+    def install(self):
+        o = self.o
+        _write("/home/mks/klipper_config/config.mksini", CONFIG_MKSINI % {"oobe": o["oobe"], "method": o["method"]}, 0o666)
+        _write("/root/config.mksini", CONFIG_MKSINI % {"oobe": 0, "method": 1})
+        _write("/root/xindi/version", VERSION)
+        _write("/dev_info.txt", "QIDI@Q1 Pro")
+        sv = SAVED_VARIABLES % {"interrupted": o["interrupted"],
+                                "filepath": "/home/mks/gcode_files/cube.gcode" if o["interrupted"] == "True" else ""}
+        _write("/home/mks/klipper_config/saved_variables.cfg", sv)
+        _write("/home/mks/klipper_config/saved_variables.cfg.bak", SAVED_VARIABLES % {"interrupted": "False", "filepath": ""})
+        _write("/home/mks/klipper_logs/klippy.log", "klippy log\n")
+        _write("/home/mks/klipper_logs/moonraker.log", "moonraker log\n")
+
+        chelper = "/home/mks/klipper/klippy/chelper/c_helper.so"
+        _write(chelper, (b"\x7fELF" + b"\x01" * 100) if o["small_chelper"] else (b"\x7fELF" + b"\x02" * 20000))
+        _write("/root/etc/c_helper.so", b"\x7fELF" + bytes(range(256)) * 120)
+
+        # gcode files and thumbnails
+        for name in ("cube.gcode", "Benchy PLA.gcode", "part_abs.gcode", "notes.txt", ".hidden.gcode",
+                     "big_petg.gcode", "z_last.gcode"):
+            _write(os.path.join(GCODES, name), "; gcode %s\nG28\n" % name)
+        _write(os.path.join(GCODES, "models/inner.gcode"), "G28\n")
+        _write(os.path.join(GCODES, "models/deep/deeper.gcode"), "G28\n")
+        os.makedirs(os.path.join(GCODES, ".thumbs"), exist_ok=True)
+        _image(os.path.join(GCODES, ".thumbs/cube-160x160.png"), (160, 160), 1, "PNG")
+        _image(os.path.join(GCODES, ".thumbs/cube-112x112_QD.jpg"), (112, 112), 2, "JPEG", "RGB")
+        _image(os.path.join(GCODES, ".thumbs/Benchy PLA-160x160.png"), (160, 160), 3, "PNG")
+        _image(os.path.join(GCODES, ".thumbs/Benchy PLA-112x112_QD.jpg"), (112, 112), 4, "JPEG", "RGB")
+        _image(os.path.join(GCODES, ".thumbs/part_abs-160x160.jpg"), (200, 120), 5, "JPEG", "RGB")
+        if self.o["cache_file"]:
+            _write(os.path.join(GCODES, ".cache/last_print.gcode"), "G28\n")
+            _image(os.path.join(GCODES, ".cache/.thumbs/last_print-160x160.png"), (160, 160), 6, "PNG")
+            _image(os.path.join(GCODES, ".cache/.thumbs/last_print-112x112_QD.jpg"), (112, 112), 7, "JPEG", "RGB")
+        os.makedirs("/root/frp", exist_ok=True)
+        _write("/root/frp/frpc.toml", FRPC_TOML)
+        if o["server_list"]:
+            _write("/root/frp/server_list.json", json.dumps(SERVER_LIST))
+        if o["qrcode"]:
+            _image("/home/mks/qrcode/qrcode.jpg", (176, 176), 8, "JPEG", "RGB")
+            _write("/home/mks/qrcode/qrcode_QD.py", "print('qrcode generated')\n")
+
+        if o["usb"]:
+            _write("/dev/sda", b"")
+            _write("/dev/sda1", b"")
+            usb = os.path.join(GCODES, "sda1")
+            for name in ("usb_one.gcode", "usb_two.gcode", "usb_three.gcode", "usb_four.gcode", "usb_five.gcode"):
+                _write(os.path.join(usb, name), "G28\n")
+            _write(os.path.join(usb, "folder/usb_inner.gcode"), "G28\n")
+            os.makedirs(os.path.join(usb, "System Volume Information"), exist_ok=True)
+        if o["update_files"]:
+            upd = os.path.join(GCODES, "sda1/QD_Update")
+            _write(os.path.join(upd, "printer.cfg"), "[printer]\nkinematics: corexy\n")
+            _write(os.path.join(upd, "gcode_macro.cfg"), "[gcode_macro TEST]\ngcode:\n  M117 hi\n")
+            _write(os.path.join(upd, "QD_Q1_UI4.4.21"), b"TJC" * 5000)
+            _write(os.path.join(upd, "QD_Q1_SOC4.4.21"), b"!<arch>\n" + b"x" * 100)
+            _write(os.path.join(upd, "QD_Q1_PATCH.bak"), b"old")
+        if o["tft_update"]:
+            # screen firmware file (not a multiple of 4096 bytes)
+            data = bytes((i * 7 + 3) & 0xFF for i in range(3 * 4096 + 1234))
+            _write("/root/800_480.tft", data)
+
+        # stub scripts used by the online update / qrcode code paths
+        if o["online_files"]:
+            _write("/root/auto_update/version_check.py", "print('V4.4.22')\n")
+            _write("/root/auto_update/download_update.py", "print('downloading')\n")
+            langs = ["cn", "ru", "en", "jp", "fr", "gr", "it", "sp", "kr", "pr", "ar", "tr"]
+            info = "".join("[%s]\ncontent = notes in %s; fixes\n\n" % (l, l) for l in langs)
+            _write("/root/auto_update/update_info.ini", info)
+            _write("/root/auto_update/update_progress.ini", "[progress]\nvalue = 42\n\n[filename]\nname = Installing mks.deb\n")
+        else:
+            _write("/root/auto_update/version_check.py", "print('0')\n")
+        os.makedirs("/home/mks/gcode_files/.cache", exist_ok=True)
+
+    # -- moonraker data ------------------------------------------------------
+    def printer_state(self):
+        st = {
+            "extruder": {"temperature": 25.3, "target": 0.0, "power": 0.0},
+            "heater_bed": {"temperature": 24.6, "target": 0.0, "power": 0.0},
+            "heater_generic chamber": {"temperature": 26.1, "target": 0.0},
+            "print_stats": {"state": "standby", "filename": "", "print_duration": 0.0, "total_duration": 0.0,
+                            "filament_used": 0.0, "message": ""},
+            "display_status": {"progress": 0.0, "message": None},
+            "idle_timeout": {"state": "Idle"},
+            "pause_resume": {"is_paused": False},
+            "webhooks": {"state": "ready", "state_message": "Printer is ready"},
+            "gcode_move": {"speed_factor": 1.0, "speed": 1500.0, "extrude_factor": 1.0,
+                           "homing_origin": [0.0, 0.0, 0.0, 0.0], "position": [0.0, 0.0, 0.0, 0.0],
+                           "gcode_position": [0.0, 0.0, 0.0, 0.0]},
+            "toolhead": {"position": [125.0, 125.0, 10.0, 0.0], "axis_minimum": [-5.5, -7.5, -4.0, 0.0],
+                         "axis_maximum": [250.0, 255.0, 250.0, 0.0], "homed_axes": ""},
+            "fan": {"speed": 0.0},
+            "heater_fan fan1": {"speed": 0.0},
+            "bed_mesh": {
+                "profile_name": "default", "mesh_min": [10.0, 10.0], "mesh_max": [240.0, 240.0],
+                "profiles": {"default": {
+                    "points": [[0.01, 0.02, -0.03, 0.04, 0.05], [0.11, 0.12, 0.13, -0.14, 0.15],
+                               [0.21, -0.22, 0.23, 0.24, 0.25], [0.31, 0.32, 0.33, 0.34, -0.35],
+                               [0.41, 0.42, 0.43, 0.444, 0.455]],
+                    "mesh_params": {"min_x": 10.0, "max_x": 240.0, "min_y": 10.0, "max_y": 240.0,
+                                    "x_count": 5, "y_count": 5, "mesh_x_pps": 2, "mesh_y_pps": 2,
+                                    "algo": "bicubic", "tension": 0.2}}}},
+            "filament_switch_sensor fila": {"filament_detected": True, "enabled": True},
+            "fan_generic cooling_fan": {"speed": 0.0, "rpm": None},
+            "fan_generic auxiliary_cooling_fan": {"speed": 0.0, "rpm": None},
+            "fan_generic chamber_circulation_fan": {"speed": 0.0, "rpm": None},
+            "output_pin caselight": {"value": 0.0},
+            "output_pin sound": {"value": 0.0},
+            "probe": {"name": "probe", "x_offset": 25.0, "y_offset": 1.3, "z_offset": 0.0},
+            "firmware_retraction": {"retract_length": 0.8, "retract_speed": 35.0,
+                                    "unretract_extra_length": 0.0, "unretract_speed": 35.0},
+        }
+        for name, values in self.o["state"].items():
+            st.setdefault(name, {}).update(values)
+        return st
+
+    def job_totals(self):
+        return {"total_jobs": 12, "total_time": 98765.4, "total_print_time": 54321.9,
+                "total_filament_used": 12345.6, "longest_job": 7200.0, "longest_print": 7000.0}
+
+    def metadata(self):
+        def meta(filename, est, filament, weight, ftype, thumbs, name=None):
+            m = {"size": 12345, "modified": 1700000000.0, "uuid": "uuid-" + filename, "slicer": "QIDIStudio",
+                 "slicer_version": "1.9", "layer_height": 0.2, "first_layer_height": 0.2, "object_height": 20.0,
+                 "filament_total": filament, "estimated_time": est, "filename": filename,
+                 "print_start_time": None, "job_id": None}
+            if weight is not None:
+                m["filament_weight_total"] = weight
+            if ftype is not None:
+                m["filament_type"] = ftype
+            if name is not None:
+                m["filament_name"] = name
+            m["thumbnails"] = thumbs
+            return m
+
+        def thumb(w, path):
+            return {"width": w, "height": w, "size": 1000, "relative_path": path}
+
+        return {
+            "cube.gcode": meta("cube.gcode", 3725, 1234.5, 3.7, "PLA",
+                               [thumb(32, ".thumbs/cube-32x32.png"), thumb(160, ".thumbs/cube-160x160.png")]),
+            "Benchy PLA.gcode": meta("Benchy PLA.gcode", 59, 0.0, 0.0, None, [thumb(160, ".thumbs/Benchy PLA-160x160.png")],
+                                     name="Generic ABS"),
+            "part_abs.gcode": meta("part_abs.gcode", 0, 15000.0, None, "ABS", [thumb(300, ".thumbs/part_abs-300x300.png")]),
+            "big_petg.gcode": meta("big_petg.gcode", 360000, 99999.9, 123.456, "PETG", []),
+            "z_last.gcode": meta("z_last.gcode", 120, 10.0, 0.5, "TPU", [thumb(168, ".thumbs/z_last-168x168.png")]),
+            ".cache/last_print.gcode": meta(".cache/last_print.gcode", 7322, 2500.0, 7.25, "PETG",
+                                            [thumb(160, ".thumbs/last_print-160x160.png")]),
+            "models/inner.gcode": meta("models/inner.gcode", 100, 50.0, 0.2, "PLA",
+                                       [thumb(300, ".thumbs/inner-300x300.png")]),
+            "sda1/usb_one.gcode": meta("sda1/usb_one.gcode", 1000, 500.0, 1.5, "ASA", []),
+        }
+
+    def directory(self, path):
+        """Moonraker server/files/directory result for a "gcodes/..." path."""
+        rel = path
+        if rel.startswith("gcodes"):
+            rel = rel[len("gcodes"):]
+        rel = rel.strip("/")
+        while "//" in rel:
+            rel = rel.replace("//", "/")
+        full = os.path.join(GCODES, rel) if rel else GCODES
+        if not os.path.isdir(full):
+            return None
+        dirs = []
+        files = []
+        for name in sorted(os.listdir(full)):
+            p = os.path.join(full, name)
+            st = os.stat(p)
+            if os.path.isdir(p):
+                dirs.append({"dirname": name, "modified": 1700000000.0, "size": 4096, "permissions": "rw"})
+            else:
+                files.append({"filename": name, "modified": 1700000000.0, "size": st.st_size, "permissions": "rw"})
+        return {"dirs": dirs, "files": files, "disk_usage": {"total": 1, "used": 0, "free": 1},
+                "root_info": {"name": "gcodes", "permissions": "rw"}}
+
+    def wifi(self):
+        if not self.o["wifi"]:
+            return None
+        if self.o["wifi_connected"]:
+            status = (b"bssid=12:34:56:78:9a:bc\nfreq=2437\nssid=Home \\xd0\\x94\\xd0\\xbe\\xd0\\xbc\nid=0\nmode=station\n"
+                      b"pairwise_cipher=CCMP\ngroup_cipher=CCMP\nkey_mgmt=WPA2-PSK\nwpa_state=COMPLETED\n"
+                      b"ip_address=192.168.1.77\naddress=aa:bb:cc:dd:ee:ff\nuuid=0123-4567\n")
+        else:
+            status = b"wpa_state=INACTIVE\naddress=aa:bb:cc:dd:ee:ff\nuuid=0123-4567\n"
+        scan = (b"bssid / frequency / signal level / flags / ssid\n"
+                b"12:34:56:78:9a:bc\t2437\t-40\t[WPA2-PSK-CCMP][ESS]\tHome \\xd0\\x94\\xd0\\xbe\\xd0\\xbc\n"
+                b"22:34:56:78:9a:bc\t2412\t-50\t[WPA2-PSK-CCMP][ESS]\tNeighbour Net\n"
+                b"32:34:56:78:9a:bc\t5180\t-60\t[WPA2-PSK-CCMP][ESS]\tOffice_5G\n"
+                b"42:34:56:78:9a:bc\t2462\t-70\t[ESS]\t\n"
+                b"52:34:56:78:9a:bc\t2462\t-70\t[ESS]\tCafe \\\"Free\\\"\n"
+                b"62:34:56:78:9a:bc\t2462\t-75\t[WPA-PSK-TKIP][ESS]\tTab\\tName\n"
+                b"72:34:56:78:9a:bc\t2462\t-80\t[WPA2-PSK-CCMP][ESS]\tSeventh\n"
+                b"82:34:56:78:9a:bc\t2462\t-85\t[WPA2-PSK-CCMP][ESS]\tEighth\n")
+        return {"status": status, "scan_results": scan}
+
+    # -- result ----------------------------------------------------------------
+    def snapshot(self):
+        result = {}
+        roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", "/root/frp", "/root/xindi", "/home/mks/qrcode",
+                 "/home/mks/klipper/klippy/chelper"]
+        singles = ["/home/mks/tjc", "/root/800_480.tft", "/root/800_480.tft.bak", "/root/mcu_shutdown.txt",
+                   "/root/klipper.bin", "/root/config.mksini"]
+        paths = []
+        for root in roots:
+            for dirpath, dirnames, filenames in os.walk(root):
+                dirnames.sort()
+                for name in sorted(filenames):
+                    paths.append(os.path.join(dirpath, name))
+        paths.extend(singles)
+        for p in paths:
+            try:
+                with open(p, "rb") as f:
+                    data = f.read()
+            except OSError:
+                result[p] = None
+                continue
+            if p.endswith((".mksini", ".toml", ".cfg", ".txt")) and len(data) < 20000:
+                result[p] = data.decode("utf-8", "replace")
+            else:
+                result[p] = "sha1:%s:%d" % (hashlib.sha1(data).hexdigest()[:16], len(data))
+        return result

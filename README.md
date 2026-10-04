@@ -93,11 +93,12 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 
 ## Tests
 
-The E2E equivalence tests are not part of this repository, because they need the
-C++ sources and the original helper binaries from the printer's eMMC. They live
-in a checkout of the original repository next to this port (`tests/e2e/`).
-Every scenario runs once with the original C++ program and once with this port,
-and the complete external behaviour is compared.
+`tests/e2e/` contains the E2E equivalence tests. Every scenario runs once with
+the original C++ program and once with this port in docker, and the complete
+external behaviour is compared. The C++ sources are downloaded at the pinned
+commit; the original helper binaries of the printer (`uart`, `gene4.py`,
+`libColPic.so`) are not stored here and have to be provided from the printer's
+eMMC. See `tests/e2e/README.md`.
 
 ## License
 
