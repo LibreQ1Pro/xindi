@@ -1,0 +1,1609 @@
+"""Port of src/ui.cpp / include/ui.h - handling of the events sent by the TJC screen.
+
+Page ids and widget ids correspond to the pages / components of the screen
+project UI/MATE_272_480.HMI.
+"""
+
+from . import state as g
+from .cpp import b2s, cstr, to_string, system, sleep
+from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, cout
+from .send_msg import send_cmd_page, send_cmd_val
+
+# ---------------------------------------------------------------------------
+# include/ui.h
+# ---------------------------------------------------------------------------
+
+# The navigation buttons at the bottom of every page send the same widget ids
+TJC_PAGE_ALL_TO_MAIN = 0x1e
+TJC_PAGE_ALL_TO_ADJUST = 0x1f
+TJC_PAGE_ALL_TO_FILE_LIST = 0x20
+TJC_PAGE_ALL_TO_SETTING = 0x21
+
+TJC_PAGE_LOGO = 0
+
+TJC_PAGE_RESTART = 1
+
+TJC_PAGE_SHUTDOWN = 2
+
+TJC_PAGE_OPEN_LANGUAGE = 3
+TJC_PAGE_OPEN_LANGUAGE_NEXT = 0x00
+TJC_PAGE_OPEN_LANGUAGE_SKIP = 0x01
+
+TJC_PAGE_OPEN_POP = 4
+TJC_PAGE_OPEN_POP_YES = 0x00
+TJC_PAGE_OPEN_POP_NO = 0x01
+
+TJC_PAGE_OPEN_VIDEO_1 = 5
+TJC_PAGE_OPEN_VIDEO_1_NEXT = 0x00
+
+TJC_PAGE_OPEN_VIDEO_2 = 6
+TJC_PAGE_OPEN_VIDEO_2_NEXT = 0x00
+
+TJC_PAGE_OPEN_WARNING = 7
+TJC_PAGE_OPEN_WARNING_NEXT = 0x00
+
+TJC_PAGE_OPEN_VIDEO_3 = 8
+TJC_PAGE_OPEN_VIDEO_3_NEXT = 0x00
+TJC_PAGE_OPEN_VIDEO_3_UP = 0x01
+TJC_PAGE_OPEN_VIDEO_3_DOWN = 0x02
+
+TJC_PAGE_OPEN_HEATERBED = 9
+TJC_PAGE_OPEN_HEATERBED_ON_OFF = 0x00
+TJC_PAGE_OPEN_HEATERBED_UP = 0x01
+TJC_PAGE_OPEN_HEATERBED_DOWN = 0x02
+TJC_PAGE_OPEN_HEATERBED_NEXT = 0x03
+
+TJC_PAGE_OPEN_CALIBRATE = 10
+
+TJC_PAGE_OPEN_FILAMENTVIDEO_0 = 72
+TJC_PAGE_OPEN_FILAMENTVIDEO_0_NEXT = 0x00
+
+TJC_PAGE_OPEN_FILAMENTVIDEO_1 = 11
+TJC_PAGE_OPEN_FILAMENTVIDEO_1_NEXT = 0x00
+
+TJC_PAGE_OPEN_FILAMENTVIDEO_2 = 12
+TJC_PAGE_OPEN_FILAMENTVIDEO_2_DOWN = 0x00
+TJC_PAGE_OPEN_FILAMENTVIDEO_2_UP = 0x01
+TJC_PAGE_OPEN_FILAMENTVIDEO_2_NEXT = 0x02
+TJC_PAGE_OPEN_FILAMENTVIDEO_2_ON_OFF = 0x03
+
+TJC_PAGE_OPEN_FILAMENTVIDEO_3 = 13
+TJC_PAGE_OPEN_FILAMENTVIDEO_3_NEXT = 0x00
+TJC_PAGE_OPEN_FILAMENTVIDEO_3_EXTRUDE = 0x01
+
+TJC_PAGE_OPEN_FINISH = 14
+TJC_PAGE_OPEN_FINISH_YES = 0x00
+
+TJC_PAGE_MAIN = 15
+TJC_PAGE_MAIN_CASELIGHT = 0x00
+TJC_PAGE_MAIN_BEEP = 0x01
+TJC_PAGE_MAIN_STOP = 0x02
+TJC_PAGE_MAIN_SET_TEMP = 0x03
+TJC_PAGE_MAIN_CACHE = 0x06
+
+TJC_PAGE_FILE_LIST = 16
+TJC_PAGE_FILE_LIST_BACK = 0x00
+TJC_PAGE_FILE_LIST_BTN_1 = 0x01
+TJC_PAGE_FILE_LIST_BTN_2 = 0x02
+TJC_PAGE_FILE_LIST_BTN_3 = 0x03
+TJC_PAGE_FILE_LIST_BTN_4 = 0x04
+TJC_PAGE_FILE_LIST_BTN_5 = 0x05
+TJC_PAGE_FILE_LIST_PREVIOUS = 0x0a
+TJC_PAGE_FILE_LIST_NEXT = 0x0b
+TJC_PAGE_FILE_LIST_LOCAL = 0x0c
+TJC_PAGE_FILE_LIST_USB = 0x0d
+
+TJC_PAGE_PREVIEW = 17
+TJC_PAGE_PREVIEW_BACK = 0x00
+TJC_PAGE_PREVIEW_START = 0x01
+TJC_PAGE_PREVIEW_BED_LEVELING = 0x02
+
+TJC_PAGE_PREVIEW_POP_1 = 18
+TJC_PAGE_PREVIEW_POP_2 = 19
+TJC_PAGE_PREVIEW_POP_YES = 0x00
+# 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
+TJC_PAGE_PREVIEW_POP_NO_POP = 0x01
+
+TJC_PAGE_PRINTING = 20
+TJC_PAGE_PRINTING_EXTRUDER = 0x00
+TJC_PAGE_PRINTING_HEATER_BED = 0x01
+TJC_PAGE_PRINTING_NEXT = 0x02
+TJC_PAGE_PRINTING_CASE_LIGHT = 0x03
+TJC_PAGE_PRINTING_FAN_1 = 0x04
+TJC_PAGE_PRINTING_FAN_2 = 0x05
+TJC_PAGE_PRINTING_FAN_3 = 0x06
+TJC_PAGE_PRINTING_HOT = 0x07
+TJC_PAGE_PRINTING_PAUSE_RESUME = 0x0a
+TJC_PAGE_PRINTING_STOP = 0x0b
+
+TJC_PAGE_PRINTING_KB = 21
+TJC_PAGE_PRINTING_KB_BACK = 0x00
+TJC_PAGE_PRINTING_KB_PAUSE_RESUME = 0x0a
+TJC_PAGE_PRINTING_KB_STOP = 0x0b
+
+TJC_PAGE_PRINT_ZOFFSET = 22
+TJC_PAGE_PRINT_ZOFFSET_BACK = 0x00
+TJC_PAGE_PRINT_ZOFFSET_SET_001 = 0x01
+TJC_PAGE_PRINT_ZOFFSET_SET_005 = 0x02
+TJC_PAGE_PRINT_ZOFFSET_SET_01 = 0x03
+TJC_PAGE_PRINT_ZOFFSET_SET_05 = 0x04
+TJC_PAGE_PRINT_ZOFFSET_UP = 0x05
+TJC_PAGE_PRINT_ZOFFSET_DOWN = 0x06
+TJC_PAGE_PRINT_ZOFFSET_PAUSE_RESUME = 0x0a
+TJC_PAGE_PRINT_ZOFFSET_STOP = 0x0b
+
+TJC_PAGE_PRINT_FILAMENT = 23
+TJC_PAGE_PRINT_FILAMENT_ON_OFF = 0x00
+TJC_PAGE_PRINT_FILAMENT_T_UP = 0x01
+TJC_PAGE_PRINT_FILAMENT_T_DOWN = 0x02
+TJC_PAGE_PRINT_FILAMENT_LOAD = 0x03
+TJC_PAGE_PRINT_FILAMENT_UNLOAD = 0x04
+TJC_PAGE_PRINT_FILAMENT_RETRACT = 0x05
+TJC_PAGE_PRINT_FILAMENT_EXTRUDE = 0x06
+TJC_PAGE_PRINT_FILAMENT_PAUSE_RESUME = 0x0a
+TJC_PAGE_PRINT_FILAMENT_STOP = 0x0b
+
+TJC_PAGE_PRINTING_2 = 24
+TJC_PAGE_PRINTING_2_BACK = 0x00
+TJC_PAGE_PRINTING_2_ZOFFSET = 0x01
+TJC_PAGE_PRINTING_2_SPEED = 0x02
+TJC_PAGE_PRINTING_2_FLOW = 0x03
+TJC_PAGE_PRINTING_2_PAUSE_RESUME = 0x0a
+TJC_PAGE_PRINTING_2_STOP = 0x0b
+
+TJC_PAGE_PRINT_FINISH = 25
+TJC_PAGE_PRINT_FINISH_YES = 0x00
+
+TJC_PAGE_PRINT_STOP = 26
+TJC_PAGE_PRINT_STOP_YES = 0x00
+TJC_PAGE_PRINT_STOP_NO = 0x01
+
+TJC_PAGE_PRINT_STOPPING = 27
+
+TJC_PAGE_PRINT_NO_FILAMENT = 28
+TJC_PAGE_PRINT_NO_FILAMENT_YES = 0x00
+
+TJC_PAGE_PRINT_LOW_TEMP = 29
+TJC_PAGE_PRINT_LOW_TEMP_YES = 0x00
+
+TJC_PAGE_MOVE = 30
+TJC_PAGE_MOVE_SET_01 = 0x00
+TJC_PAGE_MOVE_SET_1 = 0x01
+TJC_PAGE_MOVE_SET_10 = 0x02
+TJC_PAGE_MOVE_Z_UP = 0x03
+TJC_PAGE_MOVE_MOTOR = 0x04
+TJC_PAGE_MOVE_Z_DOWN = 0x05
+TJC_PAGE_MOVE_Y_UP = 0x06
+TJC_PAGE_MOVE_Y_DOWN = 0x07
+TJC_PAGE_MOVE_X_DOWN = 0x08
+TJC_PAGE_MOVE_X_UP = 0x09
+TJC_PAGE_MOVE_HOME = 0x0a
+TJC_PAGE_MOVE_TO_FILAMENT = 0x16
+
+TJC_PAGE_MOVE_POP_1 = 31
+TJC_PAGE_MOVE_POP_1_YES = 0x00
+
+TJC_PAGE_MOVE_POP_2 = 32
+TJC_PAGE_MOVE_POP_2_YES = 0x00
+TJC_PAGE_MOVE_POP_2_NO = 0x01
+
+TJC_PAGE_FILAMENT_SET_FAN = 33
+TJC_PAGE_FILAMENT_SET_FAN_BACK = 0x00
+TJC_PAGE_FILAMENT_SET_FAN_SETTING = 0x01
+
+TJC_PAGE_FILAMENT_KB = 34
+TJC_PAGE_FILAMENT_KB_BACK = 0x00
+
+TJC_PAGE_FILAMENT_POP_1 = 35
+TJC_PAGE_FILAMENT_POP_1_YES = 0x00
+
+TJC_PAGE_FILAMENT_POP_2 = 36
+TJC_PAGE_FILAMENT_POP_2_YES = 0x00
+TJC_PAGE_FILAMENT_POP_2_TO_LOAD = 0x01
+TJC_PAGE_FILAMENT_POP_2_NEXT = 0x02
+TJC_PAGE_FILAMENT_POP_2_BACK = 0x03
+
+TJC_PAGE_FILAMENT_POP_3 = 37
+TJC_PAGE_FILAMENT_POP_3_YES = 0x00
+TJC_PAGE_FILAMENT_POP_3_RETRY = 0x01
+TJC_PAGE_FILAMENT_POP_3_NEXT = 0x02
+TJC_PAGE_FILAMENT_POP_3_BACK = 0x03
+
+TJC_PAGE_FILAMENT_UNLOAD_FINISH = 38
+TJC_PAGE_FILAMENT_UNLOAD_FINISH_YES = 0x00
+
+TJC_PAGE_LEVEL_MODE = 39
+TJC_PAGE_LEVEL_MODE_AUTO_LEVEL = 0x00
+TJC_PAGE_LEVEL_MODE_SYNTONY = 0x01
+TJC_PAGE_LEVEL_MODE_BED_CALIBRATION = 0x02
+TJC_PAGE_LEVEL_MODE_TO_COMMON_SETTING = 0x17
+TJC_PAGE_LEVEL_MODE_ZOFFSET = 0x18
+
+TJC_PAGE_ZOFFSET = 40
+TJC_PAGE_ZOFFSET_BACK = 0x00
+
+TJC_PAGE_AUTO_HEATERBED = 41
+TJC_PAGE_AUTO_HEATERBED_DOWN = 0x00
+TJC_PAGE_AUTO_HEATERBED_UP = 0x01
+TJC_PAGE_AUTO_HEATERBED_ON_OFF = 0x02
+TJC_PAGE_AUTO_HEATERBED_BACK = 0x03
+TJC_PAGE_AUTO_HEATERBED_NEXT = 0x04
+
+TJC_PAGE_AUTO_MOVING = 42
+
+TJC_PAGE_AUTO_FINISH = 43
+TJC_PAGE_AUTO_FINISH_YES = 0x00
+
+TJC_PAGE_PRE_BED_CALIBRATION = 44
+TJC_PAGE_PRE_BED_CALIBRATION_SET_001 = 0x00
+TJC_PAGE_PRE_BED_CALIBRATION_SET_005 = 0x01
+TJC_PAGE_PRE_BED_CALIBRATION_SET_01 = 0x02
+TJC_PAGE_PRE_BED_CALIBRATION_SET_05 = 0x03
+TJC_PAGE_PRE_BED_CALIBRATION_UP = 0x04
+TJC_PAGE_PRE_BED_CALIBRATION_DOWN = 0x05
+TJC_PAGE_PRE_BED_CALIBRATION_ENTER = 0x06
+
+TJC_PAGE_BED_MOVING = 45
+
+TJC_PAGE_BED_CALIBRATION = 46
+TJC_PAGE_BED_CALIBRATION_NEXT = 0x00
+
+TJC_PAGE_BED_FINISH = 47
+TJC_PAGE_BED_FINISH_OK = 0x00
+TJC_PAGE_BED_FINISH_SCREW1 = 0x01
+TJC_PAGE_BED_FINISH_SCREW2 = 0x02
+TJC_PAGE_BED_FINISH_SCREW3 = 0x03
+TJC_PAGE_BED_FINISH_Z_TILT = 0x04
+
+TJC_PAGE_SYNTONY_MOVE = 48
+TJC_PAGE_SYNTONY_MOVE_JUMP_OUT = 0x00
+
+TJC_PAGE_SYNTONY_FINISH = 49
+TJC_PAGE_SYNTONY_FINISH_YES = 0x00
+
+TJC_PAGE_INTERNET = 50
+TJC_PAGE_INTERNET_REFRESH = 0x00
+TJC_PAGE_INTERNET_TO_WIFI = 0x16
+TJC_PAGE_INTERNET_TO_SETTING = 0x17
+
+TJC_PAGE_WIFI_LIST = 51
+TJC_PAGE_WIFI_LIST_SSID_1 = 0x00
+TJC_PAGE_WIFI_LIST_SSID_2 = 0x01
+TJC_PAGE_WIFI_LIST_SSID_3 = 0x02
+TJC_PAGE_WIFI_LIST_SSID_4 = 0x03
+TJC_PAGE_WIFI_LIST_SSID_5 = 0x04
+TJC_PAGE_WIFI_LIST_REFRESH = 0x07
+TJC_PAGE_WIFI_LIST_PREVIOUS = 0x05
+TJC_PAGE_WIFI_LIST_NEXT = 0x06
+TJC_PAGE_WIFI_LIST_TO_WIFI = 0x16
+TJC_PAGE_WIFI_LIST_TO_SETTING = 0x17
+
+TJC_PAGE_WIFI_CONNECT = 52
+
+TJC_PAGE_WIFI_SAVING = 53
+
+TJC_PAGE_WIFI_SUCCESS = 54
+TJC_PAGE_WIFI_SUCCESS_YES = 0x00
+
+TJC_PAGE_WIFI_FAILED = 55
+TJC_PAGE_WIFI_FAILED_YES = 0x00
+
+TJC_PAGE_WIFI_KB = 56
+TJC_PAGE_WIFI_KB_BACK = 0x00
+
+TJC_PAGE_COMMON_SETTING = 57
+TJC_PAGE_COMMON_SETTING_LANGUAGE = 0x00
+TJC_PAGE_COMMON_SETTING_WIFI = 0x01
+TJC_PAGE_COMMON_SETTING_SYSTEM = 0x02
+TJC_PAGE_COMMON_SETTING_SERVICE = 0x03
+TJC_PAGE_COMMON_SETTING_SCREEN_SLEEP = 0x04
+TJC_PAGE_COMMON_SETTING_UPDATE = 0x05
+TJC_PAGE_COMMON_SETTING_RESTORE = 0x06
+TJC_PAGE_COMMON_SETTING_OOBE_OFF = 0x07
+TJC_PAGE_COMMON_SETTING_TO_LEVEL_MODE = 0x16
+TJC_PAGE_COMMON_SETTING_OOBE_ON = 0x17
+
+# CLL the following pages need similar handling in xindi, so they share one handler; everything else is done by the UI program itself
+TJC_PAGE_LANGUAGE = 58
+TJC_PAGE_SYS_OK = 59
+TJC_PAGE_RESET = 60
+TJC_PAGE_SERVICE = 61
+TJC_PAGE_SLEEP_MODE = 62
+TJC_PAGE_BACK_TO_COMMON_SETTING = 0x00
+TJC_PAGE_RESET_PRINT_LOG = 0x01
+TJC_PAGE_RESET_RESTART_KLIPPER = 0x02
+TJC_PAGE_RESET_RESTART_FIRMWARE = 0x03
+
+TJC_PAGE_UPDATE_FOUND = 63
+TJC_PAGE_UPDATE_FOUND_YES = 0x00
+TJC_PAGE_UPDATE_FOUND_NO = 0x01
+
+TJC_PAGE_UPDATE_NOT_FOUND = 64
+TJC_PAGE_UPDATE_NOT_FOUND_YES = 0x00
+
+TJC_PAGE_UPDATE_FINISH = 65
+
+TJC_PAGE_UPDATE_SUCCESS = 66
+TJC_PAGE_UPDATE_SUCCESS_YES = 0x00
+
+TJC_PAGE_RESTORE_CONFIG = 67
+TJC_PAGE_RESTORE_CONFIG_YES = 0x00
+TJC_PAGE_RESTORE_CONFIG_NO = 0x01
+
+TJC_PAGE_PRINT_LOG_S = 68
+TJC_PAGE_PRINT_LOG_F = 69
+TJC_PAGE_PRINT_LOG_YES = 0x00
+
+TJC_PAGE_DETECT_ERROR = 70
+TJC_PAGE_DETECT_ERROR_YES = 0x00
+
+TJC_PAGE_GCODE_ERROR = 71
+TJC_PAGE_GCODE_ERROR_YES = 0x00
+
+# 4.4.2 CLL screen sleep feature
+TJC_PAGE_SCREEN_SLEEP = 73
+TJC_PAGE_SCREEN_SLEEP_ENTER = 0x01
+TJC_PAGE_SCREEN_SLEEP_EXIT = 0x00
+
+TJC_PAGE_LEVEL_ERROR = 74
+TJC_PAGE_LEVEL_ERROR_YES = 0x00
+
+TJC_PAGE_FILAMENT = 75
+TJC_PAGE_FILAMENT_SET_EXTRUDER = 0x00
+TJC_PAGE_FILAMENT_SET_HEATERBED = 0x01
+TJC_PAGE_FILAMENT_EXTRUDER_ON_OFF = 0x02
+TJC_PAGE_FILAMENT_HEATERBED_ON_OFF = 0x03
+TJC_PAGE_FILAMENT_TO_FAN = 0x04
+TJC_PAGE_FILAMENT_LOAD = 0x05
+TJC_PAGE_FILAMENT_UNLOAD = 0x06
+TJC_PAGE_FILAMENT_EXTRUDER_UP = 0x07
+TJC_PAGE_FILAMENT_EXTRUDER_DOWN = 0x08
+TJC_PAGE_FILAMENT_SET_10 = 0x09
+TJC_PAGE_FILAMENT_SET_50 = 0x0a
+TJC_PAGE_FILAMENT_SET_100 = 0x0b
+TJC_PAGE_FILAMENT_SET_FAN_1 = 0x0c
+TJC_PAGE_FILAMENT_SET_FAN_2 = 0x0d
+TJC_PAGE_FILAMENT_SET_FAN_3 = 0x0e
+TJC_PAGE_FILAMENT_HOT_ON_OFF = 0x0f
+TJC_PAGE_FILAMENT_SET_HOT = 0x10
+TJC_PAGE_FILAMENT_TO_FILAMENT = 0x16
+TJC_PAGE_FILAMENT_TO_MOVE = 0x17
+
+TJC_PAGE_PRINT_NO_FILAMENT_2 = 76
+TJC_PAGE_PRINT_NO_FILAMENT_2_YES = 0x00
+
+TJC_PAGE_MEMORY_WARNING = 77
+TJC_PAGE_MEMORY_WARNING_YES = 0x00
+
+TJC_PAGE_UPDATING = 78
+
+TJC_PAGE_PRE_HEAT = 79
+TJC_PAGE_PRE_HEAT_SET_220 = 0x00
+TJC_PAGE_PRE_HEAT_SET_250 = 0x01
+TJC_PAGE_PRE_HEAT_SET_300 = 0x02
+TJC_PAGE_PRE_HEAT_BACK = 0x04
+
+TJC_PAGE_RESUME_PRINT = 80
+TJC_PAGE_RESUME_PRINT_YES = 0x00
+TJC_PAGE_RESUME_PRINT_NO = 0x01
+
+TJC_PAGE_SHOW_QR = 81
+TJC_PAGE_SHOW_QR_REFRESH = 0x00
+TJC_PAGE_SHOW_QR_BACK = 0x01
+TJC_PAGE_SHOW_QR_WIFI = 0x02
+TJC_PAGE_SHOW_QR_SET = 0x03
+TJC_PAGE_SHOW_QR_ETHERNET = 0x04
+
+TJC_PAGE_SERVER_SET = 82
+TJC_PAGE_SERVER_SET_REFRESH = 0x00
+TJC_PAGE_SERVER_SET_BACK = 0x01
+TJC_PAGE_SERVER_SET_LOCAL = 0x02
+TJC_PAGE_SERVER_SET_PREVIOUS = 0x03
+TJC_PAGE_SERVER_SET_NEXT = 0x04
+TJC_PAGE_SERVER_SET_1 = 0x05
+TJC_PAGE_SERVER_SET_2 = 0x06
+TJC_PAGE_SERVER_SET_3 = 0x07
+TJC_PAGE_SERVER_SET_4 = 0x08
+
+TJC_PAGE_UPDATE_MODE = 83
+TJC_PAGE_UPDATE_MODE_BACK = 0x00
+TJC_PAGE_UPDATE_MODE_LOCAL = 0x01
+TJC_PAGE_UPDATE_MODE_ONLINE = 0x02
+
+TJC_PAGE_ONLINE_UPDATE = 84
+TJC_PAGE_ONLINE_UPDATE_BACK = 0x00
+TJC_PAGE_ONLINE_UPDATE_YES = 0x01
+TJC_PAGE_ONLINE_UPDATE_NO = 0x02
+
+TJC_PAGE_SEARCH_SERVER = 85
+
+TJC_PAGE_UNLOAD_MODE = 86
+TJC_PAGE_UNLOAD_MODE_MANUAL = 0x00
+TJC_PAGE_UNLOAD_MODE_AUTO = 0x01
+TJC_PAGE_UNLOAD_MODE_BACK = 0x02
+
+TJC_PAGE_AUTO_UNLOAD = 87
+TJC_PAGE_AUTO_UNLOAD_TO_LOAD = 0x00
+TJC_PAGE_AUTO_UNLOAD_YES = 0x01
+
+TJC_PAGE_OPEN_LANGUAGE2 = 88
+
+TJC_PAGE_LANGUAGE2 = 89
+
+TJC_PAGE_INSTALLING = 90
+
+TJC_PAGE_AUTO_WARNING = 91
+TJC_PAGE_AUTO_WARNING_YES = 0x00
+
+TJC_PAGE_CALIBRATE_WARNING = 92
+TJC_PAGE_CALIBRATE_WARNING_NEXT = 0x00
+TJC_PAGE_CALIBRATE_WARNING_BACK = 0x01
+
+TJC_PAGE_RE_PRINTING = 93
+
+
+
+DEFAULT_DIR = "gcodes/"
+
+
+def _ev():
+    from . import event
+    return event
+
+
+def parse_cmd_msg_from_tjc_screen(cmd):
+    """``cmd`` is the 4096 byte read buffer (zero padded) of the main loop."""
+    import sys
+    from . import mks_file
+    g.event_id = cmd[0]
+    MKSLOG_BLUE("#########################%s", b2s(cstr(cmd)))
+    MKSLOG_RED("0x%x", cmd[0])
+    MKSLOG_RED("0x%x", cmd[1])
+    MKSLOG_RED("0x%x", cmd[2])
+    MKSLOG_RED("0x%x", cmd[3])
+    event_id = g.event_id
+    if event_id == 0x03:
+        pass        # error while reading the screen firmware data, screen recovery mode
+    elif event_id == 0x05:
+        g.get_0x05 = True
+        cout("Ready to send data")
+        MKSLOG_RED("0x%x", cmd[0])
+        # receiving 0x05 means the screen data can be sent
+    elif event_id == 0x1a:
+        cout("Invalid variable name")
+    elif event_id == 0x24:
+        g.get_0x24 = True
+    elif event_id == 0x65:
+        g.page_id = cmd[1]
+        g.widget_id = cmd[2]
+        g.type_id = cmd[3]
+        tjc_event_clicked_handler(g.page_id, g.widget_id, g.type_id)
+    elif event_id in (0x66, 0x67, 0x68):
+        pass
+    elif event_id == 0x70:
+        MKSLOG_RED("0x%x", event_id)
+        tjc_event_keyboard(cmd)
+    elif event_id == 0x71:
+        g.page_id = cmd[1]
+        tjc_event_setted_handler(cmd[1], cmd[2], cmd[3], cmd[4])
+    elif event_id in (0x86, 0x87, 0x88, 0x89):
+        MKSLOG_RED("0x%x", event_id)
+    elif event_id == 0x91:
+        g.current_page_id = TJC_PAGE_LOGO
+        page_to(TJC_PAGE_UPDATE_SUCCESS)
+    elif event_id == 0xfd:
+        g.get_0xfd = True
+        MKSLOG_RED("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
+    elif event_id == 0xfe:
+        g.get_0xfe = True
+        MKSLOG_RED("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
+    elif event_id == 0xff:
+        MKSLOG_RED("0x%x", event_id)
+    elif event_id == 0x04:
+        g.get_0x04 = True
+        MKSLOG_RED("0x%x", cmd[0])
+    elif event_id == 0x06:
+        g.get_0x06 = True
+
+
+def page_to(page_id):
+    g.previous_page_id = g.current_page_id
+    g.current_page_id = page_id
+    send_cmd_page(g.tty_fd, to_string(page_id))
+
+
+def _printer_not_failed():
+    return g.printer_webhooks_state != "shutdown" and g.printer_webhooks_state != "error"
+
+
+def _nav_guarded(widget_id):
+    """ALL_TO_* buttons of the pages that are reachable while Klipper is in an error state."""
+    ev = _ev()
+    if widget_id == TJC_PAGE_ALL_TO_MAIN:
+        if _printer_not_failed():
+            page_to(TJC_PAGE_MAIN)
+        return True
+    if widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+        if _printer_not_failed():
+            ev.go_to_file_list()
+        return True
+    if widget_id == TJC_PAGE_ALL_TO_ADJUST:
+        if _printer_not_failed():
+            ev.go_to_adjust()
+        return True
+    return False
+
+
+def tjc_event_clicked_handler(page_id, widget_id, type_id):
+    from . import mks_file
+    from .mks_update import start_update
+    from .MakerbaseWiFi import set_page_wifi_ssid_list
+    ev = _ev()
+    cout("+++++++++++++++++++", page_id)
+    cout("+++++++++++++++++++", widget_id)
+    cout("+++++++++++++++++++", type_id)
+
+    # first page of the out-of-box guide
+    if page_id == TJC_PAGE_OPEN_LANGUAGE:
+        if widget_id == TJC_PAGE_OPEN_LANGUAGE_NEXT:
+            page_to(TJC_PAGE_OPEN_VIDEO_1)
+            ev.get_object_status()
+        elif widget_id == TJC_PAGE_OPEN_LANGUAGE_SKIP:
+            page_to(TJC_PAGE_OPEN_POP)
+
+    elif page_id == TJC_PAGE_OPEN_POP:
+        if widget_id == TJC_PAGE_OPEN_POP_YES:
+            page_to(TJC_PAGE_MAIN)
+            ev.set_mks_oobe_enabled(False)
+        elif widget_id == TJC_PAGE_OPEN_POP_NO:
+            page_to(TJC_PAGE_OPEN_LANGUAGE)
+
+    # second page of the guide
+    elif page_id == TJC_PAGE_OPEN_VIDEO_1:
+        if widget_id == TJC_PAGE_OPEN_VIDEO_1_NEXT:
+            page_to(TJC_PAGE_OPEN_VIDEO_2)
+
+    # third page of the guide
+    elif page_id == TJC_PAGE_OPEN_VIDEO_2:
+        if widget_id == TJC_PAGE_OPEN_VIDEO_2_NEXT:
+            page_to(TJC_PAGE_OPEN_WARNING)
+
+    # fourth page of the guide
+    elif page_id == TJC_PAGE_OPEN_WARNING:
+        if widget_id == TJC_PAGE_OPEN_WARNING_NEXT:
+            ev.open_heater_bed_up()
+
+    # fifth page of the guide
+    elif page_id == TJC_PAGE_OPEN_VIDEO_3:
+        if widget_id == TJC_PAGE_OPEN_VIDEO_3_NEXT:
+            page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_1)     # CLL levelling and input shaping removed from the guide
+        elif widget_id == TJC_PAGE_OPEN_VIDEO_3_UP:
+            ev.set_move_dist(10.0)
+            ev.move_z_decrease()
+        elif widget_id == TJC_PAGE_OPEN_VIDEO_3_DOWN:
+            ev.set_move_dist(10.0)
+            ev.move_z_increase()
+
+    elif page_id == TJC_PAGE_OPEN_HEATERBED:
+        if widget_id == TJC_PAGE_OPEN_HEATERBED_DOWN:
+            ev.set_auto_level_heater_bed_target(False)
+        elif widget_id == TJC_PAGE_OPEN_HEATERBED_UP:
+            ev.set_auto_level_heater_bed_target(True)
+        elif widget_id == TJC_PAGE_OPEN_HEATERBED_ON_OFF:
+            ev.filament_heater_bed_target()
+        elif widget_id == TJC_PAGE_OPEN_HEATERBED_NEXT:
+            ev.open_calibrate_start()
+
+    elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_0 or page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_1:
+        if page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_0:
+            if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_0_NEXT:
+                page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_1)
+            # NOTE: no "break" in the original - falls through into the next case
+        if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_1_NEXT:
+            page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_2)
+
+    elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2:
+        if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_UP:
+            ev.set_filament_extruder_target(True)
+        elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_DOWN:
+            ev.set_filament_extruder_target(False)
+        elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_NEXT:
+            page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_3)
+        elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_ON_OFF:
+            ev.open_set_print_filament_target()
+
+    elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3:
+        if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3_NEXT:
+            ev.set_extruder_target(0)
+            page_to(TJC_PAGE_OPEN_FINISH)
+        elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3_EXTRUDE:
+            ev.open_start_extrude()
+
+    elif page_id == TJC_PAGE_OPEN_FINISH:
+        if widget_id == TJC_PAGE_OPEN_FINISH_YES:
+            ev.open_more_level_finish()
+
+    elif page_id == TJC_PAGE_MAIN:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            ev.go_to_adjust()
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+        elif widget_id == TJC_PAGE_MAIN_CASELIGHT:
+            ev.led_on_off()
+        elif widget_id == TJC_PAGE_MAIN_BEEP:
+            ev.beep_on_off()
+        elif widget_id == TJC_PAGE_MAIN_STOP:
+            ev.motors_off()
+        elif widget_id == TJC_PAGE_MAIN_SET_TEMP:
+            g.adjust_mode = "Filament"
+            page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_MAIN_CACHE:
+            g.page_files_pages = 0
+            g.page_files_current_pages = 0
+            g.page_files_folder_layers = 0
+            g.page_files_previous_path = ""
+            g.page_files_root_path = DEFAULT_DIR
+            g.page_files_path = ""
+            ev.refresh_page_files(g.page_files_current_pages)
+            if g.page_files_list_show_type[0] == "[c]":
+                ev.clear_cp0_image()
+                mks_file.get_sub_dir_files_list(0)
+                g.file_mode = "Local"
+
+    elif page_id == TJC_PAGE_FILE_LIST:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            ev.go_to_adjust()
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+        elif widget_id == TJC_PAGE_FILE_LIST_BACK:
+            if g.page_files_folder_layers == 0 or (g.page_files_folder_layers == 1 and g.file_mode != "Local"):
+                pass
+            else:
+                mks_file.get_parenet_dir_files_list()
+        elif widget_id in (TJC_PAGE_FILE_LIST_BTN_1, TJC_PAGE_FILE_LIST_BTN_2, TJC_PAGE_FILE_LIST_BTN_3,
+                           TJC_PAGE_FILE_LIST_BTN_4):
+            ev.clear_cp0_image()
+            mks_file.get_sub_dir_files_list(widget_id - TJC_PAGE_FILE_LIST_BTN_1)
+            g.printer_bed_leveling = True
+        elif widget_id == TJC_PAGE_FILE_LIST_PREVIOUS:
+            if ev.detect_disk() == -1 and g.file_mode == "USB":
+                ev.go_to_file_list()
+            elif g.page_files_current_pages > 0:
+                g.page_files_current_pages -= 1
+                ev.refresh_page_files(g.page_files_current_pages)
+                ev.refresh_page_files_list()
+            MKSLOG_BLUE("%d", g.page_files_folder_layers)
+        elif widget_id == TJC_PAGE_FILE_LIST_NEXT:
+            if ev.detect_disk() == -1 and g.file_mode == "USB":
+                ev.go_to_file_list()
+            elif g.page_files_current_pages < g.page_files_pages:
+                g.page_files_current_pages += 1
+                ev.refresh_page_files(g.page_files_current_pages)
+                ev.refresh_page_files_list()
+            MKSLOG_BLUE("%d", g.page_files_folder_layers)
+        # 4.4.2 CLL local / USB buttons on the file list page
+        elif widget_id == TJC_PAGE_FILE_LIST_LOCAL:
+            if g.file_mode != "Local":
+                g.file_mode = "Local"
+                page_to(TJC_PAGE_FILE_LIST)
+                g.page_files_pages = 0
+                g.page_files_current_pages = 0
+                g.page_files_folder_layers = 0
+                g.page_files_previous_path = ""
+                g.page_files_root_path = DEFAULT_DIR
+                g.page_files_path = ""
+                ev.refresh_page_files(g.page_files_current_pages)
+                ev.refresh_page_files_list()
+                ev.get_object_status()
+        elif widget_id == TJC_PAGE_FILE_LIST_USB:
+            if g.file_mode != "USB":
+                g.file_mode = "USB"
+                page_to(TJC_PAGE_FILE_LIST)
+                g.page_files_pages = 0
+                g.page_files_current_pages = 0
+                g.page_files_folder_layers = 1
+                g.page_files_previous_path = ""
+                g.page_files_root_path = DEFAULT_DIR
+                g.page_files_path = "/sda1"
+                ev.refresh_page_files(g.page_files_current_pages)
+                ev.refresh_page_files_list()
+                ev.get_object_status()
+
+    elif page_id == TJC_PAGE_PREVIEW:
+        if g.current_page_id == TJC_PAGE_PREVIEW:
+            printing_or_paused = (g.printer_print_stats_state == "printing" or g.printer_print_stats_state == "paused")
+            if widget_id == TJC_PAGE_ALL_TO_MAIN:
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                else:
+                    page_to(TJC_PAGE_MAIN)
+            elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+                pass
+            elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                else:
+                    ev.go_to_adjust()
+            elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                else:
+                    ev.go_to_setting()
+            elif widget_id == TJC_PAGE_PREVIEW_BACK:
+                # 4.4.3 CLL keep the preview page from getting stuck
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                elif g.mks_file_parse_finished == False:
+                    mks_file.get_parenet_dir_files_list()
+                    ev.clear_page_preview()
+                    g.show_preview_complete = False
+                    ev.clear_cp0_image()
+                else:
+                    if g.show_preview_complete == True:     # the button only works once the preview is loaded
+                        mks_file.get_parenet_dir_files_list()
+                        ev.clear_page_preview()             # clear the data when going back
+                        g.show_preview_complete = False
+                        ev.clear_cp0_image()
+            elif widget_id == TJC_PAGE_PREVIEW_START:
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                elif g.show_preview_complete == True:
+                    ev.print_start()
+                    sleep(1)
+                    if g.filament_detected == True:
+                        MKSLOG("No filament runout detected")
+                        g.printer_print_stats_state = "printing"
+                        ev.check_filament_type()
+                        ev.start_printing(g.page_files_print_files_path)
+                        g.show_preview_complete = False
+                    else:
+                        MKSLOG("Filament runout detected")
+                        page_to(TJC_PAGE_PRINT_NO_FILAMENT)
+                g.main_picture_detected = False
+                g.main_picture_refreshed = False
+            elif widget_id == TJC_PAGE_PREVIEW_BED_LEVELING:
+                if printing_or_paused:
+                    page_to(TJC_PAGE_PRINTING)
+                    g.jump_to_print = False
+                else:
+                    if g.printer_bed_leveling == True:
+                        g.printer_bed_leveling = False
+                    else:
+                        g.printer_bed_leveling = True
+
+    elif page_id == TJC_PAGE_PREVIEW_POP_1 or page_id == TJC_PAGE_PREVIEW_POP_2:
+        if widget_id == TJC_PAGE_PREVIEW_POP_YES:
+            page_to(TJC_PAGE_PRINTING)
+        elif widget_id == TJC_PAGE_PREVIEW_POP_NO_POP:
+            if g.current_page_id == TJC_PAGE_PREVIEW_POP_1:
+                g.preview_pop_1_on = False
+            elif g.current_page_id == TJC_PAGE_PREVIEW_POP_2:
+                g.preview_pop_2_on = False
+            page_to(TJC_PAGE_PRINTING)
+
+    elif page_id == TJC_PAGE_PRINTING:
+        if widget_id in (TJC_PAGE_PRINTING_EXTRUDER, TJC_PAGE_PRINTING_HEATER_BED, TJC_PAGE_PRINTING_FAN_1,
+                         TJC_PAGE_PRINTING_FAN_2, TJC_PAGE_PRINTING_FAN_3, TJC_PAGE_PRINTING_HOT):
+            g.printing_keyboard_enabled = True
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINTING_NEXT:
+            page_to(TJC_PAGE_PRINTING_2)
+        elif widget_id == TJC_PAGE_PRINTING_CASE_LIGHT:
+            ev.led_on_off()
+        elif widget_id == TJC_PAGE_PRINTING_PAUSE_RESUME:
+            g.printer_ready = False
+            ev.set_print_pause()
+            page_to(TJC_PAGE_PRINT_FILAMENT)
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINTING_STOP:
+            page_to(TJC_PAGE_PRINT_STOP)
+            ev.clear_page_printing_arg()
+
+    elif page_id == TJC_PAGE_PRINTING_KB:
+        if widget_id == TJC_PAGE_PRINTING_KB_BACK:
+            g.printing_keyboard_enabled = False
+            MKSLOG_BLUE("Restored")
+        elif widget_id == TJC_PAGE_PRINTING_KB_PAUSE_RESUME:
+            g.printing_keyboard_enabled = False
+            ev.set_print_pause()
+            page_to(TJC_PAGE_PRINT_FILAMENT)
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINTING_KB_STOP:
+            g.printing_keyboard_enabled = False
+            page_to(TJC_PAGE_PRINT_STOP)
+            ev.clear_page_printing_arg()
+
+    elif page_id == TJC_PAGE_PRINT_ZOFFSET:
+        if widget_id == TJC_PAGE_PRINT_ZOFFSET_BACK:
+            g.printing_keyboard_enabled = False
+            page_to(TJC_PAGE_PRINTING_2)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_001:
+            ev.set_intern_zoffset(0.01)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_005:
+            ev.set_intern_zoffset(0.05)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_01:
+            ev.set_intern_zoffset(0.1)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_05:
+            ev.set_intern_zoffset(0.5)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_UP:
+            ev.set_zoffset(False)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_DOWN:
+            ev.set_zoffset(True)
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_PAUSE_RESUME:
+            g.printer_ready = False
+            ev.set_print_pause()
+            page_to(TJC_PAGE_PRINT_FILAMENT)
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINT_ZOFFSET_STOP:
+            page_to(TJC_PAGE_PRINT_STOP)
+
+    elif page_id == TJC_PAGE_PRINT_FILAMENT:
+        if widget_id == TJC_PAGE_PRINT_FILAMENT_ON_OFF:
+            ev.set_print_filament_target()
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_T_UP:
+            ev.set_filament_extruder_target(True)
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_T_DOWN:
+            ev.set_filament_extruder_target(False)
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_LOAD:
+            g.load_mode = True
+            page_to(TJC_PAGE_PRE_HEAT)
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_UNLOAD:
+            g.load_mode = False
+            page_to(TJC_PAGE_PRE_HEAT)
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_PAUSE_RESUME:
+            MKSLOG_BLUE("get_filament_detected_enable: %d", int(ev.get_filament_detected_enable()))
+            MKSLOG_BLUE("get_filament_detected: %d", int(ev.get_filament_detected()))
+            g.printer_ready = False
+            page_to(TJC_PAGE_PRINTING)
+            ev.set_print_resume()
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_STOP:
+            page_to(TJC_PAGE_PRINT_STOP)
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_RETRACT:
+            ev.send_gcode("M603\n")
+        elif widget_id == TJC_PAGE_PRINT_FILAMENT_EXTRUDE:
+            ev.set_print_filament_dist(50)
+            ev.start_extrude()
+
+    elif page_id == TJC_PAGE_PRINTING_2:
+        if widget_id == TJC_PAGE_PRINTING_2_BACK:
+            page_to(TJC_PAGE_PRINTING)
+        elif widget_id in (TJC_PAGE_PRINTING_2_SPEED, TJC_PAGE_PRINTING_2_FLOW):
+            g.printing_keyboard_enabled = True
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINTING_2_ZOFFSET:
+            page_to(TJC_PAGE_PRINT_ZOFFSET)
+        elif widget_id == TJC_PAGE_PRINTING_2_PAUSE_RESUME:
+            g.printer_ready = False
+            ev.set_print_pause()
+            page_to(TJC_PAGE_PRINT_FILAMENT)
+            ev.clear_page_printing_arg()
+        elif widget_id == TJC_PAGE_PRINTING_2_STOP:
+            page_to(TJC_PAGE_PRINT_STOP)
+
+    elif page_id == TJC_PAGE_PRINT_FINISH:
+        if widget_id == TJC_PAGE_PRINT_FINISH_YES:
+            ev.finish_print()
+
+    elif page_id == TJC_PAGE_PRINT_STOP:
+        if widget_id == TJC_PAGE_PRINT_STOP_YES:
+            g.printer_idle_timeout_state = "Printing"
+            page_to(TJC_PAGE_PRINT_STOPPING)
+            ev.cancel_print()
+        elif widget_id == TJC_PAGE_PRINT_STOP_NO:
+            page_to(g.previous_page_id)
+
+    elif page_id == TJC_PAGE_PRINT_NO_FILAMENT:
+        if widget_id == TJC_PAGE_PRINT_NO_FILAMENT_YES:
+            g.filament_detected = True
+            if g.previous_page_id == TJC_PAGE_PREVIEW:
+                ev.get_object_status()
+                page_to(TJC_PAGE_MOVE)
+            else:
+                ev.get_object_status()
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+
+    elif page_id == TJC_PAGE_PRINT_NO_FILAMENT_2 or page_id == TJC_PAGE_PRINT_LOW_TEMP:
+        if page_id == TJC_PAGE_PRINT_NO_FILAMENT_2:
+            if widget_id == TJC_PAGE_PRINT_NO_FILAMENT_2_YES:
+                ev.get_object_status()
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+            # NOTE: no "break" in the original - falls through into the next case
+        if widget_id == TJC_PAGE_PRINT_LOW_TEMP_YES:
+            g.printer_idle_timeout_state = "Ready"
+            page_to(TJC_PAGE_PRINT_FILAMENT)
+
+    elif page_id == TJC_PAGE_MOVE:
+        if widget_id == TJC_PAGE_MOVE_SET_01:
+            ev.set_move_dist(0.1)
+        elif widget_id == TJC_PAGE_MOVE_SET_1:
+            ev.set_move_dist(1.0)
+        elif widget_id == TJC_PAGE_MOVE_SET_10:
+            ev.set_move_dist(10.0)
+        elif widget_id == TJC_PAGE_MOVE_Z_UP:
+            ev.move_z_decrease()
+        elif widget_id == TJC_PAGE_MOVE_Z_DOWN:
+            ev.move_z_increase()
+        elif widget_id == TJC_PAGE_MOVE_MOTOR:
+            ev.move_motors_off()
+        elif widget_id == TJC_PAGE_MOVE_X_UP:
+            ev.move_x_increase()
+        elif widget_id == TJC_PAGE_MOVE_X_DOWN:
+            ev.move_x_decrease()
+        elif widget_id == TJC_PAGE_MOVE_Y_UP:
+            ev.move_y_increase()
+        elif widget_id == TJC_PAGE_MOVE_Y_DOWN:
+            ev.move_y_decrease()
+        elif widget_id == TJC_PAGE_MOVE_HOME:
+            ev.move_home()
+        elif widget_id == TJC_PAGE_MOVE_TO_FILAMENT:
+            page_to(TJC_PAGE_FILAMENT)
+            g.adjust_mode = "Filament"
+        elif widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+
+    elif page_id == TJC_PAGE_MOVE_POP_1:
+        if widget_id == TJC_PAGE_MOVE_POP_1_YES:
+            if (g.previous_page_id == TJC_PAGE_PRINTING or g.previous_page_id == TJC_PAGE_PRINT_ZOFFSET
+                    or g.previous_page_id == TJC_PAGE_PRINTING_2):
+                ev.cancel_print()
+                page_to(TJC_PAGE_PRINT_STOPPING)
+            else:
+                page_to(TJC_PAGE_MOVE)
+
+    elif page_id == TJC_PAGE_MOVE_POP_2:
+        if widget_id == TJC_PAGE_MOVE_POP_2_YES:
+            page_to(TJC_PAGE_MOVE)
+            ev.move_home()
+        elif widget_id == TJC_PAGE_MOVE_POP_2_NO:
+            page_to(TJC_PAGE_MOVE)
+
+    elif page_id == TJC_PAGE_FILAMENT_SET_FAN:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+        elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_BACK:
+            page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_SETTING:
+            g.move_fan_setting = True      # the slider is being dragged
+
+    elif page_id == TJC_PAGE_FILAMENT_KB:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+        elif widget_id == TJC_PAGE_FILAMENT_KB_BACK:
+            page_to(TJC_PAGE_FILAMENT)
+
+    elif page_id == TJC_PAGE_FILAMENT:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            ev.go_to_setting()
+        elif widget_id in (TJC_PAGE_FILAMENT_SET_EXTRUDER, TJC_PAGE_FILAMENT_SET_HEATERBED, TJC_PAGE_FILAMENT_SET_HOT):
+            page_to(TJC_PAGE_FILAMENT_KB)
+        elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_UP:
+            g.printer_idle_timeout_state = "Printing"
+            g.page_filament_extrude_button = True
+            ev.start_retract()
+        elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_DOWN:
+            g.printer_idle_timeout_state = "Printing"
+            g.page_filament_extrude_button = True
+            ev.start_extrude()
+        elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_ON_OFF:
+            ev.filament_extruder_target()
+        elif widget_id == TJC_PAGE_FILAMENT_HEATERBED_ON_OFF:
+            ev.filament_heater_bed_target()
+        elif widget_id == TJC_PAGE_FILAMENT_HOT_ON_OFF:
+            ev.filament_hot_target()
+        elif widget_id == TJC_PAGE_FILAMENT_TO_FAN:
+            page_to(TJC_PAGE_FILAMENT_SET_FAN)
+        elif widget_id == TJC_PAGE_FILAMENT_LOAD:
+            g.load_mode = True
+            page_to(TJC_PAGE_PRE_HEAT)
+        elif widget_id == TJC_PAGE_FILAMENT_UNLOAD:
+            g.load_mode = False
+            page_to(TJC_PAGE_PRE_HEAT)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_10:
+            ev.set_print_filament_dist(10)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_50:
+            ev.set_print_filament_dist(50)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_100:
+            ev.set_print_filament_dist(100)
+        elif widget_id == TJC_PAGE_FILAMENT_TO_MOVE:
+            page_to(TJC_PAGE_MOVE)
+            g.adjust_mode = "Move"
+
+    elif page_id == TJC_PAGE_FILAMENT_POP_1:
+        if widget_id == TJC_PAGE_FILAMENT_POP_1_YES:
+            g.printer_idle_timeout_state = "Ready"
+            page_to(TJC_PAGE_FILAMENT)
+
+    elif page_id == TJC_PAGE_FILAMENT_POP_2:
+        if widget_id == TJC_PAGE_FILAMENT_POP_2_YES:
+            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            if g.printer_print_stats_state == "paused":
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+            else:
+                page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_FILAMENT_POP_2_TO_LOAD:
+            g.load_mode = True
+            page_to(TJC_PAGE_PRE_HEAT)
+        elif widget_id == TJC_PAGE_FILAMENT_POP_2_NEXT:
+            ev.filament_load()
+        elif widget_id == TJC_PAGE_FILAMENT_POP_2_BACK:
+            page_to(TJC_PAGE_UNLOAD_MODE)
+
+    elif page_id == TJC_PAGE_FILAMENT_POP_3:
+        if widget_id == TJC_PAGE_FILAMENT_POP_3_NEXT:
+            ev.filament_load()
+        elif widget_id == TJC_PAGE_FILAMENT_POP_3_YES:
+            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            if g.printer_print_stats_state == "paused":
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+            else:
+                page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_FILAMENT_POP_3_RETRY:
+            g.load_mode = True
+            page_to(TJC_PAGE_FILAMENT_POP_3)
+            ev.filament_load()
+        elif widget_id == TJC_PAGE_FILAMENT_POP_3_BACK:
+            page_to(TJC_PAGE_PRE_HEAT)
+
+    elif page_id == TJC_PAGE_FILAMENT_UNLOAD_FINISH:
+        if widget_id == TJC_PAGE_FILAMENT_UNLOAD_FINISH_YES:
+            page_to(TJC_PAGE_FILAMENT)
+
+    elif page_id == TJC_PAGE_LEVEL_MODE:
+        if widget_id == TJC_PAGE_ALL_TO_MAIN:
+            page_to(TJC_PAGE_MAIN)
+        elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
+            ev.go_to_file_list()
+        elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
+            ev.go_to_adjust()
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            pass
+        elif widget_id == TJC_PAGE_LEVEL_MODE_AUTO_LEVEL:
+            ev.get_object_status()
+            page_to(TJC_PAGE_AUTO_HEATERBED)
+        elif widget_id == TJC_PAGE_LEVEL_MODE_SYNTONY:
+            ev.go_to_syntony_move()
+        elif widget_id == TJC_PAGE_LEVEL_MODE_BED_CALIBRATION:
+            page_to(TJC_PAGE_CALIBRATE_WARNING)
+        elif widget_id == TJC_PAGE_LEVEL_MODE_TO_COMMON_SETTING:
+            page_to(TJC_PAGE_COMMON_SETTING)
+            g.set_mode = "Common_setting"
+        elif widget_id == TJC_PAGE_LEVEL_MODE_ZOFFSET:
+            page_to(TJC_PAGE_ZOFFSET)
+
+    elif page_id == TJC_PAGE_ZOFFSET:
+        if widget_id == TJC_PAGE_ZOFFSET_BACK:
+            page_to(TJC_PAGE_LEVEL_MODE)
+
+    elif page_id == TJC_PAGE_AUTO_HEATERBED:
+        if widget_id == TJC_PAGE_AUTO_HEATERBED_DOWN:
+            ev.set_auto_level_heater_bed_target(False)
+        elif widget_id == TJC_PAGE_AUTO_HEATERBED_UP:
+            ev.set_auto_level_heater_bed_target(True)
+        elif widget_id == TJC_PAGE_AUTO_HEATERBED_ON_OFF:
+            ev.filament_heater_bed_target()
+        elif widget_id == TJC_PAGE_AUTO_HEATERBED_BACK:
+            page_to(TJC_PAGE_LEVEL_MODE)
+        elif widget_id == TJC_PAGE_AUTO_HEATERBED_NEXT:
+            if g.printer_heater_bed_target < 35:
+                page_to(TJC_PAGE_AUTO_WARNING)
+            else:
+                g.auto_level_button_enabled = True
+                g.printer_idle_timeout_state = "Printing"
+                ev.start_auto_level()
+
+    elif page_id == TJC_PAGE_AUTO_FINISH:
+        if widget_id == TJC_PAGE_AUTO_FINISH_YES:
+            cout("Auto levelling finished")
+            page_to(TJC_PAGE_LEVEL_MODE)
+
+    elif page_id == TJC_PAGE_PRE_BED_CALIBRATION:
+        if widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_001:
+            ev.set_auto_level_dist(0.01)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_005:
+            ev.set_auto_level_dist(0.05)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_01:
+            ev.set_auto_level_dist(0.1)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_05:
+            ev.set_auto_level_dist(0.5)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_UP:
+            ev.bed_adjust(True)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_DOWN:
+            ev.bed_adjust(False)
+        elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_ENTER:
+            ev.bed_calibrate()
+
+    elif page_id == TJC_PAGE_BED_CALIBRATION:
+        if widget_id == TJC_PAGE_BED_CALIBRATION_NEXT:
+            ev.bed_calibrate()
+
+    elif page_id == TJC_PAGE_BED_FINISH:
+        if widget_id == TJC_PAGE_BED_FINISH_OK:
+            page_to(TJC_PAGE_LEVEL_MODE)
+        elif widget_id == TJC_PAGE_BED_FINISH_SCREW1:
+            g.printer_idle_timeout_state = "Printing"
+            ev.send_gcode("G1 Z10 F600\n")
+            ev.send_gcode("G1 X10 Y10 F9000\n")
+            ev.send_gcode("G1 Z0 F600\n")
+            g.manual_count = -1
+            page_to(TJC_PAGE_BED_MOVING)
+        elif widget_id == TJC_PAGE_BED_FINISH_SCREW2:
+            g.printer_idle_timeout_state = "Printing"
+            ev.send_gcode("G1 Z10 F600\n")
+            ev.send_gcode("G1 X230 Y10 F9000\n")
+            ev.send_gcode("G1 Z0 F600\n")
+            g.manual_count = -1
+            page_to(TJC_PAGE_BED_MOVING)
+        elif widget_id == TJC_PAGE_BED_FINISH_SCREW3:
+            g.printer_idle_timeout_state = "Printing"
+            ev.send_gcode("G1 Z10 F600\n")
+            ev.send_gcode("G1 X125 Y240 F9000\n")
+            ev.send_gcode("G1 Z0 F600\n")
+            g.manual_count = -1
+            page_to(TJC_PAGE_BED_MOVING)
+        elif widget_id == TJC_PAGE_BED_FINISH_Z_TILT:
+            g.printer_idle_timeout_state = "Printing"
+            ev.send_gcode("G28\nZ_TILT_ADJUST\n")
+            ev.send_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
+            g.manual_count = -2
+            page_to(TJC_PAGE_BED_MOVING)
+
+    elif page_id == TJC_PAGE_SYNTONY_MOVE:
+        if widget_id == TJC_PAGE_SYNTONY_MOVE_JUMP_OUT:
+            ev.send_gcode("SAVE_CONFIG\n")
+            page_to(TJC_PAGE_SYNTONY_FINISH)
+
+    elif page_id == TJC_PAGE_SYNTONY_FINISH:
+        if widget_id == TJC_PAGE_SYNTONY_FINISH_YES:
+            page_to(TJC_PAGE_LEVEL_MODE)
+            system("sync")
+            ev.init_mks_status()
+            ev.sub_object_status()
+            ev.get_object_status()
+
+    elif page_id == TJC_PAGE_INTERNET:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            pass
+        elif widget_id == TJC_PAGE_INTERNET_REFRESH:
+            cout("################## refresh button pressed")
+            ev.scan_ssid_and_show()
+            cout("Waiting 3s...")
+            sleep(3)
+            ev.scan_ssid_and_show()
+        elif widget_id == TJC_PAGE_INTERNET_TO_WIFI:
+            pass
+        elif widget_id == TJC_PAGE_INTERNET_TO_SETTING:
+            page_to(TJC_PAGE_COMMON_SETTING)
+
+    elif page_id == TJC_PAGE_WIFI_LIST:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            pass
+        elif widget_id in (TJC_PAGE_WIFI_LIST_SSID_1, TJC_PAGE_WIFI_LIST_SSID_2, TJC_PAGE_WIFI_LIST_SSID_3,
+                           TJC_PAGE_WIFI_LIST_SSID_4, TJC_PAGE_WIFI_LIST_SSID_5):
+            index = widget_id - TJC_PAGE_WIFI_LIST_SSID_1
+            if g.page_wifi_list_ssid_button_enabled[index] == True:
+                ev.get_wifi_list_ssid(index)
+                g.printing_wifi_keyboard_enabled = True
+                page_to(TJC_PAGE_WIFI_KB)
+        elif widget_id == TJC_PAGE_WIFI_LIST_REFRESH:
+            cout("################## refresh button pressed")
+            ev.scan_ssid_and_show()
+            # 4.4.1 CLL wifi refresh fix
+        elif widget_id == TJC_PAGE_WIFI_LIST_PREVIOUS:
+            if g.page_wifi_current_pages > 0:
+                cout("page_wifi_current_pages = ", g.page_wifi_current_pages)
+                cout("page_wifi_ssid_list_pages = ", g.page_wifi_ssid_list_pages)
+                g.page_wifi_current_pages -= 1
+                set_page_wifi_ssid_list(g.page_wifi_current_pages)
+                ev.refresh_page_wifi_list()
+        elif widget_id == TJC_PAGE_WIFI_LIST_NEXT:
+            if g.page_wifi_current_pages < g.page_wifi_ssid_list_pages - 1:
+                cout("page_wifi_current_pages = ", g.page_wifi_current_pages)
+                cout("page_wifi_ssid_list_pages = ", g.page_wifi_ssid_list_pages)
+                g.page_wifi_current_pages += 1
+                set_page_wifi_ssid_list(g.page_wifi_current_pages)
+                ev.refresh_page_wifi_list()
+        elif widget_id == TJC_PAGE_WIFI_LIST_TO_WIFI:
+            pass
+        elif widget_id == TJC_PAGE_WIFI_LIST_TO_SETTING:
+            ev.go_to_showqr()
+
+    elif page_id == TJC_PAGE_WIFI_SUCCESS:
+        if widget_id == TJC_PAGE_WIFI_SUCCESS_YES:
+            ev.wifi_save_config()
+
+    elif page_id == TJC_PAGE_WIFI_FAILED:
+        if widget_id == TJC_PAGE_WIFI_FAILED_YES:
+            page_to(TJC_PAGE_WIFI_LIST)
+
+    elif page_id == TJC_PAGE_WIFI_KB:
+        if widget_id == TJC_PAGE_WIFI_KB_BACK:
+            page_to(TJC_PAGE_WIFI_LIST)
+            g.printing_wifi_keyboard_enabled = False
+
+    elif page_id == TJC_PAGE_COMMON_SETTING:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            pass
+        elif widget_id == TJC_PAGE_COMMON_SETTING_LANGUAGE:
+            page_to(TJC_PAGE_LANGUAGE)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_WIFI:
+            ev.go_to_showqr()
+        elif widget_id == TJC_PAGE_COMMON_SETTING_SYSTEM:
+            ev.go_to_reset()
+        elif widget_id == TJC_PAGE_COMMON_SETTING_SERVICE:
+            page_to(TJC_PAGE_SERVICE)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_SCREEN_SLEEP:
+            page_to(TJC_PAGE_SLEEP_MODE)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_UPDATE:
+            ev.go_to_update()
+        elif widget_id == TJC_PAGE_COMMON_SETTING_RESTORE:
+            page_to(TJC_PAGE_RESTORE_CONFIG)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_OOBE_OFF:
+            ev.set_mks_oobe_enabled(False)
+            page_to(TJC_PAGE_COMMON_SETTING)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_OOBE_ON:
+            ev.set_mks_oobe_enabled(True)
+        elif widget_id == TJC_PAGE_COMMON_SETTING_TO_LEVEL_MODE:
+            page_to(TJC_PAGE_LEVEL_MODE)
+            g.set_mode = "Level_mode"
+
+    elif page_id in (TJC_PAGE_LANGUAGE, TJC_PAGE_SERVICE, TJC_PAGE_SYS_OK, TJC_PAGE_RESET, TJC_PAGE_SLEEP_MODE):
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_ALL_TO_SETTING:
+            pass
+        elif widget_id == TJC_PAGE_BACK_TO_COMMON_SETTING:
+            page_to(TJC_PAGE_COMMON_SETTING)
+        elif widget_id == TJC_PAGE_RESET_PRINT_LOG:
+            ev.print_log()
+        elif widget_id == TJC_PAGE_RESET_RESTART_KLIPPER:
+            ev.reset_klipper()
+        elif widget_id == TJC_PAGE_RESET_RESTART_FIRMWARE:
+            ev.reset_firmware()
+
+    elif page_id == TJC_PAGE_UPDATE_SUCCESS:
+        if widget_id == TJC_PAGE_UPDATE_SUCCESS_YES:
+            ev.finish_tjc_update()
+            page_to(TJC_PAGE_MAIN)
+
+    elif page_id == TJC_PAGE_PRINT_LOG_F or page_id == TJC_PAGE_PRINT_LOG_S:
+        if widget_id == TJC_PAGE_PRINT_LOG_YES:
+            ev.go_to_reset()
+
+    elif page_id == TJC_PAGE_DETECT_ERROR:
+        if widget_id == TJC_PAGE_DETECT_ERROR_YES:
+            if g.previous_page_id == TJC_PAGE_AUTO_MOVING or g.previous_page_id == TJC_PAGE_OPEN_CALIBRATE:
+                ev.reset_klipper()
+            page_to(TJC_PAGE_MAIN)
+            ev.clear_previous_data()
+
+    elif page_id == TJC_PAGE_GCODE_ERROR:
+        if widget_id == TJC_PAGE_GCODE_ERROR_YES:
+            page_to(TJC_PAGE_MAIN)
+
+    # 4.4.2 CLL screen sleep feature
+    elif page_id == TJC_PAGE_SCREEN_SLEEP:
+        if widget_id == TJC_PAGE_SCREEN_SLEEP_ENTER:
+            page_to(TJC_PAGE_SCREEN_SLEEP)
+            if g.printer_caselight_value == 1:
+                ev.led_on_off()
+                g.previous_caselight_value = True
+            else:
+                g.previous_caselight_value = False
+        elif widget_id == TJC_PAGE_SCREEN_SLEEP_EXIT:
+            if g.previous_caselight_value == True:
+                ev.led_on_off()
+                g.previous_caselight_value = False
+            if g.previous_page_id == TJC_PAGE_FILE_LIST:
+                ev.go_to_file_list()
+            else:
+                page_to(g.previous_page_id)
+                ev.get_object_status()
+
+    # 4.4.3 CLL the update button is always shown
+    elif page_id == TJC_PAGE_UPDATE_FOUND:
+        if widget_id == TJC_PAGE_UPDATE_FOUND_YES:
+            page_to(TJC_PAGE_UPDATING)
+            ev.disable_page_about_successed()
+            start_update()
+        elif widget_id == TJC_PAGE_UPDATE_FOUND_NO:
+            ev.go_to_update()
+
+    elif page_id == TJC_PAGE_UPDATE_NOT_FOUND:
+        if widget_id == TJC_PAGE_UPDATE_NOT_FOUND_YES:
+            ev.go_to_update()
+
+    elif page_id == TJC_PAGE_RESTORE_CONFIG:
+        if widget_id == TJC_PAGE_RESTORE_CONFIG_YES:
+            ev.restore_config()
+        elif widget_id == TJC_PAGE_RESTORE_CONFIG_NO:
+            page_to(TJC_PAGE_COMMON_SETTING)
+
+    elif page_id == TJC_PAGE_LEVEL_ERROR:      # CLL dedicated pop-up for levelling errors
+        if widget_id == TJC_PAGE_LEVEL_ERROR_YES:
+            page_to(TJC_PAGE_MAIN)
+
+    elif page_id == TJC_PAGE_MEMORY_WARNING:
+        if widget_id == TJC_PAGE_MEMORY_WARNING_YES:
+            page_to(TJC_PAGE_MAIN)
+
+    elif page_id == TJC_PAGE_PRE_HEAT:
+        if widget_id in (TJC_PAGE_PRE_HEAT_SET_220, TJC_PAGE_PRE_HEAT_SET_250, TJC_PAGE_PRE_HEAT_SET_300):
+            g.load_target = {TJC_PAGE_PRE_HEAT_SET_220: 220, TJC_PAGE_PRE_HEAT_SET_250: 250,
+                             TJC_PAGE_PRE_HEAT_SET_300: 300}[widget_id]
+            if g.load_mode == True:
+                page_to(TJC_PAGE_FILAMENT_POP_3)
+            else:
+                page_to(TJC_PAGE_UNLOAD_MODE)
+        elif widget_id == TJC_PAGE_PRE_HEAT_BACK:
+            if g.printer_print_stats_state == "paused":
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+            else:
+                page_to(TJC_PAGE_FILAMENT)
+
+    elif page_id == TJC_PAGE_RESUME_PRINT:
+        if widget_id == TJC_PAGE_RESUME_PRINT_YES:
+            page_to(TJC_PAGE_RE_PRINTING)
+            ev.send_gcode("RESUME_INTERRUPTED\n")
+        elif widget_id == TJC_PAGE_RESUME_PRINT_NO:
+            page_to(TJC_PAGE_MAIN)
+            ev.send_gcode("CLEAR_LAST_FILE")
+
+    elif page_id == TJC_PAGE_SHOW_QR:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_SHOW_QR_BACK:
+            page_to(TJC_PAGE_COMMON_SETTING)
+        elif widget_id == TJC_PAGE_SHOW_QR_SET:
+            ev.go_to_server_set(0)
+        elif widget_id == TJC_PAGE_SHOW_QR_REFRESH:
+            cout("################## refresh button pressed")
+            g.qr_refreshed = False
+            ev.go_to_showqr()
+        elif widget_id == TJC_PAGE_SHOW_QR_WIFI:
+            ev.go_to_network()
+        elif widget_id == TJC_PAGE_SHOW_QR_ETHERNET:
+            if g.mks_ethernet == 1:
+                ev.set_mks_ethernet(0)
+            else:
+                ev.set_mks_ethernet(1)
+            g.qr_refreshed = False
+            ev.go_to_showqr()
+
+    elif page_id == TJC_PAGE_SERVER_SET:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_SERVER_SET_REFRESH:
+            ev.go_to_server_set(0)
+        elif widget_id == TJC_PAGE_SERVER_SET_LOCAL:
+            if g.status_result.wpa_state != "COMPLETED":
+                pass
+            elif g.connection_method == 1:
+                ev.set_mks_connection_method(0)
+                g.connection_method = 0
+                ev.go_to_server_set(0)
+                system("systemctl stop frpc.service\n")
+                system("systemctl disable frpc.service\n")
+            else:
+                ev.set_mks_connection_method(1)
+                g.connection_method = 1
+                ev.go_to_server_set(0)
+                system("systemctl enable frpc.service\n")
+                system("systemctl start frpc.service\n")
+        elif widget_id == TJC_PAGE_SERVER_SET_BACK:
+            ev.go_to_showqr()
+        elif widget_id == TJC_PAGE_SERVER_SET_PREVIOUS:
+            if g.current_server_page != 0:
+                g.current_server_page -= 1
+                ev.go_to_server_set(g.current_server_page)
+        elif widget_id == TJC_PAGE_SERVER_SET_NEXT:
+            if g.current_server_page * 4 + 4 < g.total_server_count:
+                g.current_server_page += 1
+                ev.go_to_server_set(g.current_server_page)
+        elif widget_id in (TJC_PAGE_SERVER_SET_1, TJC_PAGE_SERVER_SET_2, TJC_PAGE_SERVER_SET_3, TJC_PAGE_SERVER_SET_4):
+            n = widget_id - TJC_PAGE_SERVER_SET_1 + 1
+            if g.current_server_page * 4 + n <= g.total_server_count:
+                ev.update_server(g.current_server_page * 4 + n)
+
+    elif page_id == TJC_PAGE_UPDATE_MODE:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_UPDATE_MODE_BACK:
+            page_to(TJC_PAGE_COMMON_SETTING)
+        elif widget_id == TJC_PAGE_UPDATE_MODE_LOCAL:
+            ev.local_update()
+        elif widget_id == TJC_PAGE_UPDATE_MODE_ONLINE:
+            ev.check_online_version()
+
+    elif page_id == TJC_PAGE_ONLINE_UPDATE:
+        if _nav_guarded(widget_id):
+            pass
+        elif widget_id == TJC_PAGE_ONLINE_UPDATE_BACK:
+            page_to(TJC_PAGE_COMMON_SETTING)
+        elif widget_id == TJC_PAGE_ONLINE_UPDATE_YES:
+            ev.online_update()
+        elif widget_id == TJC_PAGE_ONLINE_UPDATE_NO:
+            ev.go_to_update()
+
+    elif page_id == TJC_PAGE_UNLOAD_MODE:
+        if widget_id == TJC_PAGE_UNLOAD_MODE_MANUAL:
+            page_to(TJC_PAGE_FILAMENT_POP_2)
+        elif widget_id == TJC_PAGE_UNLOAD_MODE_AUTO:
+            page_to(TJC_PAGE_AUTO_UNLOAD)
+            ev.filament_unload()
+        elif widget_id == TJC_PAGE_UNLOAD_MODE_BACK:
+            page_to(TJC_PAGE_PRE_HEAT)
+
+    elif page_id == TJC_PAGE_AUTO_UNLOAD:
+        if widget_id == TJC_PAGE_AUTO_UNLOAD_YES:
+            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            if g.printer_print_stats_state == "paused":
+                page_to(TJC_PAGE_PRINT_FILAMENT)
+            else:
+                page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_AUTO_UNLOAD_TO_LOAD:
+            g.load_mode = True
+            page_to(TJC_PAGE_PRE_HEAT)
+
+    elif page_id == TJC_PAGE_AUTO_WARNING:
+        if widget_id == TJC_PAGE_AUTO_WARNING_YES:
+            page_to(TJC_PAGE_AUTO_HEATERBED)
+
+    elif page_id == TJC_PAGE_CALIBRATE_WARNING:
+        if widget_id == TJC_PAGE_CALIBRATE_WARNING_NEXT:
+            g.manual_count = 4
+            ev.bed_calibrate()
+        elif widget_id == TJC_PAGE_CALIBRATE_WARNING_BACK:
+            page_to(TJC_PAGE_LEVEL_MODE)
+
+
+def tjc_event_setted_handler(page_id, widget_id, first, second):
+    ev = _ev()
+    cout("!!!", page_id)
+    cout("!!!", widget_id)
+    cout("!!!", chr(first))
+    cout("!!!", chr(second))
+    number = (second << 8) + first
+    if page_id == TJC_PAGE_PRINTING:
+        if widget_id == TJC_PAGE_PRINTING_EXTRUDER:
+            if number > 350:
+                number = 350
+            g.printing_keyboard_enabled = False
+            ev.set_extruder_target(number)
+            send_cmd_val(g.tty_fd, "n0", to_string(number))
+            ev.set_mks_extruder_target(number)
+        elif widget_id == TJC_PAGE_PRINTING_HEATER_BED:
+            if number > 120:
+                number = 120
+            g.printing_keyboard_enabled = False
+            ev.set_heater_bed_target(number)
+            send_cmd_val(g.tty_fd, "n1", to_string(number))
+            ev.set_mks_heater_bed_target(number)
+        elif widget_id == TJC_PAGE_PRINTING_FAN_1:
+            if number > 100:
+                number = 100
+            g.printing_keyboard_enabled = False
+            ev.set_fan0(number)
+        # 4.4.2 CLL fan2 added
+        elif widget_id == TJC_PAGE_PRINTING_FAN_2:
+            if number > 100:
+                number = 100
+            g.printing_keyboard_enabled = False
+            ev.set_fan2(number)
+        elif widget_id == TJC_PAGE_PRINTING_FAN_3:
+            if number > 100:
+                number = 100
+            g.printing_keyboard_enabled = False
+            ev.set_fan3(number)
+        elif widget_id == TJC_PAGE_PRINTING_2_SPEED:
+            if number > 150:
+                number = 150
+            g.printing_keyboard_enabled = False
+            ev.set_printer_speed(number)
+            send_cmd_val(g.tty_fd, "n5", to_string(number))
+        elif widget_id == TJC_PAGE_PRINTING_2_FLOW:
+            if number > 150:
+                number = 150
+            g.printing_keyboard_enabled = False
+            ev.set_printer_flow(number)
+            send_cmd_val(g.tty_fd, "n6", to_string(number))
+        elif widget_id == TJC_PAGE_PRINTING_HOT:
+            if number > 60:
+                number = 60
+            g.printing_keyboard_enabled = False
+            ev.set_hot_target(number)
+            ev.set_mks_hot_target(number)
+
+    elif page_id == TJC_PAGE_FILAMENT:
+        if widget_id == TJC_PAGE_FILAMENT_SET_EXTRUDER:
+            if number > 350:
+                number = 350
+            ev.set_extruder_target(number)
+            ev.set_mks_extruder_target(number)
+            page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_HEATERBED:
+            if number > 120:
+                number = 120
+            ev.set_heater_bed_target(number)
+            ev.set_mks_heater_bed_target(number)
+            page_to(TJC_PAGE_FILAMENT)
+        elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_1:
+            if number > 100:
+                number = 100
+            ev.set_fan0(number)
+            g.move_fan_setting = False     # the slider was released
+        elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_2:
+            if number > 100:
+                number = 100
+            ev.set_fan2(number)
+            g.move_fan_setting = False
+        elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_3:
+            if number > 100:
+                number = 100
+            ev.set_fan3(number)
+            g.move_fan_setting = False
+        elif widget_id == TJC_PAGE_FILAMENT_SET_HOT:
+            if number > 60:
+                number = 60
+            ev.set_hot_target(number)
+            ev.set_mks_hot_target(number)
+            page_to(TJC_PAGE_FILAMENT)
+
+
+def tjc_event_keyboard(cmd):
+    ev = _ev()
+    MKSLOG("Keyboard value received: %s\n", b2s(cstr(cmd)))
+    MKSLOG("cmd 1  %d\n", cmd[1])
+    MKSLOG("cmd 2  %d\n", cmd[2])
+    psk = cstr(cmd[3:])         # char *psk = &cmd[3];
+    if cmd[1] == TJC_PAGE_WIFI_LIST:
+        g.qr_refreshed = False
+        if cmd[2] in (TJC_PAGE_WIFI_LIST_SSID_1, TJC_PAGE_WIFI_LIST_SSID_2, TJC_PAGE_WIFI_LIST_SSID_3,
+                      TJC_PAGE_WIFI_LIST_SSID_4, TJC_PAGE_WIFI_LIST_SSID_5):
+            MKSLOG_RED("Password received, %d, password: %s", len(psk), b2s(psk))
+            g.printing_wifi_keyboard_enabled = False
+            page_to(TJC_PAGE_WIFI_CONNECT)
+            ev.print_ssid_psk(psk)

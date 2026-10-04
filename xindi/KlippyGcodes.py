@@ -1,0 +1,107 @@
+"""Port of src/KlippyGcodes.cpp / include/KlippyGcodes.h"""
+
+from .cpp import f32, c_int, cmod, to_string
+from .mks_log import cout
+
+AXIS_X = "X"
+AXIS_Y = "Y"
+AXIS_Z = "Z"
+
+HOME = "G28"
+HOME_X = "G28 X"
+HOME_Y = "G28 Y"
+HOME_Z = "G28 Z"
+HOME_XY = "G28 X Y"
+Z_TILT = "Z_TILT_ADJUST"
+QUAD_GANTRY_LEVEL = "QUAD_GANTRY_LEVEL"
+
+MOVE = "G1"
+MOVE_ABSOLUTE = "G90"
+MOVE_RELATIVE = "G91"
+
+EXTRUDE_ABS = "M82"
+EXTRUDE_REL = "M83"
+
+SET_EXT_TEMP = "M104"
+SET_BED_TEMP = "M140"
+
+SET_EXT_FACTOR = "M221"
+SET_FAN_SPEED = "M106"
+SET_SPD_FACTOR = "M220"
+
+PROBE_CALIBRATE = "PROBE_CALIBRATE"
+Z_ENDSTOP_CALIBRATE = "Z_ENDSTOP_CALIBRATE"
+TESTZ = "TESTZ Z="
+ABORT = "ABORT"
+ACCEPT = "ACCEPT"
+
+SAVE_CONFIG = "SAVE_CONFIG"
+RESTART = "RESTART"
+
+
+def set_bed_temp(temp):
+    return SET_BED_TEMP + " S" + to_string(temp)
+
+
+def set_ext_temp(temp, tool):
+    return SET_EXT_TEMP + " T" + to_string(tool) + " S" + to_string(temp)
+
+
+def set_heater_temp(heater, temp):
+    return "SET_HEATER_TEMPERATURE heater=" + heater + " target=" + to_string(temp)
+
+
+def set_temp_fan_temp(temp_fan, temp):
+    return "SET_TEMPERATURE_FAN_TARGET temperature_fan=" + temp_fan + " target=" + to_string(temp)
+
+
+def set_fan_speed(speed):
+    # int(float(int(speed) % 101) / 100 * 255) evaluated in single precision
+    speed_temp = to_string(c_int(f32(f32(f32(cmod(int(speed), 101)) / 100) * 255)))
+    return SET_FAN_SPEED + " S" + speed_temp
+
+
+# Xindi
+def set_fan0_speed(speed):
+    speed_temp = to_string(f32(f32(speed * 255) / 100))
+    cout(speed_temp)
+    return "M106 P0 S" + speed_temp
+
+
+def set_fan2_speed(speed):
+    speed_temp = to_string(f32(f32(speed * 255) / 100))
+    return "M106 P2 S" + speed_temp
+
+
+def set_fan3_speed(speed):
+    speed_temp = to_string(f32(f32(speed * 255) / 100))
+    return "M106 P3 S" + speed_temp
+# Xindi
+
+
+def set_extrusion_rate(rate):
+    return SET_EXT_FACTOR + " S" + rate
+
+
+def set_speed_rate(rate):
+    return SET_SPD_FACTOR + " S" + rate
+
+
+def testz_move(dist):
+    return TESTZ + dist
+
+
+def extrude(dist, speed):
+    return MOVE + " E" + dist + " F" + to_string(speed)
+
+
+def bed_mesh_load(profile):
+    return "BED_MESH_PROFILE LOAD=" + profile
+
+
+def bed_mesh_remove(profile):
+    return "BED_MESH_PROFILE REMOVE=" + profile
+
+
+def bed_mesh_save(profile):
+    return "BED_MESH_PROFILE SAVE=" + profile
