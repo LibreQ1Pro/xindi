@@ -4,7 +4,11 @@ On the printer the C++ program runs ``/root/uart; mv /root/800_480.tft
 /root/800_480.tft.bak`` at start-up when a screen firmware file is present.
 ``/root/uart`` is a small aarch64 program (built from ``uart.cpp``, GCC 8.3) that
 flashes the TJC screen.  It was reverse engineered from the binary found on the
-printer's eMMC; this module is a transliteration of its disassembly:
+printer's eMMC and checked against a copy of ``uart.cpp``.  That copy is a
+development variant (``UI/MATE_272_480.tft``, transfer at 115200 baud, so the
+port is never reopened); the binary was built from the same code with
+``/root/800_480.tft`` and a transfer baud rate of 921600 (``/root/uart-230400``
+on the eMMC differs only in that constant).  This module follows the binary:
 
 * open /dev/ttyS1 (O_RDWR | O_NOCTTY | O_NDELAY), 115200 8N1, O_NONBLOCK
 * if /root/800_480.tft exists: read the whole file, send
@@ -137,12 +141,20 @@ def init_download_to_screen(st):
     if os.access(TFT_PATH, os.F_OK):
         st.tft_data = b""
         try:
-            with open(TFT_PATH, "rb") as f:
-                st.filesize = os.stat(TFT_PATH).st_size
-                print("File size: %d" % st.filesize)
-                st.tft_data = f.read()
+            tftfile = open(TFT_PATH, "rb")
         except OSError:
-            st.tft_data = b""
+            tftfile = None      # failed std::ifstream: rdbuf() yields nothing
+        try:
+            st.filesize = os.stat(TFT_PATH).st_size
+        except OSError:
+            pass                # (uninitialised struct stat in C++)
+        print("File size: %d" % st.filesize)
+        if tftfile is not None:
+            try:
+                st.tft_data = tftfile.read()
+            except OSError:
+                st.tft_data = b""
+            tftfile.close()
         print("Length of the read data: %d" % len(st.tft_data))
         st.tft_len = len(st.tft_data)
         st.tft_end = st.tft_buff
