@@ -101,6 +101,18 @@ and the complete external behaviour is compared.
 
 ## License
 
+Copyright (C) 2024 QIDI Technology — original C++ program
+([QIDI_Q1_Pro](https://github.com/QIDITECH/QIDI_Q1_Pro/tree/8aaa970c1a7175d0ffc0ca5a29cac92617d5733c);
+`MoonrakerAPI` by Kenneth Lin, 2022).
+
 The original program is licensed under the GNU Affero General Public License
 v3.0, so this port, as a derived work, is distributed under the same license.
 See [LICENSE](LICENSE).
+
+Ported third-party code keeps its own copyright and license:
+
+* `xindi/iniparser.py`, `xindi/dictionary.py`: port of iniparser,
+  Copyright (c) 2000-2011 Nicolas Devillard, MIT License.
+* `xindi/wpa_ctrl.py`: port of `wpa_ctrl.c` from hostap,
+  Copyright (c) 2004-2007 Jouni Malinen, BSD license.
+* `xindi/HTTPRequest.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).
