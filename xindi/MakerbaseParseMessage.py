@@ -118,3 +118,9 @@ def json_parse(arg=None):
             g.response = json_clear(g.response)
             g.is_get_message = False
         usleep(50)
+        # NOTE: the original polls is_get_message every 50 us; in Python that
+        # busy loop costs ~10% CPU, so the thread sleeps until the websocket
+        # thread stores the next message.  A message that arrived while the
+        # previous one was being handled is picked up right away (event set).
+        g.message_event.wait()
+        g.message_event.clear()

@@ -298,6 +298,7 @@ class connection_metadata(object):
         if opcode == _OP_TEXT:
             g.message = b2s(payload)
             g.is_get_message = True
+            g.message_event.set()
         else:
             message = payload.hex()
 

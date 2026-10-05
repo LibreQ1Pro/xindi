@@ -88,6 +88,10 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 * The uninitialised default of `recevice_progress_handle()` is 0 / "".
 * The busy loop of `recevice_progress_handle()` yields the GIL (`time.sleep(0)`)
   so that the other threads keep running.
+* `json_parse()` does not poll `is_get_message` every 50 µs (about 10% CPU in
+  Python). It sleeps on a `threading.Event` that the websocket thread sets
+  together with the flag, so messages are handled the same way, only without
+  the busy loop.
 * For tiny thumbnails `libColPic.so` writes past the end of its output buffer.
   The port uses a larger scratch buffer and produces the same file content.
 
