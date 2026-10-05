@@ -1,5 +1,6 @@
 """Port of src/MakerbaseParseIni.cpp - access to /home/mks/klipper_config/config.mksini."""
 
+from . import paths
 from . import state as g
 from .cpp import b2s, s2b
 from .mks_log import cout
@@ -12,7 +13,13 @@ XINDI_MAX = 0
 XINDI_MINI = 0
 
 # INIPATH = "/root/config.mksini"
-INIPATH = "/home/mks/klipper_config/config.mksini"
+# INIPATH = "/home/mks/klipper_config/config.mksini"
+
+
+def _inipath():
+    """INIPATH (the config directory is found at run time, see paths.py)"""
+    return paths.klipper_config() + "/config.mksini"
+
 
 VERSION_PATH = "/root/xindi/version"
 
@@ -36,7 +43,7 @@ def progressini_load():
 
 
 def mksini_load():
-    g.mksini = iniparser_load(INIPATH)
+    g.mksini = iniparser_load(_inipath())
     if g.mksini is None:
         cout("Ini parse failure!")
         return -1
@@ -82,7 +89,7 @@ def mksini_unset(section, key):
 def mksini_save():
     """Write the dictionary back to the config file"""
     try:
-        ini = open(INIPATH, "wb")
+        ini = open(_inipath(), "wb")
     except OSError:
         print("[error] open mksini failed", end="")
         return

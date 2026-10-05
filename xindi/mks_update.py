@@ -2,10 +2,16 @@
 
 import os
 
+from . import paths
 from . import state as g
 from .cpp import access, system, sleep, s2b, b2s, to_string
 from .mks_log import cout
 from .send_msg import send_cmd_download_data, send_cmd_download
+
+
+def _base_path():
+    """``base_path`` of the original (``/home/mks/gcode_files/sda1/QD_Update/``)"""
+    return paths.gcode_files() + "/sda1/QD_Update/"
 
 
 def _npos_eq(found, expected):
@@ -20,7 +26,7 @@ def u_disk_update():
 
     for j in range(4):
         for i in range(8):
-            PATH = "/home/mks/gcode_files/sd%c%d/QD_Update/QD_Mates3_SOC" % (ch[i], j)
+            PATH = paths.gcode_files() + "/sd%c%d/QD_Update/QD_Mates3_SOC" % (ch[i], j)
             fd = access(PATH)
             if fd == 0:
                 print("Found directory %s on the USB drive, checking for update files" % PATH)
@@ -52,7 +58,7 @@ def _listdir(path):
 
 
 def detect_update():
-    entries = _listdir(g.base_path)
+    entries = _listdir(_base_path())
     if entries is not None:
         for filename in entries:
             # skip files ending with .bak
@@ -75,17 +81,17 @@ def detect_update():
                 g.detected_soc_data = True
                 continue
     else:
-        print("Usb device path not found: %s" % g.base_path)
+        print("Usb device path not found: %s" % _base_path())
 
-    g.detected_mcu_data = access("/home/mks/gcode_files/sda1/QD_MCU/MCU") == 0
-    g.detected_gcode_cfg = access("/home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg") == 0
-    g.detected_printer_cfg = access("/home/mks/gcode_files/sda1/QD_Update/printer.cfg") == 0
-    g.detected_MKS_THR_cfg = access("/home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg") == 0
-    g.detected_gcode = access("/home/mks/gcode_files/sda1/QD_Update/QD_Gcode") == 0
+    g.detected_mcu_data = access(paths.gcode_files() + "/sda1/QD_MCU/MCU") == 0
+    g.detected_gcode_cfg = access(paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg") == 0
+    g.detected_printer_cfg = access(paths.gcode_files() + "/sda1/QD_Update/printer.cfg") == 0
+    g.detected_MKS_THR_cfg = access(paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg") == 0
+    g.detected_gcode = access(paths.gcode_files() + "/sda1/QD_Update/QD_Gcode") == 0
 
     # 4.4.3 CLL updates from .deb files
-    if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-        g.detected_soc_deb = access("/home/mks/gcode_files/sda1/QD_Update/mks.deb") == 0
+    if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+        g.detected_soc_deb = access(paths.gcode_files() + "/sda1/QD_Update/mks.deb") == 0
 
     return (g.detected_soc_data | g.detected_q1_soc_data | g.detected_mcu_data | g.detected_ui_data |
             g.detected_q1_ui_data | g.detected_printer_cfg | g.detected_MKS_THR_cfg | g.detected_gcode |
@@ -94,74 +100,74 @@ def detect_update():
 
 def start_update():
     from . import event
-    system("rm /home/mks/gcode_files/.cache/*")
+    system("rm " + paths.gcode_files() + "/.cache/*")
 
     factory_mode = (
-        access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") != -1 or
-        access("/home/mks/gcode_files/sda1/QD_Update/QD_factory_mode.txt") != -1
+        access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") != -1 or
+        access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") != -1
     )
 
     if g.detected_mcu_data == True:
-        if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-            system("cp /home/mks/gcode_files/sda1/QD_MCU/MCU /root/klipper.bin;")
+        if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+            system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
             event.close_mcu_port()
             system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; ")
         else:
-            if access("/home/mks/gcode_files/sda1/QD_Update/QD_factory_mode.txt") == 0:
-                system("cp /home/mks/gcode_files/sda1/QD_MCU/MCU /root/klipper.bin;")
+            if access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") == 0:
+                system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
                 event.close_mcu_port()
                 system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; ")
             else:
-                system("cp /home/mks/gcode_files/sda1/QD_MCU/MCU /root/klipper.bin;")
+                system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
                 event.close_mcu_port()
-                system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; mv /home/mks/gcode_files/sda1/QD_MCU/MCU /home/mks/gcode_files/sda1/QD_MCU/MCU.bak")
+                system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; mv " + paths.gcode_files() + "/sda1/QD_MCU/MCU " + paths.gcode_files() + "/sda1/QD_MCU/MCU.bak")
 
     if g.detected_gcode_cfg == True:
-        if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-            system("cp /home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg /home/mks/klipper_config/gcode_macro.cfg; chmod 777 /home/mks/klipper_config/gcode_macro.cfg; sync")
+        if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+            system("cp " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.klipper_config() + "/gcode_macro.cfg; chmod 777 " + paths.klipper_config() + "/gcode_macro.cfg; sync")
         else:
-            if access("/home/mks/gcode_files/sda1/QD_Update/QD_factory_mode.txt") == 0:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg /home/mks/klipper_config/gcode_macro.cfg; chmod 777 /home/mks/klipper_config/gcode_macro.cfg; sync")
+            if access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") == 0:
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.klipper_config() + "/gcode_macro.cfg; chmod 777 " + paths.klipper_config() + "/gcode_macro.cfg; sync")
             else:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg /home/mks/klipper_config/gcode_macro.cfg; chmod 777 /home/mks/klipper_config/gcode_macro.cfg; mv /home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg /home/mks/gcode_files/sda1/QD_Update/gcode_macro.cfg.bak; sync")
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.klipper_config() + "/gcode_macro.cfg; chmod 777 " + paths.klipper_config() + "/gcode_macro.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg.bak; sync")
 
     if g.detected_printer_cfg == True:
-        if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-            system("cp /home/mks/gcode_files/sda1/QD_Update/printer.cfg /home/mks/klipper_config/printer.cfg; chmod 777 /home/mks/klipper_config/printer.cfg; sync")
+        if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+            system("cp " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.klipper_config() + "/printer.cfg; chmod 777 " + paths.klipper_config() + "/printer.cfg; sync")
         else:
-            if access("/home/mks/gcode_files/sda1/QD_Update/QD_factory_mode.txt") == 0:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/printer.cfg /home/mks/klipper_config/printer.cfg; chmod 777 /home/mks/klipper_config/printer.cfg; sync")
+            if access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") == 0:
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.klipper_config() + "/printer.cfg; chmod 777 " + paths.klipper_config() + "/printer.cfg; sync")
             else:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/printer.cfg /home/mks/klipper_config/printer.cfg; chmod 777 /home/mks/klipper_config/printer.cfg; mv /home/mks/gcode_files/sda1/QD_Update/printer.cfg /home/mks/gcode_files/sda1/QD_Update/printer.cfg.bak; sync")
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.klipper_config() + "/printer.cfg; chmod 777 " + paths.klipper_config() + "/printer.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg.bak; sync")
 
     if g.detected_MKS_THR_cfg == True:
-        if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-            system("cp /home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg /home/mks/klipper_config/MKS_THR.cfg; chmod 777 /home/mks/klipper_config/MKS_THR.cfg; sync")
+        if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+            system("cp " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.klipper_config() + "/MKS_THR.cfg; chmod 777 " + paths.klipper_config() + "/MKS_THR.cfg; sync")
         else:
-            if access("/home/mks/gcode_files/sda1/QD_Update/QD_factory_mode.txt") == 0:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg /home/mks/klipper_config/MKS_THR.cfg; chmod 777 /home/mks/klipper_config/MKS_THR.cfg; sync")
+            if access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") == 0:
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.klipper_config() + "/MKS_THR.cfg; chmod 777 " + paths.klipper_config() + "/MKS_THR.cfg; sync")
             else:
-                system("cp /home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg /home/mks/klipper_config/MKS_THR.cfg; chmod 777 /home/mks/klipper_config/MKS_THR.cfg; mv /home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg /home/mks/gcode_files/sda1/QD_Update/MKS_THR.cfg.bak; sync")
+                system("cp " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.klipper_config() + "/MKS_THR.cfg; chmod 777 " + paths.klipper_config() + "/MKS_THR.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg.bak; sync")
 
     if g.detected_gcode == True:
         # Delete everything else in gcode_files first, the sda1 directory and its
         # files are kept.  Uses rm -rf, be careful when changing the paths!!!
-        system("rm /home/mks/gcode_files/*\n")
-        system("rm /home/mks/gcode_files/.thumbs/*\n")
+        system("rm " + paths.gcode_files() + "/*\n")
+        system("rm " + paths.gcode_files() + "/.thumbs/*\n")
         system("systemctl stop moonraker.service\n")
-        system("find /home/mks/gcode_files -maxdepth 1 -type d ! -name sd* -a ! -name '.*' | grep gcode_files/ | xargs rm -rf")
-        system("cp /home/mks/gcode_files/sda1/QD_Update/QD_gcode/*.gcode /home/mks/gcode_files; chmod 777 /home/mks/gcode_files/*.gcode; sync")
+        system("find " + paths.gcode_files() + " -maxdepth 1 -type d ! -name sd* -a ! -name '.*' | grep " + paths.gcode_files() + "/ | xargs rm -rf")
+        system("cp " + paths.gcode_files() + "/sda1/QD_Update/QD_gcode/*.gcode " + paths.gcode_files() + "; chmod 777 " + paths.gcode_files() + "/*.gcode; sync")
         sleep(3)
         system("systemctl restart moonraker.service\n")
 
     # UI file found
     if g.detected_ui_data or g.detected_q1_ui_data:
-        entries = _listdir(g.base_path)
+        entries = _listdir(_base_path())
         if entries is not None:
             for filename in entries:
                 # fuzzy match of the UI file
                 if filename.find("QD_Q1_UI") == 0 or filename.find("QD_Mates3_UI") == 0:
-                    filePath = g.base_path + filename
+                    filePath = _base_path() + filename
                     command = "cp " + filePath + " /root/800_480.tft; "
                     if not factory_mode:
                         command += "mv " + filePath + " " + filePath + ".bak; "
@@ -169,32 +175,32 @@ def start_update():
                     system(command)
                     break   # only one UI file per update
         else:
-            print("Directory not found: %s" % g.base_path)
+            print("Directory not found: %s" % _base_path())
 
     # SOC or PATCH file found
     if g.detected_q1_patch_data or g.detected_q1_soc_data or g.detected_soc_data:
-        entries = _listdir(g.base_path)
+        entries = _listdir(_base_path())
         if entries is not None:
             for filename in entries:
                 if filename.rfind(".bak") != -1:
                     continue
                 if filename.find("QD_Q1_PATCH") == 0 or filename.find("QD_Q1_SOC") == 0 or filename.find("QD_Mates3_SOC") == 0:
-                    file_path = g.base_path + filename
-                    command = "mv " + file_path + " " + g.base_path + "mks.deb; dpkg -i --force-overwrite " + g.base_path + "mks.deb;"
+                    file_path = _base_path() + filename
+                    command = "mv " + file_path + " " + _base_path() + "mks.deb; dpkg -i --force-overwrite " + _base_path() + "mks.deb;"
                     system(command)
 
                     new_file_name = file_path
                     if not factory_mode:
                         new_file_name += ".bak"
-                    command = "mv " + g.base_path + "mks.deb " + new_file_name + "; sync"
+                    command = "mv " + _base_path() + "mks.deb " + new_file_name + "; sync"
                     system(command)
         else:
-            print("Directory not found: %s" % g.base_path)
+            print("Directory not found: %s" % _base_path())
 
     if g.detected_soc_deb == True:
         # 4.4.3 CLL updates from .deb files
-        if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-            system("dpkg -i --force-overwrite /home/mks/gcode_files/sda1/QD_Update/mks.deb;sync")
+        if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+            system("dpkg -i --force-overwrite " + paths.gcode_files() + "/sda1/QD_Update/mks.deb;sync")
 
     event.update_finished_tips()
 

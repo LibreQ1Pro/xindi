@@ -2,6 +2,7 @@
 
 import os
 
+from . import paths
 from . import state as g
 from .cpp import substr, getline_all
 from .mks_log import cout
@@ -40,7 +41,7 @@ def FileStringReplace(instream, outstream):
 
 
 def get_cfg_by_id():
-    path = "/home/mks/klipper_config/MKS_THR.cfg"
+    path = paths.klipper_config() + "/MKS_THR.cfg"
     ret = ""
     for strline in getline_all(path):
         exists = strline.find("serial: ") == -1

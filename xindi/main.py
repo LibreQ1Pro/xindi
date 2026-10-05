@@ -4,6 +4,7 @@ import fcntl
 import os
 import sys
 
+from . import paths
 from . import state as g
 from . import ui
 from .cpp import access, system, sleep, usleep, pthread_create, terminate
@@ -35,11 +36,11 @@ def main(argv):
                     command = "/usr/bin/systemctl --no-block restart makerbase-automount@%s.service" % partition_suffix
                     system(command)
 
-    if access("/home/mks/gcode_files/sda1/mksscreen.recovery") == 0:
-        system("cp /home/mks/gcode_files/sda1/mksscreen.recovery /root/800_480.tft; sync")
+    if access(paths.gcode_files() + "/sda1/mksscreen.recovery") == 0:
+        system("cp " + paths.gcode_files() + "/sda1/mksscreen.recovery /root/800_480.tft; sync")
 
-    if access("/home/mks/gcode_files/sda1/mksclient.recovery") == 0:
-        system("dpkg -i /home/mks/gcode_files/sda1/mksclient.recovery; sync")
+    if access(paths.gcode_files() + "/sda1/mksclient.recovery") == 0:
+        system("dpkg -i " + paths.gcode_files() + "/sda1/mksclient.recovery; sync")
 
     if access("/root/800_480.tft") == 0:
         g.find_screen_tft_file = True
@@ -55,10 +56,10 @@ def main(argv):
         uart.main()
         system("mv /root/800_480.tft /root/800_480.tft.bak")
 
-    if access("/home/mks/gcode_files/sda1/QD_factory_mode.txt") == 0:
-        system("dmesg > /home/mks/gcode_files/sda1/mks-dmesg.log; sync; ")
-        if access("/home/mks/gcode_files/sda1/mks-super.sh") == 0:
-            system("bash /home/mks/gcode_files/sda1/mks-super.sh")
+    if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
+        system("dmesg > " + paths.gcode_files() + "/sda1/mks-dmesg.log; sync; ")
+        if access(paths.gcode_files() + "/sda1/mks-super.sh") == 0:
+            system("bash " + paths.gcode_files() + "/sda1/mks-super.sh")
 
     # 4.4.15 CCW check c_helper.so at start-up
     sourceFile = "/home/mks/klipper/klippy/chelper/c_helper.so"

@@ -112,6 +112,12 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   `json_parse()` waits for the next one. In the original a message that
   arrives while the previous one is parsed overwrites it or is dropped when the
   flag is reset; the port handles every message.
+* The directories of the gcode files, the Klipper configuration and the logs
+  are not fixed to QIDI's `/home/mks/gcode_files`, `/home/mks/klipper_config`
+  and `/home/mks/klipper_logs` (`xindi/paths.py`). They are asked from
+  Moonraker (`/server/files/roots`); while it does not answer,
+  `/home/mks/printer_data/{gcodes,config,logs}` are used when they exist, QIDI's
+  otherwise. USB drives are still expected at `<gcodes>/sda1`.
 * `sent_jpg_to_tjc()` closes the file when the screen reports a full buffer
   (0x24); the original leaks it.
 * For tiny thumbnails `libColPic.so` writes past the end of its output buffer.

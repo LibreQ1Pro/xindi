@@ -2,6 +2,7 @@
 
 import sys
 
+from . import paths
 from . import state as g
 from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr,
@@ -354,7 +355,7 @@ def output_imgdata(thumbpath, size):
             sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))
         return 0
     if size != 176:
-        path = "/home/mks/gcode_files/" + thumbpath
+        path = paths.gcode_files() + "/" + thumbpath
     else:
         path = thumbpath
     temp = "python3 /home/mks/gene4.py \"" + path + "\" /home/mks/tjc " + to_string(size)
@@ -369,7 +370,7 @@ def output_imgdata(thumbpath, size):
 
 def output_jpg(thumbpath, size):
     """Unused in the program - /home/mks/gene5.py does not exist on the printer."""
-    path = "/home/mks/gcode_files/" + thumbpath
+    path = paths.gcode_files() + "/" + thumbpath
     path2 = path + ".jpg"
     temp = "python3 /home/mks/gene5.py \"" + path + "\" \"" + path2 + "\" " + to_string(size)
     cout(temp)

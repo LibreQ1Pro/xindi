@@ -11,6 +11,7 @@ import io
 import os
 import time
 
+from . import paths
 from . import state as g
 from . import thumbnail
 from .cpp import to_string, usleep, sleep
@@ -73,7 +74,7 @@ def sent_jpg_thread_handle(arg=None):
                         if jpg_data is not None:
                             sent_jpg_to_tjc(ram_path, jpg_data)
                     else:
-                        jpg_path = "/home/mks/gcode_files/" + g.have_64_png_path[i]
+                        jpg_path = paths.gcode_files() + "/" + g.have_64_png_path[i]
                         cout(jpg_path)
                         sent_jpg_to_tjc(ram_path, jpg_path)
                     g.have_64_jpg[i] = False

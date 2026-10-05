@@ -545,7 +545,7 @@ detected_q1_soc_data = False
 detected_q1_ui_data = False
 # CCW 4.4.14 detection of Q1 patch packages
 detected_q1_patch_data = False
-base_path = "/home/mks/gcode_files/sda1/QD_Update/"
+# base_path: mks_update._base_path() (the gcode directory is found at run time)
 
 detected_printer_cfg = False
 detected_gcode_cfg = False

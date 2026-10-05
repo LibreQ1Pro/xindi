@@ -3,6 +3,7 @@
 import os
 import threading
 
+from . import paths
 from . import state as g
 from . import ui
 from .ui import page_to
@@ -1717,7 +1718,7 @@ def init_mks_status():
 def detect_disk():
     if access("/dev/sda") == 0:
         if access("/dev/sda1") == 0:
-            if access("/home/mks/gcode_files/sda1") != 0:
+            if access(paths.gcode_files() + "/sda1") != 0:
                 system("/usr/bin/systemctl --no-block restart makerbase-automount@sda1.service")
                 sleep(1)
         return 0
@@ -2135,12 +2136,12 @@ def go_to_update():
 
 
 def restore_config():
-    system("rm /home/mks/gcode_files/.cache/*")
+    system("rm " + paths.gcode_files() + "/.cache/*")
     g.main_picture_refreshed = False
     system("curl -X POST http://127.0.0.1:7125/server/history/reset_totals")
     system("curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'")
-    system("cp /root/config.mksini /home/mks/klipper_config/config.mksini")
-    system("cp /home/mks/klipper_config/saved_variables.cfg.bak /home/mks/klipper_config/saved_variables.cfg")
+    system("cp /root/config.mksini " + paths.klipper_config() + "/config.mksini")
+    system("cp " + paths.klipper_config() + "/saved_variables.cfg.bak " + paths.klipper_config() + "/saved_variables.cfg")
     g.ep.Send(json_run_a_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0"))
     page_to(ui.TJC_PAGE_MAIN)
 
@@ -2303,13 +2304,13 @@ def print_log():
     if detect_disk() == -1:
         page_to(ui.TJC_PAGE_PRINT_LOG_F)    # CLL no USB drive: tell the user the export failed
     else:
-        system("mkdir /home/mks/gcode_files/sda1/QD_Log")
-        system("bash -c 'cp /home/mks/klipper_logs/klippy.log* /home/mks/gcode_files/sda1/QD_Log/'")
-        system("bash -c 'cp /home/mks/klipper_logs/moonraker.log* /home/mks/gcode_files/sda1/QD_Log/'")
-        system("bash -c 'cp /home/mks/klipper_logs/auto_update.log* /home/mks/gcode_files/sda1/QD_Log/'")
-        system("bash -c 'cp /root/frp/frpc.log* /home/mks/gcode_files/sda1/QD_Log/'")
-        system("bash -c 'cp /root/frp/frpc.*.log /home/mks/gcode_files/sda1/QD_Log/'")
-        system("cp /root/frp/frpc.toml /home/mks/gcode_files/sda1/QD_Log/server.cfg")
+        system("mkdir " + paths.gcode_files() + "/sda1/QD_Log")
+        system("bash -c 'cp " + paths.klipper_logs() + "/klippy.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
+        system("bash -c 'cp " + paths.klipper_logs() + "/moonraker.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
+        system("bash -c 'cp " + paths.klipper_logs() + "/auto_update.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
+        system("bash -c 'cp /root/frp/frpc.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
+        system("bash -c 'cp /root/frp/frpc.*.log " + paths.gcode_files() + "/sda1/QD_Log/'")
+        system("cp /root/frp/frpc.toml " + paths.gcode_files() + "/sda1/QD_Log/server.cfg")
         page_to(ui.TJC_PAGE_PRINT_LOG_S)
 
 
@@ -2510,7 +2511,7 @@ def update_server(choice):
 
     g.total_server_count = 0
     FRPC_CONFIG_PATH = "/root/frp/frpc.toml"
-    MKSCONFIG_PATH = "/home/mks/klipper_config/config.mksini"
+    MKSCONFIG_PATH = paths.klipper_config() + "/config.mksini"
     SERVER_LIST_PATH = "/root/frp/server_list.json"     # path of the JSON file
 
     try:
@@ -2687,7 +2688,7 @@ def online_update():
     send_cmd_vis(g.tty_fd, "j0", "1")
     send_cmd_vis(g.tty_fd, "t1", "1")
     pthread_create(recevice_progress_handle, None)
-    system("rm /home/mks/gcode_files/.cache/*\n")
+    system("rm " + paths.gcode_files() + "/.cache/*\n")
     system("python3 /root/auto_update/download_update.py\n")
     system("sync\n")
     system("systemctl restart makerbase-client\n")
@@ -2767,9 +2768,9 @@ def hex_to_utf8(hex_):
 
 
 def check_print_interrupted():
-    printer_variables = read_file("/home/mks/klipper_config/saved_variables.cfg")
+    printer_variables = read_file(paths.klipper_config() + "/saved_variables.cfg")
     if printer_variables is None:
-        cerr("Can't open the file ", "/home/mks/klipper_config/saved_variables.cfg", "\n")
+        cerr("Can't open the file ", paths.klipper_config() + "/saved_variables.cfg", "\n")
         return
     print_interrupted_status = substr(printer_variables, printer_variables.find("was_interrupted =") + 18, 5)
     if print_interrupted_status != "False":

@@ -88,7 +88,8 @@ def normalise(result):
         "ws": dedup(result["ws_received"]),
         # file downloads are made only by the Python port, which reads the
         # thumbnails from the gcode files (the C++ program uses .thumbs files)
-        "http": dedup([r for r in result["http"] if not r.startswith("GET /server/files/gcodes/")]),
+        # and asks Moonraker for its directories (paths.py)
+        "http": dedup([r for r in result["http"] if not r.startswith(("GET /server/files/gcodes/", "GET /server/files/roots"))]),
         "shell": normalise_shell(result["shell"], impl),
         "wpa": dedup(result["wpa"]),
         "files": result["files"],
