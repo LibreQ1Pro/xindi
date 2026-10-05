@@ -375,7 +375,9 @@ class Fixture(object):
         result = {}
         roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", "/root/frp", "/root/xindi", "/home/mks/qrcode",
                  "/home/mks/klipper/klippy/chelper"]
-        singles = ["/home/mks/tjc", "/root/800_480.tft", "/root/800_480.tft.bak", "/root/mcu_shutdown.txt",
+        # (/home/mks/tjc is not compared: the port keeps the converted picture in
+        # memory; the picture data sent to the screen is part of the screen trace)
+        singles = ["/root/800_480.tft", "/root/800_480.tft.bak", "/root/mcu_shutdown.txt",
                    "/root/klipper.bin", "/root/config.mksini"]
         paths = []
         for root in roots:

@@ -1,5 +1,7 @@
 """Port of src/mks_file.cpp - gcode file list and metadata handling."""
 
+import sys
+
 from . import state as g
 from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr,
@@ -332,11 +334,13 @@ def getParentDirectory(path):
 
 
 def output_imgdata(thumbpath, size):
-    """Converts a thumbnail into the screen's ColPic text format (/home/mks/tjc).
+    """Converts a thumbnail into the screen's ColPic text format.
 
     The original runs ``python3 /home/mks/gene4.py "<path>" /home/mks/tjc <size>``
     which uses /home/mks/libColPic.so; both are re-implemented in gene4.py of
-    this package and called directly.
+    this package and called directly.  The result is kept in memory
+    (``g.tjc_data``) instead of the file /home/mks/tjc.  Like the file, it keeps
+    the previous picture when the conversion fails.
     """
     from . import gene4
     if size != 176:
@@ -345,7 +349,11 @@ def output_imgdata(thumbpath, size):
         path = thumbpath
     temp = "python3 /home/mks/gene4.py \"" + path + "\" /home/mks/tjc " + to_string(size)
     cout(temp)
-    gene4.main([path, "/home/mks/tjc", to_string(size)])
+    try:
+        g.tjc_data = gene4.encode_picture(path, size)
+    except Exception as e:
+        # the original script dies with a traceback (the output stays unchanged)
+        sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))
     return 0
 
 

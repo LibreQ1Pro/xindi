@@ -790,9 +790,9 @@ def refresh_page_preview():
                 # small picture
                 if g.show_preview_gimage_completed == False:
                     output_imgdata(picture_path, 160)
-                    data = read_file("/home/mks/tjc")
+                    data = g.tjc_data
                     if data is None:
-                        cerr("Can't open the file ", "/home/mks/tjc", "\n")
+                        cerr("No converted picture (/home/mks/tjc)", "\n")
                         g.show_preview_complete = True
                         return
                     g.file_metadata_simage = data
@@ -810,9 +810,9 @@ def refresh_page_preview():
 
                     # big picture
                     if g.jump_to_print == False:
-                        data = read_file("/home/mks/tjc")
+                        data = g.tjc_data
                         if data is None:
-                            cerr("Can't open the file ", "/home/mks/tjc", "\n")
+                            cerr("No converted picture (/home/mks/tjc)", "\n")
                             g.show_preview_complete = True
                             return
                         g.file_metadata_gimage = data
@@ -1018,6 +1018,16 @@ def refresh_page_files_list():
                 g.have_64_jpg[i] = True
                 g.have_64_png_path[i] = picture_path + "-112x112_QD.jpg"
                 refresh_files_list_picture_2(picture_path + "-112x112_QD.jpg", 112, i)
+            else:
+                # NOTE: not in the original.  The "_QD" thumbnail is only made by
+                # QIDI's slicer / Moonraker; with other slicers Moonraker extracts
+                # the plain 112x112 png, which is used instead.  (The original had
+                # a similar, commented out fallback to the 32x32 png.)
+                relative_path = "/home/mks/gcode_files/%s-112x112.png" % picture_path
+                if access(relative_path) == 0:
+                    g.have_64_jpg[i] = True
+                    g.have_64_png_path[i] = picture_path + "-112x112.png"
+                    refresh_files_list_picture_2(picture_path + "-112x112.png", 112, i)
 
 
 def refresh_page_files(pages):
@@ -2311,9 +2321,9 @@ def refresh_files_list_picture(path, pixel, i):
     g.file_metadata_gimage = ""
     g.mks_file_parse_finished = False
     output_imgdata(path, pixel)
-    data = read_file("/home/mks/tjc")
+    data = g.tjc_data
     if data is None:
-        cerr("Can't open the file ", "/home/mks/tjc", "\n")
+        cerr("No converted picture (/home/mks/tjc)", "\n")
         g.show_preview_complete = True
         return
     g.file_metadata_gimage = data

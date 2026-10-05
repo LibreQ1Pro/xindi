@@ -408,6 +408,10 @@ oobe_printer_set_offset = 0.05000000074505806   # float 0.05
 # ---------------------------------------------------------------------------
 # mks_file.cpp
 # ---------------------------------------------------------------------------
+# Python only: the ColPic text of the last converted picture.  The original
+# writes it to /home/mks/tjc (gene4.py) and reads the file back; the port keeps
+# it in memory.  None = "the file does not exist" (nothing converted yet).
+tjc_data = None
 # Get gcode metadata
 file_filename = ""                      # file name
 file_current_filename = ""              # current file name

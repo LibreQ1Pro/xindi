@@ -210,6 +210,14 @@ def ColPic_EncodeStr(fromcolor16, picw, pich, outputdata, outputmaxtsize, colors
 # ---------------------------------------------------------------------------
 
 def convert_to_rgb565(image_path, tjc_path, size=200):
+    text = encode_picture(image_path, size)
+    with open(tjc_path, "w") as tjc:
+        tjc.write(text)
+
+
+def encode_picture(image_path, size=200):
+    """The conversion of convert_to_rgb565() without the output file: returns
+    the ColPic text that the original writes to /home/mks/tjc."""
     from PIL import Image
     image = Image.open(image_path)
     ratio_image = resize_to_square(image, size)
@@ -229,10 +237,8 @@ def convert_to_rgb565(image_path, tjc_path, size=200):
     outputdata = bytearray(outsize + 32 + 2 * LIST_MAX + 16)
     ColPic_EncodeStr(pixels, width, height, outputdata, width * height * 10, 1024)
 
-    # write the output file (text up to the first NUL, like .rstrip('\x00') on the zero filled buffer)
-    text = bytes(outputdata[:outsize]).decode("utf-8").rstrip("\x00")
-    with open(tjc_path, "w") as tjc:
-        tjc.write(text)
+    # text up to the first NUL, like .rstrip('\x00') on the zero filled buffer
+    return bytes(outputdata[:outsize]).decode("utf-8").rstrip("\x00")
 
 
 def resize_to_square(image, size):

@@ -44,7 +44,7 @@ To use it on the printer instead of the C++ binary, change the last line of
 | Original | Replacement | Notes |
 |---|---|---|
 | `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/uart.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
-| `/home/mks/gene4.py` | `xindi/gene4.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`. |
+| `/home/mks/gene4.py` | `xindi/gene4.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
 | `/home/mks/libColPic.so` (aarch64) | `xindi/gene4.py` (`ColPic_EncodeStr` …) | Reverse engineered (`ADList0`, `Byte8bitEncode`, `ColPicEncode`, `ColPic_EncodeStr`). Output is byte-identical to the original library, including its quirks. |
 | libwpa_client (`wpa_ctrl.c`) | `xindi/wpa_ctrl.py` | UNIX datagram socket client of wpa_supplicant. |
 | websocketpp | `xindi/MakerbaseClient.py` | Minimal RFC 6455 client with the same connection-state semantics. |
@@ -88,6 +88,11 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 * The uninitialised default of `recevice_progress_handle()` is 0 / "".
 * The busy loop of `recevice_progress_handle()` yields the GIL (`time.sleep(0)`)
   so that the other threads keep running.
+* Converted thumbnails are kept in memory (`g.tjc_data`) instead of being
+  written to `/home/mks/tjc` and read back. A failed conversion keeps the
+  previous picture, as the unchanged file did.
+* The file list also shows the plain `<name>-112x112.png` thumbnail when the
+  `-112x112_QD.jpg` one (made only by QIDI's slicer) is missing.
 * `json_parse()` does not poll `is_get_message` every 50 µs (about 10% CPU in
   Python). It sleeps on a `threading.Event` that the websocket thread sets
   together with the flag, so messages are handled the same way, only without
