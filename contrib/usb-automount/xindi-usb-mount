@@ -1,0 +1,60 @@
+#!/bin/sh
+# xindi-usb-mount add|remove <device name, e.g. sda1>
+# Mounts the USB drive at <gcode directory>/<name> for xindi and Moonraker.
+set -u
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+ACTION=$1
+NAME=$2
+USER_NAME=${XINDI_USER:-mks}
+
+# the gcode directory: Moonraker's, then printer_data, then QIDI's layout
+GCODES=$(curl -s -m 2 http://localhost:7125/server/files/roots 2>/dev/null |
+    python3 -c 'import json, sys
+for r in json.load(sys.stdin).get("result", []):
+    if r.get("name") == "gcodes": print(r["path"])' 2>/dev/null)
+if [ -z "$GCODES" ]; then
+    if [ -d /home/mks/printer_data/gcodes ]; then
+        GCODES=/home/mks/printer_data/gcodes
+    else
+        GCODES=/home/mks/gcode_files
+    fi
+fi
+MOUNTPOINT=$GCODES/$NAME
+
+case "$ACTION" in
+add)
+    if mountpoint -q "$MOUNTPOINT"; then
+        umount -l "$MOUNTPOINT"
+    fi
+    mkdir -p "$MOUNTPOINT"
+    TYPE=$(blkid -o value -s TYPE "/dev/$NAME")
+    UID_=$(id -u "$USER_NAME")
+    GID_=$(id -g "$USER_NAME")
+    case "$TYPE" in
+    vfat|exfat|ntfs|ntfs3)
+        [ "$TYPE" = ntfs ] && TYPE=ntfs3
+        OPTS="uid=$UID_,gid=$GID_,umask=000,noatime"
+        [ "$TYPE" = vfat ] && OPTS="$OPTS,utf8,shortname=mixed"
+        ;;
+    *)
+        OPTS="noatime"
+        ;;
+    esac
+    if ! mount ${TYPE:+-t "$TYPE"} -o "$OPTS" "/dev/$NAME" "$MOUNTPOINT"; then
+        rmdir "$MOUNTPOINT" 2>/dev/null
+        exit 1
+    fi
+    ;;
+remove)
+    if mountpoint -q "$MOUNTPOINT"; then
+        umount -l "$MOUNTPOINT"
+    fi
+    rmdir "$MOUNTPOINT" 2>/dev/null
+    exit 0
+    ;;
+*)
+    echo "usage: $0 add|remove <device name>" >&2
+    exit 2
+    ;;
+esac

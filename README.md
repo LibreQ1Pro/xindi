@@ -117,7 +117,12 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   and `/home/mks/klipper_logs` (`xindi/paths.py`). They are asked from
   Moonraker (`/server/files/roots`); while it does not answer,
   `/home/mks/printer_data/{gcodes,config,logs}` are used when they exist, QIDI's
-  otherwise. USB drives are still expected at `<gcodes>/sda1`.
+  otherwise. USB drives are still expected at `<gcodes>/sda1`; systems
+  without QIDI's `makerbase-automount@.service` can install the one in
+  `contrib/usb-automount`.
+* When `config.mksini` does not exist it is created with the defaults of the
+  program (QIDI's system image ships one, other systems do not, and the
+  settings of the screen could not be saved).
 * `sent_jpg_to_tjc()` closes the file when the screen reports a full buffer
   (0x24); the original leaks it.
 * For tiny thumbnails `libColPic.so` writes past the end of its output buffer.

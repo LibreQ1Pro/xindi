@@ -1,5 +1,7 @@
 """Port of src/MakerbaseParseIni.cpp - access to /home/mks/klipper_config/config.mksini."""
 
+import os
+
 from . import paths
 from . import state as g
 from .cpp import b2s, s2b
@@ -42,7 +44,75 @@ def progressini_load():
     return 0
 
 
+# Python only: written when the file does not exist (QIDI's system image comes
+# with one, other systems do not, and the settings could not be saved).  The
+# values are the defaults the program uses when a key is missing.
+DEFAULT_MKSINI = """[led]
+enable = 0
+
+[beep]
+enable = 0
+
+[system]
+language = 0
+
+[target]
+extruder = 200
+heaterbed = 40
+hot = 40
+
+[babystep]
+value = 0.000
+adxl_offset = 0.000
+
+[fila]
+enable = 0
+
+[total]
+time = 0
+
+[oobe]
+enable = 0
+
+[mks_ethernet]
+enable = 0
+
+[app_connection]
+method = 0
+
+[app_server]
+name =
+
+[app]
+device_code =
+subdomain =
+token =
+username =
+avatar =
+bind_status =
+"""
+
+
+def _create_default_mksini(path):
+    try:
+        fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o666)
+    except OSError:
+        return          # exists already (or the directory is missing)
+    with os.fdopen(fd, "w") as ini:
+        ini.write(DEFAULT_MKSINI)
+    try:
+        # owned like the directory, so that it can be edited in the web UI
+        st = os.stat(os.path.dirname(path))
+        os.chown(path, st.st_uid, st.st_gid)
+        os.chmod(path, 0o666)
+    except OSError:
+        pass
+    cout("Created " + path + " with the default settings")
+
+
 def mksini_load():
+    if not os.path.exists(_inipath()):
+        _create_default_mksini(_inipath())
     g.mksini = iniparser_load(_inipath())
     if g.mksini is None:
         cout("Ini parse failure!")

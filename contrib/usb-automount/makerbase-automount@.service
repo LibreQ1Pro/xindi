@@ -1,0 +1,15 @@
+# USB drive automount for xindi on systems without QIDI's own one.
+# Mounts /dev/%i at <gcode directory>/%i, where xindi and Moonraker expect
+# it (sda1 for the first drive).  Started by 99-xindi-usb.rules when a drive
+# is plugged in and by xindi (systemctl restart makerbase-automount@sda1);
+# stopped when the drive is removed.
+[Unit]
+Description=Mount USB drive /dev/%i for xindi
+BindsTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/xindi-usb-mount add %i
+ExecStop=/usr/local/sbin/xindi-usb-mount remove %i
