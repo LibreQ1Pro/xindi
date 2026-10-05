@@ -71,11 +71,10 @@ def _fetch(path, start, end):
     req = urllib.request.Request(url, headers={"Range": "bytes=%d-%d" % (start, end)})
     try:
         with urllib.request.urlopen(req, timeout=5) as resp:
-            data = resp.read(end - start + 1)
             if resp.status == 200 and start > 0:
-                # the server ignored the Range header and sent the whole file
-                data = data[start:end + 1]
-            return data
+                # the server ignored the Range header and sends the whole file
+                return resp.read(end + 1)[start:]
+            return resp.read(end - start + 1)
     except urllib.error.HTTPError as e:
         if e.code == 416:       # range not satisfiable: past the end of the file
             return b""
@@ -117,9 +116,9 @@ def _parse(path):
             if m:
                 block = [_FORMATS[m.group(1)], int(m.group(2)), int(m.group(3)), []]
             elif line and not line.startswith(";"):
-                # the first gcode command: the thumbnails are all in the header
-                if thumbs:
-                    return thumbs
+                # the first gcode command: the slicers write the thumbnails
+                # into the header, so there are none further down
+                return thumbs
         if last:
             break
     return thumbs
