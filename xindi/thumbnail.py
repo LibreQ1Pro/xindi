@@ -184,6 +184,19 @@ def _screen_image(thumb):
     return image.transpose(getattr(Image, "Transpose", Image).ROTATE_90)
 
 
+def _flatten(image):
+    """RGB image with the transparent parts black, like the screen's background
+    (Python only: gene4.py drops the alpha channel and shows whatever colour
+    the slicer left under the transparent pixels)."""
+    from PIL import Image
+    if image.mode in ("RGBA", "LA", "P", "PA"):
+        image = image.convert("RGBA")
+        background = Image.new("RGB", image.size, (0, 0, 0))
+        background.paste(image, mask=image.split()[-1])
+        return background
+    return image.convert("RGB")
+
+
 def colpic(path, size):
     """ColPic text (the content of /home/mks/tjc in the original) of the
     preview picture of a gcode file; raises like gene4.py when it fails."""
@@ -191,7 +204,7 @@ def colpic(path, size):
     thumb = find(path, size, "PNG")
     if thumb is None:
         raise IOError("no thumbnail in %s" % path)
-    return gene4.encode_picture(_screen_image(thumb), size)
+    return gene4.encode_picture(_flatten(_screen_image(thumb)), size)
 
 
 def jpeg(path, size):
@@ -201,17 +214,10 @@ def jpeg(path, size):
     thumb = find(path, size, "JPEG")
     if thumb is None:
         return None
-    from PIL import Image
     from . import gene4
     try:
-        image = _screen_image(thumb)
-        if image.mode in ("RGBA", "LA", "P"):
-            # transparent background -> black, like the screen's background
-            background = Image.new("RGB", image.size, (0, 0, 0))
-            image = image.convert("RGBA")
-            background.paste(image, mask=image.split()[-1])
-            image = background
-        image = gene4.resize_to_square(image.convert("RGB"), size).convert("RGB")
+        image = _flatten(_screen_image(thumb))
+        image = gene4.resize_to_square(image, size).convert("RGB")
         out = io.BytesIO()
         image.save(out, "JPEG", quality=90, progressive=False, optimize=False)
         return out.getvalue()

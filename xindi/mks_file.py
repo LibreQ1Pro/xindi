@@ -339,10 +339,12 @@ def output_imgdata(thumbpath, size):
     The original runs ``python3 /home/mks/gene4.py "<path>" /home/mks/tjc <size>``
     which uses /home/mks/libColPic.so; both are re-implemented in gene4.py of
     this package and called directly.  The result is kept in memory
-    (``g.tjc_data``) instead of the file /home/mks/tjc.  Like the file, it keeps
-    the previous picture when the conversion fails.
+    (``g.tjc_data``) instead of the file /home/mks/tjc.  A failed conversion
+    leaves None there (the original keeps the previous file and shows the
+    picture of another file).
     """
     from . import gene4, thumbnail
+    g.tjc_data = None
     if isinstance(thumbpath, thumbnail.GcodeRef):
         # Python only: picture from the thumbnails inside the gcode file
         cout("Converting the thumbnail of " + thumbpath + " (" + to_string(size) + ")")
@@ -360,7 +362,7 @@ def output_imgdata(thumbpath, size):
     try:
         g.tjc_data = gene4.encode_picture(path, size)
     except Exception as e:
-        # the original script dies with a traceback (the output stays unchanged)
+        # the original script dies with a traceback (the old output stays)
         sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))
     return 0
 

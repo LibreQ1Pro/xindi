@@ -296,9 +296,8 @@ class connection_metadata(object):
 
     def on_message(self, con, opcode, payload):
         if opcode == _OP_TEXT:
-            g.message = b2s(payload)
-            g.is_get_message = True
-            g.message_event.set()
+            # NOTE: queued instead of `message = ...; is_get_message = true`
+            g.message_queue.put(b2s(payload))
         else:
             message = payload.hex()
 

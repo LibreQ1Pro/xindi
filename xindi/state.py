@@ -494,10 +494,11 @@ get_status_flag = False
 
 message = ""
 is_get_message = False
-# Python only: set together with is_get_message, so that json_parse() can sleep
-# until a message arrives instead of polling the flag every 50 us
-import threading as _threading
-message_event = _threading.Event()
+# Python only: the websocket thread queues the messages, json_parse() takes
+# them one by one (the original keeps only the last one in `message`, so a
+# message that arrives while the previous one is parsed is lost)
+import queue as _queue
+message_queue = _queue.Queue()
 response_type_id = 0
 response = None
 res = None

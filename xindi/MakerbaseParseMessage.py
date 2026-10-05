@@ -6,7 +6,7 @@ MakerbaseCommand.method2id), notifications by their method name.
 
 from . import state as g
 from . import ui
-from .cpp import jget, jpath, jstr, jint, jeq, json_dump, json_clear, usleep
+from .cpp import jget, jpath, jstr, jint, jeq, json_dump, json_clear
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
 from .MoonrakerAPI import string2json
 from .mks_error import parse_error
@@ -18,6 +18,11 @@ from .mks_gcode import parse_gcode_response
 def json_parse(arg=None):
     from . import event
     while True:
+        # NOTE: the original polls is_get_message every 50 us and parses the
+        # last message stored by the websocket thread; the port waits for the
+        # next queued message, so that none is lost (see state.message_queue)
+        g.message = g.message_queue.get()
+        g.is_get_message = True
         if g.is_get_message == True:
             try:
                 g.response = string2json(g.message)
@@ -117,10 +122,3 @@ def json_parse(arg=None):
                         MKSLOG_BLUE("notify_power_changed")
             g.response = json_clear(g.response)
             g.is_get_message = False
-        usleep(50)
-        # NOTE: the original polls is_get_message every 50 us; in Python that
-        # busy loop costs ~10% CPU, so the thread sleeps until the websocket
-        # thread stores the next message.  A message that arrived while the
-        # previous one was being handled is picked up right away (event set).
-        g.message_event.wait()
-        g.message_event.clear()

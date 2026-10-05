@@ -59,14 +59,17 @@ def sent_jpg_thread_handle(arg=None):
             g.begin_show_64_jpg = False
             for i in range(6):
                 if g.have_64_jpg[i] == True:
+                    jpg_data = None
+                    if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
+                        # Python only: jpg made from the thumbnail inside the gcode
+                        # file, before the touch is disabled (it can take a while)
+                        cout(g.have_64_png_path[i])
+                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
                     send_cmd_tsw(g.tty_fd, "255", "0")      # disable touch
                     MKSLOG_BLUE("Touch disabled")
                     usleep(50500 + i * 500)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
                     if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
-                        # Python only: jpg made from the thumbnail inside the gcode file
-                        cout(g.have_64_png_path[i])
-                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
                         if jpg_data is not None:
                             sent_jpg_to_tjc(ram_path, jpg_data)
                     else:
@@ -216,6 +219,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
             if g.get_0x24 == True:
                 sleep(4)
                 g.get_0x24 = False
+                f.close()       # (Python only: the original leaks the FILE)
                 return False
 
         # next frame id

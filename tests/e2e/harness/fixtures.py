@@ -246,8 +246,8 @@ class Fixture(object):
         _write(os.path.join(GCODES, "models/inner.gcode"), "G28\n")
         _write(os.path.join(GCODES, "models/deep/deeper.gcode"), "G28\n")
         os.makedirs(os.path.join(GCODES, ".thumbs"), exist_ok=True)
-        _image(os.path.join(GCODES, ".thumbs/cube-160x160.png"), (160, 160), 1, "PNG")
-        _image(os.path.join(GCODES, ".thumbs/Benchy PLA-160x160.png"), (160, 160), 3, "PNG")
+        _image(os.path.join(GCODES, ".thumbs/cube-160x160.png"), (160, 160), 1, "PNG", "RGB")
+        _image(os.path.join(GCODES, ".thumbs/Benchy PLA-160x160.png"), (160, 160), 3, "PNG", "RGB")
         _image(os.path.join(GCODES, ".thumbs/part_abs-160x160.jpg"), (200, 120), 5, "JPEG", "RGB")
         # QIDI's Moonraker also keeps the thumbnails of the printed file in
         # .cache/.thumbs, where the C++ program looks when a print is started
@@ -255,7 +255,7 @@ class Fixture(object):
         _image(os.path.join(GCODES, ".cache/.thumbs/part_abs-160x160.jpg"), (200, 120), 5, "JPEG", "RGB")
         if self.o["cache_file"]:
             _write(os.path.join(GCODES, ".cache/last_print.gcode"), "G28\n")
-            _image(os.path.join(GCODES, ".cache/.thumbs/last_print-160x160.png"), (160, 160), 6, "PNG")
+            _image(os.path.join(GCODES, ".cache/.thumbs/last_print-160x160.png"), (160, 160), 6, "PNG", "RGB")
         # The Python port reads the thumbnails from the gcode files themselves:
         # the same pictures are embedded there as slicers do it.
         _embed_thumbnails(os.path.join(GCODES, "cube.gcode"), [".thumbs/cube-160x160.png"], 2)
