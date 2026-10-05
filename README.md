@@ -91,8 +91,17 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 * Converted thumbnails are kept in memory (`g.tjc_data`) instead of being
   written to `/home/mks/tjc` and read back. A failed conversion keeps the
   previous picture, as the unchanged file did.
-* The file list also shows the plain `<name>-112x112.png` thumbnail when the
-  `-112x112_QD.jpg` one (made only by QIDI's slicer) is missing.
+* Thumbnails are read from the gcode files themselves (`xindi/thumbnail.py`):
+  the start of the file is downloaded from Moonraker
+  (`/server/files/gcodes/<path>` with a Range header) and the embedded
+  `; thumbnail[_JPG|_QOI] begin WxH` blocks are decoded in memory. The original
+  only works with QIDI's own slicer and Moonraker: it reads
+  `/home/mks/gcode_files/<dir>/.thumbs/<name>-160x160.png` for the preview and
+  sends `<name>-112x112_QD.jpg` to the screen for the file list. The port picks
+  the best embedded size instead, and makes a 112×112 baseline JPEG when there
+  is no exact JPEG one. When a print is started from the web UI the original
+  only looks at the `.cache` copy of the file; the port falls back to the file
+  itself.
 * `json_parse()` does not poll `is_get_message` every 50 µs (about 10% CPU in
   Python). It sleeps on a `threading.Event` that the websocket thread sets
   together with the flag, so messages are handled the same way, only without

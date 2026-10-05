@@ -7,10 +7,12 @@ buffer overflows (those bytes are picked up by ui.parse_cmd_msg_from_tjc_screen
 and stored in the get_0x?? flags).
 """
 
+import io
 import os
 import time
 
 from . import state as g
+from . import thumbnail
 from .cpp import to_string, usleep, sleep
 from .mks_log import MKSLOG_BLUE, MKSLOG_GREEN, cout
 from .send_msg import send_cmd_tsw, send_cmd_delfile, send_cmd_twfile
@@ -61,9 +63,16 @@ def sent_jpg_thread_handle(arg=None):
                     MKSLOG_BLUE("Touch disabled")
                     usleep(50500 + i * 500)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
-                    jpg_path = "/home/mks/gcode_files/" + g.have_64_png_path[i]
-                    cout(jpg_path)
-                    sent_jpg_to_tjc(ram_path, jpg_path)
+                    if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
+                        # Python only: jpg made from the thumbnail inside the gcode file
+                        cout(g.have_64_png_path[i])
+                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
+                        if jpg_data is not None:
+                            sent_jpg_to_tjc(ram_path, jpg_data)
+                    else:
+                        jpg_path = "/home/mks/gcode_files/" + g.have_64_png_path[i]
+                        cout(jpg_path)
+                        sent_jpg_to_tjc(ram_path, jpg_path)
                     g.have_64_jpg[i] = False
                     send_cmd_tsw(g.tty_fd, "255", "1")      # enable touch
                     MKSLOG_BLUE("Touch enabled")
@@ -132,7 +141,8 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
     read_buf_size = BLOCK_SIZE - len(head_buf)      # max 4096 - header
 
     try:
-        f = open(jpg_path, "rb")
+        # (Python only: the picture can also be passed as bytes kept in memory)
+        f = io.BytesIO(jpg_path) if isinstance(jpg_path, (bytes, bytearray)) else open(jpg_path, "rb")
     except OSError:
         MKSLOG_BLUE("Failed to open the file")
         return True

@@ -379,6 +379,26 @@ class Moonraker(object):
             if result is None:
                 return web.json_response({"error": {"code": 404, "message": "Directory does not exist"}}, status=404)
             return web.json_response({"result": result})
+        if path.startswith("/server/files/gcodes/"):
+            # file download (Range requests), used by the Python port to read
+            # the thumbnails inside the gcode files
+            import urllib.parse
+            rel = urllib.parse.unquote(path[len("/server/files/gcodes/"):])
+            full = os.path.normpath(os.path.join("/home/mks/gcode_files", rel))
+            if not full.startswith("/home/mks/gcode_files/") or not os.path.isfile(full):
+                return web.json_response({"error": {"code": 404, "message": "File not found"}}, status=404)
+            with open(full, "rb") as f:
+                data = f.read()
+            rng = request.headers.get("Range", "")
+            if rng.startswith("bytes="):
+                first, _, last = rng[6:].partition("-")
+                first = int(first)
+                last = min(int(last) if last else len(data) - 1, len(data) - 1)
+                if first >= len(data):
+                    return web.Response(status=416, headers={"Content-Range": "bytes */%d" % len(data)})
+                return web.Response(status=206, body=data[first:last + 1],
+                                    headers={"Content-Range": "bytes %d-%d/%d" % (first, last, len(data))})
+            return web.Response(body=data)
         if path == "/server/files/metadata":
             name = request.query.get("filename", "")
             meta = self.metadata.get(name)

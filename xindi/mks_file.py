@@ -342,7 +342,15 @@ def output_imgdata(thumbpath, size):
     (``g.tjc_data``) instead of the file /home/mks/tjc.  Like the file, it keeps
     the previous picture when the conversion fails.
     """
-    from . import gene4
+    from . import gene4, thumbnail
+    if isinstance(thumbpath, thumbnail.GcodeRef):
+        # Python only: picture from the thumbnails inside the gcode file
+        cout("Converting the thumbnail of " + thumbpath + " (" + to_string(size) + ")")
+        try:
+            g.tjc_data = thumbnail.colpic(thumbpath, size)
+        except Exception as e:
+            sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))
+        return 0
     if size != 176:
         path = "/home/mks/gcode_files/" + thumbpath
     else:

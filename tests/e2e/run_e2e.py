@@ -86,7 +86,9 @@ def normalise(result):
         "screen": [{"page": v["page"], "attrs": v["attrs"]} for v in result["screen_visits"]],
         "pages": result["screen_pages"],
         "ws": dedup(result["ws_received"]),
-        "http": dedup(result["http"]),
+        # file downloads are made only by the Python port, which reads the
+        # thumbnails from the gcode files (the C++ program uses .thumbs files)
+        "http": dedup([r for r in result["http"] if not r.startswith("GET /server/files/gcodes/")]),
         "shell": normalise_shell(result["shell"], impl),
         "wpa": dedup(result["wpa"]),
         "files": result["files"],

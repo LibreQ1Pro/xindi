@@ -30,6 +30,7 @@ from .MakerbaseParseIni import (mksini_load, mksini_free, mksini_getstring, mksi
 from .mks_printer import subscribe_objects_status, get_cal_printing_time
 from . import mks_file
 from .mks_file import output_imgdata
+from . import thumbnail
 from .send_jpg import delete_small_jpg
 from .MakerbaseWiFi import (detected_wlan0, get_wlan0_status, get_ssid_list_pages,
                             set_page_wifi_ssid_list)
@@ -720,6 +721,11 @@ def _tcdrain():
         pass
 
 
+def _name_of(path):
+    """File name without the directories"""
+    return substr(path, path.rfind("/") + 1)
+
+
 def _stem_of(path):
     """``path.substr(rfind("/") + 1, rfind(".") - (rfind("/") + 1))``"""
     start = path.rfind("/") + 1
@@ -762,26 +768,26 @@ def refresh_page_preview():
                 send_cmd_txt(g.tty_fd, "t4", "-")
 
             path_found = False
+            # NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then
+            # .jpg, made by QIDI's Moonraker; the port reads the thumbnail from the
+            # gcode file itself (see thumbnail.py).  For a print that was just
+            # started the original only looks at the .cache copy of the file.
             if g.jump_to_print == True:
-                picture_path = "/.cache/.thumbs/" + _stem_of(g.printer_print_stats_filename)
+                candidates = ["/.cache/" + _name_of(g.printer_print_stats_filename),
+                              "/" + g.printer_print_stats_filename]
             elif g.cache_clicked == True:
-                picture_path = _top(g.page_files_path_stack) + "/.cache/.thumbs/" + _stem_of(g.file_metadata_filename)
+                candidates = [_top(g.page_files_path_stack) + "/.cache/" + _name_of(g.file_metadata_filename)]
                 g.cache_clicked = False
             else:
-                picture_path = _top(g.page_files_path_stack) + "/.thumbs/" + _stem_of(g.file_metadata_filename)
-            if path_found == False:
-                picture_path = substr(picture_path, 1)
-                MKSLOG_RED("picture_path:%s", picture_path)
-                relative_path = "/home/mks/gcode_files/%s-160x160.png" % picture_path   # CLL look for the 160x160 png first
-                MKSLOG("relative_path:%s", relative_path)
-                if access(relative_path) == 0:
+                candidates = [_top(g.page_files_path_stack) + "/" + _name_of(g.file_metadata_filename)]
+            picture_path = ""
+            for candidate in candidates:
+                candidate = substr(candidate, 1)
+                MKSLOG_RED("picture_path:%s", candidate)
+                if thumbnail.find(candidate, 160, "PNG") is not None:
                     path_found = True
-                    picture_path = picture_path + "-160x160.png"
-                else:
-                    relative_path = "/home/mks/gcode_files/%s-160x160.jpg" % picture_path    # CLL then for the jpg
-                    if access(relative_path) == 0:
-                        path_found = True
-                        picture_path = picture_path + "-160x160.jpg"
+                    picture_path = thumbnail.GcodeRef(candidate)
+                    break
             MKSLOG_BLUE("Picture path:%s", picture_path)
             if picture_path == "":
                 path_found = False
@@ -909,26 +915,25 @@ def refresh_page_main():
         if g.page_files_list_show_type[0] == "[c]":
             send_cmd_txt(g.tty_fd, "t0", g.page_files_list_show_name[0])
             name0 = g.page_files_list_show_name[0]
-            picture_path = g.page_files_path + "/.cache/.thumbs/" + substr(name0, 0, name0.rfind("."))
-            picture_path = substr(picture_path, 1)
+            # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
+            picture_path = thumbnail.GcodeRef(substr(g.page_files_path + "/.cache/" + name0, 1))
             MKSLOG_RED("Picture path:%s", picture_path)
-            relative_path = "/home/mks/gcode_files/%s-160x160.png" % picture_path
-            if access(relative_path) == 0:
+            thumb = thumbnail.find(picture_path, 160, "PNG")
+            if thumb is not None and thumb.fmt == "PNG":
                 MKSLOG_RED("Found png picture")
                 send_cmd_pic(g.tty_fd, "b[0]", "29")
                 send_cmd_picc(g.tty_fd, "b6", "29")
                 send_cmd_picc2(g.tty_fd, "b6", "30")
                 send_cmd_vis(g.tty_fd, "cp0", "1")
-                refresh_files_list_picture(picture_path + "-160x160.png", 160, 0)
+                refresh_files_list_picture(picture_path, 160, 0)
                 g.main_picture_detected = True
             else:
-                relative_path = "/home/mks/gcode_files/%s-160x160.jpg" % picture_path
-                if access(relative_path) == 0:
+                if thumb is not None:
                     MKSLOG_RED("Found jpg picture")
                     send_cmd_pic(g.tty_fd, "b[0]", "29")
                     send_cmd_picc(g.tty_fd, "b6", "29")
                     send_cmd_picc2(g.tty_fd, "b6", "30")
-                    refresh_files_list_picture(picture_path + "-160x160.jpg", 160, 0)
+                    refresh_files_list_picture(picture_path, 160, 0)
                     g.main_picture_detected = True
                 else:
                     send_cmd_pic(g.tty_fd, "b[0]", "26")
@@ -1007,27 +1012,19 @@ def refresh_page_files_list():
         t = g.page_files_list_show_type[i]
         if t == "[c]" or t == "[f]":
             name = g.page_files_list_show_name[i]
+            # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
+            # by QIDI's slicer / Moonraker) to the screen; the port takes the
+            # thumbnail from the gcode file itself (see thumbnail.py).
             if t == "[c]":
-                picture_path = g.page_files_path + "/.cache/.thumbs/" + substr(name, 0, name.rfind("."))
+                picture_path = g.page_files_path + "/.cache/" + name
             else:
-                picture_path = g.page_files_path + "/.thumbs/" + substr(name, 0, name.rfind("."))
-            picture_path = substr(picture_path, 1)
+                picture_path = g.page_files_path + "/" + name
+            picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
             MKSLOG_RED("Picture path:%s", picture_path)
-            relative_path = "/home/mks/gcode_files/%s-112x112_QD.jpg" % picture_path
-            if access(relative_path) == 0:
+            if thumbnail.find(picture_path, 112, "JPEG") is not None:
                 g.have_64_jpg[i] = True
-                g.have_64_png_path[i] = picture_path + "-112x112_QD.jpg"
-                refresh_files_list_picture_2(picture_path + "-112x112_QD.jpg", 112, i)
-            else:
-                # NOTE: not in the original.  The "_QD" thumbnail is only made by
-                # QIDI's slicer / Moonraker; with other slicers Moonraker extracts
-                # the plain 112x112 png, which is used instead.  (The original had
-                # a similar, commented out fallback to the 32x32 png.)
-                relative_path = "/home/mks/gcode_files/%s-112x112.png" % picture_path
-                if access(relative_path) == 0:
-                    g.have_64_jpg[i] = True
-                    g.have_64_png_path[i] = picture_path + "-112x112.png"
-                    refresh_files_list_picture_2(picture_path + "-112x112.png", 112, i)
+                g.have_64_png_path[i] = picture_path
+                refresh_files_list_picture_2(picture_path, 112, i)
 
 
 def refresh_page_files(pages):
