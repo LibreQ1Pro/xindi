@@ -98,8 +98,9 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   only works with QIDI's own slicer and Moonraker: it reads
   `/home/mks/gcode_files/<dir>/.thumbs/<name>-160x160.png` for the preview and
   sends `<name>-112x112_QD.jpg` to the screen for the file list. The port picks
-  the best embedded size instead, and makes a 112×112 baseline JPEG when there
-  is no exact JPEG one. When a print is started from the web UI the original
+  the best embedded size instead, and makes a 112×112 baseline JPEG for the list. The screen
+  is mounted rotated, so the pictures are turned 90° counterclockwise first
+  (QIDI's `.thumbs` pictures are stored turned already). When a print is started from the web UI the original
   only looks at the `.cache` copy of the file; the port falls back to the file
   itself.
 * `json_parse()` does not poll `is_get_message` every 50 µs (about 10% CPU in

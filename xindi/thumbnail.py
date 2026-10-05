@@ -175,6 +175,16 @@ def find(path, size, prefer_fmt):
     return choose(get_thumbnails(path), size, prefer_fmt)
 
 
+def _screen_image(thumb):
+    """The thumbnail as a PIL image turned for the screen: the screen is mounted
+    rotated, so the pictures are sent turned 90 degrees counterclockwise (the
+    .thumbs pictures of QIDI's Moonraker are stored that way already)."""
+    from PIL import Image
+    image = Image.open(io.BytesIO(thumb.data))
+    image.load()
+    return image.transpose(getattr(Image, "Transpose", Image).ROTATE_90)
+
+
 def colpic(path, size):
     """ColPic text (the content of /home/mks/tjc in the original) of the
     preview picture of a gcode file; raises like gene4.py when it fails."""
@@ -182,23 +192,20 @@ def colpic(path, size):
     thumb = find(path, size, "PNG")
     if thumb is None:
         raise IOError("no thumbnail in %s" % path)
-    return gene4.encode_picture(io.BytesIO(thumb.data), size)
+    return gene4.encode_picture(_screen_image(thumb), size)
 
 
 def jpeg(path, size):
     """A size×size baseline JPEG of the file's thumbnail for the screen's
-    picture memory (the ``-112x112_QD.jpg`` of the original); None if the file
-    has no thumbnail."""
+    picture memory (the ``-112x112_QD.jpg`` of the original, turned like it);
+    None if the file has no thumbnail."""
     thumb = find(path, size, "JPEG")
     if thumb is None:
         return None
-    if thumb.fmt == "JPEG" and thumb.width == size and thumb.height == size:
-        return thumb.data
     from PIL import Image
     from . import gene4
     try:
-        image = Image.open(io.BytesIO(thumb.data))
-        image.load()
+        image = _screen_image(thumb)
         if image.mode in ("RGBA", "LA", "P"):
             # transparent background -> black, like the screen's background
             background = Image.new("RGB", image.size, (0, 0, 0))

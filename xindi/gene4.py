@@ -219,7 +219,8 @@ def encode_picture(image_path, size=200):
     """The conversion of convert_to_rgb565() without the output file: returns
     the ColPic text that the original writes to /home/mks/tjc."""
     from PIL import Image
-    image = Image.open(image_path)
+    # (Python only: an already opened PIL image can be passed as well)
+    image = image_path if isinstance(image_path, Image.Image) else Image.open(image_path)
     ratio_image = resize_to_square(image, size)
     ratio_image = ratio_image.convert("RGB")
     width, height = ratio_image.size
