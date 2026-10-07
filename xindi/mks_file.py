@@ -6,8 +6,8 @@ from . import paths
 from . import state as g
 from . import pageids as ids
 from . import ui
-from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr,
-                  find_last_of, access, system, json_parse, json_dump)
+from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of,
+                  json_parse, json_dump)
 from .mks_log import MKSLOG, MKSLOG_RED, cout
 from .KlippyRest import send_request
 
@@ -52,64 +52,6 @@ def parse_file_estimated_time(response):
                 g.files.thumbnail_path = ""
             i += 1
     g.files.meta_parse_finished = True
-
-
-def parse_server_files_list(result):
-    g.files.server_list.clear()
-    path_temp = ""
-    for i in range(jsize(result)):
-        path_temp = jstr(jpath(result, i, "path"))
-        g.files.server_list.add(path_temp)
-
-
-def parse_server_files_get_directory(result):
-    g.files.server_get_directory.clear()
-    g.files.server_list.clear()
-
-    dirname_temp = ""
-    filename_temp = ""
-
-    for i in range(jsize(jget(result, "dirs"))):
-        cout(json_dump(jpath(result, "dirs", i, "dirname")))
-        dirname_temp = jstr(jpath(result, "dirs", i, "dirname"))
-        g.files.server_list.add(filename_temp)
-    for j in range(jsize(jget(result, "files"))):
-        cout(json_dump(jpath(result, "files", j, "filename")))
-        filename_temp = jstr(jpath(result, "files", j, "filename"))
-        g.files.server_list.add(filename_temp)
-
-
-def parse_server_files_metadata(result):
-    pass
-
-
-def parse_create_directory(result):
-    cout("path: ", json_dump(jpath(result, "item", "path")))
-    cout("root: ", json_dump(jpath(result, "item", "root")))
-    cout("action: ", json_dump(jget(result, "action")))
-
-
-def parse_delete_directory(result):
-    cout("path: ", json_dump(jpath(result, "item", "path")))
-    cout("root: ", json_dump(jpath(result, "item", "root")))
-
-
-def parse_move_a_file_or_directory(result):
-    cout("item: ", json_dump(jget(result, "item")))
-    cout("source_item", json_dump(jget(result, "source_item")))
-    cout("action: ", json_dump(jget(result, "action")))
-
-
-def parse_copy_a_file_or_directory(result):
-    cout("root: ", json_dump(jpath(result, "item", "root")))
-    cout("path: ", json_dump(jpath(result, "item", "path")))
-    cout("action: ", json_dump(jget(result, "action")))
-
-
-def parse_file_delete(result):
-    cout("path: ", json_dump(jpath(result, "item", "path")))
-    cout("root: ", json_dump(jpath(result, "item", "root")))
-    cout("action: ", json_dump(jget(result, "action")))
 
 
 def get_page_files_filelist(current_dir):
@@ -367,20 +309,3 @@ def output_imgdata(thumbpath, size):
     return 0
 
 
-def output_jpg(thumbpath, size):
-    """Unused in the program - /home/mks/gene5.py does not exist on the printer."""
-    path = paths.gcode_files() + "/" + thumbpath
-    path2 = path + ".jpg"
-    temp = "python3 /home/mks/gene5.py \"" + path + "\" \"" + path2 + "\" " + to_string(size)
-    cout(temp)
-    if access(path2) == -1:
-        system(temp)
-    return 0
-
-
-def extractFileName(filePath):
-    """Extract the file name from a path"""
-    lastSlash = find_last_of(filePath, "/\\")
-    if lastSlash != -1:
-        return substr(filePath, lastSlash + 1)
-    return filePath

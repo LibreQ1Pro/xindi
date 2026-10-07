@@ -8,7 +8,6 @@ from .ui import page_to
 from .cpp import to_string, b2s
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, MKSLOG_GREEN, cout
 from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2
-from .MakerbaseShell import execute_cmd
 from .network import get_eth0_ip, get_wlan0_ip, detected_wlan0
 from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages, set_page_wifi_ssid_list
 
@@ -16,11 +15,6 @@ from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages, set_page_wifi_
 def refresh_wifi_keyboard():
     if g.screen.printing_wifi_keyboard_enabled == True:
         send_cmd_txt(g.tty_fd, "title", g.net.get_wifi_name)
-
-
-def get_ip(net):
-    cmd = "ifconfig " + net + " | awk 'NR==2{print $2}' | tr -d '\n\r'"
-    return execute_cmd(cmd)
 
 
 def go_to_network():

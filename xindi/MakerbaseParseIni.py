@@ -7,8 +7,7 @@ from . import state as g
 from .cpp import b2s, s2b
 from .mks_log import cout
 from .iniparser import (iniparser_load, iniparser_freedict, iniparser_getstring, iniparser_getint,
-                        iniparser_getdouble, iniparser_getboolean, iniparser_set, iniparser_unset,
-                        iniparser_dump_ini)
+                        iniparser_getboolean, iniparser_set, iniparser_dump_ini)
 
 XINDI_PLUS = 1
 XINDI_MAX = 0
@@ -117,11 +116,6 @@ def mksini_getint(section, key, notfound):
     return iniparser_getint(g.config.mksini, s2b(sk), notfound)
 
 
-def mksini_getdouble(section, key, notfound):
-    sk = section + ":" + key
-    return iniparser_getdouble(g.config.mksini, s2b(sk), notfound)
-
-
 def mksini_getboolean(section, key, notfound):
     sk = section + ":" + key
     value = iniparser_getboolean(g.config.mksini, s2b(sk), notfound)
@@ -131,11 +125,6 @@ def mksini_getboolean(section, key, notfound):
 def mksini_set(section, key, value):
     sk = section + ":" + key
     return iniparser_set(g.config.mksini, s2b(sk), s2b(value))
-
-
-def mksini_unset(section, key):
-    sk = section + ":" + key
-    iniparser_unset(g.config.mksini, s2b(sk))
 
 
 def mksini_save():

@@ -14,14 +14,10 @@ from .send_msg import send_cmd_txt, send_cmd_pco, send_cmd_picc, send_cmd_vis
 from .MoonrakerAPI import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_print_a_file, json_emergency_stop)
 from .MakerbasePanel import move
-from .KlippyGcodes import (AXIS_X, AXIS_Y, AXIS_Z, set_heater_temp, set_fan_speed, set_fan0_speed,
-                           set_fan2_speed, set_fan3_speed, set_speed_rate)
+from .KlippyGcodes import (AXIS_X, AXIS_Y, AXIS_Z, set_heater_temp, set_fan0_speed, set_fan2_speed,
+                           set_fan3_speed, set_speed_rate)
 from .mks_printer import subscribe_objects_status
 from . import filelist, pages, settings
-
-
-def _ep():
-    return g.ep
 
 
 def _top(stack):
@@ -55,10 +51,6 @@ def set_heater_bed_target(target):
 
 def set_hot_target(target):
     g.ep.Send(json_run_a_gcode("M141 S" + to_string(target)))
-
-
-def set_fan(speed):
-    g.ep.Send(json_run_a_gcode(set_fan_speed(speed)))
 
 
 def set_fan0(speed):
@@ -143,17 +135,6 @@ def get_filament_detected_enable():
     return g.klippy.fila_sensor_enabled
 
 
-def get_print_pause_resume():
-    return g.klippy.pause_resume_is_paused
-
-
-def set_print_pause_resume():
-    if g.klippy.pause_resume_is_paused == False:
-        g.ep.Send(json_run_a_gcode("PAUSE"))
-    else:
-        g.ep.Send(json_run_a_gcode("RESUME"))
-
-
 def set_print_pause():
     g.ep.Send(json_run_a_gcode("PAUSE"))
 
@@ -191,14 +172,6 @@ def start_auto_level():
     page_to(ids.AUTO_MOVING)
     set_heater_bed_target(g.config.heater_bed_target)
     g.ep.Send(json_run_a_gcode("M4029"))
-
-
-def start_auto_level_dist(positive):
-    """4.4.1 CLL levelling changes"""
-    if positive == True:
-        g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=" + to_string(g.levelling.auto_level_dist) + " MOVE=1"))
-    else:
-        g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=-" + to_string(g.levelling.auto_level_dist) + " MOVE=1"))
 
 
 def set_filament_extruder_target(positive):
@@ -249,18 +222,6 @@ def finish_print():
     page_to(ids.MAIN)
 
 
-def set_filament_sensor():
-    cout("filament_switch_sensor fila = ", int(g.klippy.fila_sensor_enabled))
-    if g.klippy.fila_sensor_enabled == 0:
-        g.ep.Send(json_run_a_gcode("SET_FILAMENT_SENSOR SENSOR=fila ENABLE=1\n"))
-        g.config.fila_status = True
-        settings.set_fila_status()
-    else:
-        g.ep.Send(json_run_a_gcode("SET_FILAMENT_SENSOR SENSOR=fila ENABLE=0\n"))
-        g.config.fila_status = False
-        settings.set_fila_status()
-
-
 def motors_off():
     g.ep.Send(json_emergency_stop())
     sleep(1)
@@ -291,19 +252,6 @@ def led_on_off():
             settings.set_led_status()
 
 
-def shutdown_mcu():
-    system("echo \"SET_PIN PIN=pwc VALUE=0\" > /root/mcu_shutdown.txt")
-    g.ep.Send(json_run_a_gcode("SET_PIN PIN=pwc VALUE=0"))
-
-
-def firmware_reset():
-    g.ep.Send(json_run_a_gcode("FIRMWARE_RESTART\n"))
-
-
-def go_to_page_power_off():
-    page_to(ids.SHUTDOWN)
-
-
 def filament_extruder_target():
     settings.get_extruder_target()
     if g.klippy.extruder_target == 0:
@@ -326,27 +274,6 @@ def filament_hot_target():
         set_hot_target(g.config.hot_target)
     else:
         set_hot_target(0)
-
-
-def filament_fan0():
-    if g.klippy.out_pin_fan0_value == 0:
-        set_fan0(100)
-    else:
-        set_fan0(0)
-
-
-def filament_fan2():
-    if g.klippy.out_pin_fan2_value == 0:
-        set_fan2(100)
-    else:
-        set_fan2(0)
-
-
-def filament_fan3():
-    if g.klippy.out_pin_fan3_value == 0:
-        set_fan3(100)
-    else:
-        set_fan3(0)
 
 
 def go_to_reset():
@@ -374,26 +301,12 @@ def complete_print():
     # 4.4.22: the total print time is no longer kept in config.mksini
 
 
-def back_to_main():
-    clear_previous_data()
-    page_to(ids.MAIN)
-
-
 def go_to_syntony_move():
     g.levelling.step_1 = False
     g.levelling.syntony_finished = False
     g.klippy.idle_timeout_state = "Printing"
     page_to(ids.SYNTONY_MOVE)
     g.ep.Send(json_run_a_gcode("M901\n"))
-
-
-def printer_set_babystep():
-    settings.get_babystep()
-    g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z=" + g.config.babystep_value + " MOVE=0"))
-
-
-def disable_page_about_successed():
-    g.screen.about_succeeded = True
 
 
 def filament_load():
@@ -414,25 +327,6 @@ def filament_unload():
     g.klippy.idle_timeout_state = "Printing"
     g.ep.Send(json_run_a_gcode("M109 S" + to_string(g.screen.load_target) + "\n"))
     g.ep.Send(json_run_a_gcode("M603\n"))
-
-
-def do_not_x_clear():
-    settings.set_total_printed_time(36000)
-
-
-def do_x_clear():
-    settings.set_total_printed_time(0)
-
-
-def level_mode_printing_set_target():
-    set_heater_bed_target(g.levelling.print_heater_bed_target)
-    g.ep.Send(json_run_a_gcode("M190 S" + to_string(g.levelling.print_heater_bed_target)))
-    set_extruder_target(g.levelling.print_extruder_target)
-    g.ep.Send(json_run_a_gcode("M109 S" + to_string(g.levelling.print_extruder_target)))
-
-
-def level_mode_printing_print_file():
-    start_printing("LEVEL_PRINTING.gcode")
 
 
 def move_motors_off():
@@ -465,21 +359,6 @@ def open_calibrate_start():
     g.klippy.idle_timeout_state = "Printing"
     page_to(ids.OPEN_CALIBRATE)
     g.ep.Send(json_run_a_gcode("M4028"))   # custom gcode "M4028" in printer.cfg
-
-
-def close_mcu_port():
-    g.ep.Send(json_run_a_gcode("CLOSE_MCU_PORT\n"))
-
-
-def oobe_set_intern_zoffset(offset):
-    g.levelling.oobe_printer_set_offset = f32(offset)
-
-
-def oobe_set_zoffset(positive):
-    if positive == True:
-        g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=+" + to_string(g.levelling.oobe_printer_set_offset) + " MOVE=1"))
-    else:
-        g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=-" + to_string(g.levelling.oobe_printer_set_offset) + " MOVE=1"))
 
 
 def set_auto_level_heater_bed_target(positive):

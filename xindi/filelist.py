@@ -14,7 +14,7 @@ from .mks_log import MKSLOG, MKSLOG_RED, cout, cerr
 from .send_msg import (send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_vis, send_cmd_cp_close,
                        send_cmd_baud, send_cmd_tsw)
 from .MakerbaseSerial import set_option
-from .MoonrakerAPI import json_get_gcode_metadata, json_file_delete
+from .MoonrakerAPI import json_get_gcode_metadata
 from .mks_file import output_imgdata
 from .send_jpg import delete_small_jpg
 from . import actions, pages
@@ -30,12 +30,6 @@ def _file_name_only(path):
 def _name_of(path):
     """File name without the directories"""
     return substr(path, path.rfind("/") + 1)
-
-
-def _stem_of(path):
-    """``path.substr(rfind("/") + 1, rfind(".") - (rfind("/") + 1))``"""
-    start = path.rfind("/") + 1
-    return substr(path, start, path.rfind(".") - start)
 
 
 def refresh_files_list():
@@ -132,14 +126,6 @@ def get_file_estimated_time(filename):
     g.ep.Send(json_get_gcode_metadata(filename))
 
 
-def delete_file(filepath):
-    import time
-    g.files.filelist_changed = False
-    g.ep.Send(json_file_delete(filepath))
-    while not g.files.filelist_changed:
-        time.sleep(0)
-
-
 def clear_cp0_image():
     send_cmd_cp_close(g.tty_fd, "preview.preview_pic")
     send_cmd_txt(g.tty_fd, "preview.cp_data", "")
@@ -179,37 +165,6 @@ def detect_disk():
         return 0
     else:
         return -1
-
-
-def refresh_files_list_2():
-    """4.4.2 CLL refresh of the file list page"""
-    if g.screen.file_mode == "USB":
-        if detect_disk() == -1:
-            g.screen.file_mode = "NULL"
-            page_to(ids.FILE_LIST)
-            g.files.list_pages = 0
-            g.files.list_current_pages = 0
-            g.files.list_folder_layers = 1
-            g.files.list_previous_path = ""
-            g.files.list_root_path = "gcodes/"
-            g.files.list_path = "/sda1"
-            refresh_page_files(g.files.list_current_pages)
-            refresh_files_list()
-            actions.get_object_status()
-    elif g.screen.file_mode == "NULL":
-        if detect_disk() == 0:
-            sleep(1)
-            g.screen.file_mode = "USB"
-            page_to(ids.FILE_LIST)
-            g.files.list_pages = 0
-            g.files.list_current_pages = 0
-            g.files.list_folder_layers = 1
-            g.files.list_previous_path = ""
-            g.files.list_root_path = "gcodes/"
-            g.files.list_path = "/sda1"
-            refresh_page_files(g.files.list_current_pages)
-            refresh_files_list()
-            actions.get_object_status()
 
 
 def go_to_file_list():
@@ -279,11 +234,3 @@ def send_file_picture(path, pixel, obj):
     send_cmd_vis(g.tty_fd, obj, "1")
 
 
-def send_file_picture_2(path, size, i):
-    g.pictures.input_path = path
-    g.pictures.input_size = size
-    g.pictures.begin_show_64_jpg = True
-
-
-def send_file_picture_3(inputPath, size, i):
-    return 0

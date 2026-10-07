@@ -55,11 +55,6 @@ def cstr(data):
     return data
 
 
-def bytelen(text):
-    """std::string::length() - number of bytes, not characters."""
-    return len(s2b(text))
-
-
 # ---------------------------------------------------------------------------
 # Numbers
 # ---------------------------------------------------------------------------
@@ -82,10 +77,6 @@ def i32(value):
     """Wrap an integer to a signed 32 bit int (C 'int')."""
     value = int(value) & 0xFFFFFFFF
     return value - 0x100000000 if value & 0x80000000 else value
-
-
-def u8(value):
-    return int(value) & 0xFF
 
 
 def c_int(value):
@@ -156,15 +147,6 @@ def substr(s, pos=0, n=None):
     return s[pos:pos + n]
 
 
-def find_first_of(s, chars):
-    best = -1
-    for c in chars:
-        p = s.find(c)
-        if p != -1 and (best == -1 or p < best):
-            best = p
-    return best
-
-
 def find_last_of(s, chars):
     best = -1
     for c in chars:
@@ -232,14 +214,6 @@ def _parse_hex_float(body):
     return math.ldexp(mant, exp)
 
 
-def atof(s):
-    return _strtod_prefix(s)[0]
-
-
-def strtof(s):
-    return f32(_strtod_prefix(s)[0])
-
-
 def stof(s):
     """std::stof(): throws std::invalid_argument when nothing can be parsed."""
     value, used = _strtod_prefix(s)
@@ -298,38 +272,12 @@ def strtol(s, base=10):
     return value
 
 
-def atoi(s):
-    return i32(strtol(s, 10))
-
-
-def stoi(s):
-    """std::stoi()"""
-    i = 0
-    while i < len(s) and s[i] in _C_SPACE:
-        i += 1
-    if not re.match(r"[+-]?[0-9]", s[i:]):
-        raise InvalidArgument("stoi")
-    value = strtol(s, 10)
-    if value > 0x7FFFFFFF or value < -0x80000000:
-        raise OutOfRange("stoi")
-    return value
-
-
 def stream_float(s):
     """``std::stringstream ss(s); float f; ss >> f;`` (0 when extraction fails)."""
     value, used = _strtod_prefix(s)
     if used == 0:
         return 0.0
     return f32(value)
-
-
-def stream_hex_int(s):
-    """``std::istringstream(s) >> std::hex >> value`` (0 when extraction fails)."""
-    m = re.match(r"[ \t\n\v\f\r]*([+-]?)(?:0[xX])?([0-9a-fA-F]+)", s)
-    if not m:
-        return 0
-    value = int(m.group(2), 16)
-    return -value if m.group(1) == "-" else value
 
 
 # ---------------------------------------------------------------------------
@@ -356,18 +304,6 @@ def system(command):
     return os.system(command)
 
 
-def popen_read(command):
-    """Runs ``command`` like popen(command, "r") and returns all of its output as
-    bytes (None when the shell can't be started)."""
-    import subprocess
-    try:
-        proc = subprocess.Popen(["/bin/sh", "-c", command], stdout=subprocess.PIPE)
-    except OSError:
-        return None
-    out, _ = proc.communicate()
-    return out
-
-
 def read_file_bytes(path):
     """``std::ifstream f(path); std::stringstream ss; ss << f.rdbuf();`` - None if the file can't be opened."""
     try:
@@ -380,18 +316,6 @@ def read_file_bytes(path):
 def read_file(path):
     data = read_file_bytes(path)
     return None if data is None else b2s(data)
-
-
-def getline_all(path):
-    """``while (getline(ifstream(path), line))`` - list of lines (without '\\n')."""
-    data = read_file_bytes(path)
-    if data is None:
-        return []
-    text = b2s(data)
-    lines = text.split("\n")
-    if lines and lines[-1] == "":
-        lines.pop()
-    return lines
 
 
 # ---------------------------------------------------------------------------

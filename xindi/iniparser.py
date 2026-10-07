@@ -7,8 +7,7 @@ line parser are reproduced with equivalent regular expressions.
 import re
 import sys
 
-from .dictionary import (dictionary_new, dictionary_del, dictionary_get, dictionary_set,
-                         dictionary_unset)
+from .dictionary import dictionary_new, dictionary_del, dictionary_get, dictionary_set
 
 ASCIILINESZ = 1024
 INI_INVALID_KEY = object()
@@ -59,11 +58,6 @@ def default_error_callback(fmt, *args):
 iniparser_error_callback = default_error_callback
 
 
-def iniparser_set_error_callback(errback):
-    global iniparser_error_callback
-    iniparser_error_callback = errback if errback else default_error_callback
-
-
 def iniparser_getnsec(d):
     """Number of sections in a dictionary"""
     if d is None:
@@ -92,18 +86,6 @@ def iniparser_getsecname(d, n):
     if foundsec <= n:
         return None
     return d.key[i]
-
-
-def iniparser_dump(d, f):
-    if d is None or f is None:
-        return
-    for i in range(d.size):
-        if d.key[i] is None:
-            continue
-        if d.val[i] is not None:
-            f.write(b"[%s]=[%s]\n" % (d.key[i], d.val[i]))
-        else:
-            f.write(b"[%s]=UNDEF\n" % d.key[i])
 
 
 def iniparser_dump_ini(d, f):
@@ -143,38 +125,6 @@ def iniparser_dumpsection_ini(d, s, f):
     f.write(b"\n")
 
 
-def iniparser_getsecnkeys(d, s):
-    nkeys = 0
-    if d is None:
-        return nkeys
-    if not iniparser_find_entry(d, s):
-        return nkeys
-    seclen = len(s)
-    keym = strlwc(s, ASCIILINESZ + 1) + b":"
-    for j in range(d.size):
-        if d.key[j] is None:
-            continue
-        if d.key[j][:seclen + 1] == keym:
-            nkeys += 1
-    return nkeys
-
-
-def iniparser_getseckeys(d, s):
-    if d is None:
-        return None
-    if not iniparser_find_entry(d, s):
-        return None
-    seclen = len(s)
-    keym = strlwc(s, ASCIILINESZ + 1) + b":"
-    keys = []
-    for j in range(d.size):
-        if d.key[j] is None:
-            continue
-        if d.key[j][:seclen + 1] == keym:
-            keys.append(d.key[j])
-    return keys
-
-
 def iniparser_getstring(d, key, default):
     """Value of ``section:key`` or ``default``."""
     if d is None or key is None:
@@ -195,14 +145,6 @@ def iniparser_getlongint(d, key, notfound):
 def iniparser_getint(d, key, notfound):
     from .cpp import i32
     return i32(iniparser_getlongint(d, key, notfound))
-
-
-def iniparser_getdouble(d, key, notfound):
-    from .cpp import atof, b2s
-    s = iniparser_getstring(d, key, INI_INVALID_KEY)
-    if s is INI_INVALID_KEY or s is None:
-        return notfound
-    return atof(b2s(s))
 
 
 def iniparser_getboolean(d, key, notfound):
@@ -228,10 +170,6 @@ def iniparser_find_entry(ini, entry):
 
 def iniparser_set(ini, entry, val):
     return dictionary_set(ini, strlwc(entry, ASCIILINESZ + 1), val)
-
-
-def iniparser_unset(ini, entry):
-    dictionary_unset(ini, strlwc(entry, ASCIILINESZ + 1))
 
 
 # sscanf() patterns of iniparser_line()

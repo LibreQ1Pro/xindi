@@ -112,33 +112,3 @@ def dictionary_set(d, key, val):
     return 0
 
 
-def dictionary_unset(d, key):
-    """Delete a key in a dictionary"""
-    if key is None or d is None:
-        return
-
-    h = dictionary_hash(key)
-    i = 0
-    while i < d.size:
-        if d.key[i] is not None and h == d.hash[i] and key == d.key[i]:
-            break
-        i += 1
-    if i >= d.size:
-        return      # Key not found
-
-    d.key[i] = None
-    d.val[i] = None
-    d.hash[i] = 0
-    d.n -= 1
-
-
-def dictionary_dump(d, out):
-    """Dump a dictionary to a binary file object"""
-    if d is None or out is None:
-        return
-    if d.n < 1:
-        out.write(b"empty dictionary\n")
-        return
-    for i in range(d.size):
-        if d.key[i] is not None:
-            out.write(b"%20s\t[%s]\n" % (d.key[i], d.val[i] if d.val[i] is not None else b"UNDEF"))

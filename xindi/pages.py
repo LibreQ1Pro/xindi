@@ -930,10 +930,6 @@ def clear_preview():
     g.files.meta_gimage = ""
 
 
-def open_move_tip():
-    g.ep.Send(json_run_a_gcode("G91\nG1 Z-100 F600\nG1 X-100 Y-100 F1200\nG90"))
-
-
 def zoffset():
     i = 0
     while i < g.levelling.mesh_y_count:

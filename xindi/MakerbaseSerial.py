@@ -110,5 +110,3 @@ def set_option(fd, baudrate, bits, parity, stopbit):
     return 0
 
 
-def create_command(cmd):
-    return cmd + b"\xff\xff\xff"

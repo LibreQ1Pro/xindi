@@ -231,6 +231,3 @@ method2id = {
 }
 
 
-def map_get(m, key, default):
-    """std::map::operator[] for reading: missing keys yield a default value."""
-    return m.get(key, default)

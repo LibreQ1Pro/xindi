@@ -48,10 +48,6 @@ def MKSLOG_GREEN(fmt, *args):
     _out(LOG_GREEN + _fmt(fmt, args) + "\n" + LOG_END)
 
 
-def MKSLOG_HIGHLIGHT(fmt, *args):
-    _out(LOG_HIGHLIGHT + _fmt(fmt, args) + "\n" + LOG_END)
-
-
 def cout(*parts):
     """std::cout << a << b << ... << std::endl"""
     _out("".join(str(p) for p in parts) + "\n")

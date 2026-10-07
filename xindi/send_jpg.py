@@ -240,5 +240,3 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
     return True
 
 
-def printHex(data, size):
-    print("".join("%02X" % b for b in data[:size]), end="")
