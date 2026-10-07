@@ -49,7 +49,9 @@ Everything the screen sends is a frame that ends with `ff ff ff`. The editor add
 that prints a frame has to print the terminator itself (three `prints 0xff,1`, or `printh ... ff ff ff`). The host
 (`xindi/screen/rx.py`) cuts the stream at the terminators, so a frame without one is glued to the next frame and both are
 lost. `python3 tools/lint_frames.py` finds such handlers (`--fix` adds the terminators); run it after every change of
-an event. Frames the host knows: `65 page widget [event]` (click), `70 mode row text` (keyboard), `71 page widget low high`
+an event. Some frames carry a page id written as a number (the sleep timer, the language pages, the value
+keyboards); the host compares it with `xindi/screen/pageids.py`, so `python3 tools/lint_page_ids.py` has to be run
+whenever pages are added or removed. Frames the host knows: `65 page widget [event]` (click), `70 mode row text` (keyboard), `71 page widget low high`
 (a number, 2 bytes, may be `ff ff`), `1a` (invalid variable name), `91` (the screen was updated). The only thing without
 a terminator is the single byte `05` the screen answers to every data packet of a picture transfer.
 

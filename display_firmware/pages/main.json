@@ -576,7 +576,7 @@
           "if(sleep_counts==sleep_time)",
           "{",
           "  prints 0x65,1",
-          "  prints 73,1",
+          "  prints 69,1",
           "  prints 1,1",
           "  prints 0xff,1",
           "  prints 0xff,1",
