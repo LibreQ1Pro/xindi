@@ -2119,13 +2119,6 @@
       }
     },
     {
-      "key": "service",
-      "content": {
-        "mode": "json",
-        "path": "pages/service.json"
-      }
-    },
-    {
       "key": "sleep_mode",
       "content": {
         "mode": "json",
