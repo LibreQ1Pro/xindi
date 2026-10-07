@@ -14,9 +14,9 @@ def get_by_id():
         print("Failed to read the serial ports!!!!!!!!!!!!!!!!")
         return False
     else:
-        g.serial_by_id = generate_by_id()
-        g.serial_by_id = substr(g.serial_by_id, 0, 58)
-        cout(len(g.serial_by_id), " Got the ID  " + g.serial_by_id)
+        g.config.serial_by_id = generate_by_id()
+        g.config.serial_by_id = substr(g.config.serial_by_id, 0, 58)
+        cout(len(g.config.serial_by_id), " Got the ID  " + g.config.serial_by_id)
         return True
 
 

@@ -85,9 +85,10 @@ are still run through the shell exactly like before.
 
 ## Structure
 
-* `xindi/state.py` holds **all global variables** of the C++ program, grouped by
-  the file that defines them, with their original names and initial values.
-  The code uses them as `g.<name>`.
+* `xindi/state.py` holds the shared state, one object per area: `g.screen` (what the screen
+  shows, page flags), `g.klippy` (the printer as Klipper reports it), `g.shown` (values last sent
+  to the screen), `g.levelling`, `g.files`, `g.net`, `g.config`, `g.update`, `g.pictures` and
+  `g.rpc` (the Moonraker message being handled). The two connections are `g.tty_fd` and `g.ep`.
 * `xindi/cpp.py` reproduces the C/C++ semantics the code depends on:
   * 32-bit `float` rounding (`f32`) and `std::to_string`
   * `std::string::substr` / `npos` arithmetic and integer division / `%` truncating toward zero

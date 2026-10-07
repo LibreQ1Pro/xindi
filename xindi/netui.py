@@ -14,7 +14,7 @@ from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
 ROWS = 5
 
 # modes of the keyboard page: what the text typed on it is
-KB_PSK_SCANNED = 1      # password of the network chosen in the scan list (g.get_wifi_name)
+KB_PSK_SCANNED = 1      # password of the network chosen in the scan list (g.net.get_wifi_name)
 KB_PSK_SAVED = 2        # new password of the saved connection S.sel
 KB_HIDDEN_SSID = 3      # name of a hidden network
 KB_HIDDEN_PSK = 4       # its password (empty = open network)
@@ -33,7 +33,7 @@ def tr(key):
     """The text ``key`` of netstrings in the language of the screen."""
     from . import event
     event.get_mks_language_status()
-    return netstrings.text(key, g.mks_language_status)
+    return netstrings.text(key, g.config.language_status)
 
 
 def _clip(text, length):
@@ -198,7 +198,7 @@ def show_info():
 def _toggle_thread(arg):
     network.set_wifi_radio(not network.wifi_radio())
     sleep(2)        # NetworkManager needs a moment to bring the radio up / down
-    if g.current_page_id == ui.TJC_PAGE_NET_INFO:
+    if g.screen.page == ui.TJC_PAGE_NET_INFO:
         show_info()
 
 
@@ -213,10 +213,10 @@ def info_clicked(widget_id):
 # ---------------------------------------------------------------------------------------------- keyboard
 def open_keyboard(mode, minimum, title):
     """Opens the keyboard page; the screen sends back ``0x70 mode row text`` when the text is accepted.
-    The title of the page is the name of the network (``g.get_wifi_name``)."""
+    The title of the page is the name of the network (``g.net.get_wifi_name``)."""
     S.kbmode = mode
-    g.get_wifi_name = title
-    g.printing_wifi_keyboard_enabled = True
+    g.net.get_wifi_name = title
+    g.screen.printing_wifi_keyboard_enabled = True
     send_cmd_raw(g.tty_fd, "kbmode=%d" % mode)
     send_cmd_raw(g.tty_fd, "kbmin=%d" % minimum)
     ui.page_to(ui.TJC_PAGE_WIFI_KB)
@@ -228,7 +228,7 @@ def open_hidden():
 
 
 def keyboard_back():
-    g.printing_wifi_keyboard_enabled = False
+    g.screen.printing_wifi_keyboard_enabled = False
     if S.kbmode == KB_PSK_SAVED and S.sel is not None:
         open_detail(S.sel)
     else:
@@ -240,7 +240,7 @@ def keyboard_text(mode, text):
     """The text accepted on the keyboard page (str)."""
     from . import event
     MKSLOG_BLUE("Keyboard mode %d", mode)
-    g.printing_wifi_keyboard_enabled = False
+    g.screen.printing_wifi_keyboard_enabled = False
     if mode == KB_PSK_SCANNED:
         ui.page_to(ui.TJC_PAGE_WIFI_CONNECT)
         event.print_ssid_psk(text.encode("utf-8"))

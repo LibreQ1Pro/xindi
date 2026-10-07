@@ -53,13 +53,13 @@ def main(argv):
         system("dpkg -i --force-overwrite " + paths.gcode_files() + "/sda1/mksclient.recovery; sync")
 
     if access("/root/800_480.tft") == 0:
-        g.find_screen_tft_file = True
+        g.update.find_screen_tft_file = True
         MKSLOG_BLUE("Found the tft update file")
     else:
-        g.find_screen_tft_file = False
+        g.update.find_screen_tft_file = False
         MKSLOG_BLUE("No tft update file found")
 
-    if g.find_screen_tft_file == True:
+    if g.update.find_screen_tft_file == True:
         MKSLOG("Running the screen update")
         # The original runs "/root/uart; mv /root/800_480.tft /root/800_480.tft.bak";
         # the uart helper is built in (see uart.py).
@@ -175,15 +175,15 @@ def main(argv):
 
             # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
             ui.send_ui_version()
-            if g.find_screen_tft_file == False:
-                g.previous_page_id = ui.TJC_PAGE_LOGO
+            if g.update.find_screen_tft_file == False:
+                g.screen.previous_page = ui.TJC_PAGE_LOGO
                 if event.get_mks_oobe_enabled() == True:
-                    g.current_page_id = ui.TJC_PAGE_OPEN_LANGUAGE
+                    g.screen.page = ui.TJC_PAGE_OPEN_LANGUAGE
                 else:
-                    g.current_page_id = ui.TJC_PAGE_MAIN
+                    g.screen.page = ui.TJC_PAGE_MAIN
             else:
-                g.current_page_id = ui.TJC_PAGE_UPDATE_SUCCESS
-            ui.page_to(g.current_page_id)
+                g.screen.page = ui.TJC_PAGE_UPDATE_SUCCESS
+            ui.page_to(g.screen.page)
         except Exception as e:
             cerr("Page main error, ", str(e), "\n")
 

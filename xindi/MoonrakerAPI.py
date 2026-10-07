@@ -17,7 +17,7 @@ def string2json(response):
 
 
 def create_json_without_params(cmd):
-    g.response_type_id = cmd
+    g.rpc.response_type_id = cmd
     api = {}
     api["jsonrpc"] = "2.0"
     api["method"] = method2command.get(cmd, "")
@@ -26,7 +26,7 @@ def create_json_without_params(cmd):
 
 
 def create_json(cmd, params):
-    g.response_type_id = cmd
+    g.rpc.response_type_id = cmd
     api = {}
     api["jsonrpc"] = "2.0"
     api["method"] = method2command.get(cmd, "")

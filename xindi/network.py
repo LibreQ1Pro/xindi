@@ -123,12 +123,12 @@ def mks_wifi_run_cmd_status(result):
             fresh.wpa_state = "ASSOCIATING"
         else:
             fresh.wpa_state = "DISCONNECTED"
-    g.wifi_ip_address = fresh.ip_address
+    g.net.wifi_ip_address = fresh.ip_address
     result.__dict__.update(fresh.__dict__)
 
 
 def mks_wpa_scan_scanresults():
-    """Scans, fills ``g.ssid_list`` (the connected network first, then by signal) and ``g.level_list``."""
+    """Scans, fills ``g.net.ssid_list`` (the connected network first, then by signal) and ``g.levelling.level_list``."""
     dev = _device("wifi")
     if dev is None:
         MKSLOG_RED("No wifi interface")
@@ -148,7 +148,7 @@ def mks_wpa_scan_scanresults():
         signal = int(fields[1]) if fields[1].isdigit() else 0
         best[fields[0]] = max(signal, best.get(fields[0], 0))
 
-    connected = g.current_connected_ssid_name if g.status_result.wpa_state == "COMPLETED" else ""
+    connected = g.net.current_connected_ssid_name if g.net.status_result.wpa_state == "COMPLETED" else ""
     ssids = sorted(best, key=lambda s: -best[s])
     if connected:
         if connected in ssids:
@@ -156,8 +156,8 @@ def mks_wpa_scan_scanresults():
         ssids.insert(0, connected)
         best.setdefault(connected, 0)
 
-    g.ssid_list = ssids
-    g.level_list = [best[s] for s in ssids]
+    g.net.ssid_list = ssids
+    g.levelling.level_list = [best[s] for s in ssids]
     for ssid in ssids:
         MKSLOG_RED("%s", ssid)
     return 0
@@ -210,8 +210,8 @@ def _connect_thread(arg):
     func, args, ssid = arg
     MKSLOG_BLUE("Connecting to %s", ssid)
     ok = func(*args)
-    mks_wifi_run_cmd_status(g.status_result)
-    if g.current_page_id == ui.TJC_PAGE_WIFI_CONNECT:
+    mks_wifi_run_cmd_status(g.net.status_result)
+    if g.screen.page == ui.TJC_PAGE_WIFI_CONNECT:
         ui.page_to(ui.TJC_PAGE_WIFI_SUCCESS if ok else ui.TJC_PAGE_WIFI_FAILED)
 
 
@@ -304,15 +304,15 @@ def device_report(kind):
 
 def mks_save_config():
     """The connection is saved by NetworkManager when it is made, only the screen steps remain."""
-    mks_wifi_run_cmd_status(g.status_result)
-    if ui.TJC_PAGE_WIFI_SAVING == g.current_page_id:
+    mks_wifi_run_cmd_status(g.net.status_result)
+    if ui.TJC_PAGE_WIFI_SAVING == g.screen.page:
         sleep(3)
-        g.page_wifi_list_ssid_button_enabled[0] = False
-        g.page_wifi_list_ssid_button_enabled[1] = False
-        g.page_wifi_list_ssid_button_enabled[2] = False
-        g.page_wifi_list_ssid_button_enabled[3] = False
-        g.page_wifi_ssid_list_pages = 0
-        g.page_wifi_current_pages = 0
+        g.screen.wifi_ssid_button_enabled[0] = False
+        g.screen.wifi_ssid_button_enabled[1] = False
+        g.screen.wifi_ssid_button_enabled[2] = False
+        g.screen.wifi_ssid_button_enabled[3] = False
+        g.net.wifi_ssid_list_pages = 0
+        g.net.wifi_current_pages = 0
         from . import event
         event.go_to_network()
     return 0
@@ -336,8 +336,8 @@ def mks_wifi_hdlevent_thread(arg=None):
                 time.sleep(1)       # let a burst of events settle
                 while select.select([proc.stdout], [], [], 0)[0] and proc.stdout.readline():
                     pass
-                mks_wifi_run_cmd_status(g.status_result)
-                g.wlan_state_str = "connected" if g.status_result.wpa_state == "COMPLETED" else "disconnected"
+                mks_wifi_run_cmd_status(g.net.status_result)
+                g.net.wlan_state_str = "connected" if g.net.status_result.wpa_state == "COMPLETED" else "disconnected"
         finally:
             proc.kill()
             proc.wait()

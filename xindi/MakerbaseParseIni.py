@@ -28,8 +28,8 @@ VERSION_PATH = "/root/xindi/version"
 
 def updateini_load():
     """CLL information about the online update"""
-    g.mksini = iniparser_load("/root/auto_update/update_info.ini")
-    if g.mksini is None:
+    g.config.mksini = iniparser_load("/root/auto_update/update_info.ini")
+    if g.config.mksini is None:
         cout("Ini parse failure")
         return -1
     return 0
@@ -37,8 +37,8 @@ def updateini_load():
 
 def progressini_load():
     """CLL progress of the online update"""
-    g.mksini = iniparser_load("/root/auto_update/update_progress.ini")
-    if g.mksini is None:
+    g.config.mksini = iniparser_load("/root/auto_update/update_progress.ini")
+    if g.config.mksini is None:
         cout("Ini parse failure")
         return -1
     return 0
@@ -113,47 +113,47 @@ def _create_default_mksini(path):
 def mksini_load():
     if not os.path.exists(_inipath()):
         _create_default_mksini(_inipath())
-    g.mksini = iniparser_load(_inipath())
-    if g.mksini is None:
+    g.config.mksini = iniparser_load(_inipath())
+    if g.config.mksini is None:
         cout("Ini parse failure!")
         return -1
     return 0
 
 
 def mksini_free():
-    iniparser_freedict(g.mksini)
+    iniparser_freedict(g.config.mksini)
 
 
 def mksini_getstring(section, key, default):
     sk = section + ":" + key
-    value = iniparser_getstring(g.mksini, s2b(sk), s2b(default))
+    value = iniparser_getstring(g.config.mksini, s2b(sk), s2b(default))
     return b2s(value) if value is not None else ""
 
 
 def mksini_getint(section, key, notfound):
     sk = section + ":" + key
-    return iniparser_getint(g.mksini, s2b(sk), notfound)
+    return iniparser_getint(g.config.mksini, s2b(sk), notfound)
 
 
 def mksini_getdouble(section, key, notfound):
     sk = section + ":" + key
-    return iniparser_getdouble(g.mksini, s2b(sk), notfound)
+    return iniparser_getdouble(g.config.mksini, s2b(sk), notfound)
 
 
 def mksini_getboolean(section, key, notfound):
     sk = section + ":" + key
-    value = iniparser_getboolean(g.mksini, s2b(sk), notfound)
+    value = iniparser_getboolean(g.config.mksini, s2b(sk), notfound)
     return False if value == 0 else True
 
 
 def mksini_set(section, key, value):
     sk = section + ":" + key
-    return iniparser_set(g.mksini, s2b(sk), s2b(value))
+    return iniparser_set(g.config.mksini, s2b(sk), s2b(value))
 
 
 def mksini_unset(section, key):
     sk = section + ":" + key
-    iniparser_unset(g.mksini, s2b(sk))
+    iniparser_unset(g.config.mksini, s2b(sk))
 
 
 def mksini_save():
@@ -164,31 +164,31 @@ def mksini_save():
         print("[error] open mksini failed", end="")
         return
     with ini:
-        iniparser_dump_ini(g.mksini, ini)
+        iniparser_dump_ini(g.config.mksini, ini)
 
 
 def mksversion_load():
-    g.mksversion = iniparser_load(VERSION_PATH)
-    if g.mksversion is None:
+    g.config.mksversion = iniparser_load(VERSION_PATH)
+    if g.config.mksversion is None:
         cout("Mks version failure!")
         return -1
     return 0
 
 
 def mksversion_free():
-    iniparser_freedict(g.mksversion)
+    iniparser_freedict(g.config.mksversion)
 
 
 def mksversion_mcu(default):
-    value = iniparser_getstring(g.mksversion, b"version:mcu", s2b(default))
+    value = iniparser_getstring(g.config.mksversion, b"version:mcu", s2b(default))
     return b2s(value) if value is not None else ""
 
 
 def mksversion_ui(default):
-    value = iniparser_getstring(g.mksversion, b"version:ui", s2b(default))
+    value = iniparser_getstring(g.config.mksversion, b"version:ui", s2b(default))
     return b2s(value) if value is not None else ""
 
 
 def mksversion_soc(default):
-    value = iniparser_getstring(g.mksversion, b"version:soc", s2b(default))
+    value = iniparser_getstring(g.config.mksversion, b"version:soc", s2b(default))
     return b2s(value) if value is not None else ""

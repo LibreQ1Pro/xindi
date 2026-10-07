@@ -66,36 +66,36 @@ def detect_update():
                 continue
 
             if filename.find("QD_Q1_PATCH") == 0:
-                g.detected_q1_patch_data = True
+                g.update.detected_q1_patch_data = True
                 continue
             if filename.find("QD_Q1_UI") == 0:
-                g.detected_q1_ui_data = True
+                g.update.detected_q1_ui_data = True
                 continue
             if filename.find("QD_Q1_SOC") == 0:
-                g.detected_q1_soc_data = True
+                g.update.detected_q1_soc_data = True
                 continue
             if filename.find("QD_Mates3_UI") == 0:
-                g.detected_ui_data = True
+                g.update.detected_ui_data = True
                 continue
             if filename.find("QD_Mates3_SOC") == 0:
-                g.detected_soc_data = True
+                g.update.detected_soc_data = True
                 continue
     else:
         print("Usb device path not found: %s" % _base_path())
 
-    g.detected_mcu_data = access(paths.gcode_files() + "/sda1/QD_MCU/MCU") == 0
-    g.detected_gcode_cfg = access(paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg") == 0
-    g.detected_printer_cfg = access(paths.gcode_files() + "/sda1/QD_Update/printer.cfg") == 0
-    g.detected_MKS_THR_cfg = access(paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg") == 0
-    g.detected_gcode = access(paths.gcode_files() + "/sda1/QD_Update/QD_Gcode") == 0
+    g.update.detected_mcu_data = access(paths.gcode_files() + "/sda1/QD_MCU/MCU") == 0
+    g.update.detected_gcode_cfg = access(paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg") == 0
+    g.update.detected_printer_cfg = access(paths.gcode_files() + "/sda1/QD_Update/printer.cfg") == 0
+    g.update.detected_MKS_THR_cfg = access(paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg") == 0
+    g.update.detected_gcode = access(paths.gcode_files() + "/sda1/QD_Update/QD_Gcode") == 0
 
     # 4.4.3 CLL updates from .deb files
     if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
-        g.detected_soc_deb = access(paths.gcode_files() + "/sda1/QD_Update/mks.deb") == 0
+        g.update.detected_soc_deb = access(paths.gcode_files() + "/sda1/QD_Update/mks.deb") == 0
 
-    return (g.detected_soc_data | g.detected_q1_soc_data | g.detected_mcu_data | g.detected_ui_data |
-            g.detected_q1_ui_data | g.detected_printer_cfg | g.detected_MKS_THR_cfg | g.detected_gcode |
-            g.detected_soc_deb | g.detected_gcode_cfg | g.detected_q1_patch_data)
+    return (g.update.detected_soc_data | g.update.detected_q1_soc_data | g.update.detected_mcu_data | g.update.detected_ui_data |
+            g.update.detected_q1_ui_data | g.update.detected_printer_cfg | g.update.detected_MKS_THR_cfg | g.update.detected_gcode |
+            g.update.detected_soc_deb | g.update.detected_gcode_cfg | g.update.detected_q1_patch_data)
 
 
 def start_update():
@@ -107,7 +107,7 @@ def start_update():
         access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") != -1
     )
 
-    if g.detected_mcu_data == True:
+    if g.update.detected_mcu_data == True:
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
             event.close_mcu_port()
@@ -122,7 +122,7 @@ def start_update():
                 event.close_mcu_port()
                 system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; mv " + paths.gcode_files() + "/sda1/QD_MCU/MCU " + paths.gcode_files() + "/sda1/QD_MCU/MCU.bak")
 
-    if g.detected_gcode_cfg == True:
+    if g.update.detected_gcode_cfg == True:
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("cp " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.klipper_config() + "/gcode_macro.cfg; chmod 777 " + paths.klipper_config() + "/gcode_macro.cfg; sync")
         else:
@@ -131,7 +131,7 @@ def start_update():
             else:
                 system("cp " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.klipper_config() + "/gcode_macro.cfg; chmod 777 " + paths.klipper_config() + "/gcode_macro.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg " + paths.gcode_files() + "/sda1/QD_Update/gcode_macro.cfg.bak; sync")
 
-    if g.detected_printer_cfg == True:
+    if g.update.detected_printer_cfg == True:
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("cp " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.klipper_config() + "/printer.cfg; chmod 777 " + paths.klipper_config() + "/printer.cfg; sync")
         else:
@@ -140,7 +140,7 @@ def start_update():
             else:
                 system("cp " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.klipper_config() + "/printer.cfg; chmod 777 " + paths.klipper_config() + "/printer.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg " + paths.gcode_files() + "/sda1/QD_Update/printer.cfg.bak; sync")
 
-    if g.detected_MKS_THR_cfg == True:
+    if g.update.detected_MKS_THR_cfg == True:
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("cp " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.klipper_config() + "/MKS_THR.cfg; chmod 777 " + paths.klipper_config() + "/MKS_THR.cfg; sync")
         else:
@@ -149,7 +149,7 @@ def start_update():
             else:
                 system("cp " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.klipper_config() + "/MKS_THR.cfg; chmod 777 " + paths.klipper_config() + "/MKS_THR.cfg; mv " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg " + paths.gcode_files() + "/sda1/QD_Update/MKS_THR.cfg.bak; sync")
 
-    if g.detected_gcode == True:
+    if g.update.detected_gcode == True:
         # Delete everything else in gcode_files first, the sda1 directory and its
         # files are kept.  Uses rm -rf, be careful when changing the paths!!!
         system("rm " + paths.gcode_files() + "/*\n")
@@ -162,7 +162,7 @@ def start_update():
         system("systemctl restart moonraker.service\n")
 
     # UI file found
-    if g.detected_ui_data or g.detected_q1_ui_data:
+    if g.update.detected_ui_data or g.update.detected_q1_ui_data:
         entries = _listdir(_base_path())
         if entries is not None:
             for filename in entries:
@@ -179,7 +179,7 @@ def start_update():
             print("Directory not found: %s" % _base_path())
 
     # SOC or PATCH file found
-    if g.detected_q1_patch_data or g.detected_q1_soc_data or g.detected_soc_data:
+    if g.update.detected_q1_patch_data or g.update.detected_q1_soc_data or g.update.detected_soc_data:
         entries = _listdir(_base_path())
         if entries is not None:
             for filename in entries:
@@ -198,7 +198,7 @@ def start_update():
         else:
             print("Directory not found: %s" % _base_path())
 
-    if g.detected_soc_deb == True:
+    if g.update.detected_soc_deb == True:
         # 4.4.3 CLL updates from .deb files
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("dpkg -i --force-overwrite " + paths.gcode_files() + "/sda1/QD_Update/mks.deb;sync")
@@ -207,44 +207,44 @@ def start_update():
 
 
 def download_to_screen():
-    cout("tft_start == ", g.tft_start)
-    if g.tft_start < g.tft_len:
-        if g.tft_end > g.tft_len:
-            g.tft_s = g.tft_data[g.tft_start:g.tft_len]
-            cout("Sending download data == ", g.tft_start, "/", g.filesize)
-            send_cmd_download_data(g.tty_fd, g.tft_s)
-        g.tft_s = g.tft_data[g.tft_start:g.tft_start + g.tft_buff]
-        cout(len(g.tft_s), " Sending download data == ", g.tft_start, "/", g.filesize)
-        g.tft_start = g.tft_end
-        g.tft_end = g.tft_end + g.tft_buff
-        send_cmd_download_data(g.tty_fd, g.tft_s)
+    cout("tft_start == ", g.update.tft_start)
+    if g.update.tft_start < g.update.tft_len:
+        if g.update.tft_end > g.update.tft_len:
+            g.update.tft_s = g.update.tft_data[g.update.tft_start:g.update.tft_len]
+            cout("Sending download data == ", g.update.tft_start, "/", g.update.filesize)
+            send_cmd_download_data(g.tty_fd, g.update.tft_s)
+        g.update.tft_s = g.update.tft_data[g.update.tft_start:g.update.tft_start + g.update.tft_buff]
+        cout(len(g.update.tft_s), " Sending download data == ", g.update.tft_start, "/", g.update.filesize)
+        g.update.tft_start = g.update.tft_end
+        g.update.tft_end = g.update.tft_end + g.update.tft_buff
+        send_cmd_download_data(g.tty_fd, g.update.tft_s)
 
 
 def init_download_to_screen():
     if access("/root/800_480.tft") == 0:
-        g.tft_data = b""
+        g.update.tft_data = b""
         try:
             with open("/root/800_480.tft", "rb") as tftfile:
-                g.filesize = os.stat("/root/800_480.tft").st_size
-                cout("File size: ", g.filesize)
-                g.tft_data = tftfile.read()
+                g.update.filesize = os.stat("/root/800_480.tft").st_size
+                cout("File size: ", g.update.filesize)
+                g.update.tft_data = tftfile.read()
         except OSError:
             pass
-        cout("Length of the read data: ", len(g.tft_data))
-        g.tft_len = len(g.tft_data)
-        g.tft_end = g.tft_buff
+        cout("Length of the read data: ", len(g.update.tft_data))
+        g.update.tft_len = len(g.update.tft_data)
+        g.update.tft_end = g.update.tft_buff
 
 
 def back_to_screen_old():
     if access("/root/800_480.tft.bak") == 0:
-        g.tft_data = b""
+        g.update.tft_data = b""
         try:
             with open("/root/800_480.tft.bak", "rb") as tftfile:
-                g.filesize = os.stat("/root/800_480.tft.bak").st_size
-                cout("File size: ", g.filesize)
-                send_cmd_download(g.tty_fd, g.filesize)
-                g.tft_data = tftfile.read()
+                g.update.filesize = os.stat("/root/800_480.tft.bak").st_size
+                cout("File size: ", g.update.filesize)
+                send_cmd_download(g.tty_fd, g.update.filesize)
+                g.update.tft_data = tftfile.read()
         except OSError:
             pass
-        g.tft_len = len(g.tft_data)
-        g.tft_end = g.tft_buff
+        g.update.tft_len = len(g.update.tft_data)
+        g.update.tft_end = g.update.tft_buff

@@ -56,28 +56,28 @@ def sent_jpg_thread_handle(arg=None):
 
     while True:
         # refresh the small preview pictures
-        if g.begin_show_64_jpg:
-            g.begin_show_64_jpg = False
+        if g.pictures.begin_show_64_jpg:
+            g.pictures.begin_show_64_jpg = False
             # 4.4.22: refresh_page_show() waits while the pictures are sent; the
             # touch (disabled by the page buttons of the file list) is enabled
             # once at the end instead of around every picture
-            g.send_jpg_status = True
+            g.pictures.send_jpg_status = True
             for i in range(6):
-                if g.have_64_jpg[i] == True:
+                if g.pictures.have_64_jpg[i] == True:
                     usleep(50500 + i * 500)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
-                    if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
+                    if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
                         # Python only: jpg made from the thumbnail inside the gcode file
-                        cout(g.have_64_png_path[i])
-                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
+                        cout(g.pictures.have_64_png_path[i])
+                        jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], 112)
                         if jpg_data is not None:
                             sent_jpg_to_tjc(ram_path, jpg_data)
                     else:
-                        jpg_path = paths.gcode_files() + "/" + g.have_64_png_path[i]
+                        jpg_path = paths.gcode_files() + "/" + g.pictures.have_64_png_path[i]
                         cout(jpg_path)
                         sent_jpg_to_tjc(ram_path, jpg_path)
-                    g.have_64_jpg[i] = False
-            g.send_jpg_status = False
+                    g.pictures.have_64_jpg[i] = False
+            g.pictures.send_jpg_status = False
             send_cmd_tsw(g.tty_fd, "255", "1")      # enable touch
             MKSLOG_BLUE("Touch enabled")
 
@@ -158,7 +158,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
     # wait for 0xfe + terminator
     usleep(105000)
     # send header + data frames until the end of the file
-    g.sent_jpg_to_tjc_start_time = int(time.time())
+    g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
     while True:
         chunk = f.read(read_buf_size - 2)           # keep two bytes for the CRC
         file_res = len(chunk)
@@ -182,15 +182,15 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         _write(g.tty_fd, read_buf[:file_res + 2])
 
         # 0x05 means the frame was written successfully
-        g.sent_jpg_to_tjc_start_time = int(time.time())
+        g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
         resent_time = int(time.time() * 1000)
-        g.get_0x05 = False
-        g.get_0xfd = False
-        g.get_0x04 = False
-        while not g.get_0x05 and not g.get_0xfd:
+        g.update.get_0x05 = False
+        g.update.get_0xfd = False
+        g.update.get_0x04 = False
+        while not g.update.get_0x05 and not g.update.get_0xfd:
             usleep(2000)
             # 0x04 means the frame could not be written
-            if g.get_0x04:
+            if g.update.get_0x04:
                 # leave the pass-through mode
                 _write(g.tty_fd, exit_buf)
                 print("".join("%02X" % b for b in exit_buf))
@@ -199,7 +199,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 f.close()
                 return False
             # re-send on timeout
-            if time_differ_ms(800, resent_time) and g.get_0x24 == False:
+            if time_differ_ms(800, resent_time) and g.update.get_0x24 == False:
                 resent_time = int(time.time() * 1000)
                 # re-send the data frame
                 _write(g.tty_fd, head_buf)
@@ -207,7 +207,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 MKSLOG_GREEN("Timed out waiting for the answer, re-sending the frame")
 
             # timeout
-            if time_differ(4, g.sent_jpg_to_tjc_start_time):
+            if time_differ(4, g.pictures.sent_jpg_to_tjc_start_time):
                 _write(g.tty_fd, exit_buf)
                 print("".join("%02X" % b for b in exit_buf))
                 _write(g.tty_fd, exit_buf)
@@ -217,16 +217,16 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 return False
 
             # CLL stop sending when the screen buffer overflows
-            if g.get_0x24 == True:
+            if g.update.get_0x24 == True:
                 sleep(4)
-                g.get_0x24 = False
+                g.update.get_0x24 = False
                 f.close()       # (Python only: the original leaks the FILE)
                 return False
 
         # next frame id
         head_id = (head_id + 1) & 0xffff
         # timeout
-        if time_differ(6, g.sent_jpg_to_tjc_start_time):
+        if time_differ(6, g.pictures.sent_jpg_to_tjc_start_time):
             _write(g.tty_fd, exit_buf)
             print("".join("%02X" % b for b in exit_buf))
             _write(g.tty_fd, exit_buf)
