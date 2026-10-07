@@ -33,8 +33,10 @@
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
  },
  "http": [
+  "GET /server/files/roots",
   "GET /server/files/directory?path=gcodes//.cache",
-  "GET /server/files/directory?path=gcodes/"
+  "GET /server/files/directory?path=gcodes/",
+  "GET /server/files/gcodes/.cache/last_print.gcode"
  ],
  "pages": [
   3,
@@ -176,6 +178,10 @@
     "b[0].pic": [
      "29"
     ],
+    "baud": [
+     "921600",
+     "115200"
+    ],
     "bed_btn.picc": [
      "32"
     ],
@@ -214,6 +220,24 @@
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
+    ],
+    "last_file_pic.close()": [
+     ""
+    ],
+    "last_file_pic.write": [
+     "9e70e8c148492bf5:2048",
+     "d8ac85f575bc5d6d:2048",
+     "a5974b33f0282ee6:2048",
+     "866ed71bc1a13bfd:2048",
+     "9ab7535511b7c520:2048",
+     "54cc076c94d4697f:2048",
+     "99ce824b5e5f046f:2048",
+     "9cf3c6572625d41d:2048",
+     "31560625bdbb6af9:2048",
+     "7a185ec3fe8a73c9:2048",
+     "5213b08d999c5a28:2048",
+     "72f4aa58e7a7928b:2048",
+     "2a2ab89f367b5253:8"
     ],
     "light_btn.picc": [
      "32"

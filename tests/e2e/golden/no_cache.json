@@ -30,12 +30,16 @@
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
  },
  "http": [
+  "GET /server/files/roots",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/directory?path=gcodes//.cache",
-  "GET /server/files/directory?path=gcodes/"
+  "GET /server/files/directory?path=gcodes/",
+  "GET /server/files/gcodes/Benchy%20PLA.gcode",
+  "GET /server/files/gcodes/big_petg.gcode",
+  "GET /server/files/gcodes/cube.gcode"
  ],
  "pages": [
   15,

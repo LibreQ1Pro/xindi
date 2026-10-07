@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-E2E test harness - runs INSIDE the xindi-e2e docker image.
+E2E test harness - runs INSIDE the xindi-port-test docker image.
 
-It starts one implementation of the screen backend ("cpp" = the original C++
-build, "py" = the Python port, mounted at /opt/src_py) in a simulated printer environment
+It starts the Python screen backend (mounted at /opt/src_py) in a simulated printer environment
 and records everything the program does to the outside world:
 
 * a virtual TJC screen on a pty linked to /dev/ttyS1 (records every
@@ -15,7 +14,7 @@ and records everything the program does to the outside world:
 * the files the program creates or modifies.
 
 The scenario (see scenarios.py) drives the program; the collected trace is
-written as JSON and compared between both implementations by run_e2e.py.
+written as JSON and compared with the golden traces by golden.py.
 """
 
 import argparse
@@ -92,7 +91,7 @@ class Screen(threading.Thread):
         parser = threading.Thread(target=self._parser, daemon=True)
         parser.start()
         # a native relay process drains the pty master into a pipe
-        relay = "/tmp/xindi_relay"
+        relay = "/opt/support/relay"
         rd, wr = os.pipe()
         subprocess.Popen([relay, str(self.fd)], stdout=wr, pass_fds=(self.fd,))
         os.close(wr)
@@ -554,7 +553,6 @@ class Harness(object):
 
     # -- environment -----------------------------------------------------
     def setup(self):
-        subprocess.run(["gcc", "-O2", os.path.join(HERE, "relay.c"), "-o", "/tmp/xindi_relay"], check=True)
         self.fixture.install()
         if os.path.exists(SHELL_LOG):
             os.unlink(SHELL_LOG)
@@ -585,10 +583,7 @@ class Harness(object):
             "PYTHONDONTWRITEBYTECODE": "1",
             "PYTHONUNBUFFERED": "1",
         })
-        if self.impl == "cpp":
-            cmd = ["/opt/xindi_cpp/build/xindi", "localhost"]
-        else:
-            cmd = ["python3", "/opt/src_py/main.py", "localhost"]
+        cmd = ["python3", "/opt/src_py/main.py", "localhost"]
         # lower priority than the harness so that the virtual screen keeps up
         cmd = ["nice", "-n", "10"] + cmd
         self.sut_log = open(os.path.join(self.out_dir, "%s_%s.log" % (self.impl, self.scenario_name)), "wb")
@@ -648,7 +643,7 @@ class Harness(object):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--impl", choices=["cpp", "py"], required=True)
+    ap.add_argument("--impl", choices=["py"], default="py")
     ap.add_argument("--scenario", required=True)
     ap.add_argument("--out", default="/out")
     args = ap.parse_args()

@@ -32,7 +32,9 @@
   "/root/mcu_shutdown.txt": null,
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
  },
- "http": [],
+ "http": [
+  "GET /server/files/roots"
+ ],
  "pages": [
   3,
   10,

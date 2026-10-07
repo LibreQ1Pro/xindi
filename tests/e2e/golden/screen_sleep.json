@@ -33,10 +33,15 @@
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
  },
  "http": [
+  "GET /server/files/roots",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
+  "GET /server/files/gcodes/.cache/last_print.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
+  "GET /server/files/gcodes/.cache/last_print.gcode",
+  "GET /server/files/gcodes/Benchy%20PLA.gcode",
+  "GET /server/files/gcodes/big_petg.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/"
  ],
@@ -126,10 +131,12 @@
      "2a2ab89f367b5253:8"
     ],
     "light_btn.picc": [
-     "32"
+     "32",
+     "33"
     ],
     "light_btn.picc2": [
-     "30"
+     "30",
+     "31"
     ],
     "nozzle_btn.picc": [
      "32"

@@ -161,16 +161,8 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 `tests/unit/` has the tests of the pure logic (no printer, no network): `PYTHONPATH=. python3 -I -m unittest discover -s tests/unit -t .`
 (the splitting of the screen's byte stream into frames, `xindi/screen_rx.py`).
 
-`tests/e2e/` contains the E2E equivalence tests. Every scenario runs once with
-the original C++ program and once with this port in docker, and the complete
-external behaviour is compared. The C++ sources are downloaded at the pinned
-commit; the original helper binaries of the printer (`uart`, `gene4.py`,
-`libColPic.so`) are not stored here and have to be provided from the printer's
-eMMC. See `tests/e2e/README.md`.
-
-The reference program of the tests is built from the V4.4.19 sources, while
-the port now follows the screen firmware V4.4.24, so the scenarios no longer
-match where the screen changed (version, button codes, new pages).
+`tests/e2e/` runs the port in a simulated printer in docker and compares everything it does with golden traces,
+to check refactorings (`tests/e2e/golden.py check`). See `tests/e2e/README.md`.
 
 ## License
 
