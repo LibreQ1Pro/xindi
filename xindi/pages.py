@@ -3,7 +3,6 @@
 from . import state as g
 from . import pageids as ids
 from . import pics
-from . import ui
 from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, c_round, system, sleep, usleep

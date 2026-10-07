@@ -17,7 +17,7 @@ from . import state as g
 from . import pageids as ids
 from . import ui
 from .cpp import sleep, pthread_create
-from .mks_log import MKSLOG, MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_BLUE
+from .mks_log import MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_BLUE
 
 NMCLI = "nmcli"
 ENV = {"LC_ALL": "C", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}

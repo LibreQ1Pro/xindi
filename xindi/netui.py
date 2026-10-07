@@ -8,7 +8,7 @@ from . import pics
 from . import ui
 from . import network
 from . import netstrings
-from .cpp import b2s, sleep, pthread_create
+from .cpp import sleep, pthread_create
 from .mks_log import MKSLOG, MKSLOG_BLUE
 from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
 
@@ -32,7 +32,7 @@ class S:
 
 def tr(key):
     """The text ``key`` of netstrings in the language of the screen."""
-    from . import settings, wifi_ui
+    from . import settings
     settings.get_language_status()
     return netstrings.text(key, g.config.language_status)
 
@@ -99,7 +99,7 @@ def saved_clicked(widget_id):
         S.page += 1
         show_saved()
     elif widget_id == 23:                       # back
-        from . import settings, wifi_ui
+        from . import wifi_ui
         wifi_ui.go_to_network()
 
 
@@ -207,7 +207,7 @@ def info_clicked(widget_id):
     if widget_id == 1:          # the wired link is never switched: LAN and Wi-Fi are used together
         pthread_create(_toggle_thread, None)
     elif widget_id == 23:
-        from . import settings, wifi_ui
+        from . import wifi_ui
         wifi_ui.refresh_ip_address()
 
 
@@ -233,13 +233,13 @@ def keyboard_back():
     if S.kbmode == KB_PSK_SAVED and S.sel is not None:
         open_detail(S.sel)
     else:
-        from . import settings, wifi_ui
+        from . import wifi_ui
         wifi_ui.go_to_network()
 
 
 def keyboard_text(mode, text):
     """The text accepted on the keyboard page (str)."""
-    from . import settings, wifi_ui
+    from . import wifi_ui
     MKSLOG_BLUE("Keyboard mode %d", mode)
     g.screen.printing_wifi_keyboard_enabled = False
     if mode == KB_PSK_SCANNED:

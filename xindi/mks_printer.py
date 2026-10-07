@@ -1,7 +1,7 @@
 """Port of src/mks_printer.cpp - parsing of the Klipper printer object status."""
 
 from . import state as g
-from .cpp import (jget, jpath, jstr, jfloat, jdouble, jint, jbool, f32, c_int, c_round, json_dump)
+from .cpp import jget, jpath, jstr, jfloat, jdouble, jbool, f32, c_int, c_round, json_dump
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout
 
 

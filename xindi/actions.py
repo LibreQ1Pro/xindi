@@ -7,7 +7,6 @@ from . import paths
 from . import state as g
 from . import pageids as ids
 from . import pics
-from . import ui
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr

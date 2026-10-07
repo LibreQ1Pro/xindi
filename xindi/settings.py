@@ -3,7 +3,6 @@
 from . import paths
 from . import state as g
 from . import pageids as ids
-from . import ui
 from . import network
 from .ui import page_to
 from .cpp import to_string, cdiv, system, sleep

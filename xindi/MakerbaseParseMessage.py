@@ -6,7 +6,6 @@ MakerbaseCommand.method2id), notifications by their method name.
 
 from . import state as g
 from . import pageids as ids
-from . import ui
 from .cpp import jget, jpath, jstr, jint, jeq, json_dump, json_clear
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
 from .MoonrakerAPI import string2json

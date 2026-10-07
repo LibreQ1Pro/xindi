@@ -2,7 +2,7 @@
 
 from . import state as g
 from .mks_log import cout
-from .network import detected_wlan0, mks_wifi_run_cmd_status
+from .network import mks_wifi_run_cmd_status
 
 
 def set_page_wifi_ssid_list(pages):

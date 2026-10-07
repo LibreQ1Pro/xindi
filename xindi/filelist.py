@@ -6,7 +6,6 @@ from . import paths
 from . import state as g
 from . import pageids as ids
 from . import pics
-from . import ui
 from . import mks_file
 from . import thumbnail
 from .ui import page_to
