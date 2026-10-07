@@ -6,13 +6,18 @@ The unpacked stock V4.4.24 project in the portable format (see `PORTABLE_FORMAT.
 
 ## Build
 
+The project is built with [hmi-builder](../../../QSART_Linux_EN/hmi-builder) (`pip install Pillow fonttools`):
+
 ```bash
-cd QSART_Linux_EN
-python3 hmi_project.py pack /path/to/display_firmware out.HMI --config project.json
-python3 hmi_parse.py out.HMI --check
+python3 tools/build_hmi.py [OUT.HMI]     # default: out/display.HMI
 ```
 
-`out.HMI` is a project, not the firmware: open it in USART HMI and use *File -> Output production file* to get the
+It runs the three lints (`lint_program`, `lint_frames`, `lint_page_ids`), `validate`, `pack`, `hmi_parse --check`
+and writes `OUT.HMI.sha256`. hmi-builder is found through `$HMI_BUILDER` (its checkout), then `../../hmi-builder`,
+then `~/Projects/QSART_Linux_EN/hmi-builder`. `.github/workflows/display.yml` does the same in CI and uploads the
+`.HMI` as an artifact.
+
+`OUT.HMI` is a project, not the firmware: open it in USART HMI and use *File -> Output production file* to get the
 `.tft` (the printer flashes `/root/800_480.tft` into the screen at start-up).
 
 `tools/add_network_pages.py` is the script that made the network changes from the stock sources (it refuses to run

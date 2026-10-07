@@ -1,0 +1,27 @@
+name: display
+
+on:
+  push:
+    paths: [display_firmware/**]
+  workflow_dispatch:
+
+jobs:
+  hmi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ponywka/hmi-builder
+          path: hmi-builder
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow fonttools
+      - run: python display_firmware/tools/build_hmi.py
+        env:
+          HMI_BUILDER: ${{ github.workspace }}/hmi-builder
+      - uses: actions/upload-artifact@v4
+        with:
+          name: display-hmi
+          path: display_firmware/out/display.HMI*

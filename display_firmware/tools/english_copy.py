@@ -24,9 +24,11 @@ import struct
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, "/home/ponywka/Projects/QSART_Linux_EN")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import build_hmi   # noqa: E402
 import translations   # noqa: E402
+
+sys.path.insert(0, os.path.join(build_hmi.find_builder(), "tools"))   # hmi_font
 
 # short words of buttons: the Chinese text of the component in the stock project is in the comment
 BUTTON_COPY = {
