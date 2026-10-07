@@ -35,7 +35,7 @@ def wifi_list(page_id, widget_id):
     elif widget_id in (ids.WIFI_LIST_SSID_1, ids.WIFI_LIST_SSID_2, ids.WIFI_LIST_SSID_3,
                        ids.WIFI_LIST_SSID_4, ids.WIFI_LIST_SSID_5):
         index = widget_id - ids.WIFI_LIST_SSID_1
-        if g.screen.wifi_ssid_button_enabled[index] == True:
+        if g.screen.wifi_ssid_button_enabled[index]:
             wifi_ui.get_wifi_list_ssid(index)
             netui.open_keyboard(netui.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
     elif widget_id == ids.WIFI_LIST_SAVED:

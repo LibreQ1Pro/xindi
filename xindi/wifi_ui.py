@@ -13,7 +13,7 @@ from .network import (get_eth0_ip, get_wlan0_ip, detected_wlan0, get_wlan0_statu
 
 
 def refresh_wifi_keyboard():
-    if g.screen.printing_wifi_keyboard_enabled == True:
+    if g.screen.printing_wifi_keyboard_enabled:
         send_cmd_txt(g.tty_fd, "title", g.net.get_wifi_name)
 
 

@@ -59,7 +59,7 @@ def main(argv):
         g.update.find_screen_tft_file = False
         MKSLOG_BLUE("No tft update file found")
 
-    if g.update.find_screen_tft_file == True:
+    if g.update.find_screen_tft_file:
         MKSLOG("Running the screen update")
         # The original runs "/root/uart; mv /root/800_480.tft /root/800_480.tft.bak";
         # the uart helper is built in (see screen_flash.py).
@@ -175,9 +175,9 @@ def main(argv):
 
             # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
             ui.send_ui_version()
-            if g.update.find_screen_tft_file == False:
+            if not g.update.find_screen_tft_file:
                 g.screen.previous_page = ids.LOGO
-                if settings.get_oobe_enabled() == True:
+                if settings.get_oobe_enabled():
                     g.screen.page = ids.OPEN_LANGUAGE
                 else:
                     g.screen.page = ids.MAIN

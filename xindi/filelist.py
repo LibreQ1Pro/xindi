@@ -35,7 +35,7 @@ def _name_of(path):
 def refresh_files_list():
     # 4.4.22: the pictures are only sent again when the list changed
     # (file_list_refreshed), the folder and page are kept meanwhile
-    if g.screen.file_list_refreshed == False:
+    if not g.screen.file_list_refreshed:
         delete_small_jpg()
     if detect_disk_2() == 1 and g.screen.file_mode == "USB":
         send_cmd_txt(g.tty_fd, "empty_msg", "")
@@ -91,7 +91,7 @@ def refresh_files_list():
     else:
         send_cmd_picc(g.tty_fd, "up_dir", pics.files_item_dir)
         send_cmd_picc2(g.tty_fd, "up_dir", pics.files_tab_local_press)
-    if g.screen.file_list_refreshed == True:
+    if g.screen.file_list_refreshed:
         send_cmd_tsw(g.tty_fd, "255", "1")      # pictures still in the screen memory: enable touch
     else:
         for i in range(4):      # CLL refresh the pictures after all the other widgets
@@ -171,7 +171,7 @@ def go_to_file_list():
     # 4.4.22: the folder and page are kept while the list is up to date
     if g.screen.file_mode == "Local":
         page_to(ids.FILE_LIST)
-        if g.screen.file_list_refreshed == False:
+        if not g.screen.file_list_refreshed:
             g.files.list_pages = 0
             g.files.list_current_pages = 0
             g.files.list_folder_layers = 0
@@ -183,7 +183,7 @@ def go_to_file_list():
         actions.get_object_status()
     else:
         page_to(ids.FILE_LIST)
-        if g.screen.file_list_refreshed == False:
+        if not g.screen.file_list_refreshed:
             g.files.list_pages = 0
             g.files.list_current_pages = 0
             g.files.list_folder_layers = 1

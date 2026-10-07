@@ -127,13 +127,13 @@ def preview(page_id, widget_id):
             if printing_or_paused:
                 page_to(ids.PRINTING)
                 g.screen.jump_print = False
-            elif g.files.meta_parse_finished == False:
+            elif not g.files.meta_parse_finished:
                 file_browser.get_parenet_dir_files_list()
                 pages.clear_preview()
                 g.screen.show_preview_complete = False
                 filelist.clear_cp0_image()
             else:
-                if g.screen.show_preview_complete == True:     # the button only works once the preview is loaded
+                if g.screen.show_preview_complete:     # the button only works once the preview is loaded
                     file_browser.get_parenet_dir_files_list()
                     pages.clear_preview()             # clear the data when going back
                     g.screen.show_preview_complete = False
@@ -142,11 +142,11 @@ def preview(page_id, widget_id):
             if printing_or_paused:
                 page_to(ids.PRINTING)
                 g.screen.jump_print = False
-            elif g.screen.show_preview_complete == True:
+            elif g.screen.show_preview_complete:
                 g.screen.muted = False             # 4.4.22 silent mode is per print
                 actions.print_start()
                 sleep(1)
-                if g.klippy.filament_detected == True:
+                if g.klippy.filament_detected:
                     MKSLOG("No filament runout detected")
                     g.klippy.print_stats_state = "printing"
                     actions.check_filament_type()
@@ -162,7 +162,7 @@ def preview(page_id, widget_id):
                 page_to(ids.PRINTING)
                 g.screen.jump_print = False
             else:
-                if g.screen.bed_leveling == True:
+                if g.screen.bed_leveling:
                     g.screen.bed_leveling = False
                 else:
                     g.screen.bed_leveling = True
@@ -206,7 +206,7 @@ def printing_kb(page_id, widget_id):
         MKSLOG_BLUE("Restored")
     elif widget_id == ids.PRINTING_KB_MUTE:
         MKSLOG_BLUE("Silent mode switched")
-        if g.screen.muted == False:
+        if not g.screen.muted:
             g.screen.muted = True
             actions.set_printer_speed(50)
         else:

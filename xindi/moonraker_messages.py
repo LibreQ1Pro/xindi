@@ -22,7 +22,7 @@ def json_parse(arg=None):
         # next queued message, so that none is lost (see state.message_queue)
         g.rpc.message = g.rpc.message_queue.get()
         g.rpc.is_get_message = True
-        if g.rpc.is_get_message == True:
+        if g.rpc.is_get_message:
             try:
                 g.rpc.response = string2json(g.rpc.message)
                 g.rpc.res = g.rpc.response
@@ -84,7 +84,7 @@ def json_parse(arg=None):
                         g.files.filelist_changed = True
                         MKSLOG_BLUE("File list changed")
                         g.screen.file_list_refreshed = False      # 4.4.22
-                        if g.levelling.all_level_saving == False:
+                        if not g.levelling.all_level_saving:
                             g.levelling.all_level_saving = True
                     elif method == "notify_update_response":
                         MKSLOG_BLUE("Update manager response")

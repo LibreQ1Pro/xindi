@@ -31,10 +31,10 @@ def show():
     # CLL the jumps below are unconditional, the flags were set after the
     # checks were done (the flag has to be reset before switching the page,
     # otherwise this would loop forever)
-    if g.screen.jump_move_pop_1 == True:
+    if g.screen.jump_move_pop_1:
         g.screen.jump_move_pop_1 = False
         page_to(ids.MOVE_POP_1)
-    if g.screen.jump_move_pop_2 == True:
+    if g.screen.jump_move_pop_2:
         homing = "SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"
         moves = {
             1: "G91\nG1 X10 F3000\nG90\nM84\n",       # X_UP
@@ -50,23 +50,23 @@ def show():
         g.screen.unhomed_move_mode = 0
         g.screen.jump_move_pop_2 = False
         page_to(ids.MOVE_POP_2)
-    if g.screen.jump_detect_error == True:
+    if g.screen.jump_detect_error:
         g.screen.jump_detect_error = False
         page_to(ids.DETECT_ERROR)
         send_cmd_txt(g.tty_fd, "msg", g.screen.error_message)
-    if g.screen.jump_level_error == True:
+    if g.screen.jump_level_error:
         g.screen.jump_level_error = False
         page_to(ids.LEVEL_ERROR)
-    if g.screen.jump_filament_pop_1 == True:
+    if g.screen.jump_filament_pop_1:
         g.screen.jump_filament_pop_1 = False
         page_to(ids.FILAMENT_POP_1)
-    if g.screen.jump_print_low_temp == True:
+    if g.screen.jump_print_low_temp:
         g.screen.jump_print_low_temp = False
         page_to(ids.PRINT_LOW_TEMP)
-    if g.screen.jump_resume_print == True:
+    if g.screen.jump_resume_print:
         # 4.4.24: the flag is reset when the page reports that it is shown
         page_to(ids.RESUME_PRINT)
-    if g.screen.jump_memory_warning == True:
+    if g.screen.jump_memory_warning:
         g.screen.jump_memory_warning = False
         page_to(ids.MEMORY_WARNING)
 
@@ -203,7 +203,7 @@ def open_filament_video_2():
 def syntony_finish():
     MKSLOG_BLUE("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
     MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
-    if g.levelling.syntony_finished == False:
+    if not g.levelling.syntony_finished:
         g.levelling.syntony_finished = True
         g.levelling.all_level_saving = False
 
@@ -256,7 +256,7 @@ def syntony_move():
         MKSLOG_BLUE("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
         MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
 
-    if g.levelling.step_1 == True:
+    if g.levelling.step_1:
         sleep(15)
         page_to(ids.SYNTONY_FINISH)
         g.levelling.step_1 = False
@@ -287,14 +287,14 @@ def print_filament():
         g.klippy.ready = True
 
     # 4.4.2 CLL support mates and hall filament width sensors
-    if g.klippy.filament_detected == False:
+    if not g.klippy.filament_detected:
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
 
     if g.klippy.print_stats_state == "printing":
-        if g.klippy.ready == True:
+        if g.klippy.ready:
             g.klippy.ready = False
             page_to(ids.PRINTING)
 
@@ -321,21 +321,21 @@ def auto_finish():
 def auto_moving():
     send_cmd_txt(g.tty_fd, "bed_temp", "(" + to_string(g.klippy.heater_bed_temperature) + "/" +
                  to_string(g.klippy.heater_bed_target) + ")")
-    if g.levelling.step_1 == True:
+    if g.levelling.step_1:
         send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_1)
         send_cmd_pco(g.tty_fd, "step2_txt", "65535")
         send_cmd_pco(g.tty_fd, "step1_txt", "38066")
         send_cmd_vis(g.tty_fd, "spin1", "0")
         send_cmd_vis(g.tty_fd, "spin2", "1")
         g.levelling.step_1 = False
-    if g.levelling.step_2 == True:
+    if g.levelling.step_2:
         send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_2)
         send_cmd_pco(g.tty_fd, "step3_txt", "65535")
         send_cmd_pco(g.tty_fd, "step2_txt", "38066")
         send_cmd_vis(g.tty_fd, "spin2", "0")
         send_cmd_vis(g.tty_fd, "spin3", "1")
         g.levelling.step_2 = False
-    if g.levelling.step_3 == True:
+    if g.levelling.step_3:
         send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_3)
         send_cmd_pco(g.tty_fd, "step4_txt", "65535")
         send_cmd_pco(g.tty_fd, "step3_txt", "38066")
@@ -348,7 +348,7 @@ def auto_moving():
         g.ep.Send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
         sleep(1)
         g.ep.Send(json_run_a_gcode("M4027\n"))
-    if g.levelling.step_4 == True:
+    if g.levelling.step_4:
         sleep(15)
         page_to(ids.AUTO_FINISH)
         g.levelling.step_4 = False
@@ -442,14 +442,14 @@ def printing_zoffset():
     if g.klippy.print_stats_state == "printing":
         g.klippy.ready = True
 
-    if g.klippy.fila_sensor_enabled == True:
-        if g.klippy.fila_sensor_detected == False:
+    if g.klippy.fila_sensor_enabled:
+        if not g.klippy.fila_sensor_detected:
             g.klippy.ready = False
             actions.set_print_pause()
             page_to(ids.PRINT_NO_FILAMENT_2)
 
     # 4.4.2 CLL support mates and hall filament width sensors
-    if g.klippy.filament_detected == False:
+    if not g.klippy.filament_detected:
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
@@ -459,7 +459,7 @@ def printing_zoffset():
         page_to(ids.PRINT_STOPPING)
 
     if g.klippy.print_stats_state == "paused":
-        if g.klippy.ready == True:
+        if g.klippy.ready:
             g.klippy.ready = False
             page_to(ids.PRINT_FILAMENT)
 
@@ -496,8 +496,8 @@ def printing():
     if g.screen.page == ids.PRINTING_2:
         send_cmd_txt(g.tty_fd, "zoffset_val", z_offset)
 
-    if g.screen.printing_keyboard_enabled == True:     # 4.4.22 silent mode button of the keyboard
-        if g.screen.muted == False:
+    if g.screen.printing_keyboard_enabled:     # 4.4.22 silent mode button of the keyboard
+        if not g.screen.muted:
             send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_off)
             send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_off_press)
         else:
@@ -545,7 +545,7 @@ def printing():
                 send_cmd_picc(g.tty_fd, "chamber_btn", pics.printing_row_on)
                 send_cmd_picc2(g.tty_fd, "chamber_btn", pics.printing_press_on)
 
-            if g.screen.show_preview_gimage_completed == True:
+            if g.screen.show_preview_gimage_completed:
                 send_cmd_vis(g.tty_fd, "thumb", "1")
                 send_cmd_val(g.tty_fd, "thumb_flag", "1")
             else:
@@ -570,13 +570,13 @@ def printing():
     if g.klippy.print_stats_state == "printing":
         g.klippy.ready = True
 
-    if g.klippy.fila_sensor_enabled == True:
-        if g.klippy.fila_sensor_detected == False:
+    if g.klippy.fila_sensor_enabled:
+        if not g.klippy.fila_sensor_detected:
             g.klippy.ready = False
             actions.set_print_pause()
             page_to(ids.PRINT_NO_FILAMENT_2)
 
-    if g.klippy.filament_detected == False:
+    if not g.klippy.filament_detected:
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
@@ -592,7 +592,7 @@ def printing():
         send_cmd_txt(g.tty_fd, "time_txt", time_duration)
 
     if g.klippy.print_stats_state == "paused":
-        if g.klippy.ready == True:
+        if g.klippy.ready:
             g.klippy.ready = False
             page_to(ids.PRINT_FILAMENT)
 
@@ -673,20 +673,20 @@ def _tcdrain():
 
 def preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
-    if g.screen.bed_leveling == False:
+    if not g.screen.bed_leveling:
         send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_off)
         send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_off)
     else:
         send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_on)
         send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_on)
-    if g.screen.timelapse_enabled == False:
+    if not g.screen.timelapse_enabled:
         send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_off)
         send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_off)
     else:
         send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_on)
         send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_on)
-    if g.files.meta_parse_finished == True:
-        if g.screen.show_preview_complete == False:
+    if g.files.meta_parse_finished:
+        if not g.screen.show_preview_complete:
             # 4.4.2 CLL only the file name is shown on the preview page
             send_cmd_txt(g.tty_fd, "err_msg", filelist._file_name_only(g.files.meta_filename))
             if g.files.meta_estimated_time:
@@ -718,10 +718,10 @@ def preview():
             # .jpg, made by QIDI's Moonraker; the port reads the thumbnail from the
             # gcode file itself (see thumbnail.py).  For a print that was just
             # started the original only looks at the .cache copy of the file.
-            if g.screen.jump_print == True:
+            if g.screen.jump_print:
                 candidates = ["/.cache/" + filelist._name_of(g.klippy.print_stats_filename),
                               "/" + g.klippy.print_stats_filename]
-            elif g.screen.cache_clicked == True:
+            elif g.screen.cache_clicked:
                 candidates = [actions._top(g.files.list_path_stack) + "/.cache/" + filelist._name_of(g.files.meta_filename)]
                 g.screen.cache_clicked = False
             else:
@@ -738,9 +738,9 @@ def preview():
             if picture_path == "":
                 path_found = False
 
-            if path_found == True:
+            if path_found:
                 # small picture
-                if g.screen.show_preview_gimage_completed == False:
+                if not g.screen.show_preview_gimage_completed:
                     output_imgdata(picture_path, 160)
                     data = g.pictures.tjc_data
                     if data is None:
@@ -761,7 +761,7 @@ def preview():
                         set_option(g.tty_fd, 115200, 8, 'N', 1)
 
                     # big picture
-                    if g.screen.jump_print == False:
+                    if not g.screen.jump_print:
                         data = g.pictures.tjc_data
                         if data is None:
                             cerr("No converted picture (/home/mks/tjc)", "\n")
@@ -781,13 +781,13 @@ def preview():
                         actions.bed_leveling_switch(True)
                     g.screen.show_preview_gimage_completed = True
 
-            if g.screen.show_preview_gimage_completed == True:
+            if g.screen.show_preview_gimage_completed:
                 send_cmd_vis(g.tty_fd, "preview_pic", "1")
             else:
                 send_cmd_vis(g.tty_fd, "preview_pic", "0")
 
             g.screen.show_preview_complete = True
-            if g.screen.jump_print == True:
+            if g.screen.jump_print:
                 actions.check_filament_type()
                 g.screen.jump_print = False
 
@@ -849,7 +849,7 @@ def main():
         send_cmd_picc2(g.tty_fd, "chamber_btn", pics.main_on_press)
 
     # CLL refresh the picture after every boot or print
-    if g.screen.main_picture_refreshed == False:
+    if not g.screen.main_picture_refreshed:
         # CLL get the file information
         g.files.list_pages = 0
         g.files.list_current_pages = 0
@@ -895,7 +895,7 @@ def main():
         g.screen.main_picture_refreshed = True
 
     # CLL ask for the power loss recovery once after boot
-    if g.screen.open_reprint_asked == False:
+    if not g.screen.open_reprint_asked:
         actions.check_print_interrupted()
         g.screen.open_reprint_asked = True
 
@@ -985,7 +985,7 @@ def open_heaterbed():
 def filament_pop():
     send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
                  to_string(g.klippy.extruder_target) + "℃)")
-    if g.levelling.step_1 == True:
+    if g.levelling.step_1:
         g.levelling.step_1 = False
         send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_2)
         send_cmd_pco(g.tty_fd, "step2_txt", "65535")
@@ -993,7 +993,7 @@ def filament_pop():
         send_cmd_pco(g.tty_fd, "temp_txt", "38066")
         send_cmd_vis(g.tty_fd, "spin2", "0")
         send_cmd_vis(g.tty_fd, "spin3", "1")
-    if g.levelling.step_2 == True and g.klippy.idle_timeout_state == "Ready":
+    if g.levelling.step_2 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_2 = False
         send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_3)
         send_cmd_pco(g.tty_fd, "step3_txt", "65535")
@@ -1005,7 +1005,7 @@ def filament_pop():
 
 def preview_pop():
     # 4.4.2 support mates and hall filament width sensors
-    if g.klippy.filament_detected == False:
+    if not g.klippy.filament_detected:
         sleep(1)
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
@@ -1029,18 +1029,18 @@ def bed_moving():
 
 
 def open_calibrate():
-    if g.levelling.step_3 == True:
+    if g.levelling.step_3:
         g.levelling.step_3 = False
         system("sync")      # CLL save the system information, then go to the filament loading page
         sleep(10)
         actions.get_object_status()
         actions.sub_object_status()
         page_to(ids.OPEN_FILAMENTVIDEO_0)
-    if g.levelling.step_2 == True and g.klippy.webhooks_state == "ready":
+    if g.levelling.step_2 and g.klippy.webhooks_state == "ready":
         g.levelling.step_2 = False
         sleep(5)
         g.ep.Send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
-    if g.levelling.step_1 == True and g.klippy.idle_timeout_state == "Ready":
+    if g.levelling.step_1 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_1 = False
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
@@ -1050,7 +1050,7 @@ def open_calibrate():
 
 
 def filament_set_fan():
-    if g.screen.move_fan_setting == False:     # CLL refresh only while the slider is not being dragged
+    if not g.screen.move_fan_setting:     # CLL refresh only while the slider is not being dragged
         fan0 = to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100)))
         fan2 = to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100)))
         fan3 = to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100)))
@@ -1073,7 +1073,7 @@ def filament_set_fan():
 def common_setting():
     g.shown.oobe_enabled = settings.get_oobe_enabled()
     send_cmd_txt(g.tty_fd, "version_txt", g.config.version_soc)
-    if g.shown.oobe_enabled == False:
+    if not g.shown.oobe_enabled:
         send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row)
         send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press)
     else:
@@ -1141,14 +1141,14 @@ def filament():
 def auto_unload():
     send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
                  to_string(g.klippy.extruder_target) + "℃)")
-    if g.levelling.step_1 == True:
+    if g.levelling.step_1:
         g.levelling.step_1 = False
         send_cmd_vis(g.tty_fd, "spin1", "0")
         send_cmd_vis(g.tty_fd, "spin2", "1")
         send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_1)
         send_cmd_pco(g.tty_fd, "step2_txt", "65535")
         send_cmd_pco(g.tty_fd, "step1_txt", "38066")
-    if g.levelling.step_2 == True:
+    if g.levelling.step_2:
         g.levelling.step_2 = False
         send_cmd_vis(g.tty_fd, "spin2", "0")
         send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_2)

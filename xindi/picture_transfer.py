@@ -63,7 +63,7 @@ def sent_jpg_thread_handle(arg=None):
             # once at the end instead of around every picture
             g.pictures.send_jpg_status = True
             for i in range(6):
-                if g.pictures.have_64_jpg[i] == True:
+                if g.pictures.have_64_jpg[i]:
                     usleep(50500 + i * 500)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
                     if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
@@ -199,7 +199,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 f.close()
                 return False
             # re-send on timeout
-            if time_differ_ms(800, resent_time) and g.update.get_0x24 == False:
+            if time_differ_ms(800, resent_time) and not g.update.get_0x24:
                 resent_time = int(time.time() * 1000)
                 # re-send the data frame
                 _write(g.tty_fd, head_buf)
@@ -217,7 +217,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 return False
 
             # CLL stop sending when the screen buffer overflows
-            if g.update.get_0x24 == True:
+            if g.update.get_0x24:
                 sleep(4)
                 g.update.get_0x24 = False
                 f.close()       # (Python only: the original leaks the FILE)

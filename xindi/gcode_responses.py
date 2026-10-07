@@ -18,7 +18,7 @@ def parse_gcode_response(params):
         # 4.4.2 CLL screen sleep feature
         if g.screen.page == ids.SCREEN_SLEEP:   # SCREEN_SLEEP has no refresh function, switching pages here can't conflict
             ui.page_to(g.screen.previous_page)
-            if g.screen.previous_caselight_value == True:
+            if g.screen.previous_caselight_value:
                 actions.led_on_off()
                 g.screen.previous_caselight_value = False
 
@@ -33,7 +33,7 @@ def parse_gcode_response(params):
             sleep(2)
             actions.get_object_status()
             settings.get_babystep()    # 4.4.22 (was init_mks_status())
-            if g.levelling.all_level_saving == False:
+            if not g.levelling.all_level_saving:
                 g.levelling.all_level_saving = True
             MKSLOG_YELLOW("State after the restart: %s", g.klippy.webhooks_state)
         elif params0 == "// Klipper state: Disconnect":

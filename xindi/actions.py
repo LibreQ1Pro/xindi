@@ -69,7 +69,7 @@ def set_intern_zoffset(offset):
 
 
 def set_zoffset(positive):
-    if positive == True:
+    if positive:
         g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=+" + to_string(g.klippy.set_offset) + " MOVE=1"))
     else:
         g.ep.Send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=-" + to_string(g.klippy.set_offset) + " MOVE=1"))
@@ -166,7 +166,7 @@ def start_auto_level():
     g.levelling.step_2 = False
     g.levelling.step_3 = False
     g.levelling.step_4 = False
-    if g.levelling.start_pre_auto_level == False:
+    if not g.levelling.start_pre_auto_level:
         g.klippy.idle_timeout_state = "Printing"
     page_to(ids.AUTO_MOVING)
     set_heater_bed_target(g.config.heater_bed_target)
@@ -176,7 +176,7 @@ def start_auto_level():
 def set_filament_extruder_target(positive):
     settings.get_extruder_target()
     g.klippy.filament_extruder_target = g.config.extruder_target
-    if positive == True:
+    if positive:
         g.klippy.filament_extruder_target += 3
     else:
         g.klippy.filament_extruder_target -= 3
@@ -293,7 +293,7 @@ def set_print_filament_target():
 
 
 def complete_print():
-    if g.screen.shutdown_after_print == False:
+    if not g.screen.shutdown_after_print:
         g.ep.Send(json_run_a_gcode("PRINT_END"))
     else:
         g.ep.Send(json_run_a_gcode("PRINT_END_POWEROFF"))
@@ -363,7 +363,7 @@ def open_calibrate_start():
 def set_auto_level_heater_bed_target(positive):
     settings.get_heater_bed_target()
     g.levelling.auto_level_heater_bed_target = g.config.heater_bed_target
-    if positive == True:
+    if positive:
         g.levelling.auto_level_heater_bed_target += 3
     else:
         g.levelling.auto_level_heater_bed_target -= 3
@@ -397,7 +397,7 @@ def clear_previous_data():
 
 
 def print_start():
-    if g.screen.bed_leveling == True:
+    if g.screen.bed_leveling:
         g.ep.Send(json_run_a_gcode("G31\n"))
     else:
         g.ep.Send(json_run_a_gcode("G32\n"))
@@ -415,10 +415,10 @@ def open_heater_bed_up():
 
 
 def bed_leveling_switch(positive):
-    if positive == True:
+    if positive:
         g.ep.Send(json_run_a_gcode("G31"))
         g.screen.bed_leveling = True
-    if positive == False:
+    else:
         g.ep.Send(json_run_a_gcode("G32"))
         g.screen.bed_leveling = False
 
@@ -450,9 +450,9 @@ def check_filament_type():
     filament_type = str_lower_ascii(filament_type)
     MKSLOG_YELLOW("filament_type : %s", filament_type)
     # 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
-    if (filament_type.find("pla") != -1 or filament_type.find("petg") != -1) and g.screen.preview_pop_1_on == True:
+    if (filament_type.find("pla") != -1 or filament_type.find("petg") != -1) and g.screen.preview_pop_1_on:
         page_to(ids.PREVIEW_POP_1)
-    elif filament_type.find("abs") != -1 and g.screen.preview_pop_2_on == True:
+    elif filament_type.find("abs") != -1 and g.screen.preview_pop_2_on:
         page_to(ids.PREVIEW_POP_2)
     else:
         page_to(ids.PRINTING)
@@ -503,11 +503,11 @@ def bed_calibrate():
 
 
 def bed_adjust(status):
-    if status == True:
+    if status:
         g.ep.Send(json_run_a_gcode("G91\nG1 Z" + to_string(-g.levelling.auto_level_dist) + " F600\nG90\n"))
         g.levelling.bed_offset = f32(g.levelling.bed_offset - g.levelling.auto_level_dist)
         MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)
-    elif status == False:
+    else:
         g.ep.Send(json_run_a_gcode("G91\nG1 Z" + to_string(g.levelling.auto_level_dist) + " F600\nG90\n"))
         g.levelling.bed_offset = f32(g.levelling.bed_offset + g.levelling.auto_level_dist)
         MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)

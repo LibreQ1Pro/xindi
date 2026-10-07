@@ -180,7 +180,7 @@ def pre_heat(page_id, widget_id):
     if widget_id in (ids.PRE_HEAT_SET_220, ids.PRE_HEAT_SET_250, ids.PRE_HEAT_SET_300):
         g.screen.load_target = {ids.PRE_HEAT_SET_220: 220, ids.PRE_HEAT_SET_250: 250,
                          ids.PRE_HEAT_SET_300: 300}[widget_id]
-        if g.screen.load_mode == True:
+        if g.screen.load_mode:
             page_to(ids.FILAMENT_POP_3)
         else:
             page_to(ids.UNLOAD_MODE)
