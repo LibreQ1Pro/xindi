@@ -8,8 +8,6 @@ and stored in the get_0x?? flags).
 """
 
 import logging
-import io
-import os
 import time
 
 from . import paths
@@ -22,13 +20,6 @@ log = logging.getLogger(__name__)
 # BLOCK_SIZE 3072
 BLOCK_SIZE = 3800
 HEADER_SIZE = 12
-
-
-def _write(fd, data):
-    try:
-        return os.write(fd, bytes(data))
-    except (OSError, ValueError):
-        return -1
 
 
 def time_differ(duration, start_time):
@@ -51,10 +42,6 @@ def time_differ_ms(duration, start_time):
 
 def sent_jpg_thread_handle(arg=None):
     """Preview picture thread."""
-    png_path = ""
-    ram_path = ""
-    jpg_path = ""
-
     while True:
         # refresh the small preview pictures
         if g.pictures.begin_show_64_jpg:
@@ -66,7 +53,7 @@ def sent_jpg_thread_handle(arg=None):
             for i in range(6):
                 if g.pictures.have_64_jpg[i]:
                     time.sleep((50500 + i * 500) / 1e6)
-                    ram_path = "ram/" + "file" + to_string(i) + ".jpg"
+                    ram_path = "ram/file%d.jpg" % i
                     if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
                         # Python only: jpg made from the thumbnail inside the gcode file
                         log.debug("%s", g.pictures.have_64_png_path[i])
@@ -83,23 +70,6 @@ def sent_jpg_thread_handle(arg=None):
             log.debug("Touch enabled")
 
         time.sleep(0.06)
-
-
-def delet_pic(ram_path):
-    """Delete a picture"""
-    g.port.delfile(ram_path)
-
-
-def file_size(f):
-    """Size of an opened file"""
-    try:
-        cur = f.tell()
-        f.seek(0, os.SEEK_END)
-        size = f.tell()
-        f.seek(0)
-        return size
-    except OSError:
-        return -1
 
 
 def calccrc(crcbuf, crc):
@@ -128,116 +98,100 @@ def check_crc(buf, length):
 
 def delete_small_jpg():
     """Delete all small preview pictures"""
-    delet_pic("ram/file0.jpg")
+    g.port.delfile("ram/file0.jpg")
     time.sleep(0.056)
-    delet_pic("ram/file1.jpg")
+    g.port.delfile("ram/file1.jpg")
     time.sleep(0.056)
-    delet_pic("ram/file2.jpg")
+    g.port.delfile("ram/file2.jpg")
     time.sleep(0.056)
-    delet_pic("ram/file3.jpg")
+    g.port.delfile("ram/file3.jpg")
     time.sleep(0.056)
+
+
+def _frame_header(frame_id, length):
+    """Header of a data frame of the pass-through transfer: ``length`` is the size of the data with the CRC."""
+    return bytes([0x3A, 0xA1, 0xBB, 0x44, 0x7F, 0xFF, 0xFE, 0x01,
+                  frame_id & 0xff, (frame_id >> 8) & 0xff, length & 0xff, (length >> 8) & 0xff])
+
+
+# ends the pass-through mode
+EXIT_FRAME = bytes([0x3A, 0xA1, 0xBB, 0x44, 0x7F, 0xFF, 0xFE, 0x00, 0xFF, 0xFF, 0x00, 0x00])
+
+
+def _leave_pass_through(times):
+    g.port.write(EXIT_FRAME)
+    log.debug("%s", EXIT_FRAME.hex().upper())
+    for _ in range(times - 1):
+        g.port.write(EXIT_FRAME)
+
+
+def _send_frame(frame_id, data):
+    """Send one data frame (header, data, CRC) and wait until the screen has written it.
+
+    Returns False when the transfer has to be given up (the pass-through mode is left then).
+    """
+    frame = bytearray(data)
+    crc_val = check_crc(frame, len(frame))
+    frame += bytes([(crc_val >> 8) & 0xff, crc_val & 0xff])
+    header = _frame_header(frame_id, len(frame))
+    g.port.write(header)
+    g.port.write(frame)
+
+    # 0x05 means the frame was written successfully
+    start_time = int(time.time())
+    resent_time = int(time.time() * 1000)
+    g.update.get_0x05 = False
+    g.update.get_0xfd = False
+    g.update.get_0x04 = False
+    while not g.update.get_0x05 and not g.update.get_0xfd:
+        time.sleep(0.002)
+        # 0x04 means the frame could not be written
+        if g.update.get_0x04:
+            _leave_pass_through(2)
+            log.info("Got 0x04, failed")
+            return False
+        # re-send on timeout
+        if time_differ_ms(800, resent_time) and not g.update.get_0x24:
+            resent_time = int(time.time() * 1000)
+            g.port.write(header)
+            g.port.write(frame)
+            log.info("Timed out waiting for the answer, re-sending the frame")
+
+        if time_differ(4, start_time):
+            _leave_pass_through(3)
+            log.info("Timed out writing the data frame, failed")
+            return False
+
+        # CLL stop sending when the screen buffer overflows
+        if g.update.get_0x24:
+            time.sleep(4)
+            g.update.get_0x24 = False
+            return False
+    return True
 
 
 def sent_jpg_to_tjc(ram_path, jpg_path):
-    """Send a picture to the screen"""
-    head_id = 0
-    head_buf = bytearray([0x3A, 0xA1, 0xBB, 0x44, 0x7F, 0xFF, 0xFE, 0x01, 0x00, 0x00, 0xDC, 0x07])
-    exit_buf = bytes([0x3A, 0xA1, 0xBB, 0x44, 0x7F, 0xFF, 0xFE, 0x00, 0xFF, 0xFF, 0x00, 0x00])
-    read_buf_size = BLOCK_SIZE - len(head_buf)      # max 4096 - header
-
+    """Send a picture (a file, or the bytes themselves) to the screen"""
     try:
         # (Python only: the picture can also be passed as bytes kept in memory)
-        f = io.BytesIO(jpg_path) if isinstance(jpg_path, (bytes, bytearray)) else open(jpg_path, "rb")
+        if isinstance(jpg_path, (bytes, bytearray)):
+            data = bytes(jpg_path)
+        else:
+            with open(jpg_path, "rb") as f:
+                data = f.read()
     except OSError:
         log.debug("Failed to open the file")
         return True
 
-    filesize = file_size(f)
-
     # send the pass-through instruction
-    g.port.twfile(ram_path, to_string(filesize))
+    g.port.twfile(ram_path, to_string(len(data)))
     # wait for 0xfe + terminator
     time.sleep(0.105)
     # send header + data frames until the end of the file
-    g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
-    while True:
-        chunk = f.read(read_buf_size - 2)           # keep two bytes for the CRC
-        file_res = len(chunk)
-        if file_res <= 0:
-            break
-        read_buf = bytearray(read_buf_size)
-        read_buf[:file_res] = chunk
-
-        # header
-        head_buf[8] = head_id & 0xff
-        head_buf[9] = (head_id >> 8) & 0xff
-        head_buf[10] = (file_res + 2) & 0xff
-        head_buf[11] = ((file_res + 2) >> 8) & 0xff
-        g.port.write(head_buf)
-
-        # CRC in the last two bytes
-        crc_val = check_crc(read_buf, file_res)
-        read_buf[file_res] = (crc_val >> 8) & 0xff
-        read_buf[file_res + 1] = crc_val & 0xff
-        # data
-        g.port.write(read_buf[:file_res + 2])
-
-        # 0x05 means the frame was written successfully
-        g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
-        resent_time = int(time.time() * 1000)
-        g.update.get_0x05 = False
-        g.update.get_0xfd = False
-        g.update.get_0x04 = False
-        while not g.update.get_0x05 and not g.update.get_0xfd:
-            time.sleep(0.002)
-            # 0x04 means the frame could not be written
-            if g.update.get_0x04:
-                # leave the pass-through mode
-                g.port.write(exit_buf)
-                print("".join("%02X" % b for b in exit_buf))
-                g.port.write(exit_buf)
-                log.info("Got 0x04, failed")
-                f.close()
-                return False
-            # re-send on timeout
-            if time_differ_ms(800, resent_time) and not g.update.get_0x24:
-                resent_time = int(time.time() * 1000)
-                # re-send the data frame
-                g.port.write(head_buf)
-                g.port.write(read_buf[:file_res + 2])
-                log.info("Timed out waiting for the answer, re-sending the frame")
-
-            # timeout
-            if time_differ(4, g.pictures.sent_jpg_to_tjc_start_time):
-                g.port.write(exit_buf)
-                print("".join("%02X" % b for b in exit_buf))
-                g.port.write(exit_buf)
-                g.port.write(exit_buf)
-                log.info("Timed out writing the data frame, failed")
-                f.close()
-                return False
-
-            # CLL stop sending when the screen buffer overflows
-            if g.update.get_0x24:
-                time.sleep(4)
-                g.update.get_0x24 = False
-                f.close()       # (Python only: the original leaks the FILE)
-                return False
-
-        # next frame id
-        head_id = (head_id + 1) & 0xffff
-        # timeout
-        if time_differ(6, g.pictures.sent_jpg_to_tjc_start_time):
-            g.port.write(exit_buf)
-            print("".join("%02X" % b for b in exit_buf))
-            g.port.write(exit_buf)
-            g.port.write(exit_buf)
-            log.info("Timed out writing the picture, failed")
-            f.close()
-            break
+    payload_size = BLOCK_SIZE - HEADER_SIZE - 2         # keep two bytes for the CRC
+    for frame_id, start in enumerate(range(0, len(data), payload_size)):
+        if not _send_frame(frame_id & 0xffff, data[start:start + payload_size]):
+            return False
 
     log.info("Picture written to the screen memory")
-    f.close()
     return True
-
-
