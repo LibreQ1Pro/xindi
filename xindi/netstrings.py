@@ -34,6 +34,10 @@ TEXT = {
                     "Salvas", "المحفوظة", "Kayıtlı", "שמורות"),
     "hidden_short": ("隐藏", "Скрытая", "Hidden", "非公開", "Masqué", "Versteckt", "Nascosta", "Oculta", "숨김",
                      "Oculta", "مخفية", "Gizli", "מוסתרת"),
+    # the row of the general settings that turns the setup guide (the first-start walkthrough) on, hidden (5 taps on "General")
+    "setup_guide": ("开机引导", "Мастер настройки", "Setup Guide", "初期設定ガイド", "Guide de démarrage",
+                    "Einrichtung", "Guida iniziale", "Guía de inicio", "시작 가이드", "Guia inicial",
+                    "دليل الإعداد", "Kurulum kılavuzu", "מדריך הפעלה"),
     # state of a network / interface
     "saved": ("已保存", "Сохранена", "Saved", "保存済み", "Enregistré", "Gespeichert", "Salvata", "Guardada", "저장됨",
               "Salva", "محفوظة", "Kayıtlı", "שמורה"),

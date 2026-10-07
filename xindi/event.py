@@ -46,7 +46,6 @@ DEFAULT_DIR = "gcodes/"
 # Text written to the "t6" widget of the common settings page when the
 # out-of-box guide is enabled.  It means "Startup guide"; the original
 # (Chinese, UTF-8) bytes are kept because they are sent to the screen.
-TEXT_STARTUP_GUIDE = "\u5f00\u673a\u5f15\u5bfc"
 
 
 class Server_config(object):
@@ -2323,7 +2322,7 @@ def refresh_page_common_setting():
     else:
         send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row_on)
         send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press_on)
-        send_cmd_txt(g.tty_fd, "reset_lbl", TEXT_STARTUP_GUIDE)
+        # the label "Setup Guide" is set by the screen itself (common_set: a timer, the text in the screen language)
 
 
 def print_log():
