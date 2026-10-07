@@ -7,20 +7,24 @@ import queue
 import sys
 import time
 
-from . import paths
-from . import state as g
-from . import ui
-from . import pageids as ids
-from .cpp import system, pthread_create, terminate
-from .moonraker_ws import MoonrakerClient
-from .moonraker_messages import json_parse
-from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults, get_wlan0_status, get_ssid_list_pages
-from .picture_transfer import sent_jpg_thread_handle
-from . import actions, pages, settings
-from . import screen_rx
-from . import screen_flash
+from xindi import state as g
+from xindi.config import settings
+from xindi.moonraker.rpc_messages import json_parse
+from xindi.moonraker.ws_client import MoonrakerClient
+from xindi.pages import refresh
+from xindi.printer import klipper
+from xindi.screen import events, flash, navigation, pageids as ids, rx
+from xindi.screen.transfer import sent_jpg_thread_handle
+from xindi.system.network import (get_ssid_list_pages,
+                                  get_wlan0_status,
+                                  mks_wifi_hdlevent_thread,
+                                  mks_wpa_scan_scanresults)
+from xindi.util import paths
+from xindi.util.cpp import pthread_create, system, terminate
+
 
 log = logging.getLogger(__name__)
+
 
 REFRESH_INTERVAL = 0.05     # s between two redraws of the page
 
@@ -67,7 +71,7 @@ def update_screen_firmware():
     log.info("Running the screen update")
     # The original runs "/root/uart; mv /root/800_480.tft /root/800_480.tft.bak";
     # the uart helper is built in (see screen_flash.py).
-    screen_flash.main()
+    flash.main()
     system("mv /root/800_480.tft /root/800_480.tft.bak")
 
 
@@ -147,16 +151,16 @@ def start_screen(fd, frames):
         # the port is read by a thread of its own, the frames wait in a queue (see screen_rx.py): the main loop
         # spends its time on writing to the screen and may be busy for a while without losing what the screen
         # sent meanwhile
-        parser = screen_rx.FrameParser()
-        pthread_create(lambda _: screen_rx.reader_thread(fd, parser, frames), None)
+        parser = rx.FrameParser()
+        pthread_create(lambda _: rx.reader_thread(fd, parser, frames), None)
 
         settings.get_total_time()
         time.sleep(2)
-        actions.sub_object_status()       # subscribe to the printer objects
+        klipper.sub_object_status()       # subscribe to the printer objects
 
         time.sleep(2)
 
-        actions.get_object_status()       # query the required values
+        klipper.get_object_status()       # query the required values
         time.sleep(2)
         settings.init()     # 4.4.22 (was init_mks_status())
         get_wlan0_status()
@@ -166,13 +170,13 @@ def start_screen(fd, frames):
         time.sleep(3)
 
         # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
-        ui.send_ui_version()
+        navigation.send_ui_version()
         if g.update.find_screen_tft_file:
             g.screen.page = ids.UPDATE_SUCCESS
         else:
             g.screen.previous_page = ids.LOGO
             g.screen.page = ids.OPEN_LANGUAGE if settings.get_oobe_enabled() else ids.MAIN
-        ui.page_to(g.screen.page)
+        navigation.page_to(g.screen.page)
     except Exception as e:
         log.error("Page main error, %s", str(e))
 
@@ -180,11 +184,11 @@ def start_screen(fd, frames):
 def main_loop(frames):
     next_refresh = 0.0
     while True:
-        frame = screen_rx.next_frame(frames, max(0.0, next_refresh - time.monotonic()))
+        frame = rx.next_frame(frames, max(0.0, next_refresh - time.monotonic()))
         if frame is not None:
-            ui.parse_cmd_msg_from_tjc_screen(frame.ljust(4096, b"\0"))
+            events.parse_cmd_msg_from_tjc_screen(frame.ljust(4096, b"\0"))
         if time.monotonic() >= next_refresh:
-            pages.show()
+            refresh.show()
             next_refresh = time.monotonic() + REFRESH_INTERVAL
 
 

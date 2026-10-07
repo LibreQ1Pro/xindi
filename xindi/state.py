@@ -9,7 +9,7 @@ Moonraker websocket).
 
 import queue as _queue
 
-from .screen_tx import ScreenPort
+from xindi.screen.tx import ScreenPort
 
 
 class Struct(object):
@@ -29,6 +29,8 @@ def mks_wifi_status_result_t():
 
 
 ep = None  # the Moonraker connection (MakerbaseClient)
+
+
 port = ScreenPort()  # the screen's serial port
 
 
@@ -351,12 +353,30 @@ class Rpc(object):
 
 
 screen = Screen()
+
+
 klippy = Klippy()
+
+
 shown = Shown()
+
+
 levelling = Levelling()
+
+
 files = Files()
+
+
 net = Net()
+
+
 config = Config()
+
+
 update = Update()
+
+
 pictures = Pictures()
+
+
 rpc = Rpc()

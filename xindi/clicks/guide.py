@@ -1,14 +1,15 @@
 """Clicks on the pages of the out-of-box guide. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
-from .. import actions, settings
-from .. import pageids as ids
-from ..ui import page_to
+from xindi.config import settings
+from xindi.printer import calibration, heating, klipper, motion
+from xindi.screen import pageids as ids
+from xindi.screen.navigation import page_to
 
 
 def open_language(page_id, widget_id):
     if widget_id == ids.OPEN_LANGUAGE_NEXT:
         page_to(ids.OPEN_VIDEO_1)
-        actions.get_object_status()
+        klipper.get_object_status()
     elif widget_id == ids.OPEN_LANGUAGE_SKIP:
         page_to(ids.OPEN_POP)
 
@@ -36,7 +37,7 @@ def open_video_2(page_id, widget_id):
 # fourth page of the guide
 def open_warning(page_id, widget_id):
     if widget_id == ids.OPEN_WARNING_NEXT:
-        actions.open_heater_bed_up()
+        calibration.open_heater_bed_up()
         page_to(ids.OPEN_MOVING)       # 4.4.22: wait until the bed has moved
 
 
@@ -51,22 +52,22 @@ def open_video_3(page_id, widget_id):
     if widget_id == ids.OPEN_VIDEO_3_NEXT:
         page_to(ids.OPEN_FILAMENTVIDEO_1)     # CLL levelling and input shaping removed from the guide
     elif widget_id == ids.OPEN_VIDEO_3_UP:
-        actions.set_move_dist(10.0)
-        actions.move_z_decrease()
+        motion.set_move_dist(10.0)
+        motion.move_z_decrease()
     elif widget_id == ids.OPEN_VIDEO_3_DOWN:
-        actions.set_move_dist(10.0)
-        actions.move_z_increase()
+        motion.set_move_dist(10.0)
+        motion.move_z_increase()
 
 
 def open_heaterbed(page_id, widget_id):
     if widget_id == ids.OPEN_HEATERBED_DOWN:
-        actions.set_auto_level_heater_bed_target(False)
+        heating.set_auto_level_heater_bed_target(False)
     elif widget_id == ids.OPEN_HEATERBED_UP:
-        actions.set_auto_level_heater_bed_target(True)
+        heating.set_auto_level_heater_bed_target(True)
     elif widget_id == ids.OPEN_HEATERBED_ON_OFF:
-        actions.filament_heater_bed_target()
+        heating.filament_heater_bed_target()
     elif widget_id == ids.OPEN_HEATERBED_NEXT:
-        actions.open_calibrate_start()
+        calibration.open_calibrate_start()
 
 
 def open_filamentvideo(page_id, widget_id):
@@ -80,26 +81,26 @@ def open_filamentvideo(page_id, widget_id):
 
 def open_filamentvideo_2(page_id, widget_id):
     if widget_id == ids.OPEN_FILAMENTVIDEO_2_UP:
-        actions.set_filament_extruder_target(True)
+        heating.set_filament_extruder_target(True)
     elif widget_id == ids.OPEN_FILAMENTVIDEO_2_DOWN:
-        actions.set_filament_extruder_target(False)
+        heating.set_filament_extruder_target(False)
     elif widget_id == ids.OPEN_FILAMENTVIDEO_2_NEXT:
         page_to(ids.OPEN_FILAMENTVIDEO_3)
     elif widget_id == ids.OPEN_FILAMENTVIDEO_2_ON_OFF:
-        actions.open_set_print_filament_target()
+        heating.open_set_print_filament_target()
 
 
 def open_filamentvideo_3(page_id, widget_id):
     if widget_id == ids.OPEN_FILAMENTVIDEO_3_NEXT:
-        actions.set_extruder_target(0)
+        heating.set_extruder_target(0)
         page_to(ids.OPEN_FINISH)
     elif widget_id == ids.OPEN_FILAMENTVIDEO_3_EXTRUDE:
-        actions.open_start_extrude()
+        motion.open_start_extrude()
 
 
 def open_finish(page_id, widget_id):
     if widget_id == ids.OPEN_FINISH_YES:
-        actions.open_more_level_finish()
+        calibration.open_more_level_finish()
 
 
 HANDLERS = {

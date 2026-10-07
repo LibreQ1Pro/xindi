@@ -32,7 +32,7 @@ def main():
         events = [page["root"]["events"]] + [o["events"] for o in page["objects"]]
         code += [line for ev in events for lines in ev.values() for line in lines]
     code = "\n".join(code)
-    host = "".join(open(p, encoding="utf-8").read() for p in glob.glob(os.path.join(HOST, "*.py")))
+    host = "".join(open(p, encoding="utf-8").read() for p in glob.glob(os.path.join(HOST, "**", "*.py"), recursive=True))
     problems = []
     for name in names:
         if not re.search(r"\b%s\b" % name, code) and not re.search(r"\b%s\b" % name, host):

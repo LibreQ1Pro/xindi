@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replaces the picture ids written as numbers in xindi (``send_cmd_picc(fd, "b", "32")``) by names from xindi/pics.py,
+"""Replaces the picture ids written as numbers in xindi (``send_cmd_picc(fd, "b", "32")``) by names from xindi/screen/pics.py,
 which is generated from display_firmware/project.json (the id of a picture is its position in the list).
 
     python3 display_firmware/tools/pics_to_names.py [--apply]       (run from src_py/)

@@ -2,7 +2,7 @@
 
 The unpacked stock V4.4.24 project in the portable format (see `PORTABLE_FORMAT.md` of
 [QSART_Linux_EN](../../../QSART_Linux_EN)), plus the network management pages made for the Python xindi
-(`xindi/netui.py`, `xindi/network.py`). Compatibility with QIDI's xindi is not kept.
+(`xindi/pages/connections.py`, `xindi/system/network.py`). Compatibility with QIDI's xindi is not kept.
 
 ## Build
 
@@ -32,7 +32,7 @@ The screen has 13 languages (the global `lang`: 0 zh, 1 ru, 2 en, 3 ja, 4 fr, 5 
 - put the English text into the `txt` attribute, translations into `codesload`; a component whose text comes from the host at run time (the network pages: names, addresses, states) is left
   empty, so nothing wrong flashes while the page loads (`tools/preview_page.py` has its own sample data to draw them);
 - `txt_maxl` is in bytes: a Chinese character takes 3, an Arabic one 2; check the longest language;
-- the network pages take their texts from `xindi/netstrings.py` (the host uses the same table for the texts that depend on
+- the network pages take their texts from `xindi/util/netstrings.py` (the host uses the same table for the texts that depend on
   the state): edit the table, then run `python3 tools/net_i18n.py` from this directory;
 - the copy of every language lives in tools: English and Russian in `tools/english_copy.py`, the other ten languages as
   translations of the English text in `tools/translations.py` (keyed by the English text; `SHORT` in `english_copy.py`
@@ -47,7 +47,7 @@ The screen has 13 languages (the global `lang`: 0 zh, 1 ru, 2 en, 3 ja, 4 fr, 5 
 Everything the screen sends is a frame that ends with `ff ff ff`. The editor adds it by itself to the keys of
 "send key" components and to `get` / `sendme`, but `prints` and `printh` send exactly what they are told: every handler
 that prints a frame has to print the terminator itself (three `prints 0xff,1`, or `printh ... ff ff ff`). The host
-(`xindi/screen_rx.py`) cuts the stream at the terminators, so a frame without one is glued to the next frame and both are
+(`xindi/screen/rx.py`) cuts the stream at the terminators, so a frame without one is glued to the next frame and both are
 lost. `python3 tools/lint_frames.py` finds such handlers (`--fix` adds the terminators); run it after every change of
 an event. Frames the host knows: `65 page widget [event]` (click), `70 mode row text` (keyboard), `71 page widget low high`
 (a number, 2 bytes, may be `ff ff`), `1a` (invalid variable name), `91` (the screen was updated). The only thing without
@@ -77,7 +77,7 @@ Components, pictures, fonts and animations have readable names (the stock projec
 rewrites the names and every reference in event code, checks the result, and verifies that the inverse renaming gives
 the original project back; the compiled pages differ from the stock ones only in the names). The names the Python xindi
 writes in instructions were changed with `tools/rename_host.py` (`--verify` re-checks that every name the host uses
-exists on the page it addresses), the picture ids it sends as numbers are the names of `xindi/pics.py`
+exists on the page it addresses), the picture ids it sends as numbers are the names of `xindi/screen/pics.py`
 (`tools/pics_to_names.py`).
 
 Conventions (names are at most 14 characters, the editor's limit):

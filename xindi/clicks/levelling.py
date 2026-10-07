@@ -2,11 +2,14 @@
 
 import logging
 
-from .. import state as g
-from .. import actions, filelist, settings
-from .. import pageids as ids
-from ..cpp import system
-from ..ui import page_to
+from xindi import state as g
+from xindi.config import settings
+from xindi.pages import file_list, navigation
+from xindi.printer import calibration, heating, klipper
+from xindi.screen import pageids as ids
+from xindi.screen.navigation import page_to
+from xindi.util.cpp import system
+
 
 log = logging.getLogger(__name__)
 
@@ -15,16 +18,16 @@ def level_mode(page_id, widget_id):
     if widget_id == ids.ALL_TO_MAIN:
         page_to(ids.MAIN)
     elif widget_id == ids.ALL_TO_FILE_LIST:
-        filelist.go_to_file_list()
+        file_list.go_to_file_list()
     elif widget_id == ids.ALL_TO_ADJUST:
-        actions.go_to_adjust()
+        navigation.go_to_adjust()
     elif widget_id == ids.ALL_TO_SETTING:
         pass
     elif widget_id == ids.LEVEL_MODE_AUTO_LEVEL:
-        actions.get_object_status()
+        klipper.get_object_status()
         page_to(ids.AUTO_HEATERBED)
     elif widget_id == ids.LEVEL_MODE_SYNTONY:
-        actions.go_to_syntony_move()
+        calibration.go_to_syntony_move()
     elif widget_id == ids.LEVEL_MODE_BED_CALIBRATION:
         page_to(ids.CALIBRATE_WARNING)
     elif widget_id == ids.LEVEL_MODE_TO_COMMON_SETTING:
@@ -41,11 +44,11 @@ def zoffset(page_id, widget_id):
 
 def auto_heaterbed(page_id, widget_id):
     if widget_id == ids.AUTO_HEATERBED_DOWN:
-        actions.set_auto_level_heater_bed_target(False)
+        heating.set_auto_level_heater_bed_target(False)
     elif widget_id == ids.AUTO_HEATERBED_UP:
-        actions.set_auto_level_heater_bed_target(True)
+        heating.set_auto_level_heater_bed_target(True)
     elif widget_id == ids.AUTO_HEATERBED_ON_OFF:
-        actions.filament_heater_bed_target()
+        heating.filament_heater_bed_target()
     elif widget_id == ids.AUTO_HEATERBED_BACK:
         page_to(ids.LEVEL_MODE)
     elif widget_id == ids.AUTO_HEATERBED_NEXT:
@@ -54,7 +57,7 @@ def auto_heaterbed(page_id, widget_id):
         else:
             g.screen.auto_level_button_enabled = True
             g.klippy.idle_timeout_state = "Printing"
-            actions.start_auto_level()
+            calibration.start_auto_level()
 
 
 def auto_finish(page_id, widget_id):
@@ -65,24 +68,24 @@ def auto_finish(page_id, widget_id):
 
 def pre_bed_calibration(page_id, widget_id):
     if widget_id == ids.PRE_BED_CALIBRATION_SET_001:
-        actions.set_auto_level_dist(0.01)
+        calibration.set_auto_level_dist(0.01)
     elif widget_id == ids.PRE_BED_CALIBRATION_SET_005:
-        actions.set_auto_level_dist(0.05)
+        calibration.set_auto_level_dist(0.05)
     elif widget_id == ids.PRE_BED_CALIBRATION_SET_01:
-        actions.set_auto_level_dist(0.1)
+        calibration.set_auto_level_dist(0.1)
     elif widget_id == ids.PRE_BED_CALIBRATION_SET_05:
-        actions.set_auto_level_dist(0.5)
+        calibration.set_auto_level_dist(0.5)
     elif widget_id == ids.PRE_BED_CALIBRATION_UP:
-        actions.bed_adjust(True)
+        calibration.bed_adjust(True)
     elif widget_id == ids.PRE_BED_CALIBRATION_DOWN:
-        actions.bed_adjust(False)
+        calibration.bed_adjust(False)
     elif widget_id == ids.PRE_BED_CALIBRATION_ENTER:
-        actions.bed_calibrate()
+        calibration.bed_calibrate()
 
 
 def bed_calibration(page_id, widget_id):
     if widget_id == ids.BED_CALIBRATION_NEXT:
-        actions.bed_calibrate()
+        calibration.bed_calibrate()
 
 
 def bed_finish(page_id, widget_id):
@@ -90,36 +93,36 @@ def bed_finish(page_id, widget_id):
         page_to(ids.LEVEL_MODE)
     elif widget_id == ids.BED_FINISH_SCREW1:
         g.klippy.idle_timeout_state = "Printing"
-        actions.send_gcode("G1 Z10 F600\n")
-        actions.send_gcode("G1 X10 Y10 F9000\n")
-        actions.send_gcode("G1 Z0 F600\n")
+        klipper.send_gcode("G1 Z10 F600\n")
+        klipper.send_gcode("G1 X10 Y10 F9000\n")
+        klipper.send_gcode("G1 Z0 F600\n")
         g.screen.manual_count = -1
         page_to(ids.BED_MOVING)
     elif widget_id == ids.BED_FINISH_SCREW2:
         g.klippy.idle_timeout_state = "Printing"
-        actions.send_gcode("G1 Z10 F600\n")
-        actions.send_gcode("G1 X230 Y10 F9000\n")
-        actions.send_gcode("G1 Z0 F600\n")
+        klipper.send_gcode("G1 Z10 F600\n")
+        klipper.send_gcode("G1 X230 Y10 F9000\n")
+        klipper.send_gcode("G1 Z0 F600\n")
         g.screen.manual_count = -1
         page_to(ids.BED_MOVING)
     elif widget_id == ids.BED_FINISH_SCREW3:
         g.klippy.idle_timeout_state = "Printing"
-        actions.send_gcode("G1 Z10 F600\n")
-        actions.send_gcode("G1 X125 Y240 F9000\n")
-        actions.send_gcode("G1 Z0 F600\n")
+        klipper.send_gcode("G1 Z10 F600\n")
+        klipper.send_gcode("G1 X125 Y240 F9000\n")
+        klipper.send_gcode("G1 Z0 F600\n")
         g.screen.manual_count = -1
         page_to(ids.BED_MOVING)
     elif widget_id == ids.BED_FINISH_Z_TILT:
         g.klippy.idle_timeout_state = "Printing"
-        actions.send_gcode("G28\nZ_TILT_ADJUST\n")
-        actions.send_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
+        klipper.send_gcode("G28\nZ_TILT_ADJUST\n")
+        klipper.send_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
         g.screen.manual_count = -2
         page_to(ids.BED_MOVING)
 
 
 def syntony_move(page_id, widget_id):
     if widget_id == ids.SYNTONY_MOVE_JUMP_OUT:
-        actions.send_gcode("SAVE_CONFIG\n")
+        klipper.send_gcode("SAVE_CONFIG\n")
         page_to(ids.SYNTONY_FINISH)
 
 
@@ -128,8 +131,8 @@ def syntony_finish(page_id, widget_id):
         page_to(ids.LEVEL_MODE)
         system("sync")
         settings.get_babystep()           # 4.4.22 (was init_mks_status())
-        actions.sub_object_status()
-        actions.get_object_status()
+        klipper.sub_object_status()
+        klipper.get_object_status()
 
 
 def level_error(page_id, widget_id):
@@ -145,7 +148,7 @@ def auto_warning(page_id, widget_id):
 def calibrate_warning(page_id, widget_id):
     if widget_id == ids.CALIBRATE_WARNING_NEXT:
         g.screen.manual_count = 4
-        actions.bed_calibrate()
+        calibration.bed_calibrate()
     elif widget_id == ids.CALIBRATE_WARNING_BACK:
         page_to(ids.LEVEL_MODE)
 

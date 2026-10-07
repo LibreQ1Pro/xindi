@@ -1,5 +1,6 @@
 """``python3 -m xindi [host]``"""
 
-from .main import run
+from xindi.main import run
+
 
 run()

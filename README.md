@@ -38,15 +38,12 @@ functions changed in it are marked "4.4.22" in the code). The main changes:
 **QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
 binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
 from the screen firmware (their pages are removed, so the page numbers of the screen firmware differ from QIDI's).
-The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/screen_flash.py`). The start-up cleanup
+The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/screen/flash.py`). The start-up cleanup
 of the binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and QIDI's frpc service) is not done.
 
-The port began as a line-by-line translation of the C++ program and has been refactored since: the
-global state is split by area (`xindi/state.py`), the page logic by what it does (`pages`, `actions`,
-`settings`, `filelist`, `wifi_ui`), the clicks of the screen are a table of handlers per page
-(`xindi/clicks/`), and the dead code and the modules named after the C++ files are gone. The settings file has a small parser of its own (`xindi/config_ini.py`), the log goes through the `logging` module (`XINDI_LOG=debug` shows the chatty messages), and the Moonraker messages, the gcode responses and the status objects are handled through tables. The names of
-the modules and functions no longer follow the C++ sources. What the screen is sent is unchanged
-and checked by the golden traces of `tests/e2e`.
+The port began as a line-by-line translation of the C++ program and has been refactored since. The code is
+organised by what it does, no longer by the C++ files it came from (see Structure below). What the screen is sent
+is unchanged and checked by the golden traces of `tests/e2e`.
 
 ## Running
 
@@ -69,12 +66,12 @@ To use it on the printer instead of the C++ binary, change the last line of
 
 | Original | Replacement | Notes |
 |---|---|---|
-| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen_flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
-| `/home/mks/gene4.py` | `xindi/colpic.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
-| `/home/mks/libColPic.so` (aarch64) | `xindi/colpic.py` (`col_pic_encode_str` …) | Reverse engineered (`ad_list0`, `byte8bit_encode`, `col_pic_encode`, `col_pic_encode_str`). Output is byte-identical to the original library, including its quirks. |
-| wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
-| websocketpp | `xindi/moonraker_ws.py` | Minimal RFC 6455 client with the same connection-state semantics. |
-| HTTPRequest.hpp | `xindi/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
+| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen/flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
+| `/home/mks/gene4.py` | `xindi/screen/colpic.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
+| `/home/mks/libColPic.so` (aarch64) | `xindi/screen/colpic.py` (`col_pic_encode_str` …) | Reverse engineered (`ad_list0`, `byte8bit_encode`, `col_pic_encode`, `col_pic_encode_str`). Output is byte-identical to the original library, including its quirks. |
+| wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/system/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
+| websocketpp | `xindi/moonraker/ws_client.py` | Minimal RFC 6455 client with the same connection-state semantics. |
+| HTTPRequest.hpp | `xindi/moonraker/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
 
 Scripts that are not part of this repository and are not present on the printer
 image and real
@@ -83,18 +80,36 @@ are still run through the shell exactly like before.
 
 ## Structure
 
+```
+xindi/
+  main.py            start-up sequence and the main loop
+  state.py           the shared state, one object per area (g.screen, g.klippy, g.files, ...)
+  screen/            the TJC screen: tx.py (instructions, g.port), rx.py (frames), serial.py, events.py (touches,
+                     values, keyboard), navigation.py (page_to), pageids.py, pics.py, transfer.py (pictures),
+                     colpic.py, thumbnail.py, flash.py (firmware download)
+  moonraker/         ws_client.py, http_client.py, rpc_requests.py (JSON-RPC builders), rpc_messages.py (dispatch of
+                     what Moonraker sends), printer_status.py, gcode_responses.py, gcode_files.py, gcodes.py
+  printer/           what the user can ask: heating.py, motion.py, job.py, calibration.py, klipper.py
+  pages/             what every page shows: refresh.py (the page that is open), home.py, printing.py, preview.py,
+                     move.py, filament.py, leveling.py, guide.py, system.py, file_list.py, wifi.py, connections.py
+  clicks/            what a touch does: a table of handlers per page
+  config/            inifile.py (config.mksini), settings.py
+  system/            network.py (NetworkManager)
+  util/              cpp.py (C/C++ semantics), paths.py, netstrings.py
+```
+
 * `xindi/state.py` holds the shared state, one object per area: `g.screen` (what the screen
   shows, page flags), `g.klippy` (the printer as Klipper reports it), `g.shown` (values last sent
   to the screen), `g.levelling`, `g.files`, `g.net`, `g.config`, `g.update`, `g.pictures` and
-  `g.rpc` (the Moonraker message being handled). The two connections are `g.port` (the screen's serial port: `g.port.page(...)`, `g.port.txt(...)`, …, in `xindi/screen_tx.py`) and `g.ep` (Moonraker).
-* `xindi/cpp.py` reproduces the C/C++ semantics the code depends on:
+  `g.rpc` (the Moonraker queue). The two connections are `g.port` (the screen's serial port:
+  `g.port.page(...)`, `g.port.txt(...)`, …) and `g.ep` (Moonraker).
+* `xindi/util/cpp.py` reproduces the C/C++ semantics the code depends on:
   * 32-bit `float` rounding (`f32`) and `std::to_string`
   * `std::string::substr` / `npos` arithmetic and integer division / `%` truncating toward zero
   * C `round()`, `strtol` / `atof` / `std::stof` / stream parsing
   * nlohmann::json style access and type errors (`jget`, `jstr`, `jint`, …)
   * `pthread_create` that aborts the process on an uncaught exception, like `std::terminate`
-* The other modules are named after what they do (see the list in the refactoring paragraph above). The page
-  ids are in `xindi/pageids.py`. Fall-through `switch` cases (missing `break`) of the C++ code are
+* The page ids are in `xindi/screen/pageids.py`. Fall-through `switch` cases (missing `break`) of the C++ code are
   reproduced and marked with a `NOTE`.
 
 ## Deliberate deviations
@@ -118,7 +133,7 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   written to `/home/mks/tjc` and read back. A failed conversion leaves no
   picture; the original keeps the unchanged file and shows the picture of the
   previous file.
-* Thumbnails are read from the gcode files themselves (`xindi/thumbnail.py`):
+* Thumbnails are read from the gcode files themselves (`xindi/screen/thumbnail.py`):
   the start of the file is downloaded from Moonraker
   (`/server/files/gcodes/<path>` with a Range header) and the embedded
   `; thumbnail[_JPG|_QOI] begin WxH` blocks are decoded in memory. The original
@@ -140,7 +155,7 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   flag is reset; the port handles every message.
 * The directories of the gcode files, the Klipper configuration and the logs
   are not fixed to QIDI's `/home/mks/gcode_files`, `/home/mks/klipper_config`
-  and `/home/mks/klipper_logs` (`xindi/paths.py`). They are asked from
+  and `/home/mks/klipper_logs` (`xindi/util/paths.py`). They are asked from
   Moonraker (`/server/files/roots`); while it does not answer,
   `/home/mks/printer_data/{gcodes,config,logs}` are used when they exist, QIDI's
   otherwise. USB drives are still expected at `<gcodes>/sda1`; systems
@@ -157,7 +172,7 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 ## Tests
 
 `tests/unit/` has the tests of the pure logic (no printer, no network): `PYTHONPATH=. python3 -I -m unittest discover -s tests/unit -t .`
-(the splitting of the screen's byte stream into frames, `xindi/screen_rx.py`).
+(the splitting of the screen's byte stream into frames, `xindi/screen/rx.py`).
 
 `tests/e2e/` runs the port in a simulated printer in docker and compares everything it does with golden traces,
 to check refactorings (`tests/e2e/golden.py check`). See `tests/e2e/README.md`.
@@ -174,4 +189,4 @@ See [LICENSE](LICENSE).
 
 Ported third-party code keeps its own copyright and license:
 
-* `xindi/http_client.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).
+* `xindi/moonraker/http_client.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).

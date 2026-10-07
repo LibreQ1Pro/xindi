@@ -1,14 +1,17 @@
 """Clicks on the network, settings, error and pop-up pages. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
-import time
 import logging
+import time
 
-from .. import state as g
-from .. import actions, filelist, netui, settings, wifi_ui
-from .. import pageids as ids
-from ..ui import page_to
-from ..network import set_page_wifi_ssid_list
-from .common import nav_guarded
+from xindi import state as g
+from xindi.clicks.common import nav_guarded
+from xindi.config import settings
+from xindi.pages import connections, file_list, navigation, wifi
+from xindi.printer import job, klipper
+from xindi.screen import pageids as ids
+from xindi.screen.navigation import page_to
+from xindi.system.network import set_page_wifi_ssid_list
+
 
 log = logging.getLogger(__name__)
 
@@ -20,10 +23,10 @@ def internet(page_id, widget_id):
         pass
     elif widget_id == ids.INTERNET_REFRESH:
         log.debug("################## refresh button pressed")
-        wifi_ui.scan_ssid_and_show()
+        wifi.scan_ssid_and_show()
         log.debug("Waiting 3s...")
         time.sleep(3)
-        wifi_ui.scan_ssid_and_show()
+        wifi.scan_ssid_and_show()
     elif widget_id == ids.INTERNET_TO_WIFI:
         pass
     elif widget_id == ids.INTERNET_TO_SETTING:
@@ -39,15 +42,15 @@ def wifi_list(page_id, widget_id):
                        ids.WIFI_LIST_SSID_4, ids.WIFI_LIST_SSID_5):
         index = widget_id - ids.WIFI_LIST_SSID_1
         if g.screen.wifi_ssid_button_enabled[index]:
-            wifi_ui.get_wifi_list_ssid(index)
-            netui.open_keyboard(netui.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
+            wifi.get_wifi_list_ssid(index)
+            connections.open_keyboard(connections.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
     elif widget_id == ids.WIFI_LIST_SAVED:
-        netui.open_saved()
+        connections.open_saved()
     elif widget_id == ids.WIFI_LIST_HIDDEN:
-        netui.open_hidden()
+        connections.open_hidden()
     elif widget_id == ids.WIFI_LIST_REFRESH:
         log.debug("################## refresh button pressed")
-        wifi_ui.scan_ssid_and_show()
+        wifi.scan_ssid_and_show()
         # 4.4.1 CLL wifi refresh fix
     elif widget_id == ids.WIFI_LIST_PREVIOUS:
         if g.net.wifi_current_pages > 0:
@@ -55,18 +58,18 @@ def wifi_list(page_id, widget_id):
             log.debug("page_wifi_ssid_list_pages = %s", g.net.wifi_ssid_list_pages)
             g.net.wifi_current_pages -= 1
             set_page_wifi_ssid_list(g.net.wifi_current_pages)
-            wifi_ui.refresh_wifi_list()
+            wifi.refresh_wifi_list()
     elif widget_id == ids.WIFI_LIST_NEXT:
         if g.net.wifi_current_pages < g.net.wifi_ssid_list_pages - 1:
             log.debug("page_wifi_current_pages = %s", g.net.wifi_current_pages)
             log.debug("page_wifi_ssid_list_pages = %s", g.net.wifi_ssid_list_pages)
             g.net.wifi_current_pages += 1
             set_page_wifi_ssid_list(g.net.wifi_current_pages)
-            wifi_ui.refresh_wifi_list()
+            wifi.refresh_wifi_list()
     elif widget_id == ids.WIFI_LIST_TO_WIFI:
         pass
     elif widget_id == ids.WIFI_LIST_TO_SETTING:
-        wifi_ui.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+        wifi.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
 
 
 # 4.4.24: the timer of the page reports a connection that takes too long
@@ -82,25 +85,25 @@ def wifi_success(page_id, widget_id):
 
 def wifi_failed(page_id, widget_id):
     if widget_id == ids.WIFI_FAILED_YES:
-        wifi_ui.go_to_network()                  # 4.4.22 (was page_to(ids.WIFI_LIST))
+        wifi.go_to_network()                  # 4.4.22 (was page_to(ids.WIFI_LIST))
 
 
 def wifi_kb(page_id, widget_id):
     if widget_id == ids.WIFI_KB_BACK:
-        netui.keyboard_back()
+        connections.keyboard_back()
 
 
 def net_saved_or_net_info(page_id, widget_id):
     if nav_guarded(widget_id):
         pass
     elif page_id == ids.NET_SAVED:
-        netui.saved_clicked(widget_id)
+        connections.saved_clicked(widget_id)
     elif page_id == ids.NET_DETAIL:
-        netui.detail_clicked(widget_id)
+        connections.detail_clicked(widget_id)
     elif page_id == ids.NET_CONFIRM:
-        netui.confirm_clicked(widget_id)
+        connections.confirm_clicked(widget_id)
     else:
-        netui.info_clicked(widget_id)
+        connections.info_clicked(widget_id)
 
 
 def common_setting(page_id, widget_id):
@@ -111,9 +114,9 @@ def common_setting(page_id, widget_id):
     elif widget_id == ids.COMMON_SETTING_LANGUAGE:
         page_to(ids.LANGUAGE)
     elif widget_id == ids.COMMON_SETTING_WIFI:
-        wifi_ui.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+        wifi.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
     elif widget_id == ids.COMMON_SETTING_SYSTEM:
-        actions.go_to_reset()
+        klipper.go_to_reset()
     elif widget_id == ids.COMMON_SETTING_SERVICE:
         page_to(ids.SERVICE)
     elif widget_id == ids.COMMON_SETTING_SCREEN_SLEEP:
@@ -138,25 +141,25 @@ def language_or_sleep_mode(page_id, widget_id):
     elif widget_id == ids.BACK_TO_COMMON_SETTING:
         page_to(ids.COMMON_SETTING)
     elif widget_id == ids.RESET_PRINT_LOG:
-        filelist.print_log()
+        file_list.print_log()
     elif widget_id == ids.RESET_RESTART_KLIPPER:
-        actions.reset_klipper()
+        klipper.reset_klipper()
     elif widget_id == ids.RESET_RESTART_FIRMWARE:
-        actions.reset_firmware()
+        klipper.reset_firmware()
 
 
 def update_success(page_id, widget_id):
     if widget_id == ids.UPDATE_SUCCESS_YES:
-        actions.finish_screen_update()
+        navigation.finish_screen_update()
         page_to(ids.MAIN)
 
 
 def detect_error(page_id, widget_id):
     if widget_id == ids.DETECT_ERROR_YES:
         if g.screen.previous_page == ids.AUTO_MOVING or g.screen.previous_page == ids.OPEN_CALIBRATE:
-            actions.reset_klipper()
+            klipper.reset_klipper()
         page_to(ids.MAIN)
-        actions.clear_previous_data()
+        job.clear_previous_data()
 
 
 def gcode_error(page_id, widget_id):
@@ -170,10 +173,10 @@ def screen_sleep(page_id, widget_id):
         page_to(ids.SCREEN_SLEEP)
     elif widget_id == ids.SCREEN_SLEEP_EXIT:
         if g.screen.previous_page == ids.FILE_LIST:
-            filelist.go_to_file_list()
+            file_list.go_to_file_list()
         else:
             page_to(g.screen.previous_page)
-            actions.get_object_status()
+            klipper.get_object_status()
 
 
 def restore_config(page_id, widget_id):
@@ -198,13 +201,13 @@ def internet_page(page_id, widget_id):
         # 1: ethernet, 0: wifi (the page shows the address on the next refresh)
         settings.set_ethernet(0 if g.config.ethernet == 1 else 1)
     elif widget_id == ids.INTERNET_PAGE_WIFI:
-        wifi_ui.go_to_network()
+        wifi.go_to_network()
     elif widget_id == ids.INTERNET_PAGE_INFO:
-        netui.open_info()
+        connections.open_info()
     elif widget_id == ids.INTERNET_PAGE_SAVED:
-        netui.open_saved()
+        connections.open_saved()
     elif widget_id == ids.INTERNET_PAGE_HIDDEN:
-        netui.open_hidden()
+        connections.open_hidden()
 
 
 HANDLERS = {

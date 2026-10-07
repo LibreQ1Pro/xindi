@@ -2,11 +2,15 @@
 
 import logging
 
-from . import guide, printing, move_filament, levelling, system
+from xindi.clicks import guide, levelling, move_filament, printing, system
+
 
 log = logging.getLogger(__name__)
 
+
 HANDLERS = {}
+
+
 for _module in (guide, printing, move_filament, levelling, system):
     for _page, _handler in _module.HANDLERS.items():
         assert _page not in HANDLERS, _page

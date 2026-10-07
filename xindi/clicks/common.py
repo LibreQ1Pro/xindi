@@ -1,8 +1,8 @@
 """Shared by the click handlers."""
 
-from .. import pageids as ids
-from ..ui import page_to
-from .. import state as g
+from xindi import state as g
+from xindi.screen import pageids as ids
+from xindi.screen.navigation import page_to
 
 
 def printer_not_failed():
@@ -11,17 +11,18 @@ def printer_not_failed():
 
 def nav_guarded(widget_id):
     """ALL_TO_* buttons of the pages that are reachable while Klipper is in an error state."""
-    from .. import actions, filelist
+    from xindi.pages import file_list
+    from xindi.pages import navigation
     if widget_id == ids.ALL_TO_MAIN:
         if printer_not_failed():
             page_to(ids.MAIN)
         return True
     if widget_id == ids.ALL_TO_FILE_LIST:
         if printer_not_failed():
-            filelist.go_to_file_list()
+            file_list.go_to_file_list()
         return True
     if widget_id == ids.ALL_TO_ADJUST:
         if printer_not_failed():
-            actions.go_to_adjust()
+            navigation.go_to_adjust()
         return True
     return False
