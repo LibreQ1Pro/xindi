@@ -36,11 +36,17 @@ def main(argv):
                     command = "/usr/bin/systemctl --no-block restart makerbase-automount@%s.service" % partition_suffix
                     system(command)
 
+    # 4.4.22: mount the USB drive if it is not mounted yet
+    if (((access("/dev/sda") == 0 and access("/dev/sda1") == 0) or
+         (access("/dev/sda1") == 0 and access("/dev/sdb1") == 0)) and
+            access(paths.gcode_files() + "/sda1") != 0):
+        system("/usr/bin/systemctl --no-block restart makerbase-automount@sda1.service")
+
     if access(paths.gcode_files() + "/sda1/mksscreen.recovery") == 0:
         system("cp " + paths.gcode_files() + "/sda1/mksscreen.recovery /root/800_480.tft; sync")
 
     if access(paths.gcode_files() + "/sda1/mksclient.recovery") == 0:
-        system("dpkg -i " + paths.gcode_files() + "/sda1/mksclient.recovery; sync")
+        system("dpkg -i --force-overwrite " + paths.gcode_files() + "/sda1/mksclient.recovery; sync")
 
     if access("/root/800_480.tft") == 0:
         g.find_screen_tft_file = True
@@ -149,14 +155,16 @@ def main(argv):
 
             event.get_object_status()       # query the required values
             sleep(2)
-            event.init_mks_status()
+            event.system_setting_init()     # 4.4.22 (was init_mks_status())
             get_wlan0_status()
             mks_wpa_scan_scanresults()
             get_ssid_list_pages()
             event.mks_get_version()
             sleep(3)
 
-            send_cmd_val(g.tty_fd, "logo.version", "19")     # CLL UI / SOC version check, 4.4.19 is reported as 19
+            # CLL UI / SOC version check: the main page of the screen firmware V4.4.24
+            # expects 23 (QIDI's xindi V4.4.22 sends 24)
+            send_cmd_val(g.tty_fd, "logo.version", "23")
             if g.find_screen_tft_file == False:
                 g.previous_page_id = ui.TJC_PAGE_LOGO
                 if event.get_mks_oobe_enabled() == True:

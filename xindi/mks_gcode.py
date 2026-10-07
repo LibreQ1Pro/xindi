@@ -5,7 +5,7 @@ import re
 from . import state as g
 from . import ui
 from .cpp import (jget, jstr, json_dump, to_string, substr, stream_float, f32, sleep)
-from .mks_log import MKSLOG, MKSLOG_RED, MKSLOG_YELLOW, cout
+from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout
 
 
 def parse_gcode_response(params):
@@ -31,7 +31,7 @@ def parse_gcode_response(params):
             event.sub_object_status()
             sleep(2)
             event.get_object_status()
-            event.init_mks_status()     # restore the saved parameters after the restart
+            event.get_mks_babystep()    # 4.4.22 (was init_mks_status())
             if g.all_level_saving == False:
                 g.all_level_saving = True
             MKSLOG_YELLOW("State after the restart: %s", g.printer_webhooks_state)
@@ -143,12 +143,12 @@ def parse_gcode_response(params):
             if (g.current_page_id == ui.TJC_PAGE_FILAMENT_POP_2 or g.current_page_id == ui.TJC_PAGE_FILAMENT_POP_3
                     or g.current_page_id == ui.TJC_PAGE_AUTO_UNLOAD):
                 g.step_1 = True
-        elif params0.find("echo: Unload finish") != -1:
-            if g.current_page_id == ui.TJC_PAGE_AUTO_UNLOAD:
-                g.step_2 = True
-        elif params0.find("echo: Load finish") != -1:
-            if g.current_page_id == ui.TJC_PAGE_FILAMENT_POP_3 or g.current_page_id == ui.TJC_PAGE_FILAMENT_POP_2:
-                g.step_2 = True
         elif (params0.find("echo: Detected unexpected interruption during the last print.") != -1
               or params0.find("echo: Yes: RESUME_INTERRUPTED") != -1 or params0.find("echo: No: CLEAR_LAST_FILE") != -1):
             pass
+        # 4.4.22: any of the load / unload messages on any of the three pages
+        elif (params0.find("echo: Load finish") != -1 or params0.find("echo: Unload finish") != -1
+              or params0.find("echo: Filament loaded") != -1 or params0.find("echo: Filament unloaded") != -1):
+            if g.current_page_id in (ui.TJC_PAGE_AUTO_UNLOAD, ui.TJC_PAGE_FILAMENT_POP_2, ui.TJC_PAGE_FILAMENT_POP_3):
+                g.step_2 = True
+                MKSLOG_BLUE("load / unload filament success, step_2=%d", 1)

@@ -109,6 +109,11 @@ load_mode = False                       # True: loading filament, False: unloadi
 
 qr_refreshed = False                    # QR code needs to be regenerated only after wifi / connection / server changes
 
+# 4.4.22 (from the binary)
+printer_muted = False                   # silent mode: print speed 50%, reset when a print starts
+timelapse_enabled = False               # state of Moonraker's timelapse plugin, shown on the preview page
+file_list_refreshed = False             # the file list (and its pictures) is up to date: keep the position
+
 # ---------------------------------------------------------------------------
 # event.cpp
 # ---------------------------------------------------------------------------
@@ -579,6 +584,7 @@ get_0x24 = False
 have_64_jpg = [False] * 6
 have_64_png_path = [""] * 6
 begin_show_64_jpg = False
+send_jpg_status = False                 # 4.4.22: pictures being sent, refresh_page_show() waits
 begin_show_160_jpg = False
 begin_show_192_jpg = False
 show_192_jpg_complete = True

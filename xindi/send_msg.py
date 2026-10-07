@@ -28,7 +28,23 @@ def _write(fd, data):
         return -1
 
 
+# Python only: XINDI_TJC_LOG=1 prints every instruction sent to the screen
+# (debugging aid, off by default: the main loop sends hundreds per second)
+_TJC_LOG = os.environ.get("XINDI_TJC_LOG") == "1"
+
+
+_tjc_logged = {}
+
+
 def _send(fd, cmd):
+    if _TJC_LOG:
+        # the same instruction is logged at most once a second (journald drops
+        # lines when a service writes too many)
+        import time
+        now = time.time()
+        if now - _tjc_logged.get(cmd, 0.0) >= 1.0:
+            _tjc_logged[cmd] = now
+            print("TJC> " + cmd.rstrip(b"\xff").decode("utf-8", "replace"), flush=True)
     _tcdrain(fd)
     _write(fd, cmd)
 

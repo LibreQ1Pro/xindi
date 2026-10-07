@@ -58,19 +58,18 @@ def sent_jpg_thread_handle(arg=None):
         # refresh the small preview pictures
         if g.begin_show_64_jpg:
             g.begin_show_64_jpg = False
+            # 4.4.22: refresh_page_show() waits while the pictures are sent; the
+            # touch (disabled by the page buttons of the file list) is enabled
+            # once at the end instead of around every picture
+            g.send_jpg_status = True
             for i in range(6):
                 if g.have_64_jpg[i] == True:
-                    jpg_data = None
-                    if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
-                        # Python only: jpg made from the thumbnail inside the gcode
-                        # file, before the touch is disabled (it can take a while)
-                        cout(g.have_64_png_path[i])
-                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
-                    send_cmd_tsw(g.tty_fd, "255", "0")      # disable touch
-                    MKSLOG_BLUE("Touch disabled")
                     usleep(50500 + i * 500)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
                     if isinstance(g.have_64_png_path[i], thumbnail.GcodeRef):
+                        # Python only: jpg made from the thumbnail inside the gcode file
+                        cout(g.have_64_png_path[i])
+                        jpg_data = thumbnail.jpeg(g.have_64_png_path[i], 112)
                         if jpg_data is not None:
                             sent_jpg_to_tjc(ram_path, jpg_data)
                     else:
@@ -78,8 +77,9 @@ def sent_jpg_thread_handle(arg=None):
                         cout(jpg_path)
                         sent_jpg_to_tjc(ram_path, jpg_path)
                     g.have_64_jpg[i] = False
-                    send_cmd_tsw(g.tty_fd, "255", "1")      # enable touch
-                    MKSLOG_BLUE("Touch enabled")
+            g.send_jpg_status = False
+            send_cmd_tsw(g.tty_fd, "255", "1")      # enable touch
+            MKSLOG_BLUE("Touch enabled")
 
         usleep(60000)
 

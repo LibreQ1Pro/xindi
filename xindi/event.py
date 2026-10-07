@@ -1,7 +1,9 @@
 """Port of src/event.cpp / include/event.h - page refresh functions and printer actions."""
 
+import json as _json
 import os
 import threading
+import urllib.request
 
 from . import paths
 from . import state as g
@@ -10,10 +12,10 @@ from .ui import page_to
 from .cpp import (to_string, substr, f32, c_int, c_round, cdiv, cmod, stof, stoi, s2b, b2s, cstr,
                   access, system, sleep, usleep, popen_read, read_file, getline_all, json_parse,
                   stream_hex_int, str_lower_ascii, pthread_create, jget, jstr, i32)
-from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr
+from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_GREEN, cout, cerr
 from .send_msg import (send_cmd_txt, send_cmd_val, send_cmd_pco, send_cmd_picc, send_cmd_picc2,
                        send_cmd_vis, send_cmd_pic, send_cmd_cp_close, send_cmd_cp_image, send_cmd_baud,
-                       send_cmd_txt_plus)
+                       send_cmd_txt_plus, send_cmd_tsw, send_cmd_pco2)
 from .MakerbaseSerial import set_option
 from .MoonrakerAPI import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_get_gcode_metadata, json_file_delete,
@@ -23,7 +25,7 @@ from .MakerbasePanel import move
 from .KlippyGcodes import (AXIS_X, AXIS_Y, AXIS_Z, set_heater_temp, set_fan_speed, set_fan0_speed,
                            set_fan2_speed, set_fan3_speed, set_speed_rate)
 from .MakerbaseShell import execute_cmd
-from .MakerbaseNetwork import get_eth0_ip
+from .MakerbaseNetwork import get_eth0_ip, get_wlan0_ip
 from .MakerbaseParseIni import (mksini_load, mksini_free, mksini_getstring, mksini_getint,
                                 mksini_getboolean, mksini_set, mksini_save, mksversion_load,
                                 mksversion_free, mksversion_soc, mksversion_mcu, mksversion_ui,
@@ -73,6 +75,9 @@ def _replace_for_screen(text):
 # ---------------------------------------------------------------------------
 
 def refresh_page_show():
+    # 4.4.22: nothing is sent to the screen while the list pictures are transferred
+    if g.send_jpg_status:
+        return
     # CLL the jumps below are unconditional, the flags were set after the
     # checks were done (the flag has to be reset before switching the page,
     # otherwise this would loop forever)
@@ -109,7 +114,7 @@ def refresh_page_show():
         g.jump_to_print_low_temp = False
         page_to(ui.TJC_PAGE_PRINT_LOW_TEMP)
     if g.jump_to_resume_print == True:
-        g.jump_to_resume_print = False
+        # 4.4.24: the flag is reset when the page reports that it is shown
         page_to(ui.TJC_PAGE_RESUME_PRINT)
     if g.jump_to_memory_warning == True:
         g.jump_to_memory_warning = False
@@ -124,21 +129,19 @@ def refresh_page_show():
                                    ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_DETECT_ERROR, ui.TJC_PAGE_RESET,
                                    ui.TJC_PAGE_PREVIEW, ui.TJC_PAGE_PREVIEW_POP_1, ui.TJC_PAGE_PREVIEW_POP_2,
                                    ui.TJC_PAGE_PRINTING_2, ui.TJC_PAGE_FILAMENT_POP_2,
-                                   ui.TJC_PAGE_FILAMENT_POP_3):
+                                   ui.TJC_PAGE_FILAMENT_POP_3, ui.TJC_PAGE_STOP_CONFIRM,
+                                   ui.TJC_PAGE_LINK_FIRST):
             pass
         else:
             if g.printer_print_stats_state == "printing":
                 if g.printer_print_stats_filename != "":
                     g.main_picture_detected = False
                     g.main_picture_refreshed = False
+                    g.printer_muted = False         # 4.4.22 silent mode is per print
                     MKSLOG_BLUE("Jumping to the print page\n")
                     sleep(1)
                     get_file_estimated_time(g.printer_print_stats_filename)
                     sleep(1)
-                    # 4.4.2 CLL screen sleep feature
-                    if g.previous_caselight_value == True:
-                        led_on_off()
-                        g.previous_caselight_value = False
                     g.jump_to_print = True
                     g.printer_ready = False
                     page_to(ui.TJC_PAGE_PREVIEW)
@@ -150,7 +153,7 @@ def refresh_page_show():
                                  ui.TJC_PAGE_WIFI_LIST, ui.TJC_PAGE_WIFI_KB, ui.TJC_PAGE_WIFI_CONNECT,
                                  ui.TJC_PAGE_WIFI_FAILED, ui.TJC_PAGE_WIFI_SUCCESS, ui.TJC_PAGE_WIFI_SAVING,
                                  ui.TJC_PAGE_UPDATE_FOUND, ui.TJC_PAGE_UPDATE_NOT_FOUND, ui.TJC_PAGE_UPDATING,
-                                 ui.TJC_PAGE_UPDATE_FINISH, ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_SHOW_QR,
+                                 ui.TJC_PAGE_UPDATE_FINISH, ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_INTERNET_PAGE,
                                  ui.TJC_PAGE_SERVER_SET, ui.TJC_PAGE_UPDATE_MODE, ui.TJC_PAGE_ONLINE_UPDATE,
                                  ui.TJC_PAGE_SEARCH_SERVER):
             pass
@@ -161,9 +164,6 @@ def refresh_page_show():
                                                                or g.current_page_id == ui.TJC_PAGE_OPEN_CALIBRATE):
                     pass
                 else:
-                    if g.previous_caselight_value == True:
-                        led_on_off()
-                        g.previous_caselight_value = False
                     page_to(ui.TJC_PAGE_RESET)
                     cout("Restart page")
                     if g.current_webhooks_state_message != g.printer_webhooks_state_message:
@@ -230,12 +230,13 @@ def refresh_page_show():
         refresh_page_wifi_keyboard()
     elif page == ui.TJC_PAGE_FILAMENT:
         refresh_page_filament()
-    elif page == ui.TJC_PAGE_SHOW_QR:
-        refresh_page_show_qr()
-    elif page == ui.TJC_PAGE_SERVER_SET:
-        refresh_page_server_set()
+    elif page == ui.TJC_PAGE_INTERNET_PAGE:
+        refresh_page_show_ip()
     elif page == ui.TJC_PAGE_AUTO_UNLOAD:
         refresh_page_auto_unload()
+    elif page == ui.TJC_PAGE_OPEN_MOVING:
+        refresh_page_open_moving()
+    # NOTE: the server page (QIDI Link) and the QIDI Link pages are not refreshed
 
 
 def refresh_page_open_filament_video_2():
@@ -272,7 +273,7 @@ def refresh_page_syntony_finish():
         system("sync")      # make sure the config file is saved
 
         g.all_level_saving = False
-        init_mks_status()   # restore the saved parameters after the restart
+        get_mks_babystep()  # 4.4.22 (was init_mks_status())
         sub_object_status()
         get_object_status()
         sleep(10)
@@ -554,7 +555,19 @@ def refresh_page_printing():
                                                                  g.printer_display_status_progress)))
     send_cmd_txt(g.tty_fd, "t4", _file_name_only(g.printer_print_stats_filename))
 
-    if g.printing_keyboard_enabled == False:    # CLL refresh only while the keyboard is not shown
+    # the z offset of the second page is always refreshed: the page starts with
+    # the designer's "-1.000", it must not stay while the keyboard flag is set
+    if g.current_page_id == ui.TJC_PAGE_PRINTING_2:
+        send_cmd_txt(g.tty_fd, "t1", z_offset)
+
+    if g.printing_keyboard_enabled == True:     # 4.4.22 silent mode button of the keyboard
+        if g.printer_muted == False:
+            send_cmd_picc(g.tty_fd, "b110", "273")
+            send_cmd_picc2(g.tty_fd, "b110", "56")
+        else:
+            send_cmd_picc(g.tty_fd, "b110", "274")
+            send_cmd_picc2(g.tty_fd, "b110", "275")
+    else:                                       # CLL refresh only while the keyboard is not shown
         if g.current_page_id == ui.TJC_PAGE_PRINTING:
             # CLL fan speeds
             send_cmd_val(g.tty_fd, "n4", to_string(c_int(f32(g.printer_out_pin_fan0_value * 100))))
@@ -583,12 +596,7 @@ def refresh_page_printing():
                 send_cmd_picc(g.tty_fd, "b1", "54")
                 send_cmd_picc2(g.tty_fd, "b1", "52")
 
-            if g.printer_caselight_value == 0:      # CLL LED state
-                send_cmd_picc(g.tty_fd, "b3", "53")
-                send_cmd_picc2(g.tty_fd, "b3", "52")
-            else:
-                send_cmd_picc(g.tty_fd, "b3", "54")
-                send_cmd_picc2(g.tty_fd, "b3", "51")
+            # 4.4.22: the LED button moved to the second printing page
 
             send_cmd_val(g.tty_fd, "n2", to_string(g.printer_hot_target))      # CLL chamber temperature
             send_cmd_txt(g.tty_fd, "t5", to_string(g.printer_hot_temperature))
@@ -608,8 +616,6 @@ def refresh_page_printing():
                 send_cmd_vis(g.tty_fd, "cp0", "0")
                 send_cmd_val(g.tty_fd, "v999", "0")
         elif g.current_page_id == ui.TJC_PAGE_PRINTING_2:
-            send_cmd_txt(g.tty_fd, "t1", z_offset)     # z offset
-
             if g.current_speed_factor != g.printer_gcode_move_speed_factor:     # CLL speed factor
                 g.current_speed_factor = g.printer_gcode_move_speed_factor
                 send_cmd_val(g.tty_fd, "n2", to_string(c_int(c_round(f32(g.printer_gcode_move_speed_factor * 100)))))
@@ -617,6 +623,13 @@ def refresh_page_printing():
             if g.current_extruder_factor != g.printer_gcode_move_extrude_factor:    # CLL extrusion factor
                 g.current_extruder_factor = g.printer_gcode_move_extrude_factor
                 send_cmd_val(g.tty_fd, "n3", to_string(c_int(c_round(f32(g.printer_gcode_move_extrude_factor * 100)))))
+
+            if g.printer_caselight_value == 0:      # 4.4.22 LED state
+                send_cmd_picc(g.tty_fd, "b4", "271")
+                send_cmd_picc2(g.tty_fd, "b4", "270")
+            else:
+                send_cmd_picc(g.tty_fd, "b4", "272")
+                send_cmd_picc2(g.tty_fd, "b4", "67")
 
     if g.printer_print_stats_state == "printing":
         g.printer_ready = True
@@ -734,12 +747,19 @@ def _stem_of(path):
 
 
 def refresh_page_preview():
-    if g.printer_bed_leveling == True:
-        send_cmd_picc(g.tty_fd, "b2", "45")
-        send_cmd_picc2(g.tty_fd, "b2", "45")
-    else:
+    # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
+    if g.printer_bed_leveling == False:
         send_cmd_picc(g.tty_fd, "b2", "46")
-        send_cmd_picc2(g.tty_fd, "b2", "46")
+        send_cmd_picc2(g.tty_fd, "b2", "290")
+    else:
+        send_cmd_picc(g.tty_fd, "b2", "45")
+        send_cmd_picc2(g.tty_fd, "b2", "44")
+    if g.timelapse_enabled == False:
+        send_cmd_picc(g.tty_fd, "b3", "46")
+        send_cmd_picc2(g.tty_fd, "b3", "290")
+    else:
+        send_cmd_picc(g.tty_fd, "b3", "45")
+        send_cmd_picc2(g.tty_fd, "b3", "44")
     if g.mks_file_parse_finished == True:
         if g.show_preview_complete == False:
             # 4.4.2 CLL only the file name is shown on the preview page
@@ -956,6 +976,14 @@ def refresh_page_main():
 
 
 def refresh_page_files_list():
+    # 4.4.22: the pictures are only sent again when the list changed
+    # (file_list_refreshed), the folder and page are kept meanwhile
+    if g.file_list_refreshed == False:
+        delete_small_jpg()
+    if detect_disk_2() == 1 and g.file_mode == "USB":
+        send_cmd_txt(g.tty_fd, "t0", "")
+    elif detect_disk_2() == 0 and g.file_mode == "USB":
+        send_cmd_txt(g.tty_fd, "t0", "\u7a7a")     # "empty"
     send_cmd_vis(g.tty_fd, "q0", "0")
     for i in range(4):
         send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_files_list_show_name[i])
@@ -1006,26 +1034,30 @@ def refresh_page_files_list():
     else:
         send_cmd_picc(g.tty_fd, "b0", to_string(41))
         send_cmd_picc2(g.tty_fd, "b0", to_string(37))
-    delete_small_jpg()
-    for i in range(4):      # CLL refresh the pictures after all the other widgets
-        g.have_64_jpg[i] = False
-        g.have_64_png_path[i] = ""
-        t = g.page_files_list_show_type[i]
-        if t == "[c]" or t == "[f]":
-            name = g.page_files_list_show_name[i]
-            # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
-            # by QIDI's slicer / Moonraker) to the screen; the port takes the
-            # thumbnail from the gcode file itself (see thumbnail.py).
-            if t == "[c]":
-                picture_path = g.page_files_path + "/.cache/" + name
-            else:
-                picture_path = g.page_files_path + "/" + name
-            picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
-            MKSLOG_RED("Picture path:%s", picture_path)
-            if thumbnail.find(picture_path, 112, "JPEG") is not None:
-                g.have_64_jpg[i] = True
-                g.have_64_png_path[i] = picture_path
-                refresh_files_list_picture_2(picture_path, 112, i)
+    if g.file_list_refreshed == True:
+        send_cmd_tsw(g.tty_fd, "255", "1")      # pictures still in the screen memory: enable touch
+    else:
+        for i in range(4):      # CLL refresh the pictures after all the other widgets
+            g.have_64_jpg[i] = False
+            g.have_64_png_path[i] = ""
+            t = g.page_files_list_show_type[i]
+            if t == "[c]" or t == "[f]":
+                name = g.page_files_list_show_name[i]
+                # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
+                # by QIDI's slicer / Moonraker) to the screen; the port takes the
+                # thumbnail from the gcode file itself (see thumbnail.py).
+                if t == "[c]":
+                    picture_path = g.page_files_path + "/.cache/" + name
+                else:
+                    picture_path = g.page_files_path + "/" + name
+                picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
+                MKSLOG_RED("Picture path:%s", picture_path)
+                if thumbnail.find(picture_path, 112, "JPEG") is not None:
+                    g.have_64_jpg[i] = True
+                    g.have_64_png_path[i] = picture_path
+            # the picture thread also enables the touch again when there is no picture
+            g.begin_show_64_jpg = True
+        g.file_list_refreshed = True
 
 
 def refresh_page_files(pages):
@@ -1187,11 +1219,7 @@ def cancel_print():
     system("curl -X POST http://127.0.0.1:7125/printer/breakmacro")
     system("curl -X POST http://127.0.0.1:7125/printer/breakheater")
     g.ep.Send(json_run_a_gcode("CANCEL_PRINT"))
-    printed_minutes = get_cal_printed_time(c_int(g.printer_print_stats_print_duration))
-    get_mks_total_printed_time()
-    g.mks_total_printed_minutes = i32(g.mks_total_printed_minutes + printed_minutes)
-    cout("@@@@@@ ", printed_minutes)
-    set_mks_total_printed_time(g.mks_total_printed_minutes)
+    # 4.4.22: the total print time is no longer kept in config.mksini
     usleep(10000)
     sdcard_reset_file()
 
@@ -1498,18 +1526,14 @@ def go_to_reset():
     if g.printer_webhooks_state == "shutdown":
         page_to(ui.TJC_PAGE_RESET)
     else:
-        machine_type = read_file("/dev_info.txt")
-        if machine_type is None:
-            cerr("Can't open the file ", "/dev_info.txt", "\n")
-            return
-        machine_type = substr(machine_type, machine_type.find("@") + 1)
+        # 4.4.22: fixed name (was read from /dev_info.txt)
         page_to(ui.TJC_PAGE_SYS_OK)
-        cout("machine_type:", machine_type)
-        send_cmd_txt(g.tty_fd, "t2", machine_type)
+        send_cmd_txt(g.tty_fd, "t2", "Q1 Pro")
 
 
 def go_to_network():
     if detected_wlan0():
+        get_wlan0_status()
         mks_wpa_cli.mks_wpa_cli_open_connection()
         g.page_wifi_list_ssid_button_enabled[0] = False
         g.page_wifi_list_ssid_button_enabled[1] = False
@@ -1518,14 +1542,12 @@ def go_to_network():
         g.page_wifi_list_ssid_button_enabled[4] = False
         g.page_wifi_ssid_list_pages = 0
         g.page_wifi_current_pages = 0
-        page_to(ui.TJC_PAGE_WIFI_LIST)
-        # 4.4.1 CLL wifi refresh fix
-        scan_ssid_and_show()
-        get_wlan0_status()
         if g.status_result.wpa_state == "COMPLETED":
             g.current_connected_ssid_name = hex_to_utf8(g.status_result.ssid)   # name of the connected wifi
         elif g.status_result.wpa_state != "INACTIVE":
             g.current_connected_ssid_name = ""      # not connected: forget the name of the connected wifi
+        page_to(ui.TJC_PAGE_WIFI_LIST)
+        scan_ssid_and_show()
     else:
         page_to(ui.TJC_PAGE_INTERNET)
 
@@ -1543,63 +1565,43 @@ def scan_ssid_and_show():
 
 
 def refresh_page_wifi_list():
-    completed = lambda: g.status_result.wpa_state == "COMPLETED"
+    # 4.4.22: the names come from the list, the first entry of the first page is
+    # the connected network; the page buttons are set once after the list
+    MKSLOG_BLUE("pages: %d / %d", g.page_wifi_current_pages + 1, g.page_wifi_ssid_list_pages)
     for i in range(5):
         cout("Refreshed wifi: ", g.page_wifi_ssid_list[i])
-        if 0 == g.page_wifi_current_pages:
-            if 0 == i:
-                if completed():
-                    send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), hex_to_utf8(g.status_result.ssid))
-                else:
-                    send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_wifi_ssid_list[i])
-            else:
-                send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_wifi_ssid_list[i])
-        else:
-            send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_wifi_ssid_list[i])
-        MKSLOG_BLUE("%d/%d", g.page_wifi_current_pages + 1, g.page_wifi_ssid_list_pages)
-        if g.page_wifi_current_pages == 0:
-            if completed():
-                send_cmd_picc(g.tty_fd, "wifi1", "126")
-                send_cmd_picc2(g.tty_fd, "wifi1", "124")
-                g.page_wifi_list_ssid_button_enabled[0] = False
-            else:
-                send_cmd_picc(g.tty_fd, "wifi1", "125")
-                send_cmd_picc2(g.tty_fd, "wifi1", "123")
-                g.page_wifi_list_ssid_button_enabled[0] = True
-        else:
-            send_cmd_picc(g.tty_fd, "wifi1", "125")
-            send_cmd_picc2(g.tty_fd, "wifi1", "123")
-            g.page_wifi_list_ssid_button_enabled[0] = True
-
-        if g.page_wifi_ssid_list[i] == "":
-            cout("Showing the picture without lock")
-            send_cmd_picc(g.tty_fd, "wifi" + to_string(i + 1), "122")
-            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "122")
+        send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_wifi_ssid_list[i])
+        if g.status_result.wpa_state == "COMPLETED" and g.page_wifi_current_pages == 0 and i == 0:
+            send_cmd_picc(g.tty_fd, "wifi1", "126")
+            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "124")
             g.page_wifi_list_ssid_button_enabled[i] = False
-        else:
-            cout("Showing the picture with lock")
+        elif g.page_wifi_ssid_list[i] != "":
             send_cmd_picc(g.tty_fd, "wifi" + to_string(i + 1), "125")
             send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "123")
             g.page_wifi_list_ssid_button_enabled[i] = True
+        else:
+            send_cmd_picc(g.tty_fd, "wifi" + to_string(i + 1), "122")
+            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "122")
+            g.page_wifi_list_ssid_button_enabled[i] = False
 
-        if g.page_wifi_ssid_list_pages == 0:
+    if g.page_wifi_ssid_list_pages == 0:
+        send_cmd_picc(g.tty_fd, "b1", "126")
+        send_cmd_picc2(g.tty_fd, "b1", "123")
+        send_cmd_picc(g.tty_fd, "b2", "126")
+        send_cmd_picc2(g.tty_fd, "b2", "123")
+    else:
+        if g.page_wifi_current_pages == 0:
             send_cmd_picc(g.tty_fd, "b1", "126")
             send_cmd_picc2(g.tty_fd, "b1", "123")
+        else:
+            send_cmd_picc(g.tty_fd, "b1", "125")
+            send_cmd_picc2(g.tty_fd, "b1", "124")
+        if g.page_wifi_ssid_list_pages - 1 == g.page_wifi_current_pages:
             send_cmd_picc(g.tty_fd, "b2", "126")
             send_cmd_picc2(g.tty_fd, "b2", "123")
         else:
-            if g.page_wifi_current_pages == 0:
-                send_cmd_picc(g.tty_fd, "b1", "126")
-                send_cmd_picc2(g.tty_fd, "b1", "123")
-            else:
-                send_cmd_picc(g.tty_fd, "b1", "125")
-                send_cmd_picc2(g.tty_fd, "b1", "124")
-            if g.page_wifi_current_pages == g.page_wifi_ssid_list_pages - 1:
-                send_cmd_picc(g.tty_fd, "b2", "126")
-                send_cmd_picc2(g.tty_fd, "b2", "123")
-            else:
-                send_cmd_picc(g.tty_fd, "b2", "125")
-                send_cmd_picc2(g.tty_fd, "b2", "124")
+            send_cmd_picc(g.tty_fd, "b2", "125")
+            send_cmd_picc2(g.tty_fd, "b2", "124")
 
 
 def refresh_page_wifi_list_2():
@@ -1624,11 +1626,7 @@ def complete_print():
         g.ep.Send(json_run_a_gcode("PRINT_END"))
     else:
         g.ep.Send(json_run_a_gcode("PRINT_END_POWEROFF"))
-    printed_minutes = get_cal_printed_time(c_int(g.printer_print_stats_print_duration))
-    get_mks_total_printed_time()
-    g.mks_total_printed_minutes = i32(g.mks_total_printed_minutes + printed_minutes)
-    cout("@@@@@@ ", printed_minutes)
-    set_mks_total_printed_time(g.mks_total_printed_minutes)
+    # 4.4.22: the total print time is no longer kept in config.mksini
 
 
 def back_to_main():
@@ -1707,12 +1705,37 @@ def set_mks_fila_status():
     system("sync")
 
 
+def system_setting_init():
+    """4.4.22 start-up settings (the QIDI Link part is not implemented)."""
+    get_mks_babystep()
+    get_mks_ethernet()
+
+
 def init_mks_status():
     get_mks_total_printed_time()
     get_mks_babystep()
     get_mks_connection_method()
     get_mks_ethernet()
     # the z-offset is no longer set by xindi (printer_set_babystep() not called)
+
+
+def is_mounted(path):
+    """4.4.22: 1 if path is a mount point, 0 if not, -1 on errors."""
+    try:
+        return 1 if os.stat("/").st_dev != os.stat(path).st_dev else 0
+    except OSError as e:
+        cerr("is_mounted ", path, ": ", str(e), "\n")
+        return -1
+
+
+def detect_disk_2():
+    """4.4.22: is the USB drive mounted (1), not mounted (0), or missing (-1)?"""
+    result = is_mounted(paths.gcode_files() + "/sda1")
+    if result == 1:
+        MKSLOG("%s is mounted", paths.gcode_files() + "/sda1")
+    elif result == 0:
+        MKSLOG("%s is not mounted", paths.gcode_files() + "/sda1")
+    return result
 
 
 def detect_disk():
@@ -1848,7 +1871,7 @@ def move_motors_off():
 
 
 def open_more_level_finish():
-    init_mks_status()
+    get_mks_babystep()      # 4.4.22 (was init_mks_status())
     set_mks_oobe_enabled(False)     # turn the out-of-box guide off
     get_object_status()
     page_to(ui.TJC_PAGE_MAIN)
@@ -1950,10 +1973,6 @@ def detect_error():
         g.jump_to_level_error = True
     else:
         if g.printer_webhooks_state != "shutdown" and g.printer_webhooks_state != "error":
-            # 4.1.5 screen sleep feature
-            if g.previous_caselight_value == True:
-                led_on_off()
-                g.previous_caselight_value = False
             g.jump_to_detect_error = True
 
 
@@ -1973,9 +1992,20 @@ def print_start():
 
 
 def open_heater_bed_up():
-    page_to(ui.TJC_PAGE_OPEN_FILAMENTVIDEO_1)
+    # 4.4.22: the caller shows the "moving" page, which waits until Klipper is idle
+    # again (refresh_page_open_moving()); the bed is homed and moved up and down
+    g.printer_idle_timeout_state = "Printing"
     g.ep.Send(json_run_a_gcode("SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"))
     g.ep.Send(json_run_a_gcode("G91\nG1 Z-30 F600\nG1 X-30 Y-30 F1200\nG90\nM84\n"))
+    g.ep.Send(json_run_a_gcode("M4031\n"))
+    g.ep.Send(json_run_a_gcode("G28\n"))
+    g.ep.Send(json_run_a_gcode("G1 Z240 F600\nG1 Z10 F600\n G1 Z240 F600\n G1 Z20 F600\n"))
+
+
+def refresh_page_open_moving():
+    """4.4.22: leave the "moving" page of the guide once Klipper is idle again."""
+    if g.printer_idle_timeout_state != "Printing":
+        page_to(ui.TJC_PAGE_OPEN_FILAMENTVIDEO_0)
 
 
 def refresh_page_open_heaterbed():
@@ -2128,11 +2158,14 @@ def refresh_page_files_list_2():
 
 
 def go_to_update():
-    get_mks_connection_method()
     page_to(ui.TJC_PAGE_UPDATE_MODE)
     send_cmd_txt(g.tty_fd, "t1", g.mks_version_soc)
-    if g.connection_method == 0:
-        send_cmd_vis(g.tty_fd, "b2", "0")
+    # 4.4.22: the online update needs QIDI Link, which the port does not
+    # implement: the button is disabled (LAN only)
+    send_cmd_tsw(g.tty_fd, "b2", "0")
+    send_cmd_picc(g.tty_fd, "b2", "223")
+    send_cmd_pco(g.tty_fd, "b2", "38066")
+    send_cmd_pco2(g.tty_fd, "b2", "38066")
 
 
 def restore_config():
@@ -2161,7 +2194,8 @@ def bed_calibrate():
         g.bed_offset = 0.0
         g.printer_idle_timeout_state = "Printing"
         g.ep.Send(json_run_a_gcode("ABORT\n"))
-        g.ep.Send(json_run_a_gcode("M4030"))
+        g.ep.Send(json_run_a_gcode("M4031\n"))     # 4.4.22
+        g.ep.Send(json_run_a_gcode("M4030\n"))
         page_to(ui.TJC_PAGE_BED_MOVING)
     elif g.manual_count == 3:
         g.printer_idle_timeout_state = "Printing"
@@ -2178,7 +2212,7 @@ def bed_calibrate():
     elif g.manual_count == 0:
         g.ep.Send(json_run_a_gcode("ACCEPT\n"))
         g.ep.Send(json_run_a_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n"))
-        init_mks_status()
+        get_mks_babystep()      # 4.4.22 (was init_mks_status())
         page_to(ui.TJC_PAGE_BED_FINISH)
     else:
         g.ep.Send(json_run_a_gcode("G1 Z10 F600\n"))
@@ -2198,25 +2232,28 @@ def bed_adjust(status):
 
 
 def go_to_file_list():
+    # 4.4.22: the folder and page are kept while the list is up to date
     if g.file_mode == "Local":
         page_to(ui.TJC_PAGE_FILE_LIST)
-        g.page_files_pages = 0
-        g.page_files_current_pages = 0
-        g.page_files_folder_layers = 0
-        g.page_files_previous_path = ""
-        g.page_files_root_path = DEFAULT_DIR
-        g.page_files_path = ""
+        if g.file_list_refreshed == False:
+            g.page_files_pages = 0
+            g.page_files_current_pages = 0
+            g.page_files_folder_layers = 0
+            g.page_files_previous_path = ""
+            g.page_files_root_path = DEFAULT_DIR
+            g.page_files_path = ""
         refresh_page_files(g.page_files_current_pages)
         refresh_page_files_list()
         get_object_status()
     else:
         page_to(ui.TJC_PAGE_FILE_LIST)
-        g.page_files_pages = 0
-        g.page_files_current_pages = 0
-        g.page_files_folder_layers = 1
-        g.page_files_previous_path = ""
-        g.page_files_root_path = DEFAULT_DIR
-        g.page_files_path = "/sda1"
+        if g.file_list_refreshed == False:
+            g.page_files_pages = 0
+            g.page_files_current_pages = 0
+            g.page_files_folder_layers = 1
+            g.page_files_previous_path = ""
+            g.page_files_root_path = DEFAULT_DIR
+            g.page_files_path = "/sda1"
         refresh_page_files(g.page_files_current_pages)
         refresh_page_files_list()
         get_object_status()
@@ -2236,14 +2273,10 @@ def refresh_page_open_calibrate():
         page_to(ui.TJC_PAGE_OPEN_FILAMENTVIDEO_0)
     if g.step_2 == True and g.printer_webhooks_state == "ready":
         g.step_2 = False
-        send_cmd_picc(g.tty_fd, "q0", "21")
-        send_cmd_pco(g.tty_fd, "t3", "65535")
         sleep(5)
         g.ep.Send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
     if g.step_1 == True and g.printer_idle_timeout_state == "Ready":
         g.step_1 = False
-        send_cmd_picc(g.tty_fd, "q0", "20")
-        send_cmd_pco(g.tty_fd, "t2", "65535")
         get_mks_heater_bed_target()
         set_heater_bed_target(g.mks_heater_bed_target)
         g.ep.Send(json_run_a_gcode("M190 S" + to_string(g.mks_heater_bed_target) + "\n"))
@@ -2421,40 +2454,74 @@ def set_mks_connection_method(target):
     system("sync")
 
 
-def refresh_page_show_qr():
-    if g.mks_ethernet == 0:
-        send_cmd_txt(g.tty_fd, "t0", g.status_result.ip_address)
-        send_cmd_picc(g.tty_fd, "b4", "268")
-        send_cmd_picc2(g.tty_fd, "b4", "214")
+# NOTE: 4.4.22 replaced the QR code page (QIDI's cloud) by a network page; the
+# QIDI Link part of it is not implemented, its buttons stay disabled (LAN only).
+QIDI_LINK_ENABLED = False
+
+
+def refresh_ip_address():
+    """4.4.22: show the network page with the address of wlan0."""
+    page_to(ui.TJC_PAGE_INTERNET_PAGE)
+    ip_address = get_wlan0_ip()
+    if ip_address != "":
+        MKSLOG_GREEN("ip_address updated")
+        send_cmd_txt(g.tty_fd, "t0", ip_address)
+
+
+def refresh_page_show_ip():
+    """4.4.22 refresh of the network page."""
+    if g.mks_ethernet == 1:
+        ip_address = get_eth0_ip()
+        send_cmd_txt(g.tty_fd, "t0", ip_address if ip_address.find(":") == -1 else "")
+        send_cmd_picc(g.tty_fd, "b2", "269")
+        send_cmd_picc2(g.tty_fd, "b2", "215")
     else:
-        local_ip = get_eth0_ip()
-        send_cmd_txt(g.tty_fd, "t0", local_ip)
+        send_cmd_txt(g.tty_fd, "t0", g.status_result.ip_address)
+        send_cmd_picc(g.tty_fd, "b2", "268")
+        send_cmd_picc2(g.tty_fd, "b2", "214")
+    if QIDI_LINK_ENABLED == False:
+        send_cmd_tsw(g.tty_fd, "b5", "0")
+        send_cmd_tsw(g.tty_fd, "b6", "0")
+        send_cmd_tsw(g.tty_fd, "b7", "0")
+        send_cmd_tsw(g.tty_fd, "b8", "0")
+        send_cmd_tsw(g.tty_fd, "t5", "0")
+        send_cmd_tsw(g.tty_fd, "t6", "0")
+        send_cmd_tsw(g.tty_fd, "t7", "0")
+        send_cmd_tsw(g.tty_fd, "t8", "0")
         send_cmd_picc(g.tty_fd, "b4", "269")
         send_cmd_picc2(g.tty_fd, "b4", "215")
+        send_cmd_picc(g.tty_fd, "b5", "215")
+        send_cmd_picc(g.tty_fd, "b6", "215")
+        send_cmd_picc(g.tty_fd, "b7", "215")
+        send_cmd_picc(g.tty_fd, "b8", "215")
+        send_cmd_pco(g.tty_fd, "t5", "33808")
+        send_cmd_pco(g.tty_fd, "t6", "33808")
+        send_cmd_pco(g.tty_fd, "t7", "33808")
+        send_cmd_pco(g.tty_fd, "t8", "33808")
 
 
-def go_to_showqr():
-    qrmessage = ""
-    get_mks_connection_method()
-    page_to(ui.TJC_PAGE_SHOW_QR)
-    if g.status_result.wpa_state == "COMPLETED" or g.mks_ethernet:
-        if g.qr_refreshed == False:
-            send_cmd_cp_close(g.tty_fd, "cp0")
-            if g.open_qr_refreshed == True or access("/home/mks/qrcode/qrcode.jpg") == -1:
-                qrmessage = run_python_code("python3 /home/mks/qrcode/qrcode_QD.py 176\n")
-            cout("qrmessage:", qrmessage)
-            if qrmessage.find("Missing or invalid") != -1:
-                send_cmd_txt(g.tty_fd, "t4", qrmessage)
-                send_cmd_vis(g.tty_fd, "t4", "1")
-            elif qrmessage.find("No") != -1:
-                send_cmd_vis(g.tty_fd, "t4", "1")
-            else:
-                g.open_qr_refreshed = True
-                refresh_files_list_picture("/home/mks/qrcode/qrcode.jpg", 176, 0)
-                g.qr_refreshed = True
-    else:
-        send_cmd_vis(g.tty_fd, "t4", "1")
-        send_cmd_cp_close(g.tty_fd, "cp0")
+TIMELAPSE_URL = "http://127.0.0.1:7125/machine/timelapse/settings"
+
+
+def check_timelapse_state():
+    """4.4.22: state of Moonraker's timelapse plugin (off when it is not installed)."""
+    try:
+        with urllib.request.urlopen(TIMELAPSE_URL, timeout=2) as resp:
+            g.timelapse_enabled = bool(_json.loads(resp.read().decode("utf-8"))["result"]["enabled"])
+    except Exception as e:
+        cerr("Timelapse state: ", str(e), "\n")
+        g.timelapse_enabled = False
+    return g.timelapse_enabled
+
+
+def switch_timelapse_state():
+    """4.4.22: turn Moonraker's timelapse on / off (preview page)."""
+    url = TIMELAPSE_URL + ("?enabled=False" if g.timelapse_enabled else "?enabled=True")
+    try:
+        urllib.request.urlopen(urllib.request.Request(url, data=b"", method="POST"), timeout=2).close()
+        g.timelapse_enabled = not g.timelapse_enabled
+    except Exception as e:
+        cerr("Timelapse switch: ", str(e), "\n")     # no plugin: the switch stays off
 
 
 def get_mks_selected_server():

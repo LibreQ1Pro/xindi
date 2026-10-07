@@ -157,6 +157,7 @@ def start_update():
         system("systemctl stop moonraker.service\n")
         system("find " + paths.gcode_files() + " -maxdepth 1 -type d ! -name sd* -a ! -name '.*' | grep " + paths.gcode_files() + "/ | xargs rm -rf")
         system("cp " + paths.gcode_files() + "/sda1/QD_Update/QD_gcode/*.gcode " + paths.gcode_files() + "; chmod 777 " + paths.gcode_files() + "/*.gcode; sync")
+        system("chown -R mks:mks " + paths.gcode_files() + "\n")      # 4.4.22
         sleep(3)
         system("systemctl restart moonraker.service\n")
 

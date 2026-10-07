@@ -228,6 +228,7 @@ def get_sub_dir_files_list(button):
         g.page_files_folder_layers += 1
         ui.page_to(ui.TJC_PAGE_FILE_LIST)
         g.page_files_current_pages = 0
+        g.file_list_refreshed = False       # 4.4.22
         event.refresh_page_files(g.page_files_current_pages)
         event.refresh_page_files_list()
     elif "[f]" == g.page_files_list_show_type[button]:
@@ -239,6 +240,7 @@ def get_sub_dir_files_list(button):
         g.page_files_folder_layers += 1
         MKSLOG("%s", substr(g.page_files_print_files_path, 1))
         event.get_file_estimated_time(substr(g.page_files_print_files_path, 1))
+        event.check_timelapse_state()       # 4.4.22 timelapse switch of the preview page
         ui.page_to(ui.TJC_PAGE_PREVIEW)
 
 
@@ -248,6 +250,7 @@ def get_parenet_dir_files_list():
     g.page_files_previous_path = g.page_files_path_stack[-1] if g.page_files_path_stack else ""
     g.page_files_path = g.page_files_previous_path
     if g.current_page_id != ui.TJC_PAGE_PREVIEW:
+        g.file_list_refreshed = False       # 4.4.22 (back from the preview: keep the list)
         g.page_files_current_pages = 0
     # 4.4.2 CLL local / USB buttons on the file list page
     if event.detect_disk() == -1 and g.file_mode == "USB":

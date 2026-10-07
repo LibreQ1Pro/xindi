@@ -385,7 +385,8 @@ def mks_save_config():
                 g.page_wifi_list_ssid_button_enabled[3] = False
                 g.page_wifi_ssid_list_pages = 0
                 g.page_wifi_current_pages = 0
-                ui.page_to(ui.TJC_PAGE_WIFI_LIST)
+                from . import event
+                event.go_to_network()       # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
     return ret
 
 

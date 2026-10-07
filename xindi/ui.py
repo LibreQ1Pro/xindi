@@ -2,12 +2,18 @@
 
 Page ids and widget ids correspond to the pages / components of the screen
 project UI/MATE_272_480.HMI.
+
+NOTE: the port follows QIDI's xindi V4.4.22 binary (there are no sources of it)
+for the screen firmware V4.4.24: page 81 became the network page, pages 94 and
+95 were added, pages 96..109 belong to QIDI Link (QIDI's cloud), which the port
+does not implement: their events are ignored and the network page keeps them
+disabled ("LAN only").
 """
 
 from . import state as g
 from .cpp import b2s, cstr, to_string, system, sleep
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, cout
-from .send_msg import send_cmd_page, send_cmd_val
+from .send_msg import send_cmd_page, send_cmd_val, send_cmd_tsw
 
 # ---------------------------------------------------------------------------
 # include/ui.h
@@ -79,6 +85,8 @@ TJC_PAGE_MAIN_CASELIGHT = 0x00
 TJC_PAGE_MAIN_BEEP = 0x01
 TJC_PAGE_MAIN_STOP = 0x02
 TJC_PAGE_MAIN_SET_TEMP = 0x03
+TJC_PAGE_MAIN_SET_TEMP_2 = 0x04          # 4.4.24: three buttons open the filament page
+TJC_PAGE_MAIN_SET_TEMP_3 = 0x05
 TJC_PAGE_MAIN_CACHE = 0x06
 
 TJC_PAGE_FILE_LIST = 16
@@ -97,6 +105,7 @@ TJC_PAGE_PREVIEW = 17
 TJC_PAGE_PREVIEW_BACK = 0x00
 TJC_PAGE_PREVIEW_START = 0x01
 TJC_PAGE_PREVIEW_BED_LEVELING = 0x02
+TJC_PAGE_PREVIEW_TIMELAPSE = 0x03        # 4.4.22
 
 TJC_PAGE_PREVIEW_POP_1 = 18
 TJC_PAGE_PREVIEW_POP_2 = 19
@@ -108,7 +117,7 @@ TJC_PAGE_PRINTING = 20
 TJC_PAGE_PRINTING_EXTRUDER = 0x00
 TJC_PAGE_PRINTING_HEATER_BED = 0x01
 TJC_PAGE_PRINTING_NEXT = 0x02
-TJC_PAGE_PRINTING_CASE_LIGHT = 0x03
+TJC_PAGE_PRINTING_EMERGENCY_STOP = 0x03  # 4.4.22: was the case light button
 TJC_PAGE_PRINTING_FAN_1 = 0x04
 TJC_PAGE_PRINTING_FAN_2 = 0x05
 TJC_PAGE_PRINTING_FAN_3 = 0x06
@@ -118,6 +127,7 @@ TJC_PAGE_PRINTING_STOP = 0x0b
 
 TJC_PAGE_PRINTING_KB = 21
 TJC_PAGE_PRINTING_KB_BACK = 0x00
+TJC_PAGE_PRINTING_KB_MUTE = 0x01          # 4.4.22 silent mode (50% speed)
 TJC_PAGE_PRINTING_KB_PAUSE_RESUME = 0x0a
 TJC_PAGE_PRINTING_KB_STOP = 0x0b
 
@@ -148,6 +158,7 @@ TJC_PAGE_PRINTING_2_BACK = 0x00
 TJC_PAGE_PRINTING_2_ZOFFSET = 0x01
 TJC_PAGE_PRINTING_2_SPEED = 0x02
 TJC_PAGE_PRINTING_2_FLOW = 0x03
+TJC_PAGE_PRINTING_2_CASE_LIGHT = 0x04    # 4.4.22
 TJC_PAGE_PRINTING_2_PAUSE_RESUME = 0x0a
 TJC_PAGE_PRINTING_2_STOP = 0x0b
 
@@ -279,6 +290,7 @@ TJC_PAGE_WIFI_LIST_TO_WIFI = 0x16
 TJC_PAGE_WIFI_LIST_TO_SETTING = 0x17
 
 TJC_PAGE_WIFI_CONNECT = 52
+TJC_PAGE_WIFI_CONNECT_TIMEOUT = 0x00      # 4.4.24: timer of the page
 
 TJC_PAGE_WIFI_SAVING = 53
 
@@ -386,13 +398,18 @@ TJC_PAGE_PRE_HEAT_BACK = 0x04
 TJC_PAGE_RESUME_PRINT = 80
 TJC_PAGE_RESUME_PRINT_YES = 0x00
 TJC_PAGE_RESUME_PRINT_NO = 0x01
+TJC_PAGE_RESUME_PRINT_LOADED = 0x02       # 4.4.24: sent by the page when it is shown
 
-TJC_PAGE_SHOW_QR = 81
-TJC_PAGE_SHOW_QR_REFRESH = 0x00
-TJC_PAGE_SHOW_QR_BACK = 0x01
-TJC_PAGE_SHOW_QR_WIFI = 0x02
-TJC_PAGE_SHOW_QR_SET = 0x03
-TJC_PAGE_SHOW_QR_ETHERNET = 0x04
+# 4.4.24: the QR code page became the network page (internet_page)
+TJC_PAGE_INTERNET_PAGE = 81
+TJC_PAGE_INTERNET_PAGE_BACK = 0x01
+TJC_PAGE_INTERNET_PAGE_ETHERNET = 0x02
+TJC_PAGE_INTERNET_PAGE_WIFI = 0x03
+TJC_PAGE_INTERNET_PAGE_LINK = 0x04        # QIDI Link on / off (not implemented)
+TJC_PAGE_INTERNET_PAGE_LOGIN = 0x05       # QIDI Link pages (not implemented)
+TJC_PAGE_INTERNET_PAGE_ACCOUNTS = 0x06
+TJC_PAGE_INTERNET_PAGE_SERVER = 0x07
+TJC_PAGE_INTERNET_PAGE_DEVICE_CODE = 0x08
 
 TJC_PAGE_SERVER_SET = 82
 TJC_PAGE_SERVER_SET_REFRESH = 0x00
@@ -440,6 +457,18 @@ TJC_PAGE_CALIBRATE_WARNING_NEXT = 0x00
 TJC_PAGE_CALIBRATE_WARNING_BACK = 0x01
 
 TJC_PAGE_RE_PRINTING = 93
+
+# 4.4.24
+TJC_PAGE_OPEN_MOVING = 94
+TJC_PAGE_OPEN_MOVING_TIMER = 0x00
+
+TJC_PAGE_STOP_CONFIRM = 95
+TJC_PAGE_STOP_CONFIRM_YES = 0x00
+TJC_PAGE_STOP_CONFIRM_NO = 0x01
+
+# QIDI Link (QIDI's cloud): link_login .. server_error2, not implemented
+TJC_PAGE_LINK_FIRST = 96
+TJC_PAGE_LINK_LAST = 109
 
 
 
@@ -572,6 +601,12 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     elif page_id == TJC_PAGE_OPEN_WARNING:
         if widget_id == TJC_PAGE_OPEN_WARNING_NEXT:
             ev.open_heater_bed_up()
+            page_to(TJC_PAGE_OPEN_MOVING)       # 4.4.22: wait until the bed has moved
+
+    # 4.4.22 "the bed is moving" page of the guide; its timer sends 0
+    elif page_id == TJC_PAGE_OPEN_MOVING:
+        if widget_id == TJC_PAGE_OPEN_MOVING_TIMER:
+            page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_0)
 
     # fifth page of the guide
     elif page_id == TJC_PAGE_OPEN_VIDEO_3:
@@ -638,7 +673,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.beep_on_off()
         elif widget_id == TJC_PAGE_MAIN_STOP:
             ev.motors_off()
-        elif widget_id == TJC_PAGE_MAIN_SET_TEMP:
+        elif widget_id in (TJC_PAGE_MAIN_SET_TEMP, TJC_PAGE_MAIN_SET_TEMP_2, TJC_PAGE_MAIN_SET_TEMP_3):
             g.adjust_mode = "Filament"
             page_to(TJC_PAGE_FILAMENT)
         elif widget_id == TJC_PAGE_MAIN_CACHE:
@@ -673,19 +708,29 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.clear_cp0_image()
             mks_file.get_sub_dir_files_list(widget_id - TJC_PAGE_FILE_LIST_BTN_1)
             g.printer_bed_leveling = True
+        # 4.4.22: the list is marked as changed and the touch is disabled
+        # until the pictures of the new page are sent
         elif widget_id == TJC_PAGE_FILE_LIST_PREVIOUS:
             if ev.detect_disk() == -1 and g.file_mode == "USB":
+                g.file_list_refreshed = False
                 ev.go_to_file_list()
             elif g.page_files_current_pages > 0:
+                g.file_list_refreshed = False
                 g.page_files_current_pages -= 1
+                page_to(TJC_PAGE_FILE_LIST)
+                send_cmd_tsw(g.tty_fd, "255", "0")
                 ev.refresh_page_files(g.page_files_current_pages)
                 ev.refresh_page_files_list()
             MKSLOG_BLUE("%d", g.page_files_folder_layers)
         elif widget_id == TJC_PAGE_FILE_LIST_NEXT:
             if ev.detect_disk() == -1 and g.file_mode == "USB":
+                g.file_list_refreshed = False
                 ev.go_to_file_list()
             elif g.page_files_current_pages < g.page_files_pages:
+                g.file_list_refreshed = False
                 g.page_files_current_pages += 1
+                page_to(TJC_PAGE_FILE_LIST)
+                send_cmd_tsw(g.tty_fd, "255", "0")
                 ev.refresh_page_files(g.page_files_current_pages)
                 ev.refresh_page_files_list()
             MKSLOG_BLUE("%d", g.page_files_folder_layers)
@@ -693,29 +738,13 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_FILE_LIST_LOCAL:
             if g.file_mode != "Local":
                 g.file_mode = "Local"
-                page_to(TJC_PAGE_FILE_LIST)
-                g.page_files_pages = 0
-                g.page_files_current_pages = 0
-                g.page_files_folder_layers = 0
-                g.page_files_previous_path = ""
-                g.page_files_root_path = DEFAULT_DIR
-                g.page_files_path = ""
-                ev.refresh_page_files(g.page_files_current_pages)
-                ev.refresh_page_files_list()
-                ev.get_object_status()
+                g.file_list_refreshed = False
+                ev.go_to_file_list()
         elif widget_id == TJC_PAGE_FILE_LIST_USB:
             if g.file_mode != "USB":
                 g.file_mode = "USB"
-                page_to(TJC_PAGE_FILE_LIST)
-                g.page_files_pages = 0
-                g.page_files_current_pages = 0
-                g.page_files_folder_layers = 1
-                g.page_files_previous_path = ""
-                g.page_files_root_path = DEFAULT_DIR
-                g.page_files_path = "/sda1"
-                ev.refresh_page_files(g.page_files_current_pages)
-                ev.refresh_page_files_list()
-                ev.get_object_status()
+                g.file_list_refreshed = False
+                ev.go_to_file_list()
 
     elif page_id == TJC_PAGE_PREVIEW:
         if g.current_page_id == TJC_PAGE_PREVIEW:
@@ -761,6 +790,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                     page_to(TJC_PAGE_PRINTING)
                     g.jump_to_print = False
                 elif g.show_preview_complete == True:
+                    g.printer_muted = False             # 4.4.22 silent mode is per print
                     ev.print_start()
                     sleep(1)
                     if g.filament_detected == True:
@@ -783,6 +813,8 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                         g.printer_bed_leveling = False
                     else:
                         g.printer_bed_leveling = True
+            elif widget_id == TJC_PAGE_PREVIEW_TIMELAPSE:
+                ev.switch_timelapse_state()
 
     elif page_id == TJC_PAGE_PREVIEW_POP_1 or page_id == TJC_PAGE_PREVIEW_POP_2:
         if widget_id == TJC_PAGE_PREVIEW_POP_YES:
@@ -801,8 +833,8 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.clear_page_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_NEXT:
             page_to(TJC_PAGE_PRINTING_2)
-        elif widget_id == TJC_PAGE_PRINTING_CASE_LIGHT:
-            ev.led_on_off()
+        elif widget_id == TJC_PAGE_PRINTING_EMERGENCY_STOP:
+            page_to(TJC_PAGE_STOP_CONFIRM)
         elif widget_id == TJC_PAGE_PRINTING_PAUSE_RESUME:
             g.printer_ready = False
             ev.set_print_pause()
@@ -816,6 +848,14 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_PRINTING_KB_BACK:
             g.printing_keyboard_enabled = False
             MKSLOG_BLUE("Restored")
+        elif widget_id == TJC_PAGE_PRINTING_KB_MUTE:
+            MKSLOG_BLUE("Silent mode switched")
+            if g.printer_muted == False:
+                g.printer_muted = True
+                ev.set_printer_speed(50)
+            else:
+                g.printer_muted = False
+                ev.set_printer_speed(100)
         elif widget_id == TJC_PAGE_PRINTING_KB_PAUSE_RESUME:
             g.printing_keyboard_enabled = False
             ev.set_print_pause()
@@ -893,6 +933,8 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.clear_page_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_2_STOP:
             page_to(TJC_PAGE_PRINT_STOP)
+        elif widget_id == TJC_PAGE_PRINTING_2_CASE_LIGHT:
+            ev.led_on_off()
 
     elif page_id == TJC_PAGE_PRINT_FINISH:
         if widget_id == TJC_PAGE_PRINT_FINISH_YES:
@@ -905,6 +947,15 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.cancel_print()
         elif widget_id == TJC_PAGE_PRINT_STOP_NO:
             page_to(g.previous_page_id)
+
+    # 4.4.22 emergency stop from the printing page
+    elif page_id == TJC_PAGE_STOP_CONFIRM:
+        if widget_id == TJC_PAGE_STOP_CONFIRM_YES:
+            page_to(TJC_PAGE_PRINT_STOPPING)
+            g.printer_print_stats_state = "paused"
+            ev.motors_off()
+        elif widget_id == TJC_PAGE_STOP_CONFIRM_NO:
+            page_to(TJC_PAGE_PRINTING)
 
     elif page_id == TJC_PAGE_PRINT_NO_FILAMENT:
         if widget_id == TJC_PAGE_PRINT_NO_FILAMENT_YES:
@@ -1194,7 +1245,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_SYNTONY_FINISH_YES:
             page_to(TJC_PAGE_LEVEL_MODE)
             system("sync")
-            ev.init_mks_status()
+            ev.get_mks_babystep()           # 4.4.22 (was init_mks_status())
             ev.sub_object_status()
             ev.get_object_status()
 
@@ -1247,7 +1298,12 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_WIFI_LIST_TO_WIFI:
             pass
         elif widget_id == TJC_PAGE_WIFI_LIST_TO_SETTING:
-            ev.go_to_showqr()
+            ev.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+
+    # 4.4.24: the timer of the page reports a connection that takes too long
+    elif page_id == TJC_PAGE_WIFI_CONNECT:
+        if widget_id == TJC_PAGE_WIFI_CONNECT_TIMEOUT:
+            page_to(TJC_PAGE_WIFI_FAILED)
 
     elif page_id == TJC_PAGE_WIFI_SUCCESS:
         if widget_id == TJC_PAGE_WIFI_SUCCESS_YES:
@@ -1255,11 +1311,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_WIFI_FAILED:
         if widget_id == TJC_PAGE_WIFI_FAILED_YES:
-            page_to(TJC_PAGE_WIFI_LIST)
+            ev.go_to_network()                  # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
 
     elif page_id == TJC_PAGE_WIFI_KB:
         if widget_id == TJC_PAGE_WIFI_KB_BACK:
-            page_to(TJC_PAGE_WIFI_LIST)
+            ev.go_to_network()                  # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
             g.printing_wifi_keyboard_enabled = False
 
     elif page_id == TJC_PAGE_COMMON_SETTING:
@@ -1270,7 +1326,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_COMMON_SETTING_LANGUAGE:
             page_to(TJC_PAGE_LANGUAGE)
         elif widget_id == TJC_PAGE_COMMON_SETTING_WIFI:
-            ev.go_to_showqr()
+            ev.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
         elif widget_id == TJC_PAGE_COMMON_SETTING_SYSTEM:
             ev.go_to_reset()
         elif widget_id == TJC_PAGE_COMMON_SETTING_SERVICE:
@@ -1326,17 +1382,10 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     # 4.4.2 CLL screen sleep feature
     elif page_id == TJC_PAGE_SCREEN_SLEEP:
+        # 4.4.22: the case light is no longer switched off while the screen sleeps
         if widget_id == TJC_PAGE_SCREEN_SLEEP_ENTER:
             page_to(TJC_PAGE_SCREEN_SLEEP)
-            if g.printer_caselight_value == 1:
-                ev.led_on_off()
-                g.previous_caselight_value = True
-            else:
-                g.previous_caselight_value = False
         elif widget_id == TJC_PAGE_SCREEN_SLEEP_EXIT:
-            if g.previous_caselight_value == True:
-                ev.led_on_off()
-                g.previous_caselight_value = False
             if g.previous_page_id == TJC_PAGE_FILE_LIST:
                 ev.go_to_file_list()
             else:
@@ -1391,63 +1440,34 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_RESUME_PRINT_NO:
             page_to(TJC_PAGE_MAIN)
             ev.send_gcode("CLEAR_LAST_FILE")
+        elif widget_id == TJC_PAGE_RESUME_PRINT_LOADED:
+            g.jump_to_resume_print = False      # 4.4.24: the page reports that it is shown
 
-    elif page_id == TJC_PAGE_SHOW_QR:
+    # 4.4.24 network page (4.4.22 binary); the QIDI Link buttons are not implemented
+    elif page_id == TJC_PAGE_INTERNET_PAGE:
         if _nav_guarded(widget_id):
             pass
-        elif widget_id == TJC_PAGE_SHOW_QR_BACK:
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_BACK:
             page_to(TJC_PAGE_COMMON_SETTING)
-        elif widget_id == TJC_PAGE_SHOW_QR_SET:
-            ev.go_to_server_set(0)
-        elif widget_id == TJC_PAGE_SHOW_QR_REFRESH:
-            cout("################## refresh button pressed")
-            g.qr_refreshed = False
-            ev.go_to_showqr()
-        elif widget_id == TJC_PAGE_SHOW_QR_WIFI:
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_ETHERNET:
+            # 1: ethernet, 0: wifi (the page shows the address on the next refresh)
+            ev.set_mks_ethernet(0 if g.mks_ethernet == 1 else 1)
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_WIFI:
             ev.go_to_network()
-        elif widget_id == TJC_PAGE_SHOW_QR_ETHERNET:
-            if g.mks_ethernet == 1:
-                ev.set_mks_ethernet(0)
-            else:
-                ev.set_mks_ethernet(1)
-            g.qr_refreshed = False
-            ev.go_to_showqr()
+        elif widget_id in (TJC_PAGE_INTERNET_PAGE_LINK, TJC_PAGE_INTERNET_PAGE_LOGIN, TJC_PAGE_INTERNET_PAGE_ACCOUNTS,
+                           TJC_PAGE_INTERNET_PAGE_SERVER, TJC_PAGE_INTERNET_PAGE_DEVICE_CODE):
+            MKSLOG_BLUE("QIDI Link is not supported (LAN only)")
 
+    elif TJC_PAGE_LINK_FIRST <= page_id <= TJC_PAGE_LINK_LAST:
+        pass        # QIDI Link pages: not reachable, the network page keeps the buttons disabled
+
+    # 4.4.22: the server page belongs to QIDI Link (reached from the network page
+    # only when QIDI Link is on), which the port does not implement
     elif page_id == TJC_PAGE_SERVER_SET:
         if _nav_guarded(widget_id):
             pass
-        elif widget_id == TJC_PAGE_SERVER_SET_REFRESH:
-            ev.go_to_server_set(0)
-        elif widget_id == TJC_PAGE_SERVER_SET_LOCAL:
-            if g.status_result.wpa_state != "COMPLETED":
-                pass
-            elif g.connection_method == 1:
-                ev.set_mks_connection_method(0)
-                g.connection_method = 0
-                ev.go_to_server_set(0)
-                system("systemctl stop frpc.service\n")
-                system("systemctl disable frpc.service\n")
-            else:
-                ev.set_mks_connection_method(1)
-                g.connection_method = 1
-                ev.go_to_server_set(0)
-                system("systemctl enable frpc.service\n")
-                system("systemctl start frpc.service\n")
         elif widget_id == TJC_PAGE_SERVER_SET_BACK:
-            ev.go_to_showqr()
-        elif widget_id == TJC_PAGE_SERVER_SET_PREVIOUS:
-            if g.current_server_page != 0:
-                g.current_server_page -= 1
-                ev.go_to_server_set(g.current_server_page)
-        elif widget_id == TJC_PAGE_SERVER_SET_NEXT:
-            if g.current_server_page * 4 + 4 < g.total_server_count:
-                g.current_server_page += 1
-                ev.go_to_server_set(g.current_server_page)
-        elif widget_id in (TJC_PAGE_SERVER_SET_1, TJC_PAGE_SERVER_SET_2, TJC_PAGE_SERVER_SET_3, TJC_PAGE_SERVER_SET_4):
-            n = widget_id - TJC_PAGE_SERVER_SET_1 + 1
-            if g.current_server_page * 4 + n <= g.total_server_count:
-                ev.update_server(g.current_server_page * 4 + n)
-
+            ev.refresh_ip_address()
     elif page_id == TJC_PAGE_UPDATE_MODE:
         if _nav_guarded(widget_id):
             pass
@@ -1538,18 +1558,20 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
                 number = 100
             g.printing_keyboard_enabled = False
             ev.set_fan3(number)
+        # NOTE: the keyboard (keybdB) always reports page 20 for these two, the
+        # values live on the second printing page (printing_2.n2 / n3)
         elif widget_id == TJC_PAGE_PRINTING_2_SPEED:
             if number > 150:
                 number = 150
             g.printing_keyboard_enabled = False
             ev.set_printer_speed(number)
-            send_cmd_val(g.tty_fd, "n5", to_string(number))
+            send_cmd_val(g.tty_fd, "n2", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_2_FLOW:
             if number > 150:
                 number = 150
             g.printing_keyboard_enabled = False
             ev.set_printer_flow(number)
-            send_cmd_val(g.tty_fd, "n6", to_string(number))
+            send_cmd_val(g.tty_fd, "n3", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_HOT:
             if number > 60:
                 number = 60
@@ -1600,7 +1622,6 @@ def tjc_event_keyboard(cmd):
     MKSLOG("cmd 2  %d\n", cmd[2])
     psk = cstr(cmd[3:])         # char *psk = &cmd[3];
     if cmd[1] == TJC_PAGE_WIFI_LIST:
-        g.qr_refreshed = False
         if cmd[2] in (TJC_PAGE_WIFI_LIST_SSID_1, TJC_PAGE_WIFI_LIST_SSID_2, TJC_PAGE_WIFI_LIST_SSID_3,
                       TJC_PAGE_WIFI_LIST_SSID_4, TJC_PAGE_WIFI_LIST_SSID_5):
             MKSLOG_RED("Password received, %d, password: %s", len(psk), b2s(psk))

@@ -15,6 +15,33 @@ repository at commit
 The port is based on exactly this commit: the following commits of the upstream
 repository removed the source code.
 
+## Screen firmware 4.4.24
+
+The port works with the screen firmware (TJC project) **V4.4.24**. The sources
+above belong to the firmware V4.4.19; the changes for V4.4.24 follow QIDI's
+xindi **V4.4.22** binary, for which there are no sources (it was decompiled;
+functions changed in it are marked "4.4.22" in the code). The main changes:
+
+* the screen checks the version 23 (`logo.version`),
+* page 81 (QR code) became the network page: IP address, ethernet / Wi-Fi,
+* new pages: 94 (the bed is moving, start-up guide), 95 (emergency stop
+  confirmation from the printing page); the case light moved to the second
+  printing page, the printing keyboard has a silent mode (50 % speed), the
+  preview page a timelapse switch (Moonraker's timelapse plugin),
+* the main page opens the filament page with three buttons, Wi-Fi connection
+  timeout, shorter start-up guide (pages 8..10 are no longer used),
+* the file list keeps its folder and page and only sends the pictures again
+  when the list changed; the picture transfer pauses the page refresh,
+* the screen sleep no longer switches the case light, the total print time is
+  no longer counted in `config.mksini`.
+
+**QIDI Link is not implemented** (LAN only): QIDI's cloud service, accounts,
+QR code login, device binding and the frpc tunnel to QIDI's servers, the
+server selection and the online update. The network page keeps those buttons
+disabled and the pages 96..109 are ignored. The start-up cleanup of the
+binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and
+QIDI's frpc service) is not done either.
+
 The port is not refactored. Every C++ file has a Python module with the same
 name, and every function keeps its name, order of statements and quirks, so the
 C++ sources can be used side by side with the port. Strings that are only
@@ -136,6 +163,10 @@ external behaviour is compared. The C++ sources are downloaded at the pinned
 commit; the original helper binaries of the printer (`uart`, `gene4.py`,
 `libColPic.so`) are not stored here and have to be provided from the printer's
 eMMC. See `tests/e2e/README.md`.
+
+The reference program of the tests is built from the V4.4.19 sources, while
+the port now follows the screen firmware V4.4.24, so the scenarios no longer
+match where the screen changed (version, button codes, new pages).
 
 ## License
 

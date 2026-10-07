@@ -84,6 +84,7 @@ def json_parse(arg=None):
                     elif method == "notify_filelist_changed":
                         g.filelist_changed = True
                         MKSLOG_BLUE("File list changed")
+                        g.file_list_refreshed = False      # 4.4.22
                         if g.all_level_saving == False:
                             g.all_level_saving = True
                     elif method == "notify_update_response":
