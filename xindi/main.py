@@ -17,7 +17,6 @@ from .MakerbaseParseMessage import json_parse
 from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults
 from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages
 from .send_jpg import sent_jpg_thread_handle
-from .send_msg import send_cmd_val
 from . import event
 from . import screen_rx
 from . import uart
@@ -174,9 +173,8 @@ def main(argv):
             event.mks_get_version()
             sleep(3)
 
-            # CLL UI / SOC version check: the main page of the screen firmware V4.4.24
-            # expects 23 (QIDI's xindi V4.4.22 sends 24)
-            send_cmd_val(g.tty_fd, "logo.version", "23")
+            # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
+            ui.send_ui_version()
             if g.find_screen_tft_file == False:
                 g.previous_page_id = ui.TJC_PAGE_LOGO
                 if event.get_mks_oobe_enabled() == True:

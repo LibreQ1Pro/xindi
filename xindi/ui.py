@@ -523,6 +523,10 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         tjc_event_setted_handler(cmd[1], cmd[2], cmd[3], cmd[4])
     elif event_id in (0x86, 0x87, 0x88, 0x89):
         MKSLOG_RED("0x%x", event_id)
+        if event_id == 0x88:        # the screen has just powered up: it knows nothing of what the host sent before
+            send_ui_version()
+            if g.current_page_id != TJC_PAGE_LOGO:
+                page_to(g.current_page_id)
     elif event_id == 0x91:
         g.current_page_id = TJC_PAGE_LOGO
         page_to(TJC_PAGE_UPDATE_SUCCESS)
@@ -541,7 +545,18 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         g.get_0x06 = True
 
 
+# The main page of the screen firmware V4.4.24 expects 23 (QIDI's xindi V4.4.22 sends 24); the screen forgets it on
+# every power-up, so it is sent again whenever the main page is opened and when the screen reports a start.
+UI_VERSION = "23"
+
+
+def send_ui_version():
+    send_cmd_val(g.tty_fd, "logo.version", UI_VERSION)
+
+
 def page_to(page_id):
+    if page_id == TJC_PAGE_MAIN:
+        send_ui_version()
     g.previous_page_id = g.current_page_id
     g.current_page_id = page_id
     send_cmd_page(g.tty_fd, to_string(page_id))
