@@ -1,7 +1,8 @@
 """What every screen page shows: the refresh functions are called with the page that is open."""
 
-import time
+import contextlib
 import logging
+import time
 
 from . import state as g
 from . import pageids as ids
@@ -628,125 +629,178 @@ def _send_chunks_cp(obj, data):
         g.port.cp_image(obj, part)
 
 
+def _two_state_button(button, is_on, on_pic, off_pic, on_press, off_press):
+    g.port.picc(button, on_pic if is_on else off_pic)
+    g.port.picc2(button, on_press if is_on else off_press)
+
+
+@contextlib.contextmanager
+def _fast_screen_link():
+    """The pictures go over the serial line at 921600 baud."""
+    g.port.baud(921600)
+    time.sleep(0.05)
+    g.port.set_baud(921600)
+    try:
+        yield
+    finally:
+        g.port.baud(115200)
+        time.sleep(0.05)
+        g.port.set_baud(115200)
+
+
+def _preview_details():
+    # 4.4.2 CLL only the file name is shown on the preview page
+    g.port.txt("err_msg", filelist._file_name_only(g.files.meta_filename))
+    if g.files.meta_estimated_time:
+        g.port.txt("est_time", actions.show_time(g.files.meta_estimated_time))
+    else:
+        g.port.txt("est_time", "-")
+
+    if g.files.meta_filament_weight_total:
+        temp = to_string(g.files.meta_filament_weight_total)
+        g.port.txt("fil_weight", _cut_after_point(temp, 2) + "g")
+    else:
+        g.port.txt("fil_weight", "-")
+
+    if g.files.meta_filament_total:
+        temp = to_string(f32(g.files.meta_filament_total / 1000))
+        g.port.txt("fil_length", _cut_after_point(temp, 2) + "m")
+    else:
+        g.port.txt("fil_length", "-")
+
+    if g.files.meta_filament_type != "":
+        g.port.txt("fil_type", g.files.meta_filament_type)
+    elif g.files.meta_filament_name != "":
+        g.port.txt("fil_type", g.files.meta_filament_name)
+    else:
+        g.port.txt("fil_type", "-")
+
+
+def _preview_picture_ref():
+    """The gcode file with the thumbnail of the file, or "" when there is none.
+
+    NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then .jpg, made by QIDI's Moonraker; the port
+    reads the thumbnail from the gcode file itself (see thumbnail.py).  For a print that was just started the
+    original only looks at the .cache copy of the file.
+    """
+    if g.screen.jump_print:
+        candidates = ["/.cache/" + filelist._name_of(g.klippy.print_stats_filename),
+                      "/" + g.klippy.print_stats_filename]
+    elif g.screen.cache_clicked:
+        candidates = [actions._top(g.files.list_path_stack) + "/.cache/" + filelist._name_of(g.files.meta_filename)]
+        g.screen.cache_clicked = False
+    else:
+        candidates = [actions._top(g.files.list_path_stack) + "/" + filelist._name_of(g.files.meta_filename)]
+    for candidate in candidates:
+        candidate = substr(candidate, 1)
+        log.info("picture_path:%s", candidate)
+        if thumbnail.find(candidate, 160, "PNG") is not None:
+            return thumbnail.GcodeRef(candidate)
+    return ""
+
+
+def _send_preview_pictures(picture_path):
+    """Send the small and the big picture to the screen; False when the picture could not be converted."""
+    # small picture
+    output_imgdata(picture_path, 160)
+    data = g.pictures.tjc_data
+    if data is None:
+        log.error("No converted picture (/home/mks/tjc)")
+        return False
+    g.files.meta_simage = data
+    g.port.txt("preview.cp_data", "")
+    g.port.txt("preview.cp_pad", "")
+    if g.files.meta_simage != "":
+        with _fast_screen_link():
+            log.debug("Sending the small picture")
+            _send_chunks_txt(g.files.meta_simage)
+
+    # big picture
+    if not g.screen.jump_print:
+        data = g.pictures.tjc_data
+        if data is None:
+            log.error("No converted picture (/home/mks/tjc)")
+            return False
+        g.files.meta_gimage = data
+        with _fast_screen_link():
+            g.port.cp_close("preview.preview_pic")
+            if g.files.meta_gimage != "":
+                log.debug("Sending the big picture")
+                _send_chunks_cp("preview_pic", g.files.meta_gimage)
+        actions.bed_leveling_switch(True)
+    return True
+
+
 def preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
-    if not g.screen.bed_leveling:
-        g.port.picc("level_btn", pics.preview_chk_off)
-        g.port.picc2("level_btn", pics.preview_press_off)
-    else:
-        g.port.picc("level_btn", pics.preview_chk_on)
-        g.port.picc2("level_btn", pics.preview_press_on)
-    if not g.screen.timelapse_enabled:
-        g.port.picc("timelapse_btn", pics.preview_chk_off)
-        g.port.picc2("timelapse_btn", pics.preview_press_off)
-    else:
-        g.port.picc("timelapse_btn", pics.preview_chk_on)
-        g.port.picc2("timelapse_btn", pics.preview_press_on)
-    if g.files.meta_parse_finished:
-        if not g.screen.show_preview_complete:
-            # 4.4.2 CLL only the file name is shown on the preview page
-            g.port.txt("err_msg", filelist._file_name_only(g.files.meta_filename))
-            if g.files.meta_estimated_time:
-                g.port.txt("est_time", actions.show_time(g.files.meta_estimated_time))
-            else:
-                g.port.txt("est_time", "-")
+    _two_state_button("level_btn", g.screen.bed_leveling,
+                      pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
+    _two_state_button("timelapse_btn", g.screen.timelapse_enabled,
+                      pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
+    if not g.files.meta_parse_finished or g.screen.show_preview_complete:
+        return
 
-            if g.files.meta_filament_weight_total:
-                temp = to_string(g.files.meta_filament_weight_total)
-                g.port.txt("fil_weight", _cut_after_point(temp, 2) + "g")
-            else:
-                g.port.txt("fil_weight", "-")
-
-            if g.files.meta_filament_total:
-                temp = to_string(f32(g.files.meta_filament_total / 1000))
-                g.port.txt("fil_length", _cut_after_point(temp, 2) + "m")
-            else:
-                g.port.txt("fil_length", "-")
-
-            if g.files.meta_filament_type != "":
-                g.port.txt("fil_type", g.files.meta_filament_type)
-            elif g.files.meta_filament_name != "":
-                g.port.txt("fil_type", g.files.meta_filament_name)
-            else:
-                g.port.txt("fil_type", "-")
-
-            path_found = False
-            # NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then
-            # .jpg, made by QIDI's Moonraker; the port reads the thumbnail from the
-            # gcode file itself (see thumbnail.py).  For a print that was just
-            # started the original only looks at the .cache copy of the file.
-            if g.screen.jump_print:
-                candidates = ["/.cache/" + filelist._name_of(g.klippy.print_stats_filename),
-                              "/" + g.klippy.print_stats_filename]
-            elif g.screen.cache_clicked:
-                candidates = [actions._top(g.files.list_path_stack) + "/.cache/" + filelist._name_of(g.files.meta_filename)]
-                g.screen.cache_clicked = False
-            else:
-                candidates = [actions._top(g.files.list_path_stack) + "/" + filelist._name_of(g.files.meta_filename)]
-            picture_path = ""
-            for candidate in candidates:
-                candidate = substr(candidate, 1)
-                log.info("picture_path:%s", candidate)
-                if thumbnail.find(candidate, 160, "PNG") is not None:
-                    path_found = True
-                    picture_path = thumbnail.GcodeRef(candidate)
-                    break
-            log.debug("Picture path:%s", picture_path)
-            if picture_path == "":
-                path_found = False
-
-            if path_found:
-                # small picture
-                if not g.screen.show_preview_gimage_completed:
-                    output_imgdata(picture_path, 160)
-                    data = g.pictures.tjc_data
-                    if data is None:
-                        log.error("No converted picture (/home/mks/tjc)")
-                        g.screen.show_preview_complete = True
-                        return
-                    g.files.meta_simage = data
-                    g.port.txt("preview.cp_data", "")
-                    g.port.txt("preview.cp_pad", "")
-                    if g.files.meta_simage != "":
-                        g.port.baud(921600)
-                        time.sleep(0.05)
-                        g.port.set_baud(921600)
-                        log.debug("Sending the small picture")
-                        _send_chunks_txt(g.files.meta_simage)
-                        g.port.baud(115200)
-                        time.sleep(0.05)
-                        g.port.set_baud(115200)
-
-                    # big picture
-                    if not g.screen.jump_print:
-                        data = g.pictures.tjc_data
-                        if data is None:
-                            log.error("No converted picture (/home/mks/tjc)")
-                            g.screen.show_preview_complete = True
-                            return
-                        g.files.meta_gimage = data
-                        g.port.baud(921600)
-                        time.sleep(0.05)
-                        g.port.set_baud(921600)
-                        g.port.cp_close("preview.preview_pic")
-                        if g.files.meta_gimage != "":
-                            log.debug("Sending the big picture")
-                            _send_chunks_cp("preview_pic", g.files.meta_gimage)
-                        g.port.baud(115200)
-                        time.sleep(0.05)
-                        g.port.set_baud(115200)
-                        actions.bed_leveling_switch(True)
-                    g.screen.show_preview_gimage_completed = True
-
-            if g.screen.show_preview_gimage_completed:
-                g.port.vis("preview_pic", "1")
-            else:
-                g.port.vis("preview_pic", "0")
-
+    _preview_details()
+    picture_path = _preview_picture_ref()
+    log.debug("Picture path:%s", picture_path)
+    if picture_path != "" and not g.screen.show_preview_gimage_completed:
+        if not _send_preview_pictures(picture_path):
             g.screen.show_preview_complete = True
-            if g.screen.jump_print:
-                actions.check_filament_type()
-                g.screen.jump_print = False
+            return
+        g.screen.show_preview_gimage_completed = True
+
+    g.port.vis("preview_pic", "1" if g.screen.show_preview_gimage_completed else "0")
+
+    g.screen.show_preview_complete = True
+    if g.screen.jump_print:
+        actions.check_filament_type()
+        g.screen.jump_print = False
+
+
+def _main_heater(temp_widget, button, target):
+    """CLL heating state on the main page: the colour of the number and the button of a heater."""
+    g.port.pco(temp_widget, "65535" if target == 0 else "63488")
+    _two_state_button(button, target != 0, pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
+
+
+def _main_last_file_picture():
+    """CLL the picture and the name of the last printed file (the first entry of the file list)."""
+    g.files.list_pages = 0
+    g.files.list_current_pages = 0
+    g.files.list_folder_layers = 0
+    g.files.list_previous_path = ""
+    g.files.list_root_path = filelist.DEFAULT_DIR
+    g.files.list_path = ""
+    filelist.refresh_page_files(g.files.list_current_pages)
+    if g.files.list_list_show_type[0] != "[c]":
+        g.port.pic("b[0]", pics.main_bg_noimg)
+        g.port.picc("last_file_btn", pics.main_bg_noimg)
+        g.port.picc2("last_file_btn", pics.main_on_press)
+        g.port.txt("last_file_name", "")
+        g.port.vis("last_file_pic", "0")
+        return
+
+    g.port.txt("last_file_name", g.files.list_list_show_name[0])
+    name0 = g.files.list_list_show_name[0]
+    # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
+    picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/.cache/" + name0, 1))
+    log.info("Picture path:%s", picture_path)
+    thumb = thumbnail.find(picture_path, 160, "PNG")
+    if thumb is None:
+        g.port.pic("b[0]", pics.main_bg_noimg)
+        g.port.picc("last_file_btn", pics.main_bg_noimg)
+        g.port.picc2("last_file_btn", pics.main_on_press)
+        g.port.vis("last_file_pic", "0")
+        return
+
+    log.info("Found png picture" if thumb.fmt == "PNG" else "Found jpg picture")
+    g.port.pic("b[0]", pics.main_bg_photo)
+    g.port.picc("last_file_btn", pics.main_bg_photo)
+    g.port.picc2("last_file_btn", pics.nav_btn_press)
+    if thumb.fmt == "PNG":
+        g.port.vis("last_file_pic", "1")
+    filelist.send_file_picture(picture_path, 160, "last_file_pic")
+    g.screen.main_picture_detected = True
 
 
 def main():
@@ -754,101 +808,22 @@ def main():
     g.port.val("bed_temp", to_string(g.klippy.heater_bed_temperature))
     g.port.val("chamber_temp", to_string(g.klippy.hot_temperature))
 
-    if filelist.detect_disk() == 0:      # CLL USB drive inserted?
-        g.port.picc("usb_icon", pics.main_off)
-    else:
-        g.port.picc("usb_icon", pics.main_on)
+    g.port.picc("usb_icon", pics.main_off if filelist.detect_disk() == 0 else pics.main_on)    # CLL USB drive inserted?
+    g.port.picc("wifi_icon", pics.main_off if g.net.status_result.wpa_state == "COMPLETED" else pics.main_on)
 
-    if g.net.status_result.wpa_state == "COMPLETED":    # CLL wifi connected?
-        g.port.picc("wifi_icon", pics.main_off)
-    else:
-        g.port.picc("wifi_icon", pics.main_on)
+    # LED logo, beeper
+    _two_state_button("light_btn", g.klippy.caselight_value != 0,
+                      pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
+    _two_state_button("beep_btn", g.klippy.out_pin_beep_value != 0,
+                      pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
 
-    if g.klippy.caselight_value == 0:      # LED logo
-        g.port.picc("light_btn", pics.main_off)
-        g.port.picc2("light_btn", pics.nav_btn_press)
-    else:
-        g.port.picc("light_btn", pics.main_on)
-        g.port.picc2("light_btn", pics.main_on_press)
-
-    if g.klippy.out_pin_beep_value == 0:
-        g.port.picc("beep_btn", pics.main_off)
-        g.port.picc2("beep_btn", pics.nav_btn_press)
-    else:
-        g.port.picc("beep_btn", pics.main_on)
-        g.port.picc2("beep_btn", pics.main_on_press)
-
-    if g.klippy.extruder_target == 0:      # CLL nozzle heating state on the main page
-        g.port.pco("nozzle_temp", "65535")
-        g.port.picc("nozzle_btn", pics.main_off)
-        g.port.picc2("nozzle_btn", pics.nav_btn_press)
-    else:
-        g.port.pco("nozzle_temp", "63488")
-        g.port.picc("nozzle_btn", pics.main_on)
-        g.port.picc2("nozzle_btn", pics.main_on_press)
-
-    if g.klippy.heater_bed_target == 0:    # CLL bed heating state on the main page
-        g.port.pco("bed_temp", "65535")
-        g.port.picc("bed_btn", pics.main_off)
-        g.port.picc2("bed_btn", pics.nav_btn_press)
-    else:
-        g.port.pco("bed_temp", "63488")
-        g.port.picc("bed_btn", pics.main_on)
-        g.port.picc2("bed_btn", pics.main_on_press)
-
-    if g.klippy.hot_target == 0:           # CLL chamber heating state on the main page
-        g.port.pco("chamber_temp", "65535")
-        g.port.picc("chamber_btn", pics.main_off)
-        g.port.picc2("chamber_btn", pics.nav_btn_press)
-    else:
-        g.port.pco("chamber_temp", "63488")
-        g.port.picc("chamber_btn", pics.main_on)
-        g.port.picc2("chamber_btn", pics.main_on_press)
+    _main_heater("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
+    _main_heater("bed_temp", "bed_btn", g.klippy.heater_bed_target)
+    _main_heater("chamber_temp", "chamber_btn", g.klippy.hot_target)
 
     # CLL refresh the picture after every boot or print
     if not g.screen.main_picture_refreshed:
-        # CLL get the file information
-        g.files.list_pages = 0
-        g.files.list_current_pages = 0
-        g.files.list_folder_layers = 0
-        g.files.list_previous_path = ""
-        g.files.list_root_path = filelist.DEFAULT_DIR
-        g.files.list_path = ""
-        filelist.refresh_page_files(g.files.list_current_pages)
-        if g.files.list_list_show_type[0] == "[c]":
-            g.port.txt("last_file_name", g.files.list_list_show_name[0])
-            name0 = g.files.list_list_show_name[0]
-            # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
-            picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/.cache/" + name0, 1))
-            log.info("Picture path:%s", picture_path)
-            thumb = thumbnail.find(picture_path, 160, "PNG")
-            if thumb is not None and thumb.fmt == "PNG":
-                log.info("Found png picture")
-                g.port.pic("b[0]", pics.main_bg_photo)
-                g.port.picc("last_file_btn", pics.main_bg_photo)
-                g.port.picc2("last_file_btn", pics.nav_btn_press)
-                g.port.vis("last_file_pic", "1")
-                filelist.send_file_picture(picture_path, 160, "last_file_pic")
-                g.screen.main_picture_detected = True
-            else:
-                if thumb is not None:
-                    log.info("Found jpg picture")
-                    g.port.pic("b[0]", pics.main_bg_photo)
-                    g.port.picc("last_file_btn", pics.main_bg_photo)
-                    g.port.picc2("last_file_btn", pics.nav_btn_press)
-                    filelist.send_file_picture(picture_path, 160, "last_file_pic")
-                    g.screen.main_picture_detected = True
-                else:
-                    g.port.pic("b[0]", pics.main_bg_noimg)
-                    g.port.picc("last_file_btn", pics.main_bg_noimg)
-                    g.port.picc2("last_file_btn", pics.main_on_press)
-                    g.port.vis("last_file_pic", "0")
-        else:
-            g.port.pic("b[0]", pics.main_bg_noimg)
-            g.port.picc("last_file_btn", pics.main_bg_noimg)
-            g.port.picc2("last_file_btn", pics.main_on_press)
-            g.port.txt("last_file_name", "")
-            g.port.vis("last_file_pic", "0")
+        _main_last_file_picture()
         g.screen.main_picture_refreshed = True
 
     # CLL ask for the power loss recovery once after boot
