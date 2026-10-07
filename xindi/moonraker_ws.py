@@ -316,7 +316,7 @@ class MoonrakerClient(object):
         self.sending_message = ""           # last sent message
         self.m_ConnectionMetadataPtr = None
 
-    def Connect(self, url):
+    def connect(self, url):
         try:
             con = _Connection(url)
         except (WebsocketError, ValueError) as e:
@@ -338,7 +338,7 @@ class MoonrakerClient(object):
             cout(str(e))
         return True
 
-    def Close(self, reason=""):
+    def close(self, reason=""):
         if self.m_ConnectionMetadataPtr is not None:
             ec = self.m_ConnectionMetadataPtr.get_hdl().close(CLOSE_NORMAL, reason)
             if ec:
@@ -347,7 +347,7 @@ class MoonrakerClient(object):
             cout("Websocket connection closed")
         return True
 
-    def Send(self, message):
+    def send(self, message):
         if self.m_ConnectionMetadataPtr is not None:
             ec = self.m_ConnectionMetadataPtr.get_hdl().send(message)
             if ec:
@@ -358,10 +358,10 @@ class MoonrakerClient(object):
                 cout("Data sent, content: " + self.sending_message)
         return True
 
-    def GetIsConnected(self):
+    def connected(self):
         return self.is_connected
 
-    def GetStatus(self):
+    def poll_status(self):
         if self.m_ConnectionMetadataPtr is not None:
             self.status = self.m_ConnectionMetadataPtr.get_status()
         if self.status == "Open":
@@ -370,8 +370,5 @@ class MoonrakerClient(object):
             self.is_connected = False
         return self.status
 
-    def GetConnectionMetadataPtr(self):
-        return self.m_ConnectionMetadataPtr
-
-    def GetURL(self):
+    def url(self):
         return "ws://" + self.host + ":" + self.port + "/websocket?"

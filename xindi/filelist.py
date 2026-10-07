@@ -123,7 +123,7 @@ def refresh_page_files(pages):
 
 
 def get_file_estimated_time(filename):
-    g.ep.Send(json_get_gcode_metadata(filename))
+    g.ep.send(json_get_gcode_metadata(filename))
 
 
 def clear_cp0_image():

@@ -119,19 +119,19 @@ def main(argv):
         url = "ws://" + host + ":7125/websocket?"
 
     g.ep = MoonrakerClient(host, "7125")
-    cout(g.ep.GetURL())
-    cout(g.ep.GetStatus())
-    cout(int(g.ep.GetIsConnected()))
+    cout(g.ep.url())
+    cout(g.ep.poll_status())
+    cout(int(g.ep.connected()))
 
     connected_count = 0
 
-    while not g.ep.GetIsConnected():
-        cout(connected_count, "Not connected: ", int(g.ep.GetIsConnected()))
-        g.ep.Close()
-        g.ep.Connect(url)
+    while not g.ep.connected():
+        cout(connected_count, "Not connected: ", int(g.ep.connected()))
+        g.ep.close()
+        g.ep.connect(url)
         connected_count += 1
         sleep(1)
-        g.ep.GetStatus()
+        g.ep.poll_status()
         sleep(1)
 
     pthread_create(json_parse, None)

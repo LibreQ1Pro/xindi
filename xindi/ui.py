@@ -105,99 +105,63 @@ def page_to(page_id):
     send_cmd_page(g.tty_fd, to_string(page_id))
 
 
+def _printing_target(setter, widget, limit, settings_setter=None):
+    """Value of a printing page widget: clamp, apply, echo it back to the widget and store it."""
+    def handle(number):
+        from . import actions, settings
+        g.screen.printing_keyboard_enabled = False
+        number = min(number, limit)
+        getattr(actions, setter)(number)
+        if widget:
+            send_cmd_val(g.tty_fd, widget, to_string(number))
+        if settings_setter:
+            getattr(settings, settings_setter)(number)
+    return handle
+
+
+def _filament_target(setter, limit, settings_setter=None, reopen=True, slider=False):
+    """Value of a filament page widget: clamp and apply, then redraw the page (or end the slider drag)."""
+    def handle(number):
+        from . import actions, settings
+        number = min(number, limit)
+        getattr(actions, setter)(number)
+        if settings_setter:
+            getattr(settings, settings_setter)(number)
+        if slider:
+            g.screen.move_fan_setting = False     # the slider was released
+        if reopen:
+            page_to(ids.FILAMENT)
+    return handle
+
+
+# (page, widget) -> handler(number).  NOTE: the keyboard (keybdB) always reports page 20 for the speed and flow
+# values, they live on the second printing page (printing_2.n2 / n3)
+SETTED = {
+    (ids.PRINTING, ids.PRINTING_EXTRUDER): _printing_target("set_extruder_target", "nozzle_set", 350, "set_extruder_target"),
+    (ids.PRINTING, ids.PRINTING_HEATER_BED): _printing_target("set_heater_bed_target", "bed_set", 120, "set_heater_bed_target"),
+    (ids.PRINTING, ids.PRINTING_FAN_1): _printing_target("set_fan0", None, 100),
+    (ids.PRINTING, ids.PRINTING_FAN_2): _printing_target("set_fan2", None, 100),      # 4.4.2 CLL fan2 added
+    (ids.PRINTING, ids.PRINTING_FAN_3): _printing_target("set_fan3", None, 100),
+    (ids.PRINTING, ids.PRINTING_2_SPEED): _printing_target("set_printer_speed", "speed_val", 150),
+    (ids.PRINTING, ids.PRINTING_2_FLOW): _printing_target("set_printer_flow", "flow_val", 150),
+    (ids.PRINTING, ids.PRINTING_HOT): _printing_target("set_hot_target", None, 60, "set_hot_target"),
+    (ids.FILAMENT, ids.FILAMENT_SET_EXTRUDER): _filament_target("set_extruder_target", 350, "set_extruder_target"),
+    (ids.FILAMENT, ids.FILAMENT_SET_HEATERBED): _filament_target("set_heater_bed_target", 120, "set_heater_bed_target"),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_1): _filament_target("set_fan0", 100, reopen=False, slider=True),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_2): _filament_target("set_fan2", 100, reopen=False, slider=True),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_3): _filament_target("set_fan3", 100, reopen=False, slider=True),
+    (ids.FILAMENT, ids.FILAMENT_SET_HOT): _filament_target("set_hot_target", 60, "set_hot_target"),
+}
+
+
 def tjc_event_setted_handler(page_id, widget_id, first, second):
-    from . import actions, settings
     cout("!!!", page_id)
     cout("!!!", widget_id)
     cout("!!!", chr(first))
     cout("!!!", chr(second))
-    number = (second << 8) + first
-    if page_id == ids.PRINTING:
-        if widget_id == ids.PRINTING_EXTRUDER:
-            if number > 350:
-                number = 350
-            g.screen.printing_keyboard_enabled = False
-            actions.set_extruder_target(number)
-            send_cmd_val(g.tty_fd, "nozzle_set", to_string(number))
-            settings.set_extruder_target(number)
-        elif widget_id == ids.PRINTING_HEATER_BED:
-            if number > 120:
-                number = 120
-            g.screen.printing_keyboard_enabled = False
-            actions.set_heater_bed_target(number)
-            send_cmd_val(g.tty_fd, "bed_set", to_string(number))
-            settings.set_heater_bed_target(number)
-        elif widget_id == ids.PRINTING_FAN_1:
-            if number > 100:
-                number = 100
-            g.screen.printing_keyboard_enabled = False
-            actions.set_fan0(number)
-        # 4.4.2 CLL fan2 added
-        elif widget_id == ids.PRINTING_FAN_2:
-            if number > 100:
-                number = 100
-            g.screen.printing_keyboard_enabled = False
-            actions.set_fan2(number)
-        elif widget_id == ids.PRINTING_FAN_3:
-            if number > 100:
-                number = 100
-            g.screen.printing_keyboard_enabled = False
-            actions.set_fan3(number)
-        # NOTE: the keyboard (keybdB) always reports page 20 for these two, the
-        # values live on the second printing page (printing_2.n2 / n3)
-        elif widget_id == ids.PRINTING_2_SPEED:
-            if number > 150:
-                number = 150
-            g.screen.printing_keyboard_enabled = False
-            actions.set_printer_speed(number)
-            send_cmd_val(g.tty_fd, "speed_val", to_string(number))
-        elif widget_id == ids.PRINTING_2_FLOW:
-            if number > 150:
-                number = 150
-            g.screen.printing_keyboard_enabled = False
-            actions.set_printer_flow(number)
-            send_cmd_val(g.tty_fd, "flow_val", to_string(number))
-        elif widget_id == ids.PRINTING_HOT:
-            if number > 60:
-                number = 60
-            g.screen.printing_keyboard_enabled = False
-            actions.set_hot_target(number)
-            settings.set_hot_target(number)
-
-    elif page_id == ids.FILAMENT:
-        if widget_id == ids.FILAMENT_SET_EXTRUDER:
-            if number > 350:
-                number = 350
-            actions.set_extruder_target(number)
-            settings.set_extruder_target(number)
-            page_to(ids.FILAMENT)
-        elif widget_id == ids.FILAMENT_SET_HEATERBED:
-            if number > 120:
-                number = 120
-            actions.set_heater_bed_target(number)
-            settings.set_heater_bed_target(number)
-            page_to(ids.FILAMENT)
-        elif widget_id == ids.FILAMENT_SET_FAN_1:
-            if number > 100:
-                number = 100
-            actions.set_fan0(number)
-            g.screen.move_fan_setting = False     # the slider was released
-        elif widget_id == ids.FILAMENT_SET_FAN_2:
-            if number > 100:
-                number = 100
-            actions.set_fan2(number)
-            g.screen.move_fan_setting = False
-        elif widget_id == ids.FILAMENT_SET_FAN_3:
-            if number > 100:
-                number = 100
-            actions.set_fan3(number)
-            g.screen.move_fan_setting = False
-        elif widget_id == ids.FILAMENT_SET_HOT:
-            if number > 60:
-                number = 60
-            actions.set_hot_target(number)
-            settings.set_hot_target(number)
-            page_to(ids.FILAMENT)
+    handler = SETTED.get((page_id, widget_id))
+    if handler:
+        handler((second << 8) + first)
 
 
 def tjc_event_keyboard(cmd):

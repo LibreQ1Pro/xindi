@@ -45,8 +45,8 @@ def show():
             6: "G91\nG1 Z10 F600\nG90\nM84\n",        # Z_DOWN
         }
         if g.screen.unhomed_move_mode in moves:
-            g.ep.Send(json_run_a_gcode(homing))
-            g.ep.Send(json_run_a_gcode(moves[g.screen.unhomed_move_mode]))
+            g.ep.send(json_run_a_gcode(homing))
+            g.ep.send(json_run_a_gcode(moves[g.screen.unhomed_move_mode]))
         g.screen.unhomed_move_mode = 0
         g.screen.jump_move_pop_2 = False
         page_to(ids.MOVE_POP_2)
@@ -309,7 +309,7 @@ def print_filament():
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.klippy.idle_timeout_state == "Idle":
-        g.ep.Send(json_run_a_gcode("G28\n"))
+        g.ep.send(json_run_a_gcode("G28\n"))
         actions.cancel_print()
 
 
@@ -345,9 +345,9 @@ def auto_moving():
         g.klippy.idle_timeout_state = "Printing"
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.Send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
+        g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
         sleep(1)
-        g.ep.Send(json_run_a_gcode("M4027\n"))
+        g.ep.send(json_run_a_gcode("M4027\n"))
     if g.levelling.step_4:
         sleep(15)
         page_to(ids.AUTO_FINISH)
@@ -1039,14 +1039,14 @@ def open_calibrate():
     if g.levelling.step_2 and g.klippy.webhooks_state == "ready":
         g.levelling.step_2 = False
         sleep(5)
-        g.ep.Send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
+        g.ep.send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
     if g.levelling.step_1 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_1 = False
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.Send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
+        g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
         sleep(5)
-        g.ep.Send(json_run_a_gcode("M4027"))   # CLL levelling after the platform / nozzle initialisation
+        g.ep.send(json_run_a_gcode("M4027"))   # CLL levelling after the platform / nozzle initialisation
 
 
 def filament_set_fan():

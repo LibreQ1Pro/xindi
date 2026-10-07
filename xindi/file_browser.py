@@ -41,10 +41,10 @@ def parse_file_estimated_time(response):
             width = jget(thumb, "width")
             if jeq(width, 168) or jeq(width, 300):
                 g.files.thumbnail_relative_path = jstr(jget(thumb, "relative_path"))
-                if getParentDirectory(g.files.meta_filename) == "":
+                if parent_directory(g.files.meta_filename) == "":
                     g.files.thumbnail_path = g.files.thumbnail_relative_path
                 else:
-                    g.files.thumbnail_path = getParentDirectory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
+                    g.files.thumbnail_path = parent_directory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
                 MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
                 break
             if jget(thumbnails, i) is None:
@@ -245,10 +245,10 @@ def parse_file_estimated_time_send(response):
         last = _json_back(thumbnails)
         if last is not None:
             g.files.thumbnail_relative_path = jstr(jget(last, "relative_path"))
-            if getParentDirectory(g.files.meta_filename) == "":
+            if parent_directory(g.files.meta_filename) == "":
                 g.files.thumbnail_path = g.files.thumbnail_relative_path
             else:
-                g.files.thumbnail_path = getParentDirectory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
+                g.files.thumbnail_path = parent_directory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
             MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
     else:
         g.files.thumbnail_relative_path = ""
@@ -267,7 +267,7 @@ def _json_back(value):
     return value
 
 
-def getParentDirectory(path):
+def parent_directory(path):
     found = find_last_of(path, "/\\")
     if found != -1:
         return substr(path, 0, found)

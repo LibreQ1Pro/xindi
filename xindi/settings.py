@@ -118,7 +118,7 @@ def wifi_save_config():
 
 
 def get_total_time():
-    g.ep.Send(json_get_job_totals())
+    g.ep.send(json_get_job_totals())
 
 
 def get_oobe_enabled():
@@ -143,7 +143,7 @@ def restore_config():
     system("curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'")
     system("cp /root/config.mksini " + paths.klipper_config() + "/config.mksini")
     system("cp " + paths.klipper_config() + "/saved_variables.cfg.bak " + paths.klipper_config() + "/saved_variables.cfg")
-    g.ep.Send(json_run_a_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0"))
+    g.ep.send(json_run_a_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0"))
     page_to(ids.MAIN)
 
 
