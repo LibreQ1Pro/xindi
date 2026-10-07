@@ -2,7 +2,7 @@ name: display
 
 on:
   push:
-    paths: [display_firmware/**]
+    paths: [display_firmware/**, .github/workflows/display.yml]
   workflow_dispatch:
 
 jobs:
@@ -20,5 +20,4 @@ jobs:
       - uses: ponywka/hmi-builder@main
         with:
           project-dir: display_firmware
-          config: display_firmware/project.json
           output: display_firmware/out/display.HMI
