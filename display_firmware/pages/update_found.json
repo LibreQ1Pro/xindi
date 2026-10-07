@@ -29,76 +29,76 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_45"
+        "$ref": "picture:bg_update_found"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"检测到更新文件，是否更新?\"",
-        "  b1.txt=\"取消\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"检测到更新文件，是否更新?\"",
+        "  cancel.txt=\"取消\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Обнаружен файл обновления. Хотите обновить?\"",
-        "  b1.txt=\"Отмена\"",
-        "  b0.txt=\"Подтвердить\"",
+        "  msg.txt=\"Обнаружен файл обновления. Хотите обновить?\"",
+        "  cancel.txt=\"Отмена\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Update file detected. Do \\ryou want to update?\"",
-        "  b1.txt=\"Cancel\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Update file detected. Do \\ryou want to update?\"",
+        "  cancel.txt=\"Cancel\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"更新ファイルが検出されました。更新しますか？\"",
-        "  b1.txt=\"キャンセル\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"更新ファイルが検出されました。更新しますか？\"",
+        "  cancel.txt=\"キャンセル\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Fichier de mise à jour \\rdétecté.Voulez-vous \\rmettre à jour ?\"",
-        "  b1.txt=\"Annuler\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"Fichier de mise à jour \\rdétecté.Voulez-vous \\rmettre à jour ?\"",
+        "  cancel.txt=\"Annuler\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Aktualisierungsdatei \\rerkannt. Möchten Sie \\raktualisieren？\"",
-        "  b1.txt=\"Abbrechen\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Aktualisierungsdatei \\rerkannt. Möchten Sie \\raktualisieren？\"",
+        "  cancel.txt=\"Abbrechen\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"File di aggiornamento \\rlocale rilevato, \\raggiornare ora?\"",
-        "  b1.txt=\"Annulla\"",
-        "  b0.txt=\"Conferma\"",
+        "  msg.txt=\"File di aggiornamento \\rlocale rilevato, \\raggiornare ora?\"",
+        "  cancel.txt=\"Annulla\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Archivo de actualización \\rlocal detectado, \\r¿actualizar ahora?\"",
-        "  b1.txt=\"Cancelar\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Archivo de actualización \\rlocal detectado, \\r¿actualizar ahora?\"",
+        "  cancel.txt=\"Cancelar\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"로컬 업데이트 파일이 감지되었습니다. 지금 업데이트하시겠습니까?\"",
-        "  b1.txt=\"중지\"",
-        "  b0.txt=\"확인하다\"",
+        "  msg.txt=\"로컬 업데이트 파일이 감지되었습니다. 지금 업데이트하시겠습니까?\"",
+        "  cancel.txt=\"중지\"",
+        "  ok.txt=\"확인하다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Arquivo de atualização \\rlocal detectado, \\ratualizar agora?\"",
-        "  b1.txt=\"Cancelar\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Arquivo de atualização \\rlocal detectado, \\ratualizar agora?\"",
+        "  cancel.txt=\"Cancelar\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تم الكشف عن ملف التحديث المحلي، هل تريد التحديث الآن؟\"",
-        "  b1.txt=\"إلغاء\"",
-        "  b0.txt=\"تأكيد\"",
+        "  msg.txt=\"تم الكشف عن ملف التحديث المحلي، هل تريد التحديث الآن؟\"",
+        "  cancel.txt=\"إلغاء\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Yerel güncelleme dosyası \\ralgılandı, şimdi \\rgüncellensin mi?\"",
-        "  b1.txt=\"İptal\"",
-        "  b0.txt=\"Onayla\"",
+        "  msg.txt=\"Yerel güncelleme dosyası \\ralgılandı, şimdi \\rgüncellensin mi?\"",
+        "  cancel.txt=\"İptal\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"זוהתה קובץ עדכון מקומי, לעדכון עכשיו?\"",
-        "  b1.txt=\"ביטול\"",
-        "  b0.txt=\"אישור\"",
+        "  msg.txt=\"זוהתה קובץ עדכון מקומי, לעדכון עכשיו?\"",
+        "  cancel.txt=\"ביטול\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -109,10 +109,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -135,7 +135,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -156,10 +156,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -181,16 +181,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -217,10 +217,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -242,16 +242,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,

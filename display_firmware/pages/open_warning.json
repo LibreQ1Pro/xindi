@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_155"
+        "$ref": "picture:bg_open_warning"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"开箱(2/3)\"",
-        "  t1.txt=\"即将移动平台，请确保已解锁平台且平台上无杂物。\"",
+        "  title.txt=\"开箱(2/3)\"",
+        "  msg.txt=\"即将移动平台，请确保已解锁平台且平台上无杂物。\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Распаковка(2/3)\"",
-        "  t1.txt=\"Что касается перемещения платформы, пожалуйста, \\rубедитесь, что платформа чистая и разблокирована.\"",
+        "  title.txt=\"Распаковка(2/3)\"",
+        "  msg.txt=\"Что касается перемещения платформы, пожалуйста, \\rубедитесь, что платформа чистая и разблокирована.\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Unboxing(2/3)\"",
-        "  t1.txt=\"About to moving platform, \\rplease make sure the \\rplatform is clean and \\runlocked.\"",
+        "  title.txt=\"Unboxing(2/3)\"",
+        "  msg.txt=\"About to moving platform, \\rplease make sure the \\rplatform is clean and \\runlocked.\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"開梱(2/3)\"",
-        "  t1.txt=\"プラットフォームを移動しようとしています。プラットフォームがきれいで、ロックが解除されていることを確認してください。\"",
+        "  title.txt=\"開梱(2/3)\"",
+        "  msg.txt=\"プラットフォームを移動しようとしています。プラットフォームがきれいで、ロックが解除されていることを確認してください。\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Déballage(2/3)\"",
-        "  t1.txt=\"À propos de la plate-forme \\rmobile, assurez-vous que \\rla plate-forme est propre \\ret déverrouillée.\"",
+        "  title.txt=\"Déballage(2/3)\"",
+        "  msg.txt=\"À propos de la plate-forme \\rmobile, assurez-vous que \\rla plate-forme est propre \\ret déverrouillée.\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Auspacken(2/3)\"",
-        "  t1.txt=\"Bitte vergewissern Sie sich, \\rdass die Plattform sauber \\rund entriegelt ist bevor \\rsie die Plattform bewegen.\"",
+        "  title.txt=\"Auspacken(2/3)\"",
+        "  msg.txt=\"Bitte vergewissern Sie sich, \\rdass die Plattform sauber \\rund entriegelt ist bevor \\rsie die Plattform bewegen.\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Apertura(2/3)\"",
-        "  t1.txt=\"Sta per muoversi la \\rpiattaforma, assicurarsi \\rche la piattaforma sia \\rpulita e sbloccata.\"",
+        "  title.txt=\"Apertura(2/3)\"",
+        "  msg.txt=\"Sta per muoversi la \\rpiattaforma, assicurarsi \\rche la piattaforma sia \\rpulita e sbloccata.\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Desembalaje(2/3)\"",
-        "  t1.txt=\"A punto de mover la \\rplataforma, asegúrese de \\rque la plataforma esté \\rlimpia y desbloqueada.\"",
+        "  title.txt=\"Desembalaje(2/3)\"",
+        "  msg.txt=\"A punto de mover la \\rplataforma, asegúrese de \\rque la plataforma esté \\rlimpia y desbloqueada.\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"언박싱(2/3)\"",
-        "  t1.txt=\"플랫폼을 이동할 예정입니다. 플랫폼이 깨끗하고 잠금 해제되어 있는지 확인하십시오.\"",
+        "  title.txt=\"언박싱(2/3)\"",
+        "  msg.txt=\"플랫폼을 이동할 예정입니다. 플랫폼이 깨끗하고 잠금 해제되어 있는지 확인하십시오.\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Desembalagem(2/3)\"",
-        "  t1.txt=\"Sobre a mover a plataforma, \\rpor favor, certifique-se \\rde que a plataforma esteja \\rlimpa e desbloqueada. \"",
+        "  title.txt=\"Desembalagem(2/3)\"",
+        "  msg.txt=\"Sobre a mover a plataforma, \\rpor favor, certifique-se \\rde que a plataforma esteja \\rlimpa e desbloqueada. \"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"فتح الصندوق (2/3)\"",
-        "  t1.txt=\"على وشك تحريك المنصة، يرجى التأكد من نظافة المنصة وإلغاء القفل.\"",
+        "  title.txt=\"فتح الصندوق (2/3)\"",
+        "  msg.txt=\"على وشك تحريك المنصة، يرجى التأكد من نظافة المنصة وإلغاء القفل.\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Açma (2/3)\"",
-        "  t1.txt=\"Platformun hareket \\retmesine hazırlanıyor, \\rlütfen platformun temiz \\rve kilidini açık \\rolduğundan emin olun.\"",
+        "  title.txt=\"Açma (2/3)\"",
+        "  msg.txt=\"Platformun hareket \\retmesine hazırlanıyor, \\rlütfen platformun temiz \\rve kilidini açık \\rolduğundan emin olun.\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"פתיחת האריזה (2/3)\"",
-        "  t1.txt=\"על סף התזוזה של הפלטפורמה, נא לוודא שהפלטפורמה נקייה ונעולה.\"",
+        "  title.txt=\"פתיחת האריזה (2/3)\"",
+        "  msg.txt=\"על סף התזוזה של הפלטפורמה, נא לוודא שהפלטפורמה נקייה ונעולה.\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -122,7 +122,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -143,10 +143,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -169,7 +169,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -190,10 +190,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "next",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "next",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -215,16 +215,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_155"
+          "$ref": "picture:bg_open_warning"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_156"
+          "$ref": "picture:open_warning_next_press"
         },
         "bco2": 1024,
         "pco": 65535,

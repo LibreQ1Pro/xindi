@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_47"
+        "$ref": "picture:bg_info_popup"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"导出日志失败，请确认U盘已插入。\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"导出日志失败，请确认U盘已插入。\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Не удалось экспортировать журналы. Убедитесь, что USB-накопитель вставлен.\"",
-        "  b0.txt=\"Подтвердить\"",
+        "  msg.txt=\"Не удалось экспортировать журналы. Убедитесь, что USB-накопитель вставлен.\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Failed to export logs. Please make sure the USB drive is \\rinserted.\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Failed to export logs. Please make sure the USB drive is \\rinserted.\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"ログのエクスポートに失敗しました。USBドライブが挿入されていることを確認してください。\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"ログのエクスポートに失敗しました。USBドライブが挿入されていることを確認してください。\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Échec de l’exportation des \\rjournaux. Veuillez vous \\rassurer que la clé USB est \\rinsérée.\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"Échec de l’exportation des \\rjournaux. Veuillez vous \\rassurer que la clé USB est \\rinsérée.\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Protokolle konnten nicht \\rexportiert werden. Bitte \\rstellen Sie sicher, dass der \\rUSB-Stick eingesteckt ist。\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Protokolle konnten nicht \\rexportiert werden. Bitte \\rstellen Sie sicher, dass der \\rUSB-Stick eingesteckt ist。\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Impossibile esportare il \\rregistro, verificare che \\rl'unità flash USB sia inserita.\"",
-        "  b0.txt=\"Conferma\"",
+        "  msg.txt=\"Impossibile esportare il \\rregistro, verificare che \\rl'unità flash USB sia inserita.\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"No se pudo exportar el \\rregistro. Confirme que la \\runidad flash USB esté \\rinsertada.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"No se pudo exportar el \\rregistro. Confirme que la \\runidad flash USB esté \\rinsertada.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"로그를 내보내지 못했습니다. USB 플래시 드라이브가 삽입되어 있는지 확인하세요.\"",
-        "  b0.txt=\"확인하다\"",
+        "  msg.txt=\"로그를 내보내지 못했습니다. USB 플래시 드라이브가 삽입되어 있는지 확인하세요.\"",
+        "  ok.txt=\"확인하다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Falha ao exportar o \\rregistro, confirme se a \\runidade flash USB está \\rinserida.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Falha ao exportar o \\rregistro, confirme se a \\runidade flash USB está \\rinserida.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"فشل تصدير السجل، يرجى التأكد من إدخال محرك أقراص USB المحمول.\"",
-        "  b0.txt=\"تأكيد\"",
+        "  msg.txt=\"فشل تصدير السجل، يرجى التأكد من إدخال محرك أقراص USB المحمول.\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Günlük dışa aktarılamadı. \\rLütfen USB flash \\rsürücünün takılı olduğunu \\rdoğrulayın.\"",
-        "  b0.txt=\"Onayla\"",
+        "  msg.txt=\"Günlük dışa aktarılamadı. \\rLütfen USB flash \\rsürücünün takılı olduğunu \\rdoğrulayın.\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"ייצוא היומן נכשל, אנא אשר שכונן הבזק מסוג USB הוכנס.\"",
-        "  b0.txt=\"אישור\"",
+        "  msg.txt=\"ייצוא היומן נכשל, אנא אשר שכונן הבזק מסוג USB הוכנס.\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -183,7 +183,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

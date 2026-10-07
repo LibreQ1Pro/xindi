@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_69"
+        "$ref": "picture:bg_common_set"
       }
     },
     "events": {
@@ -37,155 +37,155 @@
         "sys0=0",
         "if(lang==0)",
         "{",
-        "  b23.txt=\"通用设置\"",
-        "  b22.txt=\"校准设置\"",
-        "  t0.txt=\"语言\"",
-        "  t1.txt=\"网络\"",
-        "  t2.txt=\"系统信息\"",
-        "  t3.txt=\"售后信息\"",
-        "  t4.txt=\"熄屏设置\"",
-        "  t5.txt=\"检测更新\"",
-        "  t6.txt=\"恢复出厂设置\"",
+        "  tab_settings.txt=\"通用设置\"",
+        "  tab_calib.txt=\"校准设置\"",
+        "  lang_lbl.txt=\"语言\"",
+        "  network_lbl.txt=\"网络\"",
+        "  sysinfo_lbl.txt=\"系统信息\"",
+        "  service_lbl.txt=\"售后信息\"",
+        "  sleep_lbl.txt=\"熄屏设置\"",
+        "  update_lbl.txt=\"检测更新\"",
+        "  reset_lbl.txt=\"恢复出厂设置\"",
         "}else if(lang==1)",
         "{",
-        "  b23.txt=\"Настройка\"",
-        "  b22.txt=\"Калибровка\"",
-        "  t0.txt=\"Языки\"",
-        "  t1.txt=\"Сеть\"",
-        "  t2.txt=\"системное сообщение\"",
-        "  t3.txt=\"после продажи\"",
-        "  t4.txt=\"настройки отключения экрана\"",
-        "  t5.txt=\"Проверьте наличие \\rобновлений\"",
-        "  t6.txt=\"Восстановить заводские настройки\"",
+        "  tab_settings.txt=\"Настройка\"",
+        "  tab_calib.txt=\"Калибровка\"",
+        "  lang_lbl.txt=\"Языки\"",
+        "  network_lbl.txt=\"Сеть\"",
+        "  sysinfo_lbl.txt=\"системное сообщение\"",
+        "  service_lbl.txt=\"после продажи\"",
+        "  sleep_lbl.txt=\"настройки отключения экрана\"",
+        "  update_lbl.txt=\"Проверьте наличие \\rобновлений\"",
+        "  reset_lbl.txt=\"Восстановить заводские настройки\"",
         "}else if(lang==2)",
         "{",
-        "  b23.txt=\"Settings\"",
-        "  b22.txt=\"Calibration\"",
-        "  t0.txt=\"Languages\"",
-        "  t1.txt=\"Network\"",
-        "  t2.txt=\"System Message\"",
-        "  t3.txt=\"After-Sales\"",
-        "  t4.txt=\"Screen Off Settings\"",
-        "  t5.txt=\"Check for Updates\"",
-        "  t6.txt=\"Restore Factory \\rSettings\"",
+        "  tab_settings.txt=\"Settings\"",
+        "  tab_calib.txt=\"Calibration\"",
+        "  lang_lbl.txt=\"Languages\"",
+        "  network_lbl.txt=\"Network\"",
+        "  sysinfo_lbl.txt=\"System Message\"",
+        "  service_lbl.txt=\"After-Sales\"",
+        "  sleep_lbl.txt=\"Screen Off Settings\"",
+        "  update_lbl.txt=\"Check for Updates\"",
+        "  reset_lbl.txt=\"Restore Factory \\rSettings\"",
         "}else if(lang==3)",
         "{",
-        "  b23.txt=\"設定\"",
-        "  b22.txt=\"マニュアル\"",
-        "  t0.txt=\"言語\"",
-        "  t1.txt=\"ネットワーク\"",
-        "  t2.txt=\"システムメッセージ\"",
-        "  t3.txt=\"サポート情報\"",
-        "  t4.txt=\"画面オフ設定\"",
-        "  t5.txt=\"アップデートを確認\"",
-        "  t6.txt=\"工場出荷時設定に戻す\"",
+        "  tab_settings.txt=\"設定\"",
+        "  tab_calib.txt=\"マニュアル\"",
+        "  lang_lbl.txt=\"言語\"",
+        "  network_lbl.txt=\"ネットワーク\"",
+        "  sysinfo_lbl.txt=\"システムメッセージ\"",
+        "  service_lbl.txt=\"サポート情報\"",
+        "  sleep_lbl.txt=\"画面オフ設定\"",
+        "  update_lbl.txt=\"アップデートを確認\"",
+        "  reset_lbl.txt=\"工場出荷時設定に戻す\"",
         "}else if(lang==4)",
         "{",
-        "  b23.txt=\"Paramètres\"",
-        "  b22.txt=\"Étalonnage\"",
-        "  t0.txt=\"Langues\"",
-        "  t1.txt=\"Réseau\"",
-        "  t2.txt=\"Message Système\"",
-        "  t3.txt=\"Après-Vente\"",
-        "  t4.txt=\"Paramètres de Désactivation de l'écran\"",
-        "  t5.txt=\"Vérifier les mises \\rà jour\"",
-        "  t6.txt=\"Restaurer les Paramètres d'usine\"",
+        "  tab_settings.txt=\"Paramètres\"",
+        "  tab_calib.txt=\"Étalonnage\"",
+        "  lang_lbl.txt=\"Langues\"",
+        "  network_lbl.txt=\"Réseau\"",
+        "  sysinfo_lbl.txt=\"Message Système\"",
+        "  service_lbl.txt=\"Après-Vente\"",
+        "  sleep_lbl.txt=\"Paramètres de Désactivation de l'écran\"",
+        "  update_lbl.txt=\"Vérifier les mises \\rà jour\"",
+        "  reset_lbl.txt=\"Restaurer les Paramètres d'usine\"",
         "}else if(lang==5)",
         "{",
-        "  b23.txt=\"Einrichten\"",
-        "  b22.txt=\"Kalibrierung\"",
-        "  t0.txt=\"Sprachen\"",
-        "  t1.txt=\"Netzwerk\"",
-        "  t2.txt=\"Systemnachricht\"",
-        "  t3.txt=\"After-Sales\"",
-        "  t4.txt=\"Einstellungen zum Ausschalten des Bildschirms\"",
-        "  t4.font=${font:font_1}",
-        "  t5.txt=\"Auf Updates prüfen\"",
-        "  t6.txt=\"Auf Werkseinstellungen zurücksetzen\"",
+        "  tab_settings.txt=\"Einrichten\"",
+        "  tab_calib.txt=\"Kalibrierung\"",
+        "  lang_lbl.txt=\"Sprachen\"",
+        "  network_lbl.txt=\"Netzwerk\"",
+        "  sysinfo_lbl.txt=\"Systemnachricht\"",
+        "  service_lbl.txt=\"After-Sales\"",
+        "  sleep_lbl.txt=\"Einstellungen zum Ausschalten des Bildschirms\"",
+        "  sleep_lbl.font=${font:font_small14}",
+        "  update_lbl.txt=\"Auf Updates prüfen\"",
+        "  reset_lbl.txt=\"Auf Werkseinstellungen zurücksetzen\"",
         "}else if(lang==6)",
         "{",
-        "  b23.txt=\"Impostazioni \\rgenerali\"",
-        "  b22.txt=\"Impostazioni \\rdi calibrazione\"",
-        "  b22.font=${font:font_1}",
-        "  b23.font=${font:font_1}",
-        "  t0.txt=\"Lingue\"",
-        "  t1.txt=\"Rete\"",
-        "  t2.txt=\"Messaggio di sistema\"",
-        "  t3.txt=\"Assistenza \\rpost-vendita\"",
-        "  t4.txt=\"Impostazioni dello schermo spento\"",
-        "  t5.txt=\"Controlla gli aggiornamenti\"",
-        "  t6.txt=\"Ripristina le impostazioni di fabbrica\"",
+        "  tab_settings.txt=\"Impostazioni \\rgenerali\"",
+        "  tab_calib.txt=\"Impostazioni \\rdi calibrazione\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
+        "  lang_lbl.txt=\"Lingue\"",
+        "  network_lbl.txt=\"Rete\"",
+        "  sysinfo_lbl.txt=\"Messaggio di sistema\"",
+        "  service_lbl.txt=\"Assistenza \\rpost-vendita\"",
+        "  sleep_lbl.txt=\"Impostazioni dello schermo spento\"",
+        "  update_lbl.txt=\"Controlla gli aggiornamenti\"",
+        "  reset_lbl.txt=\"Ripristina le impostazioni di fabbrica\"",
         "}else if(lang==7)",
         "{",
-        "  b23.txt=\"Configuración \\rgeneral\"",
-        "  b22.txt=\"Ajustes de \\rcalibración\"",
-        "  b22.font=${font:font_1}",
-        "  b23.font=${font:font_1}",
-        "  t0.txt=\"Idiomas\"",
-        "  t1.txt=\"Red\"",
-        "  t2.txt=\"Mensaje del sistema\"",
-        "  t3.txt=\"Post-venta\"",
-        "  t4.txt=\"configuración de apagado de la pantalla\"",
-        "  t5.txt=\"Comprobar actualizaciones\"",
-        "  t6.txt=\"Restaurar configuración de fábrica\"",
+        "  tab_settings.txt=\"Configuración \\rgeneral\"",
+        "  tab_calib.txt=\"Ajustes de \\rcalibración\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
+        "  lang_lbl.txt=\"Idiomas\"",
+        "  network_lbl.txt=\"Red\"",
+        "  sysinfo_lbl.txt=\"Mensaje del sistema\"",
+        "  service_lbl.txt=\"Post-venta\"",
+        "  sleep_lbl.txt=\"configuración de apagado de la pantalla\"",
+        "  update_lbl.txt=\"Comprobar actualizaciones\"",
+        "  reset_lbl.txt=\"Restaurar configuración de fábrica\"",
         "}else if(lang==8)",
         "{",
-        "  b23.txt=\"일반 설정\"",
-        "  b22.txt=\"보정 설정\"",
-        "  t0.txt=\"언어\"",
-        "  t1.txt=\"네트워크\"",
-        "  t2.txt=\"시스템 메시지\"",
-        "  t3.txt=\"판매 후\"",
-        "  t4.txt=\"화면 꺼짐 설정\"",
-        "  t5.txt=\"업데이트 확인\"",
-        "  t6.txt=\"공장 설정으로 복원합니다\"",
+        "  tab_settings.txt=\"일반 설정\"",
+        "  tab_calib.txt=\"보정 설정\"",
+        "  lang_lbl.txt=\"언어\"",
+        "  network_lbl.txt=\"네트워크\"",
+        "  sysinfo_lbl.txt=\"시스템 메시지\"",
+        "  service_lbl.txt=\"판매 후\"",
+        "  sleep_lbl.txt=\"화면 꺼짐 설정\"",
+        "  update_lbl.txt=\"업데이트 확인\"",
+        "  reset_lbl.txt=\"공장 설정으로 복원합니다\"",
         "}else if(lang==9)",
         "{",
-        "  b23.txt=\"Definições \\rgerais\"",
-        "  b22.txt=\"Definições \\rde calibração\"",
-        "  b22.font=${font:font_1}",
-        "  b23.font=${font:font_1}",
-        "  t0.txt=\"Idiomas\"",
-        "  t1.txt=\"Rede\"",
-        "  t2.txt=\"Mensagem do Sistema\"",
-        "  t3.txt=\"Pós-Venda\"",
-        "  t4.txt=\"Configurações de Desligamento da Tela\"",
-        "  t5.txt=\"Verifique as Atualizações\"",
-        "  t6.txt=\"Restaurar Configurações de Fábrica\"",
+        "  tab_settings.txt=\"Definições \\rgerais\"",
+        "  tab_calib.txt=\"Definições \\rde calibração\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
+        "  lang_lbl.txt=\"Idiomas\"",
+        "  network_lbl.txt=\"Rede\"",
+        "  sysinfo_lbl.txt=\"Mensagem do Sistema\"",
+        "  service_lbl.txt=\"Pós-Venda\"",
+        "  sleep_lbl.txt=\"Configurações de Desligamento da Tela\"",
+        "  update_lbl.txt=\"Verifique as Atualizações\"",
+        "  reset_lbl.txt=\"Restaurar Configurações de Fábrica\"",
         "}else if(lang==10)",
         "{",
-        "  b23.txt=\"الإعدادات العامة\"",
-        "  b22.txt=\"إعدادات المعايرة\"",
-        "  t0.txt=\"اللغات\"",
-        "  t1.txt=\"الشبكة\"",
-        "  t2.txt=\"رسالة النظام\"",
-        "  t3.txt=\"خدمة ما بعد البيع\"",
-        "  t4.txt=\"إعدادات إيقاف التشغيل للشاشة\"",
-        "  t5.txt=\"تحقق من التحديثات\"",
-        "  t6.txt=\"استعادة الإعدادات الأصلية\"",
+        "  tab_settings.txt=\"الإعدادات العامة\"",
+        "  tab_calib.txt=\"إعدادات المعايرة\"",
+        "  lang_lbl.txt=\"اللغات\"",
+        "  network_lbl.txt=\"الشبكة\"",
+        "  sysinfo_lbl.txt=\"رسالة النظام\"",
+        "  service_lbl.txt=\"خدمة ما بعد البيع\"",
+        "  sleep_lbl.txt=\"إعدادات إيقاف التشغيل للشاشة\"",
+        "  update_lbl.txt=\"تحقق من التحديثات\"",
+        "  reset_lbl.txt=\"استعادة الإعدادات الأصلية\"",
         "}else if(lang==11)",
         "{",
-        "  b23.txt=\"Genel ayarlar\"",
-        "  b22.txt=\"Kalibrasyon \\rayarları\"",
-        "  b22.font=${font:font_1}",
-        "  t0.txt=\"Diller\"",
-        "  t1.txt=\"Ağ\"",
-        "  t2.txt=\"sistem mesajı\"",
-        "  t3.txt=\"Satış Sonrası\"",
-        "  t4.txt=\"Ekran Kapalı Ayarları\"",
-        "  t5.txt=\"Güncellemeleri kontrol et\"",
-        "  t6.txt=\"Fabrika Ayarlarına Sıfırla\"",
+        "  tab_settings.txt=\"Genel ayarlar\"",
+        "  tab_calib.txt=\"Kalibrasyon \\rayarları\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  lang_lbl.txt=\"Diller\"",
+        "  network_lbl.txt=\"Ağ\"",
+        "  sysinfo_lbl.txt=\"sistem mesajı\"",
+        "  service_lbl.txt=\"Satış Sonrası\"",
+        "  sleep_lbl.txt=\"Ekran Kapalı Ayarları\"",
+        "  update_lbl.txt=\"Güncellemeleri kontrol et\"",
+        "  reset_lbl.txt=\"Fabrika Ayarlarına Sıfırla\"",
         "}else if(lang==12)",
         "{",
-        "  b23.txt=\"הגדרות כלליות\"",
-        "  b22.txt=\"הגדרות כיול\"",
-        "  t0.txt=\"שפות\"",
-        "  t1.txt=\"רשת\"",
-        "  t2.txt=\"הודעת מערכת\"",
-        "  t3.txt=\"שירות לקוחות\"",
-        "  t4.txt=\"הגדרות כיבוי מסך\"",
-        "  t5.txt=\"בדיקת עדכונים\"",
-        "  t6.txt=\"שחזור הגדרות יצרן\"",
+        "  tab_settings.txt=\"הגדרות כלליות\"",
+        "  tab_calib.txt=\"הגדרות כיול\"",
+        "  lang_lbl.txt=\"שפות\"",
+        "  network_lbl.txt=\"רשת\"",
+        "  sysinfo_lbl.txt=\"הודעת מערכת\"",
+        "  service_lbl.txt=\"שירות לקוחות\"",
+        "  sleep_lbl.txt=\"הגדרות כיבוי מסך\"",
+        "  update_lbl.txt=\"בדיקת עדכונים\"",
+        "  reset_lbl.txt=\"שחזור הגדרות יצרן\"",
         "}"
       ],
       "codesloadend": [],
@@ -196,10 +196,10 @@
   },
   "objects": [
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -221,20 +221,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -261,10 +261,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -286,20 +286,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -326,10 +326,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -351,20 +351,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -391,10 +391,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -416,20 +416,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -456,10 +456,10 @@
       }
     },
     {
-      "key": "b23",
+      "key": "tab_settings",
       "type": "button",
       "attributes": {
-        "objname": "b23",
+        "objname": "tab_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -481,20 +481,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -526,10 +526,10 @@
       }
     },
     {
-      "key": "b22",
+      "key": "tab_calib",
       "type": "button",
       "attributes": {
-        "objname": "b22",
+        "objname": "tab_calib",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -551,20 +551,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -591,10 +591,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "lang_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "lang_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -616,16 +616,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -652,10 +652,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "lang_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "lang_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -678,7 +678,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -695,18 +695,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click lang_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click lang_btn,0"
         ]
       }
     },
     {
-      "key": "b1",
+      "key": "network_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "network_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -728,16 +728,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -764,10 +764,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "network_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "network_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -790,7 +790,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -807,18 +807,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click network_btn,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click network_btn,0"
         ]
       }
     },
     {
-      "key": "b2",
+      "key": "sysinfo_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "sysinfo_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -840,16 +840,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -876,10 +876,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "sysinfo_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "sysinfo_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -902,7 +902,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -919,18 +919,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click sysinfo_btn,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click sysinfo_btn,0"
         ]
       }
     },
     {
-      "key": "b3",
+      "key": "service_btn",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "service_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -952,16 +952,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -988,10 +988,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "service_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "service_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1014,7 +1014,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1031,18 +1031,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click service_btn,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click service_btn,0"
         ]
       }
     },
     {
-      "key": "b4",
+      "key": "sleep_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "sleep_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1064,16 +1064,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1100,10 +1100,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "sleep_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "sleep_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1126,7 +1126,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1143,18 +1143,18 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click sleep_btn,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click sleep_btn,0"
         ]
       }
     },
     {
-      "key": "b5",
+      "key": "update_btn",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "update_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1176,16 +1176,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_69"
+          "$ref": "picture:bg_common_set"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1212,10 +1212,10 @@
       }
     },
     {
-      "key": "t5",
+      "key": "update_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "update_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1238,7 +1238,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1255,18 +1255,18 @@
       },
       "events": {
         "codesdown": [
-          "click b5,1"
+          "click update_btn,1"
         ],
         "codesup": [
-          "click b5,0"
+          "click update_btn,0"
         ]
       }
     },
     {
-      "key": "b6",
+      "key": "reset_btn",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "reset_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1288,16 +1288,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_191"
+          "$ref": "picture:reset_row"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_84"
+          "$ref": "picture:settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1314,7 +1314,7 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(b6.picc==${picture:pic_191})",
+          "if(reset_btn.picc==${picture:reset_row})",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -1322,7 +1322,7 @@
           "  prints 0xff,1",
           "  prints 0xff,1",
           "  prints 0xff,1",
-          "}else if(b6.picc==${picture:pic_190})",
+          "}else if(reset_btn.picc==${picture:reset_row_on})",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -1336,10 +1336,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "reset_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "reset_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1362,7 +1362,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1379,18 +1379,18 @@
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "click reset_btn,1"
         ],
         "codesup": [
-          "click b6,0"
+          "click reset_btn,0"
         ]
       }
     },
     {
-      "key": "t7",
+      "key": "version_txt",
       "type": "text",
       "attributes": {
-        "objname": "t7",
+        "objname": "version_txt",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1413,7 +1413,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1430,10 +1430,10 @@
       },
       "events": {
         "codesdown": [
-          "click b5,1"
+          "click update_btn,1"
         ],
         "codesup": [
-          "click b5,0"
+          "click update_btn,0"
         ]
       }
     },

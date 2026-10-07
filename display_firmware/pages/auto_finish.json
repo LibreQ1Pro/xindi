@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_96"
+        "$ref": "picture:bg_finish"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"自动调平完成。\"",
-        "  b0.txt=\"完成\"",
+        "  msg.txt=\"自动调平完成。\"",
+        "  ok.txt=\"完成\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Автоматическое \\rвыравнивание кровати \\rзавершено.\"",
-        "  b0.txt=\"Завершено\"",
+        "  msg.txt=\"Автоматическое \\rвыравнивание кровати \\rзавершено.\"",
+        "  ok.txt=\"Завершено\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Auto Leveling Completed.\"",
-        "  b0.txt=\"Completed\"",
+        "  msg.txt=\"Auto Leveling Completed.\"",
+        "  ok.txt=\"Completed\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"オートベッドレベリング完成。\"",
-        "  b0.txt=\"完成\"",
+        "  msg.txt=\"オートベッドレベリング完成。\"",
+        "  ok.txt=\"完成\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Mise à niveau automatique du lit terminée.\"",
-        "  b0.txt=\"Complété\"",
+        "  msg.txt=\"Mise à niveau automatique du lit terminée.\"",
+        "  ok.txt=\"Complété\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Automatische \\rBettnivellierung \\rabgeschlossen.\"",
-        "  b0.txt=\"Fertig\"",
+        "  msg.txt=\"Automatische \\rBettnivellierung \\rabgeschlossen.\"",
+        "  ok.txt=\"Fertig\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Livellamento automatico \\rcompletato.\"",
-        "  b0.txt=\"Completato\"",
+        "  msg.txt=\"Livellamento automatico \\rcompletato.\"",
+        "  ok.txt=\"Completato\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Nivelación automática \\rcompletada.\"",
-        "  b0.txt=\"Completado\"",
+        "  msg.txt=\"Nivelación automática \\rcompletada.\"",
+        "  ok.txt=\"Completado\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"자동 레벨링 완료.\"",
-        "  b0.txt=\"마치다\"",
+        "  msg.txt=\"자동 레벨링 완료.\"",
+        "  ok.txt=\"마치다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Nivelamento Automático \\rConcluído.\"",
-        "  b0.txt=\"Concluído\"",
+        "  msg.txt=\"Nivelamento Automático \\rConcluído.\"",
+        "  ok.txt=\"Concluído\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"اكتمال التسوية الآلي.\"",
-        "  b0.txt=\"منجز\"",
+        "  msg.txt=\"اكتمال التسوية الآلي.\"",
+        "  ok.txt=\"منجز\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Oto Düzleme Tamamlandı.\"",
-        "  b0.txt=\"Tamamlandı\"",
+        "  msg.txt=\"Oto Düzleme Tamamlandı.\"",
+        "  ok.txt=\"Tamamlandı\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"השוואה אוטומטית הושלמה.\"",
-        "  b0.txt=\"הושלם\"",
+        "  msg.txt=\"השוואה אוטומטית הושלמה.\"",
+        "  ok.txt=\"הושלם\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -122,7 +122,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -143,10 +143,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -168,16 +168,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_96"
+          "$ref": "picture:bg_finish"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_97"
+          "$ref": "picture:finish_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,

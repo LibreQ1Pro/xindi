@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_3"
+        "$ref": "picture:bg_zoffset"
       }
     },
     "events": {
@@ -42,10 +42,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "cell_0",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "cell_0",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -68,7 +68,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -89,10 +89,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "cell_1",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "cell_1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -115,7 +115,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -136,10 +136,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "cell_2",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "cell_2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -162,7 +162,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -183,10 +183,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "cell_3",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "cell_3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -209,7 +209,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -230,10 +230,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "cell_4",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "cell_4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -256,7 +256,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -277,10 +277,10 @@
       }
     },
     {
-      "key": "t5",
+      "key": "cell_5",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "cell_5",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -303,7 +303,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -324,10 +324,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "cell_6",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "cell_6",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -350,7 +350,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -371,10 +371,10 @@
       }
     },
     {
-      "key": "t7",
+      "key": "cell_7",
       "type": "text",
       "attributes": {
-        "objname": "t7",
+        "objname": "cell_7",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -397,7 +397,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -418,10 +418,10 @@
       }
     },
     {
-      "key": "t8",
+      "key": "cell_8",
       "type": "text",
       "attributes": {
-        "objname": "t8",
+        "objname": "cell_8",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -444,7 +444,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -465,10 +465,10 @@
       }
     },
     {
-      "key": "t9",
+      "key": "cell_9",
       "type": "text",
       "attributes": {
-        "objname": "t9",
+        "objname": "cell_9",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -491,7 +491,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -512,10 +512,10 @@
       }
     },
     {
-      "key": "t10",
+      "key": "cell_10",
       "type": "text",
       "attributes": {
-        "objname": "t10",
+        "objname": "cell_10",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -538,7 +538,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -559,10 +559,10 @@
       }
     },
     {
-      "key": "t11",
+      "key": "cell_11",
       "type": "text",
       "attributes": {
-        "objname": "t11",
+        "objname": "cell_11",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -585,7 +585,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -606,10 +606,10 @@
       }
     },
     {
-      "key": "t12",
+      "key": "cell_12",
       "type": "text",
       "attributes": {
-        "objname": "t12",
+        "objname": "cell_12",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -632,7 +632,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -653,10 +653,10 @@
       }
     },
     {
-      "key": "t13",
+      "key": "cell_13",
       "type": "text",
       "attributes": {
-        "objname": "t13",
+        "objname": "cell_13",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -679,7 +679,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -700,10 +700,10 @@
       }
     },
     {
-      "key": "t14",
+      "key": "cell_14",
       "type": "text",
       "attributes": {
-        "objname": "t14",
+        "objname": "cell_14",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -726,7 +726,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -747,10 +747,10 @@
       }
     },
     {
-      "key": "t15",
+      "key": "cell_15",
       "type": "text",
       "attributes": {
-        "objname": "t15",
+        "objname": "cell_15",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -773,7 +773,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -794,10 +794,10 @@
       }
     },
     {
-      "key": "t16",
+      "key": "cell_16",
       "type": "text",
       "attributes": {
-        "objname": "t16",
+        "objname": "cell_16",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -820,7 +820,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -841,10 +841,10 @@
       }
     },
     {
-      "key": "t17",
+      "key": "cell_17",
       "type": "text",
       "attributes": {
-        "objname": "t17",
+        "objname": "cell_17",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -867,7 +867,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -888,10 +888,10 @@
       }
     },
     {
-      "key": "t18",
+      "key": "cell_18",
       "type": "text",
       "attributes": {
-        "objname": "t18",
+        "objname": "cell_18",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -914,7 +914,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -935,10 +935,10 @@
       }
     },
     {
-      "key": "t19",
+      "key": "cell_19",
       "type": "text",
       "attributes": {
-        "objname": "t19",
+        "objname": "cell_19",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -961,7 +961,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -982,10 +982,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1007,16 +1007,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_3"
+          "$ref": "picture:bg_zoffset"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_39"
+          "$ref": "picture:zoffset_back_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1043,10 +1043,10 @@
       }
     },
     {
-      "key": "t20",
+      "key": "cell_20",
       "type": "text",
       "attributes": {
-        "objname": "t20",
+        "objname": "cell_20",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1069,7 +1069,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1090,10 +1090,10 @@
       }
     },
     {
-      "key": "t21",
+      "key": "cell_21",
       "type": "text",
       "attributes": {
-        "objname": "t21",
+        "objname": "cell_21",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1116,7 +1116,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1137,10 +1137,10 @@
       }
     },
     {
-      "key": "t22",
+      "key": "cell_22",
       "type": "text",
       "attributes": {
-        "objname": "t22",
+        "objname": "cell_22",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1163,7 +1163,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1184,10 +1184,10 @@
       }
     },
     {
-      "key": "t23",
+      "key": "cell_23",
       "type": "text",
       "attributes": {
-        "objname": "t23",
+        "objname": "cell_23",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1210,7 +1210,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1231,10 +1231,10 @@
       }
     },
     {
-      "key": "t24",
+      "key": "cell_24",
       "type": "text",
       "attributes": {
-        "objname": "t24",
+        "objname": "cell_24",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1257,7 +1257,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1278,10 +1278,10 @@
       }
     },
     {
-      "key": "t25",
+      "key": "cell_25",
       "type": "text",
       "attributes": {
-        "objname": "t25",
+        "objname": "cell_25",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1304,7 +1304,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1325,10 +1325,10 @@
       }
     },
     {
-      "key": "t26",
+      "key": "cell_26",
       "type": "text",
       "attributes": {
-        "objname": "t26",
+        "objname": "cell_26",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1351,7 +1351,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1372,10 +1372,10 @@
       }
     },
     {
-      "key": "t27",
+      "key": "cell_27",
       "type": "text",
       "attributes": {
-        "objname": "t27",
+        "objname": "cell_27",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1398,7 +1398,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1419,10 +1419,10 @@
       }
     },
     {
-      "key": "t28",
+      "key": "cell_28",
       "type": "text",
       "attributes": {
-        "objname": "t28",
+        "objname": "cell_28",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1445,7 +1445,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1466,10 +1466,10 @@
       }
     },
     {
-      "key": "t29",
+      "key": "cell_29",
       "type": "text",
       "attributes": {
-        "objname": "t29",
+        "objname": "cell_29",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1492,7 +1492,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

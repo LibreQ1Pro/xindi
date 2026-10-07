@@ -29,90 +29,90 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_303"
+        "$ref": "picture:bg_device_code"
       }
     },
     "events": {
       "codesload": [
-        "vis t2,0",
+        "vis wait_msg,0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"设备码：\"",
-        "  t2.txt=\"设备码刷新中，请稍等...\"",
-        "  b0.txt=\"刷新\"",
-        "  b1.txt=\"确定\"",
+        "  title.txt=\"设备码：\"",
+        "  wait_msg.txt=\"设备码刷新中，请稍等...\"",
+        "  refresh_btn.txt=\"刷新\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Код устройства:\"",
-        "  t2.txt=\"Обновление кода\\rустройства, пожалуйста,\\rподождите...\"",
-        "  b0.txt=\"Обновить\"",
-        "  b1.txt=\"Подтверди\"",
+        "  title.txt=\"Код устройства:\"",
+        "  wait_msg.txt=\"Обновление кода\\rустройства, пожалуйста,\\rподождите...\"",
+        "  refresh_btn.txt=\"Обновить\"",
+        "  ok.txt=\"Подтверди\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Device Code:\"",
-        "  t2.txt=\"Refreshing device code,\\rplease wait...\"",
-        "  b0.txt=\"Refresh\"",
-        "  b1.txt=\"Confirm\"",
+        "  title.txt=\"Device Code:\"",
+        "  wait_msg.txt=\"Refreshing device code,\\rplease wait...\"",
+        "  refresh_btn.txt=\"Refresh\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"デバイスコード：\"",
-        "  t2.txt=\"デバイスコードを更新しています、しばらくお待ちください...\"",
-        "  b0.txt=\"更新\"",
-        "  b1.txt=\"確認\"",
+        "  title.txt=\"デバイスコード：\"",
+        "  wait_msg.txt=\"デバイスコードを更新しています、しばらくお待ちください...\"",
+        "  refresh_btn.txt=\"更新\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Code de l'appareil:\"",
-        "  t2.txt=\"Mise à jour du code de\\rl'appareil, veuillez\\rpatienter...\"",
-        "  b0.txt=\"Actualiser\"",
-        "  b1.txt=\"Confirmer\"",
+        "  title.txt=\"Code de l'appareil:\"",
+        "  wait_msg.txt=\"Mise à jour du code de\\rl'appareil, veuillez\\rpatienter...\"",
+        "  refresh_btn.txt=\"Actualiser\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Gerätecode:\"",
-        "  t2.txt=\"Gerätecode wird\\raktualisiert, bitte warten.\"",
-        "  b0.txt=\"Akt.\"",
-        "  b1.txt=\"Bestätigen\"",
+        "  title.txt=\"Gerätecode:\"",
+        "  wait_msg.txt=\"Gerätecode wird\\raktualisiert, bitte warten.\"",
+        "  refresh_btn.txt=\"Akt.\"",
+        "  ok.txt=\"Bestätigen\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Codice dispositivo:\"",
-        "  t2.txt=\"Aggiornamento codice\\rdispositivo, attendere\\rprego...\"",
-        "  b0.txt=\"Aggiorna\"",
-        "  b1.txt=\"Conferma\"",
+        "  title.txt=\"Codice dispositivo:\"",
+        "  wait_msg.txt=\"Aggiornamento codice\\rdispositivo, attendere\\rprego...\"",
+        "  refresh_btn.txt=\"Aggiorna\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Código del dispositivo:\"",
-        "  t2.txt=\"Actualizando código del\\rdispositivo, espere por\\rfavor...\"",
-        "  b0.txt=\"Actualizar\"",
-        "  b1.txt=\"Confirmar\"",
+        "  title.txt=\"Código del dispositivo:\"",
+        "  wait_msg.txt=\"Actualizando código del\\rdispositivo, espere por\\rfavor...\"",
+        "  refresh_btn.txt=\"Actualizar\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"장치 코드:\"",
-        "  t2.txt=\"장치 코드를 새로 고치는 중입니다, 잠시 기다려 주세요...\"",
-        "  b0.txt=\"새로 고침\"",
-        "  b1.txt=\"확인\"",
+        "  title.txt=\"장치 코드:\"",
+        "  wait_msg.txt=\"장치 코드를 새로 고치는 중입니다, 잠시 기다려 주세요...\"",
+        "  refresh_btn.txt=\"새로 고침\"",
+        "  ok.txt=\"확인\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Código do dispositivo:\"",
-        "  t2.txt=\"Actualizando código del\\rdispositivo, espere por\\rfavor...\"",
-        "  b0.txt=\"Atualizar\"",
-        "  b1.txt=\"Confirmar\"",
+        "  title.txt=\"Código do dispositivo:\"",
+        "  wait_msg.txt=\"Actualizando código del\\rdispositivo, espere por\\rfavor...\"",
+        "  refresh_btn.txt=\"Atualizar\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"كود الجهاز:\"",
-        "  t2.txt=\"جاري تحديث كود الجهاز،\\rمن فضلك انتظر قليلاً...\"",
-        "  b0.txt=\"تحديث\"",
-        "  b1.txt=\"تأكيد\"",
+        "  title.txt=\"كود الجهاز:\"",
+        "  wait_msg.txt=\"جاري تحديث كود الجهاز،\\rمن فضلك انتظر قليلاً...\"",
+        "  refresh_btn.txt=\"تحديث\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Cihaz Kodu:\"",
-        "  t2.txt=\"Cihaz kodu yenileniyor,\\rlütfen bekleyin...\"",
-        "  b0.txt=\"Yenile\"",
-        "  b1.txt=\"Onayla\"",
+        "  title.txt=\"Cihaz Kodu:\"",
+        "  wait_msg.txt=\"Cihaz kodu yenileniyor,\\rlütfen bekleyin...\"",
+        "  refresh_btn.txt=\"Yenile\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"קוד המכשיר:\"",
-        "  t2.txt=\"מעדכן את קוד המכשיר,\\rבבקשה המתן רגע...\"",
-        "  b0.txt=\"רענן\"",
-        "  b1.txt=\"אשר\"",
+        "  title.txt=\"קוד המכשיר:\"",
+        "  wait_msg.txt=\"מעדכן את קוד המכשיר,\\rבבקשה המתן רגע...\"",
+        "  refresh_btn.txt=\"רענן\"",
+        "  ok.txt=\"אשר\"",
         "}"
       ],
       "codesloadend": [],
@@ -123,10 +123,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -149,7 +149,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -170,10 +170,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "refresh_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "refresh_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -195,16 +195,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_300"
+          "$ref": "picture:bg_link_logout"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_303"
+          "$ref": "picture:bg_device_code"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -231,10 +231,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -256,16 +256,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_300"
+          "$ref": "picture:bg_link_logout"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_303"
+          "$ref": "picture:bg_device_code"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -292,10 +292,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "wait_msg",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "wait_msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -318,7 +318,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -339,10 +339,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "code_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "code_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -365,7 +365,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

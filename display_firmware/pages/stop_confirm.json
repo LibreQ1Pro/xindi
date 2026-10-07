@@ -29,77 +29,77 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_202"
+        "$ref": "picture:popup2_press_alt"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请确认是否紧急停止?\"",
-        "  b1.txt=\"否\"",
-        "  b0.txt=\"是\"",
+        "  msg.txt=\"请确认是否紧急停止?\"",
+        "  cancel.txt=\"否\"",
+        "  ok.txt=\"是\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Пожалуйста, подтвердите аварийную остановку.\"",
-        "  b1.txt=\"Отмена\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b0.font=${font:font_1}",
+        "  msg.txt=\"Пожалуйста, подтвердите аварийную остановку.\"",
+        "  cancel.txt=\"Отмена\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  ok.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"please confirm to \\remergency stop.\"",
-        "  b1.txt=\"Cancel\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"please confirm to \\remergency stop.\"",
+        "  cancel.txt=\"Cancel\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"非常停止を確認してください。\"",
-        "  b1.txt=\"キャンセル\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"非常停止を確認してください。\"",
+        "  cancel.txt=\"キャンセル\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Veuillez confirmer l'arrêt \\rd'urgence.\"",
-        "  b1.txt=\"Annuler\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"Veuillez confirmer l'arrêt \\rd'urgence.\"",
+        "  cancel.txt=\"Annuler\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Bitte bestätigen Sie den \\rNotstopp.\"",
-        "  b1.txt=\"Abbrechen\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Bitte bestätigen Sie den \\rNotstopp.\"",
+        "  cancel.txt=\"Abbrechen\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Confermate l'arresto \\rd'emergenza.\"",
-        "  b1.txt=\"Conferma\"",
-        "  b0.txt=\"Annulla\"",
+        "  msg.txt=\"Confermate l'arresto \\rd'emergenza.\"",
+        "  cancel.txt=\"Conferma\"",
+        "  ok.txt=\"Annulla\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Por favor, confirme la \\rparada de emergencia.\"",
-        "  b1.txt=\"Confirmar\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"Por favor, confirme la \\rparada de emergencia.\"",
+        "  cancel.txt=\"Confirmar\"",
+        "  ok.txt=\"Cancelar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"비상정지 확인하세요.\"",
-        "  b1.txt=\"확인하다\"",
-        "  b0.txt=\"중지\"",
+        "  msg.txt=\"비상정지 확인하세요.\"",
+        "  cancel.txt=\"확인하다\"",
+        "  ok.txt=\"중지\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Confirme a paragem de \\remergência.\"",
-        "  b1.txt=\"Confirmar\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"Confirme a paragem de \\remergência.\"",
+        "  cancel.txt=\"Confirmar\"",
+        "  ok.txt=\"Cancelar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"يرجى التأكد من التوقف في حالات الطوارئ .\"",
-        "  b1.txt=\"تأكيد\"",
-        "  b0.txt=\"إلغاء\"",
+        "  msg.txt=\"يرجى التأكد من التوقف في حالات الطوارئ .\"",
+        "  cancel.txt=\"تأكيد\"",
+        "  ok.txt=\"إلغاء\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Lütfen acil durumunu \\rdoğrulayın.\"",
-        "  b1.txt=\"Onayla\"",
-        "  b0.txt=\"İptal\"",
+        "  msg.txt=\"Lütfen acil durumunu \\rdoğrulayın.\"",
+        "  cancel.txt=\"Onayla\"",
+        "  ok.txt=\"İptal\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"נא לאשר לעצור חירום.\"",
-        "  b1.txt=\"אישור\"",
-        "  b0.txt=\"ביטול\"",
+        "  msg.txt=\"נא לאשר לעצור חירום.\"",
+        "  cancel.txt=\"אישור\"",
+        "  ok.txt=\"ביטול\"",
         "}"
       ],
       "codesloadend": [],
@@ -110,10 +110,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -136,7 +136,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -182,16 +182,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_202"
+          "$ref": "picture:popup2_press_alt"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -218,10 +218,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -243,16 +243,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_202"
+          "$ref": "picture:popup2_press_alt"
         },
         "bco2": 1024,
         "pco": 65535,

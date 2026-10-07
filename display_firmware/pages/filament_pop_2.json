@@ -29,148 +29,148 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_5"
+        "$ref": "picture:bg_filament_pop_2"
       }
     },
     "events": {
       "codesload": [
-        "vis b0,0",
-        "vis b1,0",
-        "vis t4,0",
-        "vis gm2,0",
-        "vis gm3,0",
-        "vis gm4,0",
+        "vis done_btn,0",
+        "vis alt_btn,0",
+        "vis temp_txt,0",
+        "vis spin2,0",
+        "vis spin3,0",
+        "vis spin4,0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"升温中。\"",
-        "  t1.txt=\"退料中。\"",
-        "  t2.txt=\"完成。\"",
-        "  t3.txt=\"剪断耗材并点击下一步。\"",
-        "  b0.txt=\"确定\"",
-        "  b1.txt=\"进料\"",
-        "  b2.txt=\"下一步\"",
-        "  b3.txt=\"返回\"",
+        "  step1_txt.txt=\"升温中。\"",
+        "  step2_txt.txt=\"退料中。\"",
+        "  step3_txt.txt=\"完成。\"",
+        "  hint.txt=\"剪断耗材并点击下一步。\"",
+        "  done_btn.txt=\"确定\"",
+        "  alt_btn.txt=\"进料\"",
+        "  next_btn.txt=\"下一步\"",
+        "  back_btn.txt=\"返回\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Происходит нагрев. \"",
-        "  t1.txt=\"Удаление \\rнити накала.\"",
-        "  t2.txt=\"Завершено.\"",
-        "  t3.txt=\"Пожалуйста, отрежьте филамент и нажмите на кнопку “Далее”.\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b1.txt=\"Нагрузка\"",
-        "  b2.txt=\"следующий\"",
-        "  b3.txt=\"Назад\"",
+        "  step1_txt.txt=\"Происходит нагрев. \"",
+        "  step2_txt.txt=\"Удаление \\rнити накала.\"",
+        "  step3_txt.txt=\"Завершено.\"",
+        "  hint.txt=\"Пожалуйста, отрежьте филамент и нажмите на кнопку “Далее”.\"",
+        "  done_btn.txt=\"Подтвердить\"",
+        "  alt_btn.txt=\"Нагрузка\"",
+        "  next_btn.txt=\"следующий\"",
+        "  back_btn.txt=\"Назад\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Heating up.\"",
-        "  t1.txt=\"Filament unloading.\"",
-        "  t2.txt=\"Completed.\"",
-        "  t3.txt=\"Please cut the filament and click the next \\rbutton.\"",
-        "  b0.txt=\"Confirm\"",
-        "  b1.txt=\"Load\"",
-        "  b2.txt=\"Next\"",
-        "  b3.txt=\"Back\"",
+        "  step1_txt.txt=\"Heating up.\"",
+        "  step2_txt.txt=\"Filament unloading.\"",
+        "  step3_txt.txt=\"Completed.\"",
+        "  hint.txt=\"Please cut the filament and click the next \\rbutton.\"",
+        "  done_btn.txt=\"Confirm\"",
+        "  alt_btn.txt=\"Load\"",
+        "  next_btn.txt=\"Next\"",
+        "  back_btn.txt=\"Back\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"加熱中です。\"",
-        "  t1.txt=\"フィラメントアンロード。\"",
-        "  t2.txt=\"完成。\"",
-        "  t3.txt=\"フィラメントを切って、次のボタンをクリックしてください。\"",
-        "  b0.txt=\"確認\"",
-        "  b1.txt=\"装塡\"",
-        "  b2.txt=\"次\"",
-        "  b3.txt=\"戻る\"",
+        "  step1_txt.txt=\"加熱中です。\"",
+        "  step2_txt.txt=\"フィラメントアンロード。\"",
+        "  step3_txt.txt=\"完成。\"",
+        "  hint.txt=\"フィラメントを切って、次のボタンをクリックしてください。\"",
+        "  done_btn.txt=\"確認\"",
+        "  alt_btn.txt=\"装塡\"",
+        "  next_btn.txt=\"次\"",
+        "  back_btn.txt=\"戻る\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"En cours de chauffe.\"",
-        "  t1.txt=\"Désinstallation \\rdu filament.\"",
-        "  t2.txt=\"Complété.\"",
-        "  t3.txt=\"Veuillez couper le \\rfilament et cliquer sur \\rle bouton suivant.\"",
-        "  b0.txt=\"Confirmer\"",
-        "  b1.txt=\"chargez\"",
-        "  b2.txt=\"prochain\"",
-        "  b3.txt=\"dos\"",
+        "  step1_txt.txt=\"En cours de chauffe.\"",
+        "  step2_txt.txt=\"Désinstallation \\rdu filament.\"",
+        "  step3_txt.txt=\"Complété.\"",
+        "  hint.txt=\"Veuillez couper le \\rfilament et cliquer sur \\rle bouton suivant.\"",
+        "  done_btn.txt=\"Confirmer\"",
+        "  alt_btn.txt=\"chargez\"",
+        "  next_btn.txt=\"prochain\"",
+        "  back_btn.txt=\"dos\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Wird aufgeheizt. \"",
-        "  t1.txt=\"Entladung \\rder Filamente.\"",
-        "  t2.txt=\"Fertig.\"",
-        "  t3.txt=\"Bitte schneiden Sie den \\rFaden ab und klicken Sie \\rauf die nächste Schaltfläche.\"",
-        "  t3.font=${font:font_1}",
-        "  b0.txt=\"OK\"",
-        "  b1.txt=\"Laden\"",
-        "  b2.txt=\"Nächste\"",
-        "  b3.txt=\"Zurück\"",
+        "  step1_txt.txt=\"Wird aufgeheizt. \"",
+        "  step2_txt.txt=\"Entladung \\rder Filamente.\"",
+        "  step3_txt.txt=\"Fertig.\"",
+        "  hint.txt=\"Bitte schneiden Sie den \\rFaden ab und klicken Sie \\rauf die nächste Schaltfläche.\"",
+        "  hint.font=${font:font_small14}",
+        "  done_btn.txt=\"OK\"",
+        "  alt_btn.txt=\"Laden\"",
+        "  next_btn.txt=\"Nächste\"",
+        "  back_btn.txt=\"Zurück\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Riscaldamento.\"",
-        "  t1.txt=\"Restituzione materiali.\"",
-        "  t2.txt=\"Completato\"",
-        "  t3.txt=\"Tagliare il filamento e \\rfare clic su Avanti.\"",
-        "  b0.txt=\"Conferma\"",
-        "  b1.txt=\"Caricare\"",
-        "  b2.txt=\"Avanti\"",
-        "  b3.txt=\"Indietro\"",
+        "  step1_txt.txt=\"Riscaldamento.\"",
+        "  step2_txt.txt=\"Restituzione materiali.\"",
+        "  step3_txt.txt=\"Completato\"",
+        "  hint.txt=\"Tagliare il filamento e \\rfare clic su Avanti.\"",
+        "  done_btn.txt=\"Conferma\"",
+        "  alt_btn.txt=\"Caricare\"",
+        "  next_btn.txt=\"Avanti\"",
+        "  back_btn.txt=\"Indietro\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Calentar.\"",
-        "  t1.txt=\"Devolución de \\rmateriales.\"",
-        "  t2.txt=\"Completado\"",
-        "  t3.txt=\"Corta el filamento y \\rhaz clic en Siguiente.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Cargar\"",
-        "  b2.txt=\"Siguiente\"",
-        "  b3.txt=\"Atrás\"",
+        "  step1_txt.txt=\"Calentar.\"",
+        "  step2_txt.txt=\"Devolución de \\rmateriales.\"",
+        "  step3_txt.txt=\"Completado\"",
+        "  hint.txt=\"Corta el filamento y \\rhaz clic en Siguiente.\"",
+        "  done_btn.txt=\"Confirmar\"",
+        "  alt_btn.txt=\"Cargar\"",
+        "  next_btn.txt=\"Siguiente\"",
+        "  back_btn.txt=\"Atrás\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"가열 중.\"",
-        "  t1.txt=\"자료 반납 중.\"",
-        "  t2.txt=\"마치다\"",
-        "  t3.txt=\"필라멘트를 자르고 다음을 클릭하세요.\"",
-        "  b0.txt=\"확실한\"",
-        "  b1.txt=\"짐\"",
-        "  b2.txt=\"다음\"",
-        "  b3.txt=\"뒤로\"",
+        "  step1_txt.txt=\"가열 중.\"",
+        "  step2_txt.txt=\"자료 반납 중.\"",
+        "  step3_txt.txt=\"마치다\"",
+        "  hint.txt=\"필라멘트를 자르고 다음을 클릭하세요.\"",
+        "  done_btn.txt=\"확실한\"",
+        "  alt_btn.txt=\"짐\"",
+        "  next_btn.txt=\"다음\"",
+        "  back_btn.txt=\"뒤로\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Esquentando.\"",
-        "  t1.txt=\"Devolução de \\rmateriais.\"",
-        "  t2.txt=\"Concluído\"",
-        "  t3.txt=\"Corte o filamento e \\rclique em Avançar.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Carregar\"",
-        "  b2.txt=\"Próximo\"",
-        "  b3.txt=\"Voltar\"",
+        "  step1_txt.txt=\"Esquentando.\"",
+        "  step2_txt.txt=\"Devolução de \\rmateriais.\"",
+        "  step3_txt.txt=\"Concluído\"",
+        "  hint.txt=\"Corte o filamento e \\rclique em Avançar.\"",
+        "  done_btn.txt=\"Confirmar\"",
+        "  alt_btn.txt=\"Carregar\"",
+        "  next_btn.txt=\"Próximo\"",
+        "  back_btn.txt=\"Voltar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تسخين.\"",
-        "  t1.txt=\"إرجاع المواد.\"",
-        "  t2.txt=\"منجز\"",
-        "  t3.txt=\"قطع الشعيرة وانقر فوق \\\"التالي\\\".\"",
-        "  b0.txt=\"تأكيد\"",
-        "  b1.txt=\"تحميل\"",
-        "  b2.txt=\"التالي\"",
-        "  b3.txt=\"السابق\"",
+        "  step1_txt.txt=\"تسخين.\"",
+        "  step2_txt.txt=\"إرجاع المواد.\"",
+        "  step3_txt.txt=\"منجز\"",
+        "  hint.txt=\"قطع الشعيرة وانقر فوق \\\"التالي\\\".\"",
+        "  done_btn.txt=\"تأكيد\"",
+        "  alt_btn.txt=\"تحميل\"",
+        "  next_btn.txt=\"التالي\"",
+        "  back_btn.txt=\"السابق\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Kızışıyor.\"",
-        "  t1.txt=\"Malzemelerin iadesi.\"",
-        "  t2.txt=\"Tamamlandı\"",
-        "  t3.txt=\"Filamenti kesin ve \\rİleri'ye tıklayın.\"",
-        "  b0.txt=\"Onayla\"",
-        "  b1.txt=\"Yükle\"",
-        "  b2.txt=\"Sonraki\"",
-        "  b3.txt=\"Geri\"",
+        "  step1_txt.txt=\"Kızışıyor.\"",
+        "  step2_txt.txt=\"Malzemelerin iadesi.\"",
+        "  step3_txt.txt=\"Tamamlandı\"",
+        "  hint.txt=\"Filamenti kesin ve \\rİleri'ye tıklayın.\"",
+        "  done_btn.txt=\"Onayla\"",
+        "  alt_btn.txt=\"Yükle\"",
+        "  next_btn.txt=\"Sonraki\"",
+        "  back_btn.txt=\"Geri\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"מתחמם.\"",
-        "  t1.txt=\"החזרת חומרים.\"",
-        "  t2.txt=\"הושלם\"",
-        "  t3.txt=\"חתוך את החוט ולחץ על הבא.\"",
-        "  b0.txt=\"אישור\"",
-        "  b1.txt=\"טען\"",
-        "  b2.txt=\"הבא\"",
-        "  b3.txt=\"חזרה\"",
+        "  step1_txt.txt=\"מתחמם.\"",
+        "  step2_txt.txt=\"החזרת חומרים.\"",
+        "  step3_txt.txt=\"הושלם\"",
+        "  hint.txt=\"חתוך את החוט ולחץ על הבא.\"",
+        "  done_btn.txt=\"אישור\"",
+        "  alt_btn.txt=\"טען\"",
+        "  next_btn.txt=\"הבא\"",
+        "  back_btn.txt=\"חזרה\"",
         "}"
       ],
       "codesloadend": [],
@@ -181,10 +181,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "steps_bar",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "steps_bar",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -202,7 +202,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_73"
+          "$ref": "picture:filament_pop_2_steps_bar"
         }
       },
       "events": {
@@ -211,10 +211,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "step1_txt",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "step1_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -237,7 +237,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -258,10 +258,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "step2_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "step2_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -284,7 +284,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -305,10 +305,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "step3_txt",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "step3_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -331,7 +331,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -352,10 +352,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "done_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "done_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -377,16 +377,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_55"
+          "$ref": "picture:filament_pop_2_done_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_60"
+          "$ref": "picture:filament_pop_2_done_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -413,10 +413,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "alt_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "alt_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -438,16 +438,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_55"
+          "$ref": "picture:filament_pop_2_done_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_60"
+          "$ref": "picture:filament_pop_2_done_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -474,10 +474,10 @@
       }
     },
     {
-      "key": "gm0",
+      "key": "anim",
       "type": "animation",
       "attributes": {
-        "objname": "gm0",
+        "objname": "anim",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -496,7 +496,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_2"
+          "$ref": "animation:video_cut_filament"
         },
         "path": "",
         "path_m": 255,
@@ -516,10 +516,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "next_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "next_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -541,16 +541,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_55"
+          "$ref": "picture:filament_pop_2_done_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_60"
+          "$ref": "picture:filament_pop_2_done_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -577,10 +577,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "hint",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "hint",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -603,7 +603,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -624,10 +624,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "temp_txt",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "temp_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -650,7 +650,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -671,10 +671,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -696,16 +696,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_55"
+          "$ref": "picture:filament_pop_2_done_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_60"
+          "$ref": "picture:filament_pop_2_done_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -732,10 +732,10 @@
       }
     },
     {
-      "key": "gm1",
+      "key": "spin1",
       "type": "animation",
       "attributes": {
-        "objname": "gm1",
+        "objname": "spin1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -754,7 +754,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_0"
+          "$ref": "animation:spin_step1"
         },
         "path": "",
         "path_m": 255,
@@ -774,10 +774,10 @@
       }
     },
     {
-      "key": "gm2",
+      "key": "spin2",
       "type": "animation",
       "attributes": {
-        "objname": "gm2",
+        "objname": "spin2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -796,7 +796,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_1"
+          "$ref": "animation:spin_step2"
         },
         "path": "",
         "path_m": 255,
@@ -816,10 +816,10 @@
       }
     },
     {
-      "key": "gm3",
+      "key": "spin3",
       "type": "animation",
       "attributes": {
-        "objname": "gm3",
+        "objname": "spin3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -838,7 +838,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_5"
+          "$ref": "animation:spin_step3"
         },
         "path": "",
         "path_m": 255,
@@ -858,10 +858,10 @@
       }
     },
     {
-      "key": "gm4",
+      "key": "spin4",
       "type": "animation",
       "attributes": {
-        "objname": "gm4",
+        "objname": "spin4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -880,7 +880,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_3"
+          "$ref": "animation:spin_step4"
         },
         "path": "",
         "path_m": 255,

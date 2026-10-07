@@ -29,82 +29,82 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_295"
+        "$ref": "picture:popup2_bg"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"密封打印可能会造成温度过高，耗材软化，导致喷头堵塞，请打开上盖，保持通风。\"",
-        "  b0.txt=\"确定\"",
-        "  b1.txt=\"不再提示\"",
+        "  msg.txt=\"密封打印可能会造成温度过高，耗材软化，导致喷头堵塞，请打开上盖，保持通风。\"",
+        "  ok.txt=\"确定\"",
+        "  no_more.txt=\"不再提示\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Печать с использованием \\rкорпуса может привести \\rк перегреву и размягчению нити, что приведет к ее \\rзасорению, поэтому \\rоткройте верхнюю \\rкрышку и проветривайте \\rее.\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b1.txt=\"Больше никаких подсказок\"",
-        "  b0.font=${font:font_1}",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Печать с использованием \\rкорпуса может привести \\rк перегреву и размягчению нити, что приведет к ее \\rзасорению, поэтому \\rоткройте верхнюю \\rкрышку и проветривайте \\rее.\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  no_more.txt=\"Больше никаких подсказок\"",
+        "  ok.font=${font:font_small14}",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Printing with enclosure \\rmay cause high \\rtemperatures and \\rsoftening of filament,\\rleading to clogging,\\rso please open the top \\rcover and keep it \\rventilated.\"",
-        "  b0.txt=\"Confirm\"",
-        "  b1.txt=\"Don't prompt \\ragain\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Printing with enclosure \\rmay cause high \\rtemperatures and \\rsoftening of filament,\\rleading to clogging,\\rso please open the top \\rcover and keep it \\rventilated.\"",
+        "  ok.txt=\"Confirm\"",
+        "  no_more.txt=\"Don't prompt \\ragain\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"筐体を使用した印刷は高温になりフィラメントが軟化して目詰まりを引き起こす可能性がありますので、トップカバーを開けて換気を行ってください。\"",
-        "  b0.txt=\"確認\"",
-        "  b1.txt=\"再プロンプト\"",
+        "  msg.txt=\"筐体を使用した印刷は高温になりフィラメントが軟化して目詰まりを引き起こす可能性がありますので、トップカバーを開けて換気を行ってください。\"",
+        "  ok.txt=\"確認\"",
+        "  no_more.txt=\"再プロンプト\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"L'impression avec boîtier \\rpeut provoquer des \\rtempératures élevées et un \\rramollissement du \\rfilament, entraînant un \\rcolmatage, veuillez donc \\rouvrir le capot supérieur et le maintenir ventilé.\"",
-        "  b0.txt=\"Confirmer\"",
-        "  b1.txt=\"Ne plus \\rdemander\"",
+        "  msg.txt=\"L'impression avec boîtier \\rpeut provoquer des \\rtempératures élevées et un \\rramollissement du \\rfilament, entraînant un \\rcolmatage, veuillez donc \\rouvrir le capot supérieur et le maintenir ventilé.\"",
+        "  ok.txt=\"Confirmer\"",
+        "  no_more.txt=\"Ne plus \\rdemander\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Das Drucken mit Gehäuse \\rkann zu hohen Temperaturen und Erweichung des \\rFilaments führen, was zu \\rVerstopfungen führen kann. Öffnen Sie daher bitte die obere Abdeckung und sorgen Sie für Belüftung.\"",
-        "  b0.txt=\"OK\"",
-        "  b1.txt=\"Nicht wieder \\rauffordern\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Das Drucken mit Gehäuse \\rkann zu hohen Temperaturen und Erweichung des \\rFilaments führen, was zu \\rVerstopfungen führen kann. Öffnen Sie daher bitte die obere Abdeckung und sorgen Sie für Belüftung.\"",
+        "  ok.txt=\"OK\"",
+        "  no_more.txt=\"Nicht wieder \\rauffordern\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"La stampa con un involucro \\rpuò causare temperature \\relevate e ammorbidimento \\rdel filamento, portando a \\rotturazioni, quindi si prega \\rdi aprire il coperchio \\rsuperiore e mantenerlo \\rventilato.\"",
-        "  b0.txt=\"Conferma\"",
-        "  b1.txt=\"Niente più \\rsuggerimenti\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"La stampa con un involucro \\rpuò causare temperature \\relevate e ammorbidimento \\rdel filamento, portando a \\rotturazioni, quindi si prega \\rdi aprire il coperchio \\rsuperiore e mantenerlo \\rventilato.\"",
+        "  ok.txt=\"Conferma\"",
+        "  no_more.txt=\"Niente più \\rsuggerimenti\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Imprimir con recinto puede \\rcausar altas temperaturas \\ry ablandamiento del \\rfilamento, lo que puede \\rprovocar obstrucciones, \\rasí que por favor abra la \\rcubierta superior y \\rmanténgala ventilada.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Se acabaron \\rlas propinas\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Imprimir con recinto puede \\rcausar altas temperaturas \\ry ablandamiento del \\rfilamento, lo que puede \\rprovocar obstrucciones, \\rasí que por favor abra la \\rcubierta superior y \\rmanténgala ventilada.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  no_more.txt=\"Se acabaron \\rlas propinas\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"내부 보온으로 인해 열선재가 높아져 필라멘트가 소프트해져 막힐 수 있으므로 상단 커버를 열고 환기를 유지하십시오.\"",
-        "  b0.txt=\"확실한\"",
-        "  b1.txt=\"더 이상 팁이 없습니다.\"",
+        "  msg.txt=\"내부 보온으로 인해 열선재가 높아져 필라멘트가 소프트해져 막힐 수 있으므로 상단 커버를 열고 환기를 유지하십시오.\"",
+        "  ok.txt=\"확실한\"",
+        "  no_more.txt=\"더 이상 팁이 없습니다.\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Imprimir com invólucro \\rpode causar altas \\rtemperaturas e \\ramolecimento do \\rfilamento,levando \\rao entupimento, então \\rpor favor abra a tampa \\rsuperior e mantenha \\rventilado.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Não há \\rmais dicas\"",
+        "  msg.txt=\"Imprimir com invólucro \\rpode causar altas \\rtemperaturas e \\ramolecimento do \\rfilamento,levando \\rao entupimento, então \\rpor favor abra a tampa \\rsuperior e mantenha \\rventilado.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  no_more.txt=\"Não há \\rmais dicas\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"قد يؤدي الطباعة بوجود حاوية إلى درجات حرارة عالية وتلين الفيلم، مما يؤدي إلى الانسداد، لذا يرجى فتح الغطاء العلوي والاحتفاظ به مهوى.\"",
-        "  b0.txt=\"تأكيد\"",
-        "  b1.txt=\"لا مزيد من النصائح\"",
+        "  msg.txt=\"قد يؤدي الطباعة بوجود حاوية إلى درجات حرارة عالية وتلين الفيلم، مما يؤدي إلى الانسداد، لذا يرجى فتح الغطاء العلوي والاحتفاظ به مهوى.\"",
+        "  ok.txt=\"تأكيد\"",
+        "  no_more.txt=\"لا مزيد من النصائح\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Kapsamla baskı yapmak, \\rfilamentin yüksek \\rsıcaklıklara ve \\ryumuşamasına neden \\rolabilir, tıkanmalara yol \\raçabilir, bu nedenle \\rüst kapağı açık tutun \\rve havalandırın.\"",
-        "  b0.txt=\"Onayla\"",
-        "  b1.txt=\"Artık bahşiş yok\"",
+        "  msg.txt=\"Kapsamla baskı yapmak, \\rfilamentin yüksek \\rsıcaklıklara ve \\ryumuşamasına neden \\rolabilir, tıkanmalara yol \\raçabilir, bu nedenle \\rüst kapağı açık tutun \\rve havalandırın.\"",
+        "  ok.txt=\"Onayla\"",
+        "  no_more.txt=\"Artık bahşiş yok\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"הדפסה עם קיימון עשוי לגרום לטמפרטורות גבוהות ורכות של ה פילמנט, שיגרום לחנק, אז נא לפתוח את הכיסוי העליון ולשמור על אוורור.\"",
-        "  b0.txt=\"אישור\"",
-        "  b1.txt=\"אל תזכיר שוב\"",
+        "  msg.txt=\"הדפסה עם קיימון עשוי לגרום לטמפרטורות גבוהות ורכות של ה פילמנט, שיגרום לחנק, אז נא לפתוח את הכיסוי העליון ולשמור על אוורור.\"",
+        "  ok.txt=\"אישור\"",
+        "  no_more.txt=\"אל תזכיר שוב\"",
         "}"
       ],
       "codesloadend": [],
@@ -115,10 +115,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -141,7 +141,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -162,10 +162,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -187,16 +187,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -223,10 +223,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "no_more",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "no_more",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -248,16 +248,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -284,10 +284,10 @@
       }
     },
     {
-      "key": "tm0",
+      "key": "close_timer",
       "type": "timer",
       "attributes": {
-        "objname": "tm0",
+        "objname": "close_timer",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,
@@ -297,8 +297,8 @@
       },
       "events": {
         "codestimer": [
-          "jump_out_count.val++",
-          "if(jump_out_count.val==60)",
+          "idle_count.val++",
+          "if(idle_count.val==60)",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -311,10 +311,10 @@
       }
     },
     {
-      "key": "jump_out_count",
+      "key": "idle_count",
       "type": "variable",
       "attributes": {
-        "objname": "jump_out_count",
+        "objname": "idle_count",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,

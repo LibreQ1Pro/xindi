@@ -29,115 +29,115 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_124"
+        "$ref": "picture:bg_unload_mode"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请选择退料方式。\"",
-        "  t1.txt=\"推荐此退料方式。\"",
-        "  t2.txt=\"注意:自动退料将可能导致耗材堵塞喷头。\"",
-        "  b0.txt=\"手动退料\"",
-        "  b1.txt=\"自动退料\"",
-        "  b2.txt=\"返回\"",
+        "  msg.txt=\"请选择退料方式。\"",
+        "  hint.txt=\"推荐此退料方式。\"",
+        "  warn.txt=\"注意:自动退料将可能导致耗材堵塞喷头。\"",
+        "  manual_btn.txt=\"手动退料\"",
+        "  auto_btn.txt=\"自动退料\"",
+        "  back_btn.txt=\"返回\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Пожалуйста, выберите \\rспособ выгрузки.\"",
-        "  t1.txt=\"Рекомендовать этот \\rметод разгрузки.\"",
-        "  t2.txt=\"Примечание. Существует \\rриск блокировки экструдера при автоматической \\rвыгрузке.\"",
-        "  b0.txt=\"Ручная выгрузка\"",
-        "  b1.txt=\"Автоматическая разгрузка\"",
-        "  b2.txt=\"Назад\"",
+        "  msg.txt=\"Пожалуйста, выберите \\rспособ выгрузки.\"",
+        "  hint.txt=\"Рекомендовать этот \\rметод разгрузки.\"",
+        "  warn.txt=\"Примечание. Существует \\rриск блокировки экструдера при автоматической \\rвыгрузке.\"",
+        "  manual_btn.txt=\"Ручная выгрузка\"",
+        "  auto_btn.txt=\"Автоматическая разгрузка\"",
+        "  back_btn.txt=\"Назад\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Please select the unload \\rmethod.\"",
-        "  t1.txt=\"Recommend this unload \\rmethod.\"",
-        "  t2.txt=\"Note: There are risks of \\rblocking the extruder by \\rautomatic unload.\"",
-        "  b0.txt=\"Manual unload\"",
-        "  b1.txt=\"Automatic unload\"",
-        "  b2.txt=\"Back\"",
+        "  msg.txt=\"Please select the unload \\rmethod.\"",
+        "  hint.txt=\"Recommend this unload \\rmethod.\"",
+        "  warn.txt=\"Note: There are risks of \\rblocking the extruder by \\rautomatic unload.\"",
+        "  manual_btn.txt=\"Manual unload\"",
+        "  auto_btn.txt=\"Automatic unload\"",
+        "  back_btn.txt=\"Back\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"荷降ろし方法を選択してください。\"",
-        "  t1.txt=\"このアンロード方法を推奨します。\"",
-        "  t2.txt=\"注: 自動アンロードにより押出機がブロックされる危険性があります。\"",
-        "  b0.txt=\"手動アンロード\"",
-        "  b1.txt=\"自動アンロード\"",
-        "  b2.txt=\"戻る\"",
+        "  msg.txt=\"荷降ろし方法を選択してください。\"",
+        "  hint.txt=\"このアンロード方法を推奨します。\"",
+        "  warn.txt=\"注: 自動アンロードにより押出機がブロックされる危険性があります。\"",
+        "  manual_btn.txt=\"手動アンロード\"",
+        "  auto_btn.txt=\"自動アンロード\"",
+        "  back_btn.txt=\"戻る\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Veuillez sélectionner la \\rméthode de déchargement.\"",
-        "  t1.txt=\"Recommander cette \\rméthode de déchargement.\"",
-        "  t2.txt=\"Remarque : Il existe des \\rrisques de blocage de \\rl'extrudeur par \\rdéchargement automatique.\"",
-        "  b0.txt=\"Déchargement manuel\"",
-        "  b1.txt=\"Déchargement automatique\"",
-        "  b2.txt=\"dos\"",
+        "  msg.txt=\"Veuillez sélectionner la \\rméthode de déchargement.\"",
+        "  hint.txt=\"Recommander cette \\rméthode de déchargement.\"",
+        "  warn.txt=\"Remarque : Il existe des \\rrisques de blocage de \\rl'extrudeur par \\rdéchargement automatique.\"",
+        "  manual_btn.txt=\"Déchargement manuel\"",
+        "  auto_btn.txt=\"Déchargement automatique\"",
+        "  back_btn.txt=\"dos\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Bitte wählen Sie die Entlademethode aus.\"",
-        "  t1.txt=\"Empfehlen Sie diese Entlademethode.\"",
-        "  t2.txt=\"Hinweis: Es besteht die \\rGefahr, dass der Extruder \\rdurch automatisches \\rEntladen blockiert wird.\"",
-        "  b0.txt=\"Manuelles Entladen\"",
-        "  b1.txt=\"Automatisches Entladen\"",
-        "  b2.txt=\"Zurück\"",
+        "  msg.txt=\"Bitte wählen Sie die Entlademethode aus.\"",
+        "  hint.txt=\"Empfehlen Sie diese Entlademethode.\"",
+        "  warn.txt=\"Hinweis: Es besteht die \\rGefahr, dass der Extruder \\rdurch automatisches \\rEntladen blockiert wird.\"",
+        "  manual_btn.txt=\"Manuelles Entladen\"",
+        "  auto_btn.txt=\"Automatisches Entladen\"",
+        "  back_btn.txt=\"Zurück\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Seleziona il metodo di \\rscarico.\"",
-        "  t1.txt=\"Consiglia questo metodo di \\rscarico\"",
-        "  t2.txt=\"Nota: esiste il rischio di \\rbloccare l'estrusore a causa \\rdello scarico automatico.\"",
-        "  b0.txt=\"Scarico manuale\"",
-        "  b1.txt=\"Scarico automatico\"",
-        "  b2.txt=\"Indietro\"",
+        "  msg.txt=\"Seleziona il metodo di \\rscarico.\"",
+        "  hint.txt=\"Consiglia questo metodo di \\rscarico\"",
+        "  warn.txt=\"Nota: esiste il rischio di \\rbloccare l'estrusore a causa \\rdello scarico automatico.\"",
+        "  manual_btn.txt=\"Scarico manuale\"",
+        "  auto_btn.txt=\"Scarico automatico\"",
+        "  back_btn.txt=\"Indietro\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Por favor seleccione el \\rmétodo de descarga.\"",
-        "  t1.txt=\"Recomendar este método de descarga.\"",
-        "  t2.txt=\"Nota: Existen riesgos de \\rbloquear el extrusor por \\rdescarga automática.\"",
-        "  b0.txt=\"Descarga manual\"",
-        "  b1.txt=\"Descarga automática\"",
-        "  b2.txt=\"Atrás\"",
+        "  msg.txt=\"Por favor seleccione el \\rmétodo de descarga.\"",
+        "  hint.txt=\"Recomendar este método de descarga.\"",
+        "  warn.txt=\"Nota: Existen riesgos de \\rbloquear el extrusor por \\rdescarga automática.\"",
+        "  manual_btn.txt=\"Descarga manual\"",
+        "  auto_btn.txt=\"Descarga automática\"",
+        "  back_btn.txt=\"Atrás\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"언로드 방법을 선택하세요.\"",
-        "  t1.txt=\"이 언로드 방법을 권장합니다.\"",
-        "  t2.txt=\"참고: 자동 언로드로 인해 압출기가 막힐 위험이 있습니다.\"",
-        "  b0.txt=\"수동 언로드\"",
-        "  b1.txt=\"자동 언로드\"",
-        "  b2.txt=\"뒤로\"",
+        "  msg.txt=\"언로드 방법을 선택하세요.\"",
+        "  hint.txt=\"이 언로드 방법을 권장합니다.\"",
+        "  warn.txt=\"참고: 자동 언로드로 인해 압출기가 막힐 위험이 있습니다.\"",
+        "  manual_btn.txt=\"수동 언로드\"",
+        "  auto_btn.txt=\"자동 언로드\"",
+        "  back_btn.txt=\"뒤로\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Selecione o método de \\rdescarregamento.\"",
-        "  t1.txt=\"Recomende este método de \\rdescarregamento.\"",
-        "  t2.txt=\"Nota: Existem riscos de \\rbloqueio da extrusora por \\rdescarga automática.\"",
-        "  b0.txt=\"Descarga manual\"",
-        "  b1.txt=\"Descarga automática\"",
-        "  b2.txt=\"Voltar\"",
+        "  msg.txt=\"Selecione o método de \\rdescarregamento.\"",
+        "  hint.txt=\"Recomende este método de \\rdescarregamento.\"",
+        "  warn.txt=\"Nota: Existem riscos de \\rbloqueio da extrusora por \\rdescarga automática.\"",
+        "  manual_btn.txt=\"Descarga manual\"",
+        "  auto_btn.txt=\"Descarga automática\"",
+        "  back_btn.txt=\"Voltar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"الرجاء تحديد طريقة التفريغ.\"",
-        "  t1.txt=\"يوصي طريقة التفريغ هذه.\"",
-        "  t2.txt=\"ملحوظة: هناك مخاطر تتمثل في انسداد الطارد عن طريق التفريغ التلقائي.\"",
-        "  b0.txt=\"التفريغ اليدوي\"",
-        "  b1.txt=\"التفريغ التلقائي\"",
-        "  b2.txt=\"السابق\"",
+        "  msg.txt=\"الرجاء تحديد طريقة التفريغ.\"",
+        "  hint.txt=\"يوصي طريقة التفريغ هذه.\"",
+        "  warn.txt=\"ملحوظة: هناك مخاطر تتمثل في انسداد الطارد عن طريق التفريغ التلقائي.\"",
+        "  manual_btn.txt=\"التفريغ اليدوي\"",
+        "  auto_btn.txt=\"التفريغ التلقائي\"",
+        "  back_btn.txt=\"السابق\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Lütfen boşaltma yöntemini \\rseçin.\"",
-        "  t1.txt=\"Bu boşaltma yöntemini öner.\"",
-        "  t2.txt=\"Not: Otomatik boşaltma \\rnedeniyle ekstruderin bloke edilmesi riski vardır.\"",
-        "  b0.txt=\"Manuel boşaltma\"",
-        "  b1.txt=\"Otomatik boşaltma\"",
-        "  b2.txt=\"Geri\"",
+        "  msg.txt=\"Lütfen boşaltma yöntemini \\rseçin.\"",
+        "  hint.txt=\"Bu boşaltma yöntemini öner.\"",
+        "  warn.txt=\"Not: Otomatik boşaltma \\rnedeniyle ekstruderin bloke edilmesi riski vardır.\"",
+        "  manual_btn.txt=\"Manuel boşaltma\"",
+        "  auto_btn.txt=\"Otomatik boşaltma\"",
+        "  back_btn.txt=\"Geri\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"אנא בחר את שיטת הפריקה.\"",
-        "  t1.txt=\"ממליץ על שיטת פריקה זו.\"",
-        "  t2.txt=\"הערה: ישנם סיכונים בחסימת המכבש על ידי פריקה אוטומטית.\"",
-        "  b0.txt=\"פריקה ידנית\"",
-        "  b1.txt=\"פריקה אוטומטית\"",
-        "  b2.txt=\"חזרה\"",
+        "  msg.txt=\"אנא בחר את שיטת הפריקה.\"",
+        "  hint.txt=\"ממליץ על שיטת פריקה זו.\"",
+        "  warn.txt=\"הערה: ישנם סיכונים בחסימת המכבש על ידי פריקה אוטומטית.\"",
+        "  manual_btn.txt=\"פריקה ידנית\"",
+        "  auto_btn.txt=\"פריקה אוטומטית\"",
+        "  back_btn.txt=\"חזרה\"",
         "}"
       ],
       "codesloadend": [],
@@ -148,10 +148,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "manual_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "manual_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -173,16 +173,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_124"
+          "$ref": "picture:bg_unload_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_172"
+          "$ref": "picture:unload_mode_manual_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -209,10 +209,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "auto_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "auto_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -234,16 +234,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_124"
+          "$ref": "picture:bg_unload_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_172"
+          "$ref": "picture:unload_mode_manual_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -270,10 +270,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -296,7 +296,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -317,10 +317,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "hint",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "hint",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -343,7 +343,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -364,10 +364,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "warn",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "warn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -390,7 +390,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -411,10 +411,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -436,16 +436,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_124"
+          "$ref": "picture:bg_unload_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_172"
+          "$ref": "picture:unload_mode_manual_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,

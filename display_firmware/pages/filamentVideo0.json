@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_88"
+        "$ref": "picture:bg_filamentVideo1"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"装载耗材(3/3)\"",
-        "  t1.txt=\"安装耗材支架。\"",
+        "  title.txt=\"装载耗材(3/3)\"",
+        "  msg.txt=\"安装耗材支架。\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Нагрузка(3/3)\"",
-        "  t1.txt=\"Пожалуйста, настройте \\rподдержку для \\rфиламента. \"",
+        "  title.txt=\"Нагрузка(3/3)\"",
+        "  msg.txt=\"Пожалуйста, настройте \\rподдержку для \\rфиламента. \"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Load(3/3)\"",
-        "  t1.txt=\"Please set up filament \\rsupporter.\"",
+        "  title.txt=\"Load(3/3)\"",
+        "  msg.txt=\"Please set up filament \\rsupporter.\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"装塡(3/3)\"",
-        "  t1.txt=\"フィラメントサポーターを設定してください。\"",
+        "  title.txt=\"装塡(3/3)\"",
+        "  msg.txt=\"フィラメントサポーターを設定してください。\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"chargez(3/3)\"",
-        "  t1.txt=\"Veuillez configurer le \\rsupport de filament.\"",
+        "  title.txt=\"chargez(3/3)\"",
+        "  msg.txt=\"Veuillez configurer le \\rsupport de filament.\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Material laden(3/3)\"",
-        "  t1.txt=\"Bitte richten Sie den \\rFilament-Support ein. \"",
+        "  title.txt=\"Material laden(3/3)\"",
+        "  msg.txt=\"Bitte richten Sie den \\rFilament-Support ein. \"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Caricare(3/3)\"",
-        "  t1.txt=\"Installare il supporto dei \\rmateriali di consumo.\"",
+        "  title.txt=\"Caricare(3/3)\"",
+        "  msg.txt=\"Installare il supporto dei \\rmateriali di consumo.\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Cargar(3/3)\"",
-        "  t1.txt=\"Instale el soporte de \\rsuministros.\"",
+        "  title.txt=\"Cargar(3/3)\"",
+        "  msg.txt=\"Instale el soporte de \\rsuministros.\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"짐(3/3)\"",
-        "  t1.txt=\"소모품 홀더를 설치하세요.\"",
+        "  title.txt=\"짐(3/3)\"",
+        "  msg.txt=\"소모품 홀더를 설치하세요.\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Carregar(3/3)\"",
-        "  t1.txt=\"Instale o suporte de \\rsuprimentos.\"",
+        "  title.txt=\"Carregar(3/3)\"",
+        "  msg.txt=\"Instale o suporte de \\rsuprimentos.\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تحميل (3/3)\"",
-        "  t1.txt=\"قم بتثبيت حامل الإمدادات.\"",
+        "  title.txt=\"تحميل (3/3)\"",
+        "  msg.txt=\"قم بتثبيت حامل الإمدادات.\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Yükle(3/3)\"",
-        "  t1.txt=\"Sarf malzemesi \\rtutucusunu takın.\"",
+        "  title.txt=\"Yükle(3/3)\"",
+        "  msg.txt=\"Sarf malzemesi \\rtutucusunu takın.\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"טען (3/3)\"",
-        "  t1.txt=\"התקן את מחזיק החומרים.\"",
+        "  title.txt=\"טען (3/3)\"",
+        "  msg.txt=\"התקן את מחזיק החומרים.\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "next",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "next",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_88"
+          "$ref": "picture:bg_filamentVideo1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_89"
+          "$ref": "picture:filamentVideo1_next_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -183,7 +183,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -204,10 +204,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -230,7 +230,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -251,10 +251,10 @@
       }
     },
     {
-      "key": "gm0",
+      "key": "anim",
       "type": "animation",
       "attributes": {
-        "objname": "gm0",
+        "objname": "anim",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -273,7 +273,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_9"
+          "$ref": "animation:video_spool_holder"
         },
         "path": "",
         "path_m": 255,

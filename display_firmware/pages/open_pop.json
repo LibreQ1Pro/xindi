@@ -34,69 +34,69 @@
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"是否跳过开机引导？\"",
-        "  b0.txt=\"是\"",
-        "  b1.txt=\"否\"",
+        "  msg.txt=\"是否跳过开机引导？\"",
+        "  ok.txt=\"是\"",
+        "  cancel.txt=\"否\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Вы уверены, что хотите \\rпропустить руководство по запуску?\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b1.txt=\"Отмена\"",
+        "  msg.txt=\"Вы уверены, что хотите \\rпропустить руководство по запуску?\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  cancel.txt=\"Отмена\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Are you sure to skip \\rstart-guide?\"",
-        "  b0.txt=\"Confirm\"",
-        "  b1.txt=\"Cancel\"",
+        "  msg.txt=\"Are you sure to skip \\rstart-guide?\"",
+        "  ok.txt=\"Confirm\"",
+        "  cancel.txt=\"Cancel\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"本当にスタートガイドを飛ばしていいのでしょうか？\"",
-        "  b0.txt=\"確認\"",
-        "  b1.txt=\"キャンセル\"",
+        "  msg.txt=\"本当にスタートガイドを飛ばしていいのでしょうか？\"",
+        "  ok.txt=\"確認\"",
+        "  cancel.txt=\"キャンセル\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Êtes-vous sûr de vouloir \\rsauter le guide de \\rdémarrage ?\"",
-        "  b0.txt=\"Confirmer\"",
-        "  b1.txt=\"Annuler\"",
+        "  msg.txt=\"Êtes-vous sûr de vouloir \\rsauter le guide de \\rdémarrage ?\"",
+        "  ok.txt=\"Confirmer\"",
+        "  cancel.txt=\"Annuler\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Sind Sie sicher,dass Sie \\rden Start-Leitfaden \\rüberspringen wollen?\"",
-        "  b0.txt=\"OK\"",
-        "  b1.txt=\"Abbrechen\"",
+        "  msg.txt=\"Sind Sie sicher,dass Sie \\rden Start-Leitfaden \\rüberspringen wollen?\"",
+        "  ok.txt=\"OK\"",
+        "  cancel.txt=\"Abbrechen\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Sei sicuro di voler saltare \\rla guida introduttiva?\"",
-        "  b0.txt=\"Conferma\"",
-        "  b1.txt=\"Annulla\"",
+        "  msg.txt=\"Sei sicuro di voler saltare \\rla guida introduttiva?\"",
+        "  ok.txt=\"Conferma\"",
+        "  cancel.txt=\"Annulla\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Estás seguro de omitir la \\rguía de inicio?\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Cancelar\"",
+        "  msg.txt=\"Estás seguro de omitir la \\rguía de inicio?\"",
+        "  ok.txt=\"Confirmar\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"시작 가이드를 건너 뛰시겠습니까?\"",
-        "  b0.txt=\"확실한\"",
-        "  b1.txt=\"중지\"",
+        "  msg.txt=\"시작 가이드를 건너 뛰시겠습니까?\"",
+        "  ok.txt=\"확실한\"",
+        "  cancel.txt=\"중지\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Tem certeza de que deseja \\rpular o guia inicial?\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Cancelar\"",
+        "  msg.txt=\"Tem certeza de que deseja \\rpular o guia inicial?\"",
+        "  ok.txt=\"Confirmar\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"هل أنت متأكد من تخطي دليل البداية؟\"",
-        "  b0.txt=\"تأكيد\"",
-        "  b1.txt=\"إلغاء\"",
+        "  msg.txt=\"هل أنت متأكد من تخطي دليل البداية؟\"",
+        "  ok.txt=\"تأكيد\"",
+        "  cancel.txt=\"إلغاء\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Başlangıç kılavuzunu \\ratlamak istediğinizden \\remin misiniz?\"",
-        "  b0.txt=\"Onayla\"",
-        "  b1.txt=\"İptal\"",
+        "  msg.txt=\"Başlangıç kılavuzunu \\ratlamak istediğinizden \\remin misiniz?\"",
+        "  ok.txt=\"Onayla\"",
+        "  cancel.txt=\"İptal\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"האם אתה בטוח שברצונך לדלג על המדריך להתחלה?\"",
-        "  b0.txt=\"אישור\"",
-        "  b1.txt=\"ביטול\"",
+        "  msg.txt=\"האם אתה בטוח שברצונך לדלג על המדריך להתחלה?\"",
+        "  ok.txt=\"אישור\"",
+        "  cancel.txt=\"ביטול\"",
         "}"
       ],
       "codesloadend": [],
@@ -107,10 +107,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "popup_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "popup_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -128,7 +128,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         }
       },
       "events": {
@@ -137,10 +137,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -163,7 +163,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -184,10 +184,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -209,16 +209,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -245,10 +245,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -270,16 +270,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,

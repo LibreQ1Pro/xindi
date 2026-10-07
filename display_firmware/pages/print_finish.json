@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_64"
+        "$ref": "picture:bg_notice"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  b0.txt=\"确定\"",
-        "  t0.txt=\"打印完成!用时:\"",
+        "  ok.txt=\"确定\"",
+        "  msg.txt=\"打印完成!用时:\"",
         "}else if(lang==1)",
         "{",
-        "  b0.txt=\"Подтвердить\"",
-        "  t0.txt=\"Печать завершена, \\rзатраченное время:\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  msg.txt=\"Печать завершена, \\rзатраченное время:\"",
         "}else if(lang==2)",
         "{",
-        "  b0.txt=\"Confirm\"",
-        "  t0.txt=\"Printing completed,\\rtime spent:\"",
+        "  ok.txt=\"Confirm\"",
+        "  msg.txt=\"Printing completed,\\rtime spent:\"",
         "}else if(lang==3)",
         "{",
-        "  b0.txt=\"確認\"",
-        "  t0.txt=\"印刷完了、所要時間:\"",
+        "  ok.txt=\"確認\"",
+        "  msg.txt=\"印刷完了、所要時間:\"",
         "}else if(lang==4)",
         "{",
-        "  b0.txt=\"Confirmer\"",
-        "  t0.txt=\"Impression terminée,\\rtemps passé:\"",
+        "  ok.txt=\"Confirmer\"",
+        "  msg.txt=\"Impression terminée,\\rtemps passé:\"",
         "}else if(lang==5)",
         "{",
-        "  b0.txt=\"OK\"",
-        "  t0.txt=\"Druck abgeschlossen,\\rbenötigte Zeit:\"",
+        "  ok.txt=\"OK\"",
+        "  msg.txt=\"Druck abgeschlossen,\\rbenötigte Zeit:\"",
         "}else if(lang==6)",
         "{",
-        "  b0.txt=\"Conferma\"",
-        "  t0.txt=\"Stampa completata, \\rtempo impiegato ：\"",
+        "  ok.txt=\"Conferma\"",
+        "  msg.txt=\"Stampa completata, \\rtempo impiegato ：\"",
         "}else if(lang==7)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Impresión completada, \\rtiempo transcurrido：\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Impresión completada, \\rtiempo transcurrido：\"",
         "}else if(lang==8)",
         "{",
-        "  b0.txt=\"확실한\"",
-        "  t0.txt=\"인쇄가 완료되었습니다. \\r소요 시간：\"",
+        "  ok.txt=\"확실한\"",
+        "  msg.txt=\"인쇄가 완료되었습니다. \\r소요 시간：\"",
         "}else if(lang==9)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Impressão concluída, \\rtempo gasto：\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Impressão concluída, \\rtempo gasto：\"",
         "}else if(lang==10)",
         "{",
-        "  b0.txt=\"تأكيد\"",
-        "  t0.txt=\":انتهت الطباعة، الوقت المستغرق\"",
+        "  ok.txt=\"تأكيد\"",
+        "  msg.txt=\":انتهت الطباعة، الوقت المستغرق\"",
         "}else if(lang==11)",
         "{",
-        "  b0.txt=\"Onayla\"",
-        "  t0.txt=\"Baskı tamamlandı, \\rgeçen süre:\"",
+        "  ok.txt=\"Onayla\"",
+        "  msg.txt=\"Baskı tamamlandı, \\rgeçen süre:\"",
         "}else if(lang==12)",
         "{",
-        "  b0.txt=\"אישור\"",
-        "  t0.txt=\"ההדפסה הושלמה, זמן לקח:\"",
+        "  ok.txt=\"אישור\"",
+        "  msg.txt=\"ההדפסה הושלמה, זמן לקח:\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -122,7 +122,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -143,10 +143,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -168,16 +168,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_64"
+          "$ref": "picture:bg_notice"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_222"
+          "$ref": "picture:notice_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -204,10 +204,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "time_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "time_txt",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -230,7 +230,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

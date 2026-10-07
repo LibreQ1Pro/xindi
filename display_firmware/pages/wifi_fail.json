@@ -34,56 +34,56 @@
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"连接失败。\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"连接失败。\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Ошибка подключения.\"",
-        "  b0.txt=\"Подтвердить\"",
+        "  msg.txt=\"Ошибка подключения.\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Connecting Failed.\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Connecting Failed.\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"接続に失敗しました。\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"接続に失敗しました。\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Échec de la connexion.\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"Échec de la connexion.\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Verbindung fehlgeschlagen.\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Verbindung fehlgeschlagen.\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Connessione fallita.\"",
-        "  b0.txt=\"Conferma\"",
+        "  msg.txt=\"Connessione fallita.\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Conexión fallida.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Conexión fallida.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"연결 실패.\"",
-        "  b0.txt=\"확실한\"",
+        "  msg.txt=\"연결 실패.\"",
+        "  ok.txt=\"확실한\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Falha na conexão.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Falha na conexão.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"فشل الاتصال.\"",
-        "  b0.txt=\"تأكيد\"",
+        "  msg.txt=\"فشل الاتصال.\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Bağlantı başarısız.\"",
-        "  b0.txt=\"Onayla\"",
+        "  msg.txt=\"Bağlantı başarısız.\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"החיבור נכשל.\"",
-        "  b0.txt=\"אישור\"",
+        "  msg.txt=\"החיבור נכשל.\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -94,10 +94,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "popup_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "popup_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -115,7 +115,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         }
       },
       "events": {
@@ -124,10 +124,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -149,16 +149,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -185,10 +185,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -211,7 +211,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

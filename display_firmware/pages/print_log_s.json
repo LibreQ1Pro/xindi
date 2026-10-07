@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_47"
+        "$ref": "picture:bg_info_popup"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"导出日志成功。\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"导出日志成功。\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Успешно экспортированы журналы.\"",
-        "  b0.txt=\"Подтвердить\"",
+        "  msg.txt=\"Успешно экспортированы журналы.\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Export logs successfully.\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Export logs successfully.\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"ログのエクスポートに成功しました。\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"ログのエクスポートに成功しました。\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Exportation des journaux \\rréussie.\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"Exportation des journaux \\rréussie.\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Protokolle erfolgreich \\rexportieren.\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Protokolle erfolgreich \\rexportieren.\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Esportazione registro \\rriuscita.\"",
-        "  b0.txt=\"Conferma\"",
+        "  msg.txt=\"Esportazione registro \\rriuscita.\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Exportar el registro \\rcorrectamente.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Exportar el registro \\rcorrectamente.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"로그를 성공적으로 내보냈습니다.\"",
-        "  b0.txt=\"확인하다\"",
+        "  msg.txt=\"로그를 성공적으로 내보냈습니다.\"",
+        "  ok.txt=\"확인하다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Exportar log com \\rsucesso.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"Exportar log com \\rsucesso.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تم تصدير السجل بنجاح.\"",
-        "  b0.txt=\"تأكيد\"",
+        "  msg.txt=\"تم تصدير السجل بنجاح.\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Günlüğü başarıyla \\rdışa aktarın.\"",
-        "  b0.txt=\"Onayla\"",
+        "  msg.txt=\"Günlüğü başarıyla \\rdışa aktarın.\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"ייצא יומן בהצלחה.\"",
-        "  b0.txt=\"אישור\"",
+        "  msg.txt=\"ייצא יומן בהצלחה.\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -183,7 +183,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

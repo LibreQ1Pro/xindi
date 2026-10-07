@@ -29,89 +29,89 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_144"
+        "$ref": "picture:bg_add_account"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"添加账户\"",
-        "  t1.txt=\"用户名:\"",
-        "  t2.txt=\"密码:\"",
-        "  b3.txt=\"添加\"",
+        "  title.txt=\"添加账户\"",
+        "  user_lbl.txt=\"用户名:\"",
+        "  pass_lbl.txt=\"密码:\"",
+        "  ok.txt=\"添加\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Добавить счет\"",
-        "  t1.txt=\"Имя пользователя:\"",
-        "  t2.txt=\"Пароль:\"",
-        "  b3.txt=\"Подтвердить\"",
+        "  title.txt=\"Добавить счет\"",
+        "  user_lbl.txt=\"Имя пользователя:\"",
+        "  pass_lbl.txt=\"Пароль:\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Add account\"",
-        "  t1.txt=\"user name:\"",
-        "  t2.txt=\"password:\"",
-        "  b3.txt=\"Confirm\"",
+        "  title.txt=\"Add account\"",
+        "  user_lbl.txt=\"user name:\"",
+        "  pass_lbl.txt=\"password:\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"アカウントの追加\"",
-        "  t1.txt=\"ユーザー名：\"",
-        "  t2.txt=\"パスワード：\"",
-        "  b3.txt=\"確認\"",
+        "  title.txt=\"アカウントの追加\"",
+        "  user_lbl.txt=\"ユーザー名：\"",
+        "  pass_lbl.txt=\"パスワード：\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Ajouter un compt\"",
-        "  t1.txt=\"Nom d'utilisateur:\"",
-        "  t2.txt=\"Mot de passe:\"",
-        "  b3.txt=\"Confirmer\"",
+        "  title.txt=\"Ajouter un compt\"",
+        "  user_lbl.txt=\"Nom d'utilisateur:\"",
+        "  pass_lbl.txt=\"Mot de passe:\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Konto hinzufügen\"",
-        "  t1.txt=\"Benutzername:\"",
-        "  t2.txt=\"Passwort:\"",
-        "  b3.txt=\"OK\"",
+        "  title.txt=\"Konto hinzufügen\"",
+        "  user_lbl.txt=\"Benutzername:\"",
+        "  pass_lbl.txt=\"Passwort:\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Aggiungi account\"",
-        "  t1.txt=\"nome utente:\"",
-        "  t2.txt=\"password:\"",
-        "  b3.txt=\"Conferma\"",
+        "  title.txt=\"Aggiungi account\"",
+        "  user_lbl.txt=\"nome utente:\"",
+        "  pass_lbl.txt=\"password:\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Añadir cuenta\"",
-        "  t1.txt=\"Nombre de usuario:\"",
-        "  t2.txt=\"Contraseña:\"",
-        "  b3.txt=\"Confirmar\"",
+        "  title.txt=\"Añadir cuenta\"",
+        "  user_lbl.txt=\"Nombre de usuario:\"",
+        "  pass_lbl.txt=\"Contraseña:\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"계정 추가\"",
-        "  t1.txt=\"사용자 이름:\"",
-        "  t2.txt=\"암호:\"",
-        "  b3.txt=\"확인하다\"",
+        "  title.txt=\"계정 추가\"",
+        "  user_lbl.txt=\"사용자 이름:\"",
+        "  pass_lbl.txt=\"암호:\"",
+        "  ok.txt=\"확인하다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Adicionar conta\"",
-        "  t1.txt=\"nome de utilizador:\"",
-        "  t2.txt=\"senha:\"",
-        "  b3.txt=\"Confirmar\"",
+        "  title.txt=\"Adicionar conta\"",
+        "  user_lbl.txt=\"nome de utilizador:\"",
+        "  pass_lbl.txt=\"senha:\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"إضافة حساب\"",
-        "  t1.txt=\"اسم المستخدم :\"",
-        "  t2.txt=\"كلمة السر\"",
-        "  b3.txt=\"تأكيد\"",
+        "  title.txt=\"إضافة حساب\"",
+        "  user_lbl.txt=\"اسم المستخدم :\"",
+        "  pass_lbl.txt=\"كلمة السر\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Hesabı Ekle\"",
-        "  t1.txt=\"kullanıcı adı:\"",
-        "  t2.txt=\"Parola:\"",
-        "  b3.txt=\"Onayla\"",
+        "  title.txt=\"Hesabı Ekle\"",
+        "  user_lbl.txt=\"kullanıcı adı:\"",
+        "  pass_lbl.txt=\"Parola:\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"הוסיף חשבון\"",
-        "  t1.txt=\"שם משתמש:\"",
-        "  t2.txt=\"סיסמה:\"",
-        "  b3.txt=\"אישור\"",
+        "  title.txt=\"הוסיף חשבון\"",
+        "  user_lbl.txt=\"שם משתמש:\"",
+        "  pass_lbl.txt=\"סיסמה:\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -122,10 +122,10 @@
   },
   "objects": [
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -147,20 +147,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -187,10 +187,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -212,20 +212,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -252,10 +252,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -277,20 +277,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -317,10 +317,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -342,20 +342,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -382,10 +382,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -407,16 +407,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -443,10 +443,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -469,7 +469,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -486,18 +486,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "t1",
+      "key": "user_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "user_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -520,7 +520,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -541,10 +541,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "user_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "user_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -566,16 +566,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -603,10 +603,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "pass_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "pass_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -628,16 +628,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -665,10 +665,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "pass_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "pass_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -691,7 +691,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -712,10 +712,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -737,16 +737,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,

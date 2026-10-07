@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Adds the NetworkManager pages to the screen project (run from display_firmware/ once, on the stock V4.4.24 sources).
+"""NOTE: written against the stock names (b0, t1, pic_25 ...); the components and pictures were renamed afterwards
+(tools/names.json maps the stock names to the final ones), so this script only documents how the pages were made.
+
+Adds the NetworkManager pages to the screen project (run from display_firmware/ once, on the stock V4.4.24 sources).
 
 New pages (appended, so the ids of the old ones do not change):
   110 net_saved    list of the saved Wi-Fi connections (like wifi_list, 5 rows, paging)

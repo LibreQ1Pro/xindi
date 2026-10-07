@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_8"
+        "$ref": "picture:bg_level_mode"
       }
     },
     "events": {
@@ -37,115 +37,115 @@
         "sys0=0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请确认喷嘴上无杂物。\"",
-        "  b0.txt=\"自动调平\"",
-        "  b1.txt=\"共振补偿\"",
-        "  b2.txt=\"平台校准\"",
-        "  b24.txt=\"通用设置\"",
-        "  b23.txt=\"校准设置\"",
+        "  msg.txt=\"请确认喷嘴上无杂物。\"",
+        "  auto_level.txt=\"自动调平\"",
+        "  shaping.txt=\"共振补偿\"",
+        "  bed_calib.txt=\"平台校准\"",
+        "  tab_settings.txt=\"通用设置\"",
+        "  tab_calib.txt=\"校准设置\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Пожалуйста, убедитесь, что сопло не содержит \\rпосторонних предметов. \"",
-        "  b0.txt=\"Автовыравнивание \\rкровати\"",
-        "  b1.txt=\"Формирование \\rввода\"",
-        "  b2.txt=\"Калибровка платформы\"",
-        "  b24.txt=\"Настройка\"",
-        "  b23.txt=\"Калибровка\"",
+        "  msg.txt=\"Пожалуйста, убедитесь, что сопло не содержит \\rпосторонних предметов. \"",
+        "  auto_level.txt=\"Автовыравнивание \\rкровати\"",
+        "  shaping.txt=\"Формирование \\rввода\"",
+        "  bed_calib.txt=\"Калибровка платформы\"",
+        "  tab_settings.txt=\"Настройка\"",
+        "  tab_calib.txt=\"Калибровка\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Please make sure there \\rare no foreign objects \\ron the Nozzle.\"",
-        "  b0.txt=\"Auto Bed Leveling \"",
-        "  b1.txt=\"Input Shaping\"",
-        "  b2.txt=\"Platform Calibration\"",
-        "  b24.txt=\"Settings\"",
-        "  b23.txt=\"Calibration\"",
+        "  msg.txt=\"Please make sure there \\rare no foreign objects \\ron the Nozzle.\"",
+        "  auto_level.txt=\"Auto Bed Leveling \"",
+        "  shaping.txt=\"Input Shaping\"",
+        "  bed_calib.txt=\"Platform Calibration\"",
+        "  tab_settings.txt=\"Settings\"",
+        "  tab_calib.txt=\"Calibration\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"ノズルに異物がないか確認してください。\"",
-        "  b0.txt=\"オートベッドレベリング\"",
-        "  b1.txt=\"インプットシェーピング\"",
-        "  b2.txt=\"プラットフォームの校正\"",
-        "  b24.txt=\"設定\"",
-        "  b23.txt=\"マニュアル\"",
+        "  msg.txt=\"ノズルに異物がないか確認してください。\"",
+        "  auto_level.txt=\"オートベッドレベリング\"",
+        "  shaping.txt=\"インプットシェーピング\"",
+        "  bed_calib.txt=\"プラットフォームの校正\"",
+        "  tab_settings.txt=\"設定\"",
+        "  tab_calib.txt=\"マニュアル\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Veuillez vous assurer \\rqu’il n’y a pas d’objets \\rétrangers sur la buse.\"",
-        "  b0.txt=\"Nivellement \\rautomatique du lit\"",
-        "  b1.txt=\"Input shaping\"",
-        "  b2.txt=\"Calibration de \\rla plateforme\"",
-        "  b24.txt=\"Paramètres\"",
-        "  b23.txt=\"Étalonnage\"",
+        "  msg.txt=\"Veuillez vous assurer \\rqu’il n’y a pas d’objets \\rétrangers sur la buse.\"",
+        "  auto_level.txt=\"Nivellement \\rautomatique du lit\"",
+        "  shaping.txt=\"Input shaping\"",
+        "  bed_calib.txt=\"Calibration de \\rla plateforme\"",
+        "  tab_settings.txt=\"Paramètres\"",
+        "  tab_calib.txt=\"Étalonnage\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Bitte stellen Sie sicher, \\rdass sich keine \\rFremdkörper auf der \\rDüse befinden.\"",
-        "  b0.txt=\"Automatische \\rBettnivellierung\"",
-        "  b1.txt=\"Resonanzkompensation\"",
-        "  b2.txt=\"Plattform-Kalibrierung\"",
-        "  b24.txt=\"Einrichten\"",
-        "  b23.txt=\"Kalibrierung\"",
+        "  msg.txt=\"Bitte stellen Sie sicher, \\rdass sich keine \\rFremdkörper auf der \\rDüse befinden.\"",
+        "  auto_level.txt=\"Automatische \\rBettnivellierung\"",
+        "  shaping.txt=\"Resonanzkompensation\"",
+        "  bed_calib.txt=\"Plattform-Kalibrierung\"",
+        "  tab_settings.txt=\"Einrichten\"",
+        "  tab_calib.txt=\"Kalibrierung\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Assicurarsi che la punta \\rdell'ugello sia \\rpulita e priva di qualsiasi \\rfilamento sulla punta.\"",
-        "  b0.txt=\"Livellamento \\rautomatico del letto\"",
-        "  b1.txt=\"Forma degli input\"",
-        "  b2.txt=\"Calibrazione \\rdella piattaforma\"",
-        "  b24.txt=\"Impostazioni \\rgenerali\"",
-        "  b23.txt=\"Impostazioni \\rdi calibrazione\"",
-        "  b23.font=${font:font_1}",
-        "  b24.font=${font:font_1}",
+        "  msg.txt=\"Assicurarsi che la punta \\rdell'ugello sia \\rpulita e priva di qualsiasi \\rfilamento sulla punta.\"",
+        "  auto_level.txt=\"Livellamento \\rautomatico del letto\"",
+        "  shaping.txt=\"Forma degli input\"",
+        "  bed_calib.txt=\"Calibrazione \\rdella piattaforma\"",
+        "  tab_settings.txt=\"Impostazioni \\rgenerali\"",
+        "  tab_calib.txt=\"Impostazioni \\rdi calibrazione\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Asegúrese de que la \\rboquilla esté limpia y \\rlibre de cualquier \\rfilamento en la punta.\"",
-        "  b0.txt=\"Nivelación automáticar \\rde la cama\"",
-        "  b1.txt=\"Cirugía plástica \\rde entrada\"",
-        "  b2.txt=\"calibración de \\rplataforma\"",
-        "  b24.txt=\"Configuración \\rgeneral\"",
-        "  b23.txt=\"Ajustes de \\rcalibración\"",
-        "  b23.font=${font:font_1}",
-        "  b24.font=${font:font_1}",
+        "  msg.txt=\"Asegúrese de que la \\rboquilla esté limpia y \\rlibre de cualquier \\rfilamento en la punta.\"",
+        "  auto_level.txt=\"Nivelación automáticar \\rde la cama\"",
+        "  shaping.txt=\"Cirugía plástica \\rde entrada\"",
+        "  bed_calib.txt=\"calibración de \\rplataforma\"",
+        "  tab_settings.txt=\"Configuración \\rgeneral\"",
+        "  tab_calib.txt=\"Ajustes de \\rcalibración\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"노즐이 깨끗하고 끝에 필라멘트가 없는지 확인하십시오.\"",
-        "  b0.txt=\"자동 침대 레벨링\"",
-        "  b1.txt=\"입력 성형\"",
-        "  b2.txt=\"플랫폼 교정\"",
-        "  b24.txt=\"일반 설정\"",
-        "  b23.txt=\"보정 설정\"",
+        "  msg.txt=\"노즐이 깨끗하고 끝에 필라멘트가 없는지 확인하십시오.\"",
+        "  auto_level.txt=\"자동 침대 레벨링\"",
+        "  shaping.txt=\"입력 성형\"",
+        "  bed_calib.txt=\"플랫폼 교정\"",
+        "  tab_settings.txt=\"일반 설정\"",
+        "  tab_calib.txt=\"보정 설정\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Certifique-se de que a \\rponta do bico esteja \\rlimpa e livre de \\rqualquer filamento.\"",
-        "  b0.txt=\"Nivelamento Automático \\rda Cama\"",
-        "  b1.txt=\"Forma de \\rentrada\"",
-        "  b2.txt=\"calibração \\rda plataforma\"",
-        "  b24.txt=\"Definições \\rgerais\"",
-        "  b23.txt=\"Definições \\rde calibração\"",
-        "  b23.font=${font:font_1}",
-        "  b24.font=${font:font_1}",
+        "  msg.txt=\"Certifique-se de que a \\rponta do bico esteja \\rlimpa e livre de \\rqualquer filamento.\"",
+        "  auto_level.txt=\"Nivelamento Automático \\rda Cama\"",
+        "  shaping.txt=\"Forma de \\rentrada\"",
+        "  bed_calib.txt=\"calibração \\rda plataforma\"",
+        "  tab_settings.txt=\"Definições \\rgerais\"",
+        "  tab_calib.txt=\"Definições \\rde calibração\"",
+        "  tab_calib.font=${font:font_small14}",
+        "  tab_settings.font=${font:font_small14}",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تأكد من أن الفوهة نظيفة وخالية من أي فيلمنت على الطرف.\"",
-        "  b0.txt=\"مستوى سطح السرير الآلي\"",
-        "  b1.txt=\"مدخلات تشكيل\"",
-        "  b2.txt=\"معايرة المنصة\"",
-        "  b24.txt=\"الإعدادات العامة\"",
-        "  b23.txt=\"إعدادات المعايرة\"",
+        "  msg.txt=\"تأكد من أن الفوهة نظيفة وخالية من أي فيلمنت على الطرف.\"",
+        "  auto_level.txt=\"مستوى سطح السرير الآلي\"",
+        "  shaping.txt=\"مدخلات تشكيل\"",
+        "  bed_calib.txt=\"معايرة المنصة\"",
+        "  tab_settings.txt=\"الإعدادات العامة\"",
+        "  tab_calib.txt=\"إعدادات المعايرة\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Nozülün temiz ve uçta \\rfilament olmadığından \\remin olun.\"",
-        "  b0.txt=\"Oto Yatak Düzleme\"",
-        "  b1.txt=\"Girdi düzenlemesi\"",
-        "  b2.txt=\"platform kalibrasyonu\"",
-        "  b24.txt=\"Genel ayarlar\"",
-        "  b23.txt=\"Kalibrasyon \\rayarları\"",
-        "  b23.font=${font:font_1}",
+        "  msg.txt=\"Nozülün temiz ve uçta \\rfilament olmadığından \\remin olun.\"",
+        "  auto_level.txt=\"Oto Yatak Düzleme\"",
+        "  shaping.txt=\"Girdi düzenlemesi\"",
+        "  bed_calib.txt=\"platform kalibrasyonu\"",
+        "  tab_settings.txt=\"Genel ayarlar\"",
+        "  tab_calib.txt=\"Kalibrasyon \\rayarları\"",
+        "  tab_calib.font=${font:font_small14}",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"וודא שהבוזל נקי וללא כל פילמנט בקצה.\"",
-        "  b0.txt=\"פיצול מיטת אוטומטי\"",
-        "  b1.txt=\"צורת כניסה\"",
-        "  b2.txt=\"כיוון הפלטפורמה\"",
-        "  b24.txt=\"הגדרות כיול\"",
-        "  b23.txt=\"הגדרות כלליות\"",
+        "  msg.txt=\"וודא שהבוזל נקי וללא כל פילמנט בקצה.\"",
+        "  auto_level.txt=\"פיצול מיטת אוטומטי\"",
+        "  shaping.txt=\"צורת כניסה\"",
+        "  bed_calib.txt=\"כיוון הפלטפורמה\"",
+        "  tab_settings.txt=\"הגדרות כיול\"",
+        "  tab_calib.txt=\"הגדרות כלליות\"",
         "}"
       ],
       "codesloadend": [],
@@ -156,10 +156,10 @@
   },
   "objects": [
     {
-      "key": "b24",
+      "key": "tab_settings",
       "type": "button",
       "attributes": {
-        "objname": "b24",
+        "objname": "tab_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -181,20 +181,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -221,10 +221,10 @@
       }
     },
     {
-      "key": "b23",
+      "key": "tab_calib",
       "type": "button",
       "attributes": {
-        "objname": "b23",
+        "objname": "tab_calib",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -246,20 +246,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -290,10 +290,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -315,20 +315,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -355,10 +355,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -380,20 +380,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -420,10 +420,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -445,20 +445,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -485,10 +485,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -510,20 +510,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -550,10 +550,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "auto_level",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "auto_level",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -575,16 +575,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -611,10 +611,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "shaping",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "shaping",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -636,16 +636,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -718,10 +718,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "bed_calib",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "bed_calib",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -743,16 +743,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_8"
+          "$ref": "picture:bg_level_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_9"
+          "$ref": "picture:level_mode_tab_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -779,10 +779,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -805,7 +805,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

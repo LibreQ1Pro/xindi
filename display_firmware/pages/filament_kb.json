@@ -29,139 +29,139 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_137"
+        "$ref": "picture:bg_filament_kb"
       }
     },
     "events": {
       "codesload": [
         "if(sys1==0)",
         "{",
-        "  q0.picc=${picture:pic_140}",
+        "  input_bg.picc=${picture:filament_kb_input_bg}",
         "  if(lang==0)",
         "  {",
-        "    t0.txt=\"喷头\"",
+        "    title.txt=\"喷头\"",
         "  }else if(lang==1)",
         "  {",
-        "    t0.txt=\"Экструдер\"",
+        "    title.txt=\"Экструдер\"",
         "  }else if(lang==2)",
         "  {",
-        "    t0.txt=\"Extruder\"",
+        "    title.txt=\"Extruder\"",
         "  }else if(lang==3)",
         "  {",
-        "    t0.txt=\"押出機\"",
+        "    title.txt=\"押出機\"",
         "  }else if(lang==4)",
         "  {",
-        "    t0.txt=\"Extrudeuse\"",
+        "    title.txt=\"Extrudeuse\"",
         "  }else if(lang==5)",
         "  {",
-        "    t0.txt=\"Extruder\"",
+        "    title.txt=\"Extruder\"",
         "  }else if(lang==6)",
         "  {",
-        "    t0.txt=\"Estrusore\"",
+        "    title.txt=\"Estrusore\"",
         "  }else if(lang==7)",
         "  {",
-        "    t0.txt=\"Extrusor\"",
+        "    title.txt=\"Extrusor\"",
         "  }else if(lang==8)",
         "  {",
-        "    t0.txt=\"엑스트루더\"",
+        "    title.txt=\"엑스트루더\"",
         "  }else if(lang==9)",
         "  {",
-        "    t0.txt=\"Extrusora\"",
+        "    title.txt=\"Extrusora\"",
         "  }else if(lang==10)",
         "  {",
-        "    t0.txt=\"مرتع\"",
+        "    title.txt=\"مرتع\"",
         "  }else if(lang==11)",
         "  {",
-        "    t0.txt=\"Ekstruder\"",
+        "    title.txt=\"Ekstruder\"",
         "  }else if(lang==12)",
         "  {",
-        "    t0.txt=\"אקסטרודר\"",
+        "    title.txt=\"אקסטרודר\"",
         "  }",
         "}else if(sys1==1)",
         "{",
-        "  q0.picc=${picture:pic_143}",
+        "  input_bg.picc=${picture:filament_kb_input_bg_he}",
         "  if(lang==0)",
         "  {",
-        "    t0.txt=\"热床\"",
+        "    title.txt=\"热床\"",
         "  }else if(lang==1)",
         "  {",
-        "    t0.txt=\"Тепловая кровать\"",
+        "    title.txt=\"Тепловая кровать\"",
         "  }else if(lang==2)",
         "  {",
-        "    t0.txt=\"Heatbed\"",
+        "    title.txt=\"Heatbed\"",
         "  }else if(lang==3)",
         "  {",
-        "    t0.txt=\"ヒートベッド\"",
+        "    title.txt=\"ヒートベッド\"",
         "  }else if(lang==4)",
         "  {",
-        "    t0.txt=\"Lit chauffant\"",
+        "    title.txt=\"Lit chauffant\"",
         "  }else if(lang==5)",
         "  {",
-        "    t0.txt=\"Heizbett\"",
+        "    title.txt=\"Heizbett\"",
         "  }else if(lang==6)",
         "  {",
-        "    t0.txt=\"Piastra riscaldante\"",
+        "    title.txt=\"Piastra riscaldante\"",
         "  }else if(lang==7)",
         "  {",
-        "    t0.txt=\"Cama caliente\"",
+        "    title.txt=\"Cama caliente\"",
         "  }else if(lang==8)",
         "  {",
-        "    t0.txt=\"열 침대\"",
+        "    title.txt=\"열 침대\"",
         "  }else if(lang==9)",
         "  {",
-        "    t0.txt=\"Base aquecida\"",
+        "    title.txt=\"Base aquecida\"",
         "  }else if(lang==10)",
         "  {",
-        "    t0.txt=\"سرير الحرارة\"",
+        "    title.txt=\"سرير الحرارة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t0.txt=\"Isıtma yatağı\"",
+        "    title.txt=\"Isıtma yatağı\"",
         "  }else if(lang==12)",
         "  {",
-        "    t0.txt=\"מיטת חימום\"",
+        "    title.txt=\"מיטת חימום\"",
         "  }",
         "}else if(sys1==2)",
         "{",
-        "  q0.picc=${picture:pic_164}",
+        "  input_bg.picc=${picture:filament_kb_input_bg_he_2}",
         "  if(lang==0)",
         "  {",
-        "    t0.txt=\"热腔\"",
+        "    title.txt=\"热腔\"",
         "  }else if(lang==1)",
         "  {",
-        "    t0.txt=\"Тепловая камера\"",
+        "    title.txt=\"Тепловая камера\"",
         "  }else if(lang==2)",
         "  {",
-        "    t0.txt=\"Heat Chamber\"",
+        "    title.txt=\"Heat Chamber\"",
         "  }else if(lang==3)",
         "  {",
-        "    t0.txt=\"ヒートチャンバー\"",
+        "    title.txt=\"ヒートチャンバー\"",
         "  }else if(lang==4)",
         "  {",
-        "    t0.txt=\"Chambre thermique\"",
+        "    title.txt=\"Chambre thermique\"",
         "  }else if(lang==5)",
         "  {",
-        "    t0.txt=\"Wärmekammer\"",
+        "    title.txt=\"Wärmekammer\"",
         "  }else if(lang==6)",
         "  {",
-        "    t0.txt=\"Camera di riscaldamento\"",
+        "    title.txt=\"Camera di riscaldamento\"",
         "  }else if(lang==7)",
         "  {",
-        "    t0.txt=\"Cámara de calor\"",
+        "    title.txt=\"Cámara de calor\"",
         "  }else if(lang==8)",
         "  {",
-        "    t0.txt=\"열 챔버\"",
+        "    title.txt=\"열 챔버\"",
         "  }else if(lang==9)",
         "  {",
-        "    t0.txt=\"Câmara de aquecimento\"",
+        "    title.txt=\"Câmara de aquecimento\"",
         "  }else if(lang==10)",
         "  {",
-        "    t0.txt=\"غرفة الحرارة\"",
+        "    title.txt=\"غرفة الحرارة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t0.txt=\"Isı Odası\"",
+        "    title.txt=\"Isı Odası\"",
         "  }else if(lang==12)",
         "  {",
-        "    t0.txt=\"חדר חימום\"",
+        "    title.txt=\"חדר חימום\"",
         "  }",
         "}"
       ],
@@ -173,10 +173,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "input_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "input_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -194,7 +194,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_140"
+          "$ref": "picture:filament_kb_input_bg"
         }
       },
       "events": {
@@ -203,10 +203,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "key_0",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "key_0",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -228,16 +228,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -258,16 +258,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"0\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "show",
+      "key": "input_show",
       "type": "text",
       "attributes": {
-        "objname": "show",
+        "objname": "input_show",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -290,7 +290,7 @@
         "borderc": 1055,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -311,10 +311,10 @@
       }
     },
     {
-      "key": "b210",
+      "key": "key_ok",
       "type": "button",
       "attributes": {
-        "objname": "b210",
+        "objname": "key_ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -336,16 +336,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -362,38 +362,38 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "strlen show.txt,str_len.val",
-          "covx show.txt,txt_to_val.val,str_len.val,0",
+          "strlen input_show.txt,str_len.val",
+          "covx input_show.txt,txt_to_val.val,str_len.val,0",
           "if(sys1==0)",
           "{",
-          "  filament.n0.val=txt_to_val.val",
+          "  filament.nozzle_set.val=txt_to_val.val",
           "  prints 113,1",
           "  prints 75,1",
           "  prints 0,1",
-          "  prints filament.n0.val,2",
+          "  prints filament.nozzle_set.val,2",
           "}else if(sys1==1)",
           "{",
-          "  filament.n1.val=txt_to_val.val",
+          "  filament.bed_set.val=txt_to_val.val",
           "  prints 113,1",
           "  prints 75,1",
           "  prints 1,1",
-          "  prints filament.n1.val,2",
+          "  prints filament.bed_set.val,2",
           "}else if(sys1==2)",
           "{",
-          "  filament.n2.val=txt_to_val.val",
+          "  filament.chamber_set.val=txt_to_val.val",
           "  prints 113,1",
           "  prints 75,1",
           "  prints 16,1",
-          "  prints filament.n2.val,2",
+          "  prints filament.chamber_set.val,2",
           "}"
         ]
       }
     },
     {
-      "key": "b1",
+      "key": "key_1",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "key_1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -415,16 +415,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -445,16 +445,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"1\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b2",
+      "key": "key_2",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "key_2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -476,16 +476,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -506,16 +506,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"2\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b3",
+      "key": "key_3",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "key_3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -537,16 +537,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -567,16 +567,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"3\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b4",
+      "key": "key_4",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "key_4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -598,16 +598,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -628,16 +628,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"4\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b5",
+      "key": "key_5",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "key_5",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -659,16 +659,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -689,16 +689,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"5\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b6",
+      "key": "key_6",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "key_6",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -720,16 +720,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -750,16 +750,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"6\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b7",
+      "key": "key_7",
       "type": "button",
       "attributes": {
-        "objname": "b7",
+        "objname": "key_7",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -781,16 +781,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -811,16 +811,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"7\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b8",
+      "key": "key_8",
       "type": "button",
       "attributes": {
-        "objname": "b8",
+        "objname": "key_8",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -842,16 +842,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -872,16 +872,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"8\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b200",
+      "key": "key_del",
       "type": "button",
       "attributes": {
-        "objname": "b200",
+        "objname": "key_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -903,16 +903,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -930,15 +930,15 @@
         "codesdown": [],
         "codesup": [
           "input.txt-=1",
-          "show.txt=input.txt"
+          "input_show.txt=input.txt"
         ]
       }
     },
     {
-      "key": "b9",
+      "key": "key_9",
       "type": "button",
       "attributes": {
-        "objname": "b9",
+        "objname": "key_9",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -960,16 +960,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -990,16 +990,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"9\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b251",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b251",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1021,16 +1021,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 63488,
         "pco": 65535,
@@ -1057,10 +1057,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1083,7 +1083,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1100,10 +1100,10 @@
       },
       "events": {
         "codesdown": [
-          "click b251,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b251,0"
+          "click back_btn,0"
         ]
       }
     },
@@ -1188,10 +1188,10 @@
       "events": {}
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1213,20 +1213,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1253,10 +1253,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1278,20 +1278,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1318,10 +1318,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1343,20 +1343,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1383,10 +1383,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1408,20 +1408,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 1024,
         "pco": 0,

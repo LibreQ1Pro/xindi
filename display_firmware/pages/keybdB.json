@@ -29,406 +29,406 @@
       "sta": 2,
       "bco": 0,
       "pic": {
-        "$ref": "picture:pic_31"
+        "$ref": "picture:bg_keybdB"
       }
     },
     "events": {
       "codesload": [
-        "cp0.close()",
-        "cp0.write(preview.cp0_text.txt)",
-        "t2.txt=\"\"",
-        "t3.txt=\"\"",
-        "t4.txt=\"\"",
+        "thumb.close()",
+        "thumb.write(preview.cp_data.txt)",
+        "time_elapsed.txt=\"\"",
+        "time_left.txt=\"\"",
+        "file_name.txt=\"\"",
         "if(sys0!=2)",
         "{",
-        "  vis b110,0",
+        "  vis mute_btn,0",
         "}",
-        "if(printing.v999.val==0)",
+        "if(printing.thumb_flag.val==0)",
         "{",
-        "  vis cp0,0",
+        "  vis thumb,0",
         "}else",
         "{",
-        "  vis cp0,1",
+        "  vis thumb,1",
         "}",
         "if(sys0==0)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"喷头\"",
+        "    title.txt=\"喷头\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Экструдер\"",
+        "    title.txt=\"Экструдер\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Extruder\"",
+        "    title.txt=\"Extruder\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"押出機\"",
+        "    title.txt=\"押出機\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Extrudeuse\"",
+        "    title.txt=\"Extrudeuse\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Extruder\"",
+        "    title.txt=\"Extruder\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Estrusore\"",
+        "    title.txt=\"Estrusore\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Extrusor\"",
+        "    title.txt=\"Extrusor\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"엑스트루더\"",
+        "    title.txt=\"엑스트루더\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Extrusora\"",
+        "    title.txt=\"Extrusora\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"مرتع\"",
+        "    title.txt=\"مرتع\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Ekstruder\"",
+        "    title.txt=\"Ekstruder\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"אקסטרודר\"",
+        "    title.txt=\"אקסטרודר\"",
         "  }",
         "}else if(sys0==1)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"热床\"",
+        "    title.txt=\"热床\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Тепловая кровать\"",
+        "    title.txt=\"Тепловая кровать\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Heatbed\"",
+        "    title.txt=\"Heatbed\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"ヒートベッド\"",
+        "    title.txt=\"ヒートベッド\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Lit chauffant\"",
+        "    title.txt=\"Lit chauffant\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Heizbett\"",
+        "    title.txt=\"Heizbett\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Piastra riscaldante\"",
+        "    title.txt=\"Piastra riscaldante\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Cama caliente\"",
+        "    title.txt=\"Cama caliente\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"열 침대\"",
+        "    title.txt=\"열 침대\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Base aquecida\"",
+        "    title.txt=\"Base aquecida\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"سرير الحرارة\"",
+        "    title.txt=\"سرير الحرارة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Isıtma yatağı\"",
+        "    title.txt=\"Isıtma yatağı\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"מיטת חימום\"",
+        "    title.txt=\"מיטת חימום\"",
         "  }",
         "}else if(sys0==2)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"打印速度\"",
+        "    title.txt=\"打印速度\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Скорость печати\"",
+        "    title.txt=\"Скорость печати\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Printing speed\"",
+        "    title.txt=\"Printing speed\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"印刷速度\"",
+        "    title.txt=\"印刷速度\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Vitesse d'impression\"",
+        "    title.txt=\"Vitesse d'impression\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Druckgeschwindigkeit\"",
+        "    title.txt=\"Druckgeschwindigkeit\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Velocità di stampa\"",
+        "    title.txt=\"Velocità di stampa\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Velocidad de impresión\"",
+        "    title.txt=\"Velocidad de impresión\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"인쇄 속도\"",
+        "    title.txt=\"인쇄 속도\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Velocidade de impressão\"",
+        "    title.txt=\"Velocidade de impressão\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"سرعة الطباعة\"",
+        "    title.txt=\"سرعة الطباعة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Baskı hızı\"",
+        "    title.txt=\"Baskı hızı\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"מהירות הדפסה\"",
+        "    title.txt=\"מהירות הדפסה\"",
         "  }",
         "}else if(sys0==3)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"喷头流速\"",
+        "    title.txt=\"喷头流速\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Поток\"",
+        "    title.txt=\"Поток\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Flow\"",
+        "    title.txt=\"Flow\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"フロー\"",
+        "    title.txt=\"フロー\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Débit\"",
+        "    title.txt=\"Débit\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Materialfluss\"",
+        "    title.txt=\"Materialfluss\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Flusso\"",
+        "    title.txt=\"Flusso\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Flujo\"",
+        "    title.txt=\"Flujo\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"흐름\"",
+        "    title.txt=\"흐름\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Fluxo\"",
+        "    title.txt=\"Fluxo\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"تدفق\"",
+        "    title.txt=\"تدفق\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Akış\"",
+        "    title.txt=\"Akış\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"זרימה\"",
+        "    title.txt=\"זרימה\"",
         "  }",
         "}else if(sys0==4)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"冷却风扇\"",
+        "    title.txt=\"冷却风扇\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Охлаждающий вентилятор\"",
+        "    title.txt=\"Охлаждающий вентилятор\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Cooling Fan\"",
+        "    title.txt=\"Cooling Fan\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"冷却ファン\"",
+        "    title.txt=\"冷却ファン\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Ventilateur de refroidissement\"",
+        "    title.txt=\"Ventilateur de refroidissement\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Kühlgebläse\"",
+        "    title.txt=\"Kühlgebläse\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Ventola di raffreddamento\"",
+        "    title.txt=\"Ventola di raffreddamento\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Ventilador de refrigeración\"",
+        "    title.txt=\"Ventilador de refrigeración\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"냉각 팬\"",
+        "    title.txt=\"냉각 팬\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Ventoinha de arrefecimento\"",
+        "    title.txt=\"Ventoinha de arrefecimento\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"مروحة تبريد\"",
+        "    title.txt=\"مروحة تبريد\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Soğutma fani\"",
+        "    title.txt=\"Soğutma fani\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"מעריץ קרירה\"",
+        "    title.txt=\"מעריץ קרירה\"",
         "  }",
         "}else if(sys0==5)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"辅助冷却风扇\"",
+        "    title.txt=\"辅助冷却风扇\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Вспомогательный охлаждающий вентилятор\"",
+        "    title.txt=\"Вспомогательный охлаждающий вентилятор\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Auxiliary Cooling Fan\"",
+        "    title.txt=\"Auxiliary Cooling Fan\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"補助冷却ファン\"",
+        "    title.txt=\"補助冷却ファン\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Ventilateur de refroidissement auxiliaire\"",
+        "    title.txt=\"Ventilateur de refroidissement auxiliaire\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Hilfskühlgebläse\"",
+        "    title.txt=\"Hilfskühlgebläse\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Ventola di raffreddamento ausiliaria\"",
+        "    title.txt=\"Ventola di raffreddamento ausiliaria\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Ventilador de refrigeración auxiliar\"",
+        "    title.txt=\"Ventilador de refrigeración auxiliar\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"보조 냉각팬\"",
+        "    title.txt=\"보조 냉각팬\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Ventilador auxiliar de resfriamento\"",
+        "    title.txt=\"Ventilador auxiliar de resfriamento\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"مروحة تبريد مساعدة\"",
+        "    title.txt=\"مروحة تبريد مساعدة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Yardımcı soğutma fanı\"",
+        "    title.txt=\"Yardımcı soğutma fanı\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"מאוורר קירור עזר\"",
+        "    title.txt=\"מאוורר קירור עזר\"",
         "  }",
         "}else if(sys0==6)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"腔室循环风扇\"",
+        "    title.txt=\"腔室循环风扇\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\" циркуляция воздуха Вентилятор\"",
+        "    title.txt=\" циркуляция воздуха Вентилятор\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Chamber Circulation Fan\"",
+        "    title.txt=\"Chamber Circulation Fan\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"庫内循環ファン\"",
+        "    title.txt=\"庫内循環ファン\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Ventilateur de circulation de la chambre\"",
+        "    title.txt=\"Ventilateur de circulation de la chambre\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Kammerumlaufgebläse\"",
+        "    title.txt=\"Kammerumlaufgebläse\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Ventilatore di circolazione della camera\"",
+        "    title.txt=\"Ventilatore di circolazione della camera\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Ventilador de circulación de la cámara\"",
+        "    title.txt=\"Ventilador de circulación de la cámara\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"챔버 순환 팬\"",
+        "    title.txt=\"챔버 순환 팬\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Ventilador de circulação de câmara\"",
+        "    title.txt=\"Ventilador de circulação de câmara\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"مروحة تداول الغرفة\"",
+        "    title.txt=\"مروحة تداول الغرفة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Oda sirkülasyon fanı\"",
+        "    title.txt=\"Oda sirkülasyon fanı\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"מאוורר מחזור תא\"",
+        "    title.txt=\"מאוורר מחזור תא\"",
         "  }",
         "}else if(sys0==7)",
         "{",
         "  if(lang==0)",
         "  {",
-        "    t100.txt=\"热腔\"",
+        "    title.txt=\"热腔\"",
         "  }else if(lang==1)",
         "  {",
-        "    t100.txt=\"Тепловая камера\"",
+        "    title.txt=\"Тепловая камера\"",
         "  }else if(lang==2)",
         "  {",
-        "    t100.txt=\"Heat Chamber\"",
+        "    title.txt=\"Heat Chamber\"",
         "  }else if(lang==3)",
         "  {",
-        "    t100.txt=\"ヒートチャンバー\"",
+        "    title.txt=\"ヒートチャンバー\"",
         "  }else if(lang==4)",
         "  {",
-        "    t100.txt=\"Chambre thermique\"",
+        "    title.txt=\"Chambre thermique\"",
         "  }else if(lang==5)",
         "  {",
-        "    t100.txt=\"Wärmekammer\"",
+        "    title.txt=\"Wärmekammer\"",
         "  }else if(lang==6)",
         "  {",
-        "    t100.txt=\"Camera di riscaldamento\"",
+        "    title.txt=\"Camera di riscaldamento\"",
         "  }else if(lang==7)",
         "  {",
-        "    t100.txt=\"Cámara de calor\"",
+        "    title.txt=\"Cámara de calor\"",
         "  }else if(lang==8)",
         "  {",
-        "    t100.txt=\"열 챔버\"",
+        "    title.txt=\"열 챔버\"",
         "  }else if(lang==9)",
         "  {",
-        "    t100.txt=\"Câmara de aquecimento\"",
+        "    title.txt=\"Câmara de aquecimento\"",
         "  }else if(lang==10)",
         "  {",
-        "    t100.txt=\"غرفة الحرارة\"",
+        "    title.txt=\"غرفة الحرارة\"",
         "  }else if(lang==11)",
         "  {",
-        "    t100.txt=\"Isı Odası\"",
+        "    title.txt=\"Isı Odası\"",
         "  }else if(lang==12)",
         "  {",
-        "    t100.txt=\"חדר חימום\"",
+        "    title.txt=\"חדר חימום\"",
         "  }",
         "}",
         "input.txt=\"\"",
-        "show.txt=\"\"",
+        "input_show.txt=\"\"",
         "inputlenth.val=3",
         "if(lang==0)",
         "{",
-        "  b110.txt=\"静音\"",
+        "  mute_btn.txt=\"静音\"",
         "}else if(lang==1)",
         "{",
-        "  b110.txt=\"Молчание\"",
+        "  mute_btn.txt=\"Молчание\"",
         "}else if(lang==2)",
         "{",
-        "  b110.txt=\"Mute\"",
+        "  mute_btn.txt=\"Mute\"",
         "}else if(lang==3)",
         "{",
-        "  b110.txt=\"サイレント\"",
+        "  mute_btn.txt=\"サイレント\"",
         "}else if(lang==4)",
         "{",
-        "  b110.txt=\"Silencieux\"",
+        "  mute_btn.txt=\"Silencieux\"",
         "}else if(lang==5)",
         "{",
-        "  b110.txt=\"Stumm schalten\"",
+        "  mute_btn.txt=\"Stumm schalten\"",
         "}else if(lang==6)",
         "{",
-        "  b110.txt=\"Silenzio\"",
+        "  mute_btn.txt=\"Silenzio\"",
         "}else if(lang==7)",
         "{",
-        "  b110.txt=\"Silencioso\"",
+        "  mute_btn.txt=\"Silencioso\"",
         "}else if(lang==8)",
         "{",
-        "  b110.txt=\"침묵의\"",
+        "  mute_btn.txt=\"침묵의\"",
         "}else if(lang==9)",
         "{",
-        "  b110.txt=\"Silenciar\"",
+        "  mute_btn.txt=\"Silenciar\"",
         "}else if(lang==10)",
         "{",
-        "  b110.txt=\"صامت\"",
+        "  mute_btn.txt=\"صامت\"",
         "}else if(lang==11)",
         "{",
-        "  b110.txt=\"Sessiz ol\"",
+        "  mute_btn.txt=\"Sessiz ol\"",
         "}else if(lang==12)",
         "{",
-        "  b110.txt=\"שקט\"",
+        "  mute_btn.txt=\"שקט\"",
         "}"
       ],
       "codesloadend": [],
@@ -439,10 +439,10 @@
   },
   "objects": [
     {
-      "key": "b100",
+      "key": "key_0",
       "type": "button",
       "attributes": {
-        "objname": "b100",
+        "objname": "key_0",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -464,16 +464,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -494,16 +494,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"0\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "show",
+      "key": "input_show",
       "type": "text",
       "attributes": {
-        "objname": "show",
+        "objname": "input_show",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -526,7 +526,7 @@
         "borderc": 1055,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -547,10 +547,10 @@
       }
     },
     {
-      "key": "b210",
+      "key": "key_ok",
       "type": "button",
       "attributes": {
-        "objname": "b210",
+        "objname": "key_ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -572,16 +572,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -649,59 +649,59 @@
           "  prints 113,1",
           "  prints 20,1",
           "  prints 0,1",
-          "  prints printing.n0.val,2",
+          "  prints printing.nozzle_set.val,2",
           "}else if(1==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 1,1",
-          "  prints printing.n1.val,2",
+          "  prints printing.bed_set.val,2",
           "}else if(2==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 2,1",
-          "  prints printing_2.n2.val,2",
+          "  prints printing_2.speed_val.val,2",
           "}else if(3==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 3,1",
-          "  prints printing_2.n3.val,2",
+          "  prints printing_2.flow_val.val,2",
           "}else if(4==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 4,1",
-          "  prints printing.n4.val,2",
+          "  prints printing.fan1_val.val,2",
           "}else if(5==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 5,1",
-          "  prints printing.n5.val,2",
+          "  prints printing.fan2_val.val,2",
           "}else if(6==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 6,1",
-          "  prints printing.n6.val,2",
+          "  prints printing.fan3_val.val,2",
           "}else if(7==sys0)",
           "{",
           "  prints 113,1",
           "  prints 20,1",
           "  prints 7,1",
-          "  prints printing.n2.val,2",
+          "  prints printing.chamber_set.val,2",
           "}",
           "page loadpageid.val"
         ]
       }
     },
     {
-      "key": "b101",
+      "key": "key_1",
       "type": "button",
       "attributes": {
-        "objname": "b101",
+        "objname": "key_1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -723,16 +723,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -753,16 +753,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"1\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b102",
+      "key": "key_2",
       "type": "button",
       "attributes": {
-        "objname": "b102",
+        "objname": "key_2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -784,16 +784,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -814,16 +814,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"2\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b103",
+      "key": "key_3",
       "type": "button",
       "attributes": {
-        "objname": "b103",
+        "objname": "key_3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -845,16 +845,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -875,16 +875,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"3\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b104",
+      "key": "key_4",
       "type": "button",
       "attributes": {
-        "objname": "b104",
+        "objname": "key_4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -906,16 +906,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -936,16 +936,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"4\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b105",
+      "key": "key_5",
       "type": "button",
       "attributes": {
-        "objname": "b105",
+        "objname": "key_5",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -967,16 +967,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -997,16 +997,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"5\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b106",
+      "key": "key_6",
       "type": "button",
       "attributes": {
-        "objname": "b106",
+        "objname": "key_6",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1028,16 +1028,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -1058,16 +1058,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"6\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b107",
+      "key": "key_7",
       "type": "button",
       "attributes": {
-        "objname": "b107",
+        "objname": "key_7",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1089,16 +1089,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -1119,16 +1119,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"7\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b108",
+      "key": "key_8",
       "type": "button",
       "attributes": {
-        "objname": "b108",
+        "objname": "key_8",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1150,16 +1150,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -1180,16 +1180,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"8\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b200",
+      "key": "key_del",
       "type": "button",
       "attributes": {
-        "objname": "b200",
+        "objname": "key_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1211,16 +1211,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -1238,15 +1238,15 @@
         "codesdown": [],
         "codesup": [
           "input.txt-=1",
-          "show.txt=input.txt"
+          "input_show.txt=input.txt"
         ]
       }
     },
     {
-      "key": "b109",
+      "key": "key_9",
       "type": "button",
       "attributes": {
-        "objname": "b109",
+        "objname": "key_9",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1268,16 +1268,16 @@
         "borderc": 7583,
         "borderw": 1,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 32799,
         "pco": 65535,
@@ -1298,7 +1298,7 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\"9\"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
@@ -1384,10 +1384,10 @@
       "events": {}
     },
     {
-      "key": "b251",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b251",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1409,16 +1409,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_31"
+          "$ref": "picture:bg_keybdB"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_281"
+          "$ref": "picture:kb_mute_off_press"
         },
         "bco2": 63488,
         "pco": 65535,
@@ -1478,10 +1478,10 @@
       "events": {}
     },
     {
-      "key": "t100",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t100",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1504,7 +1504,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1521,18 +1521,18 @@
       },
       "events": {
         "codesdown": [
-          "click b251,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b251,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "b10",
+      "key": "pause_btn",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "pause_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1554,16 +1554,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_24"
+          "$ref": "picture:bg_printing"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_85"
+          "$ref": "picture:printing_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1590,10 +1590,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "stop_btn",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "stop_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1615,16 +1615,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_24"
+          "$ref": "picture:bg_printing"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_85"
+          "$ref": "picture:printing_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1651,10 +1651,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "time_elapsed",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "time_elapsed",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1677,7 +1677,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1698,10 +1698,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "time_left",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "time_left",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1724,7 +1724,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1745,10 +1745,10 @@
       }
     },
     {
-      "key": "j0",
+      "key": "progress",
       "type": "progress_bar",
       "attributes": {
-        "objname": "j0",
+        "objname": "progress",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1780,10 +1780,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "file_name",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "file_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1806,7 +1806,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1827,10 +1827,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "pct_sign",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "pct_sign",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1853,7 +1853,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1874,10 +1874,10 @@
       }
     },
     {
-      "key": "n7",
+      "key": "progress_pct",
       "type": "number",
       "attributes": {
-        "objname": "n7",
+        "objname": "progress_pct",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1900,7 +1900,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1921,10 +1921,10 @@
       }
     },
     {
-      "key": "cp0",
+      "key": "thumb",
       "type": "col_pic",
       "attributes": {
-        "objname": "cp0",
+        "objname": "thumb",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1967,92 +1967,92 @@
         "codestimer": [
           "if(sys0==2)",
           "{",
-          "  if(b110.picc==${picture:pic_279})",
+          "  if(mute_btn.picc==${picture:kb_mute_on})",
           "  {",
-          "    b101.picc=${picture:pic_279}",
-          "    b101.picc2=${picture:pic_279}",
-          "    b102.picc=${picture:pic_279}",
-          "    b102.picc2=${picture:pic_279}",
-          "    b103.picc=${picture:pic_279}",
-          "    b103.picc2=${picture:pic_279}",
-          "    b104.picc=${picture:pic_279}",
-          "    b104.picc2=${picture:pic_279}",
-          "    b105.picc=${picture:pic_279}",
-          "    b105.picc2=${picture:pic_279}",
-          "    b106.picc=${picture:pic_279}",
-          "    b106.picc2=${picture:pic_279}",
-          "    b107.picc=${picture:pic_279}",
-          "    b107.picc2=${picture:pic_279}",
-          "    b108.picc=${picture:pic_279}",
-          "    b108.picc2=${picture:pic_279}",
-          "    b109.picc=${picture:pic_279}",
-          "    b109.picc2=${picture:pic_279}",
-          "    b100.picc=${picture:pic_279}",
-          "    b100.picc2=${picture:pic_279}",
-          "    b200.picc=${picture:pic_279}",
-          "    b200.picc2=${picture:pic_279}",
-          "    b210.picc=${picture:pic_279}",
-          "    b210.picc2=${picture:pic_279}",
-          "    tsw b101,0",
-          "    tsw b102,0",
-          "    tsw b103,0",
-          "    tsw b104,0",
-          "    tsw b105,0",
-          "    tsw b106,0",
-          "    tsw b107,0",
-          "    tsw b108,0",
-          "    tsw b109,0",
-          "    tsw b100,0",
-          "    tsw b200,0",
-          "    tsw b210,0",
+          "    key_1.picc=${picture:kb_mute_on}",
+          "    key_1.picc2=${picture:kb_mute_on}",
+          "    key_2.picc=${picture:kb_mute_on}",
+          "    key_2.picc2=${picture:kb_mute_on}",
+          "    key_3.picc=${picture:kb_mute_on}",
+          "    key_3.picc2=${picture:kb_mute_on}",
+          "    key_4.picc=${picture:kb_mute_on}",
+          "    key_4.picc2=${picture:kb_mute_on}",
+          "    key_5.picc=${picture:kb_mute_on}",
+          "    key_5.picc2=${picture:kb_mute_on}",
+          "    key_6.picc=${picture:kb_mute_on}",
+          "    key_6.picc2=${picture:kb_mute_on}",
+          "    key_7.picc=${picture:kb_mute_on}",
+          "    key_7.picc2=${picture:kb_mute_on}",
+          "    key_8.picc=${picture:kb_mute_on}",
+          "    key_8.picc2=${picture:kb_mute_on}",
+          "    key_9.picc=${picture:kb_mute_on}",
+          "    key_9.picc2=${picture:kb_mute_on}",
+          "    key_0.picc=${picture:kb_mute_on}",
+          "    key_0.picc2=${picture:kb_mute_on}",
+          "    key_del.picc=${picture:kb_mute_on}",
+          "    key_del.picc2=${picture:kb_mute_on}",
+          "    key_ok.picc=${picture:kb_mute_on}",
+          "    key_ok.picc2=${picture:kb_mute_on}",
+          "    tsw key_1,0",
+          "    tsw key_2,0",
+          "    tsw key_3,0",
+          "    tsw key_4,0",
+          "    tsw key_5,0",
+          "    tsw key_6,0",
+          "    tsw key_7,0",
+          "    tsw key_8,0",
+          "    tsw key_9,0",
+          "    tsw key_0,0",
+          "    tsw key_del,0",
+          "    tsw key_ok,0",
           "  }else",
           "  {",
-          "    b101.picc=${picture:pic_31}",
-          "    b101.picc2=${picture:pic_281}",
-          "    b102.picc=${picture:pic_31}",
-          "    b102.picc2=${picture:pic_281}",
-          "    b103.picc=${picture:pic_31}",
-          "    b103.picc2=${picture:pic_281}",
-          "    b104.picc=${picture:pic_31}",
-          "    b104.picc2=${picture:pic_281}",
-          "    b105.picc=${picture:pic_31}",
-          "    b105.picc2=${picture:pic_281}",
-          "    b106.picc=${picture:pic_31}",
-          "    b106.picc2=${picture:pic_281}",
-          "    b107.picc=${picture:pic_31}",
-          "    b107.picc2=${picture:pic_281}",
-          "    b108.picc=${picture:pic_31}",
-          "    b108.picc2=${picture:pic_281}",
-          "    b109.picc=${picture:pic_31}",
-          "    b109.picc2=${picture:pic_281}",
-          "    b100.picc=${picture:pic_31}",
-          "    b100.picc2=${picture:pic_281}",
-          "    b200.picc=${picture:pic_31}",
-          "    b200.picc2=${picture:pic_281}",
-          "    b210.picc=${picture:pic_31}",
-          "    b210.picc2=${picture:pic_281}",
-          "    tsw b101,1",
-          "    tsw b102,1",
-          "    tsw b103,1",
-          "    tsw b104,1",
-          "    tsw b105,1",
-          "    tsw b106,1",
-          "    tsw b107,1",
-          "    tsw b108,1",
-          "    tsw b109,1",
-          "    tsw b100,1",
-          "    tsw b200,1",
-          "    tsw b210,1",
+          "    key_1.picc=${picture:bg_keybdB}",
+          "    key_1.picc2=${picture:kb_mute_off_press}",
+          "    key_2.picc=${picture:bg_keybdB}",
+          "    key_2.picc2=${picture:kb_mute_off_press}",
+          "    key_3.picc=${picture:bg_keybdB}",
+          "    key_3.picc2=${picture:kb_mute_off_press}",
+          "    key_4.picc=${picture:bg_keybdB}",
+          "    key_4.picc2=${picture:kb_mute_off_press}",
+          "    key_5.picc=${picture:bg_keybdB}",
+          "    key_5.picc2=${picture:kb_mute_off_press}",
+          "    key_6.picc=${picture:bg_keybdB}",
+          "    key_6.picc2=${picture:kb_mute_off_press}",
+          "    key_7.picc=${picture:bg_keybdB}",
+          "    key_7.picc2=${picture:kb_mute_off_press}",
+          "    key_8.picc=${picture:bg_keybdB}",
+          "    key_8.picc2=${picture:kb_mute_off_press}",
+          "    key_9.picc=${picture:bg_keybdB}",
+          "    key_9.picc2=${picture:kb_mute_off_press}",
+          "    key_0.picc=${picture:bg_keybdB}",
+          "    key_0.picc2=${picture:kb_mute_off_press}",
+          "    key_del.picc=${picture:bg_keybdB}",
+          "    key_del.picc2=${picture:kb_mute_off_press}",
+          "    key_ok.picc=${picture:bg_keybdB}",
+          "    key_ok.picc2=${picture:kb_mute_off_press}",
+          "    tsw key_1,1",
+          "    tsw key_2,1",
+          "    tsw key_3,1",
+          "    tsw key_4,1",
+          "    tsw key_5,1",
+          "    tsw key_6,1",
+          "    tsw key_7,1",
+          "    tsw key_8,1",
+          "    tsw key_9,1",
+          "    tsw key_0,1",
+          "    tsw key_del,1",
+          "    tsw key_ok,1",
           "  }",
           "}"
         ]
       }
     },
     {
-      "key": "b110",
+      "key": "mute_btn",
       "type": "button",
       "attributes": {
-        "objname": "b110",
+        "objname": "mute_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2074,16 +2074,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_279"
+          "$ref": "picture:kb_mute_on"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_282"
+          "$ref": "picture:kb_mute_on_press"
         },
         "bco2": 1024,
         "pco": 65535,

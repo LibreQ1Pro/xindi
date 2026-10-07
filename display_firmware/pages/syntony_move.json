@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_40"
+        "$ref": "picture:bg_message"
       }
     },
     "events": {
@@ -37,43 +37,43 @@
         "sleep_counts=0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"正在共振补偿中，请等待......\"",
+        "  msg.txt=\"正在共振补偿中，请等待......\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Формирование ввода \\rработает, пожалуйста, \\rподождите...\"",
+        "  msg.txt=\"Формирование ввода \\rработает, пожалуйста, \\rподождите...\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Input shaping running, \\rplease wait…\"",
+        "  msg.txt=\"Input shaping running, \\rplease wait…\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"インプットシェーピング実行中、お待ちください...\"",
+        "  msg.txt=\"インプットシェーピング実行中、お待ちください...\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Input shaping en cours \\rd'exécution, veuillez \\rpatienter...\"",
+        "  msg.txt=\"Input shaping en cours \\rd'exécution, veuillez \\rpatienter...\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Resonanzkompensation \\rläuft, bitte warten...\"",
+        "  msg.txt=\"Resonanzkompensation \\rläuft, bitte warten...\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Forma degli input in \\resecuzione, attendere…\"",
+        "  msg.txt=\"Forma degli input in \\resecuzione, attendere…\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Cirugía plástica de entrada en funcionamiento, por \\rfavor espere…\"",
+        "  msg.txt=\"Cirugía plástica de entrada en funcionamiento, por \\rfavor espere…\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"입력 셰이퍼 실행 중, 잠시만 기다려주십시오…\"",
+        "  msg.txt=\"입력 셰이퍼 실행 중, 잠시만 기다려주십시오…\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Forma de entrada em \\rexecução, por favor, \\raguarde…\"",
+        "  msg.txt=\"Forma de entrada em \\rexecução, por favor, \\raguarde…\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تشغيل الشكل الحاضر، يرجى الانتظار…\"",
+        "  msg.txt=\"تشغيل الشكل الحاضر، يرجى الانتظار…\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Girdi düzenlemesi çalışıyor, \\rlütfen bekleyin…\"",
+        "  msg.txt=\"Girdi düzenlemesi çalışıyor, \\rlütfen bekleyin…\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"תצורת הקלט מופעלת, אנא המתן…\"",
+        "  msg.txt=\"תצורת הקלט מופעלת, אנא המתן…\"",
         "}"
       ],
       "codesloadend": [],
@@ -86,10 +86,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -112,7 +112,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -133,10 +133,10 @@
       }
     },
     {
-      "key": "tm0",
+      "key": "idle_timer",
       "type": "timer",
       "attributes": {
-        "objname": "tm0",
+        "objname": "idle_timer",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,

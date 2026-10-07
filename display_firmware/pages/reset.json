@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_163"
+        "$ref": "picture:bg_sys_ok"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  b1.txt=\"导出日志\"",
-        "  t1.txt=\"系统信息\"",
+        "  export_logs.txt=\"导出日志\"",
+        "  title.txt=\"系统信息\"",
         "}else if(lang==1)",
         "{",
-        "  b1.txt=\"Экспорт журналов\"",
-        "  t1.txt=\"системное сообщение\"",
+        "  export_logs.txt=\"Экспорт журналов\"",
+        "  title.txt=\"системное сообщение\"",
         "}else if(lang==2)",
         "{",
-        "  b1.txt=\"Exporting logs\"",
-        "  t1.txt=\"System message\"",
+        "  export_logs.txt=\"Exporting logs\"",
+        "  title.txt=\"System message\"",
         "}else if(lang==3)",
         "{",
-        "  b1.txt=\"ログをエクスポートする\"",
-        "  t1.txt=\"システムメッセージ\"",
+        "  export_logs.txt=\"ログをエクスポートする\"",
+        "  title.txt=\"システムメッセージ\"",
         "}else if(lang==4)",
         "{",
-        "  b1.txt=\"Exportation des journaux\"",
-        "  t1.txt=\"Message système\"",
+        "  export_logs.txt=\"Exportation des journaux\"",
+        "  title.txt=\"Message système\"",
         "}else if(lang==5)",
         "{",
-        "  b1.txt=\"Protokolle exportieren\"",
-        "  t1.txt=\"Systemnachricht\"",
+        "  export_logs.txt=\"Protokolle exportieren\"",
+        "  title.txt=\"Systemnachricht\"",
         "}else if(lang==6)",
         "{",
-        "  b1.txt=\"Esporta registro\"",
-        "  t1.txt=\"messaggio di sistema\"",
+        "  export_logs.txt=\"Esporta registro\"",
+        "  title.txt=\"messaggio di sistema\"",
         "}else if(lang==7)",
         "{",
-        "  b1.txt=\"Registro de exportación\"",
-        "  t1.txt=\"Mensaje del sistema\"",
+        "  export_logs.txt=\"Registro de exportación\"",
+        "  title.txt=\"Mensaje del sistema\"",
         "}else if(lang==8)",
         "{",
-        "  b1.txt=\"로그 내보내기\"",
-        "  t1.txt=\"시스템 메시지\"",
+        "  export_logs.txt=\"로그 내보내기\"",
+        "  title.txt=\"시스템 메시지\"",
         "}else if(lang==9)",
         "{",
-        "  b1.txt=\"Log de exportação\"",
-        "  t1.txt=\"mensagem do sistema\"",
+        "  export_logs.txt=\"Log de exportação\"",
+        "  title.txt=\"mensagem do sistema\"",
         "}else if(lang==10)",
         "{",
-        "  b1.txt=\"سجل التصدير\"",
-        "  t1.txt=\"رسالة النظام\"",
+        "  export_logs.txt=\"سجل التصدير\"",
+        "  title.txt=\"رسالة النظام\"",
         "}else if(lang==11)",
         "{",
-        "  b1.txt=\"Günlüğü dışa aktar\"",
-        "  t1.txt=\"sistem mesajı\"",
+        "  export_logs.txt=\"Günlüğü dışa aktar\"",
+        "  title.txt=\"sistem mesajı\"",
         "}else if(lang==12)",
         "{",
-        "  b1.txt=\"יומן ייצוא\"",
-        "  t1.txt=\"הודעת מערכת\"",
+        "  export_logs.txt=\"יומן ייצוא\"",
+        "  title.txt=\"הודעת מערכת\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b2",
+      "key": "restart_klip",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "restart_klip",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_184"
+          "$ref": "picture:sys_ok_export_logs"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_185"
+          "$ref": "picture:sys_ok_export_logs_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "restart_fw",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "restart_fw",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -182,16 +182,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_184"
+          "$ref": "picture:sys_ok_export_logs"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_185"
+          "$ref": "picture:sys_ok_export_logs_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -264,10 +264,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "err_msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "err_msg",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -290,7 +290,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -311,10 +311,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -336,16 +336,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -372,10 +372,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -397,20 +397,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -437,10 +437,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -462,20 +462,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -502,10 +502,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -527,20 +527,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -567,10 +567,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -592,20 +592,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -632,10 +632,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "export_logs",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "export_logs",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -657,16 +657,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_184"
+          "$ref": "picture:sys_ok_export_logs"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_185"
+          "$ref": "picture:sys_ok_export_logs_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -693,10 +693,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -719,7 +719,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -736,10 +736,10 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     }

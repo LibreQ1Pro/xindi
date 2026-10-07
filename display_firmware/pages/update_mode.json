@@ -29,108 +29,108 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_154"
+        "$ref": "picture:bg_update_mode"
       }
     },
     "events": {
       "codesload": [
-        "vis t2,0",
-        "vis t3,0",
+        "vis msg_latest,0",
+        "vis msg_failed,0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"检测更新\"",
-        "  t2.txt=\"已更新至最新版本。\"",
-        "  t3.txt=\"获取在线版本信息失败。\"",
-        "  b1.txt=\"离线更新\"",
-        "  b2.txt=\"在线更新\"",
+        "  title.txt=\"检测更新\"",
+        "  msg_latest.txt=\"已更新至最新版本。\"",
+        "  msg_failed.txt=\"获取在线版本信息失败。\"",
+        "  offline_btn.txt=\"离线更新\"",
+        "  online_btn.txt=\"在线更新\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Проверьте наличие \\rобновлений\"",
-        "  t2.txt=\"Обновлено до последней \\rверсии.\"",
-        "  t3.txt=\"Невозможно получить \\rинформацию об \\rонлайновой версии.\"",
-        "  b1.txt=\"Обновление оффлайн\"",
-        "  b2.txt=\"Обновление онлайн\"",
+        "  title.txt=\"Проверьте наличие \\rобновлений\"",
+        "  msg_latest.txt=\"Обновлено до последней \\rверсии.\"",
+        "  msg_failed.txt=\"Невозможно получить \\rинформацию об \\rонлайновой версии.\"",
+        "  offline_btn.txt=\"Обновление оффлайн\"",
+        "  online_btn.txt=\"Обновление онлайн\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Check for updates\"",
-        "  t2.txt=\"Already updated to the \\rlatest version.\"",
-        "  t3.txt=\"Failed to obtain online \\rversion information.\"",
-        "  b1.txt=\"Offline update\"",
-        "  b2.txt=\"Online update\"",
+        "  title.txt=\"Check for updates\"",
+        "  msg_latest.txt=\"Already updated to the \\rlatest version.\"",
+        "  msg_failed.txt=\"Failed to obtain online \\rversion information.\"",
+        "  offline_btn.txt=\"Offline update\"",
+        "  online_btn.txt=\"Online update\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"アップデートを確認\"",
-        "  t2.txt=\"最新バージョンに更新されました。\"",
-        "  t3.txt=\"オンラインバージョン情報を取得できませんでした。\"",
-        "  b1.txt=\"オフライン更新\"",
-        "  b2.txt=\"オンライン更新\"",
+        "  title.txt=\"アップデートを確認\"",
+        "  msg_latest.txt=\"最新バージョンに更新されました。\"",
+        "  msg_failed.txt=\"オンラインバージョン情報を取得できませんでした。\"",
+        "  offline_btn.txt=\"オフライン更新\"",
+        "  online_btn.txt=\"オンライン更新\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Vérifier les mises à jour\"",
-        "  t2.txt=\"Mise à jour vers la dernière \\rversion.\"",
-        "  t3.txt=\"Impossible d'obtenir les \\rinformations de version \\ren ligne.\"",
-        "  b1.txt=\"Mise à jour hors ligne\"",
-        "  b2.txt=\"Mise à jour en ligne\"",
+        "  title.txt=\"Vérifier les mises à jour\"",
+        "  msg_latest.txt=\"Mise à jour vers la dernière \\rversion.\"",
+        "  msg_failed.txt=\"Impossible d'obtenir les \\rinformations de version \\ren ligne.\"",
+        "  offline_btn.txt=\"Mise à jour hors ligne\"",
+        "  online_btn.txt=\"Mise à jour en ligne\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Auf Updates prüfen\"",
-        "  t2.txt=\"Bereits auf die neueste \\rVersion aktualisiert.\"",
-        "  t3.txt=\"Informationen zur Online-\\rVersion konnten nicht \\rabgerufen werden.\"",
-        "  b1.txt=\"Offline-Aktualisierung\"",
-        "  b2.txt=\"Online-Aktualisierung\"",
+        "  title.txt=\"Auf Updates prüfen\"",
+        "  msg_latest.txt=\"Bereits auf die neueste \\rVersion aktualisiert.\"",
+        "  msg_failed.txt=\"Informationen zur Online-\\rVersion konnten nicht \\rabgerufen werden.\"",
+        "  offline_btn.txt=\"Offline-Aktualisierung\"",
+        "  online_btn.txt=\"Online-Aktualisierung\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Controlla gli aggiornamenti\"",
-        "  t0.font=${font:font_1}",
-        "  t2.txt=\"Aggiornato all'ultima \\rversione.\"",
-        "  t3.txt=\"Impossibile ottenere \\rinformazioni sulla versione online.\"",
-        "  b1.txt=\"Aggiornamento offline\"",
-        "  b2.txt=\"Aggiornamento online\"",
+        "  title.txt=\"Controlla gli aggiornamenti\"",
+        "  title.font=${font:font_small14}",
+        "  msg_latest.txt=\"Aggiornato all'ultima \\rversione.\"",
+        "  msg_failed.txt=\"Impossibile ottenere \\rinformazioni sulla versione online.\"",
+        "  offline_btn.txt=\"Aggiornamento offline\"",
+        "  online_btn.txt=\"Aggiornamento online\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Comprobar actualizaciones\"",
-        "  t0.font=${font:font_1}",
-        "  t2.txt=\"Actualizado a la última \\rversión.\"",
-        "  t3.txt=\"Error al obtener información de versión en línea.\"",
-        "  b1.txt=\"Actualización sin conexión\"",
-        "  b2.txt=\"Actualización en línea\"",
+        "  title.txt=\"Comprobar actualizaciones\"",
+        "  title.font=${font:font_small14}",
+        "  msg_latest.txt=\"Actualizado a la última \\rversión.\"",
+        "  msg_failed.txt=\"Error al obtener información de versión en línea.\"",
+        "  offline_btn.txt=\"Actualización sin conexión\"",
+        "  online_btn.txt=\"Actualización en línea\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"업데이트 확인\"",
-        "  t2.txt=\"최신 버전으로 업데이트되었습니다.\"",
-        "  t3.txt=\"온라인 버전 정보를 가져오지 못했습니다.\"",
-        "  b1.txt=\"오프라인 업데이트\"",
-        "  b2.txt=\"온라인 업데이트\"",
+        "  title.txt=\"업데이트 확인\"",
+        "  msg_latest.txt=\"최신 버전으로 업데이트되었습니다.\"",
+        "  msg_failed.txt=\"온라인 버전 정보를 가져오지 못했습니다.\"",
+        "  offline_btn.txt=\"오프라인 업데이트\"",
+        "  online_btn.txt=\"온라인 업데이트\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Verifique as atualizações\"",
-        "  t0.font=${font:font_1}",
-        "  t2.txt=\"Atualizado para a última \\rversão.\"",
-        "  t3.txt=\"Falha ao obter informações \\rda versão online.\"",
-        "  b1.txt=\"Atualização offline\"",
-        "  b2.txt=\"Atualização online\"",
+        "  title.txt=\"Verifique as atualizações\"",
+        "  title.font=${font:font_small14}",
+        "  msg_latest.txt=\"Atualizado para a última \\rversão.\"",
+        "  msg_failed.txt=\"Falha ao obter informações \\rda versão online.\"",
+        "  offline_btn.txt=\"Atualização offline\"",
+        "  online_btn.txt=\"Atualização online\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تحقق من التحديثات\"",
-        "  t2.txt=\"تم التحديث إلى الإصدار الأحدث.\"",
-        "  t3.txt=\"فشل في الحصول على معلومات الإصدار عبر الإنترنت.\"",
-        "  b1.txt=\"تحديث غير متصل بالإنترنت\"",
-        "  b2.txt=\"تحديث عبر الإنترنت\"",
+        "  title.txt=\"تحقق من التحديثات\"",
+        "  msg_latest.txt=\"تم التحديث إلى الإصدار الأحدث.\"",
+        "  msg_failed.txt=\"فشل في الحصول على معلومات الإصدار عبر الإنترنت.\"",
+        "  offline_btn.txt=\"تحديث غير متصل بالإنترنت\"",
+        "  online_btn.txt=\"تحديث عبر الإنترنت\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Güncellemeleri kontrol et\"",
-        "  t0.font=${font:font_1}",
-        "  t2.txt=\"En son sürüme güncellendi.\"",
-        "  t3.txt=\"Çevrimiçi sürüm bilgisi \\ralınamadı.\"",
-        "  b1.txt=\"Çevrimdışı güncelleme\"",
-        "  b2.txt=\"Çevrimiçi güncelleme\"",
+        "  title.txt=\"Güncellemeleri kontrol et\"",
+        "  title.font=${font:font_small14}",
+        "  msg_latest.txt=\"En son sürüme güncellendi.\"",
+        "  msg_failed.txt=\"Çevrimiçi sürüm bilgisi \\ralınamadı.\"",
+        "  offline_btn.txt=\"Çevrimdışı güncelleme\"",
+        "  online_btn.txt=\"Çevrimiçi güncelleme\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"בדיקת עדכונים\"",
-        "  t2.txt=\"עודכן לגרסה האחרונה.\"",
-        "  t3.txt=\"נכשל בקבלת מידע על גרסה מקוונת.\"",
-        "  b1.txt=\"עדכון לא מקוון\"",
-        "  b2.txt=\"עדכון מקוון\"",
+        "  title.txt=\"בדיקת עדכונים\"",
+        "  msg_latest.txt=\"עודכן לגרסה האחרונה.\"",
+        "  msg_failed.txt=\"נכשל בקבלת מידע על גרסה מקוונת.\"",
+        "  offline_btn.txt=\"עדכון לא מקוון\"",
+        "  online_btn.txt=\"עדכון מקוון\"",
         "}"
       ],
       "codesloadend": [],
@@ -141,10 +141,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "bg_crop1",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "bg_crop1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -162,7 +162,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         }
       },
       "events": {
@@ -171,10 +171,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -196,16 +196,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_154"
+          "$ref": "picture:bg_update_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -232,10 +232,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -257,20 +257,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -297,10 +297,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -322,20 +322,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -362,10 +362,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -387,20 +387,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -427,10 +427,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -452,20 +452,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -492,10 +492,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -518,7 +518,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -535,18 +535,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "q1",
+      "key": "bg_crop2",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q1",
+        "objname": "bg_crop2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -564,7 +564,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         }
       },
       "events": {
@@ -573,10 +573,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "ver_cur",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "ver_cur",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -599,7 +599,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -620,10 +620,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "offline_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "offline_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -645,16 +645,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -681,10 +681,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "online_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "online_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -706,16 +706,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -742,10 +742,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "msg_latest",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "msg_latest",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -768,7 +768,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -789,10 +789,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "msg_failed",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "msg_failed",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -815,7 +815,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

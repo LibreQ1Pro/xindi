@@ -29,89 +29,89 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_7"
+        "$ref": "picture:files_tab_local"
       }
     },
     "events": {
       "codesload": [
-        "vis t0,0",
-        "vis q0,0",
+        "vis empty_msg,0",
+        "vis file1_mark,0",
         "if(lang==0)",
         "{",
-        "  b12.txt=\"本地文件\"",
-        "  b13.txt=\"U盘文件\"",
-        "  t0.txt=\"空\"",
+        "  local_tab.txt=\"本地文件\"",
+        "  usb_tab.txt=\"U盘文件\"",
+        "  empty_msg.txt=\"空\"",
         "}else if(lang==1)",
         "{",
-        "  b12.txt=\"местный\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Пустой\"",
+        "  local_tab.txt=\"местный\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Пустой\"",
         "}else if(lang==2)",
         "{",
-        "  b12.txt=\"Local\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Empty\"",
+        "  local_tab.txt=\"Local\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Empty\"",
         "}else if(lang==3)",
         "{",
-        "  b12.txt=\"ローカル\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"からになる\"",
+        "  local_tab.txt=\"ローカル\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"からになる\"",
         "}else if(lang==4)",
         "{",
-        "  b12.txt=\"Local\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Vide\"",
+        "  local_tab.txt=\"Local\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Vide\"",
         "}else if(lang==5)",
         "{",
-        "  b12.txt=\"Lokal\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Leere\"",
+        "  local_tab.txt=\"Lokal\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Leere\"",
         "}else if(lang==6)",
         "{",
-        "  b12.txt=\"locali\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Non occupato\"",
+        "  local_tab.txt=\"locali\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Non occupato\"",
         "}else if(lang==7)",
         "{",
-        "  b12.txt=\"locales\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Desocupado\"",
+        "  local_tab.txt=\"locales\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Desocupado\"",
         "}else if(lang==8)",
         "{",
-        "  b12.txt=\"로컬\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"비어 있음\"",
+        "  local_tab.txt=\"로컬\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"비어 있음\"",
         "}else if(lang==9)",
         "{",
-        "  b12.txt=\"locais\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Desocupado\"",
+        "  local_tab.txt=\"locais\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Desocupado\"",
         "}else if(lang==10)",
         "{",
-        "  b12.txt=\"المحلية\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"غير مشغولة\"",
+        "  local_tab.txt=\"المحلية\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"غير مشغولة\"",
         "}else if(lang==11)",
         "{",
-        "  b12.txt=\"yerel\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"Boş\"",
+        "  local_tab.txt=\"yerel\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"Boş\"",
         "}else if(lang==12)",
         "{",
-        "  b12.txt=\"מקומיים\"",
-        "  b13.txt=\"USB\"",
-        "  t0.txt=\"ריק\"",
+        "  local_tab.txt=\"מקומיים\"",
+        "  usb_tab.txt=\"USB\"",
+        "  empty_msg.txt=\"ריק\"",
         "}",
-        "t1.txt=\"\"",
-        "b1.picc=${picture:pic_2}",
-        "t2.txt=\"\"",
-        "b2.picc=${picture:pic_2}",
-        "t3.txt=\"\"",
-        "b3.picc=${picture:pic_2}",
-        "t3.txt=\"\"",
-        "b3.picc=${picture:pic_2}",
-        "t4.txt=\"\"",
-        "b4.picc=${picture:pic_2}"
+        "file1_name.txt=\"\"",
+        "file1.picc=${picture:files_tab_usb}",
+        "file2_name.txt=\"\"",
+        "file2.picc=${picture:files_tab_usb}",
+        "file3_name.txt=\"\"",
+        "file3.picc=${picture:files_tab_usb}",
+        "file3_name.txt=\"\"",
+        "file3.picc=${picture:files_tab_usb}",
+        "file4_name.txt=\"\"",
+        "file4.picc=${picture:files_tab_usb}"
       ],
       "codesloadend": [],
       "codesdown": [],
@@ -121,10 +121,10 @@
   },
   "objects": [
     {
-      "key": "b1",
+      "key": "file1",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "file1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -146,16 +146,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -182,10 +182,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "file2",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "file2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -207,16 +207,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -243,10 +243,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "file3",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "file3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -268,16 +268,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -304,10 +304,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "file4",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "file4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -329,16 +329,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -365,10 +365,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "file1_name",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "file1_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -391,7 +391,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -408,18 +408,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click file1,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click file1,0"
         ]
       }
     },
     {
-      "key": "t2",
+      "key": "file2_name",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "file2_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -442,7 +442,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -459,18 +459,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click file2,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click file2,0"
         ]
       }
     },
     {
-      "key": "t3",
+      "key": "file3_name",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "file3_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -493,7 +493,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -510,18 +510,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click file3,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click file3,0"
         ]
       }
     },
     {
-      "key": "t4",
+      "key": "file4_name",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "file4_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -544,7 +544,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -561,18 +561,18 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click file4,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click file4,0"
         ]
       }
     },
     {
-      "key": "b10",
+      "key": "prev",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "prev",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -594,16 +594,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_56"
+          "$ref": "picture:files_dir_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -630,10 +630,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "next",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "next",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -655,16 +655,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_56"
+          "$ref": "picture:files_dir_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -737,10 +737,10 @@
       }
     },
     {
-      "key": "b13",
+      "key": "usb_tab",
       "type": "button",
       "attributes": {
-        "objname": "b13",
+        "objname": "usb_tab",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -762,16 +762,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -798,10 +798,10 @@
       }
     },
     {
-      "key": "b12",
+      "key": "local_tab",
       "type": "button",
       "attributes": {
-        "objname": "b12",
+        "objname": "local_tab",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -823,16 +823,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_33"
+          "$ref": "picture:files_tab_local_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -859,10 +859,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "up_dir",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "up_dir",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -884,16 +884,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_58"
+          "$ref": "picture:files_item_img"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_56"
+          "$ref": "picture:files_dir_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -920,10 +920,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "empty_msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "empty_msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -946,7 +946,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -967,10 +967,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -992,20 +992,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_38"
+          "$ref": "picture:filelist_nav_main_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1032,10 +1032,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1057,20 +1057,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_38"
+          "$ref": "picture:filelist_nav_main_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1097,10 +1097,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1122,20 +1122,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_38"
+          "$ref": "picture:filelist_nav_main_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1162,10 +1162,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1187,20 +1187,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_7"
+          "$ref": "picture:files_tab_local"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_38"
+          "$ref": "picture:filelist_nav_main_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1227,10 +1227,10 @@
       }
     },
     {
-      "key": "exp0",
+      "key": "file1_pic",
       "type": "external_picture",
       "attributes": {
-        "objname": "exp0",
+        "objname": "file1_pic",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1252,18 +1252,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click file1,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click file1,0"
         ]
       }
     },
     {
-      "key": "q0",
+      "key": "file1_mark",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "file1_mark",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1281,23 +1281,23 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_77"
+          "$ref": "picture:filelist_file1_mark"
         }
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click file1,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click file1,0"
         ]
       }
     },
     {
-      "key": "exp1",
+      "key": "file2_pic",
       "type": "external_picture",
       "attributes": {
-        "objname": "exp1",
+        "objname": "file2_pic",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1319,18 +1319,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click file2,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click file2,0"
         ]
       }
     },
     {
-      "key": "exp2",
+      "key": "file3_pic",
       "type": "external_picture",
       "attributes": {
-        "objname": "exp2",
+        "objname": "file3_pic",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1352,18 +1352,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click file3,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click file3,0"
         ]
       }
     },
     {
-      "key": "exp3",
+      "key": "file4_pic",
       "type": "external_picture",
       "attributes": {
-        "objname": "exp3",
+        "objname": "file4_pic",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1385,10 +1385,10 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click file4,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click file4,0"
         ]
       }
     },

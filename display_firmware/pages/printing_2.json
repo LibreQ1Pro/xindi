@@ -29,22 +29,22 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_122"
+        "$ref": "picture:bg_printing_2"
       }
     },
     "events": {
       "codesload": [
-        "cp0.close()",
-        "cp0.write(preview.cp0_text.txt)",
-        "t2.txt=\"\"",
-        "t3.txt=\"\"",
-        "t4.txt=\"\"",
-        "if(printing.v999.val==0)",
+        "thumb.close()",
+        "thumb.write(preview.cp_data.txt)",
+        "time_elapsed.txt=\"\"",
+        "time_left.txt=\"\"",
+        "file_name.txt=\"\"",
+        "if(printing.thumb_flag.val==0)",
         "{",
-        "  vis cp0,0",
+        "  vis thumb,0",
         "}else",
         "{",
-        "  vis cp0,1",
+        "  vis thumb,1",
         "}"
       ],
       "codesloadend": [],
@@ -55,10 +55,10 @@
   },
   "objects": [
     {
-      "key": "b10",
+      "key": "pause_btn",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "pause_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -80,16 +80,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_24"
+          "$ref": "picture:bg_printing"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_85"
+          "$ref": "picture:printing_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -116,10 +116,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "stop_btn",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "stop_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -141,16 +141,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_24"
+          "$ref": "picture:bg_printing"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_85"
+          "$ref": "picture:printing_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -177,10 +177,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "time_elapsed",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "time_elapsed",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -203,7 +203,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -224,10 +224,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "time_left",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "time_left",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -250,7 +250,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -271,10 +271,10 @@
       }
     },
     {
-      "key": "j0",
+      "key": "progress",
       "type": "progress_bar",
       "attributes": {
-        "objname": "j0",
+        "objname": "progress",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -306,10 +306,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "file_name",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "file_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -332,7 +332,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -353,10 +353,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "pct_sign",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "pct_sign",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -379,7 +379,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -400,10 +400,10 @@
       }
     },
     {
-      "key": "n7",
+      "key": "progress_pct",
       "type": "number",
       "attributes": {
-        "objname": "n7",
+        "objname": "progress_pct",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -426,7 +426,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -447,10 +447,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "speed_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "speed_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -472,16 +472,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_217"
+          "$ref": "picture:light_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_216"
+          "$ref": "picture:printing2_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -498,15 +498,15 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "click n2,0"
+          "click speed_val,0"
         ]
       }
     },
     {
-      "key": "n2",
+      "key": "speed_val",
       "type": "number",
       "attributes": {
-        "objname": "n2",
+        "objname": "speed_val",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -529,7 +529,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -546,10 +546,10 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click speed_btn,1"
         ],
         "codesup": [
-          "if(n2.pco!=38066)",
+          "if(speed_val.pco!=38066)",
           "{",
           "  sys0=2",
           "  prints 0x65,1",
@@ -563,10 +563,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "flow_btn",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "flow_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -588,16 +588,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_122"
+          "$ref": "picture:bg_printing_2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_123"
+          "$ref": "picture:printing2_press_on"
         },
         "bco2": 1024,
         "pco": 0,
@@ -614,15 +614,15 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "click n3,0"
+          "click flow_val,0"
         ]
       }
     },
     {
-      "key": "n3",
+      "key": "flow_val",
       "type": "number",
       "attributes": {
-        "objname": "n3",
+        "objname": "flow_val",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -645,7 +645,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -662,7 +662,7 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click flow_btn,1"
         ],
         "codesup": [
           "sys0=3",
@@ -676,10 +676,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "zoffset_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "zoffset_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -701,16 +701,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_122"
+          "$ref": "picture:bg_printing_2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_123"
+          "$ref": "picture:printing2_press_on"
         },
         "bco2": 1024,
         "pco": 0,
@@ -737,10 +737,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "zoffset_val",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "zoffset_val",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -763,7 +763,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -780,18 +780,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click zoffset_btn,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click zoffset_btn,0"
         ]
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -813,16 +813,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_122"
+          "$ref": "picture:bg_printing_2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_123"
+          "$ref": "picture:printing2_press_on"
         },
         "bco2": 1024,
         "pco": 0,
@@ -849,10 +849,10 @@
       }
     },
     {
-      "key": "cp0",
+      "key": "thumb",
       "type": "col_pic",
       "attributes": {
-        "objname": "cp0",
+        "objname": "thumb",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -880,10 +880,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "light_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "light_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -905,16 +905,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_217"
+          "$ref": "picture:light_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_216"
+          "$ref": "picture:printing2_press_off"
         },
         "bco2": 1024,
         "pco": 0,

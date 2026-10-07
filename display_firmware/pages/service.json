@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_135"
+        "$ref": "picture:bg_service"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"售后信息\"",
-        "  q0.picc=${picture:pic_237}",
+        "  title.txt=\"售后信息\"",
+        "  info_pic.picc=${picture:service_info_pic_cn}",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"после продажи\"",
-        "  q0.picc=${picture:pic_241}",
+        "  title.txt=\"после продажи\"",
+        "  info_pic.picc=${picture:service_info_pic_ru}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"After-sales\"",
-        "  q0.picc=${picture:pic_240}",
+        "  title.txt=\"After-sales\"",
+        "  info_pic.picc=${picture:service_info_pic_en}",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"アフターセールス\"",
-        "  q0.picc=${picture:pic_264}",
+        "  title.txt=\"アフターセールス\"",
+        "  info_pic.picc=${picture:service_info_pic_jp}",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Après-vente\"",
-        "  q0.picc=${picture:pic_265}",
+        "  title.txt=\"Après-vente\"",
+        "  info_pic.picc=${picture:service_info_pic_fr}",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"After-Sales\"",
-        "  q0.picc=${picture:pic_266}",
+        "  title.txt=\"After-Sales\"",
+        "  info_pic.picc=${picture:service_info_pic_de}",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Assistenza \\rpost-vendita\"",
-        "  q0.picc=${picture:pic_267}",
+        "  title.txt=\"Assistenza \\rpost-vendita\"",
+        "  info_pic.picc=${picture:service_info_pic_it}",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Post-venta\"",
-        "  q0.picc=${picture:pic_268}",
+        "  title.txt=\"Post-venta\"",
+        "  info_pic.picc=${picture:service_info_pic_es}",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"판매 후\"",
-        "  q0.picc=${picture:pic_269}",
+        "  title.txt=\"판매 후\"",
+        "  info_pic.picc=${picture:service_info_pic_kr}",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Pós-venda\"",
-        "  q0.picc=${picture:pic_270}",
+        "  title.txt=\"Pós-venda\"",
+        "  info_pic.picc=${picture:service_info_pic_pt}",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"خدمة ما بعد البيع\"",
-        "  q0.picc=${picture:pic_271}",
+        "  title.txt=\"خدمة ما بعد البيع\"",
+        "  info_pic.picc=${picture:service_info_pic_ar}",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Satış Sonrası\"",
-        "  q0.picc=${picture:pic_272}",
+        "  title.txt=\"Satış Sonrası\"",
+        "  info_pic.picc=${picture:service_info_pic_tr}",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"שירות לקוחות\"",
-        "  q0.picc=${picture:pic_273}",
+        "  title.txt=\"שירות לקוחות\"",
+        "  info_pic.picc=${picture:service_info_pic_he}",
         "}"
       ],
       "codesloadend": [],
@@ -142,10 +142,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -167,20 +167,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -207,10 +207,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -232,20 +232,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -272,10 +272,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -297,20 +297,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -337,10 +337,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -362,20 +362,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -402,10 +402,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -427,16 +427,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -463,10 +463,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -489,7 +489,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -506,18 +506,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "q0",
+      "key": "info_pic",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "info_pic",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -535,7 +535,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_237"
+          "$ref": "picture:service_info_pic_cn"
         }
       },
       "events": {

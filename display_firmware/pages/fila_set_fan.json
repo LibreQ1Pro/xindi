@@ -29,115 +29,115 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_210"
+        "$ref": "picture:bg_fila_set_fan"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  h0.picc=${picture:pic_6}",
-        "  h1.picc=${picture:pic_6}",
-        "  h2.picc=${picture:pic_6}",
-        "  h0.picc1=${picture:pic_1}",
-        "  h1.picc1=${picture:pic_1}",
-        "  h2.picc1=${picture:pic_1}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_cn}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_cn}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_cn}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_cn}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_cn}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_cn}",
         "}else if(lang==1)",
         "{",
-        "  h0.picc=${picture:pic_13}",
-        "  h1.picc=${picture:pic_13}",
-        "  h2.picc=${picture:pic_13}",
-        "  h0.picc1=${picture:pic_34}",
-        "  h1.picc1=${picture:pic_34}",
-        "  h2.picc1=${picture:pic_34}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_ru}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_ru}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_ru}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ru}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ru}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ru}",
         "}else if(lang==2)",
         "{",
-        "  h0.picc=${picture:pic_49}",
-        "  h1.picc=${picture:pic_49}",
-        "  h2.picc=${picture:pic_49}",
-        "  h0.picc1=${picture:pic_70}",
-        "  h1.picc1=${picture:pic_70}",
-        "  h2.picc1=${picture:pic_70}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_en}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_en}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_en}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_en}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_en}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_en}",
         "}else if(lang==3)",
         "{",
-        "  h0.picc=${picture:pic_186}",
-        "  h1.picc=${picture:pic_186}",
-        "  h2.picc=${picture:pic_186}",
-        "  h0.picc1=${picture:pic_203}",
-        "  h1.picc1=${picture:pic_203}",
-        "  h2.picc1=${picture:pic_203}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_jp}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_jp}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_jp}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_jp}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_jp}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_jp}",
         "}else if(lang==4)",
         "{",
-        "  h0.picc=${picture:pic_206}",
-        "  h1.picc=${picture:pic_206}",
-        "  h2.picc=${picture:pic_206}",
-        "  h0.picc1=${picture:pic_207}",
-        "  h1.picc1=${picture:pic_207}",
-        "  h2.picc1=${picture:pic_207}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_fr}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_fr}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_fr}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_fr}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_fr}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_fr}",
         "}else if(lang==5)",
         "{",
-        "  h0.picc=${picture:pic_208}",
-        "  h1.picc=${picture:pic_208}",
-        "  h2.picc=${picture:pic_208}",
-        "  h0.picc1=${picture:pic_209}",
-        "  h1.picc1=${picture:pic_209}",
-        "  h2.picc1=${picture:pic_209}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_de}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_de}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_de}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_de}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_de}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_de}",
         "}else if(lang==6)",
         "{",
-        "  h0.picc=${picture:pic_90}",
-        "  h1.picc=${picture:pic_90}",
-        "  h2.picc=${picture:pic_90}",
-        "  h0.picc1=${picture:pic_104}",
-        "  h1.picc1=${picture:pic_104}",
-        "  h2.picc1=${picture:pic_104}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_it}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_it}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_it}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_it}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_it}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_it}",
         "}else if(lang==7)",
         "{",
-        "  h0.picc=${picture:pic_245}",
-        "  h1.picc=${picture:pic_245}",
-        "  h2.picc=${picture:pic_245}",
-        "  h0.picc1=${picture:pic_246}",
-        "  h1.picc1=${picture:pic_246}",
-        "  h2.picc1=${picture:pic_246}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_es}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_es}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_es}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_es}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_es}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_es}",
         "}else if(lang==8)",
         "{",
-        "  h0.picc=${picture:pic_247}",
-        "  h1.picc=${picture:pic_247}",
-        "  h2.picc=${picture:pic_247}",
-        "  h0.picc1=${picture:pic_248}",
-        "  h1.picc1=${picture:pic_248}",
-        "  h2.picc1=${picture:pic_248}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_kr}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_kr}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_kr}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_kr}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_kr}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_kr}",
         "}else if(lang==9)",
         "{",
-        "  h0.picc=${picture:pic_249}",
-        "  h1.picc=${picture:pic_249}",
-        "  h2.picc=${picture:pic_249}",
-        "  h0.picc1=${picture:pic_250}",
-        "  h1.picc1=${picture:pic_250}",
-        "  h2.picc1=${picture:pic_250}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_pt}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_pt}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_pt}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_pt}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_pt}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_pt}",
         "}else if(lang==10)",
         "{",
-        "  h0.picc=${picture:pic_251}",
-        "  h1.picc=${picture:pic_251}",
-        "  h2.picc=${picture:pic_251}",
-        "  h0.picc1=${picture:pic_252}",
-        "  h1.picc1=${picture:pic_252}",
-        "  h2.picc1=${picture:pic_252}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_ar}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_ar}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_ar}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ar}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ar}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_ar}",
         "}else if(lang==11)",
         "{",
-        "  h0.picc=${picture:pic_253}",
-        "  h1.picc=${picture:pic_253}",
-        "  h2.picc=${picture:pic_253}",
-        "  h0.picc1=${picture:pic_254}",
-        "  h1.picc1=${picture:pic_254}",
-        "  h2.picc1=${picture:pic_254}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_tr}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_tr}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_tr}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_tr}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_tr}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_tr}",
         "}else if(lang==12)",
         "{",
-        "  h0.picc=${picture:pic_255}",
-        "  h1.picc=${picture:pic_255}",
-        "  h2.picc=${picture:pic_255}",
-        "  h0.picc1=${picture:pic_256}",
-        "  h1.picc1=${picture:pic_256}",
-        "  h2.picc1=${picture:pic_256}",
+        "  fan1_slider.picc=${picture:fila_set_fan_fan1_slider_he}",
+        "  fan2_slider.picc=${picture:fila_set_fan_fan1_slider_he}",
+        "  fan3_slider.picc=${picture:fila_set_fan_fan1_slider_he}",
+        "  fan1_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_he}",
+        "  fan2_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_he}",
+        "  fan3_slider.picc1=${picture:fila_set_fan_fan1_slider_fg_he}",
         "}"
       ],
       "codesloadend": [],
@@ -194,10 +194,10 @@
       }
     },
     {
-      "key": "h0",
+      "key": "fan1_slider",
       "type": "slider",
       "attributes": {
-        "objname": "h0",
+        "objname": "fan1_slider",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -222,16 +222,16 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_6"
+          "$ref": "picture:fila_set_fan_fan1_slider_cn"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:pic_1"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
         },
         "bco1": 64235,
         "pic2": {
-          "$ref": "picture:pic_10"
+          "$ref": "picture:bg_logo"
         },
         "pco": 65535,
         "val": 0,
@@ -252,16 +252,16 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints h0.val,2"
+          "prints fan1_slider.val,2"
         ],
         "codesslide": []
       }
     },
     {
-      "key": "h1",
+      "key": "fan2_slider",
       "type": "slider",
       "attributes": {
-        "objname": "h1",
+        "objname": "fan2_slider",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -286,16 +286,16 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_6"
+          "$ref": "picture:fila_set_fan_fan1_slider_cn"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:pic_1"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
         },
         "bco1": 64235,
         "pic2": {
-          "$ref": "picture:pic_106"
+          "$ref": "picture:fila_set_fan_fan2_slider_press"
         },
         "pco": 16384,
         "val": 0,
@@ -316,16 +316,16 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints h1.val,2"
+          "prints fan2_slider.val,2"
         ],
         "codesslide": []
       }
     },
     {
-      "key": "h2",
+      "key": "fan3_slider",
       "type": "slider",
       "attributes": {
-        "objname": "h2",
+        "objname": "fan3_slider",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -350,12 +350,12 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_6"
+          "$ref": "picture:fila_set_fan_fan1_slider_cn"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:pic_1"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
         },
         "bco1": 64235,
         "pic2": 65535,
@@ -378,16 +378,16 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints h2.val,2"
+          "prints fan3_slider.val,2"
         ],
         "codesslide": []
       }
     },
     {
-      "key": "n0",
+      "key": "fan1_val",
       "type": "number",
       "attributes": {
-        "objname": "n0",
+        "objname": "fan1_val",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -410,7 +410,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -431,10 +431,10 @@
       }
     },
     {
-      "key": "n1",
+      "key": "fan2_val",
       "type": "number",
       "attributes": {
-        "objname": "n1",
+        "objname": "fan2_val",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -457,7 +457,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -478,10 +478,10 @@
       }
     },
     {
-      "key": "n2",
+      "key": "fan3_val",
       "type": "number",
       "attributes": {
-        "objname": "n2",
+        "objname": "fan3_val",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -504,7 +504,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -525,10 +525,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "fan1_toggle",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "fan1_toggle",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -550,16 +550,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_213"
+          "$ref": "picture:fan_row_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_211"
+          "$ref": "picture:fan_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -579,8 +579,8 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "output.val=n0.val-10",
-          "if(n0.val==0)",
+          "output.val=fan1_val.val-10",
+          "if(fan1_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
@@ -592,10 +592,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "fan2_toggle",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "fan2_toggle",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -617,16 +617,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_213"
+          "$ref": "picture:fan_row_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -646,8 +646,8 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "output.val=n1.val-10",
-          "if(n1.val==0)",
+          "output.val=fan2_val.val-10",
+          "if(fan2_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
@@ -659,10 +659,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "fan3_toggle",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "fan3_toggle",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -684,16 +684,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_213"
+          "$ref": "picture:fan_row_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -713,8 +713,8 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "output.val=n2.val-10",
-          "if(n2.val==0)",
+          "output.val=fan3_val.val-10",
+          "if(fan3_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
@@ -726,10 +726,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "fan1_inc",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "fan1_inc",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -751,16 +751,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -780,12 +780,12 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "if(n0.val==0)",
+          "if(fan1_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
           "{",
-          "  output.val=n0.val+10",
+          "  output.val=fan1_val.val+10",
           "  if(output.val>100)",
           "  {",
           "    output.val=100",
@@ -796,10 +796,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "fan2_inc",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "fan2_inc",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -821,16 +821,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -850,12 +850,12 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "if(n1.val==0)",
+          "if(fan2_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
           "{",
-          "  output.val=n1.val+10",
+          "  output.val=fan2_val.val+10",
           "  if(output.val>100)",
           "  {",
           "    output.val=100",
@@ -866,10 +866,10 @@
       }
     },
     {
-      "key": "b5",
+      "key": "fan3_inc",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "fan3_inc",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -891,16 +891,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -920,12 +920,12 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "if(n2.val==0)",
+          "if(fan3_val.val==0)",
           "{",
           "  output.val=100",
           "}else",
           "{",
-          "  output.val=n2.val+10",
+          "  output.val=fan3_val.val+10",
           "  if(output.val>100)",
           "  {",
           "    output.val=100",
@@ -936,10 +936,10 @@
       }
     },
     {
-      "key": "b251",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b251",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -961,16 +961,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_137"
+          "$ref": "picture:bg_filament_kb"
         },
         "bco": 14823,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_78"
+          "$ref": "picture:fila_set_fan_back_btn_press"
         },
         "bco2": 63488,
         "pco": 65535,
@@ -997,10 +997,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1022,20 +1022,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1062,10 +1062,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1087,20 +1087,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1127,10 +1127,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1152,20 +1152,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1192,10 +1192,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1217,20 +1217,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_153"
+          "$ref": "picture:fila_set_fan_fan1_inc"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_152"
+          "$ref": "picture:fila_set_fan_fan2_toggle_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1273,10 +1273,10 @@
       "events": {}
     },
     {
-      "key": "b6",
+      "key": "fan1_p20",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "fan1_p20",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1298,7 +1298,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1328,10 +1328,10 @@
       }
     },
     {
-      "key": "b7",
+      "key": "fan1_p40",
       "type": "button",
       "attributes": {
-        "objname": "b7",
+        "objname": "fan1_p40",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1353,7 +1353,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1383,10 +1383,10 @@
       }
     },
     {
-      "key": "b8",
+      "key": "fan1_p60",
       "type": "button",
       "attributes": {
-        "objname": "b8",
+        "objname": "fan1_p60",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1408,7 +1408,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1438,10 +1438,10 @@
       }
     },
     {
-      "key": "b9",
+      "key": "fan1_p80",
       "type": "button",
       "attributes": {
-        "objname": "b9",
+        "objname": "fan1_p80",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1463,7 +1463,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1493,10 +1493,10 @@
       }
     },
     {
-      "key": "b10",
+      "key": "fan1_p100",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "fan1_p100",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1518,7 +1518,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1548,10 +1548,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "fan2_p100",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "fan2_p100",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1573,7 +1573,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1603,10 +1603,10 @@
       }
     },
     {
-      "key": "b12",
+      "key": "fan2_p80",
       "type": "button",
       "attributes": {
-        "objname": "b12",
+        "objname": "fan2_p80",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1628,7 +1628,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1658,10 +1658,10 @@
       }
     },
     {
-      "key": "b13",
+      "key": "fan2_p60",
       "type": "button",
       "attributes": {
-        "objname": "b13",
+        "objname": "fan2_p60",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1683,7 +1683,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1713,10 +1713,10 @@
       }
     },
     {
-      "key": "b14",
+      "key": "fan2_p40",
       "type": "button",
       "attributes": {
-        "objname": "b14",
+        "objname": "fan2_p40",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1738,7 +1738,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1768,10 +1768,10 @@
       }
     },
     {
-      "key": "b15",
+      "key": "fan2_p20",
       "type": "button",
       "attributes": {
-        "objname": "b15",
+        "objname": "fan2_p20",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1793,7 +1793,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1823,10 +1823,10 @@
       }
     },
     {
-      "key": "b16",
+      "key": "fan3_p100",
       "type": "button",
       "attributes": {
-        "objname": "b16",
+        "objname": "fan3_p100",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1848,7 +1848,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1878,10 +1878,10 @@
       }
     },
     {
-      "key": "b17",
+      "key": "fan3_p80",
       "type": "button",
       "attributes": {
-        "objname": "b17",
+        "objname": "fan3_p80",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1903,7 +1903,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1933,10 +1933,10 @@
       }
     },
     {
-      "key": "b18",
+      "key": "fan3_p60",
       "type": "button",
       "attributes": {
-        "objname": "b18",
+        "objname": "fan3_p60",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1958,7 +1958,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -1988,10 +1988,10 @@
       }
     },
     {
-      "key": "b19",
+      "key": "fan3_p20",
       "type": "button",
       "attributes": {
-        "objname": "b19",
+        "objname": "fan3_p20",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2013,7 +2013,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,
@@ -2043,10 +2043,10 @@
       }
     },
     {
-      "key": "b20",
+      "key": "fan3_p40",
       "type": "button",
       "attributes": {
-        "objname": "b20",
+        "objname": "fan3_p40",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2068,7 +2068,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": 65535,

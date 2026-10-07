@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_10"
+        "$ref": "picture:bg_logo"
       }
     },
     "events": {
@@ -44,10 +44,10 @@
   },
   "objects": [
     {
-      "key": "tm0",
+      "key": "boot_timer",
       "type": "timer",
       "attributes": {
-        "objname": "tm0",
+        "objname": "boot_timer",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,
@@ -57,8 +57,8 @@
       },
       "events": {
         "codestimer": [
-          "va0.val++",
-          "if(va0.val==100)",
+          "boot_count.val++",
+          "if(boot_count.val==100)",
           "{",
           "  page restart",
           "}"
@@ -66,10 +66,10 @@
       }
     },
     {
-      "key": "va0",
+      "key": "boot_count",
       "type": "variable",
       "attributes": {
-        "objname": "va0",
+        "objname": "boot_count",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,

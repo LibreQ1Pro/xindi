@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_96"
+        "$ref": "picture:bg_finish"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"共振补偿完成。\"",
-        "  b0.txt=\"完成\"",
+        "  msg.txt=\"共振补偿完成。\"",
+        "  ok.txt=\"完成\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Формирование ввода \\rзавершен.\"",
-        "  b0.txt=\"Завершено\"",
+        "  msg.txt=\"Формирование ввода \\rзавершен.\"",
+        "  ok.txt=\"Завершено\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Input Shaping Completed.\"",
-        "  b0.txt=\"Completed\"",
+        "  msg.txt=\"Input Shaping Completed.\"",
+        "  ok.txt=\"Completed\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"インプットシェーピング完成。\"",
-        "  b0.txt=\"完成\"",
+        "  msg.txt=\"インプットシェーピング完成。\"",
+        "  ok.txt=\"完成\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Input Shaping Terminé.\"",
-        "  b0.txt=\"Complété\"",
+        "  msg.txt=\"Input Shaping Terminé.\"",
+        "  ok.txt=\"Complété\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Resonanzkompensation \\rabgeschlossen.\"",
-        "  b0.txt=\"Fertig\"",
+        "  msg.txt=\"Resonanzkompensation \\rabgeschlossen.\"",
+        "  ok.txt=\"Fertig\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Forma degli input \\rcompletata.\"",
-        "  b0.txt=\"Completato\"",
+        "  msg.txt=\"Forma degli input \\rcompletata.\"",
+        "  ok.txt=\"Completato\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Cirugía plástica de \\rentrada completada.\"",
-        "  b0.txt=\"Completado\"",
+        "  msg.txt=\"Cirugía plástica de \\rentrada completada.\"",
+        "  ok.txt=\"Completado\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"입력 셰이퍼 완료.\"",
-        "  b0.txt=\"마치다\"",
+        "  msg.txt=\"입력 셰이퍼 완료.\"",
+        "  ok.txt=\"마치다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Forma de entrada \\rconcluído.\"",
-        "  b0.txt=\"Concluído\"",
+        "  msg.txt=\"Forma de entrada \\rconcluído.\"",
+        "  ok.txt=\"Concluído\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"اكتمل الشكل الحاضر، .\"",
-        "  b0.txt=\"منجز\"",
+        "  msg.txt=\"اكتمل الشكل الحاضر، .\"",
+        "  ok.txt=\"منجز\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Girdi düzenlemesi \\rtamamlandı.\"",
-        "  b0.txt=\"Tamamlandı\"",
+        "  msg.txt=\"Girdi düzenlemesi \\rtamamlandı.\"",
+        "  ok.txt=\"Tamamlandı\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"תצורת הקלט הושלמה.\"",
-        "  b0.txt=\"הושלם\"",
+        "  msg.txt=\"תצורת הקלט הושלמה.\"",
+        "  ok.txt=\"הושלם\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -122,7 +122,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -143,10 +143,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -168,16 +168,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_96"
+          "$ref": "picture:bg_finish"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_97"
+          "$ref": "picture:finish_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,

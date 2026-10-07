@@ -40,70 +40,70 @@
         "prints 0xff,1",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"检测到上次打印中断，是否继续打印？\"",
-        "  b1.txt=\"否\"",
-        "  b0.txt=\"是\"",
+        "  msg.txt=\"检测到上次打印中断，是否继续打印？\"",
+        "  cancel.txt=\"否\"",
+        "  ok.txt=\"是\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Обнаружено прерывание \\rпечати в прошлый раз, \\rпродолжить печать?\"",
-        "  b1.txt=\"Отмена\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b0.font=${font:font_1}",
+        "  msg.txt=\"Обнаружено прерывание \\rпечати в прошлый раз, \\rпродолжить печать?\"",
+        "  cancel.txt=\"Отмена\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  ok.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Print was interrupted last \\rtime, continue printing?\"",
-        "  b1.txt=\"Cancel\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Print was interrupted last \\rtime, continue printing?\"",
+        "  cancel.txt=\"Cancel\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"前回の印刷が中断されました。印刷を続けますか？\"",
-        "  b1.txt=\"キャンセル\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"前回の印刷が中断されました。印刷を続けますか？\"",
+        "  cancel.txt=\"キャンセル\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"L’impression a été \\rinterrompue la dernière \\rfois, poursuivre \\rl’impression ?\"",
-        "  b1.txt=\"Annuler\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"L’impression a été \\rinterrompue la dernière \\rfois, poursuivre \\rl’impression ?\"",
+        "  cancel.txt=\"Annuler\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Druck wurde das letzte \\rMal unterbrochen, Druck \\rfortsetzen?\"",
-        "  b1.txt=\"Abbrechen\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Druck wurde das letzte \\rMal unterbrochen, Druck \\rfortsetzen?\"",
+        "  cancel.txt=\"Abbrechen\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Rilevata un'interruzione \\rnell'ultima stampa, si \\rdesidera continuare a \\rstampare?\"",
-        "  b1.txt=\"Conferma\"",
-        "  b0.txt=\"Annulla\"",
+        "  msg.txt=\"Rilevata un'interruzione \\rnell'ultima stampa, si \\rdesidera continuare a \\rstampare?\"",
+        "  cancel.txt=\"Conferma\"",
+        "  ok.txt=\"Annulla\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Se detectó una interrupción en la última impresión, \\r¿continuará la impresión?\"",
-        "  b1.txt=\"Confirmar\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"Se detectó una interrupción en la última impresión, \\r¿continuará la impresión?\"",
+        "  cancel.txt=\"Confirmar\"",
+        "  ok.txt=\"Cancelar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"마지막 인쇄 중단이 감지되었습니다. 계속해서 인쇄하시겠습니까?\"",
-        "  b1.txt=\"확인하다\"",
-        "  b0.txt=\"중지\"",
+        "  msg.txt=\"마지막 인쇄 중단이 감지되었습니다. 계속해서 인쇄하시겠습니까?\"",
+        "  cancel.txt=\"확인하다\"",
+        "  ok.txt=\"중지\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Detectada uma interrupção na última impressão, ela \\rcontinua a imprimir?\"",
-        "  b1.txt=\"Confirmar\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"Detectada uma interrupção na última impressão, ela \\rcontinua a imprimir?\"",
+        "  cancel.txt=\"Confirmar\"",
+        "  ok.txt=\"Cancelar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تم الكشف عن انقطاع في طباعة المرة السابقة، هل ترغب في متابعة الطباعة؟\"",
-        "  b1.txt=\"تأكيد\"",
-        "  b0.txt=\"إلغاء\"",
+        "  msg.txt=\"تم الكشف عن انقطاع في طباعة المرة السابقة، هل ترغب في متابعة الطباعة؟\"",
+        "  cancel.txt=\"تأكيد\"",
+        "  ok.txt=\"إلغاء\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Son baskıda kesinti algılandı, devam edilsin mi?\"",
-        "  b1.txt=\"Onayla\"",
-        "  b0.txt=\"İptal\"",
+        "  msg.txt=\"Son baskıda kesinti algılandı, devam edilsin mi?\"",
+        "  cancel.txt=\"Onayla\"",
+        "  ok.txt=\"İptal\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"זוהתה הפסקה בהדפסה האחרונה, האם להמשיך להדפסה?\"",
-        "  b1.txt=\"אישור\"",
-        "  b0.txt=\"ביטול\"",
+        "  msg.txt=\"זוהתה הפסקה בהדפסה האחרונה, האם להמשיך להדפסה?\"",
+        "  cancel.txt=\"אישור\"",
+        "  ok.txt=\"ביטול\"",
         "}"
       ],
       "codesloadend": [],
@@ -114,10 +114,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "popup_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "popup_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -135,7 +135,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         }
       },
       "events": {
@@ -144,10 +144,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -170,7 +170,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -191,10 +191,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -216,16 +216,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -252,10 +252,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -277,16 +277,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,

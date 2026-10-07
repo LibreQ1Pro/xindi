@@ -29,89 +29,89 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_144"
+        "$ref": "picture:bg_add_account"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"重置密码\"",
-        "  t1.txt=\"密码:\"",
-        "  t2.txt=\"确认密码:\"",
-        "  b3.txt=\"确定\"",
+        "  title.txt=\"重置密码\"",
+        "  pass_lbl.txt=\"密码:\"",
+        "  pass2_lbl.txt=\"确认密码:\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Сбросить пароль\"",
-        "  t1.txt=\"Пароль:\"",
-        "  t2.txt=\"Подтвердить пароль:\"",
-        "  b3.txt=\"Подтвердить\"",
+        "  title.txt=\"Сбросить пароль\"",
+        "  pass_lbl.txt=\"Пароль:\"",
+        "  pass2_lbl.txt=\"Подтвердить пароль:\"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"reset password \"",
-        "  t1.txt=\"password:\"",
-        "  t2.txt=\"Confirm password:\"",
-        "  b3.txt=\"Confirm\"",
+        "  title.txt=\"reset password \"",
+        "  pass_lbl.txt=\"password:\"",
+        "  pass2_lbl.txt=\"Confirm password:\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"パスワードをリセット\"",
-        "  t1.txt=\"パスワード：\"",
-        "  t2.txt=\"パスワードの確認：\"",
-        "  b3.txt=\"確認\"",
+        "  title.txt=\"パスワードをリセット\"",
+        "  pass_lbl.txt=\"パスワード：\"",
+        "  pass2_lbl.txt=\"パスワードの確認：\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Réinitialiser le mot de passe\"",
-        "  t1.txt=\"Mot de passe:\"",
-        "  t2.txt=\"Confirmez votre mot de passe:\"",
-        "  b3.txt=\"Confirmer\"",
+        "  title.txt=\"Réinitialiser le mot de passe\"",
+        "  pass_lbl.txt=\"Mot de passe:\"",
+        "  pass2_lbl.txt=\"Confirmez votre mot de passe:\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Passwort zurücksetzen\"",
-        "  t1.txt=\"Passwort:\"",
-        "  t2.txt=\"Passwort bestätigen:\"",
-        "  b3.txt=\"OK\"",
+        "  title.txt=\"Passwort zurücksetzen\"",
+        "  pass_lbl.txt=\"Passwort:\"",
+        "  pass2_lbl.txt=\"Passwort bestätigen:\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"reimposta password\"",
-        "  t1.txt=\"password:\"",
-        "  t2.txt=\"Conferma password:\"",
-        "  b3.txt=\"Conferma\"",
+        "  title.txt=\"reimposta password\"",
+        "  pass_lbl.txt=\"password:\"",
+        "  pass2_lbl.txt=\"Conferma password:\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Restablecer la contraseña\"",
-        "  t1.txt=\"Contraseña:\"",
-        "  t2.txt=\"Confirme la contraseña:\"",
-        "  b3.txt=\"Confirmar\"",
+        "  title.txt=\"Restablecer la contraseña\"",
+        "  pass_lbl.txt=\"Contraseña:\"",
+        "  pass2_lbl.txt=\"Confirme la contraseña:\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"비밀번호 재설정\"",
-        "  t1.txt=\"암호:\"",
-        "  t2.txt=\"암호 확인:\"",
-        "  b3.txt=\"확인하다\"",
+        "  title.txt=\"비밀번호 재설정\"",
+        "  pass_lbl.txt=\"암호:\"",
+        "  pass2_lbl.txt=\"암호 확인:\"",
+        "  ok.txt=\"확인하다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"repor a senha\"",
-        "  t1.txt=\"senha:\"",
-        "  t2.txt=\"Confirmar a senha:\"",
-        "  b3.txt=\"Confirmar\"",
+        "  title.txt=\"repor a senha\"",
+        "  pass_lbl.txt=\"senha:\"",
+        "  pass2_lbl.txt=\"Confirmar a senha:\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"إعادة تعيين كلمة المرور\"",
-        "  t1.txt=\"كلمة السر\"",
-        "  t2.txt=\"تأكيد كلمة المرور :\"",
-        "  b3.txt=\"تأكيد\"",
+        "  title.txt=\"إعادة تعيين كلمة المرور\"",
+        "  pass_lbl.txt=\"كلمة السر\"",
+        "  pass2_lbl.txt=\"تأكيد كلمة المرور :\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Parola yeniden ayarla\"",
-        "  t1.txt=\"Parola:\"",
-        "  t2.txt=\"Parola doğrula:\"",
-        "  b3.txt=\"Onayla\"",
+        "  title.txt=\"Parola yeniden ayarla\"",
+        "  pass_lbl.txt=\"Parola:\"",
+        "  pass2_lbl.txt=\"Parola doğrula:\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"תחדש סיסמה\"",
-        "  t1.txt=\"סיסמה:\"",
-        "  t2.txt=\"אישור סיסמה:\"",
-        "  b3.txt=\"אישור\"",
+        "  title.txt=\"תחדש סיסמה\"",
+        "  pass_lbl.txt=\"סיסמה:\"",
+        "  pass2_lbl.txt=\"אישור סיסמה:\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -122,10 +122,10 @@
   },
   "objects": [
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -147,20 +147,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -187,10 +187,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -212,20 +212,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -252,10 +252,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -277,20 +277,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -317,10 +317,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -342,20 +342,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -382,10 +382,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -407,16 +407,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -443,10 +443,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -469,7 +469,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -486,18 +486,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "t1",
+      "key": "pass_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "pass_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -520,7 +520,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -541,10 +541,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "pass_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "pass_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -566,16 +566,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -603,10 +603,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "pass2_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "pass2_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -628,16 +628,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -665,10 +665,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "pass2_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "pass2_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -691,7 +691,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -712,10 +712,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -737,16 +737,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_144"
+          "$ref": "picture:bg_add_account"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_145"
+          "$ref": "picture:add_account_user_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,

@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_290"
+        "$ref": "picture:bg_popup_dark"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  b0.txt=\"确定\"",
-        "  t0.txt=\"密码和确认密码未输入。\"",
+        "  ok.txt=\"确定\"",
+        "  msg.txt=\"密码和确认密码未输入。\"",
         "}else if(lang==1)",
         "{",
-        "  b0.txt=\"Подтвердить\"",
-        "  t0.txt=\"Пароль и подтверждение пароля не введены. \"",
+        "  ok.txt=\"Подтвердить\"",
+        "  msg.txt=\"Пароль и подтверждение пароля не введены. \"",
         "}else if(lang==2)",
         "{",
-        "  b0.txt=\"Confirm\"",
-        "  t0.txt=\"    Password and confirm \\rpassword are not entered.\"",
+        "  ok.txt=\"Confirm\"",
+        "  msg.txt=\"    Password and confirm \\rpassword are not entered.\"",
         "}else if(lang==3)",
         "{",
-        "  b0.txt=\"確認\"",
-        "  t0.txt=\"パスワードと確認用パスワードが入力されていません。\"",
+        "  ok.txt=\"確認\"",
+        "  msg.txt=\"パスワードと確認用パスワードが入力されていません。\"",
         "}else if(lang==4)",
         "{",
-        "  b0.txt=\"Confirmer\"",
-        "  t0.txt=\"      Le mot de passe et la \\r   confirmation du mot de \\rpasse n’ont pas été saisis.\"",
+        "  ok.txt=\"Confirmer\"",
+        "  msg.txt=\"      Le mot de passe et la \\r   confirmation du mot de \\rpasse n’ont pas été saisis.\"",
         "}else if(lang==5)",
         "{",
-        "  b0.txt=\"OK\"",
-        "  t0.txt=\"      Das Passwort und die \\rBestätigung des Passworts \\rwurden nicht eingegeben.\"",
+        "  ok.txt=\"OK\"",
+        "  msg.txt=\"      Das Passwort und die \\rBestätigung des Passworts \\rwurden nicht eingegeben.\"",
         "}else if(lang==6)",
         "{",
-        "  b0.txt=\"Conferma\"",
-        "  t0.txt=\"La password e la conferma della password non sono \\rstate inserite.\"",
+        "  ok.txt=\"Conferma\"",
+        "  msg.txt=\"La password e la conferma della password non sono \\rstate inserite.\"",
         "}else if(lang==7)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"La contraseña y la confirmación de la contraseña no \\rhan sido ingresadas.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"La contraseña y la confirmación de la contraseña no \\rhan sido ingresadas.\"",
         "}else if(lang==8)",
         "{",
-        "  b0.txt=\"확실한\"",
-        "  t0.txt=\"암호와 암호 확인이 입력되지 \\r않았습니다.\"",
+        "  ok.txt=\"확실한\"",
+        "  msg.txt=\"암호와 암호 확인이 입력되지 \\r않았습니다.\"",
         "}else if(lang==9)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"A senha e a confirmação da senha não foram inseridas.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"A senha e a confirmação da senha não foram inseridas.\"",
         "}else if(lang==10)",
         "{",
-        "  b0.txt=\"تأكيد\"",
-        "  t0.txt=\"لم يكتمل تعبئة الكلمات \\rالمرور والتأكيد عليها.\"",
+        "  ok.txt=\"تأكيد\"",
+        "  msg.txt=\"لم يكتمل تعبئة الكلمات \\rالمرور والتأكيد عليها.\"",
         "}else if(lang==11)",
         "{",
-        "  b0.txt=\"Onayla\"",
-        "  t0.txt=\"Şifre ve onay şifresi \\rgirilmemiştir.\"",
+        "  ok.txt=\"Onayla\"",
+        "  msg.txt=\"Şifre ve onay şifresi \\rgirilmemiştir.\"",
         "}else if(lang==12)",
         "{",
-        "  b0.txt=\"אישור\"",
-        "  t0.txt=\"סיסמה וסיסמה האשרה \\rלא נכנסו.\"",
+        "  ok.txt=\"אישור\"",
+        "  msg.txt=\"סיסמה וסיסמה האשרה \\rלא נכנסו.\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -183,7 +183,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

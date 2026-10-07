@@ -29,58 +29,58 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_228"
+        "$ref": "picture:main_bg_noimg"
       }
     },
     "events": {
       "codesload": [
-        "n3.val=logo.version.val",
+        "soc_ver.val=logo.version.val",
         "if(logo.version.val==23)",
         "{",
-        "  vis V_check,0",
-        "  vis n3,0",
-        "  vis t1,0",
-        "  vis t2,0",
+        "  vis ver_warning,0",
+        "  vis soc_ver,0",
+        "  vis ui_ver_lbl,0",
+        "  vis soc_ver_lbl,0",
         "}",
         "if(lang==0)",
         "{",
-        "  V_check.txt=\"UI版本与固件不符合，请检查更新或联系售后！\"",
+        "  ver_warning.txt=\"UI版本与固件不符合，请检查更新或联系售后！\"",
         "}else if(lang==1)",
         "{",
-        "  V_check.txt=\"Версия пользовательского интерфейса не соответствует версии прошивки, пожалуйста, проверьте наличие обновлений или свяжитесь с послепродажным обслуживанием!\"",
+        "  ver_warning.txt=\"Версия пользовательского интерфейса не соответствует версии прошивки, пожалуйста, проверьте наличие обновлений или свяжитесь с послепродажным обслуживанием!\"",
         "}else if(lang==2)",
         "{",
-        "  V_check.txt=\"The UI version does not \\rmatch the firmware, please \\rcheck for updates or contact \\rafter-sales!\"",
+        "  ver_warning.txt=\"The UI version does not \\rmatch the firmware, please \\rcheck for updates or contact \\rafter-sales!\"",
         "}else if(lang==3)",
         "{",
-        "  V_check.txt=\"UIバージョンがファームウェアと一致しません。更新を確認するか、アフターサービスにお問い合わせください。\"",
+        "  ver_warning.txt=\"UIバージョンがファームウェアと一致しません。更新を確認するか、アフターサービスにお問い合わせください。\"",
         "}else if(lang==4)",
         "{",
-        "  V_check.txt=\"La version de l'interface \\rutilisateur ne correspond \\rpas à la version du \\rmicrologiciel, veuillez \\rvérifier les mises à jour ou contacter \\rle service après-vente !\"",
+        "  ver_warning.txt=\"La version de l'interface \\rutilisateur ne correspond \\rpas à la version du \\rmicrologiciel, veuillez \\rvérifier les mises à jour ou contacter \\rle service après-vente !\"",
         "}else if(lang==5)",
         "{",
-        "  V_check.txt=\"Die Benutzeroberfläche-\\rVersion stimmt nicht mit der \\rFirmware-Version überein. \\rBitte überprüfen Sie auf \\rUpdates oder kontaktieren \\rSie den Kundendienst!\"",
+        "  ver_warning.txt=\"Die Benutzeroberfläche-\\rVersion stimmt nicht mit der \\rFirmware-Version überein. \\rBitte überprüfen Sie auf \\rUpdates oder kontaktieren \\rSie den Kundendienst!\"",
         "}else if(lang==6)",
         "{",
-        "  V_check.txt=\"La versione dell'interfaccia \\rutente non corrisponde al \\rfirmware, verificare gli \\raggiornamenti o contattare \\ril servizio post-vendita!\"",
+        "  ver_warning.txt=\"La versione dell'interfaccia \\rutente non corrisponde al \\rfirmware, verificare gli \\raggiornamenti o contattare \\ril servizio post-vendita!\"",
         "}else if(lang==7)",
         "{",
-        "  V_check.txt=\"La versión de la interfaz de \\rusuario no coincide con el \\rfirmware, por favor revise \\rlas actualizaciones o \\rcontacte al servicio \\rpostventa.\"",
+        "  ver_warning.txt=\"La versión de la interfaz de \\rusuario no coincide con el \\rfirmware, por favor revise \\rlas actualizaciones o \\rcontacte al servicio \\rpostventa.\"",
         "}else if(lang==8)",
         "{",
-        "  V_check.txt=\"UI 버전이 펌웨어와 일치하지 않습니다. 업데이트를 확인하거나 서비스 센터에 문의하십시오!\"",
+        "  ver_warning.txt=\"UI 버전이 펌웨어와 일치하지 않습니다. 업데이트를 확인하거나 서비스 센터에 문의하십시오!\"",
         "}else if(lang==9)",
         "{",
-        "  V_check.txt=\"A versão da IU não \\rcorresponde ao firmware, \\rpor favor, verifique as \\ratualizações ou entre em \\rcontato com o serviço \\rpós-venda!\"",
+        "  ver_warning.txt=\"A versão da IU não \\rcorresponde ao firmware, \\rpor favor, verifique as \\ratualizações ou entre em \\rcontato com o serviço \\rpós-venda!\"",
         "}else if(lang==10)",
         "{",
-        "  V_check.txt=\"إصدار الواجهة الرسومية غير متطابق مع البرنامج الثابت، يرجى التحقق من التحديثات أو الاتصال بخدمة ما بعد البيع!\"",
+        "  ver_warning.txt=\"إصدار الواجهة الرسومية غير متطابق مع البرنامج الثابت، يرجى التحقق من التحديثات أو الاتصال بخدمة ما بعد البيع!\"",
         "}else if(lang==11)",
         "{",
-        "  V_check.txt=\"Arayüz sürümü firmware ile \\reşleşmiyor, lütfen gü \\rncellemeleri kontrol \\redin veya satış sonrası \\rservisle iletişime geçin!\"",
+        "  ver_warning.txt=\"Arayüz sürümü firmware ile \\reşleşmiyor, lütfen gü \\rncellemeleri kontrol \\redin veya satış sonrası \\rservisle iletişime geçin!\"",
         "}else if(lang==12)",
         "{",
-        "  V_check.txt=\"גרסת הממשק המשתמש אינה תואמת לתוכנה הקיימת, נא לבדוק עדכונים או ליצור קשר עם שירות לקוחות!\"",
+        "  ver_warning.txt=\"גרסת הממשק המשתמש אינה תואמת לתוכנה הקיימת, נא לבדוק עדכונים או ליצור קשר עם שירות לקוחות!\"",
         "}"
       ],
       "codesloadend": [],
@@ -91,10 +91,10 @@
   },
   "objects": [
     {
-      "key": "b4",
+      "key": "bed_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "bed_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -116,16 +116,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -152,10 +152,10 @@
       }
     },
     {
-      "key": "b5",
+      "key": "chamber_btn",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "chamber_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -177,16 +177,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -213,10 +213,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "nozzle_btn",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "nozzle_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -238,16 +238,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -274,10 +274,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "light_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "light_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -299,16 +299,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -335,10 +335,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "beep_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "beep_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -360,16 +360,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -396,10 +396,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "stop_btn",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "stop_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -421,16 +421,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -457,10 +457,10 @@
       }
     },
     {
-      "key": "n0",
+      "key": "nozzle_temp",
       "type": "number",
       "attributes": {
-        "objname": "n0",
+        "objname": "nozzle_temp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -483,7 +483,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_2"
+          "$ref": "font:font_digits24"
         },
         "bco": 65535,
         "picc": 65535,
@@ -500,18 +500,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click nozzle_btn,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click nozzle_btn,0"
         ]
       }
     },
     {
-      "key": "n1",
+      "key": "bed_temp",
       "type": "number",
       "attributes": {
-        "objname": "n1",
+        "objname": "bed_temp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -534,7 +534,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_2"
+          "$ref": "font:font_digits24"
         },
         "bco": 65535,
         "picc": 65535,
@@ -551,10 +551,10 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click bed_btn,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click bed_btn,0"
         ]
       }
     },
@@ -605,10 +605,10 @@
       }
     },
     {
-      "key": "n2",
+      "key": "chamber_temp",
       "type": "number",
       "attributes": {
-        "objname": "n2",
+        "objname": "chamber_temp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -631,7 +631,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_2"
+          "$ref": "font:font_digits24"
         },
         "bco": 65535,
         "picc": 65535,
@@ -648,18 +648,18 @@
       },
       "events": {
         "codesdown": [
-          "click b5,1"
+          "click chamber_btn,1"
         ],
         "codesup": [
-          "click b5,0"
+          "click chamber_btn,0"
         ]
       }
     },
     {
-      "key": "q0",
+      "key": "wifi_icon",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "wifi_icon",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -677,7 +677,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         }
       },
       "events": {
@@ -686,10 +686,10 @@
       }
     },
     {
-      "key": "q1",
+      "key": "usb_icon",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q1",
+        "objname": "usb_icon",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -707,7 +707,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_232"
+          "$ref": "picture:main_off"
         }
       },
       "events": {
@@ -716,10 +716,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -741,20 +741,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_229"
+          "$ref": "picture:main_bg_photo"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -781,10 +781,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -806,20 +806,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_229"
+          "$ref": "picture:main_bg_photo"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -846,10 +846,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -871,20 +871,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_229"
+          "$ref": "picture:main_bg_photo"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -911,10 +911,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -936,20 +936,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_229"
+          "$ref": "picture:main_bg_photo"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -976,10 +976,10 @@
       }
     },
     {
-      "key": "b6",
+      "key": "last_file_btn",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "last_file_btn",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1001,16 +1001,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_229"
+          "$ref": "picture:main_bg_photo"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1037,10 +1037,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "last_file_name",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "last_file_name",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1063,7 +1063,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1080,18 +1080,18 @@
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "click last_file_btn,1"
         ],
         "codesup": [
-          "click b6,0"
+          "click last_file_btn,0"
         ]
       }
     },
     {
-      "key": "cp0",
+      "key": "last_file_pic",
       "type": "col_pic",
       "attributes": {
-        "objname": "cp0",
+        "objname": "last_file_pic",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1115,18 +1115,18 @@
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "click last_file_btn,1"
         ],
         "codesup": [
-          "click b6,0"
+          "click last_file_btn,0"
         ]
       }
     },
     {
-      "key": "V_check",
+      "key": "ver_warning",
       "type": "text",
       "attributes": {
-        "objname": "V_check",
+        "objname": "ver_warning",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -1149,11 +1149,11 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": {
-          "$ref": "picture:pic_65"
+          "$ref": "picture:main_ver_warning"
         },
         "pic": 65535,
         "pco": 63488,
@@ -1172,10 +1172,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "ui_ver_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "ui_ver_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1198,7 +1198,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1219,10 +1219,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "soc_ver_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "soc_ver_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1245,7 +1245,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1266,10 +1266,10 @@
       }
     },
     {
-      "key": "n3",
+      "key": "soc_ver",
       "type": "number",
       "attributes": {
-        "objname": "n3",
+        "objname": "soc_ver",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1292,7 +1292,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

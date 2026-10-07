@@ -29,76 +29,76 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_290"
+        "$ref": "picture:bg_popup_dark"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请求超时, 请检查网络连接。\"",
-        "  b1.txt=\"重试\"",
-        "  b0.txt=\"取消\"",
+        "  msg.txt=\"请求超时, 请检查网络连接。\"",
+        "  retry_btn.txt=\"重试\"",
+        "  cancel.txt=\"取消\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Время ожидания запроса истекло, пожалуйста, \\rпроверьте подключение к сети.\"",
-        "  b1.txt=\"Повторить попытку\" // 还没有可以替换的很短的词语",
-        "  b0.txt=\"Отмена\"",
+        "  msg.txt=\"Время ожидания запроса истекло, пожалуйста, \\rпроверьте подключение к сети.\"",
+        "  retry_btn.txt=\"Повторить попытку\" // 还没有可以替换的很短的词语",
+        "  cancel.txt=\"Отмена\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Request timed out, \\rplease check your \\rnetwork connection.\"",
-        "  b1.txt=\"Retry\"",
-        "  b0.txt=\"Cancel\"",
+        "  msg.txt=\"Request timed out, \\rplease check your \\rnetwork connection.\"",
+        "  retry_btn.txt=\"Retry\"",
+        "  cancel.txt=\"Cancel\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"リクエストがタイムアウトしました。ネットワーク接続を確認してください。\"",
-        "  b1.txt=\"リトライ\"",
-        "  b0.txt=\"キャンセル\"",
+        "  msg.txt=\"リクエストがタイムアウトしました。ネットワーク接続を確認してください。\"",
+        "  retry_btn.txt=\"リトライ\"",
+        "  cancel.txt=\"キャンセル\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"La demande a expiré, veuillez vérifier votre connexion réseau.\"",
-        "  b1.txt=\"Réessaie\"",
-        "  b0.txt=\"Annuler\"",
+        "  msg.txt=\"La demande a expiré, veuillez vérifier votre connexion réseau.\"",
+        "  retry_btn.txt=\"Réessaie\"",
+        "  cancel.txt=\"Annuler\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Die Anfrage timed out, \\rbitte überprüfen Sie Ihre \\rNetzwerkverbindung.\"",
-        "  b1.txt=\"Wiederholen\"",
-        "  b0.txt=\"Abbrechen\"",
+        "  msg.txt=\"Die Anfrage timed out, \\rbitte überprüfen Sie Ihre \\rNetzwerkverbindung.\"",
+        "  retry_btn.txt=\"Wiederholen\"",
+        "  cancel.txt=\"Abbrechen\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"La richiesta è scaduta, \\rper favore verifica la \\rconnessione di rete.\"",
-        "  b1.txt=\"Riprova\"",
-        "  b0.txt=\"Annulla\"",
+        "  msg.txt=\"La richiesta è scaduta, \\rper favore verifica la \\rconnessione di rete.\"",
+        "  retry_btn.txt=\"Riprova\"",
+        "  cancel.txt=\"Annulla\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"La solicitud expiró, por \\rfavor revise su conexión \\rde red.\"",
-        "  b1.txt=\"Reintentar\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"La solicitud expiró, por \\rfavor revise su conexión \\rde red.\"",
+        "  retry_btn.txt=\"Reintentar\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"요청이 시간 초과되었습니다. 네트워크 연결을 확인해 주세요.\"",
-        "  b1.txt=\"다시 해 보다\"",
-        "  b0.txt=\"중지\"",
+        "  msg.txt=\"요청이 시간 초과되었습니다. 네트워크 연결을 확인해 주세요.\"",
+        "  retry_btn.txt=\"다시 해 보다\"",
+        "  cancel.txt=\"중지\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"A solicitação expirou, \\rpor favor verifique sua \\rconexão de rede.\"",
-        "  b1.txt=\"Tentar novamente\"",
-        "  b0.txt=\"Cancelar\"",
+        "  msg.txt=\"A solicitação expirou, \\rpor favor verifique sua \\rconexão de rede.\"",
+        "  retry_btn.txt=\"Tentar novamente\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"انتهت مهلة الطلب، يرجى التحقق من اتصال الشبكة.\"",
-        "  b1.txt=\"أعد المحاولة\"",
-        "  b0.txt=\"إلغاء\"",
+        "  msg.txt=\"انتهت مهلة الطلب، يرجى التحقق من اتصال الشبكة.\"",
+        "  retry_btn.txt=\"أعد المحاولة\"",
+        "  cancel.txt=\"إلغاء\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"İstek zaman aşımına uğradı, lütfen ağ bağlantınızı \\rkontrol edin.\"",
-        "  b1.txt=\"Yeniden dene\"",
-        "  b0.txt=\"İptal\"",
+        "  msg.txt=\"İstek zaman aşımına uğradı, lütfen ağ bağlantınızı \\rkontrol edin.\"",
+        "  retry_btn.txt=\"Yeniden dene\"",
+        "  cancel.txt=\"İptal\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"הבקשה התקלקלה, בבקשה \\rתבדוק את חיבור הרשת.\"",
-        "  b1.txt=\"נסה שוב\"",
-        "  b0.txt=\"ביטול\"",
+        "  msg.txt=\"הבקשה התקלקלה, בבקשה \\rתבדוק את חיבור הרשת.\"",
+        "  retry_btn.txt=\"נסה שוב\"",
+        "  cancel.txt=\"ביטול\"",
         "}"
       ],
       "codesloadend": [],
@@ -109,10 +109,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -135,7 +135,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -156,10 +156,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -181,16 +181,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_202"
+          "$ref": "picture:popup2_press_alt"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -217,10 +217,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "retry_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "retry_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -242,16 +242,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_202"
+          "$ref": "picture:popup2_press_alt"
         },
         "bco2": 1024,
         "pco": 65535,

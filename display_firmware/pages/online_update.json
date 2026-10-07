@@ -29,148 +29,148 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_154"
+        "$ref": "picture:bg_update_mode"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"在线更新\"",
-        "  t3.txt=\"检测到在线更新文件，\\r是否更新？\"",
-        "  b1.txt=\"确定\"",
-        "  b2.txt=\"取消\"",
+        "  title.txt=\"在线更新\"",
+        "  msg.txt=\"检测到在线更新文件，\\r是否更新？\"",
+        "  ok.txt=\"确定\"",
+        "  cancel.txt=\"取消\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Обновление онлайн\"",
-        "  t3.txt=\"Обнаружен файл обновления \\rонлайн, обновить сейчас? \"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"Подтвердить\"",
-        "  b2.txt=\"Отмена\"",
+        "  title.txt=\"Обновление онлайн\"",
+        "  msg.txt=\"Обнаружен файл обновления \\rонлайн, обновить сейчас? \"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"Подтвердить\"",
+        "  cancel.txt=\"Отмена\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Online update\"",
-        "  t3.txt=\"Online update file detected, update now?\"",
-        "  b1.txt=\"Confirm\"",
-        "  b2.txt=\"Cancel\"",
+        "  title.txt=\"Online update\"",
+        "  msg.txt=\"Online update file detected, update now?\"",
+        "  ok.txt=\"Confirm\"",
+        "  cancel.txt=\"Cancel\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"オンライン更新\"",
-        "  t3.txt=\"オンライン更新ファイルが検出されました。更新しましたか？\"",
-        "  b1.txt=\"確認\"",
-        "  b2.txt=\"キャンセル\"",
+        "  title.txt=\"オンライン更新\"",
+        "  msg.txt=\"オンライン更新ファイルが検出されました。更新しましたか？\"",
+        "  ok.txt=\"確認\"",
+        "  cancel.txt=\"キャンセル\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Mise à jour en ligne\"",
-        "  t3.txt=\"Fichier de mise à jour en ligne \\rdétecté, mettre à jour maintenant ?\"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"Confirmer\"",
-        "  b2.txt=\"Annuler\"",
+        "  title.txt=\"Mise à jour en ligne\"",
+        "  msg.txt=\"Fichier de mise à jour en ligne \\rdétecté, mettre à jour maintenant ?\"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"Confirmer\"",
+        "  cancel.txt=\"Annuler\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Online-Aktualisierung\"",
-        "  t3.txt=\"Online-Aktualisierungsdatei erkannt, jetzt aktualisieren?\"",
-        "  b1.txt=\"OK\"",
-        "  b2.txt=\"Abbrechen\"",
+        "  title.txt=\"Online-Aktualisierung\"",
+        "  msg.txt=\"Online-Aktualisierungsdatei erkannt, jetzt aktualisieren?\"",
+        "  ok.txt=\"OK\"",
+        "  cancel.txt=\"Abbrechen\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Aggiornamento online\"",
-        "  t3.txt=\"File di aggiornamento online rilevato, aggiornare ora?\"",
-        "  b1.txt=\"Conferma\"",
-        "  b2.txt=\"Annulla\"",
+        "  title.txt=\"Aggiornamento online\"",
+        "  msg.txt=\"File di aggiornamento online rilevato, aggiornare ora?\"",
+        "  ok.txt=\"Conferma\"",
+        "  cancel.txt=\"Annulla\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Actualización en línea\"",
-        "  t3.txt=\"Se detectó un archivo de actualización en línea, actualizar ahora?\"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"Confirmar\"",
-        "  b2.txt=\"Cancelar\"",
+        "  title.txt=\"Actualización en línea\"",
+        "  msg.txt=\"Se detectó un archivo de actualización en línea, actualizar ahora?\"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"Confirmar\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"온라인 업데이트\"",
-        "  t3.txt=\"온라인 업데이트 파일이 감지되었습니다. 지금 업데이트하시겠습니까?\"",
-        "  b1.txt=\"확실한\"",
-        "  b2.txt=\"중지\"",
+        "  title.txt=\"온라인 업데이트\"",
+        "  msg.txt=\"온라인 업데이트 파일이 감지되었습니다. 지금 업데이트하시겠습니까?\"",
+        "  ok.txt=\"확실한\"",
+        "  cancel.txt=\"중지\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Atualização online\"",
-        "  t3.txt=\"Arquivo de atualização online \\rdetectado, atualizar agora?\"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"Confirmar\"",
-        "  b2.txt=\"Cancelar\"",
+        "  title.txt=\"Atualização online\"",
+        "  msg.txt=\"Arquivo de atualização online \\rdetectado, atualizar agora?\"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"Confirmar\"",
+        "  cancel.txt=\"Cancelar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تحديث عبر الإنترنت\"",
-        "  t3.txt=\"تم الكشف عن ملف التحديث عبر الإنترنت، هل ترغب في التحديث الآن؟\"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"تأكيد\"",
-        "  b2.txt=\"إلغاء\"",
+        "  title.txt=\"تحديث عبر الإنترنت\"",
+        "  msg.txt=\"تم الكشف عن ملف التحديث عبر الإنترنت، هل ترغب في التحديث الآن؟\"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"تأكيد\"",
+        "  cancel.txt=\"إلغاء\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Çevrimiçi güncelleme\"",
-        "  t3.txt=\"Çevrimiçi güncelleme dosyası \\ralgılandı, şimdi güncellensin mi?\"",
-        "  t3.font=${font:font_1}",
-        "  b1.txt=\"Onayla\"",
-        "  b2.txt=\"İptal\"",
+        "  title.txt=\"Çevrimiçi güncelleme\"",
+        "  msg.txt=\"Çevrimiçi güncelleme dosyası \\ralgılandı, şimdi güncellensin mi?\"",
+        "  msg.font=${font:font_small14}",
+        "  ok.txt=\"Onayla\"",
+        "  cancel.txt=\"İptal\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"עדכון מקוון\"",
-        "  t3.txt=\"זוהתה קובץ עדכון מקוון, לעדכון עכשיו?\"",
-        "  b1.txt=\"אישור\"",
-        "  b2.txt=\"ביטול\"",
+        "  title.txt=\"עדכון מקוון\"",
+        "  msg.txt=\"זוהתה קובץ עדכון מקוון, לעדכון עכשיו?\"",
+        "  ok.txt=\"אישור\"",
+        "  cancel.txt=\"ביטול\"",
         "}",
-        "vis t_cn,0",
-        "vis t_ru,0",
-        "vis t_en,0",
-        "vis t_jp,0",
-        "vis t_fr,0",
-        "vis t_gr,0",
-        "vis t_it,0",
-        "vis t_sp,0",
-        "vis t_kr,0",
-        "vis t_pr,0",
-        "vis t_ar,0",
-        "vis t_tr,0",
-        "vis t_hb,0",
+        "vis notes_cn,0",
+        "vis notes_ru,0",
+        "vis notes_en,0",
+        "vis notes_jp,0",
+        "vis notes_fr,0",
+        "vis notes_gr,0",
+        "vis notes_it,0",
+        "vis notes_sp,0",
+        "vis notes_kr,0",
+        "vis notes_pr,0",
+        "vis notes_ar,0",
+        "vis notes_tr,0",
+        "vis notes_hb,0",
         "if(lang==0)",
         "{",
-        "  vis t_cn,1",
+        "  vis notes_cn,1",
         "}else if(lang==1)",
         "{",
-        "  vis t_ru,1",
+        "  vis notes_ru,1",
         "}else if(lang==2)",
         "{",
-        "  vis t_en,1",
+        "  vis notes_en,1",
         "}else if(lang==3)",
         "{",
-        "  vis t_jp,1",
+        "  vis notes_jp,1",
         "}else if(lang==4)",
         "{",
-        "  vis t_fr,1",
+        "  vis notes_fr,1",
         "}else if(lang==5)",
         "{",
-        "  vis t_gr,1",
+        "  vis notes_gr,1",
         "}else if(lang==6)",
         "{",
-        "  vis t_it,1",
+        "  vis notes_it,1",
         "}else if(lang==7)",
         "{",
-        "  vis t_sp,1",
+        "  vis notes_sp,1",
         "}else if(lang==8)",
         "{",
-        "  vis t_kr,1",
+        "  vis notes_kr,1",
         "}else if(lang==9)",
         "{",
-        "  vis t_pr,1",
+        "  vis notes_pr,1",
         "}else if(lang==10)",
         "{",
-        "  vis t_ar,1",
+        "  vis notes_ar,1",
         "}else if(lang==11)",
         "{",
-        "  vis t_tr,1",
+        "  vis notes_tr,1",
         "}else if(lang==12)",
         "{",
-        "  vis t_hb,1",
+        "  vis notes_hb,1",
         "}"
       ],
       "codesloadend": [],
@@ -181,10 +181,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "bg_crop1",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "bg_crop1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -202,7 +202,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         }
       },
       "events": {
@@ -211,10 +211,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -236,16 +236,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_154"
+          "$ref": "picture:bg_update_mode"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -272,10 +272,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -297,20 +297,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -337,10 +337,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -362,20 +362,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -402,10 +402,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -427,20 +427,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -467,10 +467,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -492,20 +492,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -532,10 +532,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -558,7 +558,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -575,18 +575,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "q1",
+      "key": "bg_crop2",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q1",
+        "objname": "bg_crop2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -604,7 +604,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         }
       },
       "events": {
@@ -613,10 +613,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "ver_cur",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "ver_cur",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -639,7 +639,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -660,10 +660,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -685,16 +685,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -721,10 +721,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "cancel",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "cancel",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -746,16 +746,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_119"
+          "$ref": "picture:update_mode_bg_crop1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_67"
+          "$ref": "picture:update_mode_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -782,10 +782,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "ver_new",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "ver_new",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -808,7 +808,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -829,10 +829,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -855,7 +855,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -876,10 +876,10 @@
       }
     },
     {
-      "key": "t_cn",
+      "key": "notes_cn",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_cn",
+        "objname": "notes_cn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -902,7 +902,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -928,10 +928,10 @@
       }
     },
     {
-      "key": "t_ru",
+      "key": "notes_ru",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_ru",
+        "objname": "notes_ru",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -954,7 +954,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -980,10 +980,10 @@
       }
     },
     {
-      "key": "t_en",
+      "key": "notes_en",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_en",
+        "objname": "notes_en",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1006,7 +1006,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1032,10 +1032,10 @@
       }
     },
     {
-      "key": "t_jp",
+      "key": "notes_jp",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_jp",
+        "objname": "notes_jp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1058,7 +1058,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1084,10 +1084,10 @@
       }
     },
     {
-      "key": "t_fr",
+      "key": "notes_fr",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_fr",
+        "objname": "notes_fr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1110,7 +1110,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1136,10 +1136,10 @@
       }
     },
     {
-      "key": "t_gr",
+      "key": "notes_gr",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_gr",
+        "objname": "notes_gr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1162,7 +1162,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1188,10 +1188,10 @@
       }
     },
     {
-      "key": "t_it",
+      "key": "notes_it",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_it",
+        "objname": "notes_it",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1214,7 +1214,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1240,10 +1240,10 @@
       }
     },
     {
-      "key": "t_sp",
+      "key": "notes_sp",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_sp",
+        "objname": "notes_sp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1266,7 +1266,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1292,10 +1292,10 @@
       }
     },
     {
-      "key": "t_kr",
+      "key": "notes_kr",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_kr",
+        "objname": "notes_kr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1318,7 +1318,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1344,10 +1344,10 @@
       }
     },
     {
-      "key": "t_pr",
+      "key": "notes_pr",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_pr",
+        "objname": "notes_pr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1370,7 +1370,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1396,10 +1396,10 @@
       }
     },
     {
-      "key": "t_ar",
+      "key": "notes_ar",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_ar",
+        "objname": "notes_ar",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1422,7 +1422,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1448,10 +1448,10 @@
       }
     },
     {
-      "key": "t_tr",
+      "key": "notes_tr",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_tr",
+        "objname": "notes_tr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1474,7 +1474,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1500,10 +1500,10 @@
       }
     },
     {
-      "key": "t_hb",
+      "key": "notes_hb",
       "type": "sliding_text",
       "attributes": {
-        "objname": "t_hb",
+        "objname": "notes_hb",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1526,7 +1526,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

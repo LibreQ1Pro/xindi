@@ -29,79 +29,79 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_295"
+        "$ref": "picture:popup2_bg"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请确保关闭上盖、前门，建议腔室温度不超过55℃。\"",
-        "  b0.txt=\"确定\"",
-        "  b1.txt=\"不再提示\"",
+        "  msg.txt=\"请确保关闭上盖、前门，建议腔室温度不超过55℃。\"",
+        "  ok.txt=\"确定\"",
+        "  no_more.txt=\"不再提示\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Обязательно закройте \\rверхнюю крышку и \\rпереднюю панель и не \\rустанавливайте температуру в камере выше 55°C.\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b1.txt=\"Больше никаких подсказок\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Обязательно закройте \\rверхнюю крышку и \\rпереднюю панель и не \\rустанавливайте температуру в камере выше 55°C.\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  no_more.txt=\"Больше никаких подсказок\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Please make sure to close \\rthe upper cover and front \\rpanel, and do not set the \\rchamber temperature \\rover 55°C.\"",
-        "  b0.txt=\"Confirm\"",
-        "  b1.txt=\"Don't prompt \\ragain\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Please make sure to close \\rthe upper cover and front \\rpanel, and do not set the \\rchamber temperature \\rover 55°C.\"",
+        "  ok.txt=\"Confirm\"",
+        "  no_more.txt=\"Don't prompt \\ragain\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"上部カバーおよび前面パネルを必ず閉め、庫内温度を55℃以上に設定しないでください。\"",
-        "  b0.txt=\"確認\"",
-        "  b1.txt=\"再プロンプト\"",
+        "  msg.txt=\"上部カバーおよび前面パネルを必ず閉め、庫内温度を55℃以上に設定しないでください。\"",
+        "  ok.txt=\"確認\"",
+        "  no_more.txt=\"再プロンプト\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Assurez-vous de fermer le \\rcouvercle supérieur et le \\rpanneau avant et ne réglez \\rpas la température de \\rla chambre à plus de 55 °C.\"",
-        "  b0.txt=\"Confirmer\"",
-        "  b1.txt=\"Ne plus \\rdemander\"",
+        "  msg.txt=\"Assurez-vous de fermer le \\rcouvercle supérieur et le \\rpanneau avant et ne réglez \\rpas la température de \\rla chambre à plus de 55 °C.\"",
+        "  ok.txt=\"Confirmer\"",
+        "  no_more.txt=\"Ne plus \\rdemander\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Bitte achten Sie darauf, die obere Abdeckung und die \\rFrontplatte zu schließen und die Kammertemperatur \\rnicht über 55 °C einzustellen.\"",
-        "  b0.txt=\"OK\"",
-        "  b1.txt=\"Nicht wieder auffordern\"",
+        "  msg.txt=\"Bitte achten Sie darauf, die obere Abdeckung und die \\rFrontplatte zu schließen und die Kammertemperatur \\rnicht über 55 °C einzustellen.\"",
+        "  ok.txt=\"OK\"",
+        "  no_more.txt=\"Nicht wieder auffordern\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Assicurarsi di chiudere il \\rcoperchio superiore e il \\rpannello anteriore e di non \\rimpostare la temperatura \\rdella camera oltre i 55°C.\"",
-        "  b0.txt=\"Conferma\"",
-        "  b1.txt=\"Niente più \\rsuggerimenti\"",
-        "  b1.font=${font:font_1}",
+        "  msg.txt=\"Assicurarsi di chiudere il \\rcoperchio superiore e il \\rpannello anteriore e di non \\rimpostare la temperatura \\rdella camera oltre i 55°C.\"",
+        "  ok.txt=\"Conferma\"",
+        "  no_more.txt=\"Niente più \\rsuggerimenti\"",
+        "  no_more.font=${font:font_small14}",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Asegúrese de cerrar la \\rcubierta superior y el \\rpanel frontal, y no \\restablezca la temperatura \\rde la cámara por encima \\rde 55°C.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Se acabaron \\rlas propinas\"",
+        "  msg.txt=\"Asegúrese de cerrar la \\rcubierta superior y el \\rpanel frontal, y no \\restablezca la temperatura \\rde la cámara por encima \\rde 55°C.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  no_more.txt=\"Se acabaron \\rlas propinas\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"상단 커버와 전면 패널을 반드시 닫고, 열실 온도를 55°C 이상으로 설정하지 마십시오.\"",
-        "  b0.txt=\"확실한\"",
-        "  b1.txt=\"더 이상 팁이 없습니다\"",
+        "  msg.txt=\"상단 커버와 전면 패널을 반드시 닫고, 열실 온도를 55°C 이상으로 설정하지 마십시오.\"",
+        "  ok.txt=\"확실한\"",
+        "  no_more.txt=\"더 이상 팁이 없습니다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Certifique-se de fechar a \\rtampa superior e o painel \\rfrontal, e não defina a \\rtemperatura da câmara \\racima de 55°C.\"",
-        "  b0.txt=\"Confirmar\"",
-        "  b1.txt=\"Não há \\rmais dicas\"",
+        "  msg.txt=\"Certifique-se de fechar a \\rtampa superior e o painel \\rfrontal, e não defina a \\rtemperatura da câmara \\racima de 55°C.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  no_more.txt=\"Não há \\rmais dicas\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"يرجى التأكد من إغلاق الغطاء العلوي واللوحة الأمامية، وعدم ضبط درجة حرارة الحجرة على أكثر من 55 درجة مئوية.\"",
-        "  b0.txt=\"تأكيد\"",
-        "  b1.txt=\"لا مزيد من النصائح\"",
+        "  msg.txt=\"يرجى التأكد من إغلاق الغطاء العلوي واللوحة الأمامية، وعدم ضبط درجة حرارة الحجرة على أكثر من 55 درجة مئوية.\"",
+        "  ok.txt=\"تأكيد\"",
+        "  no_more.txt=\"لا مزيد من النصائح\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Lütfen üst kapağı ve ön \\rpaneli kapatıldığından ve \\rodanın sıcaklığının 55°C'nin \\rüzerine ayarlanmadığından \\remin olun.\"",
-        "  b0.txt=\"Onayla\"",
-        "  b1.txt=\"Artık bahşiş yok\"",
+        "  msg.txt=\"Lütfen üst kapağı ve ön \\rpaneli kapatıldığından ve \\rodanın sıcaklığının 55°C'nin \\rüzerine ayarlanmadığından \\remin olun.\"",
+        "  ok.txt=\"Onayla\"",
+        "  no_more.txt=\"Artık bahşiş yok\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"נא לוודא שאתה סוגר את הכיסוי העליון ולוח הקידמי, ולא להגדיר טמפרטורת תא החימום מעל 55°C.\"",
-        "  b0.txt=\"אישור\"",
-        "  b1.txt=\"אל תזכיר שוב\"",
+        "  msg.txt=\"נא לוודא שאתה סוגר את הכיסוי העליון ולוח הקידמי, ולא להגדיר טמפרטורת תא החימום מעל 55°C.\"",
+        "  ok.txt=\"אישור\"",
+        "  no_more.txt=\"אל תזכיר שוב\"",
         "}"
       ],
       "codesloadend": [],
@@ -112,10 +112,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -138,7 +138,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -166,10 +166,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "no_more",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "no_more",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -191,16 +191,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -227,10 +227,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -252,16 +252,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_295"
+          "$ref": "picture:popup2_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_297"
+          "$ref": "picture:popup2_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -288,10 +288,10 @@
       }
     },
     {
-      "key": "tm0",
+      "key": "close_timer",
       "type": "timer",
       "attributes": {
-        "objname": "tm0",
+        "objname": "close_timer",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,
@@ -301,8 +301,8 @@
       },
       "events": {
         "codestimer": [
-          "jump_out_count.val++",
-          "if(jump_out_count.val==60)",
+          "idle_count.val++",
+          "if(idle_count.val==60)",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -315,10 +315,10 @@
       }
     },
     {
-      "key": "jump_out_count",
+      "key": "idle_count",
       "type": "variable",
       "attributes": {
-        "objname": "jump_out_count",
+        "objname": "idle_count",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,

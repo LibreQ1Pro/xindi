@@ -29,64 +29,64 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_64"
+        "$ref": "picture:bg_notice"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"内存空间已满，请清理内存。\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"内存空间已满，请清理内存。\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Память заполнена. \\rПожалуйста, очистите \\rпамять.\"",
-        "  b0.txt=\"Подтвердить\"",
-        "  b0.font=${font:font_0}",
+        "  msg.txt=\"Память заполнена. \\rПожалуйста, очистите \\rпамять.\"",
+        "  ok.txt=\"Подтвердить\"",
+        "  ok.font=${font:font_title18}",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Memory space is full. \\rPlease clear the memory.\"",
-        "  b0.txt=\"Confirm\"",
+        "  msg.txt=\"Memory space is full. \\rPlease clear the memory.\"",
+        "  ok.txt=\"Confirm\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"メモリスペースがいっぱいです。メモリをクリアしてください。\"",
-        "  b0.txt=\"確認\"",
+        "  msg.txt=\"メモリスペースがいっぱいです。メモリをクリアしてください。\"",
+        "  ok.txt=\"確認\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"L’espace mémoire est plein. \\rVeuillez vider la mémoire.\"",
-        "  b0.txt=\"Confirmer\"",
+        "  msg.txt=\"L’espace mémoire est plein. \\rVeuillez vider la mémoire.\"",
+        "  ok.txt=\"Confirmer\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Der Speicher ist voll. \\rBitte den Speicher leeren.\"",
-        "  b0.txt=\"OK\"",
+        "  msg.txt=\"Der Speicher ist voll. \\rBitte den Speicher leeren.\"",
+        "  ok.txt=\"OK\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Lo spazio di memoria è \\rpieno. Si prega di liberare \\rla memoria.\"",
-        "  b0.txt=\"Conferma\"",
+        "  msg.txt=\"Lo spazio di memoria è \\rpieno. Si prega di liberare \\rla memoria.\"",
+        "  ok.txt=\"Conferma\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"El espacio de memoria \\restá lleno. Por favor, \\rborre la memoria.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"El espacio de memoria \\restá lleno. Por favor, \\rborre la memoria.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"메모리 공간이 가득 찼습니다. 메모리를 지우십시오.\"",
-        "  b0.txt=\"확실한\"",
+        "  msg.txt=\"메모리 공간이 가득 찼습니다. 메모리를 지우십시오.\"",
+        "  ok.txt=\"확실한\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"O espaço de memória está \\rcheio. Por favor, limpe a \\rmemória.\"",
-        "  b0.txt=\"Confirmar\"",
+        "  msg.txt=\"O espaço de memória está \\rcheio. Por favor, limpe a \\rmemória.\"",
+        "  ok.txt=\"Confirmar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"المساحة الذاكرة ممتلئة. يرجى مسح الذاكرة.\"",
-        "  b0.txt=\"تأكيد\"",
+        "  msg.txt=\"المساحة الذاكرة ممتلئة. يرجى مسح الذاكرة.\"",
+        "  ok.txt=\"تأكيد\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Hafıza alanı dolu. Lütfen \\rhafızayı temizleyin.\"",
-        "  b0.txt=\"Onayla\"",
+        "  msg.txt=\"Hafıza alanı dolu. Lütfen \\rhafızayı temizleyin.\"",
+        "  ok.txt=\"Onayla\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"השטח הנפשם מלא. נא לנקות את הזיכרון.\"",
-        "  b0.txt=\"אישור\"",
+        "  msg.txt=\"השטח הנפשם מלא. נא לנקות את הזיכרון.\"",
+        "  ok.txt=\"אישור\"",
         "}"
       ],
       "codesloadend": [],
@@ -97,10 +97,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -123,7 +123,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -144,10 +144,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -169,16 +169,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_64"
+          "$ref": "picture:bg_notice"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_222"
+          "$ref": "picture:notice_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,

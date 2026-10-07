@@ -29,118 +29,118 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_224"
+        "$ref": "picture:bg_link_login"
       }
     },
     "events": {
       "codesload": [
         "// 扫描二维码登录",
-        "vis gm0,0",
-        "vis b1,0",
-        "vis t1,0",
-        "vis t3,0",
-        "vis t4,0",
-        "vis t5,0",
-        "vis cp0,0",
+        "vis anim,0",
+        "vis qr_btn,0",
+        "vis scan_msg,0",
+        "vis qr_wait,0",
+        "vis qr_old_bg,0",
+        "vis qr_old_msg,0",
+        "vis qr_pic,0",
         "// 登录成功页",
         "// b[0].pic=296",
-        "vis t2,0",
-        "vis t7,0",
-        "vis t6,0",
-        "vis b6,0",
+        "vis user_lbl,0",
+        "vis user_txt,0",
+        "vis logout_lbl,0",
+        "vis logout_btn,0",
         "prints 0xfb,1",
         "prints lang,1",
         "if(lang==0)",
         "{",
-        "  t1.txt=\"扫描二维码，登录\\rQIDI Link账号\"",
-        "  t2.txt=\"用户名:\"",
-        "  t3.txt=\"二维码将在连接网络后刷新。\"",
-        "  t5.txt=\"当前二维码已失效。\"",
-        "  t6.txt=\"退出账号\"",
+        "  scan_msg.txt=\"扫描二维码，登录\\rQIDI Link账号\"",
+        "  user_lbl.txt=\"用户名:\"",
+        "  qr_wait.txt=\"二维码将在连接网络后刷新。\"",
+        "  qr_old_msg.txt=\"当前二维码已失效。\"",
+        "  logout_lbl.txt=\"退出账号\"",
         "}else if(lang==1)",
         "{",
-        "  t1.txt=\"Сканируйте QR - код и войдите в учетную запись QIDI Link\"",
-        "  t2.txt=\"Имя пользователя:\"",
-        "  t3.txt=\"QR - код будет\\rобновлен после\\rподключения к\\rсети.\"",
-        "  t5.txt=\"В настоящее время\\rQR - код не работает\"",
-        "  t6.txt=\"Выйти из аккаунта\"",
+        "  scan_msg.txt=\"Сканируйте QR - код и войдите в учетную запись QIDI Link\"",
+        "  user_lbl.txt=\"Имя пользователя:\"",
+        "  qr_wait.txt=\"QR - код будет\\rобновлен после\\rподключения к\\rсети.\"",
+        "  qr_old_msg.txt=\"В настоящее время\\rQR - код не работает\"",
+        "  logout_lbl.txt=\"Выйти из аккаунта\"",
         "}else if(lang==2)",
         "{",
-        "  t1.txt=\"Scan the QR Code and\\rlog in to your QIDI Link\\rAccount\"",
-        "  t2.txt=\"User Name:\"",
-        "  t3.txt=\"The QR Code will\\rrefresh after\\rconnecting to the\\rNetwork.\"",
-        "  t5.txt=\"The current QR Code\\ris no longer valid.\"",
-        "  t6.txt=\"Exit Account\"",
+        "  scan_msg.txt=\"Scan the QR Code and\\rlog in to your QIDI Link\\rAccount\"",
+        "  user_lbl.txt=\"User Name:\"",
+        "  qr_wait.txt=\"The QR Code will\\rrefresh after\\rconnecting to the\\rNetwork.\"",
+        "  qr_old_msg.txt=\"The current QR Code\\ris no longer valid.\"",
+        "  logout_lbl.txt=\"Exit Account\"",
         "}else if(lang==3)",
         "{",
-        "  t1.txt=\"QRコードをスキャンし、\\rQIDI Linkアカウントにログインする\"",
-        "  t2.txt=\"ユーザー名：\"",
-        "  t3.txt=\"ネットワークに接続すると、QRコードが更新されます。\"",
-        "  t5.txt=\"現在のQRコードは無効です。\"",
-        "  t6.txt=\"アカウントを終了する\"",
+        "  scan_msg.txt=\"QRコードをスキャンし、\\rQIDI Linkアカウントにログインする\"",
+        "  user_lbl.txt=\"ユーザー名：\"",
+        "  qr_wait.txt=\"ネットワークに接続すると、QRコードが更新されます。\"",
+        "  qr_old_msg.txt=\"現在のQRコードは無効です。\"",
+        "  logout_lbl.txt=\"アカウントを終了する\"",
         "}else if(lang==4)",
         "{",
-        "  t1.txt=\"Scannez le Code QR,\\rConnectez - Vous au\\rCompte QIDI Link\"",
-        "  t2.txt=\"Nom d'utilisateur:\"",
-        "  t3.txt=\"Le Code QR Sera\\rrafraîchi après la\\rConnexion au\\rréseau.\"",
-        "  t5.txt=\"Le Code QR Actuel Est Invalide.\"",
-        "  t6.txt=\"Log Out\"",
+        "  scan_msg.txt=\"Scannez le Code QR,\\rConnectez - Vous au\\rCompte QIDI Link\"",
+        "  user_lbl.txt=\"Nom d'utilisateur:\"",
+        "  qr_wait.txt=\"Le Code QR Sera\\rrafraîchi après la\\rConnexion au\\rréseau.\"",
+        "  qr_old_msg.txt=\"Le Code QR Actuel Est Invalide.\"",
+        "  logout_lbl.txt=\"Log Out\"",
         "}else if(lang==5)",
         "{",
-        "  t1.txt=\"Scannen Sie den QR-Code\\rund loggen Sie sich in Ihr QIDI Link-Konto ein\"",
-        "  t2.txt=\"Benutzername:\"",
-        "  t3.txt=\"Der QR-Code wird\\rnach der Verbindung\\rmit dem Netzwerk\\raktualisiert.\"",
-        "  t5.txt=\"Der aktuelle QR-Code ist nicht mehr gültig.\"",
-        "  t6.txt=\"Konto beenden\"",
+        "  scan_msg.txt=\"Scannen Sie den QR-Code\\rund loggen Sie sich in Ihr QIDI Link-Konto ein\"",
+        "  user_lbl.txt=\"Benutzername:\"",
+        "  qr_wait.txt=\"Der QR-Code wird\\rnach der Verbindung\\rmit dem Netzwerk\\raktualisiert.\"",
+        "  qr_old_msg.txt=\"Der aktuelle QR-Code ist nicht mehr gültig.\"",
+        "  logout_lbl.txt=\"Konto beenden\"",
         "}else if(lang==6)",
         "{",
-        "  t1.txt=\"Scansiona il codice QR\\re accedi al tuo account\\rQIDI Link\"",
-        "  t2.txt=\"Nome Utente:\"",
-        "  t3.txt=\"Il codice QR si\\raggiornerà dopo la\\rconnessione alla\\rrete.\"",
-        "  t5.txt=\"Il codice QR corrente\\rnon è più valido.\"",
-        "  t6.txt=\"Esci dal conto\"",
+        "  scan_msg.txt=\"Scansiona il codice QR\\re accedi al tuo account\\rQIDI Link\"",
+        "  user_lbl.txt=\"Nome Utente:\"",
+        "  qr_wait.txt=\"Il codice QR si\\raggiornerà dopo la\\rconnessione alla\\rrete.\"",
+        "  qr_old_msg.txt=\"Il codice QR corrente\\rnon è più valido.\"",
+        "  logout_lbl.txt=\"Esci dal conto\"",
         "}else if(lang==7)",
         "{",
-        "  t1.txt=\"Escanee el Código QR e\\rinicie sesión en la cuenta de enlace QIDI\"",
-        "  t2.txt=\"Nombre de usuario:\"",
-        "  t3.txt=\"El Código QR se\\ractualizará después\\rde conectarse a la\\rred.\"",
-        "  t5.txt=\"El Código QR actual\\rha fallado.\"",
-        "  t6.txt=\"Cuenta de salida\"",
+        "  scan_msg.txt=\"Escanee el Código QR e\\rinicie sesión en la cuenta de enlace QIDI\"",
+        "  user_lbl.txt=\"Nombre de usuario:\"",
+        "  qr_wait.txt=\"El Código QR se\\ractualizará después\\rde conectarse a la\\rred.\"",
+        "  qr_old_msg.txt=\"El Código QR actual\\rha fallado.\"",
+        "  logout_lbl.txt=\"Cuenta de salida\"",
         "}else if(lang==8)",
         "{",
-        "  t1.txt=\"QR코드를 스캔하여 QIDI\\rLink 계정에 로그인\"",
-        "  t2.txt=\"사용자 이름:\"",
-        "  t3.txt=\"네트워크에 연결되면 QR코드가 새로 고쳐집니다.\"",
-        "  t5.txt=\"현재 QR코드가\\r유효하지 않습니다.\"",
-        "  t6.txt=\"계정 탈퇴\"",
+        "  scan_msg.txt=\"QR코드를 스캔하여 QIDI\\rLink 계정에 로그인\"",
+        "  user_lbl.txt=\"사용자 이름:\"",
+        "  qr_wait.txt=\"네트워크에 연결되면 QR코드가 새로 고쳐집니다.\"",
+        "  qr_old_msg.txt=\"현재 QR코드가\\r유효하지 않습니다.\"",
+        "  logout_lbl.txt=\"계정 탈퇴\"",
         "}else if(lang==9)",
         "{",
-        "  t1.txt=\"Digitalize o código QR e\\rfaça login na sua conta\\rQIDI Link\"",
-        "  t2.txt=\"nome de utilizador:\"",
-        "  t3.txt=\"O código QR será\\ratualizado após a\\rconexão à rede.\"",
-        "  t5.txt=\"O código QR atual\\rnão é mais válido.\"",
-        "  t6.txt=\"Conta de saída\"",
+        "  scan_msg.txt=\"Digitalize o código QR e\\rfaça login na sua conta\\rQIDI Link\"",
+        "  user_lbl.txt=\"nome de utilizador:\"",
+        "  qr_wait.txt=\"O código QR será\\ratualizado após a\\rconexão à rede.\"",
+        "  qr_old_msg.txt=\"O código QR atual\\rnão é mais válido.\"",
+        "  logout_lbl.txt=\"Conta de saída\"",
         "}else if(lang==10)",
         "{",
-        "  t1.txt=\"مسح رمز ثنائي الأبعاد ،\\rتسجيل الدخول\"",
-        "  t2.txt=\"اسم المستخدم :\"",
-        "  t3.txt=\"رمز ثنائي الأبعاد سيتم تحديث بعد الاتصال بالشبكة .\"",
-        "  t5.txt=\"رمز ثنائي الأبعاد الحالية قد فشلت .\"",
-        "  t6.txt=\"خروج الحساب\"",
+        "  scan_msg.txt=\"مسح رمز ثنائي الأبعاد ،\\rتسجيل الدخول\"",
+        "  user_lbl.txt=\"اسم المستخدم :\"",
+        "  qr_wait.txt=\"رمز ثنائي الأبعاد سيتم تحديث بعد الاتصال بالشبكة .\"",
+        "  qr_old_msg.txt=\"رمز ثنائي الأبعاد الحالية قد فشلت .\"",
+        "  logout_lbl.txt=\"خروج الحساب\"",
         "}else if(lang==11)",
         "{",
-        "  t1.txt=\"QR kodunu tarayın ve\\rQIDI Link hesabınıza\\rgiriş yapın\"",
-        "  t2.txt=\"Kullanıcı Adı:\"",
-        "  t3.txt=\"QR kodu ağa\\rbağlandıktan sonra\\ryenilenecektir.\"",
-        "  t5.txt=\"Mevcut QR kodunun\\rgeçerliliği doldu.\"",
-        "  t6.txt=\"Hesabından çıkış\"",
+        "  scan_msg.txt=\"QR kodunu tarayın ve\\rQIDI Link hesabınıza\\rgiriş yapın\"",
+        "  user_lbl.txt=\"Kullanıcı Adı:\"",
+        "  qr_wait.txt=\"QR kodu ağa\\rbağlandıktan sonra\\ryenilenecektir.\"",
+        "  qr_old_msg.txt=\"Mevcut QR kodunun\\rgeçerliliği doldu.\"",
+        "  logout_lbl.txt=\"Hesabından çıkış\"",
         "}else if(lang==12)",
         "{",
-        "  t1.txt=\"סרוק את קוד QR, להיכנס\\rלחשבון QIDI Link\"",
-        "  t2.txt=\"שם משתמש:\"",
-        "  t3.txt=\"קוד QR ירענן לאחר חיבור לרשת.\"",
-        "  t5.txt=\"קוד QR הנוכחי פג.\"",
-        "  t6.txt=\"צאת מספר החשבון\"",
+        "  scan_msg.txt=\"סרוק את קוד QR, להיכנס\\rלחשבון QIDI Link\"",
+        "  user_lbl.txt=\"שם משתמש:\"",
+        "  qr_wait.txt=\"קוד QR ירענן לאחר חיבור לרשת.\"",
+        "  qr_old_msg.txt=\"קוד QR הנוכחי פג.\"",
+        "  logout_lbl.txt=\"צאת מספר החשבון\"",
         "}"
       ],
       "codesloadend": [],
@@ -153,10 +153,10 @@
   },
   "objects": [
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -178,20 +178,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -218,10 +218,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -243,20 +243,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -283,10 +283,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -308,20 +308,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -348,10 +348,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -373,20 +373,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -413,10 +413,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -438,16 +438,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -474,10 +474,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -500,7 +500,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -517,18 +517,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "t1",
+      "key": "scan_msg",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "scan_msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -551,7 +551,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -572,10 +572,10 @@
       }
     },
     {
-      "key": "gm0",
+      "key": "anim",
       "type": "animation",
       "attributes": {
-        "objname": "gm0",
+        "objname": "anim",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -594,7 +594,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_6"
+          "$ref": "animation:qr_loading"
         },
         "path": "",
         "path_m": 255,
@@ -614,10 +614,10 @@
       }
     },
     {
-      "key": "cp0",
+      "key": "qr_pic",
       "type": "col_pic",
       "attributes": {
-        "objname": "cp0",
+        "objname": "qr_pic",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -645,10 +645,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "qr_wait",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "qr_wait",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -671,7 +671,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -692,10 +692,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "qr_old_bg",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "qr_old_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -718,7 +718,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 0,
         "picc": 65535,
@@ -739,10 +739,10 @@
       }
     },
     {
-      "key": "t5",
+      "key": "qr_old_msg",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "qr_old_msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -765,7 +765,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -786,10 +786,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "user_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "user_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -812,7 +812,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -833,10 +833,10 @@
       }
     },
     {
-      "key": "b6",
+      "key": "logout_btn",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "logout_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -858,16 +858,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_298"
+          "$ref": "picture:link_login_logout_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_227"
+          "$ref": "picture:link_login_logout_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -894,10 +894,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "logout_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "logout_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -920,7 +920,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -937,18 +937,18 @@
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "click logout_btn,1"
         ],
         "codesup": [
-          "click b6,0"
+          "click logout_btn,0"
         ]
       }
     },
     {
-      "key": "b1",
+      "key": "qr_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "qr_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -970,16 +970,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_224"
+          "$ref": "picture:bg_link_login"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_215"
+          "$ref": "picture:link_login_qr_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1006,10 +1006,10 @@
       }
     },
     {
-      "key": "t7",
+      "key": "user_txt",
       "type": "text",
       "attributes": {
-        "objname": "t7",
+        "objname": "user_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1032,7 +1032,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

@@ -29,80 +29,80 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_221"
+        "$ref": "picture:bg_account_list"
       }
     },
     "events": {
       "codesload": [
-        "vis b0,0",
-        "vis t0,0",
-        "vis b1,0",
-        "vis t1,0",
-        "vis b2,0",
-        "vis t2,0",
-        "vis b3,0",
-        "vis t3,0",
-        "vis b3,0",
-        "vis t3,0",
-        "vis b4,0",
-        "vis t4,0",
-        "vis b5,0",
-        "vis b6,0",
-        "vis b7,0",
-        "vis b8,0",
-        "vis b9,0",
+        "vis acct1,0",
+        "vis acct1_txt,0",
+        "vis acct2,0",
+        "vis acct2_txt,0",
+        "vis acct3,0",
+        "vis acct3_txt,0",
+        "vis acct4,0",
+        "vis acct4_txt,0",
+        "vis acct4,0",
+        "vis acct4_txt,0",
+        "vis acct5,0",
+        "vis acct5_txt,0",
+        "vis acct1_del,0",
+        "vis acct2_del,0",
+        "vis acct3_del,0",
+        "vis acct4_del,0",
+        "vis acct5_del,0",
         "if(lang==0)",
         "{",
-        "  t10.txt=\"Fluidd账户管理\"",
-        "  b14.txt=\"添加账户\"",
+        "  title.txt=\"Fluidd账户管理\"",
+        "  add_btn.txt=\"添加账户\"",
         "}else if(lang==1)",
         "{",
-        "  t10.txt=\"Управление учетными записями Fluidd\"",
-        "  b14.txt=\"Добавить счет\"",
+        "  title.txt=\"Управление учетными записями Fluidd\"",
+        "  add_btn.txt=\"Добавить счет\"",
         "}else if(lang==2)",
         "{",
-        "  t10.txt=\"Fluidd account management\"",
-        "  b14.txt=\"Add account\"",
+        "  title.txt=\"Fluidd account management\"",
+        "  add_btn.txt=\"Add account\"",
         "}else if(lang==3)",
         "{",
-        "  t10.txt=\"Fluiddアカウント管理\"",
-        "  b14.txt=\"アカウントの追加\"",
+        "  title.txt=\"Fluiddアカウント管理\"",
+        "  add_btn.txt=\"アカウントの追加\"",
         "}else if(lang==4)",
         "{",
-        "  t10.txt=\"Gestion de compte Fluidd\"",
-        "  b14.txt=\"Ajouter un compt\"",
+        "  title.txt=\"Gestion de compte Fluidd\"",
+        "  add_btn.txt=\"Ajouter un compt\"",
         "}else if(lang==5)",
         "{",
-        "  t10.txt=\"Kontoverwaltung von Fluidd\"",
-        "  b14.txt=\"Konto hinzufügen\"",
+        "  title.txt=\"Kontoverwaltung von Fluidd\"",
+        "  add_btn.txt=\"Konto hinzufügen\"",
         "}else if(lang==6)",
         "{",
-        "  t10.txt=\"Gestione account Fluidd\"",
-        "  b14.txt=\"Aggiungi account\"",
+        "  title.txt=\"Gestione account Fluidd\"",
+        "  add_btn.txt=\"Aggiungi account\"",
         "}else if(lang==7)",
         "{",
-        "  t10.txt=\"Gestión de cuentas de Fluidd\"",
-        "  b14.txt=\"Añadir cuenta\"",
+        "  title.txt=\"Gestión de cuentas de Fluidd\"",
+        "  add_btn.txt=\"Añadir cuenta\"",
         "}else if(lang==8)",
         "{",
-        "  t10.txt=\"Fluidd 계정 관리\"",
-        "  b14.txt=\"계정 추가\"",
+        "  title.txt=\"Fluidd 계정 관리\"",
+        "  add_btn.txt=\"계정 추가\"",
         "}else if(lang==9)",
         "{",
-        "  t10.txt=\"Gestão de contas Fluidd\"",
-        "  b14.txt=\"Adicionar conta\"",
+        "  title.txt=\"Gestão de contas Fluidd\"",
+        "  add_btn.txt=\"Adicionar conta\"",
         "}else if(lang==10)",
         "{",
-        "  t10.txt=\"إدارة حساب Fluidd\"",
-        "  b14.txt=\"إضافة حساب\"",
+        "  title.txt=\"إدارة حساب Fluidd\"",
+        "  add_btn.txt=\"إضافة حساب\"",
         "}else if(lang==11)",
         "{",
-        "  t10.txt=\"Fluidd hesap yönetimi\"",
-        "  b14.txt=\"Hesabı Ekle\"",
+        "  title.txt=\"Fluidd hesap yönetimi\"",
+        "  add_btn.txt=\"Hesabı Ekle\"",
         "}else if(lang==12)",
         "{",
-        "  t10.txt=\"ניהול חשבון Fluidd\"",
-        "  b14.txt=\"הוסיף חשבון\"",
+        "  title.txt=\"ניהול חשבון Fluidd\"",
+        "  add_btn.txt=\"הוסיף חשבון\"",
         "}"
       ],
       "codesloadend": [],
@@ -113,10 +113,10 @@
   },
   "objects": [
     {
-      "key": "b10",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -138,16 +138,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -174,10 +174,10 @@
       }
     },
     {
-      "key": "t10",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t10",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -200,7 +200,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -217,18 +217,18 @@
       },
       "events": {
         "codesdown": [
-          "click b10,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b10,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -250,20 +250,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -290,10 +290,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -315,20 +315,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -355,10 +355,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -380,20 +380,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -420,10 +420,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -445,20 +445,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -485,10 +485,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "refresh_btn",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "refresh_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -510,16 +510,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_221"
+          "$ref": "picture:bg_account_list"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -546,10 +546,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "acct1",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "acct1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -571,16 +571,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -607,10 +607,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "acct2",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "acct2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -632,16 +632,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -668,10 +668,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "acct3",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "acct3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -693,16 +693,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -729,10 +729,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "acct4",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "acct4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -754,16 +754,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -790,10 +790,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "acct5",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "acct5",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -815,16 +815,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -851,10 +851,10 @@
       }
     },
     {
-      "key": "b5",
+      "key": "acct1_del",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "acct1_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -876,16 +876,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -912,10 +912,10 @@
       }
     },
     {
-      "key": "b6",
+      "key": "acct2_del",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "acct2_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -937,16 +937,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -973,10 +973,10 @@
       }
     },
     {
-      "key": "b7",
+      "key": "acct3_del",
       "type": "button",
       "attributes": {
-        "objname": "b7",
+        "objname": "acct3_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -998,16 +998,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1034,10 +1034,10 @@
       }
     },
     {
-      "key": "b8",
+      "key": "acct4_del",
       "type": "button",
       "attributes": {
-        "objname": "b8",
+        "objname": "acct4_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1059,16 +1059,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1095,10 +1095,10 @@
       }
     },
     {
-      "key": "b9",
+      "key": "acct5_del",
       "type": "button",
       "attributes": {
-        "objname": "b9",
+        "objname": "acct5_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1120,16 +1120,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1156,10 +1156,10 @@
       }
     },
     {
-      "key": "b12",
+      "key": "prev_btn",
       "type": "button",
       "attributes": {
-        "objname": "b12",
+        "objname": "prev_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1181,16 +1181,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1217,10 +1217,10 @@
       }
     },
     {
-      "key": "b13",
+      "key": "next_btn",
       "type": "button",
       "attributes": {
-        "objname": "b13",
+        "objname": "next_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1242,16 +1242,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_286"
+          "$ref": "picture:account_list_acct1"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1278,10 +1278,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "acct1_txt",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "acct1_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1304,7 +1304,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1321,18 +1321,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click acct1,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click acct1,0"
         ]
       }
     },
     {
-      "key": "t1",
+      "key": "acct2_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "acct2_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1355,7 +1355,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1372,18 +1372,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click acct2,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click acct2,0"
         ]
       }
     },
     {
-      "key": "t2",
+      "key": "acct3_txt",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "acct3_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1406,7 +1406,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1423,18 +1423,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click acct3,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click acct3,0"
         ]
       }
     },
     {
-      "key": "t3",
+      "key": "acct4_txt",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "acct4_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1457,7 +1457,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1474,18 +1474,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click acct4,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click acct4,0"
         ]
       }
     },
     {
-      "key": "t4",
+      "key": "acct5_txt",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "acct5_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1508,7 +1508,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -1525,18 +1525,18 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click acct5,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click acct5,0"
         ]
       }
     },
     {
-      "key": "b14",
+      "key": "add_btn",
       "type": "button",
       "attributes": {
-        "objname": "b14",
+        "objname": "add_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1558,16 +1558,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_221"
+          "$ref": "picture:bg_account_list"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_288"
+          "$ref": "picture:account_list_refresh_btn_press"
         },
         "bco2": 1024,
         "pco": 65535,

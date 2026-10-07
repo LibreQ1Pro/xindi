@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_25"
+        "$ref": "picture:bg_settings_panel"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t2.txt=\"WiFi连接\"",
-        "  t1.txt=\"未检测到网络。\"",
+        "  title.txt=\"WiFi连接\"",
+        "  msg.txt=\"未检测到网络。\"",
         "}else if(lang==1)",
         "{",
-        "  t2.txt=\"Подключение по WiFi\"",
-        "  t1.txt=\"Сеть не обнаружена.\"",
+        "  title.txt=\"Подключение по WiFi\"",
+        "  msg.txt=\"Сеть не обнаружена.\"",
         "}else if(lang==2)",
         "{",
-        "  t2.txt=\"WiFi connection\"",
-        "  t1.txt=\"No Network Detected.\"",
+        "  title.txt=\"WiFi connection\"",
+        "  msg.txt=\"No Network Detected.\"",
         "}else if(lang==3)",
         "{",
-        "  t2.txt=\"WiFi接続\"",
-        "  t1.txt=\"ネットワークが検出されませんでした 。\"",
+        "  title.txt=\"WiFi接続\"",
+        "  msg.txt=\"ネットワークが検出されませんでした 。\"",
         "}else if(lang==4)",
         "{",
-        "  t2.txt=\"Connexion Wi-Fi\"",
-        "  t1.txt=\"Pas de réseau détecté.\"",
+        "  title.txt=\"Connexion Wi-Fi\"",
+        "  msg.txt=\"Pas de réseau détecté.\"",
         "}else if(lang==5)",
         "{",
-        "  t2.txt=\"WiFi-Verbindung\"",
-        "  t1.txt=\"Kein Netzwerk erkannt.\"",
+        "  title.txt=\"WiFi-Verbindung\"",
+        "  msg.txt=\"Kein Netzwerk erkannt.\"",
         "}else if(lang==6)",
         "{",
-        "  t2.txt=\"Connessione WiFi\"",
-        "  t1.txt=\"Rete non rilevata\"",
+        "  title.txt=\"Connessione WiFi\"",
+        "  msg.txt=\"Rete non rilevata\"",
         "}else if(lang==7)",
         "{",
-        "  t2.txt=\"Conexión wifi\"",
-        "  t1.txt=\"Red no detectada\"",
+        "  title.txt=\"Conexión wifi\"",
+        "  msg.txt=\"Red no detectada\"",
         "}else if(lang==8)",
         "{",
-        "  t2.txt=\"와이파이 연결\"",
-        "  t1.txt=\"네트워크가 감지되지 않음\"",
+        "  title.txt=\"와이파이 연결\"",
+        "  msg.txt=\"네트워크가 감지되지 않음\"",
         "}else if(lang==9)",
         "{",
-        "  t2.txt=\"Conexão Wi-Fi\"",
-        "  t1.txt=\"Rede não detectada\"",
+        "  title.txt=\"Conexão Wi-Fi\"",
+        "  msg.txt=\"Rede não detectada\"",
         "}else if(lang==10)",
         "{",
-        "  t2.txt=\"اتصال بالواي فاي\"",
-        "  t1.txt=\"لم يتم الكشف عن الشبكة\"",
+        "  title.txt=\"اتصال بالواي فاي\"",
+        "  msg.txt=\"لم يتم الكشف عن الشبكة\"",
         "}else if(lang==11)",
         "{",
-        "  t2.txt=\"WiFi bağlantısı\"",
-        "  t1.txt=\"Ağ algılanmadı\"",
+        "  title.txt=\"WiFi bağlantısı\"",
+        "  msg.txt=\"Ağ algılanmadı\"",
         "}else if(lang==12)",
         "{",
-        "  t2.txt=\"חיבור Wi-Fi\"",
-        "  t1.txt=\"רשת לא זוהתה\"",
+        "  title.txt=\"חיבור Wi-Fi\"",
+        "  msg.txt=\"רשת לא זוהתה\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b23",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b23",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,20 +121,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -161,10 +161,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "ip_txt",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "ip_txt",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -187,7 +187,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "bco": 65535,
         "picc": 65535,
@@ -254,10 +254,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -279,20 +279,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -319,10 +319,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -344,20 +344,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -384,10 +384,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -409,20 +409,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -449,10 +449,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -474,20 +474,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -514,10 +514,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "refresh_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "refresh_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -539,16 +539,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -575,10 +575,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -601,7 +601,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -622,10 +622,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -648,7 +648,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -665,10 +665,10 @@
       },
       "events": {
         "codesdown": [
-          "click b23,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b23,0"
+          "click back_btn,0"
         ]
       }
     }

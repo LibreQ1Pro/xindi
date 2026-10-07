@@ -29,119 +29,119 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_139"
+        "$ref": "picture:bg_sleep_mode"
       }
     },
     "events": {
       "codesload": [
         "if(sleep_time==300)",
         "{",
-        "  b0.picc=${picture:pic_183}",
-        "  b0.picc2=${picture:pic_183}",
+        "  opt_5min.picc=${picture:sleep_mode_opt_5min_2}",
+        "  opt_5min.picc2=${picture:sleep_mode_opt_5min_2}",
         "}else if(sleep_time==900)",
         "{",
-        "  b1.picc=${picture:pic_183}",
-        "  b1.picc2=${picture:pic_183}",
+        "  opt_15min.picc=${picture:sleep_mode_opt_5min_2}",
+        "  opt_15min.picc2=${picture:sleep_mode_opt_5min_2}",
         "}else if(sleep_time==1800)",
         "{",
-        "  b2.picc=${picture:pic_183}",
-        "  b2.picc2=${picture:pic_183}",
+        "  opt_30min.picc=${picture:sleep_mode_opt_5min_2}",
+        "  opt_30min.picc2=${picture:sleep_mode_opt_5min_2}",
         "}else if(sleep_time==0)",
         "{",
-        "  b3.picc=${picture:pic_183}",
-        "  b3.picc2=${picture:pic_183}",
+        "  opt_never.picc=${picture:sleep_mode_opt_5min_2}",
+        "  opt_never.picc2=${picture:sleep_mode_opt_5min_2}",
         "}",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"5分钟\"",
-        "  t1.txt=\"15分钟\"",
-        "  t2.txt=\"30分钟\"",
-        "  t3.txt=\"永不\"",
-        "  t4.txt=\"熄屏设置\"",
+        "  opt_5min_lbl.txt=\"5分钟\"",
+        "  opt_15min_lbl.txt=\"15分钟\"",
+        "  opt_30min_lbl.txt=\"30分钟\"",
+        "  opt_never_lbl.txt=\"永不\"",
+        "  title.txt=\"熄屏设置\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"5 минут\"",
-        "  t1.txt=\"15 минут\"",
-        "  t2.txt=\"30 минут\"",
-        "  t3.txt=\"никогда \"",
-        "  t4.txt=\"Автоматический сон\"",
+        "  opt_5min_lbl.txt=\"5 минут\"",
+        "  opt_15min_lbl.txt=\"15 минут\"",
+        "  opt_30min_lbl.txt=\"30 минут\"",
+        "  opt_never_lbl.txt=\"никогда \"",
+        "  title.txt=\"Автоматический сон\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"5 minutes\"",
-        "  t1.txt=\"15 minutes\"",
-        "  t2.txt=\"30 minutes\"",
-        "  t3.txt=\"never\"",
-        "  t4.txt=\"Automatic sleep\"",
+        "  opt_5min_lbl.txt=\"5 minutes\"",
+        "  opt_15min_lbl.txt=\"15 minutes\"",
+        "  opt_30min_lbl.txt=\"30 minutes\"",
+        "  opt_never_lbl.txt=\"never\"",
+        "  title.txt=\"Automatic sleep\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"5分間\"",
-        "  t1.txt=\"15分間\"",
-        "  t2.txt=\"30分間\"",
-        "  t3.txt=\"決して\"",
-        "  t4.txt=\"自動スリープ\"",
+        "  opt_5min_lbl.txt=\"5分間\"",
+        "  opt_15min_lbl.txt=\"15分間\"",
+        "  opt_30min_lbl.txt=\"30分間\"",
+        "  opt_never_lbl.txt=\"決して\"",
+        "  title.txt=\"自動スリープ\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"5 minutes\"",
-        "  t1.txt=\"15 minutes\"",
-        "  t2.txt=\"30 minutes\"",
-        "  t3.txt=\"jamais\"",
-        "  t4.txt=\"Veille Automatique\"",
+        "  opt_5min_lbl.txt=\"5 minutes\"",
+        "  opt_15min_lbl.txt=\"15 minutes\"",
+        "  opt_30min_lbl.txt=\"30 minutes\"",
+        "  opt_never_lbl.txt=\"jamais\"",
+        "  title.txt=\"Veille Automatique\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"5 Minuten\"",
-        "  t1.txt=\"15 Minuten\"",
-        "  t2.txt=\"30 Minuten\"",
-        "  t3.txt=\"nie\"",
-        "  t4.txt=\"Automatischer Ruhezustand\"",
+        "  opt_5min_lbl.txt=\"5 Minuten\"",
+        "  opt_15min_lbl.txt=\"15 Minuten\"",
+        "  opt_30min_lbl.txt=\"30 Minuten\"",
+        "  opt_never_lbl.txt=\"nie\"",
+        "  title.txt=\"Automatischer Ruhezustand\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"5 minuti\"",
-        "  t1.txt=\"15 minuti\"",
-        "  t2.txt=\"30 minuti\"",
-        "  t3.txt=\"Mai\"",
-        "  t4.txt=\"impostazioni dello \\rschermo spento\"",
+        "  opt_5min_lbl.txt=\"5 minuti\"",
+        "  opt_15min_lbl.txt=\"15 minuti\"",
+        "  opt_30min_lbl.txt=\"30 minuti\"",
+        "  opt_never_lbl.txt=\"Mai\"",
+        "  title.txt=\"impostazioni dello \\rschermo spento\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"5 minutos\"",
-        "  t1.txt=\"15 minutos\"",
-        "  t2.txt=\"30 minutos\"",
-        "  t3.txt=\"Nunca\"",
-        "  t4.txt=\"configuración de \\rapagado de la pantalla\"",
+        "  opt_5min_lbl.txt=\"5 minutos\"",
+        "  opt_15min_lbl.txt=\"15 minutos\"",
+        "  opt_30min_lbl.txt=\"30 minutos\"",
+        "  opt_never_lbl.txt=\"Nunca\"",
+        "  title.txt=\"configuración de \\rapagado de la pantalla\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"5분\"",
-        "  t1.txt=\"15분\"",
-        "  t2.txt=\"30분\"",
-        "  t3.txt=\"절대\"",
-        "  t4.txt=\"화면 꺼짐 설정\"",
+        "  opt_5min_lbl.txt=\"5분\"",
+        "  opt_15min_lbl.txt=\"15분\"",
+        "  opt_30min_lbl.txt=\"30분\"",
+        "  opt_never_lbl.txt=\"절대\"",
+        "  title.txt=\"화면 꺼짐 설정\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"5 minutos\"",
-        "  t1.txt=\"15 minutos\"",
-        "  t2.txt=\"30 minutos\"",
-        "  t3.txt=\"Nunca\"",
-        "  t4.txt=\"configurações de \\rdesligamento da tela\"",
+        "  opt_5min_lbl.txt=\"5 minutos\"",
+        "  opt_15min_lbl.txt=\"15 minutos\"",
+        "  opt_30min_lbl.txt=\"30 minutos\"",
+        "  opt_never_lbl.txt=\"Nunca\"",
+        "  title.txt=\"configurações de \\rdesligamento da tela\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"5 دقيقة\"",
-        "  t1.txt=\"15 دقيقة\"",
-        "  t2.txt=\"30 دقيقة\"",
-        "  t3.txt=\"أبداً\"",
-        "  t4.txt=\"إعدادات إيقاف التشغيل للشاشة\"",
+        "  opt_5min_lbl.txt=\"5 دقيقة\"",
+        "  opt_15min_lbl.txt=\"15 دقيقة\"",
+        "  opt_30min_lbl.txt=\"30 دقيقة\"",
+        "  opt_never_lbl.txt=\"أبداً\"",
+        "  title.txt=\"إعدادات إيقاف التشغيل للشاشة\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"5 dakika\"",
-        "  t1.txt=\"15 dakika\"",
-        "  t2.txt=\"30 dakika\"",
-        "  t3.txt=\"Asla\"",
-        "  t4.txt=\"ekran kapalı ayarları\"",
+        "  opt_5min_lbl.txt=\"5 dakika\"",
+        "  opt_15min_lbl.txt=\"15 dakika\"",
+        "  opt_30min_lbl.txt=\"30 dakika\"",
+        "  opt_never_lbl.txt=\"Asla\"",
+        "  title.txt=\"ekran kapalı ayarları\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"5 דקות\"",
-        "  t1.txt=\"15 דקות\"",
-        "  t2.txt=\"30 דקות\"",
-        "  t3.txt=\"לעולם לא\"",
-        "  t4.txt=\"הגדרות כיבוי מסך\"",
+        "  opt_5min_lbl.txt=\"5 דקות\"",
+        "  opt_15min_lbl.txt=\"15 דקות\"",
+        "  opt_30min_lbl.txt=\"30 דקות\"",
+        "  opt_never_lbl.txt=\"לעולם לא\"",
+        "  title.txt=\"הגדרות כיבוי מסך\"",
         "}"
       ],
       "codesloadend": [],
@@ -152,10 +152,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "opt_5min",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "opt_5min",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -177,16 +177,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_141"
+          "$ref": "picture:sleep_mode_opt_5min"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_138"
+          "$ref": "picture:sleep_mode_opt_5min_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -215,10 +215,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "opt_15min",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "opt_15min",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -240,16 +240,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_141"
+          "$ref": "picture:sleep_mode_opt_5min"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_138"
+          "$ref": "picture:sleep_mode_opt_5min_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -278,10 +278,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "opt_30min",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "opt_30min",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -303,16 +303,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_141"
+          "$ref": "picture:sleep_mode_opt_5min"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_138"
+          "$ref": "picture:sleep_mode_opt_5min_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -341,10 +341,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "opt_never",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "opt_never",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -366,16 +366,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_141"
+          "$ref": "picture:sleep_mode_opt_5min"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_138"
+          "$ref": "picture:sleep_mode_opt_5min_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -404,10 +404,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "opt_5min_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "opt_5min_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -430,7 +430,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -447,18 +447,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click opt_5min,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click opt_5min,0"
         ]
       }
     },
     {
-      "key": "t1",
+      "key": "opt_15min_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "opt_15min_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -481,7 +481,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -498,18 +498,18 @@
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click opt_15min,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click opt_15min,0"
         ]
       }
     },
     {
-      "key": "t2",
+      "key": "opt_30min_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "opt_30min_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -532,7 +532,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -549,18 +549,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click opt_30min,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click opt_30min,0"
         ]
       }
     },
     {
-      "key": "t3",
+      "key": "opt_never_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "opt_never_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -583,7 +583,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -600,18 +600,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click opt_never,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click opt_never,0"
         ]
       }
     },
     {
-      "key": "b4",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -633,16 +633,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -669,10 +669,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -694,20 +694,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -734,10 +734,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -759,20 +759,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -799,10 +799,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -824,20 +824,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -864,10 +864,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -889,20 +889,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -929,10 +929,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -955,7 +955,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -972,10 +972,10 @@
       },
       "events": {
         "codesdown": [
-          "click b4,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b4,0"
+          "click back_btn,0"
         ]
       }
     }

@@ -29,50 +29,50 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_125"
+        "$ref": "picture:bg_auto_heaterbed"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t1.txt=\"推荐先预热热床至打印耗材对应的设置温度后，再进行调平，以此使调平结果更精准。\"",
+        "  msg.txt=\"推荐先预热热床至打印耗材对应的设置温度后，再进行调平，以此使调平结果更精准。\"",
         "}else if(lang==1)",
         "{",
-        "  t1.txt=\"Разогрейте парник до \\rтемпературы печати \\rфиламента перед \\rвыравниванием, эффект \\rвыравнивания будет \\rлучше.\"",
+        "  msg.txt=\"Разогрейте парник до \\rтемпературы печати \\rфиламента перед \\rвыравниванием, эффект \\rвыравнивания будет \\rлучше.\"",
         "}else if(lang==2)",
         "{",
-        "  t1.txt=\"Preheat hotbed to the \\rfilament printing \\rtemperature before \\rleveling, the leveling \\reffect will be better.\"",
+        "  msg.txt=\"Preheat hotbed to the \\rfilament printing \\rtemperature before \\rleveling, the leveling \\reffect will be better.\"",
         "}else if(lang==3)",
         "{",
-        "  t1.txt=\"レベリングの前にホットベッドをフィラメント印刷温度に予熱すると、レベリング効果が向上します。\"",
+        "  msg.txt=\"レベリングの前にホットベッドをフィラメント印刷温度に予熱すると、レベリング効果が向上します。\"",
         "}else if(lang==4)",
         "{",
-        "  t1.txt=\"Préchauffez le lit chauffant à la température d'impression du filament avant le \\rnivellement, l'effet de \\rnivellement sera meilleur.\"",
+        "  msg.txt=\"Préchauffez le lit chauffant à la température d'impression du filament avant le \\rnivellement, l'effet de \\rnivellement sera meilleur.\"",
         "}else if(lang==5)",
         "{",
-        "  t1.txt=\"Druckbett vor dem \\rNivellieren auf die \\rFilamentdrucktemperatur \\rvorheizen, der \\rNivellierungseffekt \\rwird besser.\"",
+        "  msg.txt=\"Druckbett vor dem \\rNivellieren auf die \\rFilamentdrucktemperatur \\rvorheizen, der \\rNivellierungseffekt \\rwird besser.\"",
         "}else if(lang==6)",
         "{",
-        "  t1.txt=\"Preriscaldare il piano di \\rstampa alla temperatura \\rdi stampa del filamento \\rprima del livellamento, \\rl'effetto del livellamento \\rsarà migliore.\"",
+        "  msg.txt=\"Preriscaldare il piano di \\rstampa alla temperatura \\rdi stampa del filamento \\rprima del livellamento, \\rl'effetto del livellamento \\rsarà migliore.\"",
         "}else if(lang==7)",
         "{",
-        "  t1.txt=\"Precale la cama caliente \\ra la temperatura de \\rimpresión del filamento \\rantes del nivelado, el \\refecto de nivelación \\rserá mejor.\"",
+        "  msg.txt=\"Precale la cama caliente \\ra la temperatura de \\rimpresión del filamento \\rantes del nivelado, el \\refecto de nivelación \\rserá mejor.\"",
         "}else if(lang==8)",
         "{",
-        "  t1.txt=\"레벨링 전에 필라멘트 인쇄 온도까지 열 침대를 예열하면 레벨링 효과가 더 좋아집니다.\"",
+        "  msg.txt=\"레벨링 전에 필라멘트 인쇄 온도까지 열 침대를 예열하면 레벨링 효과가 더 좋아집니다.\"",
         "}else if(lang==9)",
         "{",
-        "  t1.txt=\"Pré-aqueça a base aquecida até a temperatura de \\rimpressão do filamento \\rantes de nivelar, o efeito de nivelamento será melhor. \"",
+        "  msg.txt=\"Pré-aqueça a base aquecida até a temperatura de \\rimpressão do filamento \\rantes de nivelar, o efeito de nivelamento será melhor. \"",
         "}else if(lang==10)",
         "{",
-        "  t1.txt=\"سخن سطح السرير الساخن إلى درجة حرارة الطباعة للفيلم قبل التسوية، سيكون تأثير التسوية أفضل.\"",
+        "  msg.txt=\"سخن سطح السرير الساخن إلى درجة حرارة الطباعة للفيلم قبل التسوية، سيكون تأثير التسوية أفضل.\"",
         "}else if(lang==11)",
         "{",
-        "  t1.txt=\"Seviyeyi düzlemeden önce \\rsıcak yatağı filament baskı \\rsıcaklığına ısıtın, düzleme \\retkisi daha iyi olacaktır.\"",
+        "  msg.txt=\"Seviyeyi düzlemeden önce \\rsıcak yatağı filament baskı \\rsıcaklığına ısıtın, düzleme \\retkisi daha iyi olacaktır.\"",
         "}else if(lang==12)",
         "{",
-        "  t1.txt=\"חימום מיטת החימום לטמפרטורת ההדפס של הפילמנט לפני שהקיטון, אפקט השוואה יהיה טוב יותר.\"",
+        "  msg.txt=\"חימום מיטת החימום לטמפרטורת ההדפס של הפילמנט לפני שהקיטון, אפקט השוואה יהיה טוב יותר.\"",
         "}"
       ],
       "codesloadend": [],
@@ -83,10 +83,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "temp_down",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "temp_down",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -108,16 +108,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_125"
+          "$ref": "picture:bg_auto_heaterbed"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_134"
+          "$ref": "picture:autobed_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -144,10 +144,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "temp_up",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "temp_up",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -169,16 +169,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_125"
+          "$ref": "picture:bg_auto_heaterbed"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_134"
+          "$ref": "picture:autobed_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -205,10 +205,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "heat_toggle",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "heat_toggle",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -230,16 +230,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_133"
+          "$ref": "picture:autobed_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_87"
+          "$ref": "picture:autobed_press_on"
         },
         "bco2": 1024,
         "pco": 0,
@@ -266,10 +266,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -291,16 +291,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_125"
+          "$ref": "picture:bg_auto_heaterbed"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_134"
+          "$ref": "picture:autobed_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -327,10 +327,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "next_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "next_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -352,16 +352,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_125"
+          "$ref": "picture:bg_auto_heaterbed"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_134"
+          "$ref": "picture:autobed_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -388,10 +388,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -414,7 +414,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -435,10 +435,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "temp_now",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "temp_now",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -461,7 +461,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -478,18 +478,18 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click heat_toggle,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click heat_toggle,0"
         ]
       }
     },
     {
-      "key": "n0",
+      "key": "temp_target",
       "type": "number",
       "attributes": {
-        "objname": "n0",
+        "objname": "temp_target",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -512,7 +512,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -529,10 +529,10 @@
       },
       "events": {
         "codesdown": [
-          "click b2,1"
+          "click heat_toggle,1"
         ],
         "codesup": [
-          "click b2,0"
+          "click heat_toggle,0"
         ]
       }
     }

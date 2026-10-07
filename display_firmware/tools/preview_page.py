@@ -28,14 +28,15 @@ def key_of(v):
 
 
 SAMPLE = {      # what the host sends at run time
-    "net_saved": {"t1": "PonyTheBest-AsusWrt", "t2": "OtterTeam-4G", "t3": "MGTS_GPON_12F0", "t4": "daisy", "t5": ""},
-    "net_detail": {"tssid": "PonyTheBest-AsusWrt", "tstat": "Connected, 192.168.1.50", "bc": "Disconnect",
-                   "ba": "Autoconnect: on"},
-    "net_confirm": {"tmsg": "Forget\\r\"PonyTheBest-AsusWrt\"?\\rThe saved password\\rwill be deleted."},
-    "net_info": {"twifi": "Wi-Fi  wlx40a5ef2378f6\\rConnected\\rSSID  PonyTheBest-AsusWrt\\rIP  192.168.100.150\\rGW  192.168.100.1",
-                 "teth": "LAN  eth0\\rConnected\\rIP  192.168.199.104\\rGW  192.168.199.1\\rMAC  00:11:22:33:44:55",
-                 "bwifi": "Wi-Fi: on", "beth": "LAN: on"},
-    "wifi_list": {"t1": "PonyTheBest-AsusWrt", "t2": "OtterTeam-4G", "t3": "PonyTheBest", "t4": "MGTS_GPON_12F0", "t5": "Masha"},
+    "net_saved": {"row1_txt": "PonyTheBest-AsusWrt", "row2_txt": "OtterTeam-4G", "row3_txt": "MGTS_GPON_12F0", "row4_txt": "daisy"},
+    "net_detail": {"ssid_txt": "PonyTheBest-AsusWrt", "status_txt": "Connected, 192.168.1.50", "connect_btn": "Disconnect",
+                   "auto_btn": "Autoconnect: on"},
+    "net_confirm": {"msg": "Forget\\r\"PonyTheBest-AsusWrt\"?\\rThe saved password\\rwill be deleted."},
+    "net_info": {"wifi_txt": "Wi-Fi  wlx40a5ef2378f6\\rConnected\\rSSID  PonyTheBest-AsusWrt\\rIP  192.168.100.150\\rGW  192.168.100.1",
+                 "lan_txt": "LAN  eth0\\rConnected\\rIP  192.168.199.104\\rGW  192.168.199.1\\rMAC  00:11:22:33:44:55",
+                 "radio_btn": "Wi-Fi: on"},
+    "wifi_list": {"row1_txt": "PonyTheBest-AsusWrt", "row2_txt": "OtterTeam-4G", "row3_txt": "PonyTheBest", "row4_txt": "MGTS_GPON_12F0",
+                  "row5_txt": "Masha"},
 }
 
 

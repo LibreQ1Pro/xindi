@@ -29,84 +29,84 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_234"
+        "$ref": "picture:bg_print_filament"
       }
     },
     "events": {
       "codesload": [
-        "cp0.close()",
-        "cp0.write(preview.cp0_text.txt)",
-        "t0.txt=\"\"",
-        "t1.txt=\"\"",
-        "t2.txt=\"\"",
-        "t3.txt=\"\"",
-        "t5.txt=\"\"",
-        "if(printing.v999.val==0)",
+        "thumb.close()",
+        "thumb.write(preview.cp_data.txt)",
+        "time_elapsed.txt=\"\"",
+        "time_left.txt=\"\"",
+        "temp_now.txt=\"\"",
+        "temp_set.txt=\"\"",
+        "file_name.txt=\"\"",
+        "if(printing.thumb_flag.val==0)",
         "{",
-        "  vis cp0,0",
+        "  vis thumb,0",
         "}else",
         "{",
-        "  vis cp0,1",
+        "  vis thumb,1",
         "}",
         "if(lang==0)",
         "{",
-        "  t100.txt=\"装载耗材\"",
+        "  title.txt=\"装载耗材\"",
         "  //  b3.txt=\"进料\"",
-        "  b4.txt=\"更换耗材\"",
+        "  replace_btn.txt=\"更换耗材\"",
         "}else if(lang==1)",
         "{",
-        "  t100.txt=\"Нагрузка\"",
+        "  title.txt=\"Нагрузка\"",
         "  //  b3.txt=\"Нагрузка\"",
-        "  b4.txt=\"Замена \\rниток\"",
+        "  replace_btn.txt=\"Замена \\rниток\"",
         "}else if(lang==2)",
         "{",
-        "  t100.txt=\"Load\"",
+        "  title.txt=\"Load\"",
         "  //  b3.txt=\"Load\"",
-        "  b4.txt=\"Replace \\rFilament\"",
+        "  replace_btn.txt=\"Replace \\rFilament\"",
         "}else if(lang==3)",
         "{",
-        "  t100.txt=\"装塡\"",
+        "  title.txt=\"装塡\"",
         "  //  b3.txt=\"装塡\"",
-        "  b4.txt=\"フィラメント交換\"",
+        "  replace_btn.txt=\"フィラメント交換\"",
         "}else if(lang==4)",
         "{",
-        "  t100.txt=\"chargez\"",
+        "  title.txt=\"chargez\"",
         "  //  b3.txt=\"chargez\"",
-        "  b4.txt=\"Remplacement \\rdu filament\"",
-        "  b4.font=${font:font_1}",
+        "  replace_btn.txt=\"Remplacement \\rdu filament\"",
+        "  replace_btn.font=${font:font_small14}",
         "}else if(lang==5)",
         "{",
-        "  t100.txt=\"Laden\"",
+        "  title.txt=\"Laden\"",
         "  //  b3.txt=\"Laden\"",
-        "  b4.txt=\"Filament \\rersetzen\"",
+        "  replace_btn.txt=\"Filament \\rersetzen\"",
         "}else if(lang==6)",
         "{",
-        "  t100.txt=\"Caricare\"",
-        "  b4.txt=\"Sostituire \\ril filamento\"",
+        "  title.txt=\"Caricare\"",
+        "  replace_btn.txt=\"Sostituire \\ril filamento\"",
         "}else if(lang==7)",
         "{",
-        "  t100.txt=\"Cargar\"",
-        "  b4.txt=\"Reemplazar \\rfilamento\"",
+        "  title.txt=\"Cargar\"",
+        "  replace_btn.txt=\"Reemplazar \\rfilamento\"",
         "}else if(lang==8)",
         "{",
-        "  t100.txt=\"짐\"",
-        "  b4.txt=\"필라멘트 교체\"",
+        "  title.txt=\"짐\"",
+        "  replace_btn.txt=\"필라멘트 교체\"",
         "}else if(lang==9)",
         "{",
-        "  t100.txt=\"Carregar\"",
-        "  b4.txt=\"Substitua \\ro filamento\"",
+        "  title.txt=\"Carregar\"",
+        "  replace_btn.txt=\"Substitua \\ro filamento\"",
         "}else if(lang==10)",
         "{",
-        "  t100.txt=\"تحميل\"",
-        "  b4.txt=\"استبدال خيوط\"",
+        "  title.txt=\"تحميل\"",
+        "  replace_btn.txt=\"استبدال خيوط\"",
         "}else if(lang==11)",
         "{",
-        "  t100.txt=\"Yükle\"",
-        "  b4.txt=\"Filamenti \\rdeğiştirin\"",
+        "  title.txt=\"Yükle\"",
+        "  replace_btn.txt=\"Filamenti \\rdeğiştirin\"",
         "}else if(lang==12)",
         "{",
-        "  t100.txt=\"טען\"",
-        "  b4.txt=\"החלף נימה\"",
+        "  title.txt=\"טען\"",
+        "  replace_btn.txt=\"החלף נימה\"",
         "}"
       ],
       "codesloadend": [],
@@ -117,10 +117,10 @@
   },
   "objects": [
     {
-      "key": "t100",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t100",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -143,7 +143,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -164,10 +164,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "heat_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "heat_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -189,16 +189,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_86"
+          "$ref": "picture:printfil_heat_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -225,10 +225,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "temp_now",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "temp_now",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -251,7 +251,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -268,18 +268,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click heat_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click heat_btn,0"
         ]
       }
     },
     {
-      "key": "b1",
+      "key": "temp_up",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "temp_up",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -301,16 +301,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -337,10 +337,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "temp_down",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "temp_down",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -362,16 +362,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -398,10 +398,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "replace_btn",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "replace_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -423,16 +423,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -460,10 +460,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "temp_set",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "temp_set",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -486,7 +486,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -503,18 +503,18 @@
       },
       "events": {
         "codesdown": [
-          "click b0,1"
+          "click heat_btn,1"
         ],
         "codesup": [
-          "click b0,0"
+          "click heat_btn,0"
         ]
       }
     },
     {
-      "key": "b10",
+      "key": "pause_btn",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "pause_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -536,16 +536,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_235"
+          "$ref": "picture:printfil_press_on"
         },
         "bco2": 1024,
         "pco": 0,
@@ -572,10 +572,10 @@
       }
     },
     {
-      "key": "b11",
+      "key": "stop_btn",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "stop_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -597,16 +597,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_24"
+          "$ref": "picture:bg_printing"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_85"
+          "$ref": "picture:printing_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -633,10 +633,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "time_elapsed",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "time_elapsed",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -659,7 +659,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -680,10 +680,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "time_left",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "time_left",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -706,7 +706,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -727,10 +727,10 @@
       }
     },
     {
-      "key": "j0",
+      "key": "progress",
       "type": "progress_bar",
       "attributes": {
-        "objname": "j0",
+        "objname": "progress",
         "vscope": 1,
         "drag": 0,
         "sendkey": 0,
@@ -762,10 +762,10 @@
       }
     },
     {
-      "key": "t5",
+      "key": "file_name",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "file_name",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -788,7 +788,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -809,10 +809,10 @@
       }
     },
     {
-      "key": "t6",
+      "key": "pct_sign",
       "type": "text",
       "attributes": {
-        "objname": "t6",
+        "objname": "pct_sign",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -835,7 +835,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -856,10 +856,10 @@
       }
     },
     {
-      "key": "n7",
+      "key": "progress_pct",
       "type": "number",
       "attributes": {
-        "objname": "n7",
+        "objname": "progress_pct",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -882,7 +882,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -903,10 +903,10 @@
       }
     },
     {
-      "key": "b5",
+      "key": "retract_btn",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "retract_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -928,16 +928,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -964,10 +964,10 @@
       }
     },
     {
-      "key": "b6",
+      "key": "extrude_btn",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "extrude_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -989,16 +989,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_234"
+          "$ref": "picture:bg_print_filament"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_236"
+          "$ref": "picture:printfil_press_off"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1025,10 +1025,10 @@
       }
     },
     {
-      "key": "cp0",
+      "key": "thumb",
       "type": "col_pic",
       "attributes": {
-        "objname": "cp0",
+        "objname": "thumb",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,

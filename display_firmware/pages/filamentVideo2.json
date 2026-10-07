@@ -29,76 +29,76 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_12"
+        "$ref": "picture:bg_filamentVideo2"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t3.txt=\"装载耗材(3/3)\"",
-        "  t1.txt=\"点击上方加减按钮，开始加热并设置温度。\"",
-        "  t2.txt=\"等待温度达到设定温度。\"",
+        "  title.txt=\"装载耗材(3/3)\"",
+        "  msg_heat.txt=\"点击上方加减按钮，开始加热并设置温度。\"",
+        "  msg_wait.txt=\"等待温度达到设定温度。\"",
         "}else if(lang==1)",
         "{",
-        "  t3.txt=\"Нагрузка(3/3)\"",
-        "  t1.txt=\"Нажмите + - Нажмите \\rкнопку, чтобы начать \\rнагрев и установить \\rтемпературу сопла.\"",
-        "  t2.txt=\"Ожидание достижения температуры установленного \\rзначения.\"",
+        "  title.txt=\"Нагрузка(3/3)\"",
+        "  msg_heat.txt=\"Нажмите + - Нажмите \\rкнопку, чтобы начать \\rнагрев и установить \\rтемпературу сопла.\"",
+        "  msg_wait.txt=\"Ожидание достижения температуры установленного \\rзначения.\"",
         "}else if(lang==2)",
         "{",
-        "  t3.txt=\"Load(3/3)\"",
-        "  t1.txt=\"Click the +-button to start \\rheating and setting nozzle \\rtemp.\"",
-        "  t2.txt=\"Waiting the \\rtemperature reach \\rthe setting value.\"",
+        "  title.txt=\"Load(3/3)\"",
+        "  msg_heat.txt=\"Click the +-button to start \\rheating and setting nozzle \\rtemp.\"",
+        "  msg_wait.txt=\"Waiting the \\rtemperature reach \\rthe setting value.\"",
         "}else if(lang==3)",
         "{",
-        "  t3.txt=\"装塡(3/3)\"",
-        "  t1.txt=\"+-ボタンをクリックして加熱を開始し、ノズル温度を設定します。\"",
-        "  t2.txt=\"温度が設定値に達するのを待っています\"",
+        "  title.txt=\"装塡(3/3)\"",
+        "  msg_heat.txt=\"+-ボタンをクリックして加熱を開始し、ノズル温度を設定します。\"",
+        "  msg_wait.txt=\"温度が設定値に達するのを待っています\"",
         "}else if(lang==4)",
         "{",
-        "  t3.txt=\"chargez(3/3)\"",
-        "  t1.txt=\"Cliquez sur le bouton + - \\rpour commencer à chauffer \\ret régler la température de \\rla buse.\"",
-        "  t2.txt=\"Attendre que la \\rtempérature \\ratteigne la valeur \\rde réglage.\"",
+        "  title.txt=\"chargez(3/3)\"",
+        "  msg_heat.txt=\"Cliquez sur le bouton + - \\rpour commencer à chauffer \\ret régler la température de \\rla buse.\"",
+        "  msg_wait.txt=\"Attendre que la \\rtempérature \\ratteigne la valeur \\rde réglage.\"",
         "}else if(lang==5)",
         "{",
-        "  t3.txt=\"Material laden(3/3)\"",
-        "  t1.txt=\"Klicken Sie auf die +-Taste, \\rum das Erhitzen und Einstellen der Düsentemperatur \\rzu starten.\"",
-        "  t2.txt=\"Warten Sie, bis die \\reingestellte \\rTemperatur \\rerreicht ist.\"",
+        "  title.txt=\"Material laden(3/3)\"",
+        "  msg_heat.txt=\"Klicken Sie auf die +-Taste, \\rum das Erhitzen und Einstellen der Düsentemperatur \\rzu starten.\"",
+        "  msg_wait.txt=\"Warten Sie, bis die \\reingestellte \\rTemperatur \\rerreicht ist.\"",
         "}else if(lang==6)",
         "{",
-        "  t3.txt=\"Caricare(3/3)\"",
-        "  t1.txt=\"Fare clic sul pulsante più o \\rmeno sopra per avviare \\ril riscaldamento e impostare la temperatura.\"",
-        "  t2.txt=\"Aspetta che la temperatura raggiunga \\ril valore impostato.\"",
+        "  title.txt=\"Caricare(3/3)\"",
+        "  msg_heat.txt=\"Fare clic sul pulsante più o \\rmeno sopra per avviare \\ril riscaldamento e impostare la temperatura.\"",
+        "  msg_wait.txt=\"Aspetta che la temperatura raggiunga \\ril valore impostato.\"",
         "}else if(lang==7)",
         "{",
-        "  t3.txt=\"Cargar(3/3)\"",
-        "  t1.txt=\"Fare clic sui pulsanti più e \\rmeno in alto per avviare il \\rriscaldamento e impostare \\rla temperatura.\"",
-        "  t2.txt=\"Espere a que la \\rtemperatura \\ralcance el valor \\restablecido.\"",
+        "  title.txt=\"Cargar(3/3)\"",
+        "  msg_heat.txt=\"Fare clic sui pulsanti più e \\rmeno in alto per avviare il \\rriscaldamento e impostare \\rla temperatura.\"",
+        "  msg_wait.txt=\"Espere a que la \\rtemperatura \\ralcance el valor \\restablecido.\"",
         "}else if(lang==8)",
         "{",
-        "  t3.txt=\"짐(3/3)\"",
-        "  t1.txt=\"위의 더하기 및 빼기 버튼을 클릭하여 난방을 시작하고 온도를 설정합니다.\"",
-        "  t2.txt=\"온도가 설정 값에 도달 할 때까지 기다리십시오.\"",
+        "  title.txt=\"짐(3/3)\"",
+        "  msg_heat.txt=\"위의 더하기 및 빼기 버튼을 클릭하여 난방을 시작하고 온도를 설정합니다.\"",
+        "  msg_wait.txt=\"온도가 설정 값에 도달 할 때까지 기다리십시오.\"",
         "}else if(lang==9)",
         "{",
-        "  t3.txt=\"Carregar(3/3)\"",
-        "  t1.txt=\"Clique nos botões mais e \\rmenos acima para iniciar \\ro aquecimento e definir a \\rtemperatura.\"",
-        "  t2.txt=\"Aguardando a \\rtemperatura \\ratingir o valor de \\rconfiguração.\"",
+        "  title.txt=\"Carregar(3/3)\"",
+        "  msg_heat.txt=\"Clique nos botões mais e \\rmenos acima para iniciar \\ro aquecimento e definir a \\rtemperatura.\"",
+        "  msg_wait.txt=\"Aguardando a \\rtemperatura \\ratingir o valor de \\rconfiguração.\"",
         "}else if(lang==10)",
         "{",
-        "  t3.txt=\"تحميل (3/3)\"",
-        "  t1.txt=\"انقر فوق زري زائد وناقص أعلاه لبدء التسخين وضبط درجة الحرارة\"",
-        "  t2.txt=\"انتظار وصول الحرارة إلى القيمة المحددة.\"",
+        "  title.txt=\"تحميل (3/3)\"",
+        "  msg_heat.txt=\"انقر فوق زري زائد وناقص أعلاه لبدء التسخين وضبط درجة الحرارة\"",
+        "  msg_wait.txt=\"انتظار وصول الحرارة إلى القيمة المحددة.\"",
         "}else if(lang==11)",
         "{",
-        "  t3.txt=\"Yükle(3/3)\"",
-        "  t1.txt=\"Isıtmayı başlatmak ve \\rsıcaklığı ayarlamak için \\ryukarıdaki artı ve eksi \\rdüğmelerine tıklayın.\"",
-        "  t2.txt=\"Sıcaklık ayar \\rdeğerine ulaşılması \\rbekleniyor.\"",
+        "  title.txt=\"Yükle(3/3)\"",
+        "  msg_heat.txt=\"Isıtmayı başlatmak ve \\rsıcaklığı ayarlamak için \\ryukarıdaki artı ve eksi \\rdüğmelerine tıklayın.\"",
+        "  msg_wait.txt=\"Sıcaklık ayar \\rdeğerine ulaşılması \\rbekleniyor.\"",
         "}else if(lang==12)",
         "{",
-        "  t3.txt=\"טען (3/3)\"",
-        "  t1.txt=\"לחץ על לחצני הפלוס והמינוס למעלה כדי להתחיל בחימום ולקבוע את הטמפרטורה.\"",
-        "  t2.txt=\"ממתין להגעת הטמפרטורה לערך ההגדרה.\"",
+        "  title.txt=\"טען (3/3)\"",
+        "  msg_heat.txt=\"לחץ על לחצני הפלוס והמינוס למעלה כדי להתחיל בחימום ולקבוע את הטמפרטורה.\"",
+        "  msg_wait.txt=\"ממתין להגעת הטמפרטורה לערך ההגדרה.\"",
         "}"
       ],
       "codesloadend": [],
@@ -109,10 +109,10 @@
   },
   "objects": [
     {
-      "key": "t3",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -135,7 +135,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -156,10 +156,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg_heat",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg_heat",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -182,7 +182,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -203,10 +203,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "msg_wait",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "msg_wait",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -229,7 +229,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -250,10 +250,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "temp_down",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "temp_down",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -275,16 +275,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_12"
+          "$ref": "picture:bg_filamentVideo2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_26"
+          "$ref": "picture:open_heat_on_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -311,10 +311,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "temp_up",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "temp_up",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -336,16 +336,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_12"
+          "$ref": "picture:bg_filamentVideo2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_26"
+          "$ref": "picture:open_heat_on_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -372,10 +372,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "next",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "next",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -397,16 +397,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_12"
+          "$ref": "picture:bg_filamentVideo2"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_26"
+          "$ref": "picture:open_heat_on_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -433,10 +433,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "heat_toggle",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "heat_toggle",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -458,16 +458,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_120"
+          "$ref": "picture:open_heat_off"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_35"
+          "$ref": "picture:open_heat_off_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -494,10 +494,10 @@
       }
     },
     {
-      "key": "n0",
+      "key": "temp_target",
       "type": "number",
       "attributes": {
-        "objname": "n0",
+        "objname": "temp_target",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -520,7 +520,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -537,18 +537,18 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click heat_toggle,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click heat_toggle,0"
         ]
       }
     },
     {
-      "key": "t0",
+      "key": "temp_now",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "temp_now",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -571,7 +571,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -588,10 +588,10 @@
       },
       "events": {
         "codesdown": [
-          "click b3,1"
+          "click heat_toggle,1"
         ],
         "codesup": [
-          "click b3,0"
+          "click heat_toggle,0"
         ]
       }
     }

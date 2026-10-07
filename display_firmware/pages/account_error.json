@@ -29,63 +29,63 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_290"
+        "$ref": "picture:bg_popup_dark"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  b0.txt=\"确定\"",
-        "  t0.txt=\"请输入用户名和密码。\"",
+        "  ok.txt=\"确定\"",
+        "  msg.txt=\"请输入用户名和密码。\"",
         "}else if(lang==1)",
         "{",
-        "  b0.txt=\"Подтвердить\"",
-        "  t0.txt=\"Пожалуйста, введите имя пользователя и пароль. \"",
+        "  ok.txt=\"Подтвердить\"",
+        "  msg.txt=\"Пожалуйста, введите имя пользователя и пароль. \"",
         "}else if(lang==2)",
         "{",
-        "  b0.txt=\"Confirm\"",
-        "  t0.txt=\"       Please enter your \\rusername and password.\"",
+        "  ok.txt=\"Confirm\"",
+        "  msg.txt=\"       Please enter your \\rusername and password.\"",
         "}else if(lang==3)",
         "{",
-        "  b0.txt=\"確認\"",
-        "  t0.txt=\"ユーザー名とパスワードを入力してください。\"",
+        "  ok.txt=\"確認\"",
+        "  msg.txt=\"ユーザー名とパスワードを入力してください。\"",
         "}else if(lang==4)",
         "{",
-        "  b0.txt=\"Confirmer\"",
-        "  t0.txt=\"  Merci de saisir votre nom \\r d’utilisateur et votre mot \\r de passe.\"",
+        "  ok.txt=\"Confirmer\"",
+        "  msg.txt=\"  Merci de saisir votre nom \\r d’utilisateur et votre mot \\r de passe.\"",
         "}else if(lang==5)",
         "{",
-        "  b0.txt=\"OK\"",
-        "  t0.txt=\"       Bitte geben Sie Ihren \\rBenutzernamen und Ihr Passwort ein.\"",
+        "  ok.txt=\"OK\"",
+        "  msg.txt=\"       Bitte geben Sie Ihren \\rBenutzernamen und Ihr Passwort ein.\"",
         "}else if(lang==6)",
         "{",
-        "  b0.txt=\"Conferma\"",
-        "  t0.txt=\" Per favore, inserisci il \\r tuo nome utente e la \\r tua password.\"",
+        "  ok.txt=\"Conferma\"",
+        "  msg.txt=\" Per favore, inserisci il \\r tuo nome utente e la \\r tua password.\"",
         "}else if(lang==7)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Por favor, introduzca su \\rnombre de usuario y su \\rcontraseña.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Por favor, introduzca su \\rnombre de usuario y su \\rcontraseña.\"",
         "}else if(lang==8)",
         "{",
-        "  b0.txt=\"확실한\"",
-        "  t0.txt=\"사용자 이름과 암호를\\r      입력해주세요.\"",
+        "  ok.txt=\"확실한\"",
+        "  msg.txt=\"사용자 이름과 암호를\\r      입력해주세요.\"",
         "}else if(lang==9)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Por favor, insira seu nome de usuário e sua senha.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Por favor, insira seu nome de usuário e sua senha.\"",
         "}else if(lang==10)",
         "{",
-        "  b0.txt=\"تأكيد\"",
-        "  t0.txt=\"الرجاء إدخال اسم المستخدم وكلمة السر.\"",
+        "  ok.txt=\"تأكيد\"",
+        "  msg.txt=\"الرجاء إدخال اسم المستخدم وكلمة السر.\"",
         "}else if(lang==11)",
         "{",
-        "  b0.txt=\"Onayla\"",
-        "  t0.txt=\" Lütfen kullanıcı adınızı ve \\r parolanızı girin.\"",
+        "  ok.txt=\"Onayla\"",
+        "  msg.txt=\" Lütfen kullanıcı adınızı ve \\r parolanızı girin.\"",
         "}else if(lang==12)",
         "{",
-        "  b0.txt=\"אישור\"",
-        "  t0.txt=\"אנא הכנס את שם המשתמש וסיסמת המשתמש שלך.\"",
+        "  ok.txt=\"אישור\"",
+        "  msg.txt=\"אנא הכנס את שם המשתמש וסיסמת המשתמש שלך.\"",
         "}"
       ],
       "codesloadend": [],
@@ -96,10 +96,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -121,16 +121,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -157,10 +157,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -183,7 +183,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

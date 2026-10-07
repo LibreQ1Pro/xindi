@@ -29,76 +29,76 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_81"
+        "$ref": "picture:bg_open_finish"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"恭喜，完成引导!\"",
-        "  t1.txt=\"请在打印前进行调平和共振补偿。\"",
-        "  b0.txt=\"完成引导\"",
+        "  msg.txt=\"恭喜，完成引导!\"",
+        "  msg_level.txt=\"请在打印前进行调平和共振补偿。\"",
+        "  finish.txt=\"完成引导\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Поздравляем! Руководство завершено.\"",
-        "  t1.txt=\"Пожалуйста, выполните компенсацию установки и введите форму перед печатью.\"",
-        "  b0.txt=\"Руководство завершено\"",
+        "  msg.txt=\"Поздравляем! Руководство завершено.\"",
+        "  msg_level.txt=\"Пожалуйста, выполните компенсацию установки и введите форму перед печатью.\"",
+        "  finish.txt=\"Руководство завершено\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Congrats!guide \\rtutorial finished.\"",
-        "  t1.txt=\"Please perform leveling \\rand inputting shape before \\rprinting.\"",
-        "  b0.txt=\"Guide tutorial finished\"",
+        "  msg.txt=\"Congrats!guide \\rtutorial finished.\"",
+        "  msg_level.txt=\"Please perform leveling \\rand inputting shape before \\rprinting.\"",
+        "  finish.txt=\"Guide tutorial finished\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"おめでとうございます!ガイドのチュートリアルが終了しました。\"",
-        "  t1.txt=\"印刷前に水平調整と形状入力を行ってください。\"",
-        "  b0.txt=\"ガイドチュートリアル終了\"",
+        "  msg.txt=\"おめでとうございます!ガイドのチュートリアルが終了しました。\"",
+        "  msg_level.txt=\"印刷前に水平調整と形状入力を行ってください。\"",
+        "  finish.txt=\"ガイドチュートリアル終了\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Félicitations!Tutoriel \\rdu guide terminé.\"",
-        "  t1.txt=\"Veuillez effectuer le \\rnivellement et la saisie \\rde la forme avant \\rl’impression.\"",
-        "  b0.txt=\"Tutoriel du guide terminé\"",
+        "  msg.txt=\"Félicitations!Tutoriel \\rdu guide terminé.\"",
+        "  msg_level.txt=\"Veuillez effectuer le \\rnivellement et la saisie \\rde la forme avant \\rl’impression.\"",
+        "  finish.txt=\"Tutoriel du guide terminé\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Herzlichen Glückwunsch!\\rEinführung abgeschlossen.\"",
-        "  t1.txt=\"Bitte führen Sie eine \\rNivellierung und \\rFormeingabe vor dem \\rDrucken durch.\"",
-        "  b0.txt=\"Einführung beendet\"",
+        "  msg.txt=\"Herzlichen Glückwunsch!\\rEinführung abgeschlossen.\"",
+        "  msg_level.txt=\"Bitte führen Sie eine \\rNivellierung und \\rFormeingabe vor dem \\rDrucken durch.\"",
+        "  finish.txt=\"Einführung beendet\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Congratulazioni! guida \\rtutorial terminata.\"",
-        "  t1.txt=\"Eseguire il livellamento \\re la compensazione \\rdella risonanza \\rprima della stampa.\"",
-        "  b0.txt=\"Guida tutorial terminata\"",
+        "  msg.txt=\"Congratulazioni! guida \\rtutorial terminata.\"",
+        "  msg_level.txt=\"Eseguire il livellamento \\re la compensazione \\rdella risonanza \\rprima della stampa.\"",
+        "  finish.txt=\"Guida tutorial terminata\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"¡Felicidades! guía tutorial \\rterminada.\"",
-        "  t1.txt=\"Realice la nivelación y \\rla compensación de \\rresonancia antes de \\rimprimir.\"",
-        "  b0.txt=\"Guía tutorial terminada\"",
+        "  msg.txt=\"¡Felicidades! guía tutorial \\rterminada.\"",
+        "  msg_level.txt=\"Realice la nivelación y \\rla compensación de \\rresonancia antes de \\rimprimir.\"",
+        "  finish.txt=\"Guía tutorial terminada\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"축하합니다! 가이드 튜토리얼이 완료되었습니다.\"",
-        "  t1.txt=\"인쇄하기 전에 레벨링 및 공명 보정을 수행하세요.\"",
-        "  b0.txt=\"가이드 튜토리얼이 완료되었습니다\"",
+        "  msg.txt=\"축하합니다! 가이드 튜토리얼이 완료되었습니다.\"",
+        "  msg_level.txt=\"인쇄하기 전에 레벨링 및 공명 보정을 수행하세요.\"",
+        "  finish.txt=\"가이드 튜토리얼이 완료되었습니다\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Parabéns! Guia de \\rtutorial concluído.\"",
-        "  t1.txt=\"Efectue o nivelamento \\re a compensação da \\rressonância antes \\rde imprimir.\"",
-        "  b0.txt=\"Guia de tutorial concluído\"",
+        "  msg.txt=\"Parabéns! Guia de \\rtutorial concluído.\"",
+        "  msg_level.txt=\"Efectue o nivelamento \\re a compensação da \\rressonância antes \\rde imprimir.\"",
+        "  finish.txt=\"Guia de tutorial concluído\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"مبروك! انتهت الدليل التعليمي.\"",
-        "  t1.txt=\"يرجى إجراء التسوية وتعويض الرنين قبل الطباعة.\"",
-        "  b0.txt=\"انتهى الدليل التعليمي.\"",
+        "  msg.txt=\"مبروك! انتهت الدليل التعليمي.\"",
+        "  msg_level.txt=\"يرجى إجراء التسوية وتعويض الرنين قبل الطباعة.\"",
+        "  finish.txt=\"انتهى الدليل التعليمي.\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Tebrikler! Kılavuz \\röğretici tamamlandı.\"",
-        "  t1.txt=\"Lütfen yazdırmadan önce \\rseviyeleme ve rezonans \\rtelafisi yapın.\"",
-        "  b0.txt=\"Kılavuz öğretici tamamlandı\"",
+        "  msg.txt=\"Tebrikler! Kılavuz \\röğretici tamamlandı.\"",
+        "  msg_level.txt=\"Lütfen yazdırmadan önce \\rseviyeleme ve rezonans \\rtelafisi yapın.\"",
+        "  finish.txt=\"Kılavuz öğretici tamamlandı\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"מזל טוב! המדריך המפורט הושלם.\"",
-        "  t1.txt=\"אנא בצע פילוס ופיצוי תהודה לפני ההדפסה.\"",
-        "  b0.txt=\"המדריך המפורט הושלם\"",
+        "  msg.txt=\"מזל טוב! המדריך המפורט הושלם.\"",
+        "  msg_level.txt=\"אנא בצע פילוס ופיצוי תהודה לפני ההדפסה.\"",
+        "  finish.txt=\"המדריך המפורט הושלם\"",
         "}"
       ],
       "codesloadend": [],
@@ -109,10 +109,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -135,7 +135,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -156,10 +156,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "finish",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "finish",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -181,16 +181,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_81"
+          "$ref": "picture:bg_open_finish"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_114"
+          "$ref": "picture:open_finish_finish_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -217,10 +217,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "msg_level",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "msg_level",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -243,7 +243,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

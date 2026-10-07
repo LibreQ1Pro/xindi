@@ -29,7 +29,7 @@
       "sta": 0,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_91"
+        "$ref": "picture:bg_unbox_video"
       }
     },
     "events": {

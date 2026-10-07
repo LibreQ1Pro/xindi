@@ -29,105 +29,105 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_40"
+        "$ref": "picture:bg_message"
       }
     },
     "events": {
       "codesload": [
-        "vis gm2,0",
-        "vis gm3,0",
-        "vis gm4,0",
+        "vis spin2,0",
+        "vis spin3,0",
+        "vis spin4,0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"初始化平台和喷嘴位置。\"",
-        "  t1.txt=\"加热并清理喷嘴。\"",
-        "  t2.txt=\"等待喷嘴冷却。\"",
-        "  t3.txt=\"采集补偿值。\"",
-        "  t4.txt=\"热床温度:\"",
+        "  step1_txt.txt=\"初始化平台和喷嘴位置。\"",
+        "  step2_txt.txt=\"加热并清理喷嘴。\"",
+        "  step3_txt.txt=\"等待喷嘴冷却。\"",
+        "  step4_txt.txt=\"采集补偿值。\"",
+        "  bed_lbl.txt=\"热床温度:\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Инициализировать \\rположение \\rплатформы и сопла.\"",
-        "  t1.txt=\"Согрейте и очистите \\rсопло.\"",
-        "  t2.txt=\"Дождитесь остывания \\rсопла.\"",
-        "  t3.txt=\"Получить значение \\rкомпенсации.\"",
-        "  t4.txt=\"Тепловая \\rкровать:\"",
+        "  step1_txt.txt=\"Инициализировать \\rположение \\rплатформы и сопла.\"",
+        "  step2_txt.txt=\"Согрейте и очистите \\rсопло.\"",
+        "  step3_txt.txt=\"Дождитесь остывания \\rсопла.\"",
+        "  step4_txt.txt=\"Получить значение \\rкомпенсации.\"",
+        "  bed_lbl.txt=\"Тепловая \\rкровать:\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Initialize platform and \\rnozzle position.\"",
-        "  t1.txt=\"Heat up and clean the \\rnozzle.\"",
-        "  t2.txt=\"Wait for the nozzle to \\rcool down.\"",
-        "  t3.txt=\"Acquire compensation \\rvalue.\"",
-        "  t4.txt=\"Heatbed:\"",
+        "  step1_txt.txt=\"Initialize platform and \\rnozzle position.\"",
+        "  step2_txt.txt=\"Heat up and clean the \\rnozzle.\"",
+        "  step3_txt.txt=\"Wait for the nozzle to \\rcool down.\"",
+        "  step4_txt.txt=\"Acquire compensation \\rvalue.\"",
+        "  bed_lbl.txt=\"Heatbed:\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"プラットフォームとノズル位置を初期化する。\"",
-        "  t1.txt=\"ノズルを加熱して清掃してください。\"",
-        "  t2.txt=\"ノズルの冷却を待ってください。\"",
-        "  t3.txt=\"補償値を取得する。\"",
-        "  t4.txt=\"ヒートベッド:\"",
+        "  step1_txt.txt=\"プラットフォームとノズル位置を初期化する。\"",
+        "  step2_txt.txt=\"ノズルを加熱して清掃してください。\"",
+        "  step3_txt.txt=\"ノズルの冷却を待ってください。\"",
+        "  step4_txt.txt=\"補償値を取得する。\"",
+        "  bed_lbl.txt=\"ヒートベッド:\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Initialiser la position \\rde la plateforme et de \\rla buse.\"",
-        "  t1.txt=\"Chauffez et nettoyez la buse.\"",
-        "  t2.txt=\"Attendez que la buse \\rrefroidisse.\"",
-        "  t3.txt=\"Acquérir la valeur de \\rcompensation.\"",
-        "  t4.txt=\"Lit chauffant:\"",
+        "  step1_txt.txt=\"Initialiser la position \\rde la plateforme et de \\rla buse.\"",
+        "  step2_txt.txt=\"Chauffez et nettoyez la buse.\"",
+        "  step3_txt.txt=\"Attendez que la buse \\rrefroidisse.\"",
+        "  step4_txt.txt=\"Acquérir la valeur de \\rcompensation.\"",
+        "  bed_lbl.txt=\"Lit chauffant:\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Initialisieren Sie \\rPlattform- und \\rDüsenposition.\"",
-        "  t1.txt=\"Die Düse erhitzen und \\rreinigen.\"",
-        "  t2.txt=\"Warten Sie, bis die \\rDüse abgekühlt ist.\"",
-        "  t3.txt=\"Kompensationswert \\rerfassen.\"",
-        "  t4.txt=\"Heizbett:\"",
+        "  step1_txt.txt=\"Initialisieren Sie \\rPlattform- und \\rDüsenposition.\"",
+        "  step2_txt.txt=\"Die Düse erhitzen und \\rreinigen.\"",
+        "  step3_txt.txt=\"Warten Sie, bis die \\rDüse abgekühlt ist.\"",
+        "  step4_txt.txt=\"Kompensationswert \\rerfassen.\"",
+        "  bed_lbl.txt=\"Heizbett:\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Inizializzare le posizioni della piattaforma e \\rdegli ugelli.\"",
-        "  t1.txt=\"Riscaldare e pulire \\rl'ugello.\"",
-        "  t2.txt=\"Attendere che l'ugello \\rsi raffreddi.\"",
-        "  t3.txt=\"Raccolta del valore di \\rcompensazione.\"",
-        "  t4.txt=\"Piastra \\rriscaldante:\"",
+        "  step1_txt.txt=\"Inizializzare le posizioni della piattaforma e \\rdegli ugelli.\"",
+        "  step2_txt.txt=\"Riscaldare e pulire \\rl'ugello.\"",
+        "  step3_txt.txt=\"Attendere che l'ugello \\rsi raffreddi.\"",
+        "  step4_txt.txt=\"Raccolta del valore di \\rcompensazione.\"",
+        "  bed_lbl.txt=\"Piastra \\rriscaldante:\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Inicialice las posiciones de la plataforma y las \\rboquillas.\"",
-        "  t1.txt=\"Calentar y limpiar la \\rboquilla.\"",
-        "  t2.txt=\"Espere a que la boquilla se enfríe.\"",
-        "  t3.txt=\"Recopilación del valor \\rde compensación.\"",
-        "  t4.txt=\"Cama caliente:\"",
+        "  step1_txt.txt=\"Inicialice las posiciones de la plataforma y las \\rboquillas.\"",
+        "  step2_txt.txt=\"Calentar y limpiar la \\rboquilla.\"",
+        "  step3_txt.txt=\"Espere a que la boquilla se enfríe.\"",
+        "  step4_txt.txt=\"Recopilación del valor \\rde compensación.\"",
+        "  bed_lbl.txt=\"Cama caliente:\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"플랫폼 및 노즐 위치를 초기화합니다.\"",
-        "  t1.txt=\"노즐을 가열하고 청소합니다.\"",
-        "  t2.txt=\"노즐이 식을 때까지 기다리십시오.\"",
-        "  t3.txt=\"보상 값 수집.\"",
-        "  t4.txt=\"열 침대:\"",
+        "  step1_txt.txt=\"플랫폼 및 노즐 위치를 초기화합니다.\"",
+        "  step2_txt.txt=\"노즐을 가열하고 청소합니다.\"",
+        "  step3_txt.txt=\"노즐이 식을 때까지 기다리십시오.\"",
+        "  step4_txt.txt=\"보상 값 수집.\"",
+        "  bed_lbl.txt=\"열 침대:\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Inicialize as posições \\rda plataforma e dos \\rbicos.\"",
-        "  t1.txt=\"Aqueça e limpe o bico.\"",
-        "  t2.txt=\"Espere o bico esfriar.\"",
-        "  t3.txt=\"Coleta de valor de \\rcompensação.\"",
-        "  t4.txt=\"Base aquecida:\"",
+        "  step1_txt.txt=\"Inicialize as posições \\rda plataforma e dos \\rbicos.\"",
+        "  step2_txt.txt=\"Aqueça e limpe o bico.\"",
+        "  step3_txt.txt=\"Espere o bico esfriar.\"",
+        "  step4_txt.txt=\"Coleta de valor de \\rcompensação.\"",
+        "  bed_lbl.txt=\"Base aquecida:\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"تهيئة مواضع المنصة والفوهة.\"",
-        "  t1.txt=\"فوهة دافئة ونظيفة.\"",
-        "  t2.txt=\"انتظر حتى تبرد الفوهة.\"",
-        "  t3.txt=\"جمع قيمة التعويض.\"",
-        "  t4.txt=\"سرير الحرارة:\"",
+        "  step1_txt.txt=\"تهيئة مواضع المنصة والفوهة.\"",
+        "  step2_txt.txt=\"فوهة دافئة ونظيفة.\"",
+        "  step3_txt.txt=\"انتظر حتى تبرد الفوهة.\"",
+        "  step4_txt.txt=\"جمع قيمة التعويض.\"",
+        "  bed_lbl.txt=\"سرير الحرارة:\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Platform ve nozül \\rkonumlarını başlatın.\"",
-        "  t1.txt=\"Memeyi ısıtın ve \\rtemizleyin.\"",
-        "  t2.txt=\"Memenin soğumasını \\rbekleyin.\"",
-        "  t3.txt=\"Telafi değeri toplama.\"",
-        "  t4.txt=\"Isıtma yatağı:\"",
+        "  step1_txt.txt=\"Platform ve nozül \\rkonumlarını başlatın.\"",
+        "  step2_txt.txt=\"Memeyi ısıtın ve \\rtemizleyin.\"",
+        "  step3_txt.txt=\"Memenin soğumasını \\rbekleyin.\"",
+        "  step4_txt.txt=\"Telafi değeri toplama.\"",
+        "  bed_lbl.txt=\"Isıtma yatağı:\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"אתחל את עמדות הפלטפורמה והזרבובית.\"",
-        "  t1.txt=\"לחמם ולנקות את הזרבובית.\"",
-        "  t2.txt=\"המתן עד שהזרבובית תתקרר.\"",
-        "  t3.txt=\"איסוף ערך התאמה.\"",
-        "  t4.txt=\"מיטת חימום:\"",
+        "  step1_txt.txt=\"אתחל את עמדות הפלטפורמה והזרבובית.\"",
+        "  step2_txt.txt=\"לחמם ולנקות את הזרבובית.\"",
+        "  step3_txt.txt=\"המתן עד שהזרבובית תתקרר.\"",
+        "  step4_txt.txt=\"איסוף ערך התאמה.\"",
+        "  bed_lbl.txt=\"מיטת חימום:\"",
         "}"
       ],
       "codesloadend": [],
@@ -138,10 +138,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "step1_txt",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "step1_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -164,7 +164,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -185,10 +185,10 @@
       }
     },
     {
-      "key": "q0",
+      "key": "steps_bar",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "steps_bar",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -206,7 +206,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_112"
+          "$ref": "picture:auto_moving_steps_bar"
         }
       },
       "events": {
@@ -215,10 +215,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "step2_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "step2_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -241,7 +241,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -262,10 +262,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "step3_txt",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "step3_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -288,7 +288,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -309,10 +309,10 @@
       }
     },
     {
-      "key": "t3",
+      "key": "step4_txt",
       "type": "text",
       "attributes": {
-        "objname": "t3",
+        "objname": "step4_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -335,7 +335,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -356,10 +356,10 @@
       }
     },
     {
-      "key": "gm1",
+      "key": "spin1",
       "type": "animation",
       "attributes": {
-        "objname": "gm1",
+        "objname": "spin1",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -378,7 +378,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_0"
+          "$ref": "animation:spin_step1"
         },
         "path": "",
         "path_m": 255,
@@ -398,10 +398,10 @@
       }
     },
     {
-      "key": "gm2",
+      "key": "spin2",
       "type": "animation",
       "attributes": {
-        "objname": "gm2",
+        "objname": "spin2",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -420,7 +420,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_1"
+          "$ref": "animation:spin_step2"
         },
         "path": "",
         "path_m": 255,
@@ -440,10 +440,10 @@
       }
     },
     {
-      "key": "gm3",
+      "key": "spin3",
       "type": "animation",
       "attributes": {
-        "objname": "gm3",
+        "objname": "spin3",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -462,7 +462,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_5"
+          "$ref": "animation:spin_step3"
         },
         "path": "",
         "path_m": 255,
@@ -482,10 +482,10 @@
       }
     },
     {
-      "key": "gm4",
+      "key": "spin4",
       "type": "animation",
       "attributes": {
-        "objname": "gm4",
+        "objname": "spin4",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -504,7 +504,7 @@
         "groupid1": 0,
         "from": 0,
         "vid": {
-          "$ref": "animation:anim_3"
+          "$ref": "animation:spin_step4"
         },
         "path": "",
         "path_m": 255,
@@ -524,10 +524,10 @@
       }
     },
     {
-      "key": "t4",
+      "key": "bed_lbl",
       "type": "text",
       "attributes": {
-        "objname": "t4",
+        "objname": "bed_lbl",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -550,7 +550,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -571,10 +571,10 @@
       }
     },
     {
-      "key": "t5",
+      "key": "bed_temp",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "bed_temp",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -597,7 +597,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

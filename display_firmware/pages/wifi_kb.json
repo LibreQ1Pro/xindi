@@ -29,50 +29,50 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_102"
+        "$ref": "picture:bg_keyboard"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"输入密码\"",
+        "  title.txt=\"输入密码\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Ввод PIN-кода/\\rпароля\"",
+        "  title.txt=\"Ввод PIN-кода/\\rпароля\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Input PIN/\\rPassword\"",
+        "  title.txt=\"Input PIN/\\rPassword\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"PIN/パスワードの入力\"",
+        "  title.txt=\"PIN/パスワードの入力\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Saisir le PIN/\\rmot de passe\"",
+        "  title.txt=\"Saisir le PIN/\\rmot de passe\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"PIN/Passwort \\reingeben\"",
+        "  title.txt=\"PIN/Passwort \\reingeben\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"PIN / Password \\rdi input\"",
+        "  title.txt=\"PIN / Password \\rdi input\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"PIN / Contraseña \\rde entrada\"",
+        "  title.txt=\"PIN / Contraseña \\rde entrada\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"입력 PIN / 비밀번호\"",
+        "  title.txt=\"입력 PIN / 비밀번호\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"PIN/Senha \\rde entrada\"",
+        "  title.txt=\"PIN/Senha \\rde entrada\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"إدخال رمز التعريف الشخصي / كلمة المرور\"",
+        "  title.txt=\"إدخال رمز التعريف الشخصي / كلمة المرور\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"PIN / Parola \\rGirin\"",
+        "  title.txt=\"PIN / Parola \\rGirin\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"קוד סיסמה / קוד סודי\"",
+        "  title.txt=\"קוד סיסמה / קוד סודי\"",
         "}"
       ],
       "codesloadend": [],
@@ -83,10 +83,10 @@
   },
   "objects": [
     {
-      "key": "b27",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b27",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -108,16 +108,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -144,10 +144,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "key_a",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "key_a",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -169,16 +169,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -198,17 +198,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b0.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_a.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b1",
+      "key": "key_b",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "key_b",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -230,16 +230,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -259,17 +259,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b1.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_b.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b2",
+      "key": "key_c",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "key_c",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -291,16 +291,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -320,17 +320,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b2.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_c.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b3",
+      "key": "key_d",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "key_d",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -352,16 +352,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -381,17 +381,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b3.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_d.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b4",
+      "key": "key_e",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "key_e",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -413,16 +413,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -442,17 +442,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b4.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_e.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b5",
+      "key": "key_f",
       "type": "button",
       "attributes": {
-        "objname": "b5",
+        "objname": "key_f",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -474,16 +474,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -503,17 +503,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b5.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_f.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b6",
+      "key": "key_g",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "key_g",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -535,16 +535,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -564,17 +564,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b6.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_g.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b7",
+      "key": "key_h",
       "type": "button",
       "attributes": {
-        "objname": "b7",
+        "objname": "key_h",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -596,16 +596,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -625,17 +625,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b7.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_h.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b8",
+      "key": "key_i",
       "type": "button",
       "attributes": {
-        "objname": "b8",
+        "objname": "key_i",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -657,16 +657,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -686,17 +686,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b8.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_i.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b9",
+      "key": "key_j",
       "type": "button",
       "attributes": {
-        "objname": "b9",
+        "objname": "key_j",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -718,16 +718,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -747,17 +747,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b9.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_j.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b10",
+      "key": "key_k",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "key_k",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -779,16 +779,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -808,17 +808,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b10.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_k.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b11",
+      "key": "key_l",
       "type": "button",
       "attributes": {
-        "objname": "b11",
+        "objname": "key_l",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -840,16 +840,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -869,17 +869,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b11.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_l.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b12",
+      "key": "key_m",
       "type": "button",
       "attributes": {
-        "objname": "b12",
+        "objname": "key_m",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -901,16 +901,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -930,17 +930,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b12.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_m.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b13",
+      "key": "key_n",
       "type": "button",
       "attributes": {
-        "objname": "b13",
+        "objname": "key_n",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -962,16 +962,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -991,17 +991,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b13.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_n.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b14",
+      "key": "key_o",
       "type": "button",
       "attributes": {
-        "objname": "b14",
+        "objname": "key_o",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1023,16 +1023,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1052,17 +1052,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b14.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_o.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b15",
+      "key": "key_p",
       "type": "button",
       "attributes": {
-        "objname": "b15",
+        "objname": "key_p",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1084,16 +1084,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1113,17 +1113,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b15.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_p.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b16",
+      "key": "key_q",
       "type": "button",
       "attributes": {
-        "objname": "b16",
+        "objname": "key_q",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1145,16 +1145,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1174,17 +1174,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b16.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_q.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b17",
+      "key": "key_r",
       "type": "button",
       "attributes": {
-        "objname": "b17",
+        "objname": "key_r",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1206,16 +1206,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1235,17 +1235,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b17.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_r.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b18",
+      "key": "key_s",
       "type": "button",
       "attributes": {
-        "objname": "b18",
+        "objname": "key_s",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1267,16 +1267,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1296,17 +1296,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b18.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_s.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b19",
+      "key": "key_t",
       "type": "button",
       "attributes": {
-        "objname": "b19",
+        "objname": "key_t",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1328,16 +1328,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1357,17 +1357,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b19.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_t.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b20",
+      "key": "key_u",
       "type": "button",
       "attributes": {
-        "objname": "b20",
+        "objname": "key_u",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1389,16 +1389,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1418,17 +1418,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b20.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_u.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b21",
+      "key": "key_v",
       "type": "button",
       "attributes": {
-        "objname": "b21",
+        "objname": "key_v",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1450,16 +1450,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1479,17 +1479,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b21.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_v.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b22",
+      "key": "key_w",
       "type": "button",
       "attributes": {
-        "objname": "b22",
+        "objname": "key_w",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1511,16 +1511,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1540,17 +1540,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b22.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_w.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b23",
+      "key": "key_x",
       "type": "button",
       "attributes": {
-        "objname": "b23",
+        "objname": "key_x",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1572,16 +1572,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1601,17 +1601,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b23.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_x.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b24",
+      "key": "key_y",
       "type": "button",
       "attributes": {
-        "objname": "b24",
+        "objname": "key_y",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1633,16 +1633,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1662,17 +1662,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b24.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_y.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b25",
+      "key": "key_z",
       "type": "button",
       "attributes": {
-        "objname": "b25",
+        "objname": "key_z",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1694,16 +1694,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1723,17 +1723,17 @@
           "btlen input.txt,temp.val",
           "if(temp.val<inputlenth.val)",
           "{",
-          "  input.txt+=b25.txt",
-          "  show.txt=input.txt",
+          "  input.txt+=key_z.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b26",
+      "key": "key_space",
       "type": "button",
       "attributes": {
-        "objname": "b26",
+        "objname": "key_space",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1755,16 +1755,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -1785,16 +1785,16 @@
           "if(temp.val<inputlenth.val)",
           "{",
           "  input.txt+=\" \"",
-          "  show.txt=input.txt",
+          "  input_show.txt=input.txt",
           "}"
         ]
       }
     },
     {
-      "key": "b28",
+      "key": "key_del",
       "type": "button",
       "attributes": {
-        "objname": "b28",
+        "objname": "key_del",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1816,16 +1816,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1843,15 +1843,15 @@
         "codesdown": [],
         "codesup": [
           "input.txt-=1",
-          "show.txt=input.txt"
+          "input_show.txt=input.txt"
         ]
       }
     },
     {
-      "key": "b29",
+      "key": "key_shift",
       "type": "button",
       "attributes": {
-        "objname": "b29",
+        "objname": "key_shift",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1873,16 +1873,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_158"
+          "$ref": "picture:kb_shift_on"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_105"
+          "$ref": "picture:kb_shift_on_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1899,30 +1899,30 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(b29.picc==${picture:pic_128})",
+          "if(key_shift.picc==${picture:kb_shift_off})",
           "{",
-          "  b29.picc=${picture:pic_158}",
-          "  b29.picc2=${picture:pic_105}",
-          "}else if(b29.picc==${picture:pic_158})",
+          "  key_shift.picc=${picture:kb_shift_on}",
+          "  key_shift.picc2=${picture:kb_shift_on_press}",
+          "}else if(key_shift.picc==${picture:kb_shift_on})",
           "{",
-          "  b29.picc=${picture:pic_128}",
-          "  b29.picc2=${picture:pic_103}",
-          "}else if(b29.txt==\"1/2\")",
+          "  key_shift.picc=${picture:kb_shift_off}",
+          "  key_shift.picc2=${picture:kb_key_press}",
+          "}else if(key_shift.txt==\"1/2\")",
           "{",
-          "  b29.txt=\"2/2\"",
-          "}else if(b29.txt==\"2/2\")",
+          "  key_shift.txt=\"2/2\"",
+          "}else if(key_shift.txt==\"2/2\")",
           "{",
-          "  b29.txt=\"1/2\"",
+          "  key_shift.txt=\"1/2\"",
           "}",
           "click refresh_show,0"
         ]
       }
     },
     {
-      "key": "b30",
+      "key": "key_sym",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "key_sym",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -1944,16 +1944,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_1"
+          "$ref": "font:font_small14"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_105"
+          "$ref": "picture:kb_shift_on_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -1970,28 +1970,28 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(b30.txt==\"123,.\")",
+          "if(key_sym.txt==\"123,.\")",
           "{",
-          "  b30.txt=\"abc\"",
-          "  b29.picc=${picture:pic_157}",
-          "  b29.picc2=${picture:pic_127}",
-          "  b29.txt=\"1/2\"",
+          "  key_sym.txt=\"abc\"",
+          "  key_shift.picc=${picture:kb_sym_page}",
+          "  key_shift.picc2=${picture:kb_sym_page_press}",
+          "  key_shift.txt=\"1/2\"",
           "}else",
           "{",
-          "  b30.txt=\"123,.\"",
-          "  b29.picc=${picture:pic_158}",
-          "  b29.picc2=${picture:pic_105}",
-          "  b29.txt=\"\"",
+          "  key_sym.txt=\"123,.\"",
+          "  key_shift.picc=${picture:kb_shift_on}",
+          "  key_shift.picc2=${picture:kb_shift_on_press}",
+          "  key_shift.txt=\"\"",
           "}",
           "click refresh_show,0"
         ]
       }
     },
     {
-      "key": "b31",
+      "key": "key_ok",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "key_ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2013,16 +2013,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_102"
+          "$ref": "picture:bg_keyboard"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_103"
+          "$ref": "picture:kb_key_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -2044,16 +2044,16 @@
           "  prints 112,1",
           "  prints kbmode,1",
           "  prints sys2,1",
-          "  prints show.txt,0",
+          "  prints input_show.txt,0",
           "}"
         ]
       }
     },
     {
-      "key": "show",
+      "key": "input_show",
       "type": "text",
       "attributes": {
-        "objname": "show",
+        "objname": "input_show",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2076,7 +2076,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -2097,10 +2097,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -2123,7 +2123,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -2140,18 +2140,18 @@
       },
       "events": {
         "codesdown": [
-          "click b27,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b27,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "tm0",
+      "key": "ok_timer",
       "type": "timer",
       "attributes": {
-        "objname": "tm0",
+        "objname": "ok_timer",
         "vscope": 0,
         "lockobj": 0,
         "groupid0": 0,
@@ -2164,10 +2164,10 @@
           "btlen input.txt,temp.val",
           "if(temp.val<kbmin)",
           "{",
-          "  b31.picc=${picture:pic_103}",
+          "  key_ok.picc=${picture:kb_key_press}",
           "}else",
           "{",
-          "  b31.picc=${picture:pic_102}",
+          "  key_ok.picc=${picture:bg_keyboard}",
           "}"
         ]
       }
@@ -2213,118 +2213,118 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(b29.picc==${picture:pic_158})",
+          "if(key_shift.picc==${picture:kb_shift_on})",
           "{",
-          "  b0.txt=\"a\"",
-          "  b1.txt=\"b\"",
-          "  b2.txt=\"c\"",
-          "  b3.txt=\"d\"",
-          "  b4.txt=\"e\"",
-          "  b5.txt=\"f\"",
-          "  b6.txt=\"g\"",
-          "  b7.txt=\"h\"",
-          "  b8.txt=\"i\"",
-          "  b9.txt=\"j\"",
-          "  b10.txt=\"k\"",
-          "  b11.txt=\"l\"",
-          "  b12.txt=\"m\"",
-          "  b13.txt=\"n\"",
-          "  b14.txt=\"o\"",
-          "  b15.txt=\"p\"",
-          "  b16.txt=\"q\"",
-          "  b17.txt=\"r\"",
-          "  b18.txt=\"s\"",
-          "  b19.txt=\"t\"",
-          "  b20.txt=\"u\"",
-          "  b21.txt=\"v\"",
-          "  b22.txt=\"w\"",
-          "  b23.txt=\"x\"",
-          "  b24.txt=\"y\"",
-          "  b25.txt=\"z\"",
-          "}else if(b29.picc==${picture:pic_128})",
+          "  key_a.txt=\"a\"",
+          "  key_b.txt=\"b\"",
+          "  key_c.txt=\"c\"",
+          "  key_d.txt=\"d\"",
+          "  key_e.txt=\"e\"",
+          "  key_f.txt=\"f\"",
+          "  key_g.txt=\"g\"",
+          "  key_h.txt=\"h\"",
+          "  key_i.txt=\"i\"",
+          "  key_j.txt=\"j\"",
+          "  key_k.txt=\"k\"",
+          "  key_l.txt=\"l\"",
+          "  key_m.txt=\"m\"",
+          "  key_n.txt=\"n\"",
+          "  key_o.txt=\"o\"",
+          "  key_p.txt=\"p\"",
+          "  key_q.txt=\"q\"",
+          "  key_r.txt=\"r\"",
+          "  key_s.txt=\"s\"",
+          "  key_t.txt=\"t\"",
+          "  key_u.txt=\"u\"",
+          "  key_v.txt=\"v\"",
+          "  key_w.txt=\"w\"",
+          "  key_x.txt=\"x\"",
+          "  key_y.txt=\"y\"",
+          "  key_z.txt=\"z\"",
+          "}else if(key_shift.picc==${picture:kb_shift_off})",
           "{",
-          "  b0.txt=\"A\"",
-          "  b1.txt=\"B\"",
-          "  b2.txt=\"C\"",
-          "  b3.txt=\"D\"",
-          "  b4.txt=\"E\"",
-          "  b5.txt=\"F\"",
-          "  b6.txt=\"G\"",
-          "  b7.txt=\"H\"",
-          "  b8.txt=\"I\"",
-          "  b9.txt=\"J\"",
-          "  b10.txt=\"K\"",
-          "  b11.txt=\"L\"",
-          "  b12.txt=\"M\"",
-          "  b13.txt=\"N\"",
-          "  b14.txt=\"O\"",
-          "  b15.txt=\"P\"",
-          "  b16.txt=\"Q\"",
-          "  b17.txt=\"R\"",
-          "  b18.txt=\"S\"",
-          "  b19.txt=\"T\"",
-          "  b20.txt=\"U\"",
-          "  b21.txt=\"V\"",
-          "  b22.txt=\"W\"",
-          "  b23.txt=\"X\"",
-          "  b24.txt=\"Y\"",
-          "  b25.txt=\"Z\"",
-          "}else if(b29.txt==\"1/2\")",
+          "  key_a.txt=\"A\"",
+          "  key_b.txt=\"B\"",
+          "  key_c.txt=\"C\"",
+          "  key_d.txt=\"D\"",
+          "  key_e.txt=\"E\"",
+          "  key_f.txt=\"F\"",
+          "  key_g.txt=\"G\"",
+          "  key_h.txt=\"H\"",
+          "  key_i.txt=\"I\"",
+          "  key_j.txt=\"J\"",
+          "  key_k.txt=\"K\"",
+          "  key_l.txt=\"L\"",
+          "  key_m.txt=\"M\"",
+          "  key_n.txt=\"N\"",
+          "  key_o.txt=\"O\"",
+          "  key_p.txt=\"P\"",
+          "  key_q.txt=\"Q\"",
+          "  key_r.txt=\"R\"",
+          "  key_s.txt=\"S\"",
+          "  key_t.txt=\"T\"",
+          "  key_u.txt=\"U\"",
+          "  key_v.txt=\"V\"",
+          "  key_w.txt=\"W\"",
+          "  key_x.txt=\"X\"",
+          "  key_y.txt=\"Y\"",
+          "  key_z.txt=\"Z\"",
+          "}else if(key_shift.txt==\"1/2\")",
           "{",
-          "  b0.txt=\"1\"",
-          "  b1.txt=\"2\"",
-          "  b2.txt=\"3\"",
-          "  b3.txt=\"4\"",
-          "  b4.txt=\"5\"",
-          "  b5.txt=\"6\"",
-          "  b6.txt=\"7\"",
-          "  b7.txt=\"8\"",
-          "  b8.txt=\"9\"",
-          "  b9.txt=\"0\"",
-          "  b10.txt=\"-\"",
-          "  b11.txt=\"/\"",
-          "  b12.txt=\":\"",
-          "  b13.txt=\";\"",
-          "  b14.txt=\"(\"",
-          "  b15.txt=\")\"",
-          "  b16.txt=\"$\"",
-          "  b17.txt=\"&\"",
-          "  b18.txt=\"@\"",
-          "  b19.txt=\"\\\"\"",
-          "  b20.txt=\".\"",
-          "  b21.txt=\",\"",
-          "  b22.txt=\"?\"",
-          "  b23.txt=\"!\"",
-          "  b24.txt=\"‘\"",
-          "  b25.txt=\"’\"",
-          "}else if(b29.txt==\"2/2\")",
+          "  key_a.txt=\"1\"",
+          "  key_b.txt=\"2\"",
+          "  key_c.txt=\"3\"",
+          "  key_d.txt=\"4\"",
+          "  key_e.txt=\"5\"",
+          "  key_f.txt=\"6\"",
+          "  key_g.txt=\"7\"",
+          "  key_h.txt=\"8\"",
+          "  key_i.txt=\"9\"",
+          "  key_j.txt=\"0\"",
+          "  key_k.txt=\"-\"",
+          "  key_l.txt=\"/\"",
+          "  key_m.txt=\":\"",
+          "  key_n.txt=\";\"",
+          "  key_o.txt=\"(\"",
+          "  key_p.txt=\")\"",
+          "  key_q.txt=\"$\"",
+          "  key_r.txt=\"&\"",
+          "  key_s.txt=\"@\"",
+          "  key_t.txt=\"\\\"\"",
+          "  key_u.txt=\".\"",
+          "  key_v.txt=\",\"",
+          "  key_w.txt=\"?\"",
+          "  key_x.txt=\"!\"",
+          "  key_y.txt=\"‘\"",
+          "  key_z.txt=\"’\"",
+          "}else if(key_shift.txt==\"2/2\")",
           "{",
-          "  b0.txt=\"[\"",
-          "  b1.txt=\"]\"",
-          "  b2.txt=\"{\"",
-          "  b3.txt=\"}\"",
-          "  b4.txt=\"#\"",
-          "  b5.txt=\"%\"",
-          "  b6.txt=\"^\"",
-          "  b7.txt=\"*\"",
-          "  b8.txt=\"+\"",
-          "  b9.txt=\"=\"",
-          "  b10.txt=\"_\"",
-          "  b11.txt=\"\\\\\"",
-          "  b12.txt=\"|\"",
-          "  b13.txt=\"~\"",
-          "  b14.txt=\"<\"",
-          "  b15.txt=\">\"",
-          "  b16.txt=\"€\"",
-          "  b17.txt=\"£\"",
-          "  b18.txt=\"¥\"",
-          "  b19.txt=\"•\"",
-          "  b20.txt=\"`\"",
-          "  b21.txt=\"“\"",
-          "  b22.txt=\"”\"",
-          "  b23.txt=\"、\"",
-          "  b24.txt=\"《\"",
-          "  b25.txt=\"》\"",
+          "  key_a.txt=\"[\"",
+          "  key_b.txt=\"]\"",
+          "  key_c.txt=\"{\"",
+          "  key_d.txt=\"}\"",
+          "  key_e.txt=\"#\"",
+          "  key_f.txt=\"%\"",
+          "  key_g.txt=\"^\"",
+          "  key_h.txt=\"*\"",
+          "  key_i.txt=\"+\"",
+          "  key_j.txt=\"=\"",
+          "  key_k.txt=\"_\"",
+          "  key_l.txt=\"\\\\\"",
+          "  key_m.txt=\"|\"",
+          "  key_n.txt=\"~\"",
+          "  key_o.txt=\"<\"",
+          "  key_p.txt=\">\"",
+          "  key_q.txt=\"€\"",
+          "  key_r.txt=\"£\"",
+          "  key_s.txt=\"¥\"",
+          "  key_t.txt=\"•\"",
+          "  key_u.txt=\"`\"",
+          "  key_v.txt=\"“\"",
+          "  key_w.txt=\"”\"",
+          "  key_x.txt=\"、\"",
+          "  key_y.txt=\"《\"",
+          "  key_z.txt=\"》\"",
           "}"
         ]
       }

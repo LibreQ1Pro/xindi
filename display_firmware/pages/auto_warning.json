@@ -34,56 +34,56 @@
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请将温度设置至35℃以上。\"",
-        "  b0.txt=\"确定\"",
+        "  msg.txt=\"请将温度设置至35℃以上。\"",
+        "  ok.txt=\"确定\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Пожалуйста, установите температуру выше 35°C. \"",
-        "  b0.txt=\"Подтвердить\"",
+        "  msg.txt=\"Пожалуйста, установите температуру выше 35°C. \"",
+        "  ok.txt=\"Подтвердить\"",
         "}else if(lang==2)",
         "{",
-        "  b0.txt=\"Confirm\"",
-        "  t0.txt=\"Please set the temperature to above 35 ℃.\"",
+        "  ok.txt=\"Confirm\"",
+        "  msg.txt=\"Please set the temperature to above 35 ℃.\"",
         "}else if(lang==3)",
         "{",
-        "  b0.txt=\"確認\"",
-        "  t0.txt=\"温度を35℃以上に設定してください。\"",
+        "  ok.txt=\"確認\"",
+        "  msg.txt=\"温度を35℃以上に設定してください。\"",
         "}else if(lang==4)",
         "{",
-        "  b0.txt=\"Confirmer\"",
-        "  t0.txt=\"Veuillez régler la température au - dessus de 35 ℃.\"",
+        "  ok.txt=\"Confirmer\"",
+        "  msg.txt=\"Veuillez régler la température au - dessus de 35 ℃.\"",
         "}else if(lang==5)",
         "{",
-        "  b0.txt=\"OK\"",
-        "  t0.txt=\"Bitte stellen Sie die Temperatur auf über 35 ℃ ein.\"",
+        "  ok.txt=\"OK\"",
+        "  msg.txt=\"Bitte stellen Sie die Temperatur auf über 35 ℃ ein.\"",
         "}else if(lang==6)",
         "{",
-        "  b0.txt=\"Conferma\"",
-        "  t0.txt=\"Si prega di impostare la temperatura sopra 35 ℃.\"",
+        "  ok.txt=\"Conferma\"",
+        "  msg.txt=\"Si prega di impostare la temperatura sopra 35 ℃.\"",
         "}else if(lang==7)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Por favor, establezca la temperatura por encima de 35 grados celsius.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Por favor, establezca la temperatura por encima de 35 grados celsius.\"",
         "}else if(lang==8)",
         "{",
-        "  b0.txt=\"확실한\"",
-        "  t0.txt=\"온도를 35 ℃ 이상으로 설정하십시오.\"",
+        "  ok.txt=\"확실한\"",
+        "  msg.txt=\"온도를 35 ℃ 이상으로 설정하십시오.\"",
         "}else if(lang==9)",
         "{",
-        "  b0.txt=\"Confirmar\"",
-        "  t0.txt=\"Por favor, ajuste a temperatura para acima de 35 ℃.\"",
+        "  ok.txt=\"Confirmar\"",
+        "  msg.txt=\"Por favor, ajuste a temperatura para acima de 35 ℃.\"",
         "}else if(lang==10)",
         "{",
-        "  b0.txt=\"تأكيد\"",
-        "  t0.txt=\"يرجى تحديد درجة الحرارة فوق 35 درجة مئوية .\"",
+        "  ok.txt=\"تأكيد\"",
+        "  msg.txt=\"يرجى تحديد درجة الحرارة فوق 35 درجة مئوية .\"",
         "}else if(lang==11)",
         "{",
-        "  b0.txt=\"Onayla\"",
-        "  t0.txt=\"Lütfen sıcaklığı 35 °C üzerinde ayarlayın.\"",
+        "  ok.txt=\"Onayla\"",
+        "  msg.txt=\"Lütfen sıcaklığı 35 °C üzerinde ayarlayın.\"",
         "}else if(lang==12)",
         "{",
-        "  b0.txt=\"אישור\"",
-        "  t0.txt=\"בבקשה קבע את הטמפרטורה למעלה מ-35.\"",
+        "  ok.txt=\"אישור\"",
+        "  msg.txt=\"בבקשה קבע את הטמפרטורה למעלה מ-35.\"",
         "}"
       ],
       "codesloadend": [],
@@ -94,10 +94,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "popup_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "popup_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -115,7 +115,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         }
       },
       "events": {
@@ -124,10 +124,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "ok",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "ok",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -149,16 +149,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_110"
+          "$ref": "picture:popup_ok_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_111"
+          "$ref": "picture:popup_ok_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -185,10 +185,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -211,7 +211,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

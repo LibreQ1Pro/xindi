@@ -29,60 +29,60 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_82"
+        "$ref": "picture:bg_language"
       }
     },
     "events": {
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"语言\"",
+        "  title.txt=\"语言\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Языки\"",
+        "  title.txt=\"Языки\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Languages\"",
+        "  title.txt=\"Languages\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"言語\"",
+        "  title.txt=\"言語\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Langues\"",
+        "  title.txt=\"Langues\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Sprachen\"",
+        "  title.txt=\"Sprachen\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Lingue\"",
+        "  title.txt=\"Lingue\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Idiomas\"",
+        "  title.txt=\"Idiomas\"",
         "}else if(lang==8)",
         "{",
-        "  b0.picc=${picture:pic_242}",
-        "  b0.picc2=${picture:pic_243}",
-        "  t0.txt=\"언어\"",
+        "  lang_kr.picc=${picture:language_prev_page}",
+        "  lang_kr.picc2=${picture:language2_lang_kr_press_kr}",
+        "  title.txt=\"언어\"",
         "}else if(lang==9)",
         "{",
-        "  b1.picc=${picture:pic_242}",
-        "  b1.picc2=${picture:pic_243}",
-        "  t0.txt=\"Idiomas\"",
+        "  lang_pt.picc=${picture:language_prev_page}",
+        "  lang_pt.picc2=${picture:language2_lang_kr_press_kr}",
+        "  title.txt=\"Idiomas\"",
         "}else if(lang==10)",
         "{",
-        "  b2.picc=${picture:pic_242}",
-        "  b2.picc2=${picture:pic_243}",
-        "  t0.txt=\"اللغات\"",
+        "  lang_ar.picc=${picture:language_prev_page}",
+        "  lang_ar.picc2=${picture:language2_lang_kr_press_kr}",
+        "  title.txt=\"اللغات\"",
         "}else if(lang==11)",
         "{",
-        "  b3.picc=${picture:pic_242}",
-        "  b3.picc2=${picture:pic_243}",
-        "  t0.txt=\"Diller\"",
+        "  lang_tr.picc=${picture:language_prev_page}",
+        "  lang_tr.picc2=${picture:language2_lang_kr_press_kr}",
+        "  title.txt=\"Diller\"",
         "}else if(lang==12)",
         "{",
-        "  b4.picc=${picture:pic_242}",
-        "  b4.picc2=${picture:pic_243}",
-        "  t0.txt=\"שפות\"",
+        "  lang_he.picc=${picture:language_prev_page}",
+        "  lang_he.picc2=${picture:language2_lang_kr_press_kr}",
+        "  title.txt=\"שפות\"",
         "}"
       ],
       "codesloadend": [],
@@ -93,10 +93,10 @@
   },
   "objects": [
     {
-      "key": "b0",
+      "key": "lang_kr",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "lang_kr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -118,16 +118,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_68"
+          "$ref": "picture:language2_lang_kr"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -151,10 +151,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "lang_pt",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "lang_pt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -176,16 +176,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_68"
+          "$ref": "picture:language2_lang_kr"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -209,10 +209,10 @@
       }
     },
     {
-      "key": "b2",
+      "key": "lang_ar",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "lang_ar",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -234,16 +234,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_68"
+          "$ref": "picture:language2_lang_kr"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -267,10 +267,10 @@
       }
     },
     {
-      "key": "b3",
+      "key": "lang_tr",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "lang_tr",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -292,16 +292,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_68"
+          "$ref": "picture:language2_lang_kr"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -325,10 +325,10 @@
       }
     },
     {
-      "key": "b4",
+      "key": "lang_he",
       "type": "button",
       "attributes": {
-        "objname": "b4",
+        "objname": "lang_he",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -350,16 +350,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_68"
+          "$ref": "picture:language2_lang_kr"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -383,10 +383,10 @@
       }
     },
     {
-      "key": "b6",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b6",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -408,16 +408,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_82"
+          "$ref": "picture:bg_language"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -444,10 +444,10 @@
       }
     },
     {
-      "key": "b33",
+      "key": "nav_settings",
       "type": "button",
       "attributes": {
-        "objname": "b33",
+        "objname": "nav_settings",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -469,20 +469,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -509,10 +509,10 @@
       }
     },
     {
-      "key": "b32",
+      "key": "nav_files",
       "type": "button",
       "attributes": {
-        "objname": "b32",
+        "objname": "nav_files",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -534,20 +534,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -574,10 +574,10 @@
       }
     },
     {
-      "key": "b31",
+      "key": "nav_adjust",
       "type": "button",
       "attributes": {
-        "objname": "b31",
+        "objname": "nav_adjust",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -599,20 +599,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -639,10 +639,10 @@
       }
     },
     {
-      "key": "b30",
+      "key": "nav_main",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "nav_main",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -664,20 +664,20 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc": {
-          "$ref": "picture:pic_25"
+          "$ref": "picture:bg_settings_panel"
         },
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:pic_230"
+          "$ref": "picture:nav_btn_press"
         },
         "picc2": {
-          "$ref": "picture:pic_36"
+          "$ref": "picture:bg_settings_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -704,10 +704,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "title",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "title",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -730,7 +730,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -747,18 +747,18 @@
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "click back_btn,1"
         ],
         "codesup": [
-          "click b6,0"
+          "click back_btn,0"
         ]
       }
     },
     {
-      "key": "b9",
+      "key": "prev_page",
       "type": "button",
       "attributes": {
-        "objname": "b9",
+        "objname": "prev_page",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -780,16 +780,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_11"
+          "$ref": "picture:language_next_page_cn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_76"
+          "$ref": "picture:hdr_back_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -811,10 +811,10 @@
       }
     },
     {
-      "key": "b10",
+      "key": "next_page",
       "type": "button",
       "attributes": {
-        "objname": "b10",
+        "objname": "next_page",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -836,16 +836,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_242"
+          "$ref": "picture:language_prev_page"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_244"
+          "$ref": "picture:language_prev_page_press"
         },
         "bco2": 1024,
         "pco": 0,

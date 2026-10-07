@@ -29,52 +29,52 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:pic_40"
+        "$ref": "picture:bg_message"
       }
     },
     "events": {
       "codesload": [
-        "vis t1,0",
-        "vis j0,0",
+        "vis pct_txt,0",
+        "vis progress,0",
         "if(lang==0)",
         "{",
-        "  t0.txt=\"更新中...\"",
+        "  msg.txt=\"更新中...\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Обновление...\"",
+        "  msg.txt=\"Обновление...\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Update in progress...\"",
+        "  msg.txt=\"Update in progress...\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"更新中...\"",
+        "  msg.txt=\"更新中...\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Mise à jour...\"",
+        "  msg.txt=\"Mise à jour...\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Aktualisierung...\"",
+        "  msg.txt=\"Aktualisierung...\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"In aggiornamento...\"",
+        "  msg.txt=\"In aggiornamento...\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Actualizando...\"",
+        "  msg.txt=\"Actualizando...\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"업데이트 중...\"",
+        "  msg.txt=\"업데이트 중...\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Atualizando...\"",
+        "  msg.txt=\"Atualizando...\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"جارٍ التحديث...\"",
+        "  msg.txt=\"جارٍ التحديث...\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Güncelleniyor...\"",
+        "  msg.txt=\"Güncelleniyor...\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"עִדכּוּן...\"",
+        "  msg.txt=\"עִדכּוּן...\"",
         "}"
       ],
       "codesloadend": [],
@@ -85,10 +85,10 @@
   },
   "objects": [
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -111,7 +111,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -132,10 +132,10 @@
       }
     },
     {
-      "key": "j0",
+      "key": "progress",
       "type": "progress_bar",
       "attributes": {
-        "objname": "j0",
+        "objname": "progress",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -167,10 +167,10 @@
       }
     },
     {
-      "key": "t1",
+      "key": "pct_txt",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "pct_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -193,7 +193,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -214,10 +214,10 @@
       }
     },
     {
-      "key": "t2",
+      "key": "info_txt",
       "type": "text",
       "attributes": {
-        "objname": "t2",
+        "objname": "info_txt",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -240,7 +240,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,

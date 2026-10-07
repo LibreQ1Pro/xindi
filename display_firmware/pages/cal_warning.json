@@ -34,69 +34,69 @@
       "codesload": [
         "if(lang==0)",
         "{",
-        "  t0.txt=\"请确认PEI板已正确放置，且机器底部和平台上无杂物。\"",
-        "  b0.txt=\"继续\"",
-        "  b1.txt=\"返回\"",
+        "  msg.txt=\"请确认PEI板已正确放置，且机器底部和平台上无杂物。\"",
+        "  next_btn.txt=\"继续\"",
+        "  back_btn.txt=\"返回\"",
         "}else if(lang==1)",
         "{",
-        "  t0.txt=\"Убедитесь, что панель PEI размещена правильно и \\rчто на дне машины и \\rплатформе нет мусора.\"",
-        "  b0.txt=\"следующий\"",
-        "  b1.txt=\"Назад\"",
+        "  msg.txt=\"Убедитесь, что панель PEI размещена правильно и \\rчто на дне машины и \\rплатформе нет мусора.\"",
+        "  next_btn.txt=\"следующий\"",
+        "  back_btn.txt=\"Назад\"",
         "}else if(lang==2)",
         "{",
-        "  t0.txt=\"Please confirm that the PEI board is properly placed and there are no debris on the \\rbottom and platform of the machine.\"",
-        "  b0.txt=\"Next\"",
-        "  b1.txt=\"Back\"",
+        "  msg.txt=\"Please confirm that the PEI board is properly placed and there are no debris on the \\rbottom and platform of the machine.\"",
+        "  next_btn.txt=\"Next\"",
+        "  back_btn.txt=\"Back\"",
         "}else if(lang==3)",
         "{",
-        "  t0.txt=\"PEIボードが正しく設置されており、マシンの底とプラットフォームに雑物がないことを確認してください。\"",
-        "  b0.txt=\"次\"",
-        "  b1.txt=\"戻る\"",
+        "  msg.txt=\"PEIボードが正しく設置されており、マシンの底とプラットフォームに雑物がないことを確認してください。\"",
+        "  next_btn.txt=\"次\"",
+        "  back_btn.txt=\"戻る\"",
         "}else if(lang==4)",
         "{",
-        "  t0.txt=\"Veuillez vérifier que la \\rplaque Pei est correctement placée et qu'il n'y a pas \\rd'encombrement sur le fond et la plate - forme de la \\rmachine.\"",
-        "  b0.txt=\"prochain\"",
-        "  b1.txt=\"dos\"",
+        "  msg.txt=\"Veuillez vérifier que la \\rplaque Pei est correctement placée et qu'il n'y a pas \\rd'encombrement sur le fond et la plate - forme de la \\rmachine.\"",
+        "  next_btn.txt=\"prochain\"",
+        "  back_btn.txt=\"dos\"",
         "}else if(lang==5)",
         "{",
-        "  t0.txt=\"Bitte vergewissern Sie sich, dass die PEI-Platine \\rordnungsgemäß platziert \\rist und sich keine \\rAblagerungen auf dem \\rBoden und der Plattform \\rder Maschine befinden.\"",
-        "  b0.txt=\"Weiter\"",
-        "  b1.txt=\"Zurück\"",
+        "  msg.txt=\"Bitte vergewissern Sie sich, dass die PEI-Platine \\rordnungsgemäß platziert \\rist und sich keine \\rAblagerungen auf dem \\rBoden und der Plattform \\rder Maschine befinden.\"",
+        "  next_btn.txt=\"Weiter\"",
+        "  back_btn.txt=\"Zurück\"",
         "}else if(lang==6)",
         "{",
-        "  t0.txt=\"Si prega di confermare che \\rla scheda PEI è posizionata \\rcorrettamente e che non ci \\rsono detriti sul fondo e sulla piattaforma della macchina.\"",
-        "  b0.txt=\"Avanti\"",
-        "  b1.txt=\"Indietro\"",
+        "  msg.txt=\"Si prega di confermare che \\rla scheda PEI è posizionata \\rcorrettamente e che non ci \\rsono detriti sul fondo e sulla piattaforma della macchina.\"",
+        "  next_btn.txt=\"Avanti\"",
+        "  back_btn.txt=\"Indietro\"",
         "}else if(lang==7)",
         "{",
-        "  t0.txt=\"Asegúrese de que la placa \\rPei se ha colocado \\rcorrectamente y que no hay escombros en la parte \\rinferior de la máquina y \\ren la plataforma.\"",
-        "  b0.txt=\"Siguiente\"",
-        "  b1.txt=\"Atrás\"",
+        "  msg.txt=\"Asegúrese de que la placa \\rPei se ha colocado \\rcorrectamente y que no hay escombros en la parte \\rinferior de la máquina y \\ren la plataforma.\"",
+        "  next_btn.txt=\"Siguiente\"",
+        "  back_btn.txt=\"Atrás\"",
         "}else if(lang==8)",
         "{",
-        "  t0.txt=\"PEI 보드가 올바르게 배치되어 있고 기계 아래쪽과 플랫폼에 잡동사니가 없는지 확인하십시오.\"",
-        "  b0.txt=\"다음\"",
-        "  b1.txt=\"뒤로\"",
+        "  msg.txt=\"PEI 보드가 올바르게 배치되어 있고 기계 아래쪽과 플랫폼에 잡동사니가 없는지 확인하십시오.\"",
+        "  next_btn.txt=\"다음\"",
+        "  back_btn.txt=\"뒤로\"",
         "}else if(lang==9)",
         "{",
-        "  t0.txt=\"Confirme por favor que a \\rplaca PEI está devidamente colocada e que não há \\rdetritos na parte inferior e \\rna plataforma da máquina.\"",
-        "  b0.txt=\"Próximo\"",
-        "  b1.txt=\"Voltar\"",
+        "  msg.txt=\"Confirme por favor que a \\rplaca PEI está devidamente colocada e que não há \\rdetritos na parte inferior e \\rna plataforma da máquina.\"",
+        "  next_btn.txt=\"Próximo\"",
+        "  back_btn.txt=\"Voltar\"",
         "}else if(lang==10)",
         "{",
-        "  t0.txt=\"يرجى التأكد من أن بي لوحة وضعت بشكل صحيح و لا توجد شوائب في أسفل الجهاز أو على منصة .\"",
-        "  b0.txt=\"التالي\"",
-        "  b1.txt=\"السابق\"",
+        "  msg.txt=\"يرجى التأكد من أن بي لوحة وضعت بشكل صحيح و لا توجد شوائب في أسفل الجهاز أو على منصة .\"",
+        "  next_btn.txt=\"التالي\"",
+        "  back_btn.txt=\"السابق\"",
         "}else if(lang==11)",
         "{",
-        "  t0.txt=\"Lütfen PEI tahtasının doğru \\ryerleştirildiğini ve \\rmakinenin altında ve \\rplatformunda çöplük yok.\"",
-        "  b0.txt=\"Sonraki\"",
-        "  b1.txt=\"Geri\"",
+        "  msg.txt=\"Lütfen PEI tahtasının doğru \\ryerleştirildiğini ve \\rmakinenin altında ve \\rplatformunda çöplük yok.\"",
+        "  next_btn.txt=\"Sonraki\"",
+        "  back_btn.txt=\"Geri\"",
         "}else if(lang==12)",
         "{",
-        "  t0.txt=\"נא לאשר שהלוח PEI מוקם כראוי ואין שרידים בתחתית ופלטפורמה של המכונה.\"",
-        "  b0.txt=\"הבא\"",
-        "  b1.txt=\"חזרה\"",
+        "  msg.txt=\"נא לאשר שהלוח PEI מוקם כראוי ואין שרידים בתחתית ופלטפורמה של המכונה.\"",
+        "  next_btn.txt=\"הבא\"",
+        "  back_btn.txt=\"חזרה\"",
         "}"
       ],
       "codesloadend": [],
@@ -107,10 +107,10 @@
   },
   "objects": [
     {
-      "key": "q0",
+      "key": "popup_bg",
       "type": "crop_picture",
       "attributes": {
-        "objname": "q0",
+        "objname": "popup_bg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -128,7 +128,7 @@
         "groupid0": 0,
         "groupid1": 0,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         }
       },
       "events": {
@@ -137,10 +137,10 @@
       }
     },
     {
-      "key": "t0",
+      "key": "msg",
       "type": "text",
       "attributes": {
-        "objname": "t0",
+        "objname": "msg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -163,7 +163,7 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "bco": 65535,
         "picc": 65535,
@@ -184,10 +184,10 @@
       }
     },
     {
-      "key": "b0",
+      "key": "next_btn",
       "type": "button",
       "attributes": {
-        "objname": "b0",
+        "objname": "next_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -209,16 +209,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -245,10 +245,10 @@
       }
     },
     {
-      "key": "b1",
+      "key": "back_btn",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "back_btn",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -270,16 +270,16 @@
         "borderc": 0,
         "borderw": 2,
         "font": {
-          "$ref": "font:font_0"
+          "$ref": "font:font_title18"
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:pic_98"
+          "$ref": "picture:popup_yesno_bg"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:pic_4"
+          "$ref": "picture:popup_yesno_press"
         },
         "bco2": 1024,
         "pco": 65535,

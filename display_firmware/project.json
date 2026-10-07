@@ -2492,1881 +2492,1881 @@
   ],
   "pictures": [
     {
-      "key": "pic_10",
+      "key": "bg_logo",
       "source": {
-        "png": "pictures/pic_10.png"
+        "png": "pictures/bg_logo.png"
       }
     },
     {
-      "key": "pic_0",
+      "key": "bg_restart",
       "source": {
-        "png": "pictures/pic_0.png"
+        "png": "pictures/bg_restart.png"
       }
     },
     {
-      "key": "pic_43",
+      "key": "bg_shutdown",
       "source": {
-        "png": "pictures/pic_43.png"
+        "png": "pictures/bg_shutdown.png"
       }
     },
     {
-      "key": "pic_57",
+      "key": "bg_open_language",
       "source": {
-        "png": "pictures/pic_57.png"
+        "png": "pictures/bg_open_language.png"
       }
     },
     {
-      "key": "pic_14",
+      "key": "open_language_lang_cn",
       "source": {
-        "png": "pictures/pic_14.png"
+        "png": "pictures/open_language_lang_cn.png"
       }
     },
     {
-      "key": "pic_15",
+      "key": "open_language_next_page_cn",
       "source": {
-        "png": "pictures/pic_15.png"
+        "png": "pictures/open_language_next_page_cn.png"
       }
     },
     {
-      "key": "pic_17",
+      "key": "open_language_next_press_cn",
       "source": {
-        "png": "pictures/pic_17.png"
+        "png": "pictures/open_language_next_press_cn.png"
       }
     },
     {
-      "key": "pic_299",
+      "key": "open_language_lang_cn_press",
       "source": {
-        "png": "pictures/pic_299.png"
+        "png": "pictures/open_language_lang_cn_press.png"
       }
     },
     {
-      "key": "pic_91",
+      "key": "bg_unbox_video",
       "source": {
-        "png": "pictures/pic_91.png"
+        "png": "pictures/bg_unbox_video.png"
       }
     },
     {
-      "key": "pic_120",
+      "key": "open_heat_off",
       "source": {
-        "png": "pictures/pic_120.png"
+        "png": "pictures/open_heat_off.png"
       }
     },
     {
-      "key": "pic_126",
+      "key": "open_heat_on",
       "source": {
-        "png": "pictures/pic_126.png"
+        "png": "pictures/open_heat_on.png"
       }
     },
     {
-      "key": "pic_99",
+      "key": "open_video_1_next_press",
       "source": {
-        "png": "pictures/pic_99.png"
+        "png": "pictures/open_video_1_next_press.png"
       }
     },
     {
-      "key": "pic_166",
+      "key": "bg_open_heaterbed",
       "source": {
-        "png": "pictures/pic_166.png"
+        "png": "pictures/bg_open_heaterbed.png"
       }
     },
     {
-      "key": "pic_167",
+      "key": "bedtemp_press_off",
       "source": {
-        "png": "pictures/pic_167.png"
+        "png": "pictures/bedtemp_press_off.png"
       }
     },
     {
-      "key": "pic_168",
+      "key": "bedtemp_press_on",
       "source": {
-        "png": "pictures/pic_168.png"
+        "png": "pictures/bedtemp_press_on.png"
       }
     },
     {
-      "key": "pic_169",
+      "key": "bedtemp_off",
       "source": {
-        "png": "pictures/pic_169.png"
+        "png": "pictures/bedtemp_off.png"
       }
     },
     {
-      "key": "pic_156",
+      "key": "open_warning_next_press",
       "source": {
-        "png": "pictures/pic_156.png"
+        "png": "pictures/open_warning_next_press.png"
       }
     },
     {
-      "key": "pic_155",
+      "key": "bg_open_warning",
       "source": {
-        "png": "pictures/pic_155.png"
+        "png": "pictures/bg_open_warning.png"
       }
     },
     {
-      "key": "pic_170",
+      "key": "bedtemp_on",
       "source": {
-        "png": "pictures/pic_170.png"
+        "png": "pictures/bedtemp_on.png"
       }
     },
     {
-      "key": "pic_171",
+      "key": "bg_open_calibrate",
       "source": {
-        "png": "pictures/pic_171.png"
+        "png": "pictures/bg_open_calibrate.png"
       }
     },
     {
-      "key": "pic_37",
+      "key": "unused_37",
       "source": {
-        "png": "pictures/pic_37.png"
+        "png": "pictures/unused_37.png"
       }
     },
     {
-      "key": "pic_53",
+      "key": "unused_53",
       "source": {
-        "png": "pictures/pic_53.png"
+        "png": "pictures/unused_53.png"
       }
     },
     {
-      "key": "pic_54",
+      "key": "unused_54",
       "source": {
-        "png": "pictures/pic_54.png"
+        "png": "pictures/unused_54.png"
       }
     },
     {
-      "key": "pic_12",
+      "key": "bg_filamentVideo2",
       "source": {
-        "png": "pictures/pic_12.png"
+        "png": "pictures/bg_filamentVideo2.png"
       }
     },
     {
-      "key": "pic_26",
+      "key": "open_heat_on_press",
       "source": {
-        "png": "pictures/pic_26.png"
+        "png": "pictures/open_heat_on_press.png"
       }
     },
     {
-      "key": "pic_35",
+      "key": "open_heat_off_press",
       "source": {
-        "png": "pictures/pic_35.png"
+        "png": "pictures/open_heat_off_press.png"
       }
     },
     {
-      "key": "pic_228",
+      "key": "main_bg_noimg",
       "source": {
-        "png": "pictures/pic_228.png"
+        "png": "pictures/main_bg_noimg.png"
       }
     },
     {
-      "key": "pic_61",
+      "key": "bg_bed_finish",
       "source": {
-        "png": "pictures/pic_61.png"
+        "png": "pictures/bg_bed_finish.png"
       }
     },
     {
-      "key": "pic_62",
+      "key": "bed_finish_ok_press",
       "source": {
-        "png": "pictures/pic_62.png"
+        "png": "pictures/bed_finish_ok_press.png"
       }
     },
     {
-      "key": "pic_229",
+      "key": "main_bg_photo",
       "source": {
-        "png": "pictures/pic_229.png"
+        "png": "pictures/main_bg_photo.png"
       }
     },
     {
-      "key": "pic_230",
+      "key": "nav_btn_press",
       "source": {
-        "png": "pictures/pic_230.png"
+        "png": "pictures/nav_btn_press.png"
       }
     },
     {
-      "key": "pic_231",
+      "key": "main_on_press",
       "source": {
-        "png": "pictures/pic_231.png"
+        "png": "pictures/main_on_press.png"
       }
     },
     {
-      "key": "pic_232",
+      "key": "main_off",
       "source": {
-        "png": "pictures/pic_232.png"
+        "png": "pictures/main_off.png"
       }
     },
     {
-      "key": "pic_233",
+      "key": "main_on",
       "source": {
-        "png": "pictures/pic_233.png"
+        "png": "pictures/main_on.png"
       }
     },
     {
-      "key": "pic_2",
+      "key": "files_tab_usb",
       "source": {
-        "png": "pictures/pic_2.png"
+        "png": "pictures/files_tab_usb.png"
       }
     },
     {
-      "key": "pic_7",
+      "key": "files_tab_local",
       "source": {
-        "png": "pictures/pic_7.png"
+        "png": "pictures/files_tab_local.png"
       }
     },
     {
-      "key": "pic_29",
+      "key": "files_tab_usb_press",
       "source": {
-        "png": "pictures/pic_29.png"
+        "png": "pictures/files_tab_usb_press.png"
       }
     },
     {
-      "key": "pic_33",
+      "key": "files_tab_local_press",
       "source": {
-        "png": "pictures/pic_33.png"
+        "png": "pictures/files_tab_local_press.png"
       }
     },
     {
-      "key": "pic_38",
+      "key": "filelist_nav_main_press",
       "source": {
-        "png": "pictures/pic_38.png"
+        "png": "pictures/filelist_nav_main_press.png"
       }
     },
     {
-      "key": "pic_56",
+      "key": "files_dir_press",
       "source": {
-        "png": "pictures/pic_56.png"
+        "png": "pictures/files_dir_press.png"
       }
     },
     {
-      "key": "pic_58",
+      "key": "files_item_img",
       "source": {
-        "png": "pictures/pic_58.png"
+        "png": "pictures/files_item_img.png"
       }
     },
     {
-      "key": "pic_59",
+      "key": "files_item_dir",
       "source": {
-        "png": "pictures/pic_59.png"
+        "png": "pictures/files_item_dir.png"
       }
     },
     {
-      "key": "pic_77",
+      "key": "filelist_file1_mark",
       "source": {
-        "png": "pictures/pic_77.png"
+        "png": "pictures/filelist_file1_mark.png"
       }
     },
     {
-      "key": "pic_146",
+      "key": "preview_back_btn",
       "source": {
-        "png": "pictures/pic_146.png"
+        "png": "pictures/preview_back_btn.png"
       }
     },
     {
-      "key": "pic_201",
+      "key": "preview_press_on",
       "source": {
-        "png": "pictures/pic_201.png"
+        "png": "pictures/preview_press_on.png"
       }
     },
     {
-      "key": "pic_292",
+      "key": "preview_chk_on",
       "source": {
-        "png": "pictures/pic_292.png"
+        "png": "pictures/preview_chk_on.png"
       }
     },
     {
-      "key": "pic_293",
+      "key": "preview_chk_off",
       "source": {
-        "png": "pictures/pic_293.png"
+        "png": "pictures/preview_chk_off.png"
       }
     },
     {
-      "key": "pic_295",
+      "key": "popup2_bg",
       "source": {
-        "png": "pictures/pic_295.png"
+        "png": "pictures/popup2_bg.png"
       }
     },
     {
-      "key": "pic_296",
+      "key": "unused_296",
       "source": {
-        "png": "pictures/pic_296.png"
+        "png": "pictures/unused_296.png"
       }
     },
     {
-      "key": "pic_297",
+      "key": "popup2_press",
       "source": {
-        "png": "pictures/pic_297.png"
+        "png": "pictures/popup2_press.png"
       }
     },
     {
-      "key": "pic_24",
+      "key": "bg_printing",
       "source": {
-        "png": "pictures/pic_24.png"
+        "png": "pictures/bg_printing.png"
       }
     },
     {
-      "key": "pic_85",
+      "key": "printing_press_off",
       "source": {
-        "png": "pictures/pic_85.png"
+        "png": "pictures/printing_press_off.png"
       }
     },
     {
-      "key": "pic_44",
+      "key": "printing_press_on",
       "source": {
-        "png": "pictures/pic_44.png"
+        "png": "pictures/printing_press_on.png"
       }
     },
     {
-      "key": "pic_118",
+      "key": "printing_row_off",
       "source": {
-        "png": "pictures/pic_118.png"
+        "png": "pictures/printing_row_off.png"
       }
     },
     {
-      "key": "pic_121",
+      "key": "printing_row_on",
       "source": {
-        "png": "pictures/pic_121.png"
+        "png": "pictures/printing_row_on.png"
       }
     },
     {
-      "key": "pic_31",
+      "key": "bg_keybdB",
       "source": {
-        "png": "pictures/pic_31.png"
+        "png": "pictures/bg_keybdB.png"
       }
     },
     {
-      "key": "pic_281",
+      "key": "kb_mute_off_press",
       "source": {
-        "png": "pictures/pic_281.png"
+        "png": "pictures/kb_mute_off_press.png"
       }
     },
     {
-      "key": "pic_131",
+      "key": "zoffset_step_on",
       "source": {
-        "png": "pictures/pic_131.png"
+        "png": "pictures/zoffset_step_on.png"
       }
     },
     {
-      "key": "pic_132",
+      "key": "zoffset_step_off",
       "source": {
-        "png": "pictures/pic_132.png"
+        "png": "pictures/zoffset_step_off.png"
       }
     },
     {
-      "key": "pic_262",
+      "key": "zoffset_step_press_off",
       "source": {
-        "png": "pictures/pic_262.png"
+        "png": "pictures/zoffset_step_press_off.png"
       }
     },
     {
-      "key": "pic_263",
+      "key": "zoffset_step_press_on",
       "source": {
-        "png": "pictures/pic_263.png"
+        "png": "pictures/zoffset_step_press_on.png"
       }
     },
     {
-      "key": "pic_198",
+      "key": "bg_print_zoffset",
       "source": {
-        "png": "pictures/pic_198.png"
+        "png": "pictures/bg_print_zoffset.png"
       }
     },
     {
-      "key": "pic_79",
+      "key": "printfil_heat_on",
       "source": {
-        "png": "pictures/pic_79.png"
+        "png": "pictures/printfil_heat_on.png"
       }
     },
     {
-      "key": "pic_86",
+      "key": "printfil_heat_off",
       "source": {
-        "png": "pictures/pic_86.png"
+        "png": "pictures/printfil_heat_off.png"
       }
     },
     {
-      "key": "pic_236",
+      "key": "printfil_press_off",
       "source": {
-        "png": "pictures/pic_236.png"
+        "png": "pictures/printfil_press_off.png"
       }
     },
     {
-      "key": "pic_235",
+      "key": "printfil_press_on",
       "source": {
-        "png": "pictures/pic_235.png"
+        "png": "pictures/printfil_press_on.png"
       }
     },
     {
-      "key": "pic_234",
+      "key": "bg_print_filament",
       "source": {
-        "png": "pictures/pic_234.png"
+        "png": "pictures/bg_print_filament.png"
       }
     },
     {
-      "key": "pic_123",
+      "key": "printing2_press_on",
       "source": {
-        "png": "pictures/pic_123.png"
+        "png": "pictures/printing2_press_on.png"
       }
     },
     {
-      "key": "pic_122",
+      "key": "bg_printing_2",
       "source": {
-        "png": "pictures/pic_122.png"
+        "png": "pictures/bg_printing_2.png"
       }
     },
     {
-      "key": "pic_222",
+      "key": "notice_ok_press",
       "source": {
-        "png": "pictures/pic_222.png"
+        "png": "pictures/notice_ok_press.png"
       }
     },
     {
-      "key": "pic_64",
+      "key": "bg_notice",
       "source": {
-        "png": "pictures/pic_64.png"
+        "png": "pictures/bg_notice.png"
       }
     },
     {
-      "key": "pic_42",
+      "key": "bg_print_stop",
       "source": {
-        "png": "pictures/pic_42.png"
+        "png": "pictures/bg_print_stop.png"
       }
     },
     {
-      "key": "pic_30",
+      "key": "bg_print_stopping",
       "source": {
-        "png": "pictures/pic_30.png"
+        "png": "pictures/bg_print_stopping.png"
       }
     },
     {
-      "key": "pic_179",
+      "key": "bg_move",
       "source": {
-        "png": "pictures/pic_179.png"
+        "png": "pictures/bg_move.png"
       }
     },
     {
-      "key": "pic_180",
+      "key": "move_dist_on_press",
       "source": {
-        "png": "pictures/pic_180.png"
+        "png": "pictures/move_dist_on_press.png"
       }
     },
     {
-      "key": "pic_181",
+      "key": "move_dist_off_press",
       "source": {
-        "png": "pictures/pic_181.png"
+        "png": "pictures/move_dist_off_press.png"
       }
     },
     {
-      "key": "pic_175",
+      "key": "move_dist_off",
       "source": {
-        "png": "pictures/pic_175.png"
+        "png": "pictures/move_dist_off.png"
       }
     },
     {
-      "key": "pic_176",
+      "key": "move_dist_on",
       "source": {
-        "png": "pictures/pic_176.png"
+        "png": "pictures/move_dist_on.png"
       }
     },
     {
-      "key": "pic_66",
+      "key": "unused_66",
       "source": {
-        "png": "pictures/pic_66.png"
+        "png": "pictures/unused_66.png"
       }
     },
     {
-      "key": "pic_83",
+      "key": "unused_83",
       "source": {
-        "png": "pictures/pic_83.png"
+        "png": "pictures/unused_83.png"
       }
     },
     {
-      "key": "pic_111",
+      "key": "popup_ok_press",
       "source": {
-        "png": "pictures/pic_111.png"
+        "png": "pictures/popup_ok_press.png"
       }
     },
     {
-      "key": "pic_98",
+      "key": "popup_yesno_bg",
       "source": {
-        "png": "pictures/pic_98.png"
+        "png": "pictures/popup_yesno_bg.png"
       }
     },
     {
-      "key": "pic_4",
+      "key": "popup_yesno_press",
       "source": {
-        "png": "pictures/pic_4.png"
+        "png": "pictures/popup_yesno_press.png"
       }
     },
     {
-      "key": "pic_110",
+      "key": "popup_ok_bg",
       "source": {
-        "png": "pictures/pic_110.png"
+        "png": "pictures/popup_ok_bg.png"
       }
     },
     {
-      "key": "pic_182",
+      "key": "bg_move_pop_2",
       "source": {
-        "png": "pictures/pic_182.png"
+        "png": "pictures/bg_move_pop_2.png"
       }
     },
     {
-      "key": "pic_19",
+      "key": "unused_19",
       "source": {
-        "png": "pictures/pic_19.png"
+        "png": "pictures/unused_19.png"
       }
     },
     {
-      "key": "pic_1",
+      "key": "fila_set_fan_fan1_slider_fg_cn",
       "source": {
-        "png": "pictures/pic_1.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_cn.png"
       }
     },
     {
-      "key": "pic_6",
+      "key": "fila_set_fan_fan1_slider_cn",
       "source": {
-        "png": "pictures/pic_6.png"
+        "png": "pictures/fila_set_fan_fan1_slider_cn.png"
       }
     },
     {
-      "key": "pic_152",
+      "key": "fila_set_fan_fan2_toggle_press",
       "source": {
-        "png": "pictures/pic_152.png"
+        "png": "pictures/fila_set_fan_fan2_toggle_press.png"
       }
     },
     {
-      "key": "pic_153",
+      "key": "fila_set_fan_fan1_inc",
       "source": {
-        "png": "pictures/pic_153.png"
+        "png": "pictures/fila_set_fan_fan1_inc.png"
       }
     },
     {
-      "key": "pic_78",
+      "key": "fila_set_fan_back_btn_press",
       "source": {
-        "png": "pictures/pic_78.png"
+        "png": "pictures/fila_set_fan_back_btn_press.png"
       }
     },
     {
-      "key": "pic_137",
+      "key": "bg_filament_kb",
       "source": {
-        "png": "pictures/pic_137.png"
+        "png": "pictures/bg_filament_kb.png"
       }
     },
     {
-      "key": "pic_140",
+      "key": "filament_kb_input_bg",
       "source": {
-        "png": "pictures/pic_140.png"
+        "png": "pictures/filament_kb_input_bg.png"
       }
     },
     {
-      "key": "pic_143",
+      "key": "filament_kb_input_bg_he",
       "source": {
-        "png": "pictures/pic_143.png"
+        "png": "pictures/filament_kb_input_bg_he.png"
       }
     },
     {
-      "key": "pic_193",
+      "key": "unused_193",
       "source": {
-        "png": "pictures/pic_193.png"
+        "png": "pictures/unused_193.png"
       }
     },
     {
-      "key": "pic_192",
+      "key": "unused_192",
       "source": {
-        "png": "pictures/pic_192.png"
+        "png": "pictures/unused_192.png"
       }
     },
     {
-      "key": "pic_8",
+      "key": "bg_level_mode",
       "source": {
-        "png": "pictures/pic_8.png"
+        "png": "pictures/bg_level_mode.png"
       }
     },
     {
-      "key": "pic_9",
+      "key": "level_mode_tab_settings_press",
       "source": {
-        "png": "pictures/pic_9.png"
+        "png": "pictures/level_mode_tab_settings_press.png"
       }
     },
     {
-      "key": "pic_204",
+      "key": "unused_204",
       "source": {
-        "png": "pictures/pic_204.png"
+        "png": "pictures/unused_204.png"
       }
     },
     {
-      "key": "pic_115",
+      "key": "unused_115",
       "source": {
-        "png": "pictures/pic_115.png"
+        "png": "pictures/unused_115.png"
       }
     },
     {
-      "key": "pic_116",
+      "key": "unused_116",
       "source": {
-        "png": "pictures/pic_116.png"
+        "png": "pictures/unused_116.png"
       }
     },
     {
-      "key": "pic_39",
+      "key": "zoffset_back_btn_press",
       "source": {
-        "png": "pictures/pic_39.png"
+        "png": "pictures/zoffset_back_btn_press.png"
       }
     },
     {
-      "key": "pic_3",
+      "key": "bg_zoffset",
       "source": {
-        "png": "pictures/pic_3.png"
+        "png": "pictures/bg_zoffset.png"
       }
     },
     {
-      "key": "pic_125",
+      "key": "bg_auto_heaterbed",
       "source": {
-        "png": "pictures/pic_125.png"
+        "png": "pictures/bg_auto_heaterbed.png"
       }
     },
     {
-      "key": "pic_134",
+      "key": "autobed_press_off",
       "source": {
-        "png": "pictures/pic_134.png"
+        "png": "pictures/autobed_press_off.png"
       }
     },
     {
-      "key": "pic_87",
+      "key": "autobed_press_on",
       "source": {
-        "png": "pictures/pic_87.png"
+        "png": "pictures/autobed_press_on.png"
       }
     },
     {
-      "key": "pic_80",
+      "key": "autobed_on",
       "source": {
-        "png": "pictures/pic_80.png"
+        "png": "pictures/autobed_on.png"
       }
     },
     {
-      "key": "pic_133",
+      "key": "autobed_off",
       "source": {
-        "png": "pictures/pic_133.png"
+        "png": "pictures/autobed_off.png"
       }
     },
     {
-      "key": "pic_40",
+      "key": "bg_message",
       "source": {
-        "png": "pictures/pic_40.png"
+        "png": "pictures/bg_message.png"
       }
     },
     {
-      "key": "pic_51",
+      "key": "auto_steps_1",
       "source": {
-        "png": "pictures/pic_51.png"
+        "png": "pictures/auto_steps_1.png"
       }
     },
     {
-      "key": "pic_52",
+      "key": "auto_steps_2",
       "source": {
-        "png": "pictures/pic_52.png"
+        "png": "pictures/auto_steps_2.png"
       }
     },
     {
-      "key": "pic_94",
+      "key": "auto_steps_3",
       "source": {
-        "png": "pictures/pic_94.png"
+        "png": "pictures/auto_steps_3.png"
       }
     },
     {
-      "key": "pic_112",
+      "key": "auto_moving_steps_bar",
       "source": {
-        "png": "pictures/pic_112.png"
+        "png": "pictures/auto_moving_steps_bar.png"
       }
     },
     {
-      "key": "pic_276",
+      "key": "prebed_step_on",
       "source": {
-        "png": "pictures/pic_276.png"
+        "png": "pictures/prebed_step_on.png"
       }
     },
     {
-      "key": "pic_277",
+      "key": "prebed_step_off",
       "source": {
-        "png": "pictures/pic_277.png"
+        "png": "pictures/prebed_step_off.png"
       }
     },
     {
-      "key": "pic_278",
+      "key": "prebed_press_off",
       "source": {
-        "png": "pictures/pic_278.png"
+        "png": "pictures/prebed_press_off.png"
       }
     },
     {
-      "key": "pic_275",
+      "key": "prebed_press_on",
       "source": {
-        "png": "pictures/pic_275.png"
+        "png": "pictures/prebed_press_on.png"
       }
     },
     {
-      "key": "pic_96",
+      "key": "bg_finish",
       "source": {
-        "png": "pictures/pic_96.png"
+        "png": "pictures/bg_finish.png"
       }
     },
     {
-      "key": "pic_117",
+      "key": "bg_pre_bed_cal",
       "source": {
-        "png": "pictures/pic_117.png"
+        "png": "pictures/bg_pre_bed_cal.png"
       }
     },
     {
-      "key": "pic_20",
+      "key": "bg_bed_calibrate",
       "source": {
-        "png": "pictures/pic_20.png"
+        "png": "pictures/bg_bed_calibrate.png"
       }
     },
     {
-      "key": "pic_27",
+      "key": "bed_calibrate_next_btn_press",
       "source": {
-        "png": "pictures/pic_27.png"
+        "png": "pictures/bed_calibrate_next_btn_press.png"
       }
     },
     {
-      "key": "pic_97",
+      "key": "finish_ok_press",
       "source": {
-        "png": "pictures/pic_97.png"
+        "png": "pictures/finish_ok_press.png"
       }
     },
     {
-      "key": "pic_25",
+      "key": "bg_settings_panel",
       "source": {
-        "png": "pictures/pic_25.png"
+        "png": "pictures/bg_settings_panel.png"
       }
     },
     {
-      "key": "pic_36",
+      "key": "bg_settings_press",
       "source": {
-        "png": "pictures/pic_36.png"
+        "png": "pictures/bg_settings_press.png"
       }
     },
     {
-      "key": "pic_50",
+      "key": "rows_check_press",
       "source": {
-        "png": "pictures/pic_50.png"
+        "png": "pictures/rows_check_press.png"
       }
     },
     {
-      "key": "pic_101",
+      "key": "rows_lock",
       "source": {
-        "png": "pictures/pic_101.png"
+        "png": "pictures/rows_lock.png"
       }
     },
     {
-      "key": "pic_23",
+      "key": "rows_check",
       "source": {
-        "png": "pictures/pic_23.png"
+        "png": "pictures/rows_check.png"
       }
     },
     {
-      "key": "pic_102",
+      "key": "bg_keyboard",
       "source": {
-        "png": "pictures/pic_102.png"
+        "png": "pictures/bg_keyboard.png"
       }
     },
     {
-      "key": "pic_103",
+      "key": "kb_key_press",
       "source": {
-        "png": "pictures/pic_103.png"
+        "png": "pictures/kb_key_press.png"
       }
     },
     {
-      "key": "pic_105",
+      "key": "kb_shift_on_press",
       "source": {
-        "png": "pictures/pic_105.png"
+        "png": "pictures/kb_shift_on_press.png"
       }
     },
     {
-      "key": "pic_127",
+      "key": "kb_sym_page_press",
       "source": {
-        "png": "pictures/pic_127.png"
+        "png": "pictures/kb_sym_page_press.png"
       }
     },
     {
-      "key": "pic_128",
+      "key": "kb_shift_off",
       "source": {
-        "png": "pictures/pic_128.png"
+        "png": "pictures/kb_shift_off.png"
       }
     },
     {
-      "key": "pic_157",
+      "key": "kb_sym_page",
       "source": {
-        "png": "pictures/pic_157.png"
+        "png": "pictures/kb_sym_page.png"
       }
     },
     {
-      "key": "pic_158",
+      "key": "kb_shift_on",
       "source": {
-        "png": "pictures/pic_158.png"
+        "png": "pictures/kb_shift_on.png"
       }
     },
     {
-      "key": "pic_69",
+      "key": "bg_common_set",
       "source": {
-        "png": "pictures/pic_69.png"
+        "png": "pictures/bg_common_set.png"
       }
     },
     {
-      "key": "pic_84",
+      "key": "settings_press",
       "source": {
-        "png": "pictures/pic_84.png"
+        "png": "pictures/settings_press.png"
       }
     },
     {
-      "key": "pic_113",
+      "key": "settings_press_on",
       "source": {
-        "png": "pictures/pic_113.png"
+        "png": "pictures/settings_press_on.png"
       }
     },
     {
-      "key": "pic_191",
+      "key": "reset_row",
       "source": {
-        "png": "pictures/pic_191.png"
+        "png": "pictures/reset_row.png"
       }
     },
     {
-      "key": "pic_190",
+      "key": "reset_row_on",
       "source": {
-        "png": "pictures/pic_190.png"
+        "png": "pictures/reset_row_on.png"
       }
     },
     {
-      "key": "pic_82",
+      "key": "bg_language",
       "source": {
-        "png": "pictures/pic_82.png"
+        "png": "pictures/bg_language.png"
       }
     },
     {
-      "key": "pic_76",
+      "key": "hdr_back_press",
       "source": {
-        "png": "pictures/pic_76.png"
+        "png": "pictures/hdr_back_press.png"
       }
     },
     {
-      "key": "pic_260",
+      "key": "language_lang_cn_press",
       "source": {
-        "png": "pictures/pic_260.png"
+        "png": "pictures/language_lang_cn_press.png"
       }
     },
     {
-      "key": "pic_261",
+      "key": "language_lang_cn",
       "source": {
-        "png": "pictures/pic_261.png"
+        "png": "pictures/language_lang_cn.png"
       }
     },
     {
-      "key": "pic_11",
+      "key": "language_next_page_cn",
       "source": {
-        "png": "pictures/pic_11.png"
+        "png": "pictures/language_next_page_cn.png"
       }
     },
     {
-      "key": "pic_163",
+      "key": "bg_sys_ok",
       "source": {
-        "png": "pictures/pic_163.png"
+        "png": "pictures/bg_sys_ok.png"
       }
     },
     {
-      "key": "pic_184",
+      "key": "sys_ok_export_logs",
       "source": {
-        "png": "pictures/pic_184.png"
+        "png": "pictures/sys_ok_export_logs.png"
       }
     },
     {
-      "key": "pic_185",
+      "key": "sys_ok_export_logs_press",
       "source": {
-        "png": "pictures/pic_185.png"
+        "png": "pictures/sys_ok_export_logs_press.png"
       }
     },
     {
-      "key": "pic_106",
+      "key": "fila_set_fan_fan2_slider_press",
       "source": {
-        "png": "pictures/pic_106.png"
+        "png": "pictures/fila_set_fan_fan2_slider_press.png"
       }
     },
     {
-      "key": "pic_135",
+      "key": "bg_service",
       "source": {
-        "png": "pictures/pic_135.png"
+        "png": "pictures/bg_service.png"
       }
     },
     {
-      "key": "pic_136",
+      "key": "unused_136",
       "source": {
-        "png": "pictures/pic_136.png"
+        "png": "pictures/unused_136.png"
       }
     },
     {
-      "key": "pic_139",
+      "key": "bg_sleep_mode",
       "source": {
-        "png": "pictures/pic_139.png"
+        "png": "pictures/bg_sleep_mode.png"
       }
     },
     {
-      "key": "pic_138",
+      "key": "sleep_mode_opt_5min_press",
       "source": {
-        "png": "pictures/pic_138.png"
+        "png": "pictures/sleep_mode_opt_5min_press.png"
       }
     },
     {
-      "key": "pic_141",
+      "key": "sleep_mode_opt_5min",
       "source": {
-        "png": "pictures/pic_141.png"
+        "png": "pictures/sleep_mode_opt_5min.png"
       }
     },
     {
-      "key": "pic_183",
+      "key": "sleep_mode_opt_5min_2",
       "source": {
-        "png": "pictures/pic_183.png"
+        "png": "pictures/sleep_mode_opt_5min_2.png"
       }
     },
     {
-      "key": "pic_47",
+      "key": "bg_info_popup",
       "source": {
-        "png": "pictures/pic_47.png"
+        "png": "pictures/bg_info_popup.png"
       }
     },
     {
-      "key": "pic_48",
+      "key": "update_nfound_ok_press",
       "source": {
-        "png": "pictures/pic_48.png"
+        "png": "pictures/update_nfound_ok_press.png"
       }
     },
     {
-      "key": "pic_46",
+      "key": "unused_46",
       "source": {
-        "png": "pictures/pic_46.png"
+        "png": "pictures/unused_46.png"
       }
     },
     {
-      "key": "pic_45",
+      "key": "bg_update_found",
       "source": {
-        "png": "pictures/pic_45.png"
+        "png": "pictures/bg_update_found.png"
       }
     },
     {
-      "key": "pic_202",
+      "key": "popup2_press_alt",
       "source": {
-        "png": "pictures/pic_202.png"
+        "png": "pictures/popup2_press_alt.png"
       }
     },
     {
-      "key": "pic_88",
+      "key": "bg_filamentVideo1",
       "source": {
-        "png": "pictures/pic_88.png"
+        "png": "pictures/bg_filamentVideo1.png"
       }
     },
     {
-      "key": "pic_93",
+      "key": "bg_filamentVideo3",
       "source": {
-        "png": "pictures/pic_93.png"
+        "png": "pictures/bg_filamentVideo3.png"
       }
     },
     {
-      "key": "pic_89",
+      "key": "filamentVideo1_next_press",
       "source": {
-        "png": "pictures/pic_89.png"
+        "png": "pictures/filamentVideo1_next_press.png"
       }
     },
     {
-      "key": "pic_95",
+      "key": "filamentVideo3_next_press",
       "source": {
-        "png": "pictures/pic_95.png"
+        "png": "pictures/filamentVideo3_next_press.png"
       }
     },
     {
-      "key": "pic_13",
+      "key": "fila_set_fan_fan1_slider_ru",
       "source": {
-        "png": "pictures/pic_13.png"
+        "png": "pictures/fila_set_fan_fan1_slider_ru.png"
       }
     },
     {
-      "key": "pic_34",
+      "key": "fila_set_fan_fan1_slider_fg_ru",
       "source": {
-        "png": "pictures/pic_34.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_ru.png"
       }
     },
     {
-      "key": "pic_49",
+      "key": "fila_set_fan_fan1_slider_en",
       "source": {
-        "png": "pictures/pic_49.png"
+        "png": "pictures/fila_set_fan_fan1_slider_en.png"
       }
     },
     {
-      "key": "pic_70",
+      "key": "fila_set_fan_fan1_slider_fg_en",
       "source": {
-        "png": "pictures/pic_70.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_en.png"
       }
     },
     {
-      "key": "pic_186",
+      "key": "fila_set_fan_fan1_slider_jp",
       "source": {
-        "png": "pictures/pic_186.png"
+        "png": "pictures/fila_set_fan_fan1_slider_jp.png"
       }
     },
     {
-      "key": "pic_203",
+      "key": "fila_set_fan_fan1_slider_fg_jp",
       "source": {
-        "png": "pictures/pic_203.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_jp.png"
       }
     },
     {
-      "key": "pic_206",
+      "key": "fila_set_fan_fan1_slider_fr",
       "source": {
-        "png": "pictures/pic_206.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fr.png"
       }
     },
     {
-      "key": "pic_207",
+      "key": "fila_set_fan_fan1_slider_fg_fr",
       "source": {
-        "png": "pictures/pic_207.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_fr.png"
       }
     },
     {
-      "key": "pic_208",
+      "key": "fila_set_fan_fan1_slider_de",
       "source": {
-        "png": "pictures/pic_208.png"
+        "png": "pictures/fila_set_fan_fan1_slider_de.png"
       }
     },
     {
-      "key": "pic_209",
+      "key": "fila_set_fan_fan1_slider_fg_de",
       "source": {
-        "png": "pictures/pic_209.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_de.png"
       }
     },
     {
-      "key": "pic_160",
+      "key": "bg_filament",
       "source": {
-        "png": "pictures/pic_160.png"
+        "png": "pictures/bg_filament.png"
       }
     },
     {
-      "key": "pic_159",
+      "key": "filament_press_on",
       "source": {
-        "png": "pictures/pic_159.png"
+        "png": "pictures/filament_press_on.png"
       }
     },
     {
-      "key": "pic_165",
+      "key": "filament_press_off",
       "source": {
-        "png": "pictures/pic_165.png"
+        "png": "pictures/filament_press_off.png"
       }
     },
     {
-      "key": "pic_147",
+      "key": "filament_row_off",
       "source": {
-        "png": "pictures/pic_147.png"
+        "png": "pictures/filament_row_off.png"
       }
     },
     {
-      "key": "pic_148",
+      "key": "filament_row_on",
       "source": {
-        "png": "pictures/pic_148.png"
+        "png": "pictures/filament_row_on.png"
       }
     },
     {
-      "key": "pic_173",
+      "key": "bg_filament_pop_1",
       "source": {
-        "png": "pictures/pic_173.png"
+        "png": "pictures/bg_filament_pop_1.png"
       }
     },
     {
-      "key": "pic_194",
+      "key": "unused_194",
       "source": {
-        "png": "pictures/pic_194.png"
+        "png": "pictures/unused_194.png"
       }
     },
     {
-      "key": "pic_195",
+      "key": "unused_195",
       "source": {
-        "png": "pictures/pic_195.png"
+        "png": "pictures/unused_195.png"
       }
     },
     {
-      "key": "pic_196",
+      "key": "unused_196",
       "source": {
-        "png": "pictures/pic_196.png"
+        "png": "pictures/unused_196.png"
       }
     },
     {
-      "key": "pic_197",
+      "key": "unused_197",
       "source": {
-        "png": "pictures/pic_197.png"
+        "png": "pictures/unused_197.png"
       }
     },
     {
-      "key": "pic_109",
+      "key": "unused_109",
       "source": {
-        "png": "pictures/pic_109.png"
+        "png": "pictures/unused_109.png"
       }
     },
     {
-      "key": "pic_129",
+      "key": "unused_129",
       "source": {
-        "png": "pictures/pic_129.png"
+        "png": "pictures/unused_129.png"
       }
     },
     {
-      "key": "pic_130",
+      "key": "unused_130",
       "source": {
-        "png": "pictures/pic_130.png"
+        "png": "pictures/unused_130.png"
       }
     },
     {
-      "key": "pic_142",
+      "key": "unused_142",
       "source": {
-        "png": "pictures/pic_142.png"
+        "png": "pictures/unused_142.png"
       }
     },
     {
-      "key": "pic_164",
+      "key": "filament_kb_input_bg_he_2",
       "source": {
-        "png": "pictures/pic_164.png"
+        "png": "pictures/filament_kb_input_bg_he_2.png"
       }
     },
     {
-      "key": "pic_5",
+      "key": "bg_filament_pop_2",
       "source": {
-        "png": "pictures/pic_5.png"
+        "png": "pictures/bg_filament_pop_2.png"
       }
     },
     {
-      "key": "pic_55",
+      "key": "filament_pop_2_done_btn",
       "source": {
-        "png": "pictures/pic_55.png"
+        "png": "pictures/filament_pop_2_done_btn.png"
       }
     },
     {
-      "key": "pic_60",
+      "key": "filament_pop_2_done_btn_press",
       "source": {
-        "png": "pictures/pic_60.png"
+        "png": "pictures/filament_pop_2_done_btn_press.png"
       }
     },
     {
-      "key": "pic_150",
+      "key": "unused_150",
       "source": {
-        "png": "pictures/pic_150.png"
+        "png": "pictures/unused_150.png"
       }
     },
     {
-      "key": "pic_151",
+      "key": "unused_151",
       "source": {
-        "png": "pictures/pic_151.png"
+        "png": "pictures/unused_151.png"
       }
     },
     {
-      "key": "pic_73",
+      "key": "filament_pop_2_steps_bar",
       "source": {
-        "png": "pictures/pic_73.png"
+        "png": "pictures/filament_pop_2_steps_bar.png"
       }
     },
     {
-      "key": "pic_75",
+      "key": "pop_steps_1",
       "source": {
-        "png": "pictures/pic_75.png"
+        "png": "pictures/pop_steps_1.png"
       }
     },
     {
-      "key": "pic_100",
+      "key": "pop_steps_2",
       "source": {
-        "png": "pictures/pic_100.png"
+        "png": "pictures/pop_steps_2.png"
       }
     },
     {
-      "key": "pic_107",
+      "key": "unused_107",
       "source": {
-        "png": "pictures/pic_107.png"
+        "png": "pictures/unused_107.png"
       }
     },
     {
-      "key": "pic_108",
+      "key": "pop_steps_3",
       "source": {
-        "png": "pictures/pic_108.png"
+        "png": "pictures/pop_steps_3.png"
       }
     },
     {
-      "key": "pic_210",
+      "key": "bg_fila_set_fan",
       "source": {
-        "png": "pictures/pic_210.png"
+        "png": "pictures/bg_fila_set_fan.png"
       }
     },
     {
-      "key": "pic_211",
+      "key": "fan_press_off",
       "source": {
-        "png": "pictures/pic_211.png"
+        "png": "pictures/fan_press_off.png"
       }
     },
     {
-      "key": "pic_212",
+      "key": "fan_press_on",
       "source": {
-        "png": "pictures/pic_212.png"
+        "png": "pictures/fan_press_on.png"
       }
     },
     {
-      "key": "pic_213",
+      "key": "fan_row_off",
       "source": {
-        "png": "pictures/pic_213.png"
+        "png": "pictures/fan_row_off.png"
       }
     },
     {
-      "key": "pic_214",
+      "key": "fan_row_on",
       "source": {
-        "png": "pictures/pic_214.png"
+        "png": "pictures/fan_row_on.png"
       }
     },
     {
-      "key": "pic_22",
+      "key": "unused_22",
       "source": {
-        "png": "pictures/pic_22.png"
+        "png": "pictures/unused_22.png"
       }
     },
     {
-      "key": "pic_72",
+      "key": "unused_72",
       "source": {
-        "png": "pictures/pic_72.png"
+        "png": "pictures/unused_72.png"
       }
     },
     {
-      "key": "pic_16",
+      "key": "bg_pre_heat",
       "source": {
-        "png": "pictures/pic_16.png"
+        "png": "pictures/bg_pre_heat.png"
       }
     },
     {
-      "key": "pic_18",
+      "key": "pre_heat_temp_opt1_press",
       "source": {
-        "png": "pictures/pic_18.png"
+        "png": "pictures/pre_heat_temp_opt1_press.png"
       }
     },
     {
-      "key": "pic_28",
+      "key": "pre_heat_temp_opt1_press_2",
       "source": {
-        "png": "pictures/pic_28.png"
+        "png": "pictures/pre_heat_temp_opt1_press_2.png"
       }
     },
     {
-      "key": "pic_32",
+      "key": "unused_32",
       "source": {
-        "png": "pictures/pic_32.png"
+        "png": "pictures/unused_32.png"
       }
     },
     {
-      "key": "pic_219",
+      "key": "pre_heat_temp_opt1",
       "source": {
-        "png": "pictures/pic_219.png"
+        "png": "pictures/pre_heat_temp_opt1.png"
       }
     },
     {
-      "key": "pic_220",
+      "key": "pre_heat_temp_opt1_2",
       "source": {
-        "png": "pictures/pic_220.png"
+        "png": "pictures/pre_heat_temp_opt1_2.png"
       }
     },
     {
-      "key": "pic_92",
+      "key": "unused_92",
       "source": {
-        "png": "pictures/pic_92.png"
+        "png": "pictures/unused_92.png"
       }
     },
     {
-      "key": "pic_81",
+      "key": "bg_open_finish",
       "source": {
-        "png": "pictures/pic_81.png"
+        "png": "pictures/bg_open_finish.png"
       }
     },
     {
-      "key": "pic_114",
+      "key": "open_finish_finish_press",
       "source": {
-        "png": "pictures/pic_114.png"
+        "png": "pictures/open_finish_finish_press.png"
       }
     },
     {
-      "key": "pic_312",
+      "key": "ip_press_off",
       "source": {
-        "png": "pictures/pic_312.png"
+        "png": "pictures/ip_press_off.png"
       }
     },
     {
-      "key": "pic_205",
+      "key": "ip_press_on",
       "source": {
-        "png": "pictures/pic_205.png"
+        "png": "pictures/ip_press_on.png"
       }
     },
     {
-      "key": "pic_285",
+      "key": "bg_server_set",
       "source": {
-        "png": "pictures/pic_285.png"
+        "png": "pictures/bg_server_set.png"
       }
     },
     {
-      "key": "pic_74",
+      "key": "server_row_off",
       "source": {
-        "png": "pictures/pic_74.png"
+        "png": "pictures/server_row_off.png"
       }
     },
     {
-      "key": "pic_274",
+      "key": "server_row_on",
       "source": {
-        "png": "pictures/pic_274.png"
+        "png": "pictures/server_row_on.png"
       }
     },
     {
-      "key": "pic_283",
+      "key": "server_press_on",
       "source": {
-        "png": "pictures/pic_283.png"
+        "png": "pictures/server_press_on.png"
       }
     },
     {
-      "key": "pic_284",
+      "key": "server_press_off",
       "source": {
-        "png": "pictures/pic_284.png"
+        "png": "pictures/server_press_off.png"
       }
     },
     {
-      "key": "pic_154",
+      "key": "bg_update_mode",
       "source": {
-        "png": "pictures/pic_154.png"
+        "png": "pictures/bg_update_mode.png"
       }
     },
     {
-      "key": "pic_119",
+      "key": "update_mode_bg_crop1",
       "source": {
-        "png": "pictures/pic_119.png"
+        "png": "pictures/update_mode_bg_crop1.png"
       }
     },
     {
-      "key": "pic_67",
+      "key": "update_mode_press",
       "source": {
-        "png": "pictures/pic_67.png"
+        "png": "pictures/update_mode_press.png"
       }
     },
     {
-      "key": "pic_65",
+      "key": "main_ver_warning",
       "source": {
-        "png": "pictures/pic_65.png"
+        "png": "pictures/main_ver_warning.png"
       }
     },
     {
-      "key": "pic_124",
+      "key": "bg_unload_mode",
       "source": {
-        "png": "pictures/pic_124.png"
+        "png": "pictures/bg_unload_mode.png"
       }
     },
     {
-      "key": "pic_172",
+      "key": "unload_mode_manual_btn_press",
       "source": {
-        "png": "pictures/pic_172.png"
+        "png": "pictures/unload_mode_manual_btn_press.png"
       }
     },
     {
-      "key": "pic_174",
+      "key": "bg_auto_unload",
       "source": {
-        "png": "pictures/pic_174.png"
+        "png": "pictures/bg_auto_unload.png"
       }
     },
     {
-      "key": "pic_187",
+      "key": "auto_unload_load_btn",
       "source": {
-        "png": "pictures/pic_187.png"
+        "png": "pictures/auto_unload_load_btn.png"
       }
     },
     {
-      "key": "pic_188",
+      "key": "auto_unload_load_btn_press",
       "source": {
-        "png": "pictures/pic_188.png"
+        "png": "pictures/auto_unload_load_btn_press.png"
       }
     },
     {
-      "key": "pic_189",
+      "key": "auto_unload_steps_bar",
       "source": {
-        "png": "pictures/pic_189.png"
+        "png": "pictures/auto_unload_steps_bar.png"
       }
     },
     {
-      "key": "pic_199",
+      "key": "unload_steps_1",
       "source": {
-        "png": "pictures/pic_199.png"
+        "png": "pictures/unload_steps_1.png"
       }
     },
     {
-      "key": "pic_200",
+      "key": "unload_steps_2",
       "source": {
-        "png": "pictures/pic_200.png"
+        "png": "pictures/unload_steps_2.png"
       }
     },
     {
-      "key": "pic_238",
+      "key": "open_language2_lang_kr",
       "source": {
-        "png": "pictures/pic_238.png"
+        "png": "pictures/open_language2_lang_kr.png"
       }
     },
     {
-      "key": "pic_239",
+      "key": "open_language_prev_page",
       "source": {
-        "png": "pictures/pic_239.png"
+        "png": "pictures/open_language_prev_page.png"
       }
     },
     {
-      "key": "pic_258",
+      "key": "open_language_prev_page_press",
       "source": {
-        "png": "pictures/pic_258.png"
+        "png": "pictures/open_language_prev_page_press.png"
       }
     },
     {
-      "key": "pic_259",
+      "key": "open_language2_lang_kr_press_kr",
       "source": {
-        "png": "pictures/pic_259.png"
+        "png": "pictures/open_language2_lang_kr_press_kr.png"
       }
     },
     {
-      "key": "pic_68",
+      "key": "language2_lang_kr",
       "source": {
-        "png": "pictures/pic_68.png"
+        "png": "pictures/language2_lang_kr.png"
       }
     },
     {
-      "key": "pic_242",
+      "key": "language_prev_page",
       "source": {
-        "png": "pictures/pic_242.png"
+        "png": "pictures/language_prev_page.png"
       }
     },
     {
-      "key": "pic_243",
+      "key": "language2_lang_kr_press_kr",
       "source": {
-        "png": "pictures/pic_243.png"
+        "png": "pictures/language2_lang_kr_press_kr.png"
       }
     },
     {
-      "key": "pic_244",
+      "key": "language_prev_page_press",
       "source": {
-        "png": "pictures/pic_244.png"
+        "png": "pictures/language_prev_page_press.png"
       }
     },
     {
-      "key": "pic_90",
+      "key": "fila_set_fan_fan1_slider_it",
       "source": {
-        "png": "pictures/pic_90.png"
+        "png": "pictures/fila_set_fan_fan1_slider_it.png"
       }
     },
     {
-      "key": "pic_104",
+      "key": "fila_set_fan_fan1_slider_fg_it",
       "source": {
-        "png": "pictures/pic_104.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_it.png"
       }
     },
     {
-      "key": "pic_245",
+      "key": "fila_set_fan_fan1_slider_es",
       "source": {
-        "png": "pictures/pic_245.png"
+        "png": "pictures/fila_set_fan_fan1_slider_es.png"
       }
     },
     {
-      "key": "pic_246",
+      "key": "fila_set_fan_fan1_slider_fg_es",
       "source": {
-        "png": "pictures/pic_246.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_es.png"
       }
     },
     {
-      "key": "pic_247",
+      "key": "fila_set_fan_fan1_slider_kr",
       "source": {
-        "png": "pictures/pic_247.png"
+        "png": "pictures/fila_set_fan_fan1_slider_kr.png"
       }
     },
     {
-      "key": "pic_248",
+      "key": "fila_set_fan_fan1_slider_fg_kr",
       "source": {
-        "png": "pictures/pic_248.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_kr.png"
       }
     },
     {
-      "key": "pic_249",
+      "key": "fila_set_fan_fan1_slider_pt",
       "source": {
-        "png": "pictures/pic_249.png"
+        "png": "pictures/fila_set_fan_fan1_slider_pt.png"
       }
     },
     {
-      "key": "pic_250",
+      "key": "fila_set_fan_fan1_slider_fg_pt",
       "source": {
-        "png": "pictures/pic_250.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_pt.png"
       }
     },
     {
-      "key": "pic_251",
+      "key": "fila_set_fan_fan1_slider_ar",
       "source": {
-        "png": "pictures/pic_251.png"
+        "png": "pictures/fila_set_fan_fan1_slider_ar.png"
       }
     },
     {
-      "key": "pic_252",
+      "key": "fila_set_fan_fan1_slider_fg_ar",
       "source": {
-        "png": "pictures/pic_252.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_ar.png"
       }
     },
     {
-      "key": "pic_253",
+      "key": "fila_set_fan_fan1_slider_tr",
       "source": {
-        "png": "pictures/pic_253.png"
+        "png": "pictures/fila_set_fan_fan1_slider_tr.png"
       }
     },
     {
-      "key": "pic_254",
+      "key": "fila_set_fan_fan1_slider_fg_tr",
       "source": {
-        "png": "pictures/pic_254.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_tr.png"
       }
     },
     {
-      "key": "pic_255",
+      "key": "fila_set_fan_fan1_slider_he",
       "source": {
-        "png": "pictures/pic_255.png"
+        "png": "pictures/fila_set_fan_fan1_slider_he.png"
       }
     },
     {
-      "key": "pic_256",
+      "key": "fila_set_fan_fan1_slider_fg_he",
       "source": {
-        "png": "pictures/pic_256.png"
+        "png": "pictures/fila_set_fan_fan1_slider_fg_he.png"
       }
     },
     {
-      "key": "pic_237",
+      "key": "service_info_pic_cn",
       "source": {
-        "png": "pictures/pic_237.png"
+        "png": "pictures/service_info_pic_cn.png"
       }
     },
     {
-      "key": "pic_241",
+      "key": "service_info_pic_ru",
       "source": {
-        "png": "pictures/pic_241.png"
+        "png": "pictures/service_info_pic_ru.png"
       }
     },
     {
-      "key": "pic_240",
+      "key": "service_info_pic_en",
       "source": {
-        "png": "pictures/pic_240.png"
+        "png": "pictures/service_info_pic_en.png"
       }
     },
     {
-      "key": "pic_264",
+      "key": "service_info_pic_jp",
       "source": {
-        "png": "pictures/pic_264.png"
+        "png": "pictures/service_info_pic_jp.png"
       }
     },
     {
-      "key": "pic_265",
+      "key": "service_info_pic_fr",
       "source": {
-        "png": "pictures/pic_265.png"
+        "png": "pictures/service_info_pic_fr.png"
       }
     },
     {
-      "key": "pic_266",
+      "key": "service_info_pic_de",
       "source": {
-        "png": "pictures/pic_266.png"
+        "png": "pictures/service_info_pic_de.png"
       }
     },
     {
-      "key": "pic_267",
+      "key": "service_info_pic_it",
       "source": {
-        "png": "pictures/pic_267.png"
+        "png": "pictures/service_info_pic_it.png"
       }
     },
     {
-      "key": "pic_268",
+      "key": "service_info_pic_es",
       "source": {
-        "png": "pictures/pic_268.png"
+        "png": "pictures/service_info_pic_es.png"
       }
     },
     {
-      "key": "pic_269",
+      "key": "service_info_pic_kr",
       "source": {
-        "png": "pictures/pic_269.png"
+        "png": "pictures/service_info_pic_kr.png"
       }
     },
     {
-      "key": "pic_270",
+      "key": "service_info_pic_pt",
       "source": {
-        "png": "pictures/pic_270.png"
+        "png": "pictures/service_info_pic_pt.png"
       }
     },
     {
-      "key": "pic_271",
+      "key": "service_info_pic_ar",
       "source": {
-        "png": "pictures/pic_271.png"
+        "png": "pictures/service_info_pic_ar.png"
       }
     },
     {
-      "key": "pic_272",
+      "key": "service_info_pic_tr",
       "source": {
-        "png": "pictures/pic_272.png"
+        "png": "pictures/service_info_pic_tr.png"
       }
     },
     {
-      "key": "pic_273",
+      "key": "service_info_pic_he",
       "source": {
-        "png": "pictures/pic_273.png"
+        "png": "pictures/service_info_pic_he.png"
       }
     },
     {
-      "key": "pic_311",
+      "key": "ip_switch_off",
       "source": {
-        "png": "pictures/pic_311.png"
+        "png": "pictures/ip_switch_off.png"
       }
     },
     {
-      "key": "pic_310",
+      "key": "ip_switch_on",
       "source": {
-        "png": "pictures/pic_310.png"
+        "png": "pictures/ip_switch_on.png"
       }
     },
     {
-      "key": "pic_216",
+      "key": "printing2_press_off",
       "source": {
-        "png": "pictures/pic_216.png"
+        "png": "pictures/printing2_press_off.png"
       }
     },
     {
-      "key": "pic_217",
+      "key": "light_off",
       "source": {
-        "png": "pictures/pic_217.png"
+        "png": "pictures/light_off.png"
       }
     },
     {
-      "key": "pic_223",
+      "key": "light_on",
       "source": {
-        "png": "pictures/pic_223.png"
+        "png": "pictures/light_on.png"
       }
     },
     {
-      "key": "pic_280",
+      "key": "kb_mute_off",
       "source": {
-        "png": "pictures/pic_280.png"
+        "png": "pictures/kb_mute_off.png"
       }
     },
     {
-      "key": "pic_279",
+      "key": "kb_mute_on",
       "source": {
-        "png": "pictures/pic_279.png"
+        "png": "pictures/kb_mute_on.png"
       }
     },
     {
-      "key": "pic_282",
+      "key": "kb_mute_on_press",
       "source": {
-        "png": "pictures/pic_282.png"
+        "png": "pictures/kb_mute_on_press.png"
       }
     },
     {
-      "key": "pic_149",
+      "key": "unused_149",
       "source": {
-        "png": "pictures/pic_149.png"
+        "png": "pictures/unused_149.png"
       }
     },
     {
-      "key": "pic_257",
+      "key": "unused_257",
       "source": {
-        "png": "pictures/pic_257.png"
+        "png": "pictures/unused_257.png"
       }
     },
     {
-      "key": "pic_225",
+      "key": "unused_225",
       "source": {
-        "png": "pictures/pic_225.png"
+        "png": "pictures/unused_225.png"
       }
     },
     {
-      "key": "pic_218",
+      "key": "unused_218",
       "source": {
-        "png": "pictures/pic_218.png"
+        "png": "pictures/unused_218.png"
       }
     },
     {
-      "key": "pic_226",
+      "key": "unused_226",
       "source": {
-        "png": "pictures/pic_226.png"
+        "png": "pictures/unused_226.png"
       }
     },
     {
-      "key": "pic_144",
+      "key": "bg_add_account",
       "source": {
-        "png": "pictures/pic_144.png"
+        "png": "pictures/bg_add_account.png"
       }
     },
     {
-      "key": "pic_145",
+      "key": "add_account_user_btn_press",
       "source": {
-        "png": "pictures/pic_145.png"
+        "png": "pictures/add_account_user_btn_press.png"
       }
     },
     {
-      "key": "pic_290",
+      "key": "bg_popup_dark",
       "source": {
-        "png": "pictures/pic_290.png"
+        "png": "pictures/bg_popup_dark.png"
       }
     },
     {
-      "key": "pic_291",
+      "key": "unused_291",
       "source": {
-        "png": "pictures/pic_291.png"
+        "png": "pictures/unused_291.png"
       }
     },
     {
-      "key": "pic_221",
+      "key": "bg_account_list",
       "source": {
-        "png": "pictures/pic_221.png"
+        "png": "pictures/bg_account_list.png"
       }
     },
     {
-      "key": "pic_286",
+      "key": "account_list_acct1",
       "source": {
-        "png": "pictures/pic_286.png"
+        "png": "pictures/account_list_acct1.png"
       }
     },
     {
-      "key": "pic_287",
+      "key": "unused_287",
       "source": {
-        "png": "pictures/pic_287.png"
+        "png": "pictures/unused_287.png"
       }
     },
     {
-      "key": "pic_288",
+      "key": "account_list_refresh_btn_press",
       "source": {
-        "png": "pictures/pic_288.png"
+        "png": "pictures/account_list_refresh_btn_press.png"
       }
     },
     {
-      "key": "pic_289",
+      "key": "unused_289",
       "source": {
-        "png": "pictures/pic_289.png"
+        "png": "pictures/unused_289.png"
       }
     },
     {
-      "key": "pic_294",
+      "key": "preview_press_off",
       "source": {
-        "png": "pictures/pic_294.png"
+        "png": "pictures/preview_press_off.png"
       }
     },
     {
-      "key": "pic_161",
+      "key": "unused_161",
       "source": {
-        "png": "pictures/pic_161.png"
+        "png": "pictures/unused_161.png"
       }
     },
     {
-      "key": "pic_162",
+      "key": "unused_162",
       "source": {
-        "png": "pictures/pic_162.png"
+        "png": "pictures/unused_162.png"
       }
     },
     {
-      "key": "pic_177",
+      "key": "unused_177",
       "source": {
-        "png": "pictures/pic_177.png"
+        "png": "pictures/unused_177.png"
       }
     },
     {
-      "key": "pic_178",
+      "key": "unused_178",
       "source": {
-        "png": "pictures/pic_178.png"
+        "png": "pictures/unused_178.png"
       }
     },
     {
-      "key": "pic_224",
+      "key": "bg_link_login",
       "source": {
-        "png": "pictures/pic_224.png"
+        "png": "pictures/bg_link_login.png"
       }
     },
     {
-      "key": "pic_227",
+      "key": "link_login_logout_btn_press",
       "source": {
-        "png": "pictures/pic_227.png"
+        "png": "pictures/link_login_logout_btn_press.png"
       }
     },
     {
-      "key": "pic_215",
+      "key": "link_login_qr_btn_press",
       "source": {
-        "png": "pictures/pic_215.png"
+        "png": "pictures/link_login_qr_btn_press.png"
       }
     },
     {
-      "key": "pic_298",
+      "key": "link_login_logout_btn",
       "source": {
-        "png": "pictures/pic_298.png"
+        "png": "pictures/link_login_logout_btn.png"
       }
     },
     {
-      "key": "pic_21",
+      "key": "unused_21",
       "source": {
-        "png": "pictures/pic_21.png"
+        "png": "pictures/unused_21.png"
       }
     },
     {
-      "key": "pic_300",
+      "key": "bg_link_logout",
       "source": {
-        "png": "pictures/pic_300.png"
+        "png": "pictures/bg_link_logout.png"
       }
     },
     {
-      "key": "pic_303",
+      "key": "bg_device_code",
       "source": {
-        "png": "pictures/pic_303.png"
+        "png": "pictures/bg_device_code.png"
       }
     },
     {
-      "key": "pic_305",
+      "key": "unused_305",
       "source": {
-        "png": "pictures/pic_305.png"
+        "png": "pictures/unused_305.png"
       }
     },
     {
-      "key": "pic_304",
+      "key": "unused_304",
       "source": {
-        "png": "pictures/pic_304.png"
+        "png": "pictures/unused_304.png"
       }
     },
     {
-      "key": "pic_306",
+      "key": "unused_306",
       "source": {
-        "png": "pictures/pic_306.png"
+        "png": "pictures/unused_306.png"
       }
     },
     {
-      "key": "pic_301",
+      "key": "unused_301",
       "source": {
-        "png": "pictures/pic_301.png"
+        "png": "pictures/unused_301.png"
       }
     },
     {
-      "key": "pic_302",
+      "key": "unused_302",
       "source": {
-        "png": "pictures/pic_302.png"
+        "png": "pictures/unused_302.png"
       }
     },
     {
-      "key": "pic_308",
+      "key": "unused_308",
       "source": {
-        "png": "pictures/pic_308.png"
+        "png": "pictures/unused_308.png"
       }
     },
     {
-      "key": "pic_307",
+      "key": "unused_307",
       "source": {
-        "png": "pictures/pic_307.png"
+        "png": "pictures/unused_307.png"
       }
     },
     {
-      "key": "pic_309",
+      "key": "unused_309",
       "source": {
-        "png": "pictures/pic_309.png"
+        "png": "pictures/unused_309.png"
       }
     },
     {
-      "key": "pic_313",
+      "key": "internet_page_back_btn",
       "source": {
-        "png": "pictures/pic_313.png"
+        "png": "pictures/internet_page_back_btn.png"
       }
     },
     {
-      "key": "pic_41",
+      "key": "bg_server_error2",
       "source": {
-        "png": "pictures/pic_41.png"
+        "png": "pictures/bg_server_error2.png"
       }
     },
     {
-      "key": "pic_63",
+      "key": "server_error2_ok_press",
       "source": {
-        "png": "pictures/pic_63.png"
+        "png": "pictures/server_error2_ok_press.png"
       }
     },
     {
@@ -4432,293 +4432,293 @@
   ],
   "fonts": [
     {
-      "key": "font_0",
+      "key": "font_title18",
       "source": {
-        "zi": "fonts/font_0.zi"
+        "zi": "fonts/font_title18.zi"
       }
     },
     {
-      "key": "font_1",
+      "key": "font_small14",
       "source": {
-        "zi": "fonts/font_1.zi"
+        "zi": "fonts/font_small14.zi"
       }
     },
     {
-      "key": "font_2",
+      "key": "font_digits24",
       "source": {
-        "zi": "fonts/font_2.zi"
+        "zi": "fonts/font_digits24.zi"
       }
     }
   ],
   "animations": [
     {
-      "key": "anim_7",
+      "key": "video_remove_ties",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_7/000.png",
+          "png": "animations/video_remove_ties/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_7/001.png",
+          "png": "animations/video_remove_ties/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_7/002.png",
+          "png": "animations/video_remove_ties/002.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_7/003.png",
+          "png": "animations/video_remove_ties/003.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_8",
+      "key": "video_remove_screws",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_8/000.png",
+          "png": "animations/video_remove_screws/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_8/001.png",
+          "png": "animations/video_remove_screws/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_8/002.png",
+          "png": "animations/video_remove_screws/002.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_9",
+      "key": "video_spool_holder",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_9/000.png",
+          "png": "animations/video_spool_holder/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_9/001.png",
+          "png": "animations/video_spool_holder/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_9/002.png",
+          "png": "animations/video_spool_holder/002.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_9/003.png",
+          "png": "animations/video_spool_holder/003.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_9/004.png",
+          "png": "animations/video_spool_holder/004.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_12",
+      "key": "video_push_filament",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_12/000.png",
+          "png": "animations/video_push_filament/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_12/001.png",
+          "png": "animations/video_push_filament/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_12/002.png",
+          "png": "animations/video_push_filament/002.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_13",
+      "key": "video_extrude",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_13/000.png",
+          "png": "animations/video_extrude/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_13/001.png",
+          "png": "animations/video_extrude/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_13/002.png",
+          "png": "animations/video_extrude/002.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_2",
+      "key": "video_cut_filament",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_2/000.png",
+          "png": "animations/video_cut_filament/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_2/001.png",
+          "png": "animations/video_cut_filament/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_2/002.png",
+          "png": "animations/video_cut_filament/002.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_2/003.png",
+          "png": "animations/video_cut_filament/003.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_2/004.png",
+          "png": "animations/video_cut_filament/004.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_4",
+      "key": "video_load_filament",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_4/000.png",
+          "png": "animations/video_load_filament/000.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_4/001.png",
+          "png": "animations/video_load_filament/001.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_4/002.png",
+          "png": "animations/video_load_filament/002.png",
           "ms": 1500
         },
         {
-          "png": "animations/anim_4/003.png",
+          "png": "animations/video_load_filament/003.png",
           "ms": 1500
         }
       ]
     },
     {
-      "key": "anim_0",
+      "key": "spin_step1",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_0/000.png",
+          "png": "animations/spin_step1/000.png",
           "ms": 500
         },
         {
-          "png": "animations/anim_0/001.png",
-          "ms": 500
-        }
-      ]
-    },
-    {
-      "key": "anim_1",
-      "fps": 10,
-      "frames": [
-        {
-          "png": "animations/anim_1/000.png",
-          "ms": 500
-        },
-        {
-          "png": "animations/anim_1/001.png",
+          "png": "animations/spin_step1/001.png",
           "ms": 500
         }
       ]
     },
     {
-      "key": "anim_5",
+      "key": "spin_step2",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_5/000.png",
+          "png": "animations/spin_step2/000.png",
           "ms": 500
         },
         {
-          "png": "animations/anim_5/001.png",
+          "png": "animations/spin_step2/001.png",
           "ms": 500
         }
       ]
     },
     {
-      "key": "anim_3",
+      "key": "spin_step3",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_3/000.png",
+          "png": "animations/spin_step3/000.png",
           "ms": 500
         },
         {
-          "png": "animations/anim_3/001.png",
+          "png": "animations/spin_step3/001.png",
           "ms": 500
         }
       ]
     },
     {
-      "key": "anim_6",
+      "key": "spin_step4",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/anim_6/000.png",
+          "png": "animations/spin_step4/000.png",
+          "ms": 500
+        },
+        {
+          "png": "animations/spin_step4/001.png",
+          "ms": 500
+        }
+      ]
+    },
+    {
+      "key": "qr_loading",
+      "fps": 10,
+      "frames": [
+        {
+          "png": "animations/qr_loading/000.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/001.png",
+          "png": "animations/qr_loading/001.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/002.png",
+          "png": "animations/qr_loading/002.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/003.png",
+          "png": "animations/qr_loading/003.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/004.png",
+          "png": "animations/qr_loading/004.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/005.png",
+          "png": "animations/qr_loading/005.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/006.png",
+          "png": "animations/qr_loading/006.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/007.png",
+          "png": "animations/qr_loading/007.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/008.png",
+          "png": "animations/qr_loading/008.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/009.png",
+          "png": "animations/qr_loading/009.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/010.png",
+          "png": "animations/qr_loading/010.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/011.png",
+          "png": "animations/qr_loading/011.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/012.png",
+          "png": "animations/qr_loading/012.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/013.png",
+          "png": "animations/qr_loading/013.png",
           "ms": 50
         },
         {
-          "png": "animations/anim_6/014.png",
+          "png": "animations/qr_loading/014.png",
           "ms": 50
         }
       ],

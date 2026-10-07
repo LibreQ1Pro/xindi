@@ -34,3 +34,32 @@ Texts of the new pages: English and Russian (Russian when `lang==1`, English for
 
 The host sets the globals `kbmode` (1 password of a scanned network, 2 new password of a saved one, 3 hidden SSID,
 4 hidden password) and `kbmin` (shortest accepted text) before it opens `wifi_kb`.
+
+## Names
+
+Components, pictures, fonts and animations have readable names (the stock project used `b0`, `t1`, `pic_25`, `anim_3`).
+`tools/names.json` maps the stock names to the current ones, page by page; `tools/rename_objects.py` applied it (it
+rewrites the names and every reference in event code, checks the result, and verifies that the inverse renaming gives
+the original project back; the compiled pages differ from the stock ones only in the names). The names the Python xindi
+writes in instructions were changed with `tools/rename_host.py` (`--verify` re-checks that every name the host uses
+exists on the page it addresses), the picture ids it sends as numbers are the names of `xindi/pics.py`
+(`tools/pics_to_names.py`).
+
+Conventions (names are at most 14 characters, the editor's limit):
+
+| name | what |
+|---|---|
+| `back_btn`, `title` | the header: the (invisible) back button and the title text |
+| `nav_main`, `nav_adjust`, `nav_files`, `nav_settings` | the navigation bar at the bottom |
+| `msg`, `ok`, `cancel`, `popup_bg` | message pages and pop-ups |
+| `next_btn`, `prev_btn`, `next`, `prev` | paging / wizard buttons |
+| `key_0`..`key_9`, `key_a`..`key_z`, `key_ok`, `key_del`, `key_space` | keyboards |
+| `nozzle_*`, `bed_*`, `chamber_*`, `fan1_*`..`fan3_*` | heaters and fans: `_btn` / `_row` / `_toggle` the buttons, `_temp` the current value, `_set` the target |
+| `time_elapsed`, `time_left`, `progress`, `progress_pct`, `file_name`, `thumb` | the print status block of the printing pages |
+| `row1`..`row5` (`row1_txt`) | list rows of the Wi-Fi and saved-network lists; `file1`..`file4` (`file1_name`, `file1_pic`) on the file list |
+| `spin1`..`spin4`, `steps_bar`, `step1_txt`.. | the step indicator of the wizards |
+| `lang_cn`, `lang_ru`, ... | language buttons (the order is the value of the screen's `lang`) |
+
+Pictures are named after what they show or where they are used (`main_off`, `main_on_press`, `bg_settings_panel`,
+`rows_lock`, `files_item_dir`, ...); `unused_N` are pictures nothing refers to (N is the number in the stock name).
+
