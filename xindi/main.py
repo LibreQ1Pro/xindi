@@ -12,7 +12,7 @@ from .mks_log import MKSLOG, MKSLOG_BLUE, cout, cerr
 from .MakerbaseClient import MakerbaseClient
 from .MakerbaseSerial import set_option
 from .MakerbaseParseMessage import json_parse
-from .mks_wpa_cli import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults
+from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults
 from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages
 from .send_jpg import sent_jpg_thread_handle
 from .send_msg import send_cmd_val

@@ -1,0 +1,239 @@
+"""Wi-Fi and LAN through NetworkManager (``nmcli``).
+
+QIDI's xindi drives wpa_supplicant of ``wlan0`` directly and shows the address of
+``eth0``. Here NetworkManager owns the connections instead, so the screen, KlipperScreen
+and ``nmcli`` all see and change the same state, and the real names of the interfaces
+(e.g. ``wlx40a5ef2378f6`` of an USB adapter) are looked up instead of assumed.
+
+The status keeps the wpa_supplicant vocabulary the screen code was written for:
+``wpa_state`` is "COMPLETED" when the wifi is connected.
+"""
+
+import select
+import subprocess
+import time
+
+from . import state as g
+from . import ui
+from .cpp import sleep, pthread_create
+from .mks_log import MKSLOG, MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_BLUE
+
+NMCLI = "nmcli"
+ENV = {"LC_ALL": "C", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+
+
+def _run(args, timeout=20):
+    """Runs nmcli (no shell, so SSIDs and passwords need no quoting). Returns (code, stdout)."""
+    try:
+        proc = subprocess.run([NMCLI] + list(args), stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              timeout=timeout, env=ENV)
+    except (OSError, subprocess.TimeoutExpired) as e:
+        MKSLOG_RED("nmcli %s failed: %s", args[0] if args else "", e)
+        return -1, ""
+    out = proc.stdout.decode("utf-8", "replace")
+    if proc.returncode != 0:
+        MKSLOG_YELLOW("nmcli: %s", proc.stderr.decode("utf-8", "replace").strip())
+    return proc.returncode, out
+
+
+def _split(line):
+    """Splits a line of ``nmcli -t`` output at the ':' that are not escaped."""
+    fields, cur, escaped = [], [], False
+    for ch in line:
+        if escaped:
+            cur.append(ch)
+            escaped = False
+        elif ch == "\\":
+            escaped = True
+        elif ch == ":":
+            fields.append("".join(cur))
+            cur = []
+        else:
+            cur.append(ch)
+    fields.append("".join(cur))
+    return fields
+
+
+def _device(kind):
+    """Name of the first network interface of the type ``kind`` ("wifi" / "ethernet") or None."""
+    ret, out = _run(["-t", "-f", "DEVICE,TYPE", "dev"])
+    for line in out.splitlines():
+        fields = _split(line)
+        if len(fields) == 2 and fields[1] == kind:
+            return fields[0]
+    return None
+
+
+def _device_info(dev):
+    """The ``dev show`` fields of the interface as a dict (the first value of the repeated ones)."""
+    ret, out = _run(["-t", "-f", "GENERAL.STATE,GENERAL.CON-UUID,GENERAL.HWADDR,IP4.ADDRESS", "dev", "show", dev])
+    info = {}
+    if ret == 0:
+        for line in out.splitlines():
+            key, _, value = line.partition(":")
+            info.setdefault(key.split("[")[0], value)
+    return info
+
+
+def _ip(dev):
+    """IPv4 address of the interface without the prefix length ("" if it has none)."""
+    if dev is None:
+        return ""
+    return _device_info(dev).get("IP4.ADDRESS", "").split("/")[0]
+
+
+def get_wlan0_ip():
+    return _ip(_device("wifi"))
+
+
+def get_eth0_ip():
+    return _ip(_device("ethernet"))
+
+
+def detected_wlan0():
+    """Is there a wifi interface?"""
+    return _device("wifi") is not None
+
+
+def mks_wifi_run_cmd_status(result):
+    """Fills ``result`` (mks_wifi_status_result_t) with the state of the wifi connection."""
+    fresh = g.mks_wifi_status_result_t()
+    dev = _device("wifi")
+    if dev is None:
+        fresh.wpa_state = "INTERFACE_DISABLED"
+    else:
+        info = _device_info(dev)
+        state = info.get("GENERAL.STATE", "")
+        fresh.address = info.get("GENERAL.HWADDR", "")
+        if "(connected)" in state:
+            fresh.wpa_state = "COMPLETED"
+            fresh.ip_address = info.get("IP4.ADDRESS", "").split("/")[0]
+            uuid = info.get("GENERAL.CON-UUID", "")
+            if uuid:
+                ret, out = _run(["-t", "-f", "802-11-wireless.ssid", "con", "show", "uuid", uuid])
+                if ret == 0 and out.strip():
+                    fresh.ssid = _split(out.splitlines()[0])[-1]
+        elif "(connecting" in state or "(need_auth)" in state:
+            fresh.wpa_state = "ASSOCIATING"
+        else:
+            fresh.wpa_state = "DISCONNECTED"
+    g.wifi_ip_address = fresh.ip_address
+    result.__dict__.update(fresh.__dict__)
+
+
+def mks_wpa_scan_scanresults():
+    """Scans, fills ``g.ssid_list`` (the connected network first, then by signal) and ``g.level_list``."""
+    dev = _device("wifi")
+    if dev is None:
+        MKSLOG_RED("No wifi interface")
+        return -3
+    args = ["-t", "-f", "SSID,SIGNAL", "dev", "wifi", "list", "ifname", dev, "--rescan"]
+    ret, out = _run(args + ["yes"], timeout=40)
+    if ret != 0:        # e.g. the previous scan was too recent: show what NetworkManager already knows
+        ret, out = _run(args + ["no"])
+        if ret != 0:
+            return ret
+
+    best = {}
+    for line in out.splitlines():
+        fields = _split(line)
+        if len(fields) != 2 or not fields[0]:       # hidden networks have no name
+            continue
+        signal = int(fields[1]) if fields[1].isdigit() else 0
+        best[fields[0]] = max(signal, best.get(fields[0], 0))
+
+    connected = g.current_connected_ssid_name if g.status_result.wpa_state == "COMPLETED" else ""
+    ssids = sorted(best, key=lambda s: -best[s])
+    if connected:
+        if connected in ssids:
+            ssids.remove(connected)
+        ssids.insert(0, connected)
+        best.setdefault(connected, 0)
+
+    g.ssid_list = ssids
+    g.level_list = [best[s] for s in ssids]
+    for ssid in ssids:
+        MKSLOG_RED("%s", ssid)
+    return 0
+
+
+def _forget(ssid):
+    """Deletes the saved wifi connections named like the network."""
+    ret, out = _run(["-t", "-f", "NAME,UUID,TYPE", "con", "show"])
+    for line in out.splitlines():
+        fields = _split(line)
+        if len(fields) == 3 and fields[0] == ssid and fields[2] == "802-11-wireless":
+            _run(["con", "delete", "uuid", fields[1]])
+
+
+def mks_connect(ssid, psk):
+    """Connects to the network and saves the connection (NetworkManager keeps it by itself).
+    Returns True on success."""
+    dev = _device("wifi")
+    if dev is None:
+        MKSLOG_RED("No wifi interface")
+        return False
+    _forget(ssid)       # the typed password replaces an older connection of the network
+    args = ["-w", "40", "dev", "wifi", "connect", ssid, "ifname", dev]
+    if psk:
+        args += ["password", psk]
+    ret, out = _run(args, timeout=60)
+    if ret != 0:
+        _forget(ssid)   # do not keep a connection with a wrong password
+    return ret == 0
+
+
+def _connect_thread(arg):
+    ssid, psk = arg
+    MKSLOG_BLUE("Connecting to %s", ssid)
+    ok = mks_connect(ssid, psk)
+    mks_wifi_run_cmd_status(g.status_result)
+    if g.current_page_id == ui.TJC_PAGE_WIFI_CONNECT:
+        ui.page_to(ui.TJC_PAGE_WIFI_SUCCESS if ok else ui.TJC_PAGE_WIFI_FAILED)
+
+
+def mks_start_connect(ssid, psk):
+    """Starts the connection in the background; the screen is moved to the result page."""
+    pthread_create(_connect_thread, (ssid, psk))
+
+
+def mks_save_config():
+    """The connection is saved by NetworkManager when it is made, only the screen steps remain."""
+    mks_wifi_run_cmd_status(g.status_result)
+    if ui.TJC_PAGE_WIFI_SAVING == g.current_page_id:
+        sleep(3)
+        g.page_wifi_list_ssid_button_enabled[0] = False
+        g.page_wifi_list_ssid_button_enabled[1] = False
+        g.page_wifi_list_ssid_button_enabled[2] = False
+        g.page_wifi_list_ssid_button_enabled[3] = False
+        g.page_wifi_ssid_list_pages = 0
+        g.page_wifi_current_pages = 0
+        from . import event
+        event.go_to_network()
+    return 0
+
+
+def mks_wifi_hdlevent_thread(arg=None):
+    """Keeps the status of the wifi up to date: refreshed on every change NetworkManager reports
+    (``nmcli monitor``) and every 30 seconds."""
+    while True:
+        try:
+            proc = subprocess.Popen([NMCLI, "monitor"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=ENV,
+                                    bufsize=0)
+        except OSError:
+            sleep(10)
+            continue
+        try:
+            while proc.poll() is None:
+                ready, _, _ = select.select([proc.stdout], [], [], 30)
+                if ready and not proc.stdout.readline():
+                    break
+                time.sleep(1)       # let a burst of events settle
+                while select.select([proc.stdout], [], [], 0)[0] and proc.stdout.readline():
+                    pass
+                mks_wifi_run_cmd_status(g.status_result)
+                g.wlan_state_str = "connected" if g.status_result.wpa_state == "COMPLETED" else "disconnected"
+        finally:
+            proc.kill()
+            proc.wait()
+        sleep(5)        # NetworkManager restarted or is not running yet

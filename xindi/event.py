@@ -25,7 +25,7 @@ from .MakerbasePanel import move
 from .KlippyGcodes import (AXIS_X, AXIS_Y, AXIS_Z, set_heater_temp, set_fan_speed, set_fan0_speed,
                            set_fan2_speed, set_fan3_speed, set_speed_rate)
 from .MakerbaseShell import execute_cmd
-from .MakerbaseNetwork import get_eth0_ip, get_wlan0_ip
+from .network import get_eth0_ip, get_wlan0_ip
 from .MakerbaseParseIni import (mksini_load, mksini_free, mksini_getstring, mksini_getint,
                                 mksini_getboolean, mksini_set, mksini_save, mksversion_load,
                                 mksversion_free, mksversion_soc, mksversion_mcu, mksversion_ui,
@@ -37,7 +37,7 @@ from . import thumbnail
 from .send_jpg import delete_small_jpg
 from .MakerbaseWiFi import (detected_wlan0, get_wlan0_status, get_ssid_list_pages,
                             set_page_wifi_ssid_list)
-from . import mks_wpa_cli
+from . import network
 from .mks_update import detect_update
 
 DEFAULT_DIR = "gcodes/"
@@ -1534,7 +1534,6 @@ def go_to_reset():
 def go_to_network():
     if detected_wlan0():
         get_wlan0_status()
-        mks_wpa_cli.mks_wpa_cli_open_connection()
         g.page_wifi_list_ssid_button_enabled[0] = False
         g.page_wifi_list_ssid_button_enabled[1] = False
         g.page_wifi_list_ssid_button_enabled[2] = False
@@ -1543,7 +1542,7 @@ def go_to_network():
         g.page_wifi_ssid_list_pages = 0
         g.page_wifi_current_pages = 0
         if g.status_result.wpa_state == "COMPLETED":
-            g.current_connected_ssid_name = hex_to_utf8(g.status_result.ssid)   # name of the connected wifi
+            g.current_connected_ssid_name = g.status_result.ssid   # name of the connected wifi
         elif g.status_result.wpa_state != "INACTIVE":
             g.current_connected_ssid_name = ""      # not connected: forget the name of the connected wifi
         page_to(ui.TJC_PAGE_WIFI_LIST)
@@ -1553,9 +1552,9 @@ def go_to_network():
 
 
 def scan_ssid_and_show():
-    if access("/var/run/wpa_supplicant/wlan0") == 0:
+    if detected_wlan0():
         get_wlan0_status()
-        mks_wpa_cli.mks_wpa_scan_scanresults()
+        network.mks_wpa_scan_scanresults()
         get_ssid_list_pages()
         g.page_wifi_current_pages = 0
         set_page_wifi_ssid_list(g.page_wifi_current_pages)
@@ -1645,9 +1644,7 @@ def go_to_syntony_move():
 def print_ssid_psk(psk):
     """psk: bytes received from the screen keyboard"""
     MKSLOG_RED("SSID is %s", g.get_wifi_name)
-    MKSLOG_RED("PSK is %s", b2s(psk))
-    mks_wpa_cli.mks_set_ssid(s2b(g.get_wifi_name))
-    mks_wpa_cli.mks_set_psk(psk)
+    network.mks_start_connect(g.get_wifi_name, b2s(psk))
 
 
 def clear_page_preview():
@@ -1766,7 +1763,7 @@ def mks_get_version():
 
 def wifi_save_config():
     page_to(ui.TJC_PAGE_WIFI_SAVING)
-    mks_wpa_cli.mks_save_config()
+    network.mks_save_config()
     sleep(2)
     get_wlan0_status()
 
@@ -2815,23 +2812,6 @@ def set_mks_ethernet(target):
     mksini_save()
     mksini_free()
     g.mks_ethernet = target
-
-
-def hex_to_utf8(hex_):
-    """Converts the "\\xNN" escapes of wpa_supplicant's SSID output into bytes."""
-    data = s2b(hex_)
-    out = bytearray()
-    i = 0
-    while i < len(data):
-        if i + 3 < len(data) and data[i:i + 1] == b"\\" and data[i + 1:i + 2] == b"x":
-            hex_byte = b2s(data[i + 2:i + 4])
-            value = stream_hex_int(hex_byte)
-            out.append(value & 0xFF)
-            i += 4
-        else:
-            out += data[i:i + 1]
-            i += 1
-    return b2s(bytes(out))
 
 
 def check_print_interrupted():

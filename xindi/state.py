@@ -22,19 +22,9 @@ class Struct(object):
 
 
 def mks_wifi_status_result_t():
-    """struct mks_wifi_status_result_t (mks_wpa_cli.h); char arrays become str."""
+    """struct mks_wifi_status_result_t (mks_wpa_cli.h) as filled from NetworkManager; char arrays become str."""
     return Struct(ack="", bssid="", freq=0, ssid="", id=0, mode="", pairwise_cipher="",
                   group_cipher="", key_mgmt="", wpa_state="", ip_address="", address="", uuid="")
-
-
-def mks_wifi_status_t():
-    """struct mks_wifi_status_t (mks_wpa_cli.h)"""
-    return Struct(bssid="", freq=0, ssid="", id=0, mode="", pairwise_cipher="",
-                  group_cipher="", key_mgmt="", wpa_state="", ip_address="", address="", uuid="")
-
-
-def mks_wifi_signal_poll_result_t():
-    return Struct(ack="", rssi=0, linkspeed=0, noise=0, frequency=0)
 
 
 # ---------------------------------------------------------------------------
@@ -509,27 +499,14 @@ response = None
 res = None
 
 # ---------------------------------------------------------------------------
-# mks_wpa_cli.cpp
+# network.py (NetworkManager)
 # ---------------------------------------------------------------------------
-str_scan_results = ""
-mks_wifi_scan_results = ""
-mks_wifi_status = ""
-
-ctrl_conn = None                        # wpa_ctrl used to control the wifi connection
-mon_conn = None                         # wpa_ctrl used to monitor wifi events
-
-client_socket_dir = None
-
-mks_wpa_cli_connected = False
-
 wlan_state_str = ""
 
 # ---------------------------------------------------------------------------
 # MakerbaseWiFi.cpp
 # ---------------------------------------------------------------------------
 status_result = mks_wifi_status_result_t()
-wpa_status = mks_wifi_status_t()
-result_list = []
 ssid_list = []
 level_list = []
 page_wifi_ssid_list = ["", "", "", "", ""]

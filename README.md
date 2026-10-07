@@ -4,7 +4,7 @@ This is a line-by-line port of the C++ screen backend (`main.cpp` + `src/` +
 `include/`, the program that runs as `/root/xindi/build/xindi` on the printer)
 to Python 3. It talks to the TJC (USART HMI) display on `/dev/ttyS1`, to
 Moonraker on `ws://<host>:7125/websocket` and its HTTP API, and to
-wpa_supplicant's control socket. It also runs the same shell commands as the
+NetworkManager (`nmcli`) for Wi-Fi and LAN. It also runs the same shell commands as the
 original.
 
 ## Original source
@@ -60,7 +60,7 @@ python3 -m xindi localhost
 Requirements: Python ≥ 3.7 (the printer ships Debian buster's 3.7) and Pillow
 (already installed on the printer; it was used by the original `gene4.py`). No
 other third-party packages are needed. The websocket client, the HTTP client
-and wpa_ctrl are implemented inline.
+are implemented inline. Wi-Fi and LAN need NetworkManager (`nmcli`).
 
 To use it on the printer instead of the C++ binary, change the last line of
 `/root/xindi/build/start.sh` from `/root/xindi/build/xindi localhost` to
@@ -73,14 +73,14 @@ To use it on the printer instead of the C++ binary, change the last line of
 | `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/uart.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
 | `/home/mks/gene4.py` | `xindi/gene4.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
 | `/home/mks/libColPic.so` (aarch64) | `xindi/gene4.py` (`ColPic_EncodeStr` …) | Reverse engineered (`ADList0`, `Byte8bitEncode`, `ColPicEncode`, `ColPic_EncodeStr`). Output is byte-identical to the original library, including its quirks. |
-| libwpa_client (`wpa_ctrl.c`) | `xindi/wpa_ctrl.py` | UNIX datagram socket client of wpa_supplicant. |
+| wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
 | websocketpp | `xindi/MakerbaseClient.py` | Minimal RFC 6455 client with the same connection-state semantics. |
 | HTTPRequest.hpp | `xindi/HTTPRequest.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
 | iniparser / dictionary | `xindi/iniparser.py`, `xindi/dictionary.py` | Byte-exact parsing and `iniparser_dump_ini()` output, including slot order. |
 
 Scripts that are not part of this repository and are not present on the printer
 image (`/home/mks/qrcode/qrcode_QD.py`, `/root/auto_update/*.py`) and real
-system tools (`cp`, `mv`, `systemctl`, `dpkg`, `wpa_cli`, `curl`, `hid-flash`, …)
+system tools (`cp`, `mv`, `systemctl`, `dpkg`, `curl`, `hid-flash`, …)
 are still run through the shell exactly like before.
 
 ## Structure
@@ -182,6 +182,4 @@ Ported third-party code keeps its own copyright and license:
 
 * `xindi/iniparser.py`, `xindi/dictionary.py`: port of iniparser,
   Copyright (c) 2000-2011 Nicolas Devillard, MIT License.
-* `xindi/wpa_ctrl.py`: port of `wpa_ctrl.c` from hostap,
-  Copyright (c) 2004-2007 Jouni Malinen, BSD license.
 * `xindi/HTTPRequest.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).
