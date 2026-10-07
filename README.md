@@ -75,7 +75,6 @@ To use it on the printer instead of the C++ binary, change the last line of
 | wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
 | websocketpp | `xindi/moonraker_ws.py` | Minimal RFC 6455 client with the same connection-state semantics. |
 | HTTPRequest.hpp | `xindi/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
-| iniparser / dictionary | `xindi/iniparser.py`, `xindi/dictionary.py` | Byte-exact parsing and `iniparser_dump_ini()` output, including slot order. |
 
 Scripts that are not part of this repository and are not present on the printer
 image and real
@@ -175,6 +174,4 @@ See [LICENSE](LICENSE).
 
 Ported third-party code keeps its own copyright and license:
 
-* `xindi/iniparser.py`, `xindi/dictionary.py`: port of iniparser,
-  Copyright (c) 2000-2011 Nicolas Devillard, MIT License.
 * `xindi/http_client.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).

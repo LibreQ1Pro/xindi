@@ -2,17 +2,12 @@
 
 import logging
 import os
+import re
 
 from . import paths
-from .cpp import b2s, s2b
-from .iniparser import (iniparser_load, iniparser_getstring, iniparser_getint,
-                        iniparser_getboolean, iniparser_set, iniparser_dump_ini)
+from .cpp import i32, strtol
 
 log = logging.getLogger(__name__)
-
-XINDI_PLUS = 1
-XINDI_MAX = 0
-XINDI_MINI = 0
 
 # INIPATH = "/root/config.mksini"
 # INIPATH = "/home/mks/klipper_config/config.mksini"
@@ -93,37 +88,78 @@ def _create_default_mksini(path):
 
 
 class IniFile:
-    """One ini file: reads come from the dictionary loaded at open time, ``save()`` writes it back."""
+    """An ini file: ``[section]`` lines and ``key = value`` lines, keys and sections in lower case.
+
+    ``values`` is None when the file does not exist or has a syntax error; the getters then give the default.
+    """
 
     def __init__(self, path):
         self.path = path
-        self._dict = iniparser_load(path)
-        if self._dict is None:
+        self.values = self._parse(path)
+        if self.values is None:
             log.debug("Ini parse failure!")
 
+    @staticmethod
+    def _parse(path):
+        try:
+            with open(path, "rb") as f:
+                text = f.read().decode("utf-8", "replace")
+        except OSError:
+            return None
+        values = {}
+        section = ""
+        pending = ""
+        for number, raw in enumerate(text.split("\n"), 1):
+            line = pending + raw.rstrip()
+            if line.endswith("\\"):          # the line continues
+                pending = line[:-1]
+                continue
+            pending = ""
+            line = line.strip()
+            if not line or line[0] in "#;":
+                continue
+            if line.startswith("[") and line.endswith("]"):
+                section = line[1:-1].strip().lower()
+                values.setdefault(section, {})
+                continue
+            m = _KEY_VALUE.match(line)
+            if not m:
+                log.error("iniparser: syntax error in %s (%d):\n-> %s", path, number, line)
+                return None
+            key, quoted, plain = m.group(1).strip().lower(), m.group(2) or m.group(3), m.group(4)
+            if quoted is None:
+                quoted = (plain or "").split(";")[0].split("#")[0].strip()
+            values.setdefault(section, {})[key] = quoted
+        return values
+
+    def _find(self, section, key):
+        if self.values is None:
+            return None
+        return self.values.get(section.lower(), {}).get(key.lower())
+
     def get_string(self, section, key, default):
-        if self._dict is None:
-            return default
-        value = iniparser_getstring(self._dict, s2b(section + ":" + key), s2b(default))
-        return b2s(value) if value is not None else ""
+        value = self._find(section, key)
+        return default if value is None else value
 
     def get_int(self, section, key, default):
-        if self._dict is None:
-            return default
-        return iniparser_getint(self._dict, s2b(section + ":" + key), default)
+        value = self._find(section, key)
+        return default if value is None else i32(strtol(value, 0))
 
     def get_bool(self, section, key, default):
-        if self._dict is None:
-            return bool(default)
-        return iniparser_getboolean(self._dict, s2b(section + ":" + key), default) != 0
+        first = (self._find(section, key) or "")[:1]
+        if first in ("y", "Y", "1", "t", "T"):
+            return True
+        if first in ("n", "N", "0", "f", "F"):
+            return False
+        return bool(default)
 
     def set(self, section, key, value):
-        if self._dict is not None:
-            iniparser_set(self._dict, s2b(section + ":" + key), s2b(value))
+        if self.values is not None:
+            self.values.setdefault(section.lower(), {})[key.lower()] = value
 
     def save(self):
-        """Write the dictionary back to the file"""
-        if self._dict is None:
+        """Write the file back, in the layout the original program wrote."""
+        if self.values is None:
             return
         try:
             ini = open(self.path, "wb")
@@ -131,7 +167,18 @@ class IniFile:
             print("[error] open mksini failed", end="")
             return
         with ini:
-            iniparser_dump_ini(self._dict, ini)
+            for section, entries in self.values.items():
+                if not section:
+                    continue
+                ini.write(("\n[%s]\n" % section).encode())
+                for key, value in entries.items():
+                    ini.write(("%-30s = %s\n" % (key, value)).encode())
+                ini.write(b"\n")
+            ini.write(b"\n")
+
+
+# key = "value" | key = 'value' | key = value ; comment | key = (empty)
+_KEY_VALUE = re.compile(r"([^=]+?)\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\"']*?))\s*$")
 
 
 def open_settings():
