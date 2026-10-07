@@ -441,6 +441,109 @@ def printing_zoffset():
         g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
 
+def _heating_widget(temp_widget, button, target):
+    """The number and the button of a heater show with their colour whether the heater is on."""
+    if target == 0:
+        g.port.pco(temp_widget, "65535")
+        g.port.picc(button, pics.printing_row_off)
+        g.port.picc2(button, pics.printing_press_off)
+    else:
+        g.port.pco(temp_widget, "63488")
+        g.port.picc(button, pics.printing_row_on)
+        g.port.picc2(button, pics.printing_press_on)
+
+
+def _printing_keyboard_mute_button():
+    # 4.4.22 silent mode button of the keyboard
+    if not g.screen.muted:
+        g.port.picc("mute_btn", pics.kb_mute_off)
+        g.port.picc2("mute_btn", pics.kb_mute_off_press)
+    else:
+        g.port.picc("mute_btn", pics.kb_mute_on)
+        g.port.picc2("mute_btn", pics.kb_mute_on_press)
+
+
+def _printing_first_page():
+    # CLL fan speeds
+    g.port.val("fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
+    g.port.val("fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
+    g.port.val("fan3_val", to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100))))
+
+    g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
+    g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
+    _heating_widget("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
+
+    g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
+    g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
+    _heating_widget("bed_temp", "bed_btn", g.klippy.heater_bed_target)
+
+    # 4.4.22: the LED button moved to the second printing page
+
+    g.port.val("chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
+    g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
+    _heating_widget("chamber_temp", "chamber_btn", g.klippy.hot_target)
+
+    shown = "1" if g.screen.show_preview_gimage_completed else "0"
+    g.port.vis("thumb", shown)
+    g.port.val("thumb_flag", shown)
+
+
+def _printing_second_page():
+    if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
+        g.shown.speed_factor = g.klippy.gcode_move_speed_factor
+        g.port.val("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
+
+    if g.shown.extruder_factor != g.klippy.gcode_move_extrude_factor:    # CLL extrusion factor
+        g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
+        g.port.val("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
+
+    if g.klippy.caselight_value == 0:      # 4.4.22 LED state
+        g.port.picc("light_btn", pics.light_off)
+        g.port.picc2("light_btn", pics.printing2_press_off)
+    else:
+        g.port.picc("light_btn", pics.light_on)
+        g.port.picc2("light_btn", pics.printing2_press_on)
+
+
+def _printing_state_changes():
+    """Filament runout and the end of the print, as Klipper reports them."""
+    if g.klippy.print_stats_state == "printing":
+        g.klippy.ready = True
+
+    if g.klippy.fila_sensor_enabled:
+        if not g.klippy.fila_sensor_detected:
+            g.klippy.ready = False
+            actions.set_print_pause()
+            page_to(ids.PRINT_NO_FILAMENT_2)
+
+    if not g.klippy.filament_detected:
+        time.sleep(1)
+        g.klippy.ready = False
+        actions.set_print_pause()
+        page_to(ids.PRINT_NO_FILAMENT)
+
+    state = g.klippy.print_stats_state
+    if state == "complete":
+        time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
+        actions.complete_print()
+        actions.clear_previous_data()
+        time.sleep(5)
+        actions.save_current_zoffset()
+        page_to(ids.PRINT_FINISH)
+        g.port.txt("time_txt", time_duration)
+    elif state == "paused":
+        if g.klippy.ready:
+            g.klippy.ready = False
+            page_to(ids.PRINT_FILAMENT)
+    elif state == "standby":
+        page_to(ids.PRINT_STOPPING)
+    elif state == "error":
+        page_to(ids.GCODE_ERROR)
+        actions.cancel_print()
+        actions.clear_previous_data()
+        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+
+
 def printing():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
     z_offset = _cut_after_point(z_offset, 4)
@@ -458,114 +561,14 @@ def printing():
     if g.screen.page == ids.PRINTING_2:
         g.port.txt("zoffset_val", z_offset)
 
-    if g.screen.printing_keyboard_enabled:     # 4.4.22 silent mode button of the keyboard
-        if not g.screen.muted:
-            g.port.picc("mute_btn", pics.kb_mute_off)
-            g.port.picc2("mute_btn", pics.kb_mute_off_press)
-        else:
-            g.port.picc("mute_btn", pics.kb_mute_on)
-            g.port.picc2("mute_btn", pics.kb_mute_on_press)
-    else:                                       # CLL refresh only while the keyboard is not shown
-        if g.screen.page == ids.PRINTING:
-            # CLL fan speeds
-            g.port.val("fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
-            g.port.val("fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
-            g.port.val("fan3_val", to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100))))
+    if g.screen.printing_keyboard_enabled:
+        _printing_keyboard_mute_button()
+    elif g.screen.page == ids.PRINTING:         # CLL refresh only while the keyboard is not shown
+        _printing_first_page()
+    elif g.screen.page == ids.PRINTING_2:
+        _printing_second_page()
 
-            g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
-            g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
-            if g.klippy.extruder_target == 0:  # CLL button and number colour depend on the nozzle heating
-                g.port.pco("nozzle_temp", "65535")
-                g.port.picc("nozzle_btn", pics.printing_row_off)
-                g.port.picc2("nozzle_btn", pics.printing_press_off)
-            else:
-                g.port.pco("nozzle_temp", "63488")
-                g.port.picc("nozzle_btn", pics.printing_row_on)
-                g.port.picc2("nozzle_btn", pics.printing_press_on)
-
-            g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
-            g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
-            if g.klippy.heater_bed_target == 0:    # CLL button and number colour depend on the bed heating
-                g.port.pco("bed_temp", "65535")
-                g.port.picc("bed_btn", pics.printing_row_off)
-                g.port.picc2("bed_btn", pics.printing_press_off)
-            else:
-                g.port.pco("bed_temp", "63488")
-                g.port.picc("bed_btn", pics.printing_row_on)
-                g.port.picc2("bed_btn", pics.printing_press_on)
-
-            # 4.4.22: the LED button moved to the second printing page
-
-            g.port.val("chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
-            g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
-            if g.klippy.hot_target == 0:
-                g.port.pco("chamber_temp", "65535")
-                g.port.picc("chamber_btn", pics.printing_row_off)
-                g.port.picc2("chamber_btn", pics.printing_press_off)
-            else:
-                g.port.pco("chamber_temp", "63488")
-                g.port.picc("chamber_btn", pics.printing_row_on)
-                g.port.picc2("chamber_btn", pics.printing_press_on)
-
-            if g.screen.show_preview_gimage_completed:
-                g.port.vis("thumb", "1")
-                g.port.val("thumb_flag", "1")
-            else:
-                g.port.vis("thumb", "0")
-                g.port.val("thumb_flag", "0")
-        elif g.screen.page == ids.PRINTING_2:
-            if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
-                g.shown.speed_factor = g.klippy.gcode_move_speed_factor
-                g.port.val("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
-
-            if g.shown.extruder_factor != g.klippy.gcode_move_extrude_factor:    # CLL extrusion factor
-                g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
-                g.port.val("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
-
-            if g.klippy.caselight_value == 0:      # 4.4.22 LED state
-                g.port.picc("light_btn", pics.light_off)
-                g.port.picc2("light_btn", pics.printing2_press_off)
-            else:
-                g.port.picc("light_btn", pics.light_on)
-                g.port.picc2("light_btn", pics.printing2_press_on)
-
-    if g.klippy.print_stats_state == "printing":
-        g.klippy.ready = True
-
-    if g.klippy.fila_sensor_enabled:
-        if not g.klippy.fila_sensor_detected:
-            g.klippy.ready = False
-            actions.set_print_pause()
-            page_to(ids.PRINT_NO_FILAMENT_2)
-
-    if not g.klippy.filament_detected:
-        time.sleep(1)
-        g.klippy.ready = False
-        actions.set_print_pause()
-        page_to(ids.PRINT_NO_FILAMENT)
-
-    if g.klippy.print_stats_state == "complete":
-        time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
-        actions.complete_print()
-        actions.clear_previous_data()
-        time.sleep(5)
-        actions.save_current_zoffset()
-        page_to(ids.PRINT_FINISH)
-        g.port.txt("time_txt", time_duration)
-
-    if g.klippy.print_stats_state == "paused":
-        if g.klippy.ready:
-            g.klippy.ready = False
-            page_to(ids.PRINT_FILAMENT)
-
-    if g.klippy.print_stats_state == "standby":
-        page_to(ids.PRINT_STOPPING)
-
-    if g.klippy.print_stats_state == "error":
-        page_to(ids.GCODE_ERROR)
-        actions.cancel_print()
-        actions.clear_previous_data()
-        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+    _printing_state_changes()
 
 
 def clear_printing_arg():
