@@ -3,6 +3,7 @@ display_firmware/tools/add_network_pages.py): saved networks, one network, "forg
 interfaces, and the keyboard modes (password of a scanned / saved network, hidden network)."""
 
 from . import state as g
+from . import pics
 from . import ui
 from . import network
 from .cpp import b2s, sleep, pthread_create
@@ -65,21 +66,21 @@ def show_saved():
     for i in range(ROWS):
         index = S.page * ROWS + i
         item = S.saved[index] if index < len(S.saved) else None
-        row = "wifi" + str(i + 1)
-        _txt("t" + str(i + 1), _clip(item["ssid"], 24) if item else "")
+        row = "row" + str(i + 1)
+        _txt(row + "_txt", _clip(item["ssid"], 24) if item else "")
         if item and item["active"]:
-            send_cmd_picc(g.tty_fd, row, "126")
-            send_cmd_picc2(g.tty_fd, row, "124")
+            send_cmd_picc(g.tty_fd, row, pics.rows_check)
+            send_cmd_picc2(g.tty_fd, row, pics.rows_check_press)
         elif item:
-            send_cmd_picc(g.tty_fd, row, "125")
-            send_cmd_picc2(g.tty_fd, row, "123")
+            send_cmd_picc(g.tty_fd, row, pics.rows_lock)
+            send_cmd_picc2(g.tty_fd, row, pics.bg_settings_press)
         else:
-            send_cmd_picc(g.tty_fd, row, "122")
-            send_cmd_picc2(g.tty_fd, row, "122")
+            send_cmd_picc(g.tty_fd, row, pics.bg_settings_panel)
+            send_cmd_picc2(g.tty_fd, row, pics.bg_settings_panel)
         S.enabled[i] = item is not None
     first = pages <= 1 or S.page == 0
     last = pages <= 1 or S.page == pages - 1
-    for button, off in (("b1", first), ("b2", last)):
+    for button, off in (("prev_btn", first), ("next_btn", last)):
         send_cmd_picc(g.tty_fd, button, "126" if off else "125")
         send_cmd_picc2(g.tty_fd, button, "123" if off else "124")
 
@@ -121,10 +122,10 @@ def show_detail():
     if item["active"]:
         ip = network.device_report("wifi")["ip"]
         state = tr("Connected", "Подключено") + (", " + ip if ip else "")
-    _txt("tssid", _clip(item["ssid"], 24))
-    _txt("tstat", _clip(state, 30))
-    _txt("bc", tr("Disconnect", "Отключиться") if item["active"] else tr("Connect", "Подключиться"))
-    _txt("ba", tr("Autoconnect: ", "Автоподключение: ") + (tr("on", "вкл") if item["autoconnect"] else tr("off", "выкл")))
+    _txt("ssid_txt", _clip(item["ssid"], 24))
+    _txt("status_txt", _clip(state, 30))
+    _txt("connect_btn", tr("Disconnect", "Отключиться") if item["active"] else tr("Connect", "Подключиться"))
+    _txt("auto_btn", tr("Autoconnect: ", "Автоподключение: ") + (tr("on", "вкл") if item["autoconnect"] else tr("off", "выкл")))
 
 
 def detail_clicked(widget_id):
@@ -145,7 +146,7 @@ def detail_clicked(widget_id):
         show_detail()
     elif widget_id == 4:
         ui.page_to(ui.TJC_PAGE_NET_CONFIRM)
-        _txt("tmsg", _lines(tr("Forget", "Забыть"), '"' + _clip(item["ssid"], 22) + '"?',
+        _txt("msg", _lines(tr("Forget", "Забыть"), '"' + _clip(item["ssid"], 22) + '"?',
                             tr("The saved password", "Сохранённый пароль"), tr("will be deleted.", "будет удалён.")))
     elif widget_id == 23:
         open_saved()
@@ -188,9 +189,9 @@ def show_info():
     lan_lines = ["LAN  " + (lan["name"] or "-"), _state_word(lan)]
     if lan["state"] == "connected":
         lan_lines += ["IP  " + lan["ip"], gw + "  " + lan["gateway"], "MAC  " + lan["mac"]]
-    _txt("twifi", _lines(*[_clip(line, 28) for line in wifi_lines]))
-    _txt("teth", _lines(*[_clip(line, 28) for line in lan_lines]))
-    _txt("bwifi", "Wi-Fi: " + (tr("on", "вкл") if radio else tr("off", "выкл")))
+    _txt("wifi_txt", _lines(*[_clip(line, 28) for line in wifi_lines]))
+    _txt("lan_txt", _lines(*[_clip(line, 28) for line in lan_lines]))
+    _txt("radio_btn", "Wi-Fi: " + (tr("on", "вкл") if radio else tr("off", "выкл")))
 
 
 def _toggle_thread(arg):

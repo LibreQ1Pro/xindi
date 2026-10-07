@@ -1556,14 +1556,14 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
                 number = 350
             g.printing_keyboard_enabled = False
             ev.set_extruder_target(number)
-            send_cmd_val(g.tty_fd, "n0", to_string(number))
+            send_cmd_val(g.tty_fd, "nozzle_set", to_string(number))
             ev.set_mks_extruder_target(number)
         elif widget_id == TJC_PAGE_PRINTING_HEATER_BED:
             if number > 120:
                 number = 120
             g.printing_keyboard_enabled = False
             ev.set_heater_bed_target(number)
-            send_cmd_val(g.tty_fd, "n1", to_string(number))
+            send_cmd_val(g.tty_fd, "bed_set", to_string(number))
             ev.set_mks_heater_bed_target(number)
         elif widget_id == TJC_PAGE_PRINTING_FAN_1:
             if number > 100:
@@ -1588,13 +1588,13 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
                 number = 150
             g.printing_keyboard_enabled = False
             ev.set_printer_speed(number)
-            send_cmd_val(g.tty_fd, "n2", to_string(number))
+            send_cmd_val(g.tty_fd, "speed_val", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_2_FLOW:
             if number > 150:
                 number = 150
             g.printing_keyboard_enabled = False
             ev.set_printer_flow(number)
-            send_cmd_val(g.tty_fd, "n3", to_string(number))
+            send_cmd_val(g.tty_fd, "flow_val", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_HOT:
             if number > 60:
                 number = 60

@@ -7,6 +7,7 @@ import urllib.request
 
 from . import paths
 from . import state as g
+from . import pics
 from . import ui
 from .ui import page_to
 from .cpp import (to_string, substr, f32, c_int, c_round, cdiv, cmod, stof, stoi, s2b, b2s, cstr,
@@ -103,7 +104,7 @@ def refresh_page_show():
     if g.jump_to_detect_error == True:
         g.jump_to_detect_error = False
         page_to(ui.TJC_PAGE_DETECT_ERROR)
-        send_cmd_txt(g.tty_fd, "t0", g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", g.error_message)
     if g.jump_to_level_error == True:
         g.jump_to_level_error = False
         page_to(ui.TJC_PAGE_LEVEL_ERROR)
@@ -170,12 +171,12 @@ def refresh_page_show():
                     cout("Restart page")
                     if g.current_webhooks_state_message != g.printer_webhooks_state_message:
                         g.current_webhooks_state_message = g.printer_webhooks_state_message
-                        send_cmd_txt(g.tty_fd, "t0", _replace_for_screen(g.printer_webhooks_state_message))
+                        send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.printer_webhooks_state_message))
     elif g.current_page_id == ui.TJC_PAGE_RESET:
         if g.printer_webhooks_state == "shutdown" or g.printer_webhooks_state == "error":
             if g.current_webhooks_state_message != g.printer_webhooks_state_message:
                 g.current_webhooks_state_message = g.printer_webhooks_state_message
-                send_cmd_txt(g.tty_fd, "t0", _replace_for_screen(g.printer_webhooks_state_message))
+                send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.printer_webhooks_state_message))
         if g.printer_webhooks_state == "ready":
             page_to(ui.TJC_PAGE_SYS_OK)
 
@@ -241,23 +242,23 @@ def refresh_page_show():
 
 def refresh_page_open_filament_video_2():
     if g.printer_extruder_target == 0:
-        send_cmd_pco(g.tty_fd, "t0", "65535")
-        send_cmd_pco(g.tty_fd, "n0", "65535")
-        send_cmd_picc(g.tty_fd, "b3", "9")
-        send_cmd_picc2(g.tty_fd, "b3", "25")
+        send_cmd_pco(g.tty_fd, "temp_now", "65535")
+        send_cmd_pco(g.tty_fd, "temp_target", "65535")
+        send_cmd_picc(g.tty_fd, "heat_toggle", pics.open_heat_off)
+        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.open_heat_off_press)
     else:
-        send_cmd_pco(g.tty_fd, "t0", "63488")
-        send_cmd_pco(g.tty_fd, "n0", "63488")
-        send_cmd_picc(g.tty_fd, "b3", "10")
-        send_cmd_picc2(g.tty_fd, "b3", "24")
+        send_cmd_pco(g.tty_fd, "temp_now", "63488")
+        send_cmd_pco(g.tty_fd, "temp_target", "63488")
+        send_cmd_picc(g.tty_fd, "heat_toggle", pics.open_heat_on)
+        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.open_heat_on_press)
 
-    send_cmd_txt(g.tty_fd, "t0", to_string(g.printer_extruder_temperature) + "/")
-    send_cmd_val(g.tty_fd, "n0", to_string(g.printer_extruder_target))
+    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.printer_extruder_temperature) + "/")
+    send_cmd_val(g.tty_fd, "temp_target", to_string(g.printer_extruder_target))
 
 
 def refresh_page_wifi_keyboard():
     if g.printing_wifi_keyboard_enabled == True:
-        send_cmd_txt(g.tty_fd, "t0", g.get_wifi_name)
+        send_cmd_txt(g.tty_fd, "title", g.get_wifi_name)
 
 
 def refresh_page_syntony_finish():
@@ -289,15 +290,15 @@ def _picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
 
 
 def refresh_page_auto_level():
-    names = ["b0", "b1", "b2", "b3"]
+    names = ["step_001", "step_005", "step_01", "step_05"]
     if g.auto_level_dist == f32(0.01):
-        _picc_group(names, 0, "113", "114", "116", "115")
+        _picc_group(names, 0, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.auto_level_dist == f32(0.05):
-        _picc_group(names, 1, "113", "114", "116", "115")
+        _picc_group(names, 1, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.auto_level_dist == f32(0.1):
-        _picc_group(names, 2, "113", "114", "116", "115")
+        _picc_group(names, 2, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.auto_level_dist == f32(0.5):
-        _picc_group(names, 3, "113", "114", "116", "115")
+        _picc_group(names, 3, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
 
 
 def refresh_page_stopping():
@@ -327,23 +328,23 @@ def _file_name_only(path):
 
 
 def refresh_page_print_filament():
-    send_cmd_txt(g.tty_fd, "t5", _file_name_only(g.printer_print_stats_filename))
+    send_cmd_txt(g.tty_fd, "file_name", _file_name_only(g.printer_print_stats_filename))
 
     if g.printer_extruder_target == 0:
-        send_cmd_pco(g.tty_fd, "t2", "65535")
-        send_cmd_picc(g.tty_fd, "b0", "63")
-        send_cmd_picc2(g.tty_fd, "b0", "64")
+        send_cmd_pco(g.tty_fd, "temp_now", "65535")
+        send_cmd_picc(g.tty_fd, "heat_btn", pics.printfil_heat_off)
+        send_cmd_picc2(g.tty_fd, "heat_btn", pics.printfil_press_off)
     else:
-        send_cmd_pco(g.tty_fd, "t2", "63488")
-        send_cmd_picc(g.tty_fd, "b0", "62")
-        send_cmd_picc2(g.tty_fd, "b0", "65")
+        send_cmd_pco(g.tty_fd, "temp_now", "63488")
+        send_cmd_picc(g.tty_fd, "heat_btn", pics.printfil_heat_on)
+        send_cmd_picc2(g.tty_fd, "heat_btn", pics.printfil_press_on)
 
-    send_cmd_val(g.tty_fd, "j0", to_string(g.printer_display_status_progress))
-    send_cmd_val(g.tty_fd, "n7", to_string(g.printer_display_status_progress))
-    send_cmd_txt(g.tty_fd, "t2", to_string(g.printer_extruder_temperature))
-    send_cmd_txt(g.tty_fd, "t3", to_string(g.printer_extruder_target))
-    send_cmd_txt(g.tty_fd, "t0", show_time(c_int(g.printer_print_stats_print_duration)))
-    send_cmd_txt(g.tty_fd, "t1", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
+    send_cmd_val(g.tty_fd, "progress", to_string(g.printer_display_status_progress))
+    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.printer_display_status_progress))
+    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.printer_extruder_temperature))
+    send_cmd_txt(g.tty_fd, "temp_set", to_string(g.printer_extruder_target))
+    send_cmd_txt(g.tty_fd, "time_elapsed", show_time(c_int(g.printer_print_stats_print_duration)))
+    send_cmd_txt(g.tty_fd, "time_left", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
                                                                  g.file_metadata_estimated_time,
                                                                  g.printer_display_status_progress)))
 
@@ -369,7 +370,7 @@ def refresh_page_print_filament():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "t0", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.printer_idle_timeout_state == "Idle":
@@ -383,28 +384,28 @@ def refresh_page_auto_finish():
 
 
 def refresh_page_auto_moving():
-    send_cmd_txt(g.tty_fd, "t5", "(" + to_string(g.printer_heater_bed_temperature) + "/" +
+    send_cmd_txt(g.tty_fd, "bed_temp", "(" + to_string(g.printer_heater_bed_temperature) + "/" +
                  to_string(g.printer_heater_bed_target) + ")")
     if g.step_1 == True:
-        send_cmd_picc(g.tty_fd, "q0", "109")
-        send_cmd_pco(g.tty_fd, "t1", "65535")
-        send_cmd_pco(g.tty_fd, "t0", "38066")
-        send_cmd_vis(g.tty_fd, "gm1", "0")
-        send_cmd_vis(g.tty_fd, "gm2", "1")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_1)
+        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
+        send_cmd_vis(g.tty_fd, "spin1", "0")
+        send_cmd_vis(g.tty_fd, "spin2", "1")
         g.step_1 = False
     if g.step_2 == True:
-        send_cmd_picc(g.tty_fd, "q0", "110")
-        send_cmd_pco(g.tty_fd, "t2", "65535")
-        send_cmd_pco(g.tty_fd, "t1", "38066")
-        send_cmd_vis(g.tty_fd, "gm2", "0")
-        send_cmd_vis(g.tty_fd, "gm3", "1")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_2)
+        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
+        send_cmd_vis(g.tty_fd, "spin2", "0")
+        send_cmd_vis(g.tty_fd, "spin3", "1")
         g.step_2 = False
     if g.step_3 == True:
-        send_cmd_picc(g.tty_fd, "q0", "111")
-        send_cmd_pco(g.tty_fd, "t3", "65535")
-        send_cmd_pco(g.tty_fd, "t2", "38066")
-        send_cmd_vis(g.tty_fd, "gm3", "0")
-        send_cmd_vis(g.tty_fd, "gm4", "1")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_3)
+        send_cmd_pco(g.tty_fd, "step4_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step3_txt", "38066")
+        send_cmd_vis(g.tty_fd, "spin3", "0")
+        send_cmd_vis(g.tty_fd, "spin4", "1")
         g.step_3 = False
         g.printer_idle_timeout_state = "Printing"
         get_mks_heater_bed_target()
@@ -428,32 +429,32 @@ def refresh_page_move():
     y_pos = _cut_after_point(to_string(g.y_position), 2)
     z_pos = _cut_after_point(to_string(g.z_position), 2)
 
-    send_cmd_txt(g.tty_fd, "t0", x_pos)
-    send_cmd_txt(g.tty_fd, "t1", y_pos)
-    send_cmd_txt(g.tty_fd, "t2", z_pos)
+    send_cmd_txt(g.tty_fd, "x_pos", x_pos)
+    send_cmd_txt(g.tty_fd, "y_pos", y_pos)
+    send_cmd_txt(g.tty_fd, "z_pos", z_pos)
 
     # CLL highlight the selected distance
     if g.printer_move_dist == f32(0.1):
-        send_cmd_picc(g.tty_fd, "b0", "77")
-        send_cmd_picc2(g.tty_fd, "b0", "74")
-        send_cmd_picc(g.tty_fd, "b1", "76")
-        send_cmd_picc2(g.tty_fd, "b1", "75")
-        send_cmd_picc(g.tty_fd, "b2", "76")
-        send_cmd_picc2(g.tty_fd, "b2", "75")
+        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_on)
+        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_on_press)
+        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_off_press)
+        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_off_press)
     elif g.printer_move_dist == f32(1.0):
-        send_cmd_picc(g.tty_fd, "b0", "76")
-        send_cmd_picc2(g.tty_fd, "b0", "75")
-        send_cmd_picc(g.tty_fd, "b1", "77")
-        send_cmd_picc2(g.tty_fd, "b1", "74")
-        send_cmd_picc(g.tty_fd, "b2", "76")
-        send_cmd_picc2(g.tty_fd, "b2", "75")
+        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_off_press)
+        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_on)
+        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_on_press)
+        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_off_press)
     elif g.printer_move_dist == f32(10):
-        send_cmd_picc(g.tty_fd, "b0", "76")
-        send_cmd_picc2(g.tty_fd, "b0", "75")
-        send_cmd_picc(g.tty_fd, "b1", "76")
-        send_cmd_picc2(g.tty_fd, "b1", "75")
-        send_cmd_picc(g.tty_fd, "b2", "77")
-        send_cmd_picc2(g.tty_fd, "b2", "74")
+        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_off_press)
+        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_off)
+        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_off_press)
+        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_on)
+        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_on_press)
 
 
 def refresh_page_offset(intern_zoffset):
@@ -463,8 +464,8 @@ def refresh_page_offset(intern_zoffset):
 
 def _zoffset_buttons():
     pairs = {
-        0: ("57", "60"),
-        1: ("58", "59"),
+        0: (pics.zoffset_step_on, pics.zoffset_step_press_on),
+        1: (pics.zoffset_step_off, pics.zoffset_step_press_off),
     }
     sel = None
     if g.printer_set_offset == f32(0.01):
@@ -479,8 +480,8 @@ def _zoffset_buttons():
         return
     for b in range(1, 5):
         picc, picc2 = pairs[0] if b == sel else pairs[1]
-        send_cmd_picc(g.tty_fd, "b" + to_string(b), picc)
-        send_cmd_picc2(g.tty_fd, "b" + to_string(b), picc2)
+        send_cmd_picc(g.tty_fd, ("step_001", "step_005", "step_01", "step_05")[b - 1], picc)
+        send_cmd_picc2(g.tty_fd, ("step_001", "step_005", "step_01", "step_05")[b - 1], picc2)
 
 
 def refresh_page_printing_zoffset():
@@ -488,18 +489,18 @@ def refresh_page_printing_zoffset():
     show_gcode_z = to_string(g.gcode_z_position)
     z_offset = _cut_after_point(z_offset, 4)
     show_gcode_z = _cut_after_point(show_gcode_z, 4)
-    send_cmd_txt(g.tty_fd, "t4", _file_name_only(g.printer_print_stats_filename))
+    send_cmd_txt(g.tty_fd, "file_name", _file_name_only(g.printer_print_stats_filename))
     if z_offset != g.mks_babystep_value:
         g.mks_babystep_value = z_offset
         set_mks_babystep(g.mks_babystep_value)
-    send_cmd_txt(g.tty_fd, "t2", show_gcode_z)
-    send_cmd_txt(g.tty_fd, "t3", z_offset)
-    send_cmd_txt(g.tty_fd, "t0", show_time(c_int(g.printer_print_stats_print_duration)))
-    send_cmd_val(g.tty_fd, "n7", to_string(g.printer_display_status_progress))
-    send_cmd_txt(g.tty_fd, "t1", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
+    send_cmd_txt(g.tty_fd, "gcode_z", show_gcode_z)
+    send_cmd_txt(g.tty_fd, "z_offset", z_offset)
+    send_cmd_txt(g.tty_fd, "time_elapsed", show_time(c_int(g.printer_print_stats_print_duration)))
+    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.printer_display_status_progress))
+    send_cmd_txt(g.tty_fd, "time_left", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
                                                                  g.file_metadata_estimated_time,
                                                                  g.printer_display_status_progress)))
-    send_cmd_val(g.tty_fd, "j0", to_string(g.printer_display_status_progress))
+    send_cmd_val(g.tty_fd, "progress", to_string(g.printer_display_status_progress))
 
     _zoffset_buttons()
 
@@ -534,102 +535,102 @@ def refresh_page_printing_zoffset():
         sleep(5)
         save_current_zoffset()
         page_to(ui.TJC_PAGE_PRINT_FINISH)
-        send_cmd_txt(g.tty_fd, "t1", time_duration)
+        send_cmd_txt(g.tty_fd, "time_txt", time_duration)
 
     if g.printer_print_stats_state == "error":
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "t0", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
 
 
 def refresh_page_printing():
     z_offset = to_string(g.printer_gcode_move_homing_origin[2])
     z_offset = _cut_after_point(z_offset, 4)
 
-    send_cmd_val(g.tty_fd, "j0", to_string(g.printer_display_status_progress))
-    send_cmd_val(g.tty_fd, "n7", to_string(g.printer_display_status_progress))
-    send_cmd_txt(g.tty_fd, "t2", show_time(c_int(g.printer_print_stats_print_duration)))
-    send_cmd_txt(g.tty_fd, "t3", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
+    send_cmd_val(g.tty_fd, "progress", to_string(g.printer_display_status_progress))
+    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.printer_display_status_progress))
+    send_cmd_txt(g.tty_fd, "time_elapsed", show_time(c_int(g.printer_print_stats_print_duration)))
+    send_cmd_txt(g.tty_fd, "time_left", show_time(get_cal_printing_time(c_int(g.printer_print_stats_print_duration),
                                                                  g.file_metadata_estimated_time,
                                                                  g.printer_display_status_progress)))
-    send_cmd_txt(g.tty_fd, "t4", _file_name_only(g.printer_print_stats_filename))
+    send_cmd_txt(g.tty_fd, "file_name", _file_name_only(g.printer_print_stats_filename))
 
     # the z offset of the second page is always refreshed: the page starts with
     # the designer's "-1.000", it must not stay while the keyboard flag is set
     if g.current_page_id == ui.TJC_PAGE_PRINTING_2:
-        send_cmd_txt(g.tty_fd, "t1", z_offset)
+        send_cmd_txt(g.tty_fd, "zoffset_val", z_offset)
 
     if g.printing_keyboard_enabled == True:     # 4.4.22 silent mode button of the keyboard
         if g.printer_muted == False:
-            send_cmd_picc(g.tty_fd, "b110", "273")
-            send_cmd_picc2(g.tty_fd, "b110", "56")
+            send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_off)
+            send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_off_press)
         else:
-            send_cmd_picc(g.tty_fd, "b110", "274")
-            send_cmd_picc2(g.tty_fd, "b110", "275")
+            send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_on)
+            send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_on_press)
     else:                                       # CLL refresh only while the keyboard is not shown
         if g.current_page_id == ui.TJC_PAGE_PRINTING:
             # CLL fan speeds
-            send_cmd_val(g.tty_fd, "n4", to_string(c_int(f32(g.printer_out_pin_fan0_value * 100))))
-            send_cmd_val(g.tty_fd, "n5", to_string(c_int(f32(g.printer_out_pin_fan2_value * 100))))
-            send_cmd_val(g.tty_fd, "n6", to_string(c_int(f32(g.printer_out_pin_fan3_value * 100))))
+            send_cmd_val(g.tty_fd, "fan1_val", to_string(c_int(f32(g.printer_out_pin_fan0_value * 100))))
+            send_cmd_val(g.tty_fd, "fan2_val", to_string(c_int(f32(g.printer_out_pin_fan2_value * 100))))
+            send_cmd_val(g.tty_fd, "fan3_val", to_string(c_int(f32(g.printer_out_pin_fan3_value * 100))))
 
-            send_cmd_txt(g.tty_fd, "t0", to_string(g.printer_extruder_temperature))
-            send_cmd_val(g.tty_fd, "n0", to_string(g.printer_extruder_target))
+            send_cmd_txt(g.tty_fd, "nozzle_temp", to_string(g.printer_extruder_temperature))
+            send_cmd_val(g.tty_fd, "nozzle_set", to_string(g.printer_extruder_target))
             if g.printer_extruder_target == 0:  # CLL button and number colour depend on the nozzle heating
-                send_cmd_pco(g.tty_fd, "t0", "65535")
-                send_cmd_picc(g.tty_fd, "b0", "53")
-                send_cmd_picc2(g.tty_fd, "b0", "51")
+                send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
+                send_cmd_picc(g.tty_fd, "nozzle_btn", pics.printing_row_off)
+                send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "t0", "63488")
-                send_cmd_picc(g.tty_fd, "b0", "54")
-                send_cmd_picc2(g.tty_fd, "b0", "52")
+                send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
+                send_cmd_picc(g.tty_fd, "nozzle_btn", pics.printing_row_on)
+                send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.printing_press_on)
 
-            send_cmd_txt(g.tty_fd, "t1", to_string(g.printer_heater_bed_temperature))
-            send_cmd_val(g.tty_fd, "n1", to_string(g.printer_heater_bed_target))
+            send_cmd_txt(g.tty_fd, "bed_temp", to_string(g.printer_heater_bed_temperature))
+            send_cmd_val(g.tty_fd, "bed_set", to_string(g.printer_heater_bed_target))
             if g.printer_heater_bed_target == 0:    # CLL button and number colour depend on the bed heating
-                send_cmd_pco(g.tty_fd, "t1", "65535")
-                send_cmd_picc(g.tty_fd, "b1", "53")
-                send_cmd_picc2(g.tty_fd, "b1", "51")
+                send_cmd_pco(g.tty_fd, "bed_temp", "65535")
+                send_cmd_picc(g.tty_fd, "bed_btn", pics.printing_row_off)
+                send_cmd_picc2(g.tty_fd, "bed_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "t1", "63488")
-                send_cmd_picc(g.tty_fd, "b1", "54")
-                send_cmd_picc2(g.tty_fd, "b1", "52")
+                send_cmd_pco(g.tty_fd, "bed_temp", "63488")
+                send_cmd_picc(g.tty_fd, "bed_btn", pics.printing_row_on)
+                send_cmd_picc2(g.tty_fd, "bed_btn", pics.printing_press_on)
 
             # 4.4.22: the LED button moved to the second printing page
 
-            send_cmd_val(g.tty_fd, "n2", to_string(g.printer_hot_target))      # CLL chamber temperature
-            send_cmd_txt(g.tty_fd, "t5", to_string(g.printer_hot_temperature))
+            send_cmd_val(g.tty_fd, "chamber_set", to_string(g.printer_hot_target))      # CLL chamber temperature
+            send_cmd_txt(g.tty_fd, "chamber_temp", to_string(g.printer_hot_temperature))
             if g.printer_hot_target == 0:
-                send_cmd_pco(g.tty_fd, "t5", "65535")
-                send_cmd_picc(g.tty_fd, "b7", "53")
-                send_cmd_picc2(g.tty_fd, "b7", "51")
+                send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
+                send_cmd_picc(g.tty_fd, "chamber_btn", pics.printing_row_off)
+                send_cmd_picc2(g.tty_fd, "chamber_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "t5", "63488")
-                send_cmd_picc(g.tty_fd, "b7", "54")
-                send_cmd_picc2(g.tty_fd, "b7", "52")
+                send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
+                send_cmd_picc(g.tty_fd, "chamber_btn", pics.printing_row_on)
+                send_cmd_picc2(g.tty_fd, "chamber_btn", pics.printing_press_on)
 
             if g.show_preview_gimage_completed == True:
-                send_cmd_vis(g.tty_fd, "cp0", "1")
-                send_cmd_val(g.tty_fd, "v999", "1")
+                send_cmd_vis(g.tty_fd, "thumb", "1")
+                send_cmd_val(g.tty_fd, "thumb_flag", "1")
             else:
-                send_cmd_vis(g.tty_fd, "cp0", "0")
-                send_cmd_val(g.tty_fd, "v999", "0")
+                send_cmd_vis(g.tty_fd, "thumb", "0")
+                send_cmd_val(g.tty_fd, "thumb_flag", "0")
         elif g.current_page_id == ui.TJC_PAGE_PRINTING_2:
             if g.current_speed_factor != g.printer_gcode_move_speed_factor:     # CLL speed factor
                 g.current_speed_factor = g.printer_gcode_move_speed_factor
-                send_cmd_val(g.tty_fd, "n2", to_string(c_int(c_round(f32(g.printer_gcode_move_speed_factor * 100)))))
+                send_cmd_val(g.tty_fd, "speed_val", to_string(c_int(c_round(f32(g.printer_gcode_move_speed_factor * 100)))))
 
             if g.current_extruder_factor != g.printer_gcode_move_extrude_factor:    # CLL extrusion factor
                 g.current_extruder_factor = g.printer_gcode_move_extrude_factor
-                send_cmd_val(g.tty_fd, "n3", to_string(c_int(c_round(f32(g.printer_gcode_move_extrude_factor * 100)))))
+                send_cmd_val(g.tty_fd, "flow_val", to_string(c_int(c_round(f32(g.printer_gcode_move_extrude_factor * 100)))))
 
             if g.printer_caselight_value == 0:      # 4.4.22 LED state
-                send_cmd_picc(g.tty_fd, "b4", "271")
-                send_cmd_picc2(g.tty_fd, "b4", "270")
+                send_cmd_picc(g.tty_fd, "light_btn", pics.light_off)
+                send_cmd_picc2(g.tty_fd, "light_btn", pics.printing2_press_off)
             else:
-                send_cmd_picc(g.tty_fd, "b4", "272")
-                send_cmd_picc2(g.tty_fd, "b4", "67")
+                send_cmd_picc(g.tty_fd, "light_btn", pics.light_on)
+                send_cmd_picc2(g.tty_fd, "light_btn", pics.printing2_press_on)
 
     if g.printer_print_stats_state == "printing":
         g.printer_ready = True
@@ -653,7 +654,7 @@ def refresh_page_printing():
         sleep(5)
         save_current_zoffset()
         page_to(ui.TJC_PAGE_PRINT_FINISH)
-        send_cmd_txt(g.tty_fd, "t1", time_duration)
+        send_cmd_txt(g.tty_fd, "time_txt", time_duration)
 
     if g.printer_print_stats_state == "paused":
         if g.printer_ready == True:
@@ -667,7 +668,7 @@ def refresh_page_printing():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "t0", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
 
 
 def clear_page_printing_arg():
@@ -694,17 +695,17 @@ def _send_chunks_txt(data):
     while start < length:
         if end > length:
             s = substr(data, start, length - start)
-            send_cmd_txt(g.tty_fd, "add", s)
+            send_cmd_txt(g.tty_fd, "cp_pad", s)
             _tcdrain()
-            send_cmd_txt_plus(g.tty_fd, "cp0_text", "cp0_text", "add")
+            send_cmd_txt_plus(g.tty_fd, "cp_data", "cp_data", "cp_pad")
             _tcdrain()
             break
         s = substr(data, start, num)
         start = end
         end = end + num
-        send_cmd_txt(g.tty_fd, "add", s)
+        send_cmd_txt(g.tty_fd, "cp_pad", s)
         _tcdrain()
-        send_cmd_txt_plus(g.tty_fd, "cp0_text", "cp0_text", "add")
+        send_cmd_txt_plus(g.tty_fd, "cp_data", "cp_data", "cp_pad")
         _tcdrain()
 
 
@@ -749,44 +750,44 @@ def _stem_of(path):
 def refresh_page_preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
     if g.printer_bed_leveling == False:
-        send_cmd_picc(g.tty_fd, "b2", "46")
-        send_cmd_picc2(g.tty_fd, "b2", "290")
+        send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_off)
+        send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_off)
     else:
-        send_cmd_picc(g.tty_fd, "b2", "45")
-        send_cmd_picc2(g.tty_fd, "b2", "44")
+        send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_on)
+        send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_on)
     if g.timelapse_enabled == False:
-        send_cmd_picc(g.tty_fd, "b3", "46")
-        send_cmd_picc2(g.tty_fd, "b3", "290")
+        send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_off)
+        send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_off)
     else:
-        send_cmd_picc(g.tty_fd, "b3", "45")
-        send_cmd_picc2(g.tty_fd, "b3", "44")
+        send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_on)
+        send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_on)
     if g.mks_file_parse_finished == True:
         if g.show_preview_complete == False:
             # 4.4.2 CLL only the file name is shown on the preview page
-            send_cmd_txt(g.tty_fd, "t0", _file_name_only(g.file_metadata_filename))
+            send_cmd_txt(g.tty_fd, "err_msg", _file_name_only(g.file_metadata_filename))
             if g.file_metadata_estimated_time:
-                send_cmd_txt(g.tty_fd, "t1", show_time(g.file_metadata_estimated_time))
+                send_cmd_txt(g.tty_fd, "est_time", show_time(g.file_metadata_estimated_time))
             else:
-                send_cmd_txt(g.tty_fd, "t1", "-")
+                send_cmd_txt(g.tty_fd, "est_time", "-")
 
             if g.file_metadata_filament_weight_total:
                 temp = to_string(g.file_metadata_filament_weight_total)
-                send_cmd_txt(g.tty_fd, "t2", _cut_after_point(temp, 2) + "g")
+                send_cmd_txt(g.tty_fd, "fil_weight", _cut_after_point(temp, 2) + "g")
             else:
-                send_cmd_txt(g.tty_fd, "t2", "-")
+                send_cmd_txt(g.tty_fd, "fil_weight", "-")
 
             if g.file_metadata_filament_total:
                 temp = to_string(f32(g.file_metadata_filament_total / 1000))
-                send_cmd_txt(g.tty_fd, "t3", _cut_after_point(temp, 2) + "m")
+                send_cmd_txt(g.tty_fd, "fil_length", _cut_after_point(temp, 2) + "m")
             else:
-                send_cmd_txt(g.tty_fd, "t3", "-")
+                send_cmd_txt(g.tty_fd, "fil_length", "-")
 
             if g.file_metadata_filament_type != "":
-                send_cmd_txt(g.tty_fd, "t4", g.file_metadata_filament_type)
+                send_cmd_txt(g.tty_fd, "fil_type", g.file_metadata_filament_type)
             elif g.file_metadata_filament_name != "":
-                send_cmd_txt(g.tty_fd, "t4", g.file_metadata_filament_name)
+                send_cmd_txt(g.tty_fd, "fil_type", g.file_metadata_filament_name)
             else:
-                send_cmd_txt(g.tty_fd, "t4", "-")
+                send_cmd_txt(g.tty_fd, "fil_type", "-")
 
             path_found = False
             # NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then
@@ -823,8 +824,8 @@ def refresh_page_preview():
                         g.show_preview_complete = True
                         return
                     g.file_metadata_simage = data
-                    send_cmd_txt(g.tty_fd, "preview.cp0_text", "")
-                    send_cmd_txt(g.tty_fd, "preview.add", "")
+                    send_cmd_txt(g.tty_fd, "preview.cp_data", "")
+                    send_cmd_txt(g.tty_fd, "preview.cp_pad", "")
                     if g.file_metadata_simage != "":
                         send_cmd_baud(g.tty_fd, 921600)
                         usleep(50000)
@@ -846,10 +847,10 @@ def refresh_page_preview():
                         send_cmd_baud(g.tty_fd, 921600)
                         usleep(50000)
                         set_option(g.tty_fd, 921600, 8, 'N', 1)
-                        send_cmd_cp_close(g.tty_fd, "preview.cp0")
+                        send_cmd_cp_close(g.tty_fd, "preview.preview_pic")
                         if g.file_metadata_gimage != "":
                             cout("Sending the big picture")
-                            _send_chunks_cp("cp0", g.file_metadata_gimage)
+                            _send_chunks_cp("preview_pic", g.file_metadata_gimage)
                         send_cmd_baud(g.tty_fd, 115200)
                         usleep(50000)
                         set_option(g.tty_fd, 115200, 8, 'N', 1)
@@ -857,9 +858,9 @@ def refresh_page_preview():
                     g.show_preview_gimage_completed = True
 
             if g.show_preview_gimage_completed == True:
-                send_cmd_vis(g.tty_fd, "cp0", "1")
+                send_cmd_vis(g.tty_fd, "preview_pic", "1")
             else:
-                send_cmd_vis(g.tty_fd, "cp0", "0")
+                send_cmd_vis(g.tty_fd, "preview_pic", "0")
 
             g.show_preview_complete = True
             if g.jump_to_print == True:
@@ -868,60 +869,60 @@ def refresh_page_preview():
 
 
 def refresh_page_main():
-    send_cmd_val(g.tty_fd, "n0", to_string(g.printer_extruder_temperature))
-    send_cmd_val(g.tty_fd, "n1", to_string(g.printer_heater_bed_temperature))
-    send_cmd_val(g.tty_fd, "n2", to_string(g.printer_hot_temperature))
+    send_cmd_val(g.tty_fd, "nozzle_temp", to_string(g.printer_extruder_temperature))
+    send_cmd_val(g.tty_fd, "bed_temp", to_string(g.printer_heater_bed_temperature))
+    send_cmd_val(g.tty_fd, "chamber_temp", to_string(g.printer_hot_temperature))
 
     if detect_disk() == 0:      # CLL USB drive inserted?
-        send_cmd_picc(g.tty_fd, "q1", "32")
+        send_cmd_picc(g.tty_fd, "usb_icon", pics.main_off)
     else:
-        send_cmd_picc(g.tty_fd, "q1", "33")
+        send_cmd_picc(g.tty_fd, "usb_icon", pics.main_on)
 
     if g.status_result.wpa_state == "COMPLETED":    # CLL wifi connected?
-        send_cmd_picc(g.tty_fd, "q0", "32")
+        send_cmd_picc(g.tty_fd, "wifi_icon", pics.main_off)
     else:
-        send_cmd_picc(g.tty_fd, "q0", "33")
+        send_cmd_picc(g.tty_fd, "wifi_icon", pics.main_on)
 
     if g.printer_caselight_value == 0:      # LED logo
-        send_cmd_picc(g.tty_fd, "b0", "32")
-        send_cmd_picc2(g.tty_fd, "b0", "30")
+        send_cmd_picc(g.tty_fd, "light_btn", pics.main_off)
+        send_cmd_picc2(g.tty_fd, "light_btn", pics.nav_btn_press)
     else:
-        send_cmd_picc(g.tty_fd, "b0", "33")
-        send_cmd_picc2(g.tty_fd, "b0", "31")
+        send_cmd_picc(g.tty_fd, "light_btn", pics.main_on)
+        send_cmd_picc2(g.tty_fd, "light_btn", pics.main_on_press)
 
     if g.printer_out_pin_beep_value == 0:
-        send_cmd_picc(g.tty_fd, "b1", "32")
-        send_cmd_picc2(g.tty_fd, "b1", "30")
+        send_cmd_picc(g.tty_fd, "beep_btn", pics.main_off)
+        send_cmd_picc2(g.tty_fd, "beep_btn", pics.nav_btn_press)
     else:
-        send_cmd_picc(g.tty_fd, "b1", "33")
-        send_cmd_picc2(g.tty_fd, "b1", "31")
+        send_cmd_picc(g.tty_fd, "beep_btn", pics.main_on)
+        send_cmd_picc2(g.tty_fd, "beep_btn", pics.main_on_press)
 
     if g.printer_extruder_target == 0:      # CLL nozzle heating state on the main page
-        send_cmd_pco(g.tty_fd, "n0", "65535")
-        send_cmd_picc(g.tty_fd, "b3", "32")
-        send_cmd_picc2(g.tty_fd, "b3", "30")
+        send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
+        send_cmd_picc(g.tty_fd, "nozzle_btn", pics.main_off)
+        send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "n0", "63488")
-        send_cmd_picc(g.tty_fd, "b3", "33")
-        send_cmd_picc2(g.tty_fd, "b3", "31")
+        send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
+        send_cmd_picc(g.tty_fd, "nozzle_btn", pics.main_on)
+        send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.main_on_press)
 
     if g.printer_heater_bed_target == 0:    # CLL bed heating state on the main page
-        send_cmd_pco(g.tty_fd, "n1", "65535")
-        send_cmd_picc(g.tty_fd, "b4", "32")
-        send_cmd_picc2(g.tty_fd, "b4", "30")
+        send_cmd_pco(g.tty_fd, "bed_temp", "65535")
+        send_cmd_picc(g.tty_fd, "bed_btn", pics.main_off)
+        send_cmd_picc2(g.tty_fd, "bed_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "n1", "63488")
-        send_cmd_picc(g.tty_fd, "b4", "33")
-        send_cmd_picc2(g.tty_fd, "b4", "31")
+        send_cmd_pco(g.tty_fd, "bed_temp", "63488")
+        send_cmd_picc(g.tty_fd, "bed_btn", pics.main_on)
+        send_cmd_picc2(g.tty_fd, "bed_btn", pics.main_on_press)
 
     if g.printer_hot_target == 0:           # CLL chamber heating state on the main page
-        send_cmd_pco(g.tty_fd, "n2", "65535")
-        send_cmd_picc(g.tty_fd, "b5", "32")
-        send_cmd_picc2(g.tty_fd, "b5", "30")
+        send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
+        send_cmd_picc(g.tty_fd, "chamber_btn", pics.main_off)
+        send_cmd_picc2(g.tty_fd, "chamber_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "n2", "63488")
-        send_cmd_picc(g.tty_fd, "b5", "33")
-        send_cmd_picc2(g.tty_fd, "b5", "31")
+        send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
+        send_cmd_picc(g.tty_fd, "chamber_btn", pics.main_on)
+        send_cmd_picc2(g.tty_fd, "chamber_btn", pics.main_on_press)
 
     # CLL refresh the picture after every boot or print
     if g.main_picture_refreshed == False:
@@ -934,7 +935,7 @@ def refresh_page_main():
         g.page_files_path = ""
         refresh_page_files(g.page_files_current_pages)
         if g.page_files_list_show_type[0] == "[c]":
-            send_cmd_txt(g.tty_fd, "t0", g.page_files_list_show_name[0])
+            send_cmd_txt(g.tty_fd, "last_file_name", g.page_files_list_show_name[0])
             name0 = g.page_files_list_show_name[0]
             # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
             picture_path = thumbnail.GcodeRef(substr(g.page_files_path + "/.cache/" + name0, 1))
@@ -942,31 +943,31 @@ def refresh_page_main():
             thumb = thumbnail.find(picture_path, 160, "PNG")
             if thumb is not None and thumb.fmt == "PNG":
                 MKSLOG_RED("Found png picture")
-                send_cmd_pic(g.tty_fd, "b[0]", "29")
-                send_cmd_picc(g.tty_fd, "b6", "29")
-                send_cmd_picc2(g.tty_fd, "b6", "30")
-                send_cmd_vis(g.tty_fd, "cp0", "1")
+                send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_photo)
+                send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
+                send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
+                send_cmd_vis(g.tty_fd, "last_file_pic", "1")
                 refresh_files_list_picture(picture_path, 160, 0)
                 g.main_picture_detected = True
             else:
                 if thumb is not None:
                     MKSLOG_RED("Found jpg picture")
-                    send_cmd_pic(g.tty_fd, "b[0]", "29")
-                    send_cmd_picc(g.tty_fd, "b6", "29")
-                    send_cmd_picc2(g.tty_fd, "b6", "30")
+                    send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_photo)
+                    send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
+                    send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
                     refresh_files_list_picture(picture_path, 160, 0)
                     g.main_picture_detected = True
                 else:
-                    send_cmd_pic(g.tty_fd, "b[0]", "26")
-                    send_cmd_picc(g.tty_fd, "b6", "26")
-                    send_cmd_picc2(g.tty_fd, "b6", "31")
-                    send_cmd_vis(g.tty_fd, "cp0", "0")
+                    send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_noimg)
+                    send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_noimg)
+                    send_cmd_picc2(g.tty_fd, "last_file_btn", pics.main_on_press)
+                    send_cmd_vis(g.tty_fd, "last_file_pic", "0")
         else:
-            send_cmd_pic(g.tty_fd, "b[0]", "26")
-            send_cmd_picc(g.tty_fd, "b6", "26")
-            send_cmd_picc2(g.tty_fd, "b6", "31")
-            send_cmd_txt(g.tty_fd, "t0", "")
-            send_cmd_vis(g.tty_fd, "cp0", "0")
+            send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_noimg)
+            send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_noimg)
+            send_cmd_picc2(g.tty_fd, "last_file_btn", pics.main_on_press)
+            send_cmd_txt(g.tty_fd, "last_file_name", "")
+            send_cmd_vis(g.tty_fd, "last_file_pic", "0")
         g.main_picture_refreshed = True
 
     # CLL ask for the power loss recovery once after boot
@@ -981,59 +982,59 @@ def refresh_page_files_list():
     if g.file_list_refreshed == False:
         delete_small_jpg()
     if detect_disk_2() == 1 and g.file_mode == "USB":
-        send_cmd_txt(g.tty_fd, "t0", "")
+        send_cmd_txt(g.tty_fd, "empty_msg", "")
     elif detect_disk_2() == 0 and g.file_mode == "USB":
-        send_cmd_txt(g.tty_fd, "t0", "\u7a7a")     # "empty"
-    send_cmd_vis(g.tty_fd, "q0", "0")
+        send_cmd_txt(g.tty_fd, "empty_msg", "\u7a7a")     # "empty"
+    send_cmd_vis(g.tty_fd, "file1_mark", "0")
     for i in range(4):
-        send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_files_list_show_name[i])
+        send_cmd_txt(g.tty_fd, "file" + to_string(i + 1) + "_name", g.page_files_list_show_name[i])
         send_cmd_vis(g.tty_fd, "cp" + to_string(i), "0")
         t = g.page_files_list_show_type[i]
         if t == "[c]":
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 1), "40")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 1), "37")
-            send_cmd_vis(g.tty_fd, "q0", "1")
+            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_img)
+            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_local_press)
+            send_cmd_vis(g.tty_fd, "file1_mark", "1")
         elif t == "[d]":
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 1), "41")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 1), "39")
+            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_dir)
+            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_dir_press)
         elif t == "[f]":
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 1), "40")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 1), "37")
+            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_img)
+            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_local_press)
         elif t == "[n]":
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 1), "34")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 1), "34")
+            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_usb)
+            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_usb)
 
     # 4.4.2 CLL local / USB buttons on the file list page
     if g.file_mode == "Local":
-        send_cmd_picc(g.tty_fd, "b12", "35")
-        send_cmd_picc2(g.tty_fd, "b12", "37")
-        send_cmd_picc(g.tty_fd, "b13", "35")
-        send_cmd_picc2(g.tty_fd, "b13", "37")
+        send_cmd_picc(g.tty_fd, "local_tab", pics.files_tab_local)
+        send_cmd_picc2(g.tty_fd, "local_tab", pics.files_tab_local_press)
+        send_cmd_picc(g.tty_fd, "usb_tab", pics.files_tab_local)
+        send_cmd_picc2(g.tty_fd, "usb_tab", pics.files_tab_local_press)
     elif g.file_mode == "USB":
-        send_cmd_picc(g.tty_fd, "b12", "34")
-        send_cmd_picc2(g.tty_fd, "b12", "36")
-        send_cmd_picc(g.tty_fd, "b13", "34")
-        send_cmd_picc2(g.tty_fd, "b13", "36")
+        send_cmd_picc(g.tty_fd, "local_tab", pics.files_tab_usb)
+        send_cmd_picc2(g.tty_fd, "local_tab", pics.files_tab_usb_press)
+        send_cmd_picc(g.tty_fd, "usb_tab", pics.files_tab_usb)
+        send_cmd_picc2(g.tty_fd, "usb_tab", pics.files_tab_usb_press)
         if detect_disk() == -1:
-            send_cmd_vis(g.tty_fd, "t0", "1")
+            send_cmd_vis(g.tty_fd, "empty_msg", "1")
     if g.page_files_current_pages == 0:
-        send_cmd_picc(g.tty_fd, "b10", to_string(40))
-        send_cmd_picc2(g.tty_fd, "b10", to_string(39))
+        send_cmd_picc(g.tty_fd, "prev", pics.files_item_img)
+        send_cmd_picc2(g.tty_fd, "prev", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "b10", to_string(41))
-        send_cmd_picc2(g.tty_fd, "b10", to_string(37))
+        send_cmd_picc(g.tty_fd, "prev", pics.files_item_dir)
+        send_cmd_picc2(g.tty_fd, "prev", pics.files_tab_local_press)
     if g.page_files_current_pages == g.page_files_pages:
-        send_cmd_picc(g.tty_fd, "b11", to_string(40))
-        send_cmd_picc2(g.tty_fd, "b11", to_string(39))
+        send_cmd_picc(g.tty_fd, "next", pics.files_item_img)
+        send_cmd_picc2(g.tty_fd, "next", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "b11", to_string(41))
-        send_cmd_picc2(g.tty_fd, "b11", to_string(37))
+        send_cmd_picc(g.tty_fd, "next", pics.files_item_dir)
+        send_cmd_picc2(g.tty_fd, "next", pics.files_tab_local_press)
     if g.page_files_folder_layers == 0 or (g.page_files_folder_layers == 1 and g.file_mode != "Local"):
-        send_cmd_picc(g.tty_fd, "b0", to_string(40))
-        send_cmd_picc2(g.tty_fd, "b0", to_string(39))
+        send_cmd_picc(g.tty_fd, "up_dir", pics.files_item_img)
+        send_cmd_picc2(g.tty_fd, "up_dir", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "b0", to_string(41))
-        send_cmd_picc2(g.tty_fd, "b0", to_string(37))
+        send_cmd_picc(g.tty_fd, "up_dir", pics.files_item_dir)
+        send_cmd_picc2(g.tty_fd, "up_dir", pics.files_tab_local_press)
     if g.file_list_refreshed == True:
         send_cmd_tsw(g.tty_fd, "255", "1")      # pictures still in the screen memory: enable touch
     else:
@@ -1528,7 +1529,7 @@ def go_to_reset():
     else:
         # 4.4.22: fixed name (was read from /dev_info.txt)
         page_to(ui.TJC_PAGE_SYS_OK)
-        send_cmd_txt(g.tty_fd, "t2", "Q1 Pro")
+        send_cmd_txt(g.tty_fd, "info_txt", "Q1 Pro")
 
 
 def go_to_network():
@@ -1569,38 +1570,38 @@ def refresh_page_wifi_list():
     MKSLOG_BLUE("pages: %d / %d", g.page_wifi_current_pages + 1, g.page_wifi_ssid_list_pages)
     for i in range(5):
         cout("Refreshed wifi: ", g.page_wifi_ssid_list[i])
-        send_cmd_txt(g.tty_fd, "t" + to_string(i + 1), g.page_wifi_ssid_list[i])
+        send_cmd_txt(g.tty_fd, "row" + to_string(i + 1) + "_txt", g.page_wifi_ssid_list[i])
         if g.status_result.wpa_state == "COMPLETED" and g.page_wifi_current_pages == 0 and i == 0:
-            send_cmd_picc(g.tty_fd, "wifi1", "126")
-            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "124")
+            send_cmd_picc(g.tty_fd, "row1", pics.rows_check)
+            send_cmd_picc2(g.tty_fd, "row" + to_string(i + 1), pics.rows_check_press)
             g.page_wifi_list_ssid_button_enabled[i] = False
         elif g.page_wifi_ssid_list[i] != "":
-            send_cmd_picc(g.tty_fd, "wifi" + to_string(i + 1), "125")
-            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "123")
+            send_cmd_picc(g.tty_fd, "row" + to_string(i + 1), pics.rows_lock)
+            send_cmd_picc2(g.tty_fd, "row" + to_string(i + 1), pics.bg_settings_press)
             g.page_wifi_list_ssid_button_enabled[i] = True
         else:
-            send_cmd_picc(g.tty_fd, "wifi" + to_string(i + 1), "122")
-            send_cmd_picc2(g.tty_fd, "wifi" + to_string(i + 1), "122")
+            send_cmd_picc(g.tty_fd, "row" + to_string(i + 1), pics.bg_settings_panel)
+            send_cmd_picc2(g.tty_fd, "row" + to_string(i + 1), pics.bg_settings_panel)
             g.page_wifi_list_ssid_button_enabled[i] = False
 
     if g.page_wifi_ssid_list_pages == 0:
-        send_cmd_picc(g.tty_fd, "b1", "126")
-        send_cmd_picc2(g.tty_fd, "b1", "123")
-        send_cmd_picc(g.tty_fd, "b2", "126")
-        send_cmd_picc2(g.tty_fd, "b2", "123")
+        send_cmd_picc(g.tty_fd, "prev_btn", pics.rows_check)
+        send_cmd_picc2(g.tty_fd, "prev_btn", pics.bg_settings_press)
+        send_cmd_picc(g.tty_fd, "next_btn", pics.rows_check)
+        send_cmd_picc2(g.tty_fd, "next_btn", pics.bg_settings_press)
     else:
         if g.page_wifi_current_pages == 0:
-            send_cmd_picc(g.tty_fd, "b1", "126")
-            send_cmd_picc2(g.tty_fd, "b1", "123")
+            send_cmd_picc(g.tty_fd, "prev_btn", pics.rows_check)
+            send_cmd_picc2(g.tty_fd, "prev_btn", pics.bg_settings_press)
         else:
-            send_cmd_picc(g.tty_fd, "b1", "125")
-            send_cmd_picc2(g.tty_fd, "b1", "124")
+            send_cmd_picc(g.tty_fd, "prev_btn", pics.rows_lock)
+            send_cmd_picc2(g.tty_fd, "prev_btn", pics.rows_check_press)
         if g.page_wifi_ssid_list_pages - 1 == g.page_wifi_current_pages:
-            send_cmd_picc(g.tty_fd, "b2", "126")
-            send_cmd_picc2(g.tty_fd, "b2", "123")
+            send_cmd_picc(g.tty_fd, "next_btn", pics.rows_check)
+            send_cmd_picc2(g.tty_fd, "next_btn", pics.bg_settings_press)
         else:
-            send_cmd_picc(g.tty_fd, "b2", "125")
-            send_cmd_picc2(g.tty_fd, "b2", "124")
+            send_cmd_picc(g.tty_fd, "next_btn", pics.rows_lock)
+            send_cmd_picc2(g.tty_fd, "next_btn", pics.rows_check_press)
 
 
 def get_wifi_list_ssid(index):
@@ -1669,9 +1670,9 @@ def get_mks_babystep():
 
 
 def clear_cp0_image():
-    send_cmd_cp_close(g.tty_fd, "preview.cp0")
-    send_cmd_txt(g.tty_fd, "preview.cp0_text", "")
-    send_cmd_txt(g.tty_fd, "preview.add", "")
+    send_cmd_cp_close(g.tty_fd, "preview.preview_pic")
+    send_cmd_txt(g.tty_fd, "preview.cp_data", "")
+    send_cmd_txt(g.tty_fd, "preview.cp_pad", "")
     g.show_preview_gimage_completed = False
     g.mks_file_parse_finished = False
     g.file_metadata_simage = ""
@@ -1774,14 +1775,14 @@ def finish_tjc_update():
 
 
 def filament_load():
-    send_cmd_vis(g.tty_fd, "b2", "0")
-    send_cmd_vis(g.tty_fd, "t4", "1")
-    send_cmd_vis(g.tty_fd, "b3", "0")
-    send_cmd_picc(g.tty_fd, "q0", "194")
-    send_cmd_pco(g.tty_fd, "t0", "65535")
-    send_cmd_pco(g.tty_fd, "t3", "38066")
-    send_cmd_vis(g.tty_fd, "gm1", "0")
-    send_cmd_vis(g.tty_fd, "gm2", "1")
+    send_cmd_vis(g.tty_fd, "next_btn", "0")
+    send_cmd_vis(g.tty_fd, "temp_txt", "1")
+    send_cmd_vis(g.tty_fd, "back_btn", "0")
+    send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_1)
+    send_cmd_pco(g.tty_fd, "step1_txt", "65535")
+    send_cmd_pco(g.tty_fd, "hint", "38066")
+    send_cmd_vis(g.tty_fd, "spin1", "0")
+    send_cmd_vis(g.tty_fd, "spin2", "1")
     g.printer_idle_timeout_state = "Printing"
     g.ep.Send(json_run_a_gcode("M109 S" + to_string(g.load_target) + "\n"))
     g.ep.Send(json_run_a_gcode("M604\n"))
@@ -1921,24 +1922,24 @@ def refresh_page_zoffset():
                 break
             temp = to_string(g.printer_bed_mesh_profiles_mks_points[i][j])
             temp = _cut_after_point(temp, 3)
-            send_cmd_txt(g.tty_fd, "t" + to_string(5 * i + j), temp)
+            send_cmd_txt(g.tty_fd, "cell_" + to_string(5 * i + j), temp)
             j += 1
         i += 1
 
 
 def refresh_page_auto_heaterbed():
-    send_cmd_txt(g.tty_fd, "t0", to_string(g.printer_heater_bed_temperature) + "/")
-    send_cmd_val(g.tty_fd, "n0", to_string(g.printer_heater_bed_target))
+    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.printer_heater_bed_temperature) + "/")
+    send_cmd_val(g.tty_fd, "temp_target", to_string(g.printer_heater_bed_target))
     if g.printer_heater_bed_target > 0:
-        send_cmd_picc(g.tty_fd, "b2", "106")
-        send_cmd_picc2(g.tty_fd, "b2", "105")
-        send_cmd_pco(g.tty_fd, "t0", "63488")
-        send_cmd_pco(g.tty_fd, "n0", "63488")
+        send_cmd_picc(g.tty_fd, "heat_toggle", pics.autobed_on)
+        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.autobed_press_on)
+        send_cmd_pco(g.tty_fd, "temp_now", "63488")
+        send_cmd_pco(g.tty_fd, "temp_target", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b2", "107")
-        send_cmd_picc2(g.tty_fd, "b2", "104")
-        send_cmd_pco(g.tty_fd, "t0", "65535")
-        send_cmd_pco(g.tty_fd, "n0", "65535")
+        send_cmd_picc(g.tty_fd, "heat_toggle", pics.autobed_off)
+        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.autobed_press_off)
+        send_cmd_pco(g.tty_fd, "temp_now", "65535")
+        send_cmd_pco(g.tty_fd, "temp_target", "65535")
 
 
 def set_auto_level_heater_bed_target(positive):
@@ -2005,13 +2006,13 @@ def refresh_page_open_heaterbed():
     send_cmd_txt(g.tty_fd, "t0", to_string(g.printer_heater_bed_temperature) + "/")
     send_cmd_val(g.tty_fd, "n0", to_string(g.printer_heater_bed_target))
     if g.printer_heater_bed_target > 0:
-        send_cmd_picc(g.tty_fd, "b0", "18")
-        send_cmd_picc2(g.tty_fd, "b0", "14")
+        send_cmd_picc(g.tty_fd, "b0", pics.bedtemp_on)
+        send_cmd_picc2(g.tty_fd, "b0", pics.bedtemp_press_on)
         send_cmd_pco(g.tty_fd, "t0", "63488")
         send_cmd_pco(g.tty_fd, "n0", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b0", "15")
-        send_cmd_picc2(g.tty_fd, "b0", "13")
+        send_cmd_picc(g.tty_fd, "b0", pics.bedtemp_off)
+        send_cmd_picc2(g.tty_fd, "b0", pics.bedtemp_press_off)
         send_cmd_pco(g.tty_fd, "t0", "65535")
         send_cmd_pco(g.tty_fd, "n0", "65535")
 
@@ -2045,24 +2046,24 @@ def save_current_zoffset():
 
 
 def refresh_page_filament_pop():
-    send_cmd_txt(g.tty_fd, "t4", "(" + to_string(g.printer_extruder_temperature) + "/" +
+    send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.printer_extruder_temperature) + "/" +
                  to_string(g.printer_extruder_target) + "℃)")
     if g.step_1 == True:
         g.step_1 = False
-        send_cmd_picc(g.tty_fd, "q0", "195")
-        send_cmd_pco(g.tty_fd, "t1", "65535")
-        send_cmd_pco(g.tty_fd, "t0", "38066")
-        send_cmd_pco(g.tty_fd, "t4", "38066")
-        send_cmd_vis(g.tty_fd, "gm2", "0")
-        send_cmd_vis(g.tty_fd, "gm3", "1")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_2)
+        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
+        send_cmd_pco(g.tty_fd, "temp_txt", "38066")
+        send_cmd_vis(g.tty_fd, "spin2", "0")
+        send_cmd_vis(g.tty_fd, "spin3", "1")
     if g.step_2 == True and g.printer_idle_timeout_state == "Ready":
         g.step_2 = False
-        send_cmd_picc(g.tty_fd, "q0", "197")
-        send_cmd_pco(g.tty_fd, "t2", "65535")
-        send_cmd_pco(g.tty_fd, "t1", "38066")
-        send_cmd_vis(g.tty_fd, "b0", "1")
-        send_cmd_vis(g.tty_fd, "b1", "1")
-        send_cmd_vis(g.tty_fd, "gm3", "0")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_3)
+        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
+        send_cmd_vis(g.tty_fd, "done_btn", "1")
+        send_cmd_vis(g.tty_fd, "alt_btn", "1")
+        send_cmd_vis(g.tty_fd, "spin3", "0")
 
 
 def check_filament_type():
@@ -2093,7 +2094,7 @@ def refresh_page_preview_pop():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "t0", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
 
 
 def replaceCharacters(path, searchChars, replacement):
@@ -2152,13 +2153,13 @@ def refresh_page_files_list_2():
 
 def go_to_update():
     page_to(ui.TJC_PAGE_UPDATE_MODE)
-    send_cmd_txt(g.tty_fd, "t1", g.mks_version_soc)
+    send_cmd_txt(g.tty_fd, "ver_cur", g.mks_version_soc)
     # 4.4.22: the online update needs QIDI Link, which the port does not
     # implement: the button is disabled (LAN only)
-    send_cmd_tsw(g.tty_fd, "b2", "0")
-    send_cmd_picc(g.tty_fd, "b2", "223")
-    send_cmd_pco(g.tty_fd, "b2", "38066")
-    send_cmd_pco2(g.tty_fd, "b2", "38066")
+    send_cmd_tsw(g.tty_fd, "online_btn", "0")
+    send_cmd_picc(g.tty_fd, "online_btn", pics.update_mode_press)
+    send_cmd_pco(g.tty_fd, "online_btn", "38066")
+    send_cmd_pco2(g.tty_fd, "online_btn", "38066")
 
 
 def restore_config():
@@ -2282,20 +2283,20 @@ def refresh_page_filament_set_fan():
         fan0 = to_string(c_int(f32(g.printer_out_pin_fan0_value * 100)))
         fan2 = to_string(c_int(f32(g.printer_out_pin_fan2_value * 100)))
         fan3 = to_string(c_int(f32(g.printer_out_pin_fan3_value * 100)))
-        send_cmd_val(g.tty_fd, "h0", fan0)
-        send_cmd_val(g.tty_fd, "n0", fan0)
-        send_cmd_val(g.tty_fd, "h1", fan2)
-        send_cmd_val(g.tty_fd, "n1", fan2)
-        send_cmd_val(g.tty_fd, "h2", fan3)
-        send_cmd_val(g.tty_fd, "n2", fan3)
-        for name, value in (("b0", g.printer_out_pin_fan0_value), ("b1", g.printer_out_pin_fan2_value),
-                            ("b2", g.printer_out_pin_fan3_value)):
+        send_cmd_val(g.tty_fd, "fan1_slider", fan0)
+        send_cmd_val(g.tty_fd, "fan1_val", fan0)
+        send_cmd_val(g.tty_fd, "fan2_slider", fan2)
+        send_cmd_val(g.tty_fd, "fan2_val", fan2)
+        send_cmd_val(g.tty_fd, "fan3_slider", fan3)
+        send_cmd_val(g.tty_fd, "fan3_val", fan3)
+        for name, value in (("fan1_toggle", g.printer_out_pin_fan0_value), ("fan2_toggle", g.printer_out_pin_fan2_value),
+                            ("fan3_toggle", g.printer_out_pin_fan3_value)):
             if value == 0:
-                send_cmd_picc(g.tty_fd, name, "201")
-                send_cmd_picc2(g.tty_fd, name, "199")
+                send_cmd_picc(g.tty_fd, name, pics.fan_row_off)
+                send_cmd_picc2(g.tty_fd, name, pics.fan_press_off)
             else:
-                send_cmd_picc(g.tty_fd, name, "202")
-                send_cmd_picc2(g.tty_fd, name, "200")
+                send_cmd_picc(g.tty_fd, name, pics.fan_row_on)
+                send_cmd_picc2(g.tty_fd, name, pics.fan_press_on)
 
 
 def go_to_adjust():
@@ -2315,14 +2316,14 @@ def go_to_setting():
 
 def refresh_page_common_setting():
     g.current_mks_oobe_enabled = get_mks_oobe_enabled()
-    send_cmd_txt(g.tty_fd, "t7", g.mks_version_soc)
+    send_cmd_txt(g.tty_fd, "version_txt", g.mks_version_soc)
     if g.current_mks_oobe_enabled == False:
-        send_cmd_picc(g.tty_fd, "b6", "137")
-        send_cmd_picc2(g.tty_fd, "b6", "135")
+        send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row)
+        send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press)
     else:
-        send_cmd_picc(g.tty_fd, "b6", "138")
-        send_cmd_picc2(g.tty_fd, "b6", "136")
-        send_cmd_txt(g.tty_fd, "t6", TEXT_STARTUP_GUIDE)
+        send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row_on)
+        send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press_on)
+        send_cmd_txt(g.tty_fd, "reset_lbl", TEXT_STARTUP_GUIDE)
 
 
 def print_log():
@@ -2375,60 +2376,60 @@ def refresh_files_list_picture_3(inputPath, size, i):
 
 
 def refresh_page_filament():
-    send_cmd_txt(g.tty_fd, "t0", to_string(g.printer_extruder_temperature))
-    send_cmd_val(g.tty_fd, "n0", to_string(g.printer_extruder_target))
-    send_cmd_txt(g.tty_fd, "t1", to_string(g.printer_heater_bed_temperature))
-    send_cmd_val(g.tty_fd, "n1", to_string(g.printer_heater_bed_target))
-    send_cmd_txt(g.tty_fd, "t2", to_string(g.printer_hot_temperature))
-    send_cmd_val(g.tty_fd, "n2", to_string(g.printer_hot_target))
+    send_cmd_txt(g.tty_fd, "nozzle_temp", to_string(g.printer_extruder_temperature))
+    send_cmd_val(g.tty_fd, "nozzle_set", to_string(g.printer_extruder_target))
+    send_cmd_txt(g.tty_fd, "bed_temp", to_string(g.printer_heater_bed_temperature))
+    send_cmd_val(g.tty_fd, "bed_set", to_string(g.printer_heater_bed_target))
+    send_cmd_txt(g.tty_fd, "chamber_temp", to_string(g.printer_hot_temperature))
+    send_cmd_val(g.tty_fd, "chamber_set", to_string(g.printer_hot_target))
     if g.printer_extruder_target > 0:   # CLL button state depends on the nozzle heating
-        send_cmd_picc(g.tty_fd, "b2", "177")
-        send_cmd_picc2(g.tty_fd, "b2", "174")
-        send_cmd_picc(g.tty_fd, "b0", "177")
-        send_cmd_picc2(g.tty_fd, "b0", "174")
-        send_cmd_pco(g.tty_fd, "t0", "63488")
+        send_cmd_picc(g.tty_fd, "nozzle_toggle", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "nozzle_toggle", pics.filament_press_on)
+        send_cmd_picc(g.tty_fd, "nozzle_row", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "nozzle_row", pics.filament_press_on)
+        send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b2", "176")
-        send_cmd_picc2(g.tty_fd, "b2", "175")
-        send_cmd_picc(g.tty_fd, "b0", "176")
-        send_cmd_picc2(g.tty_fd, "b0", "175")
-        send_cmd_pco(g.tty_fd, "t0", "65535")
+        send_cmd_picc(g.tty_fd, "nozzle_toggle", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "nozzle_toggle", pics.filament_press_off)
+        send_cmd_picc(g.tty_fd, "nozzle_row", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "nozzle_row", pics.filament_press_off)
+        send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
 
     if g.printer_heater_bed_target > 0:     # CLL button state depends on the bed heating
-        send_cmd_picc(g.tty_fd, "b3", "177")
-        send_cmd_picc2(g.tty_fd, "b3", "174")
-        send_cmd_picc(g.tty_fd, "b1", "177")
-        send_cmd_picc2(g.tty_fd, "b1", "174")
-        send_cmd_pco(g.tty_fd, "t1", "63488")
+        send_cmd_picc(g.tty_fd, "bed_toggle", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "bed_toggle", pics.filament_press_on)
+        send_cmd_picc(g.tty_fd, "bed_row", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "bed_row", pics.filament_press_on)
+        send_cmd_pco(g.tty_fd, "bed_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b3", "176")
-        send_cmd_picc2(g.tty_fd, "b3", "175")
-        send_cmd_picc(g.tty_fd, "b1", "176")
-        send_cmd_picc2(g.tty_fd, "b1", "175")
-        send_cmd_pco(g.tty_fd, "t1", "65535")
+        send_cmd_picc(g.tty_fd, "bed_toggle", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "bed_toggle", pics.filament_press_off)
+        send_cmd_picc(g.tty_fd, "bed_row", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "bed_row", pics.filament_press_off)
+        send_cmd_pco(g.tty_fd, "bed_temp", "65535")
 
     if g.printer_hot_target > 0:
-        send_cmd_picc(g.tty_fd, "b12", "177")
-        send_cmd_picc2(g.tty_fd, "b12", "174")
-        send_cmd_picc(g.tty_fd, "b13", "177")
-        send_cmd_picc2(g.tty_fd, "b13", "174")
-        send_cmd_pco(g.tty_fd, "t2", "63488")
+        send_cmd_picc(g.tty_fd, "chamber_toggle", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "chamber_toggle", pics.filament_press_on)
+        send_cmd_picc(g.tty_fd, "chamber_row", pics.filament_row_on)
+        send_cmd_picc2(g.tty_fd, "chamber_row", pics.filament_press_on)
+        send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b12", "176")
-        send_cmd_picc2(g.tty_fd, "b12", "175")
-        send_cmd_picc(g.tty_fd, "b13", "176")
-        send_cmd_picc2(g.tty_fd, "b13", "175")
-        send_cmd_pco(g.tty_fd, "t2", "65535")
+        send_cmd_picc(g.tty_fd, "chamber_toggle", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "chamber_toggle", pics.filament_press_off)
+        send_cmd_picc(g.tty_fd, "chamber_row", pics.filament_row_off)
+        send_cmd_picc2(g.tty_fd, "chamber_row", pics.filament_press_off)
+        send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
 
     sel = {10: 0, 50: 1, 100: 2}.get(g.printer_filament_extruedr_dist)
     if sel is not None:
-        for k, name in enumerate(("b9", "b10", "b11")):
+        for k, name in enumerate(("step_10", "step_50", "step_100")):
             if k == sel:
-                send_cmd_picc(g.tty_fd, name, "177")
-                send_cmd_picc2(g.tty_fd, name, "174")
+                send_cmd_picc(g.tty_fd, name, pics.filament_row_on)
+                send_cmd_picc2(g.tty_fd, name, pics.filament_press_on)
             else:
-                send_cmd_picc(g.tty_fd, name, "176")
-                send_cmd_picc2(g.tty_fd, name, "175")
+                send_cmd_picc(g.tty_fd, name, pics.filament_row_off)
+                send_cmd_picc2(g.tty_fd, name, pics.filament_press_off)
 
 
 def get_mks_connection_method():
@@ -2453,20 +2454,20 @@ def refresh_ip_address():
     ip_address = get_wlan0_ip()
     if ip_address != "":
         MKSLOG_GREEN("ip_address updated")
-        send_cmd_txt(g.tty_fd, "t0", ip_address)
+        send_cmd_txt(g.tty_fd, "ip_txt", ip_address)
 
 
 def refresh_page_show_ip():
     """4.4.22 refresh of the network page."""
     if g.mks_ethernet == 1:
         ip_address = get_eth0_ip()
-        send_cmd_txt(g.tty_fd, "t0", ip_address if ip_address.find(":") == -1 else "")
-        send_cmd_picc(g.tty_fd, "b2", "269")
-        send_cmd_picc2(g.tty_fd, "b2", "215")
+        send_cmd_txt(g.tty_fd, "ip_txt", ip_address if ip_address.find(":") == -1 else "")
+        send_cmd_picc(g.tty_fd, "source_switch", pics.ip_switch_on)
+        send_cmd_picc2(g.tty_fd, "source_switch", pics.ip_press_on)
     else:
-        send_cmd_txt(g.tty_fd, "t0", g.status_result.ip_address)
-        send_cmd_picc(g.tty_fd, "b2", "268")
-        send_cmd_picc2(g.tty_fd, "b2", "214")
+        send_cmd_txt(g.tty_fd, "ip_txt", g.status_result.ip_address)
+        send_cmd_picc(g.tty_fd, "source_switch", pics.ip_switch_off)
+        send_cmd_picc2(g.tty_fd, "source_switch", pics.ip_press_off)
 
 
 TIMELAPSE_URL = "http://127.0.0.1:7125/machine/timelapse/settings"
@@ -2624,47 +2625,47 @@ def update_server(choice):
 
 def refresh_page_server_set():
     if g.connection_method == 0 or g.status_result.wpa_state != "COMPLETED":
-        send_cmd_picc(g.tty_fd, "b2", "217")
-        send_cmd_picc2(g.tty_fd, "b2", "220")
-        send_cmd_vis(g.tty_fd, "t3", "1")
+        send_cmd_picc(g.tty_fd, "b2", pics.server_row_off)
+        send_cmd_picc2(g.tty_fd, "b2", pics.server_press_off)
+        send_cmd_vis(g.tty_fd, "msg", "1")
         send_cmd_vis(g.tty_fd, "t0", "0")
-        send_cmd_vis(g.tty_fd, "b3", "0")
-        send_cmd_vis(g.tty_fd, "b4", "0")
-        send_cmd_vis(g.tty_fd, "b0", "0")
+        send_cmd_vis(g.tty_fd, "prev_btn", "0")
+        send_cmd_vis(g.tty_fd, "next_btn", "0")
+        send_cmd_vis(g.tty_fd, "refresh_btn", "0")
     else:
-        send_cmd_picc(g.tty_fd, "b2", "218")
-        send_cmd_picc2(g.tty_fd, "b2", "219")
-        send_cmd_vis(g.tty_fd, "t3", "0")
+        send_cmd_picc(g.tty_fd, "b2", pics.server_row_on)
+        send_cmd_picc2(g.tty_fd, "b2", pics.server_press_on)
+        send_cmd_vis(g.tty_fd, "msg", "0")
         send_cmd_vis(g.tty_fd, "t0", "1")
-        send_cmd_vis(g.tty_fd, "b3", "1")
-        send_cmd_vis(g.tty_fd, "b4", "1")
-        send_cmd_vis(g.tty_fd, "b0", "1")
+        send_cmd_vis(g.tty_fd, "prev_btn", "1")
+        send_cmd_vis(g.tty_fd, "next_btn", "1")
+        send_cmd_vis(g.tty_fd, "refresh_btn", "1")
 
     if g.current_server_page == 0:
-        send_cmd_picc(g.tty_fd, "b3", "218")
-        send_cmd_picc2(g.tty_fd, "b3", "219")
+        send_cmd_picc(g.tty_fd, "prev_btn", pics.server_row_on)
+        send_cmd_picc2(g.tty_fd, "prev_btn", pics.server_press_on)
     else:
-        send_cmd_picc(g.tty_fd, "b3", "217")
-        send_cmd_picc2(g.tty_fd, "b3", "220")
+        send_cmd_picc(g.tty_fd, "prev_btn", pics.server_row_off)
+        send_cmd_picc2(g.tty_fd, "prev_btn", pics.server_press_off)
 
     if (g.current_server_page + 1) * 4 >= g.total_server_count:
-        send_cmd_picc(g.tty_fd, "b4", "218")
-        send_cmd_picc2(g.tty_fd, "b4", "219")
+        send_cmd_picc(g.tty_fd, "next_btn", pics.server_row_on)
+        send_cmd_picc2(g.tty_fd, "next_btn", pics.server_press_on)
     else:
-        send_cmd_picc(g.tty_fd, "b4", "217")
-        send_cmd_picc2(g.tty_fd, "b4", "220")
+        send_cmd_picc(g.tty_fd, "next_btn", pics.server_row_off)
+        send_cmd_picc2(g.tty_fd, "next_btn", pics.server_press_off)
     for i in range(4):
         if i + g.current_server_page * 4 + 1 > g.total_server_count:
             break
-        send_cmd_txt(g.tty_fd, "t" + to_string(i + 5), _server_config(1 + i + g.current_server_page * 4).name)
+        send_cmd_txt(g.tty_fd, "srv" + to_string(i + 1) + "_txt", _server_config(1 + i + g.current_server_page * 4).name)
         if g.selected_server == _server_config(1 + i + g.current_server_page * 4).name:
             cout("selected_server:", _server_config(i + 1 + g.current_server_page * 4).name)
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 5), "217")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 5), "219")
+            send_cmd_picc(g.tty_fd, "srv" + to_string(i + 1), pics.server_row_off)
+            send_cmd_picc2(g.tty_fd, "srv" + to_string(i + 1), pics.server_press_on)
         else:
             cout("unselected_server:", _server_config(i + 1 + g.current_server_page * 4).name)
-            send_cmd_picc(g.tty_fd, "b" + to_string(i + 5), "218")
-            send_cmd_picc2(g.tty_fd, "b" + to_string(i + 5), "220")
+            send_cmd_picc(g.tty_fd, "srv" + to_string(i + 1), pics.server_row_on)
+            send_cmd_picc2(g.tty_fd, "srv" + to_string(i + 1), pics.server_press_off)
 
 
 def local_update():
@@ -2699,30 +2700,30 @@ def check_online_version():
     cout("Server version:", g.target_soc_version)
     if g.target_soc_version.find("0") == 0:
         page_to(ui.TJC_PAGE_UPDATE_MODE)
-        send_cmd_vis(g.tty_fd, "t2", "1")
-        send_cmd_vis(g.tty_fd, "t3", "0")
+        send_cmd_vis(g.tty_fd, "msg_latest", "1")
+        send_cmd_vis(g.tty_fd, "msg_failed", "0")
     elif g.target_soc_version.find("-1") == 0:
         page_to(ui.TJC_PAGE_UPDATE_MODE)
-        send_cmd_vis(g.tty_fd, "t3", "1")
-        send_cmd_vis(g.tty_fd, "t2", "0")
+        send_cmd_vis(g.tty_fd, "msg_failed", "1")
+        send_cmd_vis(g.tty_fd, "msg_latest", "0")
     else:
         page_to(ui.TJC_PAGE_ONLINE_UPDATE)
-        send_cmd_txt(g.tty_fd, "t1", g.mks_version_soc)
-        send_cmd_txt(g.tty_fd, "t2", g.target_soc_version)
+        send_cmd_txt(g.tty_fd, "ver_cur", g.mks_version_soc)
+        send_cmd_txt(g.tty_fd, "ver_new", g.target_soc_version)
         updateini_load()
         # CLL update notes in Chinese, Russian, English, Japanese, French, German,
         # Italian, Spanish, Korean, Portuguese, Arabic, Turkish and Hebrew
         langs = ["cn", "ru", "en", "jp", "fr", "gr", "it", "sp", "kr", "pr", "ar", "tr", "hb"]
         infos = [mksini_getstring(lang, "content", "NULL") for lang in langs]
         for lang, info in zip(langs, infos):
-            send_cmd_txt(g.tty_fd, "t_" + lang, info)
+            send_cmd_txt(g.tty_fd, "notes_" + lang, info)
         mksini_free()
 
 
 def online_update():
     page_to(ui.TJC_PAGE_UPDATING)
-    send_cmd_vis(g.tty_fd, "j0", "1")
-    send_cmd_vis(g.tty_fd, "t1", "1")
+    send_cmd_vis(g.tty_fd, "progress", "1")
+    send_cmd_vis(g.tty_fd, "pct_txt", "1")
     pthread_create(recevice_progress_handle, None)
     system("rm " + paths.gcode_files() + "/.cache/*\n")
     system("python3 /root/auto_update/download_update.py\n")
@@ -2740,9 +2741,9 @@ def recevice_progress_handle(arg=None):
             progress_name = mksini_getstring("filename", "name", "")
             mksini_free()
             if progress_name.find("Installing") == -1:
-                send_cmd_txt(g.tty_fd, "t2", progress_name)
-                send_cmd_val(g.tty_fd, "j0", to_string(update_progress))
-                send_cmd_txt(g.tty_fd, "t1", to_string(update_progress) + "%")
+                send_cmd_txt(g.tty_fd, "info_txt", progress_name)
+                send_cmd_val(g.tty_fd, "progress", to_string(update_progress))
+                send_cmd_txt(g.tty_fd, "pct_txt", to_string(update_progress) + "%")
             else:
                 page_to(ui.TJC_PAGE_INSTALLING)
                 break
@@ -2751,23 +2752,23 @@ def recevice_progress_handle(arg=None):
 
 
 def refresh_page_auto_unload():
-    send_cmd_txt(g.tty_fd, "t4", "(" + to_string(g.printer_extruder_temperature) + "/" +
+    send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.printer_extruder_temperature) + "/" +
                  to_string(g.printer_extruder_target) + "℃)")
     if g.step_1 == True:
         g.step_1 = False
-        send_cmd_vis(g.tty_fd, "gm1", "0")
-        send_cmd_vis(g.tty_fd, "gm2", "1")
-        send_cmd_picc(g.tty_fd, "q0", "231")
-        send_cmd_pco(g.tty_fd, "t1", "65535")
-        send_cmd_pco(g.tty_fd, "t0", "38066")
+        send_cmd_vis(g.tty_fd, "spin1", "0")
+        send_cmd_vis(g.tty_fd, "spin2", "1")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_1)
+        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
     if g.step_2 == True:
         g.step_2 = False
-        send_cmd_vis(g.tty_fd, "gm2", "0")
-        send_cmd_picc(g.tty_fd, "q0", "232")
-        send_cmd_pco(g.tty_fd, "t2", "65535")
-        send_cmd_pco(g.tty_fd, "t1", "38066")
-        send_cmd_vis(g.tty_fd, "b0", "1")
-        send_cmd_vis(g.tty_fd, "b1", "1")
+        send_cmd_vis(g.tty_fd, "spin2", "0")
+        send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_2)
+        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
+        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
+        send_cmd_vis(g.tty_fd, "load_btn", "1")
+        send_cmd_vis(g.tty_fd, "ok", "1")
 
 
 def get_mks_ethernet():
