@@ -99,7 +99,7 @@ def detect_update():
 
 
 def start_update():
-    from . import event
+    from . import actions, updates
     system("rm " + paths.gcode_files() + "/.cache/*")
 
     factory_mode = (
@@ -110,16 +110,16 @@ def start_update():
     if g.update.detected_mcu_data == True:
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
-            event.close_mcu_port()
+            actions.close_mcu_port()
             system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; ")
         else:
             if access(paths.gcode_files() + "/sda1/QD_Update/QD_factory_mode.txt") == 0:
                 system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
-                event.close_mcu_port()
+                actions.close_mcu_port()
                 system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; ")
             else:
                 system("cp " + paths.gcode_files() + "/sda1/QD_MCU/MCU /root/klipper.bin;")
-                event.close_mcu_port()
+                actions.close_mcu_port()
                 system("service klipper stop; /root/hid-flash /root/klipper.bin ttyS0; systemctl start klipper; mv " + paths.gcode_files() + "/sda1/QD_MCU/MCU " + paths.gcode_files() + "/sda1/QD_MCU/MCU.bak")
 
     if g.update.detected_gcode_cfg == True:
@@ -203,7 +203,7 @@ def start_update():
         if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
             system("dpkg -i --force-overwrite " + paths.gcode_files() + "/sda1/QD_Update/mks.deb;sync")
 
-    event.update_finished_tips()
+    updates.update_finished_tips()
 
 
 def download_to_screen():

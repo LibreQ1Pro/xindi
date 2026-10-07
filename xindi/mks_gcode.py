@@ -9,7 +9,7 @@ from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout
 
 
 def parse_gcode_response(params):
-    from . import event
+    from . import actions, pages, settings
     cout(json_dump(params))
     if params is not None:
         params0 = jstr(jget(params, 0))
@@ -18,7 +18,7 @@ def parse_gcode_response(params):
         if g.screen.page == ui.TJC_PAGE_SCREEN_SLEEP:   # SCREEN_SLEEP has no refresh function, switching pages here can't conflict
             ui.page_to(g.screen.previous_page)
             if g.screen.previous_caselight_value == True:
-                event.led_on_off()
+                actions.led_on_off()
                 g.screen.previous_caselight_value = False
 
         # bltouch: z_offset: 1.000
@@ -28,15 +28,15 @@ def parse_gcode_response(params):
             g.klippy.webhooks_state = "ready"
             g.klippy.webhooks_state_message = "Klipper state: Ready"
             sleep(5)
-            event.sub_object_status()
+            actions.sub_object_status()
             sleep(2)
-            event.get_object_status()
-            event.get_mks_babystep()    # 4.4.22 (was init_mks_status())
+            actions.get_object_status()
+            settings.get_babystep()    # 4.4.22 (was init_mks_status())
             if g.levelling.all_level_saving == False:
                 g.levelling.all_level_saving = True
             MKSLOG_YELLOW("State after the restart: %s", g.klippy.webhooks_state)
         elif params0 == "// Klipper state: Disconnect":
-            event.sub_object_status()
+            actions.sub_object_status()
         elif substr(params0, 0, 19) == "// PID parameters: ":
             MKSLOG_RED("// PID parameters: ")
             # std::regex_match() of a single decimal number against the whole line
@@ -58,22 +58,22 @@ def parse_gcode_response(params):
             temp = f32(temp - 0.15)      # subtract 0.15mm as required
             value = to_string(temp)
             babystep = substr(value, 0, value.find(".") + 4)
-            event.set_mks_babystep(babystep)        # store the babystep in our config file
+            settings.set_babystep(babystep)        # store the babystep in our config file
         elif substr(params0, 0, 22) == "// bltouch: z_offset: ":
             MKSLOG_RED("Got z_offset: %s", substr(params0, 22))
             temp = stream_float(substr(params0, 22))
             temp = -temp
             value = to_string(temp)
             babystep = substr(value, 0, value.find(".") + 4)
-            event.set_mks_babystep(babystep)        # store the babystep in our config file
+            settings.set_babystep(babystep)        # store the babystep in our config file
         elif params0 == "// action:cancel":
             pass
         elif substr(params0, 0, 28) == "// Klipper state: Disconnect":
             pass
         elif substr(params0, 0, 23) == "!! Must home axis first":
-            event.move_home_tips()
+            pages.move_home_tips()
         elif substr(params0, 0, 29) == "!! Extrude below minimum temp":
-            event.filament_tips()
+            pages.filament_tips()
         elif substr(params0, 0, 31) == "// Recommended shaper_type_x = ":
             temp = substr(params0, 31)
             m = re.search(r"(\d+\.\d+)", temp)      # matches a decimal number
@@ -94,7 +94,7 @@ def parse_gcode_response(params):
             g.levelling.str_manual_level_offset = substr(params0, start, end)
             cout(substr(params0, start, end))
         elif substr(params0, 0, 21) == "!! Move out of range:":
-            event.move_tips()
+            pages.move_tips()
         elif substr(params0, 0, 52) == "!! Can not update MCU 'mcu' config as it is shutdown":
             g.klippy.webhooks_state_message = "Can not update MCU 'mcu' config as it is shutdown"
         elif substr(params0, 0, 33) == "// accelerometer values (x, y, z)":
@@ -112,11 +112,11 @@ def parse_gcode_response(params):
             pass    # CLL nothing to do
         elif substr(params0, 0, 2) == "!!":
             g.screen.error_message = params0
-            event.detect_error()
+            actions.detect_error()
         elif (params0.find("// Filament dia (measured mm):") != -1 or params0.find("// Filament NOT present") != -1
               or params0.find("echo: Filament run out") != -1):    # 4.4.2 CLL support mates and hall filament width sensors
             g.files.filament_message = params0
-            event.check_filament_width()
+            actions.check_filament_width()
         elif substr(params0, 0, 12) == "// metadata=":     # 4.1.7 CLL web print information subscription (deprecated)
             pass
         elif params0.find("echo: Position init complete") != -1:    # CLL messages prefixed with "echo:" are custom responses

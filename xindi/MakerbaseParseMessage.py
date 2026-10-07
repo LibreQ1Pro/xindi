@@ -16,7 +16,7 @@ from .mks_gcode import parse_gcode_response
 
 
 def json_parse(arg=None):
-    from . import event
+    from . import actions
     while True:
         # NOTE: the original polls is_get_message every 50 us and parses the
         # last message stored by the websocket thread; the port waits for the
@@ -73,14 +73,14 @@ def json_parse(arg=None):
                         cout(json_dump(g.rpc.response))
                         MKSLOG_BLUE("Klippy is ready")
                         # subscribe here
-                        event.get_object_status()
-                        event.sub_object_status()
+                        actions.get_object_status()
+                        actions.sub_object_status()
                     elif method == "notify_klippy_shutdown":
                         MKSLOG_BLUE("Klippy shutdown")
                     elif method == "notify_klippy_disconnected":
                         MKSLOG_BLUE("Klippy disconnected")
-                        event.get_object_status()
-                        event.sub_object_status()
+                        actions.get_object_status()
+                        actions.sub_object_status()
                     elif method == "notify_filelist_changed":
                         g.files.filelist_changed = True
                         MKSLOG_BLUE("File list changed")

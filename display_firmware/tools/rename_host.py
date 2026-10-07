@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Rewrites the component names that the Python xindi writes in instructions for the screen, following tools/names.json.
+"""(One-off migration, written for the former xindi/event.py; its function names are gone.)
+Rewrites the component names that the Python xindi writes in instructions for the screen, following tools/names.json.
 
     python3 display_firmware/tools/rename_host.py [--apply]       (run from src_py/)
 

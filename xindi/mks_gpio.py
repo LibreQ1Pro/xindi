@@ -124,7 +124,7 @@ def init_GPIO1_C3():
 
 
 def monitor_GPIO1_C3(arg=None):
-    from . import event
+    from . import actions
     cnt = 0
     debounce_limit = 5              # debounce counter limit
     debounce_interval = 30          # debounce interval (ms)
@@ -139,8 +139,8 @@ def monitor_GPIO1_C3(arg=None):
                 val = os.read(fd, 1)
                 if val[:1] == b"1":
                     if cnt >= debounce_limit:
-                        event.go_to_page_power_off()
-                        event.shutdown_mcu()
+                        actions.go_to_page_power_off()
+                        actions.shutdown_mcu()
                         set_GPIO1_B3_low()
                         system("sync")
                         cnt = 0

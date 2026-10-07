@@ -313,8 +313,8 @@ def mks_save_config():
         g.screen.wifi_ssid_button_enabled[3] = False
         g.net.wifi_ssid_list_pages = 0
         g.net.wifi_current_pages = 0
-        from . import event
-        event.go_to_network()
+        from . import wifi_ui
+        wifi_ui.go_to_network()
     return 0
 
 

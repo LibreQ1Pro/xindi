@@ -17,7 +17,7 @@ from .MakerbaseParseMessage import json_parse
 from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults
 from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages
 from .send_jpg import sent_jpg_thread_handle
-from . import event
+from . import actions, pages, settings
 from . import screen_rx
 from . import uart
 
@@ -158,26 +158,26 @@ def main(argv):
             parser = screen_rx.FrameParser()
             pthread_create(lambda _: screen_rx.reader_thread(fd, parser, frames), None)
 
-            event.get_total_time()
+            settings.get_total_time()
             sleep(2)
-            event.sub_object_status()       # subscribe to the printer objects
+            actions.sub_object_status()       # subscribe to the printer objects
 
             sleep(2)
 
-            event.get_object_status()       # query the required values
+            actions.get_object_status()       # query the required values
             sleep(2)
-            event.system_setting_init()     # 4.4.22 (was init_mks_status())
+            settings.init()     # 4.4.22 (was init_mks_status())
             get_wlan0_status()
             mks_wpa_scan_scanresults()
             get_ssid_list_pages()
-            event.mks_get_version()
+            settings.load_versions()
             sleep(3)
 
             # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
             ui.send_ui_version()
             if g.update.find_screen_tft_file == False:
                 g.screen.previous_page = ui.TJC_PAGE_LOGO
-                if event.get_mks_oobe_enabled() == True:
+                if settings.get_oobe_enabled() == True:
                     g.screen.page = ui.TJC_PAGE_OPEN_LANGUAGE
                 else:
                     g.screen.page = ui.TJC_PAGE_MAIN
@@ -193,7 +193,7 @@ def main(argv):
         if frame is not None:
             ui.parse_cmd_msg_from_tjc_screen(frame.ljust(4096, b"\0"))
         if time.monotonic() >= next_refresh:
-            event.refresh_page_show()
+            pages.show()
             next_refresh = time.monotonic() + REFRESH_INTERVAL
 
 

@@ -65,10 +65,10 @@ def get_thumbnail_stream(ip, port, thumbnail):
 
 
 def send_request(ip, port, method, request_type):
-    from .event import replaceCharacters
+    from .pages import replace_characters
     url = "http://" + ip + ":" + port + "/" + method
     str_response = ""
-    url = replaceCharacters(url, " ", "%20")
+    url = replace_characters(url, " ", "%20")
     MKSLOG_BLUE("Sending request to %s", url)
     try:
         request = http.Request(url)

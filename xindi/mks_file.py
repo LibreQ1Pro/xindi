@@ -11,11 +11,6 @@ from .mks_log import MKSLOG, MKSLOG_RED, cout
 from .KlippyRest import send_request
 
 
-def _event():
-    from . import event
-    return event
-
-
 def parse_file_estimated_time(response):
     result = jget(response, "result")
     if jget(result, "estimated_time") is not None:
@@ -211,7 +206,7 @@ def set_page_files_show_list(pages):
 
 
 def get_sub_dir_files_list(button):
-    event = _event()
+    from . import actions, filelist
     # 4.4.2 CLL show the printed file on the first page of the file list
     if "[c]" == g.files.list_list_show_type[button]:
         g.screen.jump_print = False
@@ -220,7 +215,7 @@ def get_sub_dir_files_list(button):
         g.files.list_path_stack.append(g.files.list_path)
         g.files.list_print_files_path = g.files.list_path + "/.cache/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1
-        event.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
+        filelist.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
         ui.page_to(ui.TJC_PAGE_PREVIEW)
     elif "[d]" == g.files.list_list_show_type[button]:
         g.files.list_path_stack.append(g.files.list_path)
@@ -229,8 +224,8 @@ def get_sub_dir_files_list(button):
         ui.page_to(ui.TJC_PAGE_FILE_LIST)
         g.files.list_current_pages = 0
         g.screen.file_list_refreshed = False       # 4.4.22
-        event.refresh_page_files(g.files.list_current_pages)
-        event.refresh_page_files_list()
+        filelist.refresh_page_files(g.files.list_current_pages)
+        filelist.refresh_files_list()
     elif "[f]" == g.files.list_list_show_type[button]:
         g.screen.jump_print = False
         g.screen.show_preview_complete = False
@@ -239,13 +234,13 @@ def get_sub_dir_files_list(button):
         g.files.list_print_files_path = g.files.list_path + "/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1
         MKSLOG("%s", substr(g.files.list_print_files_path, 1))
-        event.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
-        event.check_timelapse_state()       # 4.4.22 timelapse switch of the preview page
+        filelist.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
+        actions.check_timelapse_state()       # 4.4.22 timelapse switch of the preview page
         ui.page_to(ui.TJC_PAGE_PREVIEW)
 
 
 def get_parenet_dir_files_list():
-    event = _event()
+    from . import actions, filelist
     # NOTE: std::stack::top() on an empty stack is undefined behaviour in C++
     g.files.list_previous_path = g.files.list_path_stack[-1] if g.files.list_path_stack else ""
     g.files.list_path = g.files.list_previous_path
@@ -253,7 +248,7 @@ def get_parenet_dir_files_list():
         g.screen.file_list_refreshed = False       # 4.4.22 (back from the preview: keep the list)
         g.files.list_current_pages = 0
     # 4.4.2 CLL local / USB buttons on the file list page
-    if event.detect_disk() == -1 and g.screen.file_mode == "USB":
+    if filelist.detect_disk() == -1 and g.screen.file_mode == "USB":
         ui.page_to(ui.TJC_PAGE_FILE_LIST)
         g.files.list_pages = 0
         g.files.list_current_pages = 0
@@ -261,20 +256,20 @@ def get_parenet_dir_files_list():
         g.files.list_previous_path = ""
         g.files.list_root_path = "gcodes/"
         g.files.list_path = "/sda1"
-        event.refresh_page_files(g.files.list_current_pages)
-        event.refresh_page_files_list()
-        event.get_object_status()
+        filelist.refresh_page_files(g.files.list_current_pages)
+        filelist.refresh_files_list()
+        actions.get_object_status()
     elif g.files.list_folder_layers > 0:
         ui.page_to(ui.TJC_PAGE_FILE_LIST)
         g.files.list_folder_layers -= 1
         if g.files.list_folder_layers == 0:
-            event.refresh_page_files(g.files.list_current_pages)
-            event.refresh_page_files_list()
+            filelist.refresh_page_files(g.files.list_current_pages)
+            filelist.refresh_files_list()
             g.files.list_previous_path = ""
             g.files.list_path = ""
         else:
-            event.refresh_page_files(g.files.list_current_pages)
-            event.refresh_page_files_list()
+            filelist.refresh_page_files(g.files.list_current_pages)
+            filelist.refresh_files_list()
             if g.files.list_path_stack:
                 g.files.list_path_stack.pop()
 

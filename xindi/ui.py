@@ -481,11 +481,6 @@ TJC_PAGE_LINK_LAST = 109
 DEFAULT_DIR = "gcodes/"
 
 
-def _ev():
-    from . import event
-    return event
-
-
 def parse_cmd_msg_from_tjc_screen(cmd):
     """``cmd`` is the 4096 byte read buffer (zero padded) of the main loop."""
     import sys
@@ -581,18 +576,18 @@ def _printer_not_failed():
 
 def _nav_guarded(widget_id):
     """ALL_TO_* buttons of the pages that are reachable while Klipper is in an error state."""
-    ev = _ev()
+    from . import actions, filelist
     if widget_id == TJC_PAGE_ALL_TO_MAIN:
         if _printer_not_failed():
             page_to(TJC_PAGE_MAIN)
         return True
     if widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
         if _printer_not_failed():
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         return True
     if widget_id == TJC_PAGE_ALL_TO_ADJUST:
         if _printer_not_failed():
-            ev.go_to_adjust()
+            actions.go_to_adjust()
         return True
     return False
 
@@ -601,7 +596,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     from . import mks_file
     from .mks_update import start_update
     from .MakerbaseWiFi import set_page_wifi_ssid_list
-    ev = _ev()
+    from . import actions, filelist, pages, settings, updates, wifi_ui
     cout("+++++++++++++++++++", page_id)
     cout("+++++++++++++++++++", widget_id)
     cout("+++++++++++++++++++", type_id)
@@ -610,14 +605,14 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     if page_id == TJC_PAGE_OPEN_LANGUAGE:
         if widget_id == TJC_PAGE_OPEN_LANGUAGE_NEXT:
             page_to(TJC_PAGE_OPEN_VIDEO_1)
-            ev.get_object_status()
+            actions.get_object_status()
         elif widget_id == TJC_PAGE_OPEN_LANGUAGE_SKIP:
             page_to(TJC_PAGE_OPEN_POP)
 
     elif page_id == TJC_PAGE_OPEN_POP:
         if widget_id == TJC_PAGE_OPEN_POP_YES:
             page_to(TJC_PAGE_MAIN)
-            ev.set_mks_oobe_enabled(False)
+            settings.set_oobe_enabled(False)
         elif widget_id == TJC_PAGE_OPEN_POP_NO:
             page_to(TJC_PAGE_OPEN_LANGUAGE)
 
@@ -634,7 +629,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     # fourth page of the guide
     elif page_id == TJC_PAGE_OPEN_WARNING:
         if widget_id == TJC_PAGE_OPEN_WARNING_NEXT:
-            ev.open_heater_bed_up()
+            actions.open_heater_bed_up()
             page_to(TJC_PAGE_OPEN_MOVING)       # 4.4.22: wait until the bed has moved
 
     # 4.4.22 "the bed is moving" page of the guide; its timer sends 0
@@ -647,21 +642,21 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_OPEN_VIDEO_3_NEXT:
             page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_1)     # CLL levelling and input shaping removed from the guide
         elif widget_id == TJC_PAGE_OPEN_VIDEO_3_UP:
-            ev.set_move_dist(10.0)
-            ev.move_z_decrease()
+            actions.set_move_dist(10.0)
+            actions.move_z_decrease()
         elif widget_id == TJC_PAGE_OPEN_VIDEO_3_DOWN:
-            ev.set_move_dist(10.0)
-            ev.move_z_increase()
+            actions.set_move_dist(10.0)
+            actions.move_z_increase()
 
     elif page_id == TJC_PAGE_OPEN_HEATERBED:
         if widget_id == TJC_PAGE_OPEN_HEATERBED_DOWN:
-            ev.set_auto_level_heater_bed_target(False)
+            actions.set_auto_level_heater_bed_target(False)
         elif widget_id == TJC_PAGE_OPEN_HEATERBED_UP:
-            ev.set_auto_level_heater_bed_target(True)
+            actions.set_auto_level_heater_bed_target(True)
         elif widget_id == TJC_PAGE_OPEN_HEATERBED_ON_OFF:
-            ev.filament_heater_bed_target()
+            actions.filament_heater_bed_target()
         elif widget_id == TJC_PAGE_OPEN_HEATERBED_NEXT:
-            ev.open_calibrate_start()
+            actions.open_calibrate_start()
 
     elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_0 or page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_1:
         if page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_0:
@@ -673,40 +668,40 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2:
         if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_UP:
-            ev.set_filament_extruder_target(True)
+            actions.set_filament_extruder_target(True)
         elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_DOWN:
-            ev.set_filament_extruder_target(False)
+            actions.set_filament_extruder_target(False)
         elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_NEXT:
             page_to(TJC_PAGE_OPEN_FILAMENTVIDEO_3)
         elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_2_ON_OFF:
-            ev.open_set_print_filament_target()
+            actions.open_set_print_filament_target()
 
     elif page_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3:
         if widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3_NEXT:
-            ev.set_extruder_target(0)
+            actions.set_extruder_target(0)
             page_to(TJC_PAGE_OPEN_FINISH)
         elif widget_id == TJC_PAGE_OPEN_FILAMENTVIDEO_3_EXTRUDE:
-            ev.open_start_extrude()
+            actions.open_start_extrude()
 
     elif page_id == TJC_PAGE_OPEN_FINISH:
         if widget_id == TJC_PAGE_OPEN_FINISH_YES:
-            ev.open_more_level_finish()
+            actions.open_more_level_finish()
 
     elif page_id == TJC_PAGE_MAIN:
         if widget_id == TJC_PAGE_ALL_TO_MAIN:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
-            ev.go_to_adjust()
+            actions.go_to_adjust()
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
         elif widget_id == TJC_PAGE_MAIN_CASELIGHT:
-            ev.led_on_off()
+            actions.led_on_off()
         elif widget_id == TJC_PAGE_MAIN_BEEP:
-            ev.beep_on_off()
+            actions.beep_on_off()
         elif widget_id == TJC_PAGE_MAIN_STOP:
-            ev.motors_off()
+            actions.motors_off()
         elif widget_id in (TJC_PAGE_MAIN_SET_TEMP, TJC_PAGE_MAIN_SET_TEMP_2, TJC_PAGE_MAIN_SET_TEMP_3):
             g.screen.adjust_mode = "Filament"
             page_to(TJC_PAGE_FILAMENT)
@@ -717,9 +712,9 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             g.files.list_previous_path = ""
             g.files.list_root_path = DEFAULT_DIR
             g.files.list_path = ""
-            ev.refresh_page_files(g.files.list_current_pages)
+            filelist.refresh_page_files(g.files.list_current_pages)
             if g.files.list_list_show_type[0] == "[c]":
-                ev.clear_cp0_image()
+                filelist.clear_cp0_image()
                 mks_file.get_sub_dir_files_list(0)
                 g.screen.file_mode = "Local"
 
@@ -729,9 +724,9 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
-            ev.go_to_adjust()
+            actions.go_to_adjust()
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
         elif widget_id == TJC_PAGE_FILE_LIST_BACK:
             if g.files.list_folder_layers == 0 or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"):
                 pass
@@ -739,46 +734,46 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                 mks_file.get_parenet_dir_files_list()
         elif widget_id in (TJC_PAGE_FILE_LIST_BTN_1, TJC_PAGE_FILE_LIST_BTN_2, TJC_PAGE_FILE_LIST_BTN_3,
                            TJC_PAGE_FILE_LIST_BTN_4):
-            ev.clear_cp0_image()
+            filelist.clear_cp0_image()
             mks_file.get_sub_dir_files_list(widget_id - TJC_PAGE_FILE_LIST_BTN_1)
             g.screen.bed_leveling = True
         # 4.4.22: the list is marked as changed and the touch is disabled
         # until the pictures of the new page are sent
         elif widget_id == TJC_PAGE_FILE_LIST_PREVIOUS:
-            if ev.detect_disk() == -1 and g.screen.file_mode == "USB":
+            if filelist.detect_disk() == -1 and g.screen.file_mode == "USB":
                 g.screen.file_list_refreshed = False
-                ev.go_to_file_list()
+                filelist.go_to_file_list()
             elif g.files.list_current_pages > 0:
                 g.screen.file_list_refreshed = False
                 g.files.list_current_pages -= 1
                 page_to(TJC_PAGE_FILE_LIST)
                 send_cmd_tsw(g.tty_fd, "255", "0")
-                ev.refresh_page_files(g.files.list_current_pages)
-                ev.refresh_page_files_list()
+                filelist.refresh_page_files(g.files.list_current_pages)
+                filelist.refresh_files_list()
             MKSLOG_BLUE("%d", g.files.list_folder_layers)
         elif widget_id == TJC_PAGE_FILE_LIST_NEXT:
-            if ev.detect_disk() == -1 and g.screen.file_mode == "USB":
+            if filelist.detect_disk() == -1 and g.screen.file_mode == "USB":
                 g.screen.file_list_refreshed = False
-                ev.go_to_file_list()
+                filelist.go_to_file_list()
             elif g.files.list_current_pages < g.files.list_pages:
                 g.screen.file_list_refreshed = False
                 g.files.list_current_pages += 1
                 page_to(TJC_PAGE_FILE_LIST)
                 send_cmd_tsw(g.tty_fd, "255", "0")
-                ev.refresh_page_files(g.files.list_current_pages)
-                ev.refresh_page_files_list()
+                filelist.refresh_page_files(g.files.list_current_pages)
+                filelist.refresh_files_list()
             MKSLOG_BLUE("%d", g.files.list_folder_layers)
         # 4.4.2 CLL local / USB buttons on the file list page
         elif widget_id == TJC_PAGE_FILE_LIST_LOCAL:
             if g.screen.file_mode != "Local":
                 g.screen.file_mode = "Local"
                 g.screen.file_list_refreshed = False
-                ev.go_to_file_list()
+                filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_FILE_LIST_USB:
             if g.screen.file_mode != "USB":
                 g.screen.file_mode = "USB"
                 g.screen.file_list_refreshed = False
-                ev.go_to_file_list()
+                filelist.go_to_file_list()
 
     elif page_id == TJC_PAGE_PREVIEW:
         if g.screen.page == TJC_PAGE_PREVIEW:
@@ -796,13 +791,13 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                     page_to(TJC_PAGE_PRINTING)
                     g.screen.jump_print = False
                 else:
-                    ev.go_to_adjust()
+                    actions.go_to_adjust()
             elif widget_id == TJC_PAGE_ALL_TO_SETTING:
                 if printing_or_paused:
                     page_to(TJC_PAGE_PRINTING)
                     g.screen.jump_print = False
                 else:
-                    ev.go_to_setting()
+                    actions.go_to_setting()
             elif widget_id == TJC_PAGE_PREVIEW_BACK:
                 # 4.4.3 CLL keep the preview page from getting stuck
                 if printing_or_paused:
@@ -810,28 +805,28 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                     g.screen.jump_print = False
                 elif g.files.meta_parse_finished == False:
                     mks_file.get_parenet_dir_files_list()
-                    ev.clear_page_preview()
+                    pages.clear_preview()
                     g.screen.show_preview_complete = False
-                    ev.clear_cp0_image()
+                    filelist.clear_cp0_image()
                 else:
                     if g.screen.show_preview_complete == True:     # the button only works once the preview is loaded
                         mks_file.get_parenet_dir_files_list()
-                        ev.clear_page_preview()             # clear the data when going back
+                        pages.clear_preview()             # clear the data when going back
                         g.screen.show_preview_complete = False
-                        ev.clear_cp0_image()
+                        filelist.clear_cp0_image()
             elif widget_id == TJC_PAGE_PREVIEW_START:
                 if printing_or_paused:
                     page_to(TJC_PAGE_PRINTING)
                     g.screen.jump_print = False
                 elif g.screen.show_preview_complete == True:
                     g.screen.muted = False             # 4.4.22 silent mode is per print
-                    ev.print_start()
+                    actions.print_start()
                     sleep(1)
                     if g.klippy.filament_detected == True:
                         MKSLOG("No filament runout detected")
                         g.klippy.print_stats_state = "printing"
-                        ev.check_filament_type()
-                        ev.start_printing(g.files.list_print_files_path)
+                        actions.check_filament_type()
+                        actions.start_printing(g.files.list_print_files_path)
                         g.screen.show_preview_complete = False
                     else:
                         MKSLOG("Filament runout detected")
@@ -848,7 +843,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                     else:
                         g.screen.bed_leveling = True
             elif widget_id == TJC_PAGE_PREVIEW_TIMELAPSE:
-                ev.switch_timelapse_state()
+                actions.switch_timelapse_state()
 
     elif page_id == TJC_PAGE_PREVIEW_POP_1 or page_id == TJC_PAGE_PREVIEW_POP_2:
         if widget_id == TJC_PAGE_PREVIEW_POP_YES:
@@ -864,19 +859,19 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id in (TJC_PAGE_PRINTING_EXTRUDER, TJC_PAGE_PRINTING_HEATER_BED, TJC_PAGE_PRINTING_FAN_1,
                          TJC_PAGE_PRINTING_FAN_2, TJC_PAGE_PRINTING_FAN_3, TJC_PAGE_PRINTING_HOT):
             g.screen.printing_keyboard_enabled = True
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_NEXT:
             page_to(TJC_PAGE_PRINTING_2)
         elif widget_id == TJC_PAGE_PRINTING_EMERGENCY_STOP:
             page_to(TJC_PAGE_STOP_CONFIRM)
         elif widget_id == TJC_PAGE_PRINTING_PAUSE_RESUME:
             g.klippy.ready = False
-            ev.set_print_pause()
+            actions.set_print_pause()
             page_to(TJC_PAGE_PRINT_FILAMENT)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_STOP:
             page_to(TJC_PAGE_PRINT_STOP)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
 
     elif page_id == TJC_PAGE_PRINTING_KB:
         if widget_id == TJC_PAGE_PRINTING_KB_BACK:
@@ -886,51 +881,51 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             MKSLOG_BLUE("Silent mode switched")
             if g.screen.muted == False:
                 g.screen.muted = True
-                ev.set_printer_speed(50)
+                actions.set_printer_speed(50)
             else:
                 g.screen.muted = False
-                ev.set_printer_speed(100)
+                actions.set_printer_speed(100)
         elif widget_id == TJC_PAGE_PRINTING_KB_PAUSE_RESUME:
             g.screen.printing_keyboard_enabled = False
-            ev.set_print_pause()
+            actions.set_print_pause()
             page_to(TJC_PAGE_PRINT_FILAMENT)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_KB_STOP:
             g.screen.printing_keyboard_enabled = False
             page_to(TJC_PAGE_PRINT_STOP)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
 
     elif page_id == TJC_PAGE_PRINT_ZOFFSET:
         if widget_id == TJC_PAGE_PRINT_ZOFFSET_BACK:
             g.screen.printing_keyboard_enabled = False
             page_to(TJC_PAGE_PRINTING_2)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_001:
-            ev.set_intern_zoffset(0.01)
+            actions.set_intern_zoffset(0.01)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_005:
-            ev.set_intern_zoffset(0.05)
+            actions.set_intern_zoffset(0.05)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_01:
-            ev.set_intern_zoffset(0.1)
+            actions.set_intern_zoffset(0.1)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_SET_05:
-            ev.set_intern_zoffset(0.5)
+            actions.set_intern_zoffset(0.5)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_UP:
-            ev.set_zoffset(False)
+            actions.set_zoffset(False)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_DOWN:
-            ev.set_zoffset(True)
+            actions.set_zoffset(True)
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_PAUSE_RESUME:
             g.klippy.ready = False
-            ev.set_print_pause()
+            actions.set_print_pause()
             page_to(TJC_PAGE_PRINT_FILAMENT)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINT_ZOFFSET_STOP:
             page_to(TJC_PAGE_PRINT_STOP)
 
     elif page_id == TJC_PAGE_PRINT_FILAMENT:
         if widget_id == TJC_PAGE_PRINT_FILAMENT_ON_OFF:
-            ev.set_print_filament_target()
+            actions.set_print_filament_target()
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_T_UP:
-            ev.set_filament_extruder_target(True)
+            actions.set_filament_extruder_target(True)
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_T_DOWN:
-            ev.set_filament_extruder_target(False)
+            actions.set_filament_extruder_target(False)
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_LOAD:
             g.screen.load_mode = True
             page_to(TJC_PAGE_PRE_HEAT)
@@ -938,47 +933,47 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             g.screen.load_mode = False
             page_to(TJC_PAGE_PRE_HEAT)
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_PAUSE_RESUME:
-            MKSLOG_BLUE("get_filament_detected_enable: %d", int(ev.get_filament_detected_enable()))
-            MKSLOG_BLUE("get_filament_detected: %d", int(ev.get_filament_detected()))
+            MKSLOG_BLUE("get_filament_detected_enable: %d", int(actions.get_filament_detected_enable()))
+            MKSLOG_BLUE("get_filament_detected: %d", int(actions.get_filament_detected()))
             g.klippy.ready = False
             page_to(TJC_PAGE_PRINTING)
-            ev.set_print_resume()
+            actions.set_print_resume()
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_STOP:
             page_to(TJC_PAGE_PRINT_STOP)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_RETRACT:
-            ev.send_gcode("M603\n")
+            actions.send_gcode("M603\n")
         elif widget_id == TJC_PAGE_PRINT_FILAMENT_EXTRUDE:
-            ev.set_print_filament_dist(50)
-            ev.start_extrude()
+            actions.set_print_filament_dist(50)
+            actions.start_extrude()
 
     elif page_id == TJC_PAGE_PRINTING_2:
         if widget_id == TJC_PAGE_PRINTING_2_BACK:
             page_to(TJC_PAGE_PRINTING)
         elif widget_id in (TJC_PAGE_PRINTING_2_SPEED, TJC_PAGE_PRINTING_2_FLOW):
             g.screen.printing_keyboard_enabled = True
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_2_ZOFFSET:
             page_to(TJC_PAGE_PRINT_ZOFFSET)
         elif widget_id == TJC_PAGE_PRINTING_2_PAUSE_RESUME:
             g.klippy.ready = False
-            ev.set_print_pause()
+            actions.set_print_pause()
             page_to(TJC_PAGE_PRINT_FILAMENT)
-            ev.clear_page_printing_arg()
+            pages.clear_printing_arg()
         elif widget_id == TJC_PAGE_PRINTING_2_STOP:
             page_to(TJC_PAGE_PRINT_STOP)
         elif widget_id == TJC_PAGE_PRINTING_2_CASE_LIGHT:
-            ev.led_on_off()
+            actions.led_on_off()
 
     elif page_id == TJC_PAGE_PRINT_FINISH:
         if widget_id == TJC_PAGE_PRINT_FINISH_YES:
-            ev.finish_print()
+            actions.finish_print()
 
     elif page_id == TJC_PAGE_PRINT_STOP:
         if widget_id == TJC_PAGE_PRINT_STOP_YES:
             g.klippy.idle_timeout_state = "Printing"
             page_to(TJC_PAGE_PRINT_STOPPING)
-            ev.cancel_print()
+            actions.cancel_print()
         elif widget_id == TJC_PAGE_PRINT_STOP_NO:
             page_to(g.screen.previous_page)
 
@@ -987,7 +982,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_STOP_CONFIRM_YES:
             page_to(TJC_PAGE_PRINT_STOPPING)
             g.klippy.print_stats_state = "paused"
-            ev.motors_off()
+            actions.motors_off()
         elif widget_id == TJC_PAGE_STOP_CONFIRM_NO:
             page_to(TJC_PAGE_PRINTING)
 
@@ -995,16 +990,16 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_PRINT_NO_FILAMENT_YES:
             g.klippy.filament_detected = True
             if g.screen.previous_page == TJC_PAGE_PREVIEW:
-                ev.get_object_status()
+                actions.get_object_status()
                 page_to(TJC_PAGE_MOVE)
             else:
-                ev.get_object_status()
+                actions.get_object_status()
                 page_to(TJC_PAGE_PRINT_FILAMENT)
 
     elif page_id == TJC_PAGE_PRINT_NO_FILAMENT_2 or page_id == TJC_PAGE_PRINT_LOW_TEMP:
         if page_id == TJC_PAGE_PRINT_NO_FILAMENT_2:
             if widget_id == TJC_PAGE_PRINT_NO_FILAMENT_2_YES:
-                ev.get_object_status()
+                actions.get_object_status()
                 page_to(TJC_PAGE_PRINT_FILAMENT)
             # NOTE: no "break" in the original - falls through into the next case
         if widget_id == TJC_PAGE_PRINT_LOW_TEMP_YES:
@@ -1013,44 +1008,44 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_MOVE:
         if widget_id == TJC_PAGE_MOVE_SET_01:
-            ev.set_move_dist(0.1)
+            actions.set_move_dist(0.1)
         elif widget_id == TJC_PAGE_MOVE_SET_1:
-            ev.set_move_dist(1.0)
+            actions.set_move_dist(1.0)
         elif widget_id == TJC_PAGE_MOVE_SET_10:
-            ev.set_move_dist(10.0)
+            actions.set_move_dist(10.0)
         elif widget_id == TJC_PAGE_MOVE_Z_UP:
-            ev.move_z_decrease()
+            actions.move_z_decrease()
         elif widget_id == TJC_PAGE_MOVE_Z_DOWN:
-            ev.move_z_increase()
+            actions.move_z_increase()
         elif widget_id == TJC_PAGE_MOVE_MOTOR:
-            ev.move_motors_off()
+            actions.move_motors_off()
         elif widget_id == TJC_PAGE_MOVE_X_UP:
-            ev.move_x_increase()
+            actions.move_x_increase()
         elif widget_id == TJC_PAGE_MOVE_X_DOWN:
-            ev.move_x_decrease()
+            actions.move_x_decrease()
         elif widget_id == TJC_PAGE_MOVE_Y_UP:
-            ev.move_y_increase()
+            actions.move_y_increase()
         elif widget_id == TJC_PAGE_MOVE_Y_DOWN:
-            ev.move_y_decrease()
+            actions.move_y_decrease()
         elif widget_id == TJC_PAGE_MOVE_HOME:
-            ev.move_home()
+            actions.move_home()
         elif widget_id == TJC_PAGE_MOVE_TO_FILAMENT:
             page_to(TJC_PAGE_FILAMENT)
             g.screen.adjust_mode = "Filament"
         elif widget_id == TJC_PAGE_ALL_TO_MAIN:
             page_to(TJC_PAGE_MAIN)
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
 
     elif page_id == TJC_PAGE_MOVE_POP_1:
         if widget_id == TJC_PAGE_MOVE_POP_1_YES:
             if (g.screen.previous_page == TJC_PAGE_PRINTING or g.screen.previous_page == TJC_PAGE_PRINT_ZOFFSET
                     or g.screen.previous_page == TJC_PAGE_PRINTING_2):
-                ev.cancel_print()
+                actions.cancel_print()
                 page_to(TJC_PAGE_PRINT_STOPPING)
             else:
                 page_to(TJC_PAGE_MOVE)
@@ -1058,7 +1053,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     elif page_id == TJC_PAGE_MOVE_POP_2:
         if widget_id == TJC_PAGE_MOVE_POP_2_YES:
             page_to(TJC_PAGE_MOVE)
-            ev.move_home()
+            actions.move_home()
         elif widget_id == TJC_PAGE_MOVE_POP_2_NO:
             page_to(TJC_PAGE_MOVE)
 
@@ -1066,11 +1061,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_ALL_TO_MAIN:
             page_to(TJC_PAGE_MAIN)
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
         elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_BACK:
             page_to(TJC_PAGE_FILAMENT)
         elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_SETTING:
@@ -1080,11 +1075,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_ALL_TO_MAIN:
             page_to(TJC_PAGE_MAIN)
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
         elif widget_id == TJC_PAGE_FILAMENT_KB_BACK:
             page_to(TJC_PAGE_FILAMENT)
 
@@ -1092,27 +1087,27 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_ALL_TO_MAIN:
             page_to(TJC_PAGE_MAIN)
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
             pass
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
-            ev.go_to_setting()
+            actions.go_to_setting()
         elif widget_id in (TJC_PAGE_FILAMENT_SET_EXTRUDER, TJC_PAGE_FILAMENT_SET_HEATERBED, TJC_PAGE_FILAMENT_SET_HOT):
             page_to(TJC_PAGE_FILAMENT_KB)
         elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_UP:
             g.klippy.idle_timeout_state = "Printing"
             g.screen.filament_extrude_button = True
-            ev.start_retract()
+            actions.start_retract()
         elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_DOWN:
             g.klippy.idle_timeout_state = "Printing"
             g.screen.filament_extrude_button = True
-            ev.start_extrude()
+            actions.start_extrude()
         elif widget_id == TJC_PAGE_FILAMENT_EXTRUDER_ON_OFF:
-            ev.filament_extruder_target()
+            actions.filament_extruder_target()
         elif widget_id == TJC_PAGE_FILAMENT_HEATERBED_ON_OFF:
-            ev.filament_heater_bed_target()
+            actions.filament_heater_bed_target()
         elif widget_id == TJC_PAGE_FILAMENT_HOT_ON_OFF:
-            ev.filament_hot_target()
+            actions.filament_hot_target()
         elif widget_id == TJC_PAGE_FILAMENT_TO_FAN:
             page_to(TJC_PAGE_FILAMENT_SET_FAN)
         elif widget_id == TJC_PAGE_FILAMENT_LOAD:
@@ -1122,11 +1117,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             g.screen.load_mode = False
             page_to(TJC_PAGE_PRE_HEAT)
         elif widget_id == TJC_PAGE_FILAMENT_SET_10:
-            ev.set_print_filament_dist(10)
+            actions.set_print_filament_dist(10)
         elif widget_id == TJC_PAGE_FILAMENT_SET_50:
-            ev.set_print_filament_dist(50)
+            actions.set_print_filament_dist(50)
         elif widget_id == TJC_PAGE_FILAMENT_SET_100:
-            ev.set_print_filament_dist(100)
+            actions.set_print_filament_dist(100)
         elif widget_id == TJC_PAGE_FILAMENT_TO_MOVE:
             page_to(TJC_PAGE_MOVE)
             g.screen.adjust_mode = "Move"
@@ -1138,7 +1133,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_FILAMENT_POP_2:
         if widget_id == TJC_PAGE_FILAMENT_POP_2_YES:
-            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            actions.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
             if g.klippy.print_stats_state == "paused":
                 page_to(TJC_PAGE_PRINT_FILAMENT)
             else:
@@ -1147,15 +1142,15 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             g.screen.load_mode = True
             page_to(TJC_PAGE_PRE_HEAT)
         elif widget_id == TJC_PAGE_FILAMENT_POP_2_NEXT:
-            ev.filament_load()
+            actions.filament_load()
         elif widget_id == TJC_PAGE_FILAMENT_POP_2_BACK:
             page_to(TJC_PAGE_UNLOAD_MODE)
 
     elif page_id == TJC_PAGE_FILAMENT_POP_3:
         if widget_id == TJC_PAGE_FILAMENT_POP_3_NEXT:
-            ev.filament_load()
+            actions.filament_load()
         elif widget_id == TJC_PAGE_FILAMENT_POP_3_YES:
-            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            actions.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
             if g.klippy.print_stats_state == "paused":
                 page_to(TJC_PAGE_PRINT_FILAMENT)
             else:
@@ -1163,7 +1158,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_FILAMENT_POP_3_RETRY:
             g.screen.load_mode = True
             page_to(TJC_PAGE_FILAMENT_POP_3)
-            ev.filament_load()
+            actions.filament_load()
         elif widget_id == TJC_PAGE_FILAMENT_POP_3_BACK:
             page_to(TJC_PAGE_PRE_HEAT)
 
@@ -1175,16 +1170,16 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if widget_id == TJC_PAGE_ALL_TO_MAIN:
             page_to(TJC_PAGE_MAIN)
         elif widget_id == TJC_PAGE_ALL_TO_FILE_LIST:
-            ev.go_to_file_list()
+            filelist.go_to_file_list()
         elif widget_id == TJC_PAGE_ALL_TO_ADJUST:
-            ev.go_to_adjust()
+            actions.go_to_adjust()
         elif widget_id == TJC_PAGE_ALL_TO_SETTING:
             pass
         elif widget_id == TJC_PAGE_LEVEL_MODE_AUTO_LEVEL:
-            ev.get_object_status()
+            actions.get_object_status()
             page_to(TJC_PAGE_AUTO_HEATERBED)
         elif widget_id == TJC_PAGE_LEVEL_MODE_SYNTONY:
-            ev.go_to_syntony_move()
+            actions.go_to_syntony_move()
         elif widget_id == TJC_PAGE_LEVEL_MODE_BED_CALIBRATION:
             page_to(TJC_PAGE_CALIBRATE_WARNING)
         elif widget_id == TJC_PAGE_LEVEL_MODE_TO_COMMON_SETTING:
@@ -1199,11 +1194,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_AUTO_HEATERBED:
         if widget_id == TJC_PAGE_AUTO_HEATERBED_DOWN:
-            ev.set_auto_level_heater_bed_target(False)
+            actions.set_auto_level_heater_bed_target(False)
         elif widget_id == TJC_PAGE_AUTO_HEATERBED_UP:
-            ev.set_auto_level_heater_bed_target(True)
+            actions.set_auto_level_heater_bed_target(True)
         elif widget_id == TJC_PAGE_AUTO_HEATERBED_ON_OFF:
-            ev.filament_heater_bed_target()
+            actions.filament_heater_bed_target()
         elif widget_id == TJC_PAGE_AUTO_HEATERBED_BACK:
             page_to(TJC_PAGE_LEVEL_MODE)
         elif widget_id == TJC_PAGE_AUTO_HEATERBED_NEXT:
@@ -1212,7 +1207,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             else:
                 g.screen.auto_level_button_enabled = True
                 g.klippy.idle_timeout_state = "Printing"
-                ev.start_auto_level()
+                actions.start_auto_level()
 
     elif page_id == TJC_PAGE_AUTO_FINISH:
         if widget_id == TJC_PAGE_AUTO_FINISH_YES:
@@ -1221,67 +1216,67 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_PRE_BED_CALIBRATION:
         if widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_001:
-            ev.set_auto_level_dist(0.01)
+            actions.set_auto_level_dist(0.01)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_005:
-            ev.set_auto_level_dist(0.05)
+            actions.set_auto_level_dist(0.05)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_01:
-            ev.set_auto_level_dist(0.1)
+            actions.set_auto_level_dist(0.1)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_SET_05:
-            ev.set_auto_level_dist(0.5)
+            actions.set_auto_level_dist(0.5)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_UP:
-            ev.bed_adjust(True)
+            actions.bed_adjust(True)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_DOWN:
-            ev.bed_adjust(False)
+            actions.bed_adjust(False)
         elif widget_id == TJC_PAGE_PRE_BED_CALIBRATION_ENTER:
-            ev.bed_calibrate()
+            actions.bed_calibrate()
 
     elif page_id == TJC_PAGE_BED_CALIBRATION:
         if widget_id == TJC_PAGE_BED_CALIBRATION_NEXT:
-            ev.bed_calibrate()
+            actions.bed_calibrate()
 
     elif page_id == TJC_PAGE_BED_FINISH:
         if widget_id == TJC_PAGE_BED_FINISH_OK:
             page_to(TJC_PAGE_LEVEL_MODE)
         elif widget_id == TJC_PAGE_BED_FINISH_SCREW1:
             g.klippy.idle_timeout_state = "Printing"
-            ev.send_gcode("G1 Z10 F600\n")
-            ev.send_gcode("G1 X10 Y10 F9000\n")
-            ev.send_gcode("G1 Z0 F600\n")
+            actions.send_gcode("G1 Z10 F600\n")
+            actions.send_gcode("G1 X10 Y10 F9000\n")
+            actions.send_gcode("G1 Z0 F600\n")
             g.screen.manual_count = -1
             page_to(TJC_PAGE_BED_MOVING)
         elif widget_id == TJC_PAGE_BED_FINISH_SCREW2:
             g.klippy.idle_timeout_state = "Printing"
-            ev.send_gcode("G1 Z10 F600\n")
-            ev.send_gcode("G1 X230 Y10 F9000\n")
-            ev.send_gcode("G1 Z0 F600\n")
+            actions.send_gcode("G1 Z10 F600\n")
+            actions.send_gcode("G1 X230 Y10 F9000\n")
+            actions.send_gcode("G1 Z0 F600\n")
             g.screen.manual_count = -1
             page_to(TJC_PAGE_BED_MOVING)
         elif widget_id == TJC_PAGE_BED_FINISH_SCREW3:
             g.klippy.idle_timeout_state = "Printing"
-            ev.send_gcode("G1 Z10 F600\n")
-            ev.send_gcode("G1 X125 Y240 F9000\n")
-            ev.send_gcode("G1 Z0 F600\n")
+            actions.send_gcode("G1 Z10 F600\n")
+            actions.send_gcode("G1 X125 Y240 F9000\n")
+            actions.send_gcode("G1 Z0 F600\n")
             g.screen.manual_count = -1
             page_to(TJC_PAGE_BED_MOVING)
         elif widget_id == TJC_PAGE_BED_FINISH_Z_TILT:
             g.klippy.idle_timeout_state = "Printing"
-            ev.send_gcode("G28\nZ_TILT_ADJUST\n")
-            ev.send_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
+            actions.send_gcode("G28\nZ_TILT_ADJUST\n")
+            actions.send_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
             g.screen.manual_count = -2
             page_to(TJC_PAGE_BED_MOVING)
 
     elif page_id == TJC_PAGE_SYNTONY_MOVE:
         if widget_id == TJC_PAGE_SYNTONY_MOVE_JUMP_OUT:
-            ev.send_gcode("SAVE_CONFIG\n")
+            actions.send_gcode("SAVE_CONFIG\n")
             page_to(TJC_PAGE_SYNTONY_FINISH)
 
     elif page_id == TJC_PAGE_SYNTONY_FINISH:
         if widget_id == TJC_PAGE_SYNTONY_FINISH_YES:
             page_to(TJC_PAGE_LEVEL_MODE)
             system("sync")
-            ev.get_mks_babystep()           # 4.4.22 (was init_mks_status())
-            ev.sub_object_status()
-            ev.get_object_status()
+            settings.get_babystep()           # 4.4.22 (was init_mks_status())
+            actions.sub_object_status()
+            actions.get_object_status()
 
     elif page_id == TJC_PAGE_INTERNET:
         if _nav_guarded(widget_id):
@@ -1290,10 +1285,10 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             pass
         elif widget_id == TJC_PAGE_INTERNET_REFRESH:
             cout("################## refresh button pressed")
-            ev.scan_ssid_and_show()
+            wifi_ui.scan_ssid_and_show()
             cout("Waiting 3s...")
             sleep(3)
-            ev.scan_ssid_and_show()
+            wifi_ui.scan_ssid_and_show()
         elif widget_id == TJC_PAGE_INTERNET_TO_WIFI:
             pass
         elif widget_id == TJC_PAGE_INTERNET_TO_SETTING:
@@ -1308,7 +1303,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                            TJC_PAGE_WIFI_LIST_SSID_4, TJC_PAGE_WIFI_LIST_SSID_5):
             index = widget_id - TJC_PAGE_WIFI_LIST_SSID_1
             if g.screen.wifi_ssid_button_enabled[index] == True:
-                ev.get_wifi_list_ssid(index)
+                wifi_ui.get_wifi_list_ssid(index)
                 netui.open_keyboard(netui.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
         elif widget_id == TJC_PAGE_WIFI_LIST_SAVED:
             netui.open_saved()
@@ -1316,7 +1311,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             netui.open_hidden()
         elif widget_id == TJC_PAGE_WIFI_LIST_REFRESH:
             cout("################## refresh button pressed")
-            ev.scan_ssid_and_show()
+            wifi_ui.scan_ssid_and_show()
             # 4.4.1 CLL wifi refresh fix
         elif widget_id == TJC_PAGE_WIFI_LIST_PREVIOUS:
             if g.net.wifi_current_pages > 0:
@@ -1324,18 +1319,18 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
                 cout("page_wifi_ssid_list_pages = ", g.net.wifi_ssid_list_pages)
                 g.net.wifi_current_pages -= 1
                 set_page_wifi_ssid_list(g.net.wifi_current_pages)
-                ev.refresh_page_wifi_list()
+                wifi_ui.refresh_wifi_list()
         elif widget_id == TJC_PAGE_WIFI_LIST_NEXT:
             if g.net.wifi_current_pages < g.net.wifi_ssid_list_pages - 1:
                 cout("page_wifi_current_pages = ", g.net.wifi_current_pages)
                 cout("page_wifi_ssid_list_pages = ", g.net.wifi_ssid_list_pages)
                 g.net.wifi_current_pages += 1
                 set_page_wifi_ssid_list(g.net.wifi_current_pages)
-                ev.refresh_page_wifi_list()
+                wifi_ui.refresh_wifi_list()
         elif widget_id == TJC_PAGE_WIFI_LIST_TO_WIFI:
             pass
         elif widget_id == TJC_PAGE_WIFI_LIST_TO_SETTING:
-            ev.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+            wifi_ui.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
 
     # 4.4.24: the timer of the page reports a connection that takes too long
     elif page_id == TJC_PAGE_WIFI_CONNECT:
@@ -1344,11 +1339,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_WIFI_SUCCESS:
         if widget_id == TJC_PAGE_WIFI_SUCCESS_YES:
-            ev.wifi_save_config()
+            settings.wifi_save_config()
 
     elif page_id == TJC_PAGE_WIFI_FAILED:
         if widget_id == TJC_PAGE_WIFI_FAILED_YES:
-            ev.go_to_network()                  # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
+            wifi_ui.go_to_network()                  # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
 
     elif page_id == TJC_PAGE_WIFI_KB:
         if widget_id == TJC_PAGE_WIFI_KB_BACK:
@@ -1374,22 +1369,22 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_COMMON_SETTING_LANGUAGE:
             page_to(TJC_PAGE_LANGUAGE)
         elif widget_id == TJC_PAGE_COMMON_SETTING_WIFI:
-            ev.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+            wifi_ui.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
         elif widget_id == TJC_PAGE_COMMON_SETTING_SYSTEM:
-            ev.go_to_reset()
+            actions.go_to_reset()
         elif widget_id == TJC_PAGE_COMMON_SETTING_SERVICE:
             page_to(TJC_PAGE_SERVICE)
         elif widget_id == TJC_PAGE_COMMON_SETTING_SCREEN_SLEEP:
             page_to(TJC_PAGE_SLEEP_MODE)
         elif widget_id == TJC_PAGE_COMMON_SETTING_UPDATE:
-            ev.go_to_update()
+            updates.go_to_update()
         elif widget_id == TJC_PAGE_COMMON_SETTING_RESTORE:
             page_to(TJC_PAGE_RESTORE_CONFIG)
         elif widget_id == TJC_PAGE_COMMON_SETTING_OOBE_OFF:
-            ev.set_mks_oobe_enabled(False)
+            settings.set_oobe_enabled(False)
             page_to(TJC_PAGE_COMMON_SETTING)
         elif widget_id == TJC_PAGE_COMMON_SETTING_OOBE_ON:
-            ev.set_mks_oobe_enabled(True)
+            settings.set_oobe_enabled(True)
         elif widget_id == TJC_PAGE_COMMON_SETTING_TO_LEVEL_MODE:
             page_to(TJC_PAGE_LEVEL_MODE)
             g.screen.set_mode = "Level_mode"
@@ -1402,27 +1397,27 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_BACK_TO_COMMON_SETTING:
             page_to(TJC_PAGE_COMMON_SETTING)
         elif widget_id == TJC_PAGE_RESET_PRINT_LOG:
-            ev.print_log()
+            filelist.print_log()
         elif widget_id == TJC_PAGE_RESET_RESTART_KLIPPER:
-            ev.reset_klipper()
+            actions.reset_klipper()
         elif widget_id == TJC_PAGE_RESET_RESTART_FIRMWARE:
-            ev.reset_firmware()
+            actions.reset_firmware()
 
     elif page_id == TJC_PAGE_UPDATE_SUCCESS:
         if widget_id == TJC_PAGE_UPDATE_SUCCESS_YES:
-            ev.finish_tjc_update()
+            updates.finish_tjc_update()
             page_to(TJC_PAGE_MAIN)
 
     elif page_id == TJC_PAGE_PRINT_LOG_F or page_id == TJC_PAGE_PRINT_LOG_S:
         if widget_id == TJC_PAGE_PRINT_LOG_YES:
-            ev.go_to_reset()
+            actions.go_to_reset()
 
     elif page_id == TJC_PAGE_DETECT_ERROR:
         if widget_id == TJC_PAGE_DETECT_ERROR_YES:
             if g.screen.previous_page == TJC_PAGE_AUTO_MOVING or g.screen.previous_page == TJC_PAGE_OPEN_CALIBRATE:
-                ev.reset_klipper()
+                actions.reset_klipper()
             page_to(TJC_PAGE_MAIN)
-            ev.clear_previous_data()
+            actions.clear_previous_data()
 
     elif page_id == TJC_PAGE_GCODE_ERROR:
         if widget_id == TJC_PAGE_GCODE_ERROR_YES:
@@ -1435,27 +1430,27 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             page_to(TJC_PAGE_SCREEN_SLEEP)
         elif widget_id == TJC_PAGE_SCREEN_SLEEP_EXIT:
             if g.screen.previous_page == TJC_PAGE_FILE_LIST:
-                ev.go_to_file_list()
+                filelist.go_to_file_list()
             else:
                 page_to(g.screen.previous_page)
-                ev.get_object_status()
+                actions.get_object_status()
 
     # 4.4.3 CLL the update button is always shown
     elif page_id == TJC_PAGE_UPDATE_FOUND:
         if widget_id == TJC_PAGE_UPDATE_FOUND_YES:
             page_to(TJC_PAGE_UPDATING)
-            ev.disable_page_about_successed()
+            actions.disable_page_about_successed()
             start_update()
         elif widget_id == TJC_PAGE_UPDATE_FOUND_NO:
-            ev.go_to_update()
+            updates.go_to_update()
 
     elif page_id == TJC_PAGE_UPDATE_NOT_FOUND:
         if widget_id == TJC_PAGE_UPDATE_NOT_FOUND_YES:
-            ev.go_to_update()
+            updates.go_to_update()
 
     elif page_id == TJC_PAGE_RESTORE_CONFIG:
         if widget_id == TJC_PAGE_RESTORE_CONFIG_YES:
-            ev.restore_config()
+            settings.restore_config()
         elif widget_id == TJC_PAGE_RESTORE_CONFIG_NO:
             page_to(TJC_PAGE_COMMON_SETTING)
 
@@ -1484,10 +1479,10 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     elif page_id == TJC_PAGE_RESUME_PRINT:
         if widget_id == TJC_PAGE_RESUME_PRINT_YES:
             page_to(TJC_PAGE_RE_PRINTING)
-            ev.send_gcode("RESUME_INTERRUPTED\n")
+            actions.send_gcode("RESUME_INTERRUPTED\n")
         elif widget_id == TJC_PAGE_RESUME_PRINT_NO:
             page_to(TJC_PAGE_MAIN)
-            ev.send_gcode("CLEAR_LAST_FILE")
+            actions.send_gcode("CLEAR_LAST_FILE")
         elif widget_id == TJC_PAGE_RESUME_PRINT_LOADED:
             g.screen.jump_resume_print = False      # 4.4.24: the page reports that it is shown
 
@@ -1499,9 +1494,9 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             page_to(TJC_PAGE_COMMON_SETTING)
         elif widget_id == TJC_PAGE_INTERNET_PAGE_ETHERNET:
             # 1: ethernet, 0: wifi (the page shows the address on the next refresh)
-            ev.set_mks_ethernet(0 if g.config.ethernet == 1 else 1)
+            settings.set_ethernet(0 if g.config.ethernet == 1 else 1)
         elif widget_id == TJC_PAGE_INTERNET_PAGE_WIFI:
-            ev.go_to_network()
+            wifi_ui.go_to_network()
         elif widget_id == TJC_PAGE_INTERNET_PAGE_INFO:
             netui.open_info()
         elif widget_id == TJC_PAGE_INTERNET_PAGE_SAVED:
@@ -1518,16 +1513,16 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         if _nav_guarded(widget_id):
             pass
         elif widget_id == TJC_PAGE_SERVER_SET_BACK:
-            ev.refresh_ip_address()
+            wifi_ui.refresh_ip_address()
     elif page_id == TJC_PAGE_UPDATE_MODE:
         if _nav_guarded(widget_id):
             pass
         elif widget_id == TJC_PAGE_UPDATE_MODE_BACK:
             page_to(TJC_PAGE_COMMON_SETTING)
         elif widget_id == TJC_PAGE_UPDATE_MODE_LOCAL:
-            ev.local_update()
+            updates.local_update()
         elif widget_id == TJC_PAGE_UPDATE_MODE_ONLINE:
-            ev.check_online_version()
+            updates.check_online_version()
 
     elif page_id == TJC_PAGE_ONLINE_UPDATE:
         if _nav_guarded(widget_id):
@@ -1535,22 +1530,22 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
         elif widget_id == TJC_PAGE_ONLINE_UPDATE_BACK:
             page_to(TJC_PAGE_COMMON_SETTING)
         elif widget_id == TJC_PAGE_ONLINE_UPDATE_YES:
-            ev.online_update()
+            updates.online_update()
         elif widget_id == TJC_PAGE_ONLINE_UPDATE_NO:
-            ev.go_to_update()
+            updates.go_to_update()
 
     elif page_id == TJC_PAGE_UNLOAD_MODE:
         if widget_id == TJC_PAGE_UNLOAD_MODE_MANUAL:
             page_to(TJC_PAGE_FILAMENT_POP_2)
         elif widget_id == TJC_PAGE_UNLOAD_MODE_AUTO:
             page_to(TJC_PAGE_AUTO_UNLOAD)
-            ev.filament_unload()
+            actions.filament_unload()
         elif widget_id == TJC_PAGE_UNLOAD_MODE_BACK:
             page_to(TJC_PAGE_PRE_HEAT)
 
     elif page_id == TJC_PAGE_AUTO_UNLOAD:
         if widget_id == TJC_PAGE_AUTO_UNLOAD_YES:
-            ev.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
+            actions.send_gcode("SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\n")
             if g.klippy.print_stats_state == "paused":
                 page_to(TJC_PAGE_PRINT_FILAMENT)
             else:
@@ -1566,13 +1561,13 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
     elif page_id == TJC_PAGE_CALIBRATE_WARNING:
         if widget_id == TJC_PAGE_CALIBRATE_WARNING_NEXT:
             g.screen.manual_count = 4
-            ev.bed_calibrate()
+            actions.bed_calibrate()
         elif widget_id == TJC_PAGE_CALIBRATE_WARNING_BACK:
             page_to(TJC_PAGE_LEVEL_MODE)
 
 
 def tjc_event_setted_handler(page_id, widget_id, first, second):
-    ev = _ev()
+    from . import actions, settings
     cout("!!!", page_id)
     cout("!!!", widget_id)
     cout("!!!", chr(first))
@@ -1583,91 +1578,91 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
             if number > 350:
                 number = 350
             g.screen.printing_keyboard_enabled = False
-            ev.set_extruder_target(number)
+            actions.set_extruder_target(number)
             send_cmd_val(g.tty_fd, "nozzle_set", to_string(number))
-            ev.set_mks_extruder_target(number)
+            settings.set_extruder_target(number)
         elif widget_id == TJC_PAGE_PRINTING_HEATER_BED:
             if number > 120:
                 number = 120
             g.screen.printing_keyboard_enabled = False
-            ev.set_heater_bed_target(number)
+            actions.set_heater_bed_target(number)
             send_cmd_val(g.tty_fd, "bed_set", to_string(number))
-            ev.set_mks_heater_bed_target(number)
+            settings.set_heater_bed_target(number)
         elif widget_id == TJC_PAGE_PRINTING_FAN_1:
             if number > 100:
                 number = 100
             g.screen.printing_keyboard_enabled = False
-            ev.set_fan0(number)
+            actions.set_fan0(number)
         # 4.4.2 CLL fan2 added
         elif widget_id == TJC_PAGE_PRINTING_FAN_2:
             if number > 100:
                 number = 100
             g.screen.printing_keyboard_enabled = False
-            ev.set_fan2(number)
+            actions.set_fan2(number)
         elif widget_id == TJC_PAGE_PRINTING_FAN_3:
             if number > 100:
                 number = 100
             g.screen.printing_keyboard_enabled = False
-            ev.set_fan3(number)
+            actions.set_fan3(number)
         # NOTE: the keyboard (keybdB) always reports page 20 for these two, the
         # values live on the second printing page (printing_2.n2 / n3)
         elif widget_id == TJC_PAGE_PRINTING_2_SPEED:
             if number > 150:
                 number = 150
             g.screen.printing_keyboard_enabled = False
-            ev.set_printer_speed(number)
+            actions.set_printer_speed(number)
             send_cmd_val(g.tty_fd, "speed_val", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_2_FLOW:
             if number > 150:
                 number = 150
             g.screen.printing_keyboard_enabled = False
-            ev.set_printer_flow(number)
+            actions.set_printer_flow(number)
             send_cmd_val(g.tty_fd, "flow_val", to_string(number))
         elif widget_id == TJC_PAGE_PRINTING_HOT:
             if number > 60:
                 number = 60
             g.screen.printing_keyboard_enabled = False
-            ev.set_hot_target(number)
-            ev.set_mks_hot_target(number)
+            actions.set_hot_target(number)
+            settings.set_hot_target(number)
 
     elif page_id == TJC_PAGE_FILAMENT:
         if widget_id == TJC_PAGE_FILAMENT_SET_EXTRUDER:
             if number > 350:
                 number = 350
-            ev.set_extruder_target(number)
-            ev.set_mks_extruder_target(number)
+            actions.set_extruder_target(number)
+            settings.set_extruder_target(number)
             page_to(TJC_PAGE_FILAMENT)
         elif widget_id == TJC_PAGE_FILAMENT_SET_HEATERBED:
             if number > 120:
                 number = 120
-            ev.set_heater_bed_target(number)
-            ev.set_mks_heater_bed_target(number)
+            actions.set_heater_bed_target(number)
+            settings.set_heater_bed_target(number)
             page_to(TJC_PAGE_FILAMENT)
         elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_1:
             if number > 100:
                 number = 100
-            ev.set_fan0(number)
+            actions.set_fan0(number)
             g.screen.move_fan_setting = False     # the slider was released
         elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_2:
             if number > 100:
                 number = 100
-            ev.set_fan2(number)
+            actions.set_fan2(number)
             g.screen.move_fan_setting = False
         elif widget_id == TJC_PAGE_FILAMENT_SET_FAN_3:
             if number > 100:
                 number = 100
-            ev.set_fan3(number)
+            actions.set_fan3(number)
             g.screen.move_fan_setting = False
         elif widget_id == TJC_PAGE_FILAMENT_SET_HOT:
             if number > 60:
                 number = 60
-            ev.set_hot_target(number)
-            ev.set_mks_hot_target(number)
+            actions.set_hot_target(number)
+            settings.set_hot_target(number)
             page_to(TJC_PAGE_FILAMENT)
 
 
 def tjc_event_keyboard(cmd):
-    ev = _ev()
+    pass
     MKSLOG("Keyboard value received, mode %d, row %d\n", cmd[1], cmd[2])        # the text may be a password
     psk = cstr(cmd[3:])         # char *psk = &cmd[3];
     # display_firmware: the keyboard page sends its mode (cmd[1]), see netui.py
