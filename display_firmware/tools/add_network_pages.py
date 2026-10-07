@@ -55,68 +55,7 @@ def rgb565(c):
 
 
 # ---------------------------------------------------------------------------------------------- pictures
-BASE = Image.open("pictures/pic_25.png").convert("RGB")
-
-
-def blank():
-    im = BASE.copy()
-    ImageDraw.Draw(im).rectangle((12, 58, 260, 112), fill=PANEL)       # IP box + refresh button
-    return im
-
-
-def bar(d, box, fill):
-    d.rounded_rectangle(box, radius=6, fill=fill)
-
-
-def box(d, rect):
-    d.rounded_rectangle(rect, radius=6, fill=PANEL, outline=BOX, width=2)
-
-
-def make_pictures():
-    pics = {}
-
-    def two(key, painter):
-        normal, pressed = blank(), blank()
-        painter(ImageDraw.Draw(normal), BAR, RED, normal)
-        painter(ImageDraw.Draw(pressed), BAR_PRESSED, RED_PRESSED, pressed)
-        pics[key] = normal
-        pics[key + "_p"] = pressed
-
-    pics["net_bg_blank"] = blank()
-
-    # wifi_list: the IP box became two buttons next to the refresh button
-    im, imp = BASE.copy(), BASE.copy()
-    for target, color in ((im, BAR), (imp, BAR_PRESSED)):
-        d = ImageDraw.Draw(target)
-        d.rectangle((12, 58, 206, 112), fill=PANEL)
-        bar(d, (18, 64, 108, 104), color)
-        bar(d, (114, 64, 204, 104), color)
-    pics["net_bg_list"], pics["net_bg_list_p"] = im, imp
-
-    def detail(d, bar_c, red_c, im):
-        box(d, (18, 64, 254, 144))
-        for y in (164, 214, 264):
-            bar(d, (18, y, 254, y + 40), bar_c)
-        bar(d, (18, 314, 254, 354), red_c)
-    two("net_bg_detail", detail)
-
-    def confirm(d, bar_c, red_c, im):
-        box(d, (18, 70, 254, 250))
-        bar(d, (18, 280, 130, 328), red_c)
-        bar(d, (142, 280, 254, 328), bar_c)
-    two("net_bg_confirm", confirm)
-
-    def info(d, bar_c, red_c, im):
-        box(d, (18, 64, 254, 204))
-        box(d, (18, 214, 254, 354))
-        bar(d, (18, 364, 254, 404), bar_c)
-    two("net_bg_info", info)
-
-    # network page: no bar for the QIDI "device code" any more
-    im = Image.open("pictures/pic_313.png").convert("RGB")
-    ImageDraw.Draw(im).rectangle((14, 360, 258, 408), fill=PANEL)
-    pics["net_bg_internet"] = im
-    return pics
+from draw_network_pictures import draw_all as make_pictures      # noqa: E402  (tools/ is on the path of this script)
 
 
 # ---------------------------------------------------------------------------------------------- components

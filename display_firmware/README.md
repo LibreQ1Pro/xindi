@@ -16,7 +16,10 @@ python3 hmi_parse.py out.HMI --check
 `.tft` (the printer flashes `/root/800_480.tft` into the screen at start-up).
 
 `tools/add_network_pages.py` is the script that made the network changes from the stock sources (it refuses to run
-twice). `tools/preview_page.py OUT.png page...` draws a rough preview of pages (Noto Sans instead of the screen fonts).
+twice); `tools/draw_network_pictures.py` draws the backgrounds of the network pages (antialiased rounded corners, run it
+again after changing a layout). Helpers: `tools/page_dump.py` (a page as text), `tools/pic_sheet.py` (pictures by id on one
+image), `tools/name_pictures.py` (how the picture names were proposed); on the printer, `tests/printer/check_network.py`
+checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...` draws a rough preview of pages (Noto Sans instead of the screen fonts).
 
 ## Network pages
 
