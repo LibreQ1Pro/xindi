@@ -15,14 +15,10 @@ from xindi.screen import thumbnail
 from xindi.util import paths
 from xindi.util.cpp import to_string
 
-
 log = logging.getLogger(__name__)
-
 
 # BLOCK_SIZE 3072
 BLOCK_SIZE = 3800
-
-
 HEADER_SIZE = 12
 
 

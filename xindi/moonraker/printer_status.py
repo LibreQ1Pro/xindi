@@ -7,7 +7,6 @@ from xindi import state as g
 from xindi.moonraker.json_fields import read_fields
 from xindi.util.cpp import c_int, c_round, f32, jbool, jdouble, jfloat, jget, jpath, jstr
 
-
 log = logging.getLogger(__name__)
 
 

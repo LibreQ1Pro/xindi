@@ -14,7 +14,6 @@ from xindi.system.network import (detected_wlan0,
                                   set_page_wifi_ssid_list)
 from xindi.util.cpp import b2s, to_string
 
-
 log = logging.getLogger(__name__)
 
 

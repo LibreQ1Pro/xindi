@@ -13,12 +13,9 @@ import time
 from xindi.screen.serial import set_option
 from xindi.util.cpp import s2b, to_string
 
-
 log = logging.getLogger(__name__)
 
-
 END = b"\xff\xff\xff"
-
 
 # Python only: XINDI_TJC_LOG=1 prints every instruction sent to the screen
 # (debugging aid, off by default: the main loop sends hundreds per second)

@@ -16,7 +16,6 @@ from xindi.screen.transfer import delete_small_jpg
 from xindi.util import paths
 from xindi.util.cpp import substr, system, to_string
 
-
 log = logging.getLogger(__name__)
 
 
@@ -137,8 +136,6 @@ def clear_cp0_image():
     g.files.meta_parse_finished = False
     g.files.meta_simage = ""
     g.files.meta_gimage = ""
-
-
     # the z-offset is no longer set by xindi (printer_set_babystep() not called)
 
 
@@ -198,8 +195,6 @@ def go_to_file_list():
         refresh_page_files(g.files.list_current_pages)
         refresh_files_list()
         klipper.get_object_status()
-
-
         # the label "Setup Guide" is set by the screen itself (common_set: a timer, the text in the screen language)
 
 

@@ -29,32 +29,16 @@ import urllib.request
 
 
 MOONRAKER_URL = "http://localhost:7125"
-
-
 CHUNK_SIZE = 256 * 1024             # bytes downloaded per request
-
-
 READ_LIMIT = 4 * 1024 * 1024        # thumbnails further into the file are ignored
-
-
 CACHE_SECONDS = 10.0                # one page refresh looks up and then converts
-
-
 CACHE_ENTRIES = 16
 
-
 _BEGIN = re.compile(r"^;\s*(thumbnail(?:_JPG|_PNG|_QOI)?) begin (\d+)x(\d+)(?: (\d+))?")
-
-
 _END = re.compile(r"^;\s*thumbnail(?:_JPG|_PNG|_QOI)? end")
-
-
 _FORMATS = {"thumbnail": "PNG", "thumbnail_PNG": "PNG", "thumbnail_JPG": "JPEG", "thumbnail_QOI": "QOI"}
 
-
 _cache = {}
-
-
 _cache_lock = threading.Lock()
 
 

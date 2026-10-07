@@ -19,25 +19,16 @@ import urllib.request
 
 
 MOONRAKER_URL = "http://localhost:7125"
-
-
 PRINTER_DATA = "/home/mks/printer_data"
-
 
 _LEGACY = {"gcodes": "/home/mks/gcode_files",
            "config": "/home/mks/klipper_config",
            "logs": "/home/mks/klipper_logs"}
 
-
 RETRY_SECONDS = 5.0
 
-
 _roots = None
-
-
 _last_try = 0.0
-
-
 _lock = threading.Lock()
 
 

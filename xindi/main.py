@@ -22,9 +22,7 @@ from xindi.system.network import (get_ssid_list_pages,
 from xindi.util import paths
 from xindi.util.cpp import pthread_create, system, terminate
 
-
 log = logging.getLogger(__name__)
-
 
 REFRESH_INTERVAL = 0.05     # s between two redraws of the page
 

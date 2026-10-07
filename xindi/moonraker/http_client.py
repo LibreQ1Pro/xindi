@@ -12,7 +12,6 @@ import socket
 
 from xindi.util.cpp import b2s, s2b
 
-
 log = logging.getLogger(__name__)
 
 

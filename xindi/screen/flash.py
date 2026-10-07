@@ -23,16 +23,9 @@ from xindi.util.cpp import substr, to_string
 
 
 SEND_FILE_NAME = "/root/800_480.tft"     # uart.cpp: "UI/MATE_272_480.tft"
-
-
 UART_DEV = "/dev/ttyS1"
-
-
 INIT_BAUD = 115200
-
-
 TRANSFER_BAUD = 921600                   # uart.cpp: 115200
-
 
 FNDELAY = os.O_NONBLOCK
 

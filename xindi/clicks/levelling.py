@@ -10,7 +10,6 @@ from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import system
 
-
 log = logging.getLogger(__name__)
 
 

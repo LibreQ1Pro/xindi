@@ -4,14 +4,8 @@ Both sides use this table: ``netui.py`` sends the texts that depend on the state
 ``display_firmware/tools/net_i18n.py`` writes the fixed ones into the pages of the screen project, so the two cannot
 drift apart."""
 
-
-
-
 LANGUAGES = ("zh", "ru", "en", "ja", "fr", "de", "it", "es", "ko", "pt", "ar", "tr", "he")
-
-
 DEFAULT = 2         # English, for a language code that is not in the list
-
 
 TEXT = {
     "saved_networks": ("已保存的网络", "Сохранённые сети", "Saved Networks", "保存済みネットワーク", "Réseaux enregistrés",

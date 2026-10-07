@@ -11,23 +11,14 @@ from xindi.system import network
 from xindi.util import netstrings
 from xindi.util.cpp import pthread_create
 
-
 log = logging.getLogger(__name__)
-
 
 ROWS = 5
 
-
 # modes of the keyboard page: what the text typed on it is
 KB_PSK_SCANNED = 1      # password of the network chosen in the scan list (g.net.get_wifi_name)
-
-
 KB_PSK_SAVED = 2        # new password of the saved connection S.sel
-
-
 KB_HIDDEN_SSID = 3      # name of a hidden network
-
-
 KB_HIDDEN_PSK = 4       # its password (empty = open network)
 
 

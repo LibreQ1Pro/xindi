@@ -12,7 +12,6 @@ from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.system.network import set_page_wifi_ssid_list
 
-
 log = logging.getLogger(__name__)
 
 

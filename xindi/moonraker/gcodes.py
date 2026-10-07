@@ -5,88 +5,41 @@ import logging
 from xindi.moonraker.rpc_requests import json_run_a_gcode
 from xindi.util.cpp import f32, to_string
 
-
 log = logging.getLogger(__name__)
 
-
 AXIS_X = "X"
-
-
 AXIS_Y = "Y"
-
-
 AXIS_Z = "Z"
 
-
 HOME = "G28"
-
-
 HOME_X = "G28 X"
-
-
 HOME_Y = "G28 Y"
-
-
 HOME_Z = "G28 Z"
-
-
 HOME_XY = "G28 X Y"
-
-
 Z_TILT = "Z_TILT_ADJUST"
-
-
 QUAD_GANTRY_LEVEL = "QUAD_GANTRY_LEVEL"
 
-
 MOVE = "G1"
-
-
 MOVE_ABSOLUTE = "G90"
-
-
 MOVE_RELATIVE = "G91"
 
-
 EXTRUDE_ABS = "M82"
-
-
 EXTRUDE_REL = "M83"
 
-
 SET_EXT_TEMP = "M104"
-
-
 SET_BED_TEMP = "M140"
 
-
 SET_EXT_FACTOR = "M221"
-
-
 SET_FAN_SPEED = "M106"
-
-
 SET_SPD_FACTOR = "M220"
 
-
 PROBE_CALIBRATE = "PROBE_CALIBRATE"
-
-
 Z_ENDSTOP_CALIBRATE = "Z_ENDSTOP_CALIBRATE"
-
-
 TESTZ = "TESTZ Z="
-
-
 ABORT = "ABORT"
-
-
 ACCEPT = "ACCEPT"
 
-
 SAVE_CONFIG = "SAVE_CONFIG"
-
-
 RESTART = "RESTART"
 
 
@@ -109,8 +62,6 @@ def set_fan2_speed(speed):
 def set_fan3_speed(speed):
     speed_temp = to_string(f32(f32(speed * 255) / 100))
     return "M106 P3 S" + speed_temp
-
-
 # Xindi
 
 

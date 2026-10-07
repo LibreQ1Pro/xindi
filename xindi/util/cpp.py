@@ -24,10 +24,7 @@ import struct
 
 
 ENCODING = "utf-8"
-
-
 ERRORS = "surrogateescape"
-
 
 # std::string::npos is represented by -1 (what str.find() returns).  Adding a
 # small positive number to it gives the same result as the size_t wrap-around
@@ -169,8 +166,6 @@ def str_lower_ascii(s):
 # ---------------------------------------------------------------------------
 
 _C_SPACE = " \t\n\v\f\r"
-
-
 _FLOAT_RE = re.compile(
     r"[+-]?(?:"
     r"(?:0[xX](?:[0-9a-fA-F]+\.?[0-9a-fA-F]*|\.[0-9a-fA-F]+)(?:[pP][+-]?[0-9]+)?)|"

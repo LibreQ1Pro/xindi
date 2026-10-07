@@ -1,8 +1,5 @@
 """Command code to JSON-RPC method / id maps."""
 
-
-
-
 # Mapping between the internal command codes and the Moonraker API methods
 method2command = {
     0x01: "server.connection.identify",
@@ -127,7 +124,6 @@ method2command = {
     0xf2: "server.extensions.request",
     0xf3: "connection.send_event",
 }
-
 
 method2id = {
     0x01: 4656,

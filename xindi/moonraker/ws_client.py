@@ -20,31 +20,16 @@ from xindi import state as g
 from xindi.moonraker.rpc_requests import json_run_a_gcode
 from xindi.util.cpp import b2s, s2b
 
-
 log = logging.getLogger(__name__)
 
-
 _OP_CONT = 0x0
-
-
 _OP_TEXT = 0x1
-
-
 _OP_BINARY = 0x2
-
-
 _OP_CLOSE = 0x8
-
-
 _OP_PING = 0x9
-
-
 _OP_PONG = 0xA
 
-
 CLOSE_NORMAL = 1000
-
-
 CLOSE_GOING_AWAY = 1001
 
 

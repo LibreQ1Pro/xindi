@@ -23,7 +23,6 @@ from xindi.util.cpp import (c_int,
                             substr,
                             to_string)
 
-
 log = logging.getLogger(__name__)
 
 

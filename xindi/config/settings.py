@@ -13,7 +13,6 @@ from xindi.system.network import get_wlan0_status
 from xindi.util import paths
 from xindi.util.cpp import system, to_string
 
-
 log = logging.getLogger(__name__)
 
 

@@ -14,22 +14,13 @@ import time
 
 END = b"\xff\xff\xff"
 
-
 # frames that are cut by their length instead of the first terminator: the data of ``71 page widget low high`` is a
 # number of two bytes, which may be 0xff 0xff (-1) and then ends in ``ff ff ff ff ff``. The other frames are cut at the
 # first terminator (the click frames of the firmware are ``65 page widget``, the ones of the editor ``65 page id event``).
 FIXED = {0x71: 5}
-
-
 ACK = 0x05              # the answer to a data packet of the picture transfer / of the screen flashing is this single byte
-
-
 STALE_AFTER = 0.1       # s, an unfinished frame that got no new byte for that long is dropped
-
-
 MAX_BUFFER = 8192       # bytes, something is wrong when a frame is longer
-
-
 MAX_AGE = 5.0           # s, a frame that waited longer in the queue is dropped: the page it was meant for is gone
 
 

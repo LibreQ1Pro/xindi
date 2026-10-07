@@ -16,7 +16,6 @@ from xindi.moonraker.rpc_requests import string2json
 from xindi.screen import pageids as ids
 from xindi.util.cpp import jeq, jget, jint, jpath, json_dump, jstr
 
-
 log = logging.getLogger(__name__)
 
 

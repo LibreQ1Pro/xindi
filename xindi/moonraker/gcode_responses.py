@@ -8,7 +8,6 @@ from xindi import state as g
 from xindi.screen import navigation, pageids as ids
 from xindi.util.cpp import f32, jget, json_dump, jstr, stream_float, substr, to_string
 
-
 log = logging.getLogger(__name__)
 
 

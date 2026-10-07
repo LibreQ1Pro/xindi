@@ -18,13 +18,9 @@ from xindi import state as g
 from xindi.screen import navigation, pageids as ids
 from xindi.util.cpp import pthread_create
 
-
 log = logging.getLogger(__name__)
 
-
 NMCLI = "nmcli"
-
-
 ENV = {"LC_ALL": "C", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
 
 

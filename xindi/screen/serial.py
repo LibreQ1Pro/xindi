@@ -5,34 +5,15 @@ import termios
 
 # Values of the termios constants on Linux (same on x86 and aarch64)
 _CREAD = termios.CREAD
-
-
 _CSIZE = termios.CSIZE
-
-
 _CS7 = termios.CS7
-
-
 _CS8 = termios.CS8
-
-
 _PARENB = termios.PARENB
-
-
 _PARODD = termios.PARODD
-
-
 _INPCK = termios.INPCK
-
-
 _CSTOPB = termios.CSTOPB
-
-
 _VTIME = termios.VTIME
-
-
 _VMIN = termios.VMIN
-
 
 _BAUDRATES = {
     1200: termios.B1200,

@@ -7,9 +7,7 @@ import re
 from xindi.util import paths
 from xindi.util.cpp import i32, strtol
 
-
 log = logging.getLogger(__name__)
-
 
 # INIPATH = "/root/config.mksini"
 # INIPATH = "/home/mks/klipper_config/config.mksini"

@@ -7,8 +7,6 @@ from xindi.util.cpp import json_dump, json_parse
 
 # JSON message used by the makerbase client to identify the connection
 STRING_IDENTIFY_CONNECTION = "{\"jsonrpc\":\"2.0\",\"method\":\"server.connection.identify\",\"params\":{\"client_name\":\"makerbase-client\",\"version\":\"0.0.1\",\"type\":\"web\",\"url\":\"http://makerbase.com/test\"},\"id\":4656}"
-
-
 STRING_GET_KLIPPY_HOST_INFORMATION = "{\"jsonrpc\":\"2.0\",\"method\":\"printer.info\",\"id\":5445}"
 
 

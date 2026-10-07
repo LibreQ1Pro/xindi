@@ -41,7 +41,6 @@ NO_PRINT_JUMP_PAGES = frozenset((
     ids.GCODE_ERROR, ids.DETECT_ERROR, ids.RESET, ids.PREVIEW, ids.PREVIEW_POP_1, ids.PREVIEW_POP_2,
     ids.PRINTING_2, ids.FILAMENT_POP_2, ids.FILAMENT_POP_3, ids.STOP_CONFIRM))
 
-
 # pages that stay where they are when Klipper fails
 NO_RESET_JUMP_PAGES = frozenset((
     ids.GCODE_ERROR, ids.DETECT_ERROR, ids.LEVEL_ERROR, ids.SHUTDOWN, ids.SERVICE, ids.LANGUAGE,
@@ -49,11 +48,8 @@ NO_RESET_JUMP_PAGES = frozenset((
     ids.WIFI_FAILED, ids.WIFI_SUCCESS, ids.WIFI_SAVING, ids.NET_SAVED, ids.NET_DETAIL, ids.NET_CONFIRM,
     ids.NET_INFO, ids.RESTORE_CONFIG, ids.INTERNET_PAGE))
 
-
 # moves of the "move without homing" pop-up, by the button that started it
 UNHOMED_HOMING = "SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"
-
-
 UNHOMED_MOVES = {
     1: "G91\nG1 X10 F3000\nG90\nM84\n",       # X_UP
     2: "G91\nG1 X-10 F3000\nG90\nM84\n",      # X_DOWN

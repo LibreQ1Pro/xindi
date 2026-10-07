@@ -10,7 +10,6 @@ from xindi.printer import heating, job, klipper, motion
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 
-
 log = logging.getLogger(__name__)
 
 
