@@ -44,7 +44,7 @@ of the binary (`clear_deprecated_services()`, which deletes `/root/auto_update` 
 The port began as a line-by-line translation of the C++ program and has been refactored since: the
 global state is split by area (`xindi/state.py`), the page logic by what it does (`pages`, `actions`,
 `settings`, `filelist`, `wifi_ui`), the clicks of the screen are a table of handlers per page
-(`xindi/clicks/`), and the dead code and the modules named after the C++ files are gone. The names of
+(`xindi/clicks/`), and the dead code and the modules named after the C++ files are gone. The settings file has a small parser of its own (`xindi/config_ini.py`), the log goes through the `logging` module (`XINDI_LOG=debug` shows the chatty messages), and the Moonraker messages, the gcode responses and the status objects are handled through tables. The names of
 the modules and functions no longer follow the C++ sources. What the screen is sent is unchanged
 and checked by the golden traces of `tests/e2e`.
 
@@ -71,7 +71,7 @@ To use it on the printer instead of the C++ binary, change the last line of
 |---|---|---|
 | `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen_flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
 | `/home/mks/gene4.py` | `xindi/colpic.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
-| `/home/mks/libColPic.so` (aarch64) | `xindi/colpic.py` (`ColPic_EncodeStr` …) | Reverse engineered (`ADList0`, `Byte8bitEncode`, `ColPicEncode`, `ColPic_EncodeStr`). Output is byte-identical to the original library, including its quirks. |
+| `/home/mks/libColPic.so` (aarch64) | `xindi/colpic.py` (`col_pic_encode_str` …) | Reverse engineered (`ad_list0`, `byte8bit_encode`, `col_pic_encode`, `col_pic_encode_str`). Output is byte-identical to the original library, including its quirks. |
 | wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
 | websocketpp | `xindi/moonraker_ws.py` | Minimal RFC 6455 client with the same connection-state semantics. |
 | HTTPRequest.hpp | `xindi/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
@@ -86,16 +86,16 @@ are still run through the shell exactly like before.
 * `xindi/state.py` holds the shared state, one object per area: `g.screen` (what the screen
   shows, page flags), `g.klippy` (the printer as Klipper reports it), `g.shown` (values last sent
   to the screen), `g.levelling`, `g.files`, `g.net`, `g.config`, `g.update`, `g.pictures` and
-  `g.rpc` (the Moonraker message being handled). The two connections are `g.tty_fd` and `g.ep`.
+  `g.rpc` (the Moonraker message being handled). The two connections are `g.port` (the screen's serial port: `g.port.page(...)`, `g.port.txt(...)`, …, in `xindi/screen_tx.py`) and `g.ep` (Moonraker).
 * `xindi/cpp.py` reproduces the C/C++ semantics the code depends on:
   * 32-bit `float` rounding (`f32`) and `std::to_string`
   * `std::string::substr` / `npos` arithmetic and integer division / `%` truncating toward zero
   * C `round()`, `strtol` / `atof` / `std::stof` / stream parsing
   * nlohmann::json style access and type errors (`jget`, `jstr`, `jint`, …)
   * `pthread_create` that aborts the process on an uncaught exception, like `std::terminate`
-* Every other module is the port of the C++ file with the same name. The page and
-  widget constants of `ui.h` are at the top of `xindi/ui.py`. Fall-through
-  `switch` cases (missing `break`) are reproduced and marked with a `NOTE`.
+* The other modules are named after what they do (see the list in the refactoring paragraph above). The page
+  ids are in `xindi/pageids.py`. Fall-through `switch` cases (missing `break`) of the C++ code are
+  reproduced and marked with a `NOTE`.
 
 ## Deliberate deviations
 
