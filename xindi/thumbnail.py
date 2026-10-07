@@ -174,13 +174,16 @@ def find(path, size, prefer_fmt):
     return choose(get_thumbnails(path), size, prefer_fmt)
 
 
-def _screen_image(thumb):
+def _screen_image(thumb, turn=True):
     """The thumbnail as a PIL image turned for the screen: the screen is mounted
     rotated, so the pictures are sent turned 90 degrees counterclockwise (the
-    .thumbs pictures of QIDI's Moonraker are stored that way already)."""
+    .thumbs pictures of QIDI's Moonraker are stored that way already); the big
+    ColPic pictures (``turn=False``) are sent as they are."""
     from PIL import Image
     image = Image.open(io.BytesIO(thumb.data))
     image.load()
+    if not turn:
+        return image
     return image.transpose(getattr(Image, "Transpose", Image).ROTATE_90)
 
 
@@ -204,7 +207,7 @@ def colpic(path, size):
     thumb = find(path, size, "PNG")
     if thumb is None:
         raise IOError("no thumbnail in %s" % path)
-    return gene4.encode_picture(_flatten(_screen_image(thumb)), size)
+    return gene4.encode_picture(_flatten(_screen_image(thumb, False)), size)
 
 
 def jpeg(path, size):
