@@ -5,7 +5,7 @@ New pages (appended, so the ids of the old ones do not change):
   110 net_saved    list of the saved Wi-Fi connections (like wifi_list, 5 rows, paging)
   111 net_detail   one saved connection: connect / disconnect, change password, autoconnect, forget
   112 net_confirm  "forget the network?"
-  113 net_info     the state of the Wi-Fi and LAN interfaces, Wi-Fi / LAN switches
+  113 net_info     the state of the Wi-Fi and LAN interfaces, Wi-Fi radio switch
 Changed pages:
   wifi_list (51)   the IP box became the buttons "Saved" and "Hidden"
   wifi_kb (56)     the keyboard works in several modes: it sends ``0x70 kbmode row text``, the text is
@@ -106,8 +106,7 @@ def make_pictures():
     def info(d, bar_c, red_c, im):
         box(d, (18, 64, 254, 204))
         box(d, (18, 214, 254, 354))
-        bar(d, (18, 364, 130, 404), bar_c)
-        bar(d, (142, 364, 254, 404), bar_c)
+        bar(d, (18, 364, 254, 404), bar_c)
     two("net_bg_info", info)
 
     # network page: no bar for the QIDI "device code" any more
@@ -216,8 +215,7 @@ def build_pages():
     objs = common("Network info") + [
         text("twifi", 28, 70, 216, 130, maxl=200, ycen=0),
         text("teth", 28, 220, 216, 130, maxl=200, ycen=0),
-        button("bwifi", 18, 364, 112, 40, "", 1, "net_bg_info", "net_bg_info_p", maxl=30),
-        button("beth", 142, 364, 112, 40, "", 2, "net_bg_info", "net_bg_info_p", maxl=30),
+        button("bwifi", 18, 364, 236, 40, "", 1, "net_bg_info", "net_bg_info_p", maxl=30),
     ]
     pages["net_info"] = page("net_info", "net_bg_info", objs, i18n({"t6.txt": ("Network info", "Сведения о сети")}))
     return pages

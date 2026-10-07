@@ -27,7 +27,7 @@ twice). `tools/preview_page.py OUT.png page...` draws a rough preview of pages (
 | `net_saved` (110) | saved Wi-Fi connections, 5 rows with paging | rows 0-4, 5 prev, 6 next, 23 back |
 | `net_detail` (111) | one connection | 1 connect / disconnect, 2 new password, 3 autoconnect, 4 forget, 23 back |
 | `net_confirm` (112) | forget the connection? | 1 forget, 0 cancel, 23 back |
-| `net_info` (113) | state of the Wi-Fi and LAN interfaces | 1 Wi-Fi on/off, 2 LAN on/off, 23 back |
+| `net_info` (113) | state of the Wi-Fi and LAN interfaces | 1 Wi-Fi radio on/off, 23 back (the wired link is never switched) |
 | `wifi_kb` (56) | the keyboard, now with a mode | 0 back; the text is sent as `0x70 <kbmode> <row> <text>` |
 
 Texts of the new pages: English and Russian (Russian when `lang==1`, English for every other language).

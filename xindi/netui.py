@@ -191,24 +191,18 @@ def show_info():
     _txt("twifi", _lines(*[_clip(line, 28) for line in wifi_lines]))
     _txt("teth", _lines(*[_clip(line, 28) for line in lan_lines]))
     _txt("bwifi", "Wi-Fi: " + (tr("on", "вкл") if radio else tr("off", "выкл")))
-    _txt("beth", "LAN: " + (tr("on", "вкл") if lan["state"] == "connected" else tr("off", "выкл")))
 
 
-def _toggle_thread(kind):
-    if kind == "wifi":
-        network.set_wifi_radio(not network.wifi_radio())
-    else:
-        network.set_link("ethernet", network.device_report("ethernet")["state"] != "connected")
-    sleep(2)        # NetworkManager needs a moment to bring the link up / down
+def _toggle_thread(arg):
+    network.set_wifi_radio(not network.wifi_radio())
+    sleep(2)        # NetworkManager needs a moment to bring the radio up / down
     if g.current_page_id == ui.TJC_PAGE_NET_INFO:
         show_info()
 
 
 def info_clicked(widget_id):
-    if widget_id == 1:
-        pthread_create(_toggle_thread, "wifi")
-    elif widget_id == 2:
-        pthread_create(_toggle_thread, "ethernet")
+    if widget_id == 1:          # the wired link is never switched: LAN and Wi-Fi are used together
+        pthread_create(_toggle_thread, None)
     elif widget_id == 23:
         from . import event
         event.refresh_ip_address()

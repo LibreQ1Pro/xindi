@@ -75,19 +75,25 @@ def _device_info(dev):
     return info
 
 
-def _ip(dev):
-    """IPv4 address of the interface without the prefix length ("" if it has none)."""
-    if dev is None:
-        return ""
-    return _device_info(dev).get("IP4.ADDRESS", "").split("/")[0]
+_ip_cache = {}      # kind -> (time, address): the network page asks for the address in every refresh
+
+
+def _ip(kind):
+    """IPv4 address of the interface of the type ``kind`` without the prefix length ("" if it has none),
+    at most 5 seconds old."""
+    now = time.time()
+    if kind not in _ip_cache or now - _ip_cache[kind][0] > 5:
+        dev = _device(kind)
+        _ip_cache[kind] = (now, _device_info(dev).get("IP4.ADDRESS", "").split("/")[0] if dev else "")
+    return _ip_cache[kind][1]
 
 
 def get_wlan0_ip():
-    return _ip(_device("wifi"))
+    return _ip("wifi")
 
 
 def get_eth0_ip():
-    return _ip(_device("ethernet"))
+    return _ip("ethernet")
 
 
 def detected_wlan0():
@@ -272,12 +278,6 @@ def wifi_radio():
 
 def set_wifi_radio(enabled):
     return _run(["radio", "wifi", "on" if enabled else "off"])[0] == 0
-
-
-def set_link(kind, enabled):
-    """Connects / disconnects the interface of the type ``kind`` ("ethernet" or "wifi")."""
-    dev = _device(kind)
-    return dev is not None and _run(["-w", "30", "dev", "connect" if enabled else "disconnect", dev], timeout=40)[0] == 0
 
 
 def device_report(kind):

@@ -2447,11 +2447,6 @@ def set_mks_connection_method(target):
     system("sync")
 
 
-# NOTE: 4.4.22 replaced the QR code page (QIDI's cloud) by a network page; the
-# QIDI Link part of it is not implemented, its buttons stay disabled (LAN only).
-QIDI_LINK_ENABLED = False
-
-
 def refresh_ip_address():
     """4.4.22: show the network page with the address of wlan0."""
     page_to(ui.TJC_PAGE_INTERNET_PAGE)
@@ -2472,25 +2467,6 @@ def refresh_page_show_ip():
         send_cmd_txt(g.tty_fd, "t0", g.status_result.ip_address)
         send_cmd_picc(g.tty_fd, "b2", "268")
         send_cmd_picc2(g.tty_fd, "b2", "214")
-    if QIDI_LINK_ENABLED == False:
-        send_cmd_tsw(g.tty_fd, "b5", "0")
-        send_cmd_tsw(g.tty_fd, "b6", "0")
-        send_cmd_tsw(g.tty_fd, "b7", "0")
-        send_cmd_tsw(g.tty_fd, "b8", "0")
-        send_cmd_tsw(g.tty_fd, "t5", "0")
-        send_cmd_tsw(g.tty_fd, "t6", "0")
-        send_cmd_tsw(g.tty_fd, "t7", "0")
-        send_cmd_tsw(g.tty_fd, "t8", "0")
-        send_cmd_picc(g.tty_fd, "b4", "269")
-        send_cmd_picc2(g.tty_fd, "b4", "215")
-        send_cmd_picc(g.tty_fd, "b5", "215")
-        send_cmd_picc(g.tty_fd, "b6", "215")
-        send_cmd_picc(g.tty_fd, "b7", "215")
-        send_cmd_picc(g.tty_fd, "b8", "215")
-        send_cmd_pco(g.tty_fd, "t5", "33808")
-        send_cmd_pco(g.tty_fd, "t6", "33808")
-        send_cmd_pco(g.tty_fd, "t7", "33808")
-        send_cmd_pco(g.tty_fd, "t8", "33808")
 
 
 TIMELAPSE_URL = "http://127.0.0.1:7125/machine/timelapse/settings"
