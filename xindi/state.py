@@ -63,7 +63,6 @@ class Screen(object):
         self.move_fan_setting = False  # True while the fan slider is being dragged
         self.load_target = 0
         self.load_mode = False  # True: loading filament, False: unloading
-        self.qr_refreshed = False  # QR code needs to be regenerated only after wifi / connection / server changes
         # 4.4.22 (from the binary)
         self.muted = False  # silent mode: print speed 50%, reset when a print starts
         self.timelapse_enabled = False  # state of Moonraker's timelapse plugin, shown on the preview page
@@ -271,17 +270,12 @@ class Files(object):
 
 
 class Net(object):
-    """Wi-Fi and wired network, the saved servers."""
+    """Wi-Fi and wired network."""
 
     def __init__(self):
         self.wifi_ip_address = ""
         # wifi
         self.current_connected_ssid_name = ""
-        self.connection_method = 0  # 0: LAN connection, 1: internet connection (QR code)
-        self.server_configs = {}  # std::map<int, Server_config>
-        self.selected_server = ""
-        self.server_page = 0
-        self.total_server_count = 0
         self.wlan_state_str = ""
         self.status_result = mks_wifi_status_result_t()
         self.ssid_list = []
@@ -319,32 +313,10 @@ class Config(object):
 
 
 class Update(object):
-    """Detected updates and the transfer of the screen firmware."""
+    """The screen firmware file at start-up, and the answers of the screen to the picture / firmware transfers."""
 
     def __init__(self):
         self.find_screen_tft_file = False
-        self.target_soc_version = ""
-        self.detected_soc_data = False
-        self.detected_mcu_data = False
-        self.detected_ui_data = False
-        # CLL detection of Q1 SOC and UI updates
-        self.detected_q1_soc_data = False
-        self.detected_q1_ui_data = False
-        # CCW 4.4.14 detection of Q1 patch packages
-        self.detected_q1_patch_data = False
-        self.detected_printer_cfg = False
-        self.detected_gcode_cfg = False
-        self.detected_MKS_THR_cfg = False
-        self.detected_gcode = False
-        # 4.4.3 CLL updates from .deb files
-        self.detected_soc_deb = False
-        self.tft_buff = 4096
-        self.tft_start = 0
-        self.tft_end = 0
-        self.tft_s = b""
-        self.tft_data = b""
-        self.tft_len = 0
-        self.filesize = 0
         self.get_0xfe = False
         self.get_0x06 = False
         self.get_0x05 = False

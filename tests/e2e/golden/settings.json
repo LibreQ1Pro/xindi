@@ -20,7 +20,6 @@
   "/home/mks/gcode_files/part_abs.gcode": "sha1:3a0314247caa6391:44801",
   "/home/mks/gcode_files/sda1/QD_Log/klippy.log": "sha1:d1130df47a5d2590:11",
   "/home/mks/gcode_files/sda1/QD_Log/moonraker.log": "sha1:53783ad081b4845c:14",
-  "/home/mks/gcode_files/sda1/QD_Log/server.cfg": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
   "/home/mks/gcode_files/sda1/folder/usb_inner.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/sda1/usb_five.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/sda1/usb_four.gcode": "sha1:6d807b2db29596cb:4",
@@ -35,7 +34,6 @@
   "/root/800_480.tft": null,
   "/root/800_480.tft.bak": null,
   "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/frp/frpc.toml": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
   "/root/klipper.bin": null,
   "/root/mcu_shutdown.txt": null,
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
@@ -47,7 +45,6 @@
   "GET /server/files/gcodes/.cache/last_print.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode",
   "GET /server/files/gcodes/Benchy%20PLA.gcode",
   "GET /server/files/gcodes/big_petg.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
@@ -60,7 +57,7 @@
   58,
   57,
   59,
-  68,
+  65,
   59,
   57,
   61,
@@ -69,9 +66,9 @@
   62,
   57,
   57,
-  67,
+  64,
   57,
-  67,
+  64,
   15,
   57,
   39
@@ -227,7 +224,7 @@
   },
   {
    "attrs": {},
-   "page": 68
+   "page": 65
   },
   {
    "attrs": {
@@ -417,7 +414,7 @@
   },
   {
    "attrs": {},
-   "page": 67
+   "page": 64
   },
   {
    "attrs": {
@@ -439,7 +436,7 @@
      "100"
     ]
    },
-   "page": 67
+   "page": 64
   },
   {
    "attrs": {
@@ -539,9 +536,6 @@
   "bash -c 'cp /home/mks/klipper_logs/klippy.log* /home/mks/gcode_files/sda1/QD_Log/'",
   "bash -c 'cp /home/mks/klipper_logs/moonraker.log* /home/mks/gcode_files/sda1/QD_Log/'",
   "bash -c 'cp /home/mks/klipper_logs/auto_update.log* /home/mks/gcode_files/sda1/QD_Log/'",
-  "bash -c 'cp /root/frp/frpc.log* /home/mks/gcode_files/sda1/QD_Log/'",
-  "bash -c 'cp /root/frp/frpc.*.log /home/mks/gcode_files/sda1/QD_Log/'",
-  "cp /root/frp/frpc.toml /home/mks/gcode_files/sda1/QD_Log/server.cfg",
   "sync",
   "rm /home/mks/gcode_files/.cache/*",
   "curl -X POST http://127.0.0.1:7125/server/history/reset_totals",

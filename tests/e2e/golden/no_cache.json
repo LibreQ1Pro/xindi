@@ -24,7 +24,6 @@
   "/root/800_480.tft": null,
   "/root/800_480.tft.bak": null,
   "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/frp/frpc.toml": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
   "/root/klipper.bin": null,
   "/root/mcu_shutdown.txt": null,
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"

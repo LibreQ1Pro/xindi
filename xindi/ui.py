@@ -61,7 +61,7 @@ TJC_PAGE_OPEN_HEATERBED_NEXT = 0x03
 
 TJC_PAGE_OPEN_CALIBRATE = 10
 
-TJC_PAGE_OPEN_FILAMENTVIDEO_0 = 72
+TJC_PAGE_OPEN_FILAMENTVIDEO_0 = 69
 TJC_PAGE_OPEN_FILAMENTVIDEO_0_NEXT = 0x00
 
 TJC_PAGE_OPEN_FILAMENTVIDEO_1 = 11
@@ -311,7 +311,6 @@ TJC_PAGE_COMMON_SETTING_WIFI = 0x01
 TJC_PAGE_COMMON_SETTING_SYSTEM = 0x02
 TJC_PAGE_COMMON_SETTING_SERVICE = 0x03
 TJC_PAGE_COMMON_SETTING_SCREEN_SLEEP = 0x04
-TJC_PAGE_COMMON_SETTING_UPDATE = 0x05
 TJC_PAGE_COMMON_SETTING_RESTORE = 0x06
 TJC_PAGE_COMMON_SETTING_OOBE_OFF = 0x07
 TJC_PAGE_COMMON_SETTING_TO_LEVEL_MODE = 0x16
@@ -328,41 +327,33 @@ TJC_PAGE_RESET_PRINT_LOG = 0x01
 TJC_PAGE_RESET_RESTART_KLIPPER = 0x02
 TJC_PAGE_RESET_RESTART_FIRMWARE = 0x03
 
-TJC_PAGE_UPDATE_FOUND = 63
-TJC_PAGE_UPDATE_FOUND_YES = 0x00
-TJC_PAGE_UPDATE_FOUND_NO = 0x01
 
-TJC_PAGE_UPDATE_NOT_FOUND = 64
-TJC_PAGE_UPDATE_NOT_FOUND_YES = 0x00
-
-TJC_PAGE_UPDATE_FINISH = 65
-
-TJC_PAGE_UPDATE_SUCCESS = 66
+TJC_PAGE_UPDATE_SUCCESS = 63
 TJC_PAGE_UPDATE_SUCCESS_YES = 0x00
 
-TJC_PAGE_RESTORE_CONFIG = 67
+TJC_PAGE_RESTORE_CONFIG = 64
 TJC_PAGE_RESTORE_CONFIG_YES = 0x00
 TJC_PAGE_RESTORE_CONFIG_NO = 0x01
 
-TJC_PAGE_PRINT_LOG_S = 68
-TJC_PAGE_PRINT_LOG_F = 69
+TJC_PAGE_PRINT_LOG_S = 65
+TJC_PAGE_PRINT_LOG_F = 66
 TJC_PAGE_PRINT_LOG_YES = 0x00
 
-TJC_PAGE_DETECT_ERROR = 70
+TJC_PAGE_DETECT_ERROR = 67
 TJC_PAGE_DETECT_ERROR_YES = 0x00
 
-TJC_PAGE_GCODE_ERROR = 71
+TJC_PAGE_GCODE_ERROR = 68
 TJC_PAGE_GCODE_ERROR_YES = 0x00
 
 # 4.4.2 CLL screen sleep feature
-TJC_PAGE_SCREEN_SLEEP = 73
+TJC_PAGE_SCREEN_SLEEP = 70
 TJC_PAGE_SCREEN_SLEEP_ENTER = 0x01
 TJC_PAGE_SCREEN_SLEEP_EXIT = 0x00
 
-TJC_PAGE_LEVEL_ERROR = 74
+TJC_PAGE_LEVEL_ERROR = 71
 TJC_PAGE_LEVEL_ERROR_YES = 0x00
 
-TJC_PAGE_FILAMENT = 75
+TJC_PAGE_FILAMENT = 72
 TJC_PAGE_FILAMENT_SET_EXTRUDER = 0x00
 TJC_PAGE_FILAMENT_SET_HEATERBED = 0x01
 TJC_PAGE_FILAMENT_EXTRUDER_ON_OFF = 0x02
@@ -383,27 +374,26 @@ TJC_PAGE_FILAMENT_SET_HOT = 0x10
 TJC_PAGE_FILAMENT_TO_FILAMENT = 0x16
 TJC_PAGE_FILAMENT_TO_MOVE = 0x17
 
-TJC_PAGE_PRINT_NO_FILAMENT_2 = 76
+TJC_PAGE_PRINT_NO_FILAMENT_2 = 73
 TJC_PAGE_PRINT_NO_FILAMENT_2_YES = 0x00
 
-TJC_PAGE_MEMORY_WARNING = 77
+TJC_PAGE_MEMORY_WARNING = 74
 TJC_PAGE_MEMORY_WARNING_YES = 0x00
 
-TJC_PAGE_UPDATING = 78
 
-TJC_PAGE_PRE_HEAT = 79
+TJC_PAGE_PRE_HEAT = 75
 TJC_PAGE_PRE_HEAT_SET_220 = 0x00
 TJC_PAGE_PRE_HEAT_SET_250 = 0x01
 TJC_PAGE_PRE_HEAT_SET_300 = 0x02
 TJC_PAGE_PRE_HEAT_BACK = 0x04
 
-TJC_PAGE_RESUME_PRINT = 80
+TJC_PAGE_RESUME_PRINT = 76
 TJC_PAGE_RESUME_PRINT_YES = 0x00
 TJC_PAGE_RESUME_PRINT_NO = 0x01
 TJC_PAGE_RESUME_PRINT_LOADED = 0x02       # 4.4.24: sent by the page when it is shown
 
 # 4.4.24: the QR code page became the network page (internet_page)
-TJC_PAGE_INTERNET_PAGE = 81
+TJC_PAGE_INTERNET_PAGE = 77
 TJC_PAGE_INTERNET_PAGE_BACK = 0x01
 TJC_PAGE_INTERNET_PAGE_ETHERNET = 0x02
 TJC_PAGE_INTERNET_PAGE_WIFI = 0x03
@@ -412,70 +402,44 @@ TJC_PAGE_INTERNET_PAGE_SAVED = 0x06
 TJC_PAGE_INTERNET_PAGE_HIDDEN = 0x07
 
 # pages added by display_firmware (network management), see netui.py
-TJC_PAGE_NET_SAVED = 110
-TJC_PAGE_NET_DETAIL = 111
-TJC_PAGE_NET_CONFIRM = 112
-TJC_PAGE_NET_INFO = 113
+TJC_PAGE_NET_SAVED = 87
+TJC_PAGE_NET_DETAIL = 88
+TJC_PAGE_NET_CONFIRM = 89
+TJC_PAGE_NET_INFO = 90
 
-TJC_PAGE_SERVER_SET = 82
-TJC_PAGE_SERVER_SET_REFRESH = 0x00
-TJC_PAGE_SERVER_SET_BACK = 0x01
-TJC_PAGE_SERVER_SET_LOCAL = 0x02
-TJC_PAGE_SERVER_SET_PREVIOUS = 0x03
-TJC_PAGE_SERVER_SET_NEXT = 0x04
-TJC_PAGE_SERVER_SET_1 = 0x05
-TJC_PAGE_SERVER_SET_2 = 0x06
-TJC_PAGE_SERVER_SET_3 = 0x07
-TJC_PAGE_SERVER_SET_4 = 0x08
 
-TJC_PAGE_UPDATE_MODE = 83
-TJC_PAGE_UPDATE_MODE_BACK = 0x00
-TJC_PAGE_UPDATE_MODE_LOCAL = 0x01
-TJC_PAGE_UPDATE_MODE_ONLINE = 0x02
-
-TJC_PAGE_ONLINE_UPDATE = 84
-TJC_PAGE_ONLINE_UPDATE_BACK = 0x00
-TJC_PAGE_ONLINE_UPDATE_YES = 0x01
-TJC_PAGE_ONLINE_UPDATE_NO = 0x02
-
-TJC_PAGE_SEARCH_SERVER = 85
-
-TJC_PAGE_UNLOAD_MODE = 86
+TJC_PAGE_UNLOAD_MODE = 78
 TJC_PAGE_UNLOAD_MODE_MANUAL = 0x00
 TJC_PAGE_UNLOAD_MODE_AUTO = 0x01
 TJC_PAGE_UNLOAD_MODE_BACK = 0x02
 
-TJC_PAGE_AUTO_UNLOAD = 87
+TJC_PAGE_AUTO_UNLOAD = 79
 TJC_PAGE_AUTO_UNLOAD_TO_LOAD = 0x00
 TJC_PAGE_AUTO_UNLOAD_YES = 0x01
 
-TJC_PAGE_OPEN_LANGUAGE2 = 88
+TJC_PAGE_OPEN_LANGUAGE2 = 80
 
-TJC_PAGE_LANGUAGE2 = 89
+TJC_PAGE_LANGUAGE2 = 81
 
-TJC_PAGE_INSTALLING = 90
 
-TJC_PAGE_AUTO_WARNING = 91
+TJC_PAGE_AUTO_WARNING = 82
 TJC_PAGE_AUTO_WARNING_YES = 0x00
 
-TJC_PAGE_CALIBRATE_WARNING = 92
+TJC_PAGE_CALIBRATE_WARNING = 83
 TJC_PAGE_CALIBRATE_WARNING_NEXT = 0x00
 TJC_PAGE_CALIBRATE_WARNING_BACK = 0x01
 
-TJC_PAGE_RE_PRINTING = 93
+TJC_PAGE_RE_PRINTING = 84
 
 # 4.4.24
-TJC_PAGE_OPEN_MOVING = 94
+TJC_PAGE_OPEN_MOVING = 85
 TJC_PAGE_OPEN_MOVING_TIMER = 0x00
 
-TJC_PAGE_STOP_CONFIRM = 95
+TJC_PAGE_STOP_CONFIRM = 86
 TJC_PAGE_STOP_CONFIRM_YES = 0x00
 TJC_PAGE_STOP_CONFIRM_NO = 0x01
 
 # QIDI Link (QIDI's cloud): link_login .. server_error2, not implemented
-TJC_PAGE_LINK_FIRST = 96
-TJC_PAGE_LINK_LAST = 109
-
 
 
 DEFAULT_DIR = "gcodes/"
@@ -594,9 +558,8 @@ def _nav_guarded(widget_id):
 
 def tjc_event_clicked_handler(page_id, widget_id, type_id):
     from . import mks_file
-    from .mks_update import start_update
     from .MakerbaseWiFi import set_page_wifi_ssid_list
-    from . import actions, filelist, pages, settings, updates, wifi_ui
+    from . import actions, filelist, pages, settings, wifi_ui
     cout("+++++++++++++++++++", page_id)
     cout("+++++++++++++++++++", widget_id)
     cout("+++++++++++++++++++", type_id)
@@ -1376,8 +1339,6 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             page_to(TJC_PAGE_SERVICE)
         elif widget_id == TJC_PAGE_COMMON_SETTING_SCREEN_SLEEP:
             page_to(TJC_PAGE_SLEEP_MODE)
-        elif widget_id == TJC_PAGE_COMMON_SETTING_UPDATE:
-            updates.go_to_update()
         elif widget_id == TJC_PAGE_COMMON_SETTING_RESTORE:
             page_to(TJC_PAGE_RESTORE_CONFIG)
         elif widget_id == TJC_PAGE_COMMON_SETTING_OOBE_OFF:
@@ -1405,7 +1366,7 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_UPDATE_SUCCESS:
         if widget_id == TJC_PAGE_UPDATE_SUCCESS_YES:
-            updates.finish_tjc_update()
+            actions.finish_screen_update()
             page_to(TJC_PAGE_MAIN)
 
     elif page_id == TJC_PAGE_PRINT_LOG_F or page_id == TJC_PAGE_PRINT_LOG_S:
@@ -1434,19 +1395,6 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             else:
                 page_to(g.screen.previous_page)
                 actions.get_object_status()
-
-    # 4.4.3 CLL the update button is always shown
-    elif page_id == TJC_PAGE_UPDATE_FOUND:
-        if widget_id == TJC_PAGE_UPDATE_FOUND_YES:
-            page_to(TJC_PAGE_UPDATING)
-            actions.disable_page_about_successed()
-            start_update()
-        elif widget_id == TJC_PAGE_UPDATE_FOUND_NO:
-            updates.go_to_update()
-
-    elif page_id == TJC_PAGE_UPDATE_NOT_FOUND:
-        if widget_id == TJC_PAGE_UPDATE_NOT_FOUND_YES:
-            updates.go_to_update()
 
     elif page_id == TJC_PAGE_RESTORE_CONFIG:
         if widget_id == TJC_PAGE_RESTORE_CONFIG_YES:
@@ -1503,36 +1451,6 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             netui.open_saved()
         elif widget_id == TJC_PAGE_INTERNET_PAGE_HIDDEN:
             netui.open_hidden()
-
-    elif TJC_PAGE_LINK_FIRST <= page_id <= TJC_PAGE_LINK_LAST:
-        pass        # QIDI Link pages: not reachable, the network page keeps the buttons disabled
-
-    # 4.4.22: the server page belongs to QIDI Link (reached from the network page
-    # only when QIDI Link is on), which the port does not implement
-    elif page_id == TJC_PAGE_SERVER_SET:
-        if _nav_guarded(widget_id):
-            pass
-        elif widget_id == TJC_PAGE_SERVER_SET_BACK:
-            wifi_ui.refresh_ip_address()
-    elif page_id == TJC_PAGE_UPDATE_MODE:
-        if _nav_guarded(widget_id):
-            pass
-        elif widget_id == TJC_PAGE_UPDATE_MODE_BACK:
-            page_to(TJC_PAGE_COMMON_SETTING)
-        elif widget_id == TJC_PAGE_UPDATE_MODE_LOCAL:
-            updates.local_update()
-        elif widget_id == TJC_PAGE_UPDATE_MODE_ONLINE:
-            updates.check_online_version()
-
-    elif page_id == TJC_PAGE_ONLINE_UPDATE:
-        if _nav_guarded(widget_id):
-            pass
-        elif widget_id == TJC_PAGE_ONLINE_UPDATE_BACK:
-            page_to(TJC_PAGE_COMMON_SETTING)
-        elif widget_id == TJC_PAGE_ONLINE_UPDATE_YES:
-            updates.online_update()
-        elif widget_id == TJC_PAGE_ONLINE_UPDATE_NO:
-            updates.go_to_update()
 
     elif page_id == TJC_PAGE_UNLOAD_MODE:
         if widget_id == TJC_PAGE_UNLOAD_MODE_MANUAL:

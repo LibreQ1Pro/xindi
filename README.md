@@ -35,12 +35,11 @@ functions changed in it are marked "4.4.22" in the code). The main changes:
 * the screen sleep no longer switches the case light, the total print time is
   no longer counted in `config.mksini`.
 
-**QIDI Link is not implemented** (LAN only): QIDI's cloud service, accounts,
-QR code login, device binding and the frpc tunnel to QIDI's servers, the
-server selection and the online update. The network page keeps those buttons
-disabled and the pages 96..109 are ignored. The start-up cleanup of the
-binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and
-QIDI's frpc service) is not done either.
+**QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
+binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
+from the screen firmware (their pages are removed, so the page numbers of the screen firmware differ from QIDI's).
+The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/uart.py`). The start-up cleanup
+of the binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and QIDI's frpc service) is not done.
 
 The port is not refactored. Every C++ file has a Python module with the same
 name, and every function keeps its name, order of statements and quirks, so the
@@ -79,7 +78,7 @@ To use it on the printer instead of the C++ binary, change the last line of
 | iniparser / dictionary | `xindi/iniparser.py`, `xindi/dictionary.py` | Byte-exact parsing and `iniparser_dump_ini()` output, including slot order. |
 
 Scripts that are not part of this repository and are not present on the printer
-image (`/home/mks/qrcode/qrcode_QD.py`, `/root/auto_update/*.py`) and real
+image and real
 system tools (`cp`, `mv`, `systemctl`, `dpkg`, `curl`, `hid-flash`, …)
 are still run through the shell exactly like before.
 

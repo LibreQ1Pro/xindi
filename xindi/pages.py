@@ -14,7 +14,7 @@ from .MakerbaseSerial import set_option
 from .MoonrakerAPI import json_run_a_gcode
 from .mks_printer import get_cal_printing_time
 from .mks_file import output_imgdata
-from . import actions, filelist, settings, updates, wifi_ui
+from . import actions, filelist, settings, wifi_ui
 
 
 def _replace_for_screen(text):
@@ -79,8 +79,7 @@ def show():
                                    ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_DETECT_ERROR, ui.TJC_PAGE_RESET,
                                    ui.TJC_PAGE_PREVIEW, ui.TJC_PAGE_PREVIEW_POP_1, ui.TJC_PAGE_PREVIEW_POP_2,
                                    ui.TJC_PAGE_PRINTING_2, ui.TJC_PAGE_FILAMENT_POP_2,
-                                   ui.TJC_PAGE_FILAMENT_POP_3, ui.TJC_PAGE_STOP_CONFIRM,
-                                   ui.TJC_PAGE_LINK_FIRST):
+                                   ui.TJC_PAGE_FILAMENT_POP_3, ui.TJC_PAGE_STOP_CONFIRM):
             pass
         else:
             if g.klippy.print_stats_state == "printing":
@@ -104,10 +103,7 @@ def show():
                                  ui.TJC_PAGE_WIFI_FAILED, ui.TJC_PAGE_WIFI_SUCCESS, ui.TJC_PAGE_WIFI_SAVING,
                                  ui.TJC_PAGE_NET_SAVED, ui.TJC_PAGE_NET_DETAIL, ui.TJC_PAGE_NET_CONFIRM,
                                  ui.TJC_PAGE_NET_INFO,
-                                 ui.TJC_PAGE_UPDATE_FOUND, ui.TJC_PAGE_UPDATE_NOT_FOUND, ui.TJC_PAGE_UPDATING,
-                                 ui.TJC_PAGE_UPDATE_FINISH, ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_INTERNET_PAGE,
-                                 ui.TJC_PAGE_SERVER_SET, ui.TJC_PAGE_UPDATE_MODE, ui.TJC_PAGE_ONLINE_UPDATE,
-                                 ui.TJC_PAGE_SEARCH_SERVER):
+                                 ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_INTERNET_PAGE):
             pass
         else:
             # jump to the restart page when the toolhead board is disconnected
@@ -186,7 +182,6 @@ def show():
         auto_unload()
     elif page == ui.TJC_PAGE_OPEN_MOVING:
         open_moving()
-    # NOTE: the server page (QIDI Link) and the QIDI Link pages are not refreshed
 
 
 def open_filament_video_2():
@@ -901,7 +896,7 @@ def main():
 
     # CLL ask for the power loss recovery once after boot
     if g.screen.open_reprint_asked == False:
-        updates.check_print_interrupted()
+        actions.check_print_interrupted()
         g.screen.open_reprint_asked = True
 
 

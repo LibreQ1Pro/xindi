@@ -250,9 +250,6 @@ def print_log():
         system("bash -c 'cp " + paths.klipper_logs() + "/klippy.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
         system("bash -c 'cp " + paths.klipper_logs() + "/moonraker.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
         system("bash -c 'cp " + paths.klipper_logs() + "/auto_update.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
-        system("bash -c 'cp /root/frp/frpc.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
-        system("bash -c 'cp /root/frp/frpc.*.log " + paths.gcode_files() + "/sda1/QD_Log/'")
-        system("cp /root/frp/frpc.toml " + paths.gcode_files() + "/sda1/QD_Log/server.cfg")
         page_to(ui.TJC_PAGE_PRINT_LOG_S)
 
 

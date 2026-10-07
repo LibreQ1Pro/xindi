@@ -14,7 +14,7 @@ import json
 LOGO = 0
 OPEN_LANGUAGE, OPEN_POP, OPEN_VIDEO_1, OPEN_VIDEO_2, OPEN_WARNING = 3, 4, 5, 6, 7
 OPEN_FILAMENTVIDEO_1, OPEN_FILAMENTVIDEO_2, OPEN_FILAMENTVIDEO_3, OPEN_FINISH = 11, 12, 13, 14
-OPEN_FILAMENTVIDEO_0 = 72
+OPEN_FILAMENTVIDEO_0 = 69
 MAIN = 15
 FILE_LIST = 16
 PREVIEW = 17
@@ -48,26 +48,22 @@ WIFI_LIST = 51
 WIFI_CONNECT, WIFI_SAVING, WIFI_SUCCESS, WIFI_FAILED, WIFI_KB = 52, 53, 54, 55, 56
 COMMON_SETTING = 57
 LANGUAGE, SYS_OK, RESET, SERVICE, SLEEP_MODE = 58, 59, 60, 61, 62
-UPDATE_FOUND, UPDATE_NOT_FOUND = 63, 64
-UPDATE_SUCCESS = 66
-RESTORE_CONFIG = 67
-PRINT_LOG_S, PRINT_LOG_F = 68, 69
-DETECT_ERROR, GCODE_ERROR = 70, 71
-SCREEN_SLEEP = 73
-LEVEL_ERROR = 74
-FILAMENT = 75
-PRINT_NO_FILAMENT_2 = 76
-MEMORY_WARNING = 77
-UPDATING = 78
-PRE_HEAT = 79
-RESUME_PRINT = 80
-SHOW_QR = 81
-SERVER_SET = 82
-UPDATE_MODE = 83
-UNLOAD_MODE = 86
-AUTO_UNLOAD = 87
-AUTO_WARNING = 91
-CALIBRATE_WARNING = 92
+UPDATE_SUCCESS = 63
+RESTORE_CONFIG = 64
+PRINT_LOG_S, PRINT_LOG_F = 65, 66
+DETECT_ERROR, GCODE_ERROR = 67, 68
+SCREEN_SLEEP = 70
+LEVEL_ERROR = 71
+FILAMENT = 72
+PRINT_NO_FILAMENT_2 = 73
+MEMORY_WARNING = 74
+PRE_HEAT = 75
+RESUME_PRINT = 76
+SHOW_QR = 77
+UNLOAD_MODE = 78
+AUTO_UNLOAD = 79
+AUTO_WARNING = 82
+CALIBRATE_WARNING = 83
 
 # navigation buttons present on every page
 ALL_TO_MAIN, ALL_TO_ADJUST, ALL_TO_FILE_LIST, ALL_TO_SETTING = 0x1e, 0x1f, 0x20, 0x21
@@ -105,9 +101,9 @@ def scenario_boot_main(h):
     h.touch(MAIN, 0x02, settle=3.0)
 
 
-def wait_preview_loaded(h, timeout=60):
-    """refresh_page_preview() ends with "vis cp0,x" once the preview is complete."""
-    ok = h.screen.wait_value("vis cp0", lambda v: True, timeout)
+def wait_preview_loaded(h, timeout=8):
+    """the preview page ends with "vis preview_pic,x" once the preview is complete."""
+    ok = h.screen.wait_value("vis preview_pic", lambda v: True, timeout)
     if not ok:
         h.errors.append("preview did not finish loading")
     h.settle(1.0)
@@ -201,7 +197,7 @@ def scenario_boot_interrupted(h):
     boot(h, RESUME_PRINT)
     h.touch(RESUME_PRINT, 0x01, settle=1.5)     # no
     h.wait_page(MAIN)
-    h.screen.send(b"\x65\x50\x00\x01\xff\xff\xff")  # yes button of the resume page
+    h.screen.send(bytes([0x65, RESUME_PRINT, 0x00, 0x01]) + b"\xff\xff\xff")  # yes button of the resume page
     h.settle(1.5)
     h.settle(1.0)
 
@@ -610,92 +606,6 @@ def scenario_bed_calibration(h):
     h.settle(1.0)
 
 
-def scenario_wifi(h):
-    """Wifi list, paging, password keyboard, connect success / failure, saving."""
-    boot(h)
-    goto_common_setting(h)
-    h.touch(COMMON_SETTING, 0x01, settle=2.0)    # wifi -> QR page
-    h.wait_page(SHOW_QR)
-    h.touch(SHOW_QR, 0x02, settle=1.0)           # wifi list
-    h.wait_page(WIFI_LIST)
-    h.settle(4.0)
-    h.touch(WIFI_LIST, 0x06, settle=2.0)         # next
-    h.touch(WIFI_LIST, 0x06, settle=2.0)
-    h.touch(WIFI_LIST, 0x05, settle=2.0)         # previous
-    h.touch(WIFI_LIST, 0x07, settle=4.0)         # refresh
-    h.touch(WIFI_LIST, 0x01, settle=1.5)         # second ssid
-    h.wait_page(WIFI_KB)
-    h.settle(1.0)
-    h.touch(WIFI_KB, 0x00, settle=1.5)           # back
-    h.wait_page(WIFI_LIST)
-    h.touch(WIFI_LIST, 0x02, settle=1.5)
-    h.wait_page(WIFI_KB)
-    h.keyboard(WIFI_LIST, 0x02, "s3cr3t pass", settle=4.0)
-    h.wait_page(WIFI_CONNECT)
-    h.wpa.event("WPS-AP-AVAILABLE")      # no trailing space: does not match WPS_EVENT_AP_AVAILABLE
-    h.settle(1.5)
-    h.wpa.event("WPS-AP-AVAILABLE ")     # matches -> "wpa_cli select_network 0"
-    h.settle(1.5)
-    h.wpa.event("Trying to associate with 32:34:56:78:9a:bc")
-    h.settle(1.0)
-    h.wpa.event("CTRL-EVENT-CONNECTED - Connection to 32:34:56:78:9a:bc completed [id=0 id_str=]")
-    h.settle(2.0)
-    h.wait_page(WIFI_SUCCESS)
-    h.touch(WIFI_SUCCESS, 0x00, settle=5.0)      # save
-    h.wait_page(WIFI_LIST)
-    h.mark("failure")
-    h.touch(WIFI_LIST, 0x03, settle=1.5)
-    h.keyboard(WIFI_LIST, 0x03, "wrong", settle=4.0)
-    h.wait_page(WIFI_CONNECT)
-    h.wpa.event("WPA: 4-Way Handshake failed - pre-shared key may be incorrect")
-    h.settle(2.0)
-    h.wait_page(WIFI_FAILED)
-    h.touch(WIFI_FAILED, 0x00, settle=1.5)
-    h.wpa.event("CTRL-EVENT-DISCONNECTED bssid=32:34:56:78:9a:bc reason=3")
-    h.settle(1.5)
-    h.wpa.event("CTRL-EVENT-SCAN-RESULTS ")
-    h.settle(1.0)
-    h.touch(WIFI_LIST, ALL_TO_SETTING, settle=1.0)
-    h.touch(WIFI_LIST, 0x17, settle=2.0)         # back to QR page
-    h.touch(SHOW_QR, 0x01, settle=1.5)
-    h.settle(1.0)
-
-
-def scenario_wifi_connected(h):
-    """Connected wifi with non-ASCII ssid, QR code, ethernet switch, server selection."""
-    boot(h)
-    goto_common_setting(h)
-    h.touch(COMMON_SETTING, 0x01, settle=8.0)    # QR page with picture
-    h.wait_page(SHOW_QR)
-    h.touch(SHOW_QR, 0x00, settle=8.0)           # refresh -> runs qrcode_QD.py
-    h.touch(SHOW_QR, 0x04, settle=8.0)           # ethernet on
-    h.touch(SHOW_QR, 0x04, settle=8.0)           # ethernet off
-    h.touch(SHOW_QR, 0x02, settle=1.0)           # wifi list
-    h.wait_page(WIFI_LIST)
-    h.settle(4.0)
-    h.touch(WIFI_LIST, 0x00, settle=1.5)         # connected entry is disabled
-    h.touch(WIFI_LIST, 0x17, settle=8.0)
-    h.wait_page(SHOW_QR)
-    h.mark("servers")
-    h.touch(SHOW_QR, 0x03, settle=4.0)           # server selection
-    h.wait_page(SERVER_SET)
-    h.touch(SERVER_SET, 0x04, settle=4.0)        # next page
-    h.touch(SERVER_SET, 0x03, settle=4.0)        # previous page
-    h.touch(SERVER_SET, 0x06, settle=4.0)        # second server
-    h.touch(SERVER_SET, 0x08, settle=4.0)        # fourth server
-    h.touch(SERVER_SET, 0x00, settle=4.0)        # refresh
-    h.touch(SERVER_SET, 0x02, settle=3.0)        # LAN only
-    h.touch(SERVER_SET, 0x02, settle=4.0)        # internet again
-    h.touch(SERVER_SET, 0x01, settle=8.0)        # back to QR
-    h.touch(SHOW_QR, 0x01, settle=1.5)
-    h.wait_page(COMMON_SETTING)
-    h.touch(COMMON_SETTING, 0x05, settle=1.5)    # update
-    h.wait_page(UPDATE_MODE)
-    h.touch(UPDATE_MODE, 0x02, settle=4.0)       # online update check
-    h.touch(UPDATE_MODE, 0x00, settle=1.5)
-    h.settle(1.0)
-
-
 def scenario_settings(h):
     """Common settings: language, system info, logs, restarts, guide switch, restore."""
     boot(h)
@@ -731,23 +641,6 @@ def scenario_settings(h):
     h.touch(MAIN, ALL_TO_SETTING, settle=1.5)
     h.touch(COMMON_SETTING, 0x16, settle=1.5)
     h.settle(1.0)
-
-
-def scenario_local_update(h):
-    """Update from the USB drive."""
-    boot(h)
-    goto_common_setting(h)
-    h.touch(COMMON_SETTING, 0x05, settle=1.5)
-    h.wait_page(UPDATE_MODE)
-    h.touch(UPDATE_MODE, 0x02, settle=1.5)       # online (method 1 -> version check)
-    h.touch(UPDATE_MODE, 0x01, settle=2.0)       # local
-    h.wait_page(UPDATE_FOUND)
-    h.touch(UPDATE_FOUND, 0x01, settle=1.5)      # no
-    h.wait_page(UPDATE_MODE)
-    h.touch(UPDATE_MODE, 0x01, settle=2.0)
-    h.wait_page(UPDATE_FOUND)
-    h.touch(UPDATE_FOUND, 0x00, settle=10.0)     # yes -> start_update()
-    h.settle(3.0)
 
 
 def scenario_errors(h):
@@ -923,18 +816,3 @@ def scenario_filament(h):
     h.settle(1.0)
 
 
-def scenario_online_update(h):
-    """Online update: version check, release notes in 13 languages, progress thread."""
-    boot(h)
-    goto_common_setting(h)
-    h.touch(COMMON_SETTING, 0x05, settle=1.5)
-    h.wait_page(UPDATE_MODE)
-    h.touch(UPDATE_MODE, 0x02, settle=4.0)       # newer version found
-    h.wait_page(84)
-    h.touch(84, 0x02, settle=1.5)                # no -> update mode
-    h.wait_page(UPDATE_MODE)
-    h.touch(UPDATE_MODE, 0x02, settle=4.0)
-    h.wait_page(84)
-    h.touch(84, 0x01, settle=6.0)                # yes -> online_update()
-    h.wait_page(90)                              # installing
-    h.settle(2.0)

@@ -27,7 +27,6 @@
   "/root/800_480.tft": null,
   "/root/800_480.tft.bak": null,
   "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/frp/frpc.toml": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
   "/root/klipper.bin": null,
   "/root/mcu_shutdown.txt": null,
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
@@ -40,33 +39,33 @@
  ],
  "pages": [
   15,
+  72,
   75,
-  79,
   37,
   37,
-  79,
+  75,
   37,
+  72,
   75,
-  79,
-  86,
-  87,
+  78,
   79,
   75,
-  79,
-  86,
+  72,
+  75,
+  78,
   36,
-  79,
   75,
-  79,
-  86,
-  36,
-  86,
-  79,
+  72,
   75,
-  79,
-  86,
+  78,
   36,
-  75
+  78,
+  75,
+  72,
+  75,
+  78,
+  36,
+  72
  ],
  "screen": [
   {
@@ -257,11 +256,11 @@
      "174"
     ]
    },
-   "page": 75
+   "page": 72
   },
   {
    "attrs": {},
-   "page": 79
+   "page": 75
   },
   {
    "attrs": {
@@ -354,7 +353,7 @@
   },
   {
    "attrs": {},
-   "page": 79
+   "page": 75
   },
   {
    "attrs": {
@@ -451,15 +450,15 @@
      "174"
     ]
    },
+   "page": 72
+  },
+  {
+   "attrs": {},
    "page": 75
   },
   {
    "attrs": {},
-   "page": 79
-  },
-  {
-   "attrs": {},
-   "page": 86
+   "page": 78
   },
   {
    "attrs": {
@@ -494,11 +493,11 @@
      "spin2,0"
     ]
    },
-   "page": 87
+   "page": 79
   },
   {
    "attrs": {},
-   "page": 79
+   "page": 75
   },
   {
    "attrs": {
@@ -584,15 +583,15 @@
      "174"
     ]
    },
+   "page": 72
+  },
+  {
+   "attrs": {},
    "page": 75
   },
   {
    "attrs": {},
-   "page": 79
-  },
-  {
-   "attrs": {},
-   "page": 86
+   "page": 78
   },
   {
    "attrs": {
@@ -640,7 +639,7 @@
   },
   {
    "attrs": {},
-   "page": 79
+   "page": 75
   },
   {
    "attrs": {
@@ -726,15 +725,15 @@
      "174"
     ]
    },
+   "page": 72
+  },
+  {
+   "attrs": {},
    "page": 75
   },
   {
    "attrs": {},
-   "page": 79
-  },
-  {
-   "attrs": {},
-   "page": 86
+   "page": 78
   },
   {
    "attrs": {
@@ -746,11 +745,11 @@
   },
   {
    "attrs": {},
-   "page": 86
+   "page": 78
   },
   {
    "attrs": {},
-   "page": 79
+   "page": 75
   },
   {
    "attrs": {
@@ -836,15 +835,15 @@
      "174"
     ]
    },
+   "page": 72
+  },
+  {
+   "attrs": {},
    "page": 75
   },
   {
    "attrs": {},
-   "page": 79
-  },
-  {
-   "attrs": {},
-   "page": 86
+   "page": 78
   },
   {
    "attrs": {
@@ -938,7 +937,7 @@
      "174"
     ]
    },
-   "page": 75
+   "page": 72
   }
  ],
  "shell": [],

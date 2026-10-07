@@ -33,7 +33,6 @@
   "/root/800_480.tft": null,
   "/root/800_480.tft.bak": null,
   "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/frp/frpc.toml": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
   "/root/klipper.bin": null,
   "/root/mcu_shutdown.txt": null,
   "/root/xindi/version": "sha1:a26a542db586bd9c:88"
@@ -54,9 +53,6 @@
   "GET /server/files/gcodes/z_last.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode",
-  "GET /server/files/gcodes/Benchy%20PLA.gcode",
-  "GET /server/files/gcodes/big_petg.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes//models",
   "GET /server/files/gcodes/models/inner.gcode",
@@ -67,9 +63,6 @@
   "GET /server/files/directory?path=gcodes//models",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode",
-  "GET /server/files/gcodes/Benchy%20PLA.gcode",
-  "GET /server/files/gcodes/big_petg.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes//sda1",
   "GET /server/files/gcodes/sda1/usb_five.gcode",
@@ -89,10 +82,8 @@
   "GET /machine/timelapse/settings",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode",
   "GET /server/files/directory?path=gcodes//.cache",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/directory?path=gcodes//.cache",
@@ -121,7 +112,7 @@
   17,
   15,
   17,
-  75,
+  72,
   16,
   16,
   17,
@@ -1953,7 +1944,7 @@
      "174"
     ]
    },
-   "page": 75
+   "page": 72
   },
   {
    "attrs": {

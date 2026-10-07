@@ -26,24 +26,6 @@ def _inipath():
 VERSION_PATH = "/root/xindi/version"
 
 
-def updateini_load():
-    """CLL information about the online update"""
-    g.config.mksini = iniparser_load("/root/auto_update/update_info.ini")
-    if g.config.mksini is None:
-        cout("Ini parse failure")
-        return -1
-    return 0
-
-
-def progressini_load():
-    """CLL progress of the online update"""
-    g.config.mksini = iniparser_load("/root/auto_update/update_progress.ini")
-    if g.config.mksini is None:
-        cout("Ini parse failure")
-        return -1
-    return 0
-
-
 # Python only: written when the file does not exist (QIDI's system image comes
 # with one, other systems do not, and the settings could not be saved).  The
 # values are the defaults the program uses when a key is missing.

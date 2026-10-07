@@ -72,22 +72,6 @@ was_interrupted = %(interrupted)s
 z_offset = 0.0
 """
 
-FRPC_TOML = """serverAddr = "old.example.invalid"
-serverPort = 7000
-
-[[proxies]]
-name = "web"
-type = "http"
-"""
-
-SERVER_LIST = {
-    "1": {"address": "aws.example.invalid", "name": "aws"},
-    "2": {"address": "eu.example.invalid", "name": "eu"},
-    "3": {"address": "asia.example.invalid", "name": "asia"},
-    "4": {"address": "us.example.invalid", "name": "us"},
-    "5": {"address": "ru.example.invalid", "name": "ru"},
-}
-
 # Scenario options
 DEFAULTS = {
     "oobe": 0,
@@ -96,13 +80,8 @@ DEFAULTS = {
     "tft_update": False,
     "usb": False,
     "wifi": False,
-    "wifi_connected": False,
     "small_chelper": False,
     "cache_file": True,
-    "server_list": False,
-    "qrcode": False,
-    "update_files": False,
-    "online_files": False,
     "state": {},
 }
 
@@ -119,16 +98,12 @@ OPTIONS = {
     "move_page": {},
     "levelling": {},
     "bed_calibration": {},
-    "wifi": {"wifi": True},
-    "wifi_connected": {"wifi": True, "wifi_connected": True, "server_list": True, "qrcode": True},
     "settings": {"usb": True},
-    "local_update": {"usb": True, "update_files": True},
     "errors": {},
     "notifications": {},
     "screen_sleep": {},
     "filament": {},
     "no_cache": {"cache_file": False},
-    "online_update": {"online_files": True, "wifi": True, "wifi_connected": True},
 }
 
 
@@ -263,13 +238,6 @@ class Fixture(object):
         _embed_thumbnails(os.path.join(GCODES, "part_abs.gcode"), [".thumbs/part_abs-160x160.jpg"], 8)
         if self.o["cache_file"]:
             _embed_thumbnails(os.path.join(GCODES, ".cache/last_print.gcode"), [".thumbs/last_print-160x160.png"], 7)
-        os.makedirs("/root/frp", exist_ok=True)
-        _write("/root/frp/frpc.toml", FRPC_TOML)
-        if o["server_list"]:
-            _write("/root/frp/server_list.json", json.dumps(SERVER_LIST))
-        if o["qrcode"]:
-            _image("/home/mks/qrcode/qrcode.jpg", (176, 176), 8, "JPEG", "RGB")
-            _write("/home/mks/qrcode/qrcode_QD.py", "print('qrcode generated')\n")
 
         if o["usb"]:
             _write("/dev/sda", b"")
@@ -279,28 +247,11 @@ class Fixture(object):
                 _write(os.path.join(usb, name), "G28\n")
             _write(os.path.join(usb, "folder/usb_inner.gcode"), "G28\n")
             os.makedirs(os.path.join(usb, "System Volume Information"), exist_ok=True)
-        if o["update_files"]:
-            upd = os.path.join(GCODES, "sda1/QD_Update")
-            _write(os.path.join(upd, "printer.cfg"), "[printer]\nkinematics: corexy\n")
-            _write(os.path.join(upd, "gcode_macro.cfg"), "[gcode_macro TEST]\ngcode:\n  M117 hi\n")
-            _write(os.path.join(upd, "QD_Q1_UI4.4.21"), b"TJC" * 5000)
-            _write(os.path.join(upd, "QD_Q1_SOC4.4.21"), b"!<arch>\n" + b"x" * 100)
-            _write(os.path.join(upd, "QD_Q1_PATCH.bak"), b"old")
         if o["tft_update"]:
             # screen firmware file (not a multiple of 4096 bytes)
             data = bytes((i * 7 + 3) & 0xFF for i in range(3 * 4096 + 1234))
             _write("/root/800_480.tft", data)
 
-        # stub scripts used by the online update / qrcode code paths
-        if o["online_files"]:
-            _write("/root/auto_update/version_check.py", "print('V4.4.22')\n")
-            _write("/root/auto_update/download_update.py", "print('downloading')\n")
-            langs = ["cn", "ru", "en", "jp", "fr", "gr", "it", "sp", "kr", "pr", "ar", "tr"]
-            info = "".join("[%s]\ncontent = notes in %s; fixes\n\n" % (l, l) for l in langs)
-            _write("/root/auto_update/update_info.ini", info)
-            _write("/root/auto_update/update_progress.ini", "[progress]\nvalue = 42\n\n[filename]\nname = Installing mks.deb\n")
-        else:
-            _write("/root/auto_update/version_check.py", "print('0')\n")
         os.makedirs("/home/mks/gcode_files/.cache", exist_ok=True)
 
     # -- moonraker data ------------------------------------------------------
@@ -408,7 +359,7 @@ class Fixture(object):
     def wifi(self):
         if not self.o["wifi"]:
             return None
-        if self.o["wifi_connected"]:
+        if self.o.get("wifi_connected"):
             status = (b"bssid=12:34:56:78:9a:bc\nfreq=2437\nssid=Home \\xd0\\x94\\xd0\\xbe\\xd0\\xbc\nid=0\nmode=station\n"
                       b"pairwise_cipher=CCMP\ngroup_cipher=CCMP\nkey_mgmt=WPA2-PSK\nwpa_state=COMPLETED\n"
                       b"ip_address=192.168.1.77\naddress=aa:bb:cc:dd:ee:ff\nuuid=0123-4567\n")
@@ -428,7 +379,7 @@ class Fixture(object):
     # -- result ----------------------------------------------------------------
     def snapshot(self):
         result = {}
-        roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", "/root/frp", "/root/xindi", "/home/mks/qrcode",
+        roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", "/root/xindi",
                  "/home/mks/klipper/klippy/chelper"]
         # (/home/mks/tjc is not compared: the port keeps the converted picture in
         # memory; the picture data sent to the screen is part of the screen trace)

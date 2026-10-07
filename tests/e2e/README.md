@@ -30,16 +30,15 @@ are collapsed, so timing does not matter, but order and content do.
 
 ```sh
 tests/e2e/build_image.sh           # once
-tests/e2e/golden.py check -j 22    # all scenarios at once; compare with golden/ (about 7 minutes)
+tests/e2e/golden.py check -j 22    # all scenarios at once; compare with golden/ (under a minute)
 tests/e2e/golden.py check wifi     # selected scenarios
 tests/e2e/golden.py record -j 22   # accept a deliberate change of behaviour
 ```
 
 `XINDI_SRC=<checkout>` runs the port of another checkout (to record the traces of an older commit).
 
-The 7 minutes are not the emulation: the scenarios `wifi` and `file_list` (about 6.5 minutes each) wait for
-screen pages that the port does not show any more (they were written for the firmware 4.4.19 and
-wpa_supplicant) and run into their time-outs, so their traces record little. They should be rewritten.
+A full run takes under a minute: the harness waits for the port to go quiet (nothing new on the screen for half a
+second) instead of fixed pauses, and the time-outs are a few seconds.
 
 ## Scenarios
 
@@ -58,11 +57,7 @@ wpa_supplicant) and run into their time-outs, so their traces record little. The
 | move_page | moves and distances, homing / out-of-range / cold extrusion pop-ups |
 | levelling | mesh table, auto levelling sequence, input shaping, probe / bltouch z-offset results |
 | bed_calibration | manual bed screw calibration loop |
-| wifi | scan list paging, keyboard, connect success / failure, WPS event, save |
-| wifi_connected | connected non-ASCII SSID (`\xNN` decoding), QR code, ethernet switch, server list / selection, `frpc.toml` + `config.mksini` rewrite |
 | settings | system info, log export to USB, restarts, guide switch, factory reset |
-| local_update | USB update detection and installation |
-| online_update | version check, release notes, progress thread |
 | errors | Klipper shutdown / error / ready, gcode errors, Klipper state messages, levelling error |
 | notifications | all Moonraker notifications, error responses, and a malformed message that makes the port abort |
 | screen_sleep | screen sleep with the LED and wake-up |

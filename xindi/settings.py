@@ -12,7 +12,6 @@ from .MakerbaseParseIni import (mksini_load, mksini_free, mksini_getstring, mksi
                                 mksini_getboolean, mksini_set, mksini_save, mksversion_load,
                                 mksversion_free, mksversion_soc, mksversion_mcu, mksversion_ui)
 from .MakerbaseWiFi import get_wlan0_status
-from . import servers
 
 
 def get_led_status():
@@ -142,7 +141,6 @@ def init():
 def init_status():
     get_total_printed_time()
     get_babystep()
-    servers.get_connection_method()
     get_ethernet()
 
 

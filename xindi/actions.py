@@ -3,11 +3,12 @@
 import json as _json
 import urllib.request
 
+from . import paths
 from . import state as g
 from . import pics
 from . import ui
 from .ui import page_to
-from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, system, sleep, usleep, str_lower_ascii
+from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr
 from .send_msg import send_cmd_txt, send_cmd_pco, send_cmd_picc, send_cmd_vis
 from .MoonrakerAPI import (json_run_a_gcode, json_subscribe_to_printer_object_status,
@@ -499,7 +500,7 @@ def set_auto_level_heater_bed_target(positive):
 def detect_error():
     if g.screen.page in (ui.TJC_PAGE_PRINTING, ui.TJC_PAGE_PRINT_ZOFFSET, ui.TJC_PAGE_PRINT_FILAMENT,
                              ui.TJC_PAGE_PRINTING_2, ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_LEVEL_ERROR,
-                             ui.TJC_PAGE_DETECT_ERROR, ui.TJC_PAGE_UPDATING):
+                             ui.TJC_PAGE_DETECT_ERROR):
         pass
     elif g.screen.page in (ui.TJC_PAGE_OPEN_CALIBRATE, ui.TJC_PAGE_AUTO_MOVING):
         g.ep.Send(json_run_a_gcode("RESTART"))
@@ -675,3 +676,20 @@ def switch_timelapse_state():
         g.screen.timelapse_enabled = not g.screen.timelapse_enabled
     except Exception as e:
         cerr("Timelapse switch: ", str(e), "\n")     # no plugin: the switch stays off
+
+
+def finish_screen_update():
+    """The screen has flashed its firmware: the file is kept as .bak."""
+    if access("/root/800_480.tft") == 0:
+        system("mv /root/800_480.tft /root/800_480.tft.bak; sync")
+
+
+def check_print_interrupted():
+    printer_variables = read_file(paths.klipper_config() + "/saved_variables.cfg")
+    if printer_variables is None:
+        cerr("Can't open the file ", paths.klipper_config() + "/saved_variables.cfg", "\n")
+        return
+    print_interrupted_status = substr(printer_variables, printer_variables.find("was_interrupted =") + 18, 5)
+    if print_interrupted_status != "False":
+        g.ep.Send(json_run_a_gcode("DETECT_INTERRUPTION\n"))
+        g.screen.jump_resume_print = True

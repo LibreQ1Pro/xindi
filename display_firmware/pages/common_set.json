@@ -45,7 +45,6 @@
         "  sysinfo_lbl.txt=\"系统信息\"",
         "  service_lbl.txt=\"售后信息\"",
         "  sleep_lbl.txt=\"熄屏设置\"",
-        "  update_lbl.txt=\"检测更新\"",
         "  reset_lbl.txt=\"恢复出厂设置\"",
         "  guide_txt.txt=\"开机引导\"",
         "}else if(lang==1)",
@@ -57,7 +56,6 @@
         "  sysinfo_lbl.txt=\"Статус Klipper\"",
         "  service_lbl.txt=\"Поддержка\"",
         "  sleep_lbl.txt=\"Отключение экрана\"",
-        "  update_lbl.txt=\"Проверка\\rобновлений\"",
         "  reset_lbl.txt=\"Сброс к заводским\\rнастройкам\"",
         "  guide_txt.txt=\"Мастер настройки\"",
         "}else if(lang==2)",
@@ -69,7 +67,6 @@
         "  sysinfo_lbl.txt=\"Klipper Status\"",
         "  service_lbl.txt=\"Support\"",
         "  sleep_lbl.txt=\"Screen Sleep\"",
-        "  update_lbl.txt=\"Check for Updates\"",
         "  reset_lbl.txt=\"Restore Factory\\rSettings\"",
         "  guide_txt.txt=\"Setup Guide\"",
         "}else if(lang==3)",
@@ -81,7 +78,6 @@
         "  sysinfo_lbl.txt=\"Klipperステータス\"",
         "  service_lbl.txt=\"サポート\"",
         "  sleep_lbl.txt=\"画面オフ\"",
-        "  update_lbl.txt=\"アップデートを確認\"",
         "  reset_lbl.txt=\"工場出荷時の設定に戻す\"",
         "  guide_txt.txt=\"初期設定ガイド\"",
         "}else if(lang==4)",
@@ -93,7 +89,6 @@
         "  sysinfo_lbl.txt=\"État de Klipper\"",
         "  service_lbl.txt=\"Assistance\"",
         "  sleep_lbl.txt=\"Veille de l'écran\"",
-        "  update_lbl.txt=\"Rechercher des mises\\rà jour\"",
         "  reset_lbl.txt=\"Rétablir les réglages\\rd'usine\"",
         "  guide_txt.txt=\"Guide de démarrage\"",
         "}else if(lang==5)",
@@ -106,7 +101,6 @@
         "  service_lbl.txt=\"Support\"",
         "  sleep_lbl.txt=\"Bildschirm aus\"",
         "  sleep_lbl.font=${font:font_small14}",
-        "  update_lbl.txt=\"Nach Updates suchen\"",
         "  reset_lbl.txt=\"Werkseinstellungen\\rwiederherstellen\"",
         "  guide_txt.txt=\"Einrichtung\"",
         "}else if(lang==6)",
@@ -120,7 +114,6 @@
         "  sysinfo_lbl.txt=\"Stato di Klipper\"",
         "  service_lbl.txt=\"Assistenza\"",
         "  sleep_lbl.txt=\"Standby schermo\"",
-        "  update_lbl.txt=\"Controlla\\raggiornamenti\"",
         "  reset_lbl.txt=\"Ripristino di fabbrica\"",
         "  guide_txt.txt=\"Guida iniziale\"",
         "}else if(lang==7)",
@@ -133,7 +126,6 @@
         "  sysinfo_lbl.txt=\"Estado de Klipper\"",
         "  service_lbl.txt=\"Soporte\"",
         "  sleep_lbl.txt=\"Suspensión de\\rpantalla\"",
-        "  update_lbl.txt=\"Buscar\\ractualizaciones\"",
         "  reset_lbl.txt=\"Restaurar ajustes de\\rfábrica\"",
         "  guide_txt.txt=\"Guía de inicio\"",
         "}else if(lang==8)",
@@ -145,7 +137,6 @@
         "  sysinfo_lbl.txt=\"Klipper 상태\"",
         "  service_lbl.txt=\"지원\"",
         "  sleep_lbl.txt=\"화면 끄기\"",
-        "  update_lbl.txt=\"업데이트 확인\"",
         "  reset_lbl.txt=\"공장 초기화\"",
         "  guide_txt.txt=\"시작 가이드\"",
         "}else if(lang==9)",
@@ -158,7 +149,6 @@
         "  sysinfo_lbl.txt=\"Status do Klipper\"",
         "  service_lbl.txt=\"Suporte\"",
         "  sleep_lbl.txt=\"Suspensão da tela\"",
-        "  update_lbl.txt=\"Verificar\\ratualizações\"",
         "  reset_lbl.txt=\"Restaurar de fábrica\"",
         "  guide_txt.txt=\"Guia inicial\"",
         "}else if(lang==10)",
@@ -170,7 +160,6 @@
         "  sysinfo_lbl.txt=\"حالة Klipper\"",
         "  service_lbl.txt=\"الدعم\"",
         "  sleep_lbl.txt=\"إيقاف الشاشة\"",
-        "  update_lbl.txt=\"التحقق من التحديثات\"",
         "  reset_lbl.txt=\"استعادة إعدادات المصنع\"",
         "  guide_txt.txt=\"دليل الإعداد\"",
         "}else if(lang==11)",
@@ -183,7 +172,6 @@
         "  sysinfo_lbl.txt=\"Klipper durumu\"",
         "  service_lbl.txt=\"Destek\"",
         "  sleep_lbl.txt=\"Ekran uykusu\"",
-        "  update_lbl.txt=\"Güncellemeleri\\rdenetle\"",
         "  reset_lbl.txt=\"Fabrika ayarlarına\\rdön\"",
         "  guide_txt.txt=\"Kurulum kılavuzu\"",
         "}else if(lang==12)",
@@ -195,7 +183,6 @@
         "  sysinfo_lbl.txt=\"מצב Klipper\"",
         "  service_lbl.txt=\"תמיכה\"",
         "  sleep_lbl.txt=\"כיבוי מסך\"",
-        "  update_lbl.txt=\"בדיקת עדכונים\"",
         "  reset_lbl.txt=\"שחזור הגדרות יצרן\"",
         "  guide_txt.txt=\"מדריך הפעלה\"",
         "}"
@@ -1163,118 +1150,6 @@
       }
     },
     {
-      "key": "update_btn",
-      "type": "button",
-      "attributes": {
-        "objname": "update_btn",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 15,
-        "y": 316,
-        "w": 242,
-        "h": 48,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_title18"
-        },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_common_set"
-        },
-        "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
-        },
-        "bco2": 1024,
-        "pco": 0,
-        "pco2": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "val": 0,
-        "txt": "",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 5,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "update_lbl",
-      "type": "text",
-      "attributes": {
-        "objname": "update_lbl",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 28,
-        "y": 316,
-        "w": 203,
-        "h": 48,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 3,
-        "style": 0,
-        "key": 255,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_title18"
-        },
-        "bco": 65535,
-        "picc": 65535,
-        "pic": 65535,
-        "pco": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "pw": 0,
-        "txt": "Check for Updates",
-        "txt_maxl": 100,
-        "isbr": 1,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [
-          "click update_btn,1"
-        ],
-        "codesup": [
-          "click update_btn,0"
-        ]
-      }
-    },
-    {
       "key": "reset_btn",
       "type": "button",
       "attributes": {
@@ -1286,7 +1161,7 @@
         "movex": 0,
         "movey": 0,
         "x": 15,
-        "y": 366,
+        "y": 316,
         "w": 242,
         "h": 48,
         "effect": 0,
@@ -1359,7 +1234,7 @@
         "movex": 0,
         "movey": 0,
         "x": 28,
-        "y": 366,
+        "y": 316,
         "w": 203,
         "h": 48,
         "effect": 0,
@@ -1443,57 +1318,6 @@
       "events": {
         "codesdown": [],
         "codesup": []
-      }
-    },
-    {
-      "key": "version_txt",
-      "type": "text",
-      "attributes": {
-        "objname": "version_txt",
-        "vscope": 1,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 99,
-        "y": 333,
-        "w": 118,
-        "h": 28,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 3,
-        "style": 0,
-        "key": 255,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_small14"
-        },
-        "bco": 65535,
-        "picc": 65535,
-        "pic": 65535,
-        "pco": 65535,
-        "xcen": 2,
-        "ycen": 2,
-        "pw": 0,
-        "txt": "V1.1.1",
-        "txt_maxl": 50,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [
-          "click update_btn,1"
-        ],
-        "codesup": [
-          "click update_btn,0"
-        ]
       }
     },
     {
