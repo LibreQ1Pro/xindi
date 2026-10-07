@@ -1,178 +1,158 @@
 """Instructions for the TJC (USART HMI) screen.
 
 Every instruction is terminated by three 0xFF bytes.  Like the original the
-functions wait for the output to drain (tcdrain) and then issue a single
+methods wait for the output to drain (tcdrain) and then issue a single
 write(); errors are ignored.
 """
 
 import os
 import termios
+import time
 
 from .cpp import s2b, to_string
 from .mks_log import MKSLOG_YELLOW, MKSLOG_BLUE
+from .serial_port import set_option
 
 END = b"\xff\xff\xff"
-
-
-def _tcdrain(fd):
-    try:
-        termios.tcdrain(fd)
-    except (termios.error, OSError, ValueError):
-        pass
-
-
-def _write(fd, data):
-    try:
-        return os.write(fd, data)
-    except (OSError, ValueError):
-        return -1
-
 
 # Python only: XINDI_TJC_LOG=1 prints every instruction sent to the screen
 # (debugging aid, off by default: the main loop sends hundreds per second)
 _TJC_LOG = os.environ.get("XINDI_TJC_LOG") == "1"
 
 
-_tjc_logged = {}
+class ScreenPort:
+    """The serial port of the screen and the instructions it understands."""
 
+    def __init__(self, fd=-1):
+        self.fd = fd
+        self._logged = {}
 
-def _send(fd, cmd):
-    if _TJC_LOG:
-        # the same instruction is logged at most once a second (journald drops
-        # lines when a service writes too many)
-        import time
-        now = time.time()
-        if now - _tjc_logged.get(cmd, 0.0) >= 1.0:
-            _tjc_logged[cmd] = now
-            print("TJC> " + cmd.rstrip(b"\xff").decode("utf-8", "replace"), flush=True)
-    _tcdrain(fd)
-    _write(fd, cmd)
+    def open(self, path="/dev/ttyS1", baud=115200):
+        """Open the port; returns False when it cannot be opened."""
+        try:
+            self.fd = os.open(path, os.O_RDWR | os.O_NDELAY | os.O_NOCTTY)
+        except OSError:
+            self.fd = -1
+            return False
+        set_option(self.fd, baud, 8, 'N', 1)
+        return True
 
+    def set_baud(self, baud):
+        set_option(self.fd, baud, 8, 'N', 1)
 
-def send_cmd_page(fd, pageid):
-    """Switch page"""
-    cmd = s2b("page " + pageid) + END
-    _send(fd, cmd)
+    # -- raw bytes ---------------------------------------------------------------------------------------------
 
+    def drain(self):
+        try:
+            termios.tcdrain(self.fd)
+        except (termios.error, OSError, ValueError):
+            pass
 
-def send_cmd_vis(fd, obj, state):
-    """Hide / show a widget"""
-    cmd = s2b("vis " + obj + "," + state) + END
-    _send(fd, cmd)
+    def write(self, data):
+        try:
+            return os.write(self.fd, bytes(data))
+        except (OSError, ValueError):
+            return -1
 
+    def _send(self, cmd):
+        if _TJC_LOG:
+            # the same instruction is logged at most once a second (journald drops
+            # lines when a service writes too many)
+            now = time.time()
+            if now - self._logged.get(cmd, 0.0) >= 1.0:
+                self._logged[cmd] = now
+                print("TJC> " + cmd.rstrip(b"\xff").decode("utf-8", "replace"), flush=True)
+        self.drain()
+        self.write(cmd)
 
-def send_cmd_tsw(fd, obj, state):
-    """Enable / disable touch for a widget"""
-    cmd = s2b("tsw " + obj + "," + state) + END
-    _send(fd, cmd)
+    # -- instructions ------------------------------------------------------------------------------------------
 
+    def page(self, pageid):
+        """Switch page"""
+        self._send(s2b("page " + pageid) + END)
 
-def send_cmd_twfile(fd, filepath, filesize):
-    """Pass-through file transfer (X3/X5 only)"""
-    cmd = s2b("twfile \"" + filepath + "\"," + filesize) + END
-    MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
-    _send(fd, cmd)
+    def vis(self, obj, state):
+        """Hide / show a widget"""
+        self._send(s2b("vis " + obj + "," + state) + END)
 
+    def tsw(self, obj, state):
+        """Enable / disable touch for a widget"""
+        self._send(s2b("tsw " + obj + "," + state) + END)
 
-def send_cmd_delfile(fd, filepath):
-    """Delete a file (X3/X5 only)"""
-    cmd = s2b("delfile \"" + filepath + "\"") + END
-    MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
-    _send(fd, cmd)
+    def twfile(self, filepath, filesize):
+        """Pass-through file transfer (X3/X5 only)"""
+        cmd = s2b("twfile \"" + filepath + "\"," + filesize) + END
+        MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
+        self._send(cmd)
 
+    def delfile(self, filepath):
+        """Delete a file (X3/X5 only)"""
+        cmd = s2b("delfile \"" + filepath + "\"") + END
+        MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
+        self._send(cmd)
 
-def send_cmd_raw(fd, instruction):
-    """Any instruction of the screen, e.g. a global variable assignment ``kbmode=2``"""
-    _send(fd, s2b(instruction) + END)
+    def raw(self, instruction):
+        """Any instruction of the screen, e.g. a global variable assignment ``kbmode=2``"""
+        self._send(s2b(instruction) + END)
 
+    def txt(self, obj, txt):
+        """Change the text of a widget"""
+        self._send(s2b(obj + ".txt=" + "\"" + txt + "\"") + END)
 
-def send_cmd_txt(fd, obj, txt):
-    """Change the text of a widget"""
-    cmd = s2b(obj + ".txt=" + "\"" + txt + "\"") + END
-    _send(fd, cmd)
+    def pic(self, obj, pic):
+        """Change the picture of a widget"""
+        self._send(s2b(obj + ".pic=" + pic) + END)
 
+    def picc(self, obj, picc):
+        self._send(s2b(obj + ".picc=" + picc) + END)
 
-def send_cmd_pic(fd, obj, pic):
-    """Change the picture of a widget"""
-    cmd = s2b(obj + ".pic=" + pic) + END
-    _send(fd, cmd)
+    def picc2(self, obj, picc):
+        self._send(s2b(obj + ".picc2=" + picc) + END)
 
+    def val(self, obj, val):
+        """Change the value of a variable"""
+        self._send(s2b(obj + ".val=" + val) + END)
 
-def send_cmd_picc(fd, obj, picc):
-    cmd = s2b(obj + ".picc=" + picc) + END
-    _send(fd, cmd)
+    def pco(self, obj, poc):
+        """Change the colour"""
+        self._send(s2b(obj + ".pco=" + poc) + END)
 
+    def cp_close(self, obj):
+        self._send(s2b(obj + ".close()") + END)
 
-def send_cmd_picc2(fd, obj, picc):
-    cmd = s2b(obj + ".picc2=" + picc) + END
-    _send(fd, cmd)
+    def write_begin(self, obj):
+        self._send(s2b(obj + ".write(\""))
 
+    def write_end(self):
+        self._send(b"\")" + END)
 
-def send_cmd_val(fd, obj, val):
-    """Change the value of a variable"""
-    cmd = s2b(obj + ".val=" + val) + END
-    _send(fd, cmd)
+    def cp_image(self, obj, image):
+        self.write_begin(obj)
+        self.drain()
+        self.write(s2b(image))
+        self.write_end()
 
+    def txt_plus(self, obj1, obj2, obj3):
+        self._send(s2b(obj1 + ".txt=" + obj2 + ".txt+" + obj3 + ".txt") + END)
 
-def send_cmd_pco(fd, obj, poc):
-    """Change the colour"""
-    cmd = s2b(obj + ".pco=" + poc) + END
-    _send(fd, cmd)
+    def download(self, filesize):
+        self._send(s2b("whmi-wri " + to_string(filesize) + ",115200,0") + END)
 
+    def download_data(self, data):
+        """Sends the screen firmware data in 512 byte pieces (no tcdrain)."""
+        data = s2b(data)
+        num = 512
+        length = len(data)
+        end = num
+        start = 0
+        while start < length:
+            if end > length:
+                self.write(data[start:length])
+                break
+            self.write(data[start:start + num])
+            start = end
+            end = end + num
+            MKSLOG_BLUE("Sending download data")
 
-def send_cmd_cp_close(fd, obj):
-    cmd = s2b(obj + ".close()") + END
-    _send(fd, cmd)
-
-
-def send_cmd_write(fd, obj):
-    cmd = s2b(obj + ".write(\"")
-    _send(fd, cmd)
-
-
-def send_cmd_write_end(fd):
-    cmd = b"\")" + END
-    _send(fd, cmd)
-
-
-def send_cmd_cp_image(fd, obj, image):
-    send_cmd_write(fd, obj)
-    _tcdrain(fd)
-    _write(fd, s2b(image))
-    send_cmd_write_end(fd)
-
-
-def send_cmd_txt_plus(fd, obj1, obj2, obj3):
-    cmd = s2b(obj1 + ".txt=" + obj2 + ".txt+" + obj3 + ".txt") + END
-    _send(fd, cmd)
-
-
-def send_cmd_download(fd, filesize):
-    cmd = s2b("whmi-wri " + to_string(filesize) + ",115200,0") + END
-    _send(fd, cmd)
-
-
-def send_cmd_download_data(fd, data):
-    """Sends the screen firmware data in 512 byte pieces (no tcdrain)."""
-    data = s2b(data)
-    num = 512
-    length = len(data)
-    end = num
-    start = 0
-    while start < length:
-        if end > length:
-            sub_data = data[start:length]
-            _write(fd, sub_data)
-            break
-        sub_data = data[start:start + num]
-        _write(fd, sub_data)
-        start = end
-        end = end + num
-        MKSLOG_BLUE("Sending download data")
-
-
-def send_cmd_baud(fd, baud):
-    cmd = s2b("baud=" + to_string(baud)) + END
-    _send(fd, cmd)
-
-
+    def baud(self, baud):
+        self._send(s2b("baud=" + to_string(baud)) + END)

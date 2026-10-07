@@ -11,9 +11,6 @@ from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, access, system, sleep, usleep
 from .mks_log import MKSLOG, MKSLOG_RED, cout, cerr
-from .screen_tx import (send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_vis, send_cmd_cp_close,
-                       send_cmd_baud, send_cmd_tsw)
-from .serial_port import set_option
 from .moonraker_api import json_get_gcode_metadata
 from .file_browser import output_imgdata
 from .picture_transfer import delete_small_jpg
@@ -38,61 +35,61 @@ def refresh_files_list():
     if not g.screen.file_list_refreshed:
         delete_small_jpg()
     if detect_disk_2() == 1 and g.screen.file_mode == "USB":
-        send_cmd_txt(g.tty_fd, "empty_msg", "")
+        g.port.txt("empty_msg", "")
     elif detect_disk_2() == 0 and g.screen.file_mode == "USB":
-        send_cmd_txt(g.tty_fd, "empty_msg", "\u7a7a")     # "empty"
-    send_cmd_vis(g.tty_fd, "file1_mark", "0")
+        g.port.txt("empty_msg", "\u7a7a")     # "empty"
+    g.port.vis("file1_mark", "0")
     for i in range(4):
-        send_cmd_txt(g.tty_fd, "file" + to_string(i + 1) + "_name", g.files.list_list_show_name[i])
-        send_cmd_vis(g.tty_fd, "cp" + to_string(i), "0")
+        g.port.txt("file" + to_string(i + 1) + "_name", g.files.list_list_show_name[i])
+        g.port.vis("cp" + to_string(i), "0")
         t = g.files.list_list_show_type[i]
         if t == "[c]":
-            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_img)
-            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_local_press)
-            send_cmd_vis(g.tty_fd, "file1_mark", "1")
+            g.port.picc("file" + to_string(i + 1), pics.files_item_img)
+            g.port.picc2("file" + to_string(i + 1), pics.files_tab_local_press)
+            g.port.vis("file1_mark", "1")
         elif t == "[d]":
-            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_dir)
-            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_dir_press)
+            g.port.picc("file" + to_string(i + 1), pics.files_item_dir)
+            g.port.picc2("file" + to_string(i + 1), pics.files_dir_press)
         elif t == "[f]":
-            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_item_img)
-            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_local_press)
+            g.port.picc("file" + to_string(i + 1), pics.files_item_img)
+            g.port.picc2("file" + to_string(i + 1), pics.files_tab_local_press)
         elif t == "[n]":
-            send_cmd_picc(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_usb)
-            send_cmd_picc2(g.tty_fd, "file" + to_string(i + 1), pics.files_tab_usb)
+            g.port.picc("file" + to_string(i + 1), pics.files_tab_usb)
+            g.port.picc2("file" + to_string(i + 1), pics.files_tab_usb)
 
     # 4.4.2 CLL local / USB buttons on the file list page
     if g.screen.file_mode == "Local":
-        send_cmd_picc(g.tty_fd, "local_tab", pics.files_tab_local)
-        send_cmd_picc2(g.tty_fd, "local_tab", pics.files_tab_local_press)
-        send_cmd_picc(g.tty_fd, "usb_tab", pics.files_tab_local)
-        send_cmd_picc2(g.tty_fd, "usb_tab", pics.files_tab_local_press)
+        g.port.picc("local_tab", pics.files_tab_local)
+        g.port.picc2("local_tab", pics.files_tab_local_press)
+        g.port.picc("usb_tab", pics.files_tab_local)
+        g.port.picc2("usb_tab", pics.files_tab_local_press)
     elif g.screen.file_mode == "USB":
-        send_cmd_picc(g.tty_fd, "local_tab", pics.files_tab_usb)
-        send_cmd_picc2(g.tty_fd, "local_tab", pics.files_tab_usb_press)
-        send_cmd_picc(g.tty_fd, "usb_tab", pics.files_tab_usb)
-        send_cmd_picc2(g.tty_fd, "usb_tab", pics.files_tab_usb_press)
+        g.port.picc("local_tab", pics.files_tab_usb)
+        g.port.picc2("local_tab", pics.files_tab_usb_press)
+        g.port.picc("usb_tab", pics.files_tab_usb)
+        g.port.picc2("usb_tab", pics.files_tab_usb_press)
         if detect_disk() == -1:
-            send_cmd_vis(g.tty_fd, "empty_msg", "1")
+            g.port.vis("empty_msg", "1")
     if g.files.list_current_pages == 0:
-        send_cmd_picc(g.tty_fd, "prev", pics.files_item_img)
-        send_cmd_picc2(g.tty_fd, "prev", pics.files_dir_press)
+        g.port.picc("prev", pics.files_item_img)
+        g.port.picc2("prev", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "prev", pics.files_item_dir)
-        send_cmd_picc2(g.tty_fd, "prev", pics.files_tab_local_press)
+        g.port.picc("prev", pics.files_item_dir)
+        g.port.picc2("prev", pics.files_tab_local_press)
     if g.files.list_current_pages == g.files.list_pages:
-        send_cmd_picc(g.tty_fd, "next", pics.files_item_img)
-        send_cmd_picc2(g.tty_fd, "next", pics.files_dir_press)
+        g.port.picc("next", pics.files_item_img)
+        g.port.picc2("next", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "next", pics.files_item_dir)
-        send_cmd_picc2(g.tty_fd, "next", pics.files_tab_local_press)
+        g.port.picc("next", pics.files_item_dir)
+        g.port.picc2("next", pics.files_tab_local_press)
     if g.files.list_folder_layers == 0 or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"):
-        send_cmd_picc(g.tty_fd, "up_dir", pics.files_item_img)
-        send_cmd_picc2(g.tty_fd, "up_dir", pics.files_dir_press)
+        g.port.picc("up_dir", pics.files_item_img)
+        g.port.picc2("up_dir", pics.files_dir_press)
     else:
-        send_cmd_picc(g.tty_fd, "up_dir", pics.files_item_dir)
-        send_cmd_picc2(g.tty_fd, "up_dir", pics.files_tab_local_press)
+        g.port.picc("up_dir", pics.files_item_dir)
+        g.port.picc2("up_dir", pics.files_tab_local_press)
     if g.screen.file_list_refreshed:
-        send_cmd_tsw(g.tty_fd, "255", "1")      # pictures still in the screen memory: enable touch
+        g.port.tsw("255", "1")      # pictures still in the screen memory: enable touch
     else:
         for i in range(4):      # CLL refresh the pictures after all the other widgets
             g.pictures.have_64_jpg[i] = False
@@ -127,9 +124,9 @@ def get_file_estimated_time(filename):
 
 
 def clear_cp0_image():
-    send_cmd_cp_close(g.tty_fd, "preview.preview_pic")
-    send_cmd_txt(g.tty_fd, "preview.cp_data", "")
-    send_cmd_txt(g.tty_fd, "preview.cp_pad", "")
+    g.port.cp_close("preview.preview_pic")
+    g.port.txt("preview.cp_data", "")
+    g.port.txt("preview.cp_pad", "")
     g.screen.show_preview_gimage_completed = False
     g.files.meta_parse_finished = False
     g.files.meta_simage = ""
@@ -221,16 +218,16 @@ def send_file_picture(path, pixel, obj):
         g.screen.show_preview_complete = True
         return
     g.files.meta_gimage = data
-    send_cmd_baud(g.tty_fd, 921600)
+    g.port.baud(921600)
     usleep(10000)
-    set_option(g.tty_fd, 921600, 8, 'N', 1)
-    send_cmd_cp_close(g.tty_fd, obj)
+    g.port.set_baud(921600)
+    g.port.cp_close(obj)
     if g.files.meta_gimage != "":
         cout("Sending the file picture")
         pages._send_chunks_cp(obj, g.files.meta_gimage)
-    send_cmd_baud(g.tty_fd, 115200)
+    g.port.baud(115200)
     usleep(10000)
-    set_option(g.tty_fd, 115200, 8, 'N', 1)
-    send_cmd_vis(g.tty_fd, obj, "1")
+    g.port.set_baud(115200)
+    g.port.vis(obj, "1")
 
 

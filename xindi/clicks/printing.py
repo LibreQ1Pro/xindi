@@ -5,7 +5,6 @@ from .. import actions, filelist, file_browser, pages
 from .. import pageids as ids
 from ..cpp import sleep
 from ..mks_log import MKSLOG, MKSLOG_BLUE
-from ..screen_tx import send_cmd_tsw
 from ..ui import page_to
 
 
@@ -70,7 +69,7 @@ def file_list(page_id, widget_id):
             g.screen.file_list_refreshed = False
             g.files.list_current_pages -= 1
             page_to(ids.FILE_LIST)
-            send_cmd_tsw(g.tty_fd, "255", "0")
+            g.port.tsw("255", "0")
             filelist.refresh_page_files(g.files.list_current_pages)
             filelist.refresh_files_list()
         MKSLOG_BLUE("%d", g.files.list_folder_layers)
@@ -82,7 +81,7 @@ def file_list(page_id, widget_id):
             g.screen.file_list_refreshed = False
             g.files.list_current_pages += 1
             page_to(ids.FILE_LIST)
-            send_cmd_tsw(g.tty_fd, "255", "0")
+            g.port.tsw("255", "0")
             filelist.refresh_page_files(g.files.list_current_pages)
             filelist.refresh_files_list()
         MKSLOG_BLUE("%d", g.files.list_folder_layers)

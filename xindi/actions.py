@@ -10,7 +10,6 @@ from . import pics
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr
-from .screen_tx import send_cmd_txt, send_cmd_pco, send_cmd_picc, send_cmd_vis
 from .moonraker_api import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_print_a_file, json_emergency_stop)
 from .gcodes import (AXIS_X, AXIS_Y, AXIS_Z, move_relative, set_heater_temp, set_fan0_speed, set_fan2_speed,
@@ -281,7 +280,7 @@ def go_to_reset():
     else:
         # 4.4.22: fixed name (was read from /dev_info.txt)
         page_to(ids.SYS_OK)
-        send_cmd_txt(g.tty_fd, "info_txt", "Q1 Pro")
+        g.port.txt("info_txt", "Q1 Pro")
 
 
 def set_print_filament_target():
@@ -309,14 +308,14 @@ def go_to_syntony_move():
 
 
 def filament_load():
-    send_cmd_vis(g.tty_fd, "next_btn", "0")
-    send_cmd_vis(g.tty_fd, "temp_txt", "1")
-    send_cmd_vis(g.tty_fd, "back_btn", "0")
-    send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_1)
-    send_cmd_pco(g.tty_fd, "step1_txt", "65535")
-    send_cmd_pco(g.tty_fd, "hint", "38066")
-    send_cmd_vis(g.tty_fd, "spin1", "0")
-    send_cmd_vis(g.tty_fd, "spin2", "1")
+    g.port.vis("next_btn", "0")
+    g.port.vis("temp_txt", "1")
+    g.port.vis("back_btn", "0")
+    g.port.picc("steps_bar", pics.pop_steps_1)
+    g.port.pco("step1_txt", "65535")
+    g.port.pco("hint", "38066")
+    g.port.vis("spin1", "0")
+    g.port.vis("spin2", "1")
     g.klippy.idle_timeout_state = "Printing"
     g.ep.send(json_run_a_gcode("M109 S" + to_string(g.screen.load_target) + "\n"))
     g.ep.send(json_run_a_gcode("M604\n"))

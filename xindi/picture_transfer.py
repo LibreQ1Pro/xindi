@@ -16,7 +16,6 @@ from . import state as g
 from . import thumbnail
 from .cpp import to_string, usleep, sleep
 from .mks_log import MKSLOG_BLUE, MKSLOG_GREEN, cout
-from .screen_tx import send_cmd_tsw, send_cmd_delfile, send_cmd_twfile
 
 # BLOCK_SIZE 3072
 BLOCK_SIZE = 3800
@@ -78,7 +77,7 @@ def sent_jpg_thread_handle(arg=None):
                         sent_jpg_to_tjc(ram_path, jpg_path)
                     g.pictures.have_64_jpg[i] = False
             g.pictures.send_jpg_status = False
-            send_cmd_tsw(g.tty_fd, "255", "1")      # enable touch
+            g.port.tsw("255", "1")      # enable touch
             MKSLOG_BLUE("Touch enabled")
 
         usleep(60000)
@@ -86,7 +85,7 @@ def sent_jpg_thread_handle(arg=None):
 
 def delet_pic(ram_path):
     """Delete a picture"""
-    send_cmd_delfile(g.tty_fd, ram_path)
+    g.port.delfile(ram_path)
 
 
 def getFileSize(f):
@@ -154,7 +153,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
     filesize = getFileSize(f)
 
     # send the pass-through instruction
-    send_cmd_twfile(g.tty_fd, ram_path, to_string(filesize))
+    g.port.twfile(ram_path, to_string(filesize))
     # wait for 0xfe + terminator
     usleep(105000)
     # send header + data frames until the end of the file
@@ -172,14 +171,14 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         head_buf[9] = (head_id >> 8) & 0xff
         head_buf[10] = (file_res + 2) & 0xff
         head_buf[11] = ((file_res + 2) >> 8) & 0xff
-        _write(g.tty_fd, head_buf)
+        g.port.write(head_buf)
 
         # CRC in the last two bytes
         crc_val = check_crc(read_buf, file_res)
         read_buf[file_res] = (crc_val >> 8) & 0xff
         read_buf[file_res + 1] = crc_val & 0xff
         # data
-        _write(g.tty_fd, read_buf[:file_res + 2])
+        g.port.write(read_buf[:file_res + 2])
 
         # 0x05 means the frame was written successfully
         g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
@@ -192,9 +191,9 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
             # 0x04 means the frame could not be written
             if g.update.get_0x04:
                 # leave the pass-through mode
-                _write(g.tty_fd, exit_buf)
+                g.port.write(exit_buf)
                 print("".join("%02X" % b for b in exit_buf))
-                _write(g.tty_fd, exit_buf)
+                g.port.write(exit_buf)
                 MKSLOG_GREEN("Got 0x04, failed")
                 f.close()
                 return False
@@ -202,16 +201,16 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
             if time_differ_ms(800, resent_time) and not g.update.get_0x24:
                 resent_time = int(time.time() * 1000)
                 # re-send the data frame
-                _write(g.tty_fd, head_buf)
-                _write(g.tty_fd, read_buf[:file_res + 2])
+                g.port.write(head_buf)
+                g.port.write(read_buf[:file_res + 2])
                 MKSLOG_GREEN("Timed out waiting for the answer, re-sending the frame")
 
             # timeout
             if time_differ(4, g.pictures.sent_jpg_to_tjc_start_time):
-                _write(g.tty_fd, exit_buf)
+                g.port.write(exit_buf)
                 print("".join("%02X" % b for b in exit_buf))
-                _write(g.tty_fd, exit_buf)
-                _write(g.tty_fd, exit_buf)
+                g.port.write(exit_buf)
+                g.port.write(exit_buf)
                 MKSLOG_GREEN("Timed out writing the data frame, failed")
                 f.close()
                 return False
@@ -227,10 +226,10 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         head_id = (head_id + 1) & 0xffff
         # timeout
         if time_differ(6, g.pictures.sent_jpg_to_tjc_start_time):
-            _write(g.tty_fd, exit_buf)
+            g.port.write(exit_buf)
             print("".join("%02X" % b for b in exit_buf))
-            _write(g.tty_fd, exit_buf)
-            _write(g.tty_fd, exit_buf)
+            g.port.write(exit_buf)
+            g.port.write(exit_buf)
             MKSLOG_GREEN("Timed out writing the picture, failed")
             f.close()
             break

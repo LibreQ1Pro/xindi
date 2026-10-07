@@ -3,11 +3,13 @@ Global state of the program, split by area: ``g.screen``, ``g.klippy``, ``g.file
 
 The program started as a port of C++ code that kept everything in global variables. The variables
 now live in one object per area (a class below, one instance in this module). The two
-connections stay at the top level: ``g.tty_fd`` (the screen's serial port) and ``g.ep`` (the
+connections stay at the top level: ``g.port`` (the screen's serial port) and ``g.ep`` (the
 Moonraker websocket).
 """
 
 import queue as _queue
+
+from .screen_tx import ScreenPort
 
 
 class Struct(object):
@@ -27,7 +29,7 @@ def mks_wifi_status_result_t():
 
 
 ep = None  # the Moonraker connection (MakerbaseClient)
-tty_fd = -1  # the screen's serial port
+port = ScreenPort()  # the screen's serial port
 
 
 class Screen(object):

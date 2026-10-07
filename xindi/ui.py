@@ -14,7 +14,6 @@ from . import state as g
 from . import pageids as ids
 from .cpp import b2s, cstr, to_string
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, cout
-from .screen_tx import send_cmd_page, send_cmd_val
 
 
 def parse_cmd_msg_from_tjc_screen(cmd):
@@ -94,7 +93,7 @@ UI_VERSION = str(version_number(VERSION))
 
 
 def send_ui_version():
-    send_cmd_val(g.tty_fd, "logo.version", UI_VERSION)
+    g.port.val("logo.version", UI_VERSION)
 
 
 def page_to(page_id):
@@ -102,7 +101,7 @@ def page_to(page_id):
         send_ui_version()
     g.screen.previous_page = g.screen.page
     g.screen.page = page_id
-    send_cmd_page(g.tty_fd, to_string(page_id))
+    g.port.page(to_string(page_id))
 
 
 def _printing_target(setter, widget, limit, settings_setter=None):
@@ -113,7 +112,7 @@ def _printing_target(setter, widget, limit, settings_setter=None):
         number = min(number, limit)
         getattr(actions, setter)(number)
         if widget:
-            send_cmd_val(g.tty_fd, widget, to_string(number))
+            g.port.val(widget, to_string(number))
         if settings_setter:
             getattr(settings, settings_setter)(number)
     return handle

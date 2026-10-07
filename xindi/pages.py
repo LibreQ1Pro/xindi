@@ -7,10 +7,6 @@ from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, c_round, system, sleep, usleep
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
-from .screen_tx import (send_cmd_txt, send_cmd_val, send_cmd_pco, send_cmd_picc, send_cmd_picc2,
-                       send_cmd_vis, send_cmd_pic, send_cmd_cp_close, send_cmd_cp_image,
-                       send_cmd_baud, send_cmd_txt_plus)
-from .serial_port import set_option
 from .moonraker_api import json_run_a_gcode
 from .printer_status import get_cal_printing_time
 from .file_browser import output_imgdata
@@ -53,7 +49,7 @@ def show():
     if g.screen.jump_detect_error:
         g.screen.jump_detect_error = False
         page_to(ids.DETECT_ERROR)
-        send_cmd_txt(g.tty_fd, "msg", g.screen.error_message)
+        g.port.txt("msg", g.screen.error_message)
     if g.screen.jump_level_error:
         g.screen.jump_level_error = False
         page_to(ids.LEVEL_ERROR)
@@ -116,12 +112,12 @@ def show():
                     cout("Restart page")
                     if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
                         g.shown.webhooks_state_message = g.klippy.webhooks_state_message
-                        send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
+                        g.port.txt("err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
     elif g.screen.page == ids.RESET:
         if g.klippy.webhooks_state == "shutdown" or g.klippy.webhooks_state == "error":
             if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
                 g.shown.webhooks_state_message = g.klippy.webhooks_state_message
-                send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
+                g.port.txt("err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
         if g.klippy.webhooks_state == "ready":
             page_to(ids.SYS_OK)
 
@@ -186,18 +182,18 @@ def show():
 
 def open_filament_video_2():
     if g.klippy.extruder_target == 0:
-        send_cmd_pco(g.tty_fd, "temp_now", "65535")
-        send_cmd_pco(g.tty_fd, "temp_target", "65535")
-        send_cmd_picc(g.tty_fd, "heat_toggle", pics.open_heat_off)
-        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.open_heat_off_press)
+        g.port.pco("temp_now", "65535")
+        g.port.pco("temp_target", "65535")
+        g.port.picc("heat_toggle", pics.open_heat_off)
+        g.port.picc2("heat_toggle", pics.open_heat_off_press)
     else:
-        send_cmd_pco(g.tty_fd, "temp_now", "63488")
-        send_cmd_pco(g.tty_fd, "temp_target", "63488")
-        send_cmd_picc(g.tty_fd, "heat_toggle", pics.open_heat_on)
-        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.open_heat_on_press)
+        g.port.pco("temp_now", "63488")
+        g.port.pco("temp_target", "63488")
+        g.port.picc("heat_toggle", pics.open_heat_on)
+        g.port.picc2("heat_toggle", pics.open_heat_on_press)
 
-    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.klippy.extruder_temperature) + "/")
-    send_cmd_val(g.tty_fd, "temp_target", to_string(g.klippy.extruder_target))
+    g.port.txt("temp_now", to_string(g.klippy.extruder_temperature) + "/")
+    g.port.val("temp_target", to_string(g.klippy.extruder_target))
 
 
 def syntony_finish():
@@ -223,9 +219,9 @@ def syntony_finish():
 
 def _picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
     for i, name in enumerate(names):
-        send_cmd_picc(g.tty_fd, name, on_picc if i == selected else off_picc)
+        g.port.picc(name, on_picc if i == selected else off_picc)
     for i, name in enumerate(names):
-        send_cmd_picc2(g.tty_fd, name, on_picc2 if i == selected else off_picc2)
+        g.port.picc2(name, on_picc2 if i == selected else off_picc2)
 
 
 def auto_level():
@@ -263,23 +259,23 @@ def syntony_move():
 
 
 def print_filament():
-    send_cmd_txt(g.tty_fd, "file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
 
     if g.klippy.extruder_target == 0:
-        send_cmd_pco(g.tty_fd, "temp_now", "65535")
-        send_cmd_picc(g.tty_fd, "heat_btn", pics.printfil_heat_off)
-        send_cmd_picc2(g.tty_fd, "heat_btn", pics.printfil_press_off)
+        g.port.pco("temp_now", "65535")
+        g.port.picc("heat_btn", pics.printfil_heat_off)
+        g.port.picc2("heat_btn", pics.printfil_press_off)
     else:
-        send_cmd_pco(g.tty_fd, "temp_now", "63488")
-        send_cmd_picc(g.tty_fd, "heat_btn", pics.printfil_heat_on)
-        send_cmd_picc2(g.tty_fd, "heat_btn", pics.printfil_press_on)
+        g.port.pco("temp_now", "63488")
+        g.port.picc("heat_btn", pics.printfil_heat_on)
+        g.port.picc2("heat_btn", pics.printfil_press_on)
 
-    send_cmd_val(g.tty_fd, "progress", to_string(g.klippy.display_status_progress))
-    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.klippy.display_status_progress))
-    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.klippy.extruder_temperature))
-    send_cmd_txt(g.tty_fd, "temp_set", to_string(g.klippy.extruder_target))
-    send_cmd_txt(g.tty_fd, "time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
-    send_cmd_txt(g.tty_fd, "time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
+    g.port.val("progress", to_string(g.klippy.display_status_progress))
+    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
+    g.port.txt("temp_now", to_string(g.klippy.extruder_temperature))
+    g.port.txt("temp_set", to_string(g.klippy.extruder_target))
+    g.port.txt("time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
+    g.port.txt("time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
 
@@ -305,7 +301,7 @@ def print_filament():
         page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.klippy.idle_timeout_state == "Idle":
@@ -319,28 +315,28 @@ def auto_finish():
 
 
 def auto_moving():
-    send_cmd_txt(g.tty_fd, "bed_temp", "(" + to_string(g.klippy.heater_bed_temperature) + "/" +
+    g.port.txt("bed_temp", "(" + to_string(g.klippy.heater_bed_temperature) + "/" +
                  to_string(g.klippy.heater_bed_target) + ")")
     if g.levelling.step_1:
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_1)
-        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
-        send_cmd_vis(g.tty_fd, "spin1", "0")
-        send_cmd_vis(g.tty_fd, "spin2", "1")
+        g.port.picc("steps_bar", pics.auto_steps_1)
+        g.port.pco("step2_txt", "65535")
+        g.port.pco("step1_txt", "38066")
+        g.port.vis("spin1", "0")
+        g.port.vis("spin2", "1")
         g.levelling.step_1 = False
     if g.levelling.step_2:
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_2)
-        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
-        send_cmd_vis(g.tty_fd, "spin2", "0")
-        send_cmd_vis(g.tty_fd, "spin3", "1")
+        g.port.picc("steps_bar", pics.auto_steps_2)
+        g.port.pco("step3_txt", "65535")
+        g.port.pco("step2_txt", "38066")
+        g.port.vis("spin2", "0")
+        g.port.vis("spin3", "1")
         g.levelling.step_2 = False
     if g.levelling.step_3:
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.auto_steps_3)
-        send_cmd_pco(g.tty_fd, "step4_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step3_txt", "38066")
-        send_cmd_vis(g.tty_fd, "spin3", "0")
-        send_cmd_vis(g.tty_fd, "spin4", "1")
+        g.port.picc("steps_bar", pics.auto_steps_3)
+        g.port.pco("step4_txt", "65535")
+        g.port.pco("step3_txt", "38066")
+        g.port.vis("spin3", "0")
+        g.port.vis("spin4", "1")
         g.levelling.step_3 = False
         g.klippy.idle_timeout_state = "Printing"
         settings.get_heater_bed_target()
@@ -364,32 +360,32 @@ def move_page():
     y_pos = _cut_after_point(to_string(g.klippy.y_position), 2)
     z_pos = _cut_after_point(to_string(g.klippy.z_position), 2)
 
-    send_cmd_txt(g.tty_fd, "x_pos", x_pos)
-    send_cmd_txt(g.tty_fd, "y_pos", y_pos)
-    send_cmd_txt(g.tty_fd, "z_pos", z_pos)
+    g.port.txt("x_pos", x_pos)
+    g.port.txt("y_pos", y_pos)
+    g.port.txt("z_pos", z_pos)
 
     # CLL highlight the selected distance
     if g.klippy.move_dist == f32(0.1):
-        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_on)
-        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_on_press)
-        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_off_press)
-        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_off_press)
+        g.port.picc("dist_01", pics.move_dist_on)
+        g.port.picc2("dist_01", pics.move_dist_on_press)
+        g.port.picc("dist_1", pics.move_dist_off)
+        g.port.picc2("dist_1", pics.move_dist_off_press)
+        g.port.picc("dist_10", pics.move_dist_off)
+        g.port.picc2("dist_10", pics.move_dist_off_press)
     elif g.klippy.move_dist == f32(1.0):
-        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_off_press)
-        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_on)
-        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_on_press)
-        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_off_press)
+        g.port.picc("dist_01", pics.move_dist_off)
+        g.port.picc2("dist_01", pics.move_dist_off_press)
+        g.port.picc("dist_1", pics.move_dist_on)
+        g.port.picc2("dist_1", pics.move_dist_on_press)
+        g.port.picc("dist_10", pics.move_dist_off)
+        g.port.picc2("dist_10", pics.move_dist_off_press)
     elif g.klippy.move_dist == f32(10):
-        send_cmd_picc(g.tty_fd, "dist_01", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_01", pics.move_dist_off_press)
-        send_cmd_picc(g.tty_fd, "dist_1", pics.move_dist_off)
-        send_cmd_picc2(g.tty_fd, "dist_1", pics.move_dist_off_press)
-        send_cmd_picc(g.tty_fd, "dist_10", pics.move_dist_on)
-        send_cmd_picc2(g.tty_fd, "dist_10", pics.move_dist_on_press)
+        g.port.picc("dist_01", pics.move_dist_off)
+        g.port.picc2("dist_01", pics.move_dist_off_press)
+        g.port.picc("dist_1", pics.move_dist_off)
+        g.port.picc2("dist_1", pics.move_dist_off_press)
+        g.port.picc("dist_10", pics.move_dist_on)
+        g.port.picc2("dist_10", pics.move_dist_on_press)
 
 
 def offset(intern_zoffset):
@@ -415,8 +411,8 @@ def _zoffset_buttons():
         return
     for b in range(1, 5):
         picc, picc2 = pairs[0] if b == sel else pairs[1]
-        send_cmd_picc(g.tty_fd, ("step_001", "step_005", "step_01", "step_05")[b - 1], picc)
-        send_cmd_picc2(g.tty_fd, ("step_001", "step_005", "step_01", "step_05")[b - 1], picc2)
+        g.port.picc(("step_001", "step_005", "step_01", "step_05")[b - 1], picc)
+        g.port.picc2(("step_001", "step_005", "step_01", "step_05")[b - 1], picc2)
 
 
 def printing_zoffset():
@@ -424,18 +420,18 @@ def printing_zoffset():
     show_gcode_z = to_string(g.klippy.gcode_z_position)
     z_offset = _cut_after_point(z_offset, 4)
     show_gcode_z = _cut_after_point(show_gcode_z, 4)
-    send_cmd_txt(g.tty_fd, "file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
     if z_offset != g.config.babystep_value:
         g.config.babystep_value = z_offset
         settings.set_babystep(g.config.babystep_value)
-    send_cmd_txt(g.tty_fd, "gcode_z", show_gcode_z)
-    send_cmd_txt(g.tty_fd, "z_offset", z_offset)
-    send_cmd_txt(g.tty_fd, "time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
-    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.klippy.display_status_progress))
-    send_cmd_txt(g.tty_fd, "time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
+    g.port.txt("gcode_z", show_gcode_z)
+    g.port.txt("z_offset", z_offset)
+    g.port.txt("time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
+    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
+    g.port.txt("time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
-    send_cmd_val(g.tty_fd, "progress", to_string(g.klippy.display_status_progress))
+    g.port.val("progress", to_string(g.klippy.display_status_progress))
 
     _zoffset_buttons()
 
@@ -470,102 +466,102 @@ def printing_zoffset():
         sleep(5)
         actions.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
-        send_cmd_txt(g.tty_fd, "time_txt", time_duration)
+        g.port.txt("time_txt", time_duration)
 
     if g.klippy.print_stats_state == "error":
         page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
 
 def printing():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
     z_offset = _cut_after_point(z_offset, 4)
 
-    send_cmd_val(g.tty_fd, "progress", to_string(g.klippy.display_status_progress))
-    send_cmd_val(g.tty_fd, "progress_pct", to_string(g.klippy.display_status_progress))
-    send_cmd_txt(g.tty_fd, "time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
-    send_cmd_txt(g.tty_fd, "time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
+    g.port.val("progress", to_string(g.klippy.display_status_progress))
+    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
+    g.port.txt("time_elapsed", actions.show_time(c_int(g.klippy.print_stats_print_duration)))
+    g.port.txt("time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
-    send_cmd_txt(g.tty_fd, "file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
 
     # the z offset of the second page is always refreshed: the page starts with
     # the designer's "-1.000", it must not stay while the keyboard flag is set
     if g.screen.page == ids.PRINTING_2:
-        send_cmd_txt(g.tty_fd, "zoffset_val", z_offset)
+        g.port.txt("zoffset_val", z_offset)
 
     if g.screen.printing_keyboard_enabled:     # 4.4.22 silent mode button of the keyboard
         if not g.screen.muted:
-            send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_off)
-            send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_off_press)
+            g.port.picc("mute_btn", pics.kb_mute_off)
+            g.port.picc2("mute_btn", pics.kb_mute_off_press)
         else:
-            send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_on)
-            send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_on_press)
+            g.port.picc("mute_btn", pics.kb_mute_on)
+            g.port.picc2("mute_btn", pics.kb_mute_on_press)
     else:                                       # CLL refresh only while the keyboard is not shown
         if g.screen.page == ids.PRINTING:
             # CLL fan speeds
-            send_cmd_val(g.tty_fd, "fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
-            send_cmd_val(g.tty_fd, "fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
-            send_cmd_val(g.tty_fd, "fan3_val", to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100))))
+            g.port.val("fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
+            g.port.val("fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
+            g.port.val("fan3_val", to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100))))
 
-            send_cmd_txt(g.tty_fd, "nozzle_temp", to_string(g.klippy.extruder_temperature))
-            send_cmd_val(g.tty_fd, "nozzle_set", to_string(g.klippy.extruder_target))
+            g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
+            g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
             if g.klippy.extruder_target == 0:  # CLL button and number colour depend on the nozzle heating
-                send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
-                send_cmd_picc(g.tty_fd, "nozzle_btn", pics.printing_row_off)
-                send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.printing_press_off)
+                g.port.pco("nozzle_temp", "65535")
+                g.port.picc("nozzle_btn", pics.printing_row_off)
+                g.port.picc2("nozzle_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
-                send_cmd_picc(g.tty_fd, "nozzle_btn", pics.printing_row_on)
-                send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.printing_press_on)
+                g.port.pco("nozzle_temp", "63488")
+                g.port.picc("nozzle_btn", pics.printing_row_on)
+                g.port.picc2("nozzle_btn", pics.printing_press_on)
 
-            send_cmd_txt(g.tty_fd, "bed_temp", to_string(g.klippy.heater_bed_temperature))
-            send_cmd_val(g.tty_fd, "bed_set", to_string(g.klippy.heater_bed_target))
+            g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
+            g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
             if g.klippy.heater_bed_target == 0:    # CLL button and number colour depend on the bed heating
-                send_cmd_pco(g.tty_fd, "bed_temp", "65535")
-                send_cmd_picc(g.tty_fd, "bed_btn", pics.printing_row_off)
-                send_cmd_picc2(g.tty_fd, "bed_btn", pics.printing_press_off)
+                g.port.pco("bed_temp", "65535")
+                g.port.picc("bed_btn", pics.printing_row_off)
+                g.port.picc2("bed_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "bed_temp", "63488")
-                send_cmd_picc(g.tty_fd, "bed_btn", pics.printing_row_on)
-                send_cmd_picc2(g.tty_fd, "bed_btn", pics.printing_press_on)
+                g.port.pco("bed_temp", "63488")
+                g.port.picc("bed_btn", pics.printing_row_on)
+                g.port.picc2("bed_btn", pics.printing_press_on)
 
             # 4.4.22: the LED button moved to the second printing page
 
-            send_cmd_val(g.tty_fd, "chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
-            send_cmd_txt(g.tty_fd, "chamber_temp", to_string(g.klippy.hot_temperature))
+            g.port.val("chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
+            g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
             if g.klippy.hot_target == 0:
-                send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
-                send_cmd_picc(g.tty_fd, "chamber_btn", pics.printing_row_off)
-                send_cmd_picc2(g.tty_fd, "chamber_btn", pics.printing_press_off)
+                g.port.pco("chamber_temp", "65535")
+                g.port.picc("chamber_btn", pics.printing_row_off)
+                g.port.picc2("chamber_btn", pics.printing_press_off)
             else:
-                send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
-                send_cmd_picc(g.tty_fd, "chamber_btn", pics.printing_row_on)
-                send_cmd_picc2(g.tty_fd, "chamber_btn", pics.printing_press_on)
+                g.port.pco("chamber_temp", "63488")
+                g.port.picc("chamber_btn", pics.printing_row_on)
+                g.port.picc2("chamber_btn", pics.printing_press_on)
 
             if g.screen.show_preview_gimage_completed:
-                send_cmd_vis(g.tty_fd, "thumb", "1")
-                send_cmd_val(g.tty_fd, "thumb_flag", "1")
+                g.port.vis("thumb", "1")
+                g.port.val("thumb_flag", "1")
             else:
-                send_cmd_vis(g.tty_fd, "thumb", "0")
-                send_cmd_val(g.tty_fd, "thumb_flag", "0")
+                g.port.vis("thumb", "0")
+                g.port.val("thumb_flag", "0")
         elif g.screen.page == ids.PRINTING_2:
             if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
                 g.shown.speed_factor = g.klippy.gcode_move_speed_factor
-                send_cmd_val(g.tty_fd, "speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
+                g.port.val("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
 
             if g.shown.extruder_factor != g.klippy.gcode_move_extrude_factor:    # CLL extrusion factor
                 g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
-                send_cmd_val(g.tty_fd, "flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
+                g.port.val("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
 
             if g.klippy.caselight_value == 0:      # 4.4.22 LED state
-                send_cmd_picc(g.tty_fd, "light_btn", pics.light_off)
-                send_cmd_picc2(g.tty_fd, "light_btn", pics.printing2_press_off)
+                g.port.picc("light_btn", pics.light_off)
+                g.port.picc2("light_btn", pics.printing2_press_off)
             else:
-                send_cmd_picc(g.tty_fd, "light_btn", pics.light_on)
-                send_cmd_picc2(g.tty_fd, "light_btn", pics.printing2_press_on)
+                g.port.picc("light_btn", pics.light_on)
+                g.port.picc2("light_btn", pics.printing2_press_on)
 
     if g.klippy.print_stats_state == "printing":
         g.klippy.ready = True
@@ -589,7 +585,7 @@ def printing():
         sleep(5)
         actions.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
-        send_cmd_txt(g.tty_fd, "time_txt", time_duration)
+        g.port.txt("time_txt", time_duration)
 
     if g.klippy.print_stats_state == "paused":
         if g.klippy.ready:
@@ -603,7 +599,7 @@ def printing():
         page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
 
 def clear_printing_arg():
@@ -630,18 +626,18 @@ def _send_chunks_txt(data):
     while start < length:
         if end > length:
             s = substr(data, start, length - start)
-            send_cmd_txt(g.tty_fd, "cp_pad", s)
-            _tcdrain()
-            send_cmd_txt_plus(g.tty_fd, "cp_data", "cp_data", "cp_pad")
-            _tcdrain()
+            g.port.txt("cp_pad", s)
+            g.port.drain()
+            g.port.txt_plus("cp_data", "cp_data", "cp_pad")
+            g.port.drain()
             break
         s = substr(data, start, num)
         start = end
         end = end + num
-        send_cmd_txt(g.tty_fd, "cp_pad", s)
-        _tcdrain()
-        send_cmd_txt_plus(g.tty_fd, "cp_data", "cp_data", "cp_pad")
-        _tcdrain()
+        g.port.txt("cp_pad", s)
+        g.port.drain()
+        g.port.txt_plus("cp_data", "cp_data", "cp_pad")
+        g.port.drain()
 
 
 def _send_chunks_cp(obj, data):
@@ -653,65 +649,57 @@ def _send_chunks_cp(obj, data):
     while start < length:
         if end > length:
             part = substr(data, start, length - start)
-            _tcdrain()
-            send_cmd_cp_image(g.tty_fd, obj, part)
+            g.port.drain()
+            g.port.cp_image(obj, part)
             break
         part = substr(data, start, num)
         start = end
         end = end + num
-        _tcdrain()
-        send_cmd_cp_image(g.tty_fd, obj, part)
-
-
-def _tcdrain():
-    import termios
-    try:
-        termios.tcdrain(g.tty_fd)
-    except (termios.error, OSError, ValueError):
-        pass
+        g.port.drain()
+        g.port.cp_image(obj, part)
 
 
 def preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
     if not g.screen.bed_leveling:
-        send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_off)
-        send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_off)
+        g.port.picc("level_btn", pics.preview_chk_off)
+        g.port.picc2("level_btn", pics.preview_press_off)
     else:
-        send_cmd_picc(g.tty_fd, "level_btn", pics.preview_chk_on)
-        send_cmd_picc2(g.tty_fd, "level_btn", pics.preview_press_on)
+        g.port.picc("level_btn", pics.preview_chk_on)
+        g.port.picc2("level_btn", pics.preview_press_on)
     if not g.screen.timelapse_enabled:
-        send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_off)
-        send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_off)
+        g.port.picc("timelapse_btn", pics.preview_chk_off)
+        g.port.picc2("timelapse_btn", pics.preview_press_off)
     else:
-        send_cmd_picc(g.tty_fd, "timelapse_btn", pics.preview_chk_on)
-        send_cmd_picc2(g.tty_fd, "timelapse_btn", pics.preview_press_on)
+        g.port.picc("timelapse_btn", pics.preview_chk_on)
+        g.port.picc2("timelapse_btn", pics.preview_press_on)
     if g.files.meta_parse_finished:
         if not g.screen.show_preview_complete:
             # 4.4.2 CLL only the file name is shown on the preview page
-            send_cmd_txt(g.tty_fd, "err_msg", filelist._file_name_only(g.files.meta_filename))
+            g.port.txt("err_msg", filelist._file_name_only(g.files.meta_filename))
             if g.files.meta_estimated_time:
-                send_cmd_txt(g.tty_fd, "est_time", actions.show_time(g.files.meta_estimated_time))
+                g.port.txt("est_time", actions.show_time(g.files.meta_estimated_time))
             else:
-                send_cmd_txt(g.tty_fd, "est_time", "-")
+                g.port.txt("est_time", "-")
 
             if g.files.meta_filament_weight_total:
                 temp = to_string(g.files.meta_filament_weight_total)
-                send_cmd_txt(g.tty_fd, "fil_weight", _cut_after_point(temp, 2) + "g")
+                g.port.txt("fil_weight", _cut_after_point(temp, 2) + "g")
             else:
-                send_cmd_txt(g.tty_fd, "fil_weight", "-")
+                g.port.txt("fil_weight", "-")
 
             if g.files.meta_filament_total:
                 temp = to_string(f32(g.files.meta_filament_total / 1000))
-                send_cmd_txt(g.tty_fd, "fil_length", _cut_after_point(temp, 2) + "m")
+                g.port.txt("fil_length", _cut_after_point(temp, 2) + "m")
             else:
-                send_cmd_txt(g.tty_fd, "fil_length", "-")
+                g.port.txt("fil_length", "-")
 
             if g.files.meta_filament_type != "":
-                send_cmd_txt(g.tty_fd, "fil_type", g.files.meta_filament_type)
+                g.port.txt("fil_type", g.files.meta_filament_type)
             elif g.files.meta_filament_name != "":
-                send_cmd_txt(g.tty_fd, "fil_type", g.files.meta_filament_name)
+                g.port.txt("fil_type", g.files.meta_filament_name)
             else:
-                send_cmd_txt(g.tty_fd, "fil_type", "-")
+                g.port.txt("fil_type", "-")
 
             path_found = False
             # NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then
@@ -748,17 +736,17 @@ def preview():
                         g.screen.show_preview_complete = True
                         return
                     g.files.meta_simage = data
-                    send_cmd_txt(g.tty_fd, "preview.cp_data", "")
-                    send_cmd_txt(g.tty_fd, "preview.cp_pad", "")
+                    g.port.txt("preview.cp_data", "")
+                    g.port.txt("preview.cp_pad", "")
                     if g.files.meta_simage != "":
-                        send_cmd_baud(g.tty_fd, 921600)
+                        g.port.baud(921600)
                         usleep(50000)
-                        set_option(g.tty_fd, 921600, 8, 'N', 1)
+                        g.port.set_baud(921600)
                         cout("Sending the small picture")
                         _send_chunks_txt(g.files.meta_simage)
-                        send_cmd_baud(g.tty_fd, 115200)
+                        g.port.baud(115200)
                         usleep(50000)
-                        set_option(g.tty_fd, 115200, 8, 'N', 1)
+                        g.port.set_baud(115200)
 
                     # big picture
                     if not g.screen.jump_print:
@@ -768,23 +756,23 @@ def preview():
                             g.screen.show_preview_complete = True
                             return
                         g.files.meta_gimage = data
-                        send_cmd_baud(g.tty_fd, 921600)
+                        g.port.baud(921600)
                         usleep(50000)
-                        set_option(g.tty_fd, 921600, 8, 'N', 1)
-                        send_cmd_cp_close(g.tty_fd, "preview.preview_pic")
+                        g.port.set_baud(921600)
+                        g.port.cp_close("preview.preview_pic")
                         if g.files.meta_gimage != "":
                             cout("Sending the big picture")
                             _send_chunks_cp("preview_pic", g.files.meta_gimage)
-                        send_cmd_baud(g.tty_fd, 115200)
+                        g.port.baud(115200)
                         usleep(50000)
-                        set_option(g.tty_fd, 115200, 8, 'N', 1)
+                        g.port.set_baud(115200)
                         actions.bed_leveling_switch(True)
                     g.screen.show_preview_gimage_completed = True
 
             if g.screen.show_preview_gimage_completed:
-                send_cmd_vis(g.tty_fd, "preview_pic", "1")
+                g.port.vis("preview_pic", "1")
             else:
-                send_cmd_vis(g.tty_fd, "preview_pic", "0")
+                g.port.vis("preview_pic", "0")
 
             g.screen.show_preview_complete = True
             if g.screen.jump_print:
@@ -793,60 +781,60 @@ def preview():
 
 
 def main():
-    send_cmd_val(g.tty_fd, "nozzle_temp", to_string(g.klippy.extruder_temperature))
-    send_cmd_val(g.tty_fd, "bed_temp", to_string(g.klippy.heater_bed_temperature))
-    send_cmd_val(g.tty_fd, "chamber_temp", to_string(g.klippy.hot_temperature))
+    g.port.val("nozzle_temp", to_string(g.klippy.extruder_temperature))
+    g.port.val("bed_temp", to_string(g.klippy.heater_bed_temperature))
+    g.port.val("chamber_temp", to_string(g.klippy.hot_temperature))
 
     if filelist.detect_disk() == 0:      # CLL USB drive inserted?
-        send_cmd_picc(g.tty_fd, "usb_icon", pics.main_off)
+        g.port.picc("usb_icon", pics.main_off)
     else:
-        send_cmd_picc(g.tty_fd, "usb_icon", pics.main_on)
+        g.port.picc("usb_icon", pics.main_on)
 
     if g.net.status_result.wpa_state == "COMPLETED":    # CLL wifi connected?
-        send_cmd_picc(g.tty_fd, "wifi_icon", pics.main_off)
+        g.port.picc("wifi_icon", pics.main_off)
     else:
-        send_cmd_picc(g.tty_fd, "wifi_icon", pics.main_on)
+        g.port.picc("wifi_icon", pics.main_on)
 
     if g.klippy.caselight_value == 0:      # LED logo
-        send_cmd_picc(g.tty_fd, "light_btn", pics.main_off)
-        send_cmd_picc2(g.tty_fd, "light_btn", pics.nav_btn_press)
+        g.port.picc("light_btn", pics.main_off)
+        g.port.picc2("light_btn", pics.nav_btn_press)
     else:
-        send_cmd_picc(g.tty_fd, "light_btn", pics.main_on)
-        send_cmd_picc2(g.tty_fd, "light_btn", pics.main_on_press)
+        g.port.picc("light_btn", pics.main_on)
+        g.port.picc2("light_btn", pics.main_on_press)
 
     if g.klippy.out_pin_beep_value == 0:
-        send_cmd_picc(g.tty_fd, "beep_btn", pics.main_off)
-        send_cmd_picc2(g.tty_fd, "beep_btn", pics.nav_btn_press)
+        g.port.picc("beep_btn", pics.main_off)
+        g.port.picc2("beep_btn", pics.nav_btn_press)
     else:
-        send_cmd_picc(g.tty_fd, "beep_btn", pics.main_on)
-        send_cmd_picc2(g.tty_fd, "beep_btn", pics.main_on_press)
+        g.port.picc("beep_btn", pics.main_on)
+        g.port.picc2("beep_btn", pics.main_on_press)
 
     if g.klippy.extruder_target == 0:      # CLL nozzle heating state on the main page
-        send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
-        send_cmd_picc(g.tty_fd, "nozzle_btn", pics.main_off)
-        send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.nav_btn_press)
+        g.port.pco("nozzle_temp", "65535")
+        g.port.picc("nozzle_btn", pics.main_off)
+        g.port.picc2("nozzle_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
-        send_cmd_picc(g.tty_fd, "nozzle_btn", pics.main_on)
-        send_cmd_picc2(g.tty_fd, "nozzle_btn", pics.main_on_press)
+        g.port.pco("nozzle_temp", "63488")
+        g.port.picc("nozzle_btn", pics.main_on)
+        g.port.picc2("nozzle_btn", pics.main_on_press)
 
     if g.klippy.heater_bed_target == 0:    # CLL bed heating state on the main page
-        send_cmd_pco(g.tty_fd, "bed_temp", "65535")
-        send_cmd_picc(g.tty_fd, "bed_btn", pics.main_off)
-        send_cmd_picc2(g.tty_fd, "bed_btn", pics.nav_btn_press)
+        g.port.pco("bed_temp", "65535")
+        g.port.picc("bed_btn", pics.main_off)
+        g.port.picc2("bed_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "bed_temp", "63488")
-        send_cmd_picc(g.tty_fd, "bed_btn", pics.main_on)
-        send_cmd_picc2(g.tty_fd, "bed_btn", pics.main_on_press)
+        g.port.pco("bed_temp", "63488")
+        g.port.picc("bed_btn", pics.main_on)
+        g.port.picc2("bed_btn", pics.main_on_press)
 
     if g.klippy.hot_target == 0:           # CLL chamber heating state on the main page
-        send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
-        send_cmd_picc(g.tty_fd, "chamber_btn", pics.main_off)
-        send_cmd_picc2(g.tty_fd, "chamber_btn", pics.nav_btn_press)
+        g.port.pco("chamber_temp", "65535")
+        g.port.picc("chamber_btn", pics.main_off)
+        g.port.picc2("chamber_btn", pics.nav_btn_press)
     else:
-        send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
-        send_cmd_picc(g.tty_fd, "chamber_btn", pics.main_on)
-        send_cmd_picc2(g.tty_fd, "chamber_btn", pics.main_on_press)
+        g.port.pco("chamber_temp", "63488")
+        g.port.picc("chamber_btn", pics.main_on)
+        g.port.picc2("chamber_btn", pics.main_on_press)
 
     # CLL refresh the picture after every boot or print
     if not g.screen.main_picture_refreshed:
@@ -859,7 +847,7 @@ def main():
         g.files.list_path = ""
         filelist.refresh_page_files(g.files.list_current_pages)
         if g.files.list_list_show_type[0] == "[c]":
-            send_cmd_txt(g.tty_fd, "last_file_name", g.files.list_list_show_name[0])
+            g.port.txt("last_file_name", g.files.list_list_show_name[0])
             name0 = g.files.list_list_show_name[0]
             # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
             picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/.cache/" + name0, 1))
@@ -867,31 +855,31 @@ def main():
             thumb = thumbnail.find(picture_path, 160, "PNG")
             if thumb is not None and thumb.fmt == "PNG":
                 MKSLOG_RED("Found png picture")
-                send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_photo)
-                send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
-                send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
-                send_cmd_vis(g.tty_fd, "last_file_pic", "1")
+                g.port.pic("b[0]", pics.main_bg_photo)
+                g.port.picc("last_file_btn", pics.main_bg_photo)
+                g.port.picc2("last_file_btn", pics.nav_btn_press)
+                g.port.vis("last_file_pic", "1")
                 filelist.send_file_picture(picture_path, 160, "last_file_pic")
                 g.screen.main_picture_detected = True
             else:
                 if thumb is not None:
                     MKSLOG_RED("Found jpg picture")
-                    send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_photo)
-                    send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
-                    send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
+                    g.port.pic("b[0]", pics.main_bg_photo)
+                    g.port.picc("last_file_btn", pics.main_bg_photo)
+                    g.port.picc2("last_file_btn", pics.nav_btn_press)
                     filelist.send_file_picture(picture_path, 160, "last_file_pic")
                     g.screen.main_picture_detected = True
                 else:
-                    send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_noimg)
-                    send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_noimg)
-                    send_cmd_picc2(g.tty_fd, "last_file_btn", pics.main_on_press)
-                    send_cmd_vis(g.tty_fd, "last_file_pic", "0")
+                    g.port.pic("b[0]", pics.main_bg_noimg)
+                    g.port.picc("last_file_btn", pics.main_bg_noimg)
+                    g.port.picc2("last_file_btn", pics.main_on_press)
+                    g.port.vis("last_file_pic", "0")
         else:
-            send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_noimg)
-            send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_noimg)
-            send_cmd_picc2(g.tty_fd, "last_file_btn", pics.main_on_press)
-            send_cmd_txt(g.tty_fd, "last_file_name", "")
-            send_cmd_vis(g.tty_fd, "last_file_pic", "0")
+            g.port.pic("b[0]", pics.main_bg_noimg)
+            g.port.picc("last_file_btn", pics.main_bg_noimg)
+            g.port.picc2("last_file_btn", pics.main_on_press)
+            g.port.txt("last_file_name", "")
+            g.port.vis("last_file_pic", "0")
         g.screen.main_picture_refreshed = True
 
     # CLL ask for the power loss recovery once after boot
@@ -941,24 +929,24 @@ def zoffset():
                 break
             temp = to_string(g.levelling.mesh_points[i][j])
             temp = _cut_after_point(temp, 3)
-            send_cmd_txt(g.tty_fd, "cell_" + to_string(5 * i + j), temp)
+            g.port.txt("cell_" + to_string(5 * i + j), temp)
             j += 1
         i += 1
 
 
 def auto_heaterbed():
-    send_cmd_txt(g.tty_fd, "temp_now", to_string(g.klippy.heater_bed_temperature) + "/")
-    send_cmd_val(g.tty_fd, "temp_target", to_string(g.klippy.heater_bed_target))
+    g.port.txt("temp_now", to_string(g.klippy.heater_bed_temperature) + "/")
+    g.port.val("temp_target", to_string(g.klippy.heater_bed_target))
     if g.klippy.heater_bed_target > 0:
-        send_cmd_picc(g.tty_fd, "heat_toggle", pics.autobed_on)
-        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.autobed_press_on)
-        send_cmd_pco(g.tty_fd, "temp_now", "63488")
-        send_cmd_pco(g.tty_fd, "temp_target", "63488")
+        g.port.picc("heat_toggle", pics.autobed_on)
+        g.port.picc2("heat_toggle", pics.autobed_press_on)
+        g.port.pco("temp_now", "63488")
+        g.port.pco("temp_target", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "heat_toggle", pics.autobed_off)
-        send_cmd_picc2(g.tty_fd, "heat_toggle", pics.autobed_press_off)
-        send_cmd_pco(g.tty_fd, "temp_now", "65535")
-        send_cmd_pco(g.tty_fd, "temp_target", "65535")
+        g.port.picc("heat_toggle", pics.autobed_off)
+        g.port.picc2("heat_toggle", pics.autobed_press_off)
+        g.port.pco("temp_now", "65535")
+        g.port.pco("temp_target", "65535")
 
 
 def open_moving():
@@ -968,39 +956,39 @@ def open_moving():
 
 
 def open_heaterbed():
-    send_cmd_txt(g.tty_fd, "t0", to_string(g.klippy.heater_bed_temperature) + "/")
-    send_cmd_val(g.tty_fd, "n0", to_string(g.klippy.heater_bed_target))
+    g.port.txt("t0", to_string(g.klippy.heater_bed_temperature) + "/")
+    g.port.val("n0", to_string(g.klippy.heater_bed_target))
     if g.klippy.heater_bed_target > 0:
-        send_cmd_picc(g.tty_fd, "b0", pics.bedtemp_on)
-        send_cmd_picc2(g.tty_fd, "b0", pics.bedtemp_press_on)
-        send_cmd_pco(g.tty_fd, "t0", "63488")
-        send_cmd_pco(g.tty_fd, "n0", "63488")
+        g.port.picc("b0", pics.bedtemp_on)
+        g.port.picc2("b0", pics.bedtemp_press_on)
+        g.port.pco("t0", "63488")
+        g.port.pco("n0", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "b0", pics.bedtemp_off)
-        send_cmd_picc2(g.tty_fd, "b0", pics.bedtemp_press_off)
-        send_cmd_pco(g.tty_fd, "t0", "65535")
-        send_cmd_pco(g.tty_fd, "n0", "65535")
+        g.port.picc("b0", pics.bedtemp_off)
+        g.port.picc2("b0", pics.bedtemp_press_off)
+        g.port.pco("t0", "65535")
+        g.port.pco("n0", "65535")
 
 
 def filament_pop():
-    send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
+    g.port.txt("temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
                  to_string(g.klippy.extruder_target) + "℃)")
     if g.levelling.step_1:
         g.levelling.step_1 = False
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_2)
-        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
-        send_cmd_pco(g.tty_fd, "temp_txt", "38066")
-        send_cmd_vis(g.tty_fd, "spin2", "0")
-        send_cmd_vis(g.tty_fd, "spin3", "1")
+        g.port.picc("steps_bar", pics.pop_steps_2)
+        g.port.pco("step2_txt", "65535")
+        g.port.pco("step1_txt", "38066")
+        g.port.pco("temp_txt", "38066")
+        g.port.vis("spin2", "0")
+        g.port.vis("spin3", "1")
     if g.levelling.step_2 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_2 = False
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.pop_steps_3)
-        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
-        send_cmd_vis(g.tty_fd, "done_btn", "1")
-        send_cmd_vis(g.tty_fd, "alt_btn", "1")
-        send_cmd_vis(g.tty_fd, "spin3", "0")
+        g.port.picc("steps_bar", pics.pop_steps_3)
+        g.port.pco("step3_txt", "65535")
+        g.port.pco("step2_txt", "38066")
+        g.port.vis("done_btn", "1")
+        g.port.vis("alt_btn", "1")
+        g.port.vis("spin3", "0")
 
 
 def preview_pop():
@@ -1015,7 +1003,7 @@ def preview_pop():
         page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
 
 def bed_moving():
@@ -1054,105 +1042,105 @@ def filament_set_fan():
         fan0 = to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100)))
         fan2 = to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100)))
         fan3 = to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100)))
-        send_cmd_val(g.tty_fd, "fan1_slider", fan0)
-        send_cmd_val(g.tty_fd, "fan1_val", fan0)
-        send_cmd_val(g.tty_fd, "fan2_slider", fan2)
-        send_cmd_val(g.tty_fd, "fan2_val", fan2)
-        send_cmd_val(g.tty_fd, "fan3_slider", fan3)
-        send_cmd_val(g.tty_fd, "fan3_val", fan3)
+        g.port.val("fan1_slider", fan0)
+        g.port.val("fan1_val", fan0)
+        g.port.val("fan2_slider", fan2)
+        g.port.val("fan2_val", fan2)
+        g.port.val("fan3_slider", fan3)
+        g.port.val("fan3_val", fan3)
         for name, value in (("fan1_toggle", g.klippy.out_pin_fan0_value), ("fan2_toggle", g.klippy.out_pin_fan2_value),
                             ("fan3_toggle", g.klippy.out_pin_fan3_value)):
             if value == 0:
-                send_cmd_picc(g.tty_fd, name, pics.fan_row_off)
-                send_cmd_picc2(g.tty_fd, name, pics.fan_press_off)
+                g.port.picc(name, pics.fan_row_off)
+                g.port.picc2(name, pics.fan_press_off)
             else:
-                send_cmd_picc(g.tty_fd, name, pics.fan_row_on)
-                send_cmd_picc2(g.tty_fd, name, pics.fan_press_on)
+                g.port.picc(name, pics.fan_row_on)
+                g.port.picc2(name, pics.fan_press_on)
 
 
 def common_setting():
     g.shown.oobe_enabled = settings.get_oobe_enabled()
-    send_cmd_txt(g.tty_fd, "version_txt", g.config.version_soc)
+    g.port.txt("version_txt", g.config.version_soc)
     if not g.shown.oobe_enabled:
-        send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row)
-        send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press)
+        g.port.picc("reset_btn", pics.reset_row)
+        g.port.picc2("reset_btn", pics.settings_press)
     else:
-        send_cmd_picc(g.tty_fd, "reset_btn", pics.reset_row_on)
-        send_cmd_picc2(g.tty_fd, "reset_btn", pics.settings_press_on)
+        g.port.picc("reset_btn", pics.reset_row_on)
+        g.port.picc2("reset_btn", pics.settings_press_on)
 
 
 def filament():
-    send_cmd_txt(g.tty_fd, "nozzle_temp", to_string(g.klippy.extruder_temperature))
-    send_cmd_val(g.tty_fd, "nozzle_set", to_string(g.klippy.extruder_target))
-    send_cmd_txt(g.tty_fd, "bed_temp", to_string(g.klippy.heater_bed_temperature))
-    send_cmd_val(g.tty_fd, "bed_set", to_string(g.klippy.heater_bed_target))
-    send_cmd_txt(g.tty_fd, "chamber_temp", to_string(g.klippy.hot_temperature))
-    send_cmd_val(g.tty_fd, "chamber_set", to_string(g.klippy.hot_target))
+    g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
+    g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
+    g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
+    g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
+    g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
+    g.port.val("chamber_set", to_string(g.klippy.hot_target))
     if g.klippy.extruder_target > 0:   # CLL button state depends on the nozzle heating
-        send_cmd_picc(g.tty_fd, "nozzle_toggle", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "nozzle_toggle", pics.filament_press_on)
-        send_cmd_picc(g.tty_fd, "nozzle_row", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "nozzle_row", pics.filament_press_on)
-        send_cmd_pco(g.tty_fd, "nozzle_temp", "63488")
+        g.port.picc("nozzle_toggle", pics.filament_row_on)
+        g.port.picc2("nozzle_toggle", pics.filament_press_on)
+        g.port.picc("nozzle_row", pics.filament_row_on)
+        g.port.picc2("nozzle_row", pics.filament_press_on)
+        g.port.pco("nozzle_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "nozzle_toggle", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "nozzle_toggle", pics.filament_press_off)
-        send_cmd_picc(g.tty_fd, "nozzle_row", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "nozzle_row", pics.filament_press_off)
-        send_cmd_pco(g.tty_fd, "nozzle_temp", "65535")
+        g.port.picc("nozzle_toggle", pics.filament_row_off)
+        g.port.picc2("nozzle_toggle", pics.filament_press_off)
+        g.port.picc("nozzle_row", pics.filament_row_off)
+        g.port.picc2("nozzle_row", pics.filament_press_off)
+        g.port.pco("nozzle_temp", "65535")
 
     if g.klippy.heater_bed_target > 0:     # CLL button state depends on the bed heating
-        send_cmd_picc(g.tty_fd, "bed_toggle", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "bed_toggle", pics.filament_press_on)
-        send_cmd_picc(g.tty_fd, "bed_row", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "bed_row", pics.filament_press_on)
-        send_cmd_pco(g.tty_fd, "bed_temp", "63488")
+        g.port.picc("bed_toggle", pics.filament_row_on)
+        g.port.picc2("bed_toggle", pics.filament_press_on)
+        g.port.picc("bed_row", pics.filament_row_on)
+        g.port.picc2("bed_row", pics.filament_press_on)
+        g.port.pco("bed_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "bed_toggle", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "bed_toggle", pics.filament_press_off)
-        send_cmd_picc(g.tty_fd, "bed_row", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "bed_row", pics.filament_press_off)
-        send_cmd_pco(g.tty_fd, "bed_temp", "65535")
+        g.port.picc("bed_toggle", pics.filament_row_off)
+        g.port.picc2("bed_toggle", pics.filament_press_off)
+        g.port.picc("bed_row", pics.filament_row_off)
+        g.port.picc2("bed_row", pics.filament_press_off)
+        g.port.pco("bed_temp", "65535")
 
     if g.klippy.hot_target > 0:
-        send_cmd_picc(g.tty_fd, "chamber_toggle", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "chamber_toggle", pics.filament_press_on)
-        send_cmd_picc(g.tty_fd, "chamber_row", pics.filament_row_on)
-        send_cmd_picc2(g.tty_fd, "chamber_row", pics.filament_press_on)
-        send_cmd_pco(g.tty_fd, "chamber_temp", "63488")
+        g.port.picc("chamber_toggle", pics.filament_row_on)
+        g.port.picc2("chamber_toggle", pics.filament_press_on)
+        g.port.picc("chamber_row", pics.filament_row_on)
+        g.port.picc2("chamber_row", pics.filament_press_on)
+        g.port.pco("chamber_temp", "63488")
     else:
-        send_cmd_picc(g.tty_fd, "chamber_toggle", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "chamber_toggle", pics.filament_press_off)
-        send_cmd_picc(g.tty_fd, "chamber_row", pics.filament_row_off)
-        send_cmd_picc2(g.tty_fd, "chamber_row", pics.filament_press_off)
-        send_cmd_pco(g.tty_fd, "chamber_temp", "65535")
+        g.port.picc("chamber_toggle", pics.filament_row_off)
+        g.port.picc2("chamber_toggle", pics.filament_press_off)
+        g.port.picc("chamber_row", pics.filament_row_off)
+        g.port.picc2("chamber_row", pics.filament_press_off)
+        g.port.pco("chamber_temp", "65535")
 
     sel = {10: 0, 50: 1, 100: 2}.get(g.klippy.filament_extruder_dist)
     if sel is not None:
         for k, name in enumerate(("step_10", "step_50", "step_100")):
             if k == sel:
-                send_cmd_picc(g.tty_fd, name, pics.filament_row_on)
-                send_cmd_picc2(g.tty_fd, name, pics.filament_press_on)
+                g.port.picc(name, pics.filament_row_on)
+                g.port.picc2(name, pics.filament_press_on)
             else:
-                send_cmd_picc(g.tty_fd, name, pics.filament_row_off)
-                send_cmd_picc2(g.tty_fd, name, pics.filament_press_off)
+                g.port.picc(name, pics.filament_row_off)
+                g.port.picc2(name, pics.filament_press_off)
 
 
 def auto_unload():
-    send_cmd_txt(g.tty_fd, "temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
+    g.port.txt("temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
                  to_string(g.klippy.extruder_target) + "℃)")
     if g.levelling.step_1:
         g.levelling.step_1 = False
-        send_cmd_vis(g.tty_fd, "spin1", "0")
-        send_cmd_vis(g.tty_fd, "spin2", "1")
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_1)
-        send_cmd_pco(g.tty_fd, "step2_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step1_txt", "38066")
+        g.port.vis("spin1", "0")
+        g.port.vis("spin2", "1")
+        g.port.picc("steps_bar", pics.unload_steps_1)
+        g.port.pco("step2_txt", "65535")
+        g.port.pco("step1_txt", "38066")
     if g.levelling.step_2:
         g.levelling.step_2 = False
-        send_cmd_vis(g.tty_fd, "spin2", "0")
-        send_cmd_picc(g.tty_fd, "steps_bar", pics.unload_steps_2)
-        send_cmd_pco(g.tty_fd, "step3_txt", "65535")
-        send_cmd_pco(g.tty_fd, "step2_txt", "38066")
-        send_cmd_vis(g.tty_fd, "load_btn", "1")
-        send_cmd_vis(g.tty_fd, "ok", "1")
+        g.port.vis("spin2", "0")
+        g.port.picc("steps_bar", pics.unload_steps_2)
+        g.port.pco("step3_txt", "65535")
+        g.port.pco("step2_txt", "38066")
+        g.port.vis("load_btn", "1")
+        g.port.vis("ok", "1")

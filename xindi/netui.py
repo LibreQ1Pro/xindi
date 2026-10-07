@@ -10,7 +10,6 @@ from . import network
 from . import netstrings
 from .cpp import sleep, pthread_create
 from .mks_log import MKSLOG, MKSLOG_BLUE
-from .screen_tx import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
 
 ROWS = 5
 
@@ -44,7 +43,7 @@ def _clip(text, length):
 
 
 def _txt(obj, text):
-    send_cmd_txt(g.tty_fd, obj, text)
+    g.port.txt(obj, text)
 
 
 def _lines(*lines):
@@ -71,20 +70,20 @@ def show_saved():
         row = "row" + str(i + 1)
         _txt(row + "_txt", _clip(item["ssid"], 24) if item else "")
         if item and item["active"]:
-            send_cmd_picc(g.tty_fd, row, pics.rows_check)
-            send_cmd_picc2(g.tty_fd, row, pics.rows_check_press)
+            g.port.picc(row, pics.rows_check)
+            g.port.picc2(row, pics.rows_check_press)
         elif item:
-            send_cmd_picc(g.tty_fd, row, pics.rows_lock)
-            send_cmd_picc2(g.tty_fd, row, pics.bg_settings_press)
+            g.port.picc(row, pics.rows_lock)
+            g.port.picc2(row, pics.bg_settings_press)
         else:
-            send_cmd_picc(g.tty_fd, row, pics.bg_settings_panel)
-            send_cmd_picc2(g.tty_fd, row, pics.bg_settings_panel)
+            g.port.picc(row, pics.bg_settings_panel)
+            g.port.picc2(row, pics.bg_settings_panel)
         S.enabled[i] = item is not None
     first = pages <= 1 or S.page == 0
     last = pages <= 1 or S.page == pages - 1
     for button, off in (("prev_btn", first), ("next_btn", last)):
-        send_cmd_picc(g.tty_fd, button, "126" if off else "125")
-        send_cmd_picc2(g.tty_fd, button, "123" if off else "124")
+        g.port.picc(button, "126" if off else "125")
+        g.port.picc2(button, "123" if off else "124")
 
 
 def saved_clicked(widget_id):
@@ -218,8 +217,8 @@ def open_keyboard(mode, minimum, title):
     S.kbmode = mode
     g.net.get_wifi_name = title
     g.screen.printing_wifi_keyboard_enabled = True
-    send_cmd_raw(g.tty_fd, "kbmode=%d" % mode)
-    send_cmd_raw(g.tty_fd, "kbmin=%d" % minimum)
+    g.port.raw("kbmode=%d" % mode)
+    g.port.raw("kbmin=%d" % minimum)
     ui.page_to(ids.WIFI_KB)
 
 
