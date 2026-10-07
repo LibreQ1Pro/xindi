@@ -425,7 +425,8 @@
         "codesup": [
           "spstr temp_now.txt,cur_str.txt,\"/\",0",
           "covx cur_str.txt,cur_val.val,0,0",
-          "if(cur_val.val>=175)",
+          "cur_val.val+=10",
+          "if(temp_target.val>0&&cur_val.val>=temp_target.val&&cur_val.val>=185)",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
