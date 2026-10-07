@@ -310,8 +310,6 @@ class Config(object):
         self.version_mcu = ""
         self.version_ui = ""
         self.serial_by_id = ""
-        self.mksini = None
-        self.mksversion = None
 
 
 class Update(object):

@@ -3,10 +3,9 @@
 import os
 
 from . import paths
-from . import state as g
 from .cpp import b2s, s2b
 from .mks_log import cout
-from .iniparser import (iniparser_load, iniparser_freedict, iniparser_getstring, iniparser_getint,
+from .iniparser import (iniparser_load, iniparser_getstring, iniparser_getint,
                         iniparser_getboolean, iniparser_set, iniparser_dump_ini)
 
 XINDI_PLUS = 1
@@ -91,75 +90,61 @@ def _create_default_mksini(path):
     cout("Created " + path + " with the default settings")
 
 
-def mksini_load():
+class IniFile:
+    """One ini file: reads come from the dictionary loaded at open time, ``save()`` writes it back."""
+
+    def __init__(self, path):
+        self.path = path
+        self._dict = iniparser_load(path)
+        if self._dict is None:
+            cout("Ini parse failure!")
+
+    def get_string(self, section, key, default):
+        if self._dict is None:
+            return default
+        value = iniparser_getstring(self._dict, s2b(section + ":" + key), s2b(default))
+        return b2s(value) if value is not None else ""
+
+    def get_int(self, section, key, default):
+        if self._dict is None:
+            return default
+        return iniparser_getint(self._dict, s2b(section + ":" + key), default)
+
+    def get_bool(self, section, key, default):
+        if self._dict is None:
+            return bool(default)
+        return iniparser_getboolean(self._dict, s2b(section + ":" + key), default) != 0
+
+    def set(self, section, key, value):
+        if self._dict is not None:
+            iniparser_set(self._dict, s2b(section + ":" + key), s2b(value))
+
+    def save(self):
+        """Write the dictionary back to the file"""
+        if self._dict is None:
+            return
+        try:
+            ini = open(self.path, "wb")
+        except OSError:
+            print("[error] open mksini failed", end="")
+            return
+        with ini:
+            iniparser_dump_ini(self._dict, ini)
+
+
+def open_settings():
+    """config.mksini, created with the defaults when it does not exist."""
     if not os.path.exists(_inipath()):
         _create_default_mksini(_inipath())
-    g.config.mksini = iniparser_load(_inipath())
-    if g.config.mksini is None:
-        cout("Ini parse failure!")
-        return -1
-    return 0
+    return IniFile(_inipath())
 
 
-def mksini_free():
-    iniparser_freedict(g.config.mksini)
+def save_setting(section, key, value):
+    """Change one value of config.mksini and write the file."""
+    ini = open_settings()
+    ini.set(section, key, value)
+    ini.save()
 
 
-def mksini_getstring(section, key, default):
-    sk = section + ":" + key
-    value = iniparser_getstring(g.config.mksini, s2b(sk), s2b(default))
-    return b2s(value) if value is not None else ""
-
-
-def mksini_getint(section, key, notfound):
-    sk = section + ":" + key
-    return iniparser_getint(g.config.mksini, s2b(sk), notfound)
-
-
-def mksini_getboolean(section, key, notfound):
-    sk = section + ":" + key
-    value = iniparser_getboolean(g.config.mksini, s2b(sk), notfound)
-    return False if value == 0 else True
-
-
-def mksini_set(section, key, value):
-    sk = section + ":" + key
-    return iniparser_set(g.config.mksini, s2b(sk), s2b(value))
-
-
-def mksini_save():
-    """Write the dictionary back to the config file"""
-    try:
-        ini = open(_inipath(), "wb")
-    except OSError:
-        print("[error] open mksini failed", end="")
-        return
-    with ini:
-        iniparser_dump_ini(g.config.mksini, ini)
-
-
-def mksversion_load():
-    g.config.mksversion = iniparser_load(VERSION_PATH)
-    if g.config.mksversion is None:
-        cout("Mks version failure!")
-        return -1
-    return 0
-
-
-def mksversion_free():
-    iniparser_freedict(g.config.mksversion)
-
-
-def mksversion_mcu(default):
-    value = iniparser_getstring(g.config.mksversion, b"version:mcu", s2b(default))
-    return b2s(value) if value is not None else ""
-
-
-def mksversion_ui(default):
-    value = iniparser_getstring(g.config.mksversion, b"version:ui", s2b(default))
-    return b2s(value) if value is not None else ""
-
-
-def mksversion_soc(default):
-    value = iniparser_getstring(g.config.mksversion, b"version:soc", s2b(default))
-    return b2s(value) if value is not None else ""
+def open_version_file():
+    return IniFile(VERSION_PATH)
