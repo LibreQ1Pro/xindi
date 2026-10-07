@@ -101,75 +101,73 @@ def file_list(page_id, widget_id):
             filelist.go_to_file_list()
 
 
+def _back_to_printing():
+    page_to(ids.PRINTING)
+    g.screen.jump_print = False
+
+
+def _leave_preview():
+    """Back to the file list: clear the data of the preview."""
+    file_browser.get_parenet_dir_files_list()
+    pages.clear_preview()
+    g.screen.show_preview_complete = False
+    filelist.clear_cp0_image()
+
+
+def _start_print():
+    g.screen.muted = False             # 4.4.22 silent mode is per print
+    actions.print_start()
+    time.sleep(1)
+    if g.klippy.filament_detected:
+        log.info("No filament runout detected")
+        g.klippy.print_stats_state = "printing"
+        actions.check_filament_type()
+        actions.start_printing(g.files.list_print_files_path)
+        g.screen.show_preview_complete = False
+    else:
+        log.info("Filament runout detected")
+        page_to(ids.PRINT_NO_FILAMENT)
+
+
+# what the navigation buttons do while no print is running
+PREVIEW_NAVIGATION = {
+    ids.ALL_TO_MAIN: lambda: page_to(ids.MAIN),
+    ids.ALL_TO_ADJUST: actions.go_to_adjust,
+    ids.ALL_TO_SETTING: actions.go_to_setting,
+}
+
+
 def preview(page_id, widget_id):
-    if g.screen.page == ids.PREVIEW:
-        printing_or_paused = (g.klippy.print_stats_state == "printing" or g.klippy.print_stats_state == "paused")
-        if widget_id == ids.ALL_TO_MAIN:
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            else:
-                page_to(ids.MAIN)
-        elif widget_id == ids.ALL_TO_FILE_LIST:
-            pass
-        elif widget_id == ids.ALL_TO_ADJUST:
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            else:
-                actions.go_to_adjust()
-        elif widget_id == ids.ALL_TO_SETTING:
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            else:
-                actions.go_to_setting()
-        elif widget_id == ids.PREVIEW_BACK:
-            # 4.4.3 CLL keep the preview page from getting stuck
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            elif not g.files.meta_parse_finished:
-                file_browser.get_parenet_dir_files_list()
-                pages.clear_preview()
-                g.screen.show_preview_complete = False
-                filelist.clear_cp0_image()
-            else:
-                if g.screen.show_preview_complete:     # the button only works once the preview is loaded
-                    file_browser.get_parenet_dir_files_list()
-                    pages.clear_preview()             # clear the data when going back
-                    g.screen.show_preview_complete = False
-                    filelist.clear_cp0_image()
-        elif widget_id == ids.PREVIEW_START:
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            elif g.screen.show_preview_complete:
-                g.screen.muted = False             # 4.4.22 silent mode is per print
-                actions.print_start()
-                time.sleep(1)
-                if g.klippy.filament_detected:
-                    log.info("No filament runout detected")
-                    g.klippy.print_stats_state = "printing"
-                    actions.check_filament_type()
-                    actions.start_printing(g.files.list_print_files_path)
-                    g.screen.show_preview_complete = False
-                else:
-                    log.info("Filament runout detected")
-                    page_to(ids.PRINT_NO_FILAMENT)
-            g.screen.main_picture_detected = False
-            g.screen.main_picture_refreshed = False
-        elif widget_id == ids.PREVIEW_BED_LEVELING:
-            if printing_or_paused:
-                page_to(ids.PRINTING)
-                g.screen.jump_print = False
-            else:
-                if g.screen.bed_leveling:
-                    g.screen.bed_leveling = False
-                else:
-                    g.screen.bed_leveling = True
-        elif widget_id == ids.PREVIEW_TIMELAPSE:
-            actions.switch_timelapse_state()
+    if g.screen.page != ids.PREVIEW:
+        return
+    if widget_id == ids.PREVIEW_TIMELAPSE:
+        actions.switch_timelapse_state()
+        return
+    printing_or_paused = g.klippy.print_stats_state in ("printing", "paused")
+
+    if widget_id in PREVIEW_NAVIGATION:
+        if printing_or_paused:
+            _back_to_printing()
+        else:
+            PREVIEW_NAVIGATION[widget_id]()
+    elif widget_id == ids.PREVIEW_BACK:
+        # 4.4.3 CLL keep the preview page from getting stuck
+        if printing_or_paused:
+            _back_to_printing()
+        elif not g.files.meta_parse_finished or g.screen.show_preview_complete:     # the button only works once the preview is loaded
+            _leave_preview()
+    elif widget_id == ids.PREVIEW_START:
+        if printing_or_paused:
+            _back_to_printing()
+        elif g.screen.show_preview_complete:
+            _start_print()
+        g.screen.main_picture_detected = False
+        g.screen.main_picture_refreshed = False
+    elif widget_id == ids.PREVIEW_BED_LEVELING:
+        if printing_or_paused:
+            _back_to_printing()
+        else:
+            g.screen.bed_leveling = not g.screen.bed_leveling
 
 
 def preview_pop(page_id, widget_id):
