@@ -14,6 +14,7 @@ import subprocess
 import time
 
 from . import state as g
+from . import pageids as ids
 from . import ui
 from .cpp import sleep, pthread_create
 from .mks_log import MKSLOG, MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_BLUE
@@ -211,8 +212,8 @@ def _connect_thread(arg):
     MKSLOG_BLUE("Connecting to %s", ssid)
     ok = func(*args)
     mks_wifi_run_cmd_status(g.net.status_result)
-    if g.screen.page == ui.TJC_PAGE_WIFI_CONNECT:
-        ui.page_to(ui.TJC_PAGE_WIFI_SUCCESS if ok else ui.TJC_PAGE_WIFI_FAILED)
+    if g.screen.page == ids.WIFI_CONNECT:
+        ui.page_to(ids.WIFI_SUCCESS if ok else ids.WIFI_FAILED)
 
 
 def mks_start_connect(ssid, psk, hidden=False):
@@ -305,7 +306,7 @@ def device_report(kind):
 def mks_save_config():
     """The connection is saved by NetworkManager when it is made, only the screen steps remain."""
     mks_wifi_run_cmd_status(g.net.status_result)
-    if ui.TJC_PAGE_WIFI_SAVING == g.screen.page:
+    if ids.WIFI_SAVING == g.screen.page:
         sleep(3)
         g.screen.wifi_ssid_button_enabled[0] = False
         g.screen.wifi_ssid_button_enabled[1] = False

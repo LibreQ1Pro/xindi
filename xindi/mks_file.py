@@ -4,6 +4,7 @@ import sys
 
 from . import paths
 from . import state as g
+from . import pageids as ids
 from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr,
                   find_last_of, access, system, json_parse, json_dump)
@@ -216,12 +217,12 @@ def get_sub_dir_files_list(button):
         g.files.list_print_files_path = g.files.list_path + "/.cache/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1
         filelist.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
-        ui.page_to(ui.TJC_PAGE_PREVIEW)
+        ui.page_to(ids.PREVIEW)
     elif "[d]" == g.files.list_list_show_type[button]:
         g.files.list_path_stack.append(g.files.list_path)
         g.files.list_path = g.files.list_path + "/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1
-        ui.page_to(ui.TJC_PAGE_FILE_LIST)
+        ui.page_to(ids.FILE_LIST)
         g.files.list_current_pages = 0
         g.screen.file_list_refreshed = False       # 4.4.22
         filelist.refresh_page_files(g.files.list_current_pages)
@@ -236,7 +237,7 @@ def get_sub_dir_files_list(button):
         MKSLOG("%s", substr(g.files.list_print_files_path, 1))
         filelist.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
         actions.check_timelapse_state()       # 4.4.22 timelapse switch of the preview page
-        ui.page_to(ui.TJC_PAGE_PREVIEW)
+        ui.page_to(ids.PREVIEW)
 
 
 def get_parenet_dir_files_list():
@@ -244,12 +245,12 @@ def get_parenet_dir_files_list():
     # NOTE: std::stack::top() on an empty stack is undefined behaviour in C++
     g.files.list_previous_path = g.files.list_path_stack[-1] if g.files.list_path_stack else ""
     g.files.list_path = g.files.list_previous_path
-    if g.screen.page != ui.TJC_PAGE_PREVIEW:
+    if g.screen.page != ids.PREVIEW:
         g.screen.file_list_refreshed = False       # 4.4.22 (back from the preview: keep the list)
         g.files.list_current_pages = 0
     # 4.4.2 CLL local / USB buttons on the file list page
     if filelist.detect_disk() == -1 and g.screen.file_mode == "USB":
-        ui.page_to(ui.TJC_PAGE_FILE_LIST)
+        ui.page_to(ids.FILE_LIST)
         g.files.list_pages = 0
         g.files.list_current_pages = 0
         g.files.list_folder_layers = 1
@@ -260,7 +261,7 @@ def get_parenet_dir_files_list():
         filelist.refresh_files_list()
         actions.get_object_status()
     elif g.files.list_folder_layers > 0:
-        ui.page_to(ui.TJC_PAGE_FILE_LIST)
+        ui.page_to(ids.FILE_LIST)
         g.files.list_folder_layers -= 1
         if g.files.list_folder_layers == 0:
             filelist.refresh_page_files(g.files.list_current_pages)

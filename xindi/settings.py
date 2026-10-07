@@ -2,6 +2,7 @@
 
 from . import paths
 from . import state as g
+from . import pageids as ids
 from . import ui
 from . import network
 from .ui import page_to
@@ -160,7 +161,7 @@ def load_versions():
 
 
 def wifi_save_config():
-    page_to(ui.TJC_PAGE_WIFI_SAVING)
+    page_to(ids.WIFI_SAVING)
     network.mks_save_config()
     sleep(2)
     get_wlan0_status()
@@ -215,7 +216,7 @@ def restore_config():
     system("cp /root/config.mksini " + paths.klipper_config() + "/config.mksini")
     system("cp " + paths.klipper_config() + "/saved_variables.cfg.bak " + paths.klipper_config() + "/saved_variables.cfg")
     g.ep.Send(json_run_a_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0"))
-    page_to(ui.TJC_PAGE_MAIN)
+    page_to(ids.MAIN)
 
 
 def get_ethernet():

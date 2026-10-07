@@ -3,6 +3,7 @@
 import re
 
 from . import state as g
+from . import pageids as ids
 from . import ui
 from .cpp import (jget, jstr, json_dump, to_string, substr, stream_float, f32, sleep)
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout
@@ -15,7 +16,7 @@ def parse_gcode_response(params):
         params0 = jstr(jget(params, 0))
 
         # 4.4.2 CLL screen sleep feature
-        if g.screen.page == ui.TJC_PAGE_SCREEN_SLEEP:   # SCREEN_SLEEP has no refresh function, switching pages here can't conflict
+        if g.screen.page == ids.SCREEN_SLEEP:   # SCREEN_SLEEP has no refresh function, switching pages here can't conflict
             ui.page_to(g.screen.previous_page)
             if g.screen.previous_caselight_value == True:
                 actions.led_on_off()
@@ -104,7 +105,7 @@ def parse_gcode_response(params):
         elif params0 == "Can not update":
             pass
         elif params0.find("Result is z=") != -1:     # 4.4.3 CLL save the z-offset only once the printer is ready again
-            if g.screen.page == ui.TJC_PAGE_AUTO_MOVING or g.screen.page == ui.TJC_PAGE_OPEN_CALIBRATE:
+            if g.screen.page == ids.AUTO_MOVING or g.screen.page == ids.OPEN_CALIBRATE:
                 pass
         elif params0 == "!! Insufficient disk space, unable to read the file.":
             g.screen.jump_memory_warning = True
@@ -120,28 +121,28 @@ def parse_gcode_response(params):
         elif substr(params0, 0, 12) == "// metadata=":     # 4.1.7 CLL web print information subscription (deprecated)
             pass
         elif params0.find("echo: Position init complete") != -1:    # CLL messages prefixed with "echo:" are custom responses
-            if g.screen.page == ui.TJC_PAGE_OPEN_CALIBRATE or g.screen.page == ui.TJC_PAGE_AUTO_MOVING:
+            if g.screen.page == ids.OPEN_CALIBRATE or g.screen.page == ids.AUTO_MOVING:
                 g.levelling.step_1 = True
         elif params0.find("echo: Bed mesh calibrate complete") != -1:
-            if g.screen.page == ui.TJC_PAGE_OPEN_CALIBRATE:
+            if g.screen.page == ids.OPEN_CALIBRATE:
                 g.levelling.step_2 = True
                 g.klippy.webhooks_state = "shutdown"
-            if g.screen.page == ui.TJC_PAGE_AUTO_MOVING:
+            if g.screen.page == ids.AUTO_MOVING:
                 g.levelling.step_4 = True
         elif params0.find("echo: Input shaping complete") != -1:
-            if g.screen.page == ui.TJC_PAGE_OPEN_CALIBRATE:
+            if g.screen.page == ids.OPEN_CALIBRATE:
                 g.levelling.step_3 = True
-            if g.screen.page == ui.TJC_PAGE_SYNTONY_MOVE:
+            if g.screen.page == ids.SYNTONY_MOVE:
                 g.levelling.step_1 = True
         elif params0.find("echo: Nozzle cleared") != -1:
-            if g.screen.page == ui.TJC_PAGE_AUTO_MOVING:
+            if g.screen.page == ids.AUTO_MOVING:
                 g.levelling.step_2 = True
         elif params0.find("echo: Nozzle cooled") != -1:
-            if g.screen.page == ui.TJC_PAGE_AUTO_MOVING:
+            if g.screen.page == ids.AUTO_MOVING:
                 g.levelling.step_3 = True
         elif params0.find("echo: Heat up complete") != -1:
-            if (g.screen.page == ui.TJC_PAGE_FILAMENT_POP_2 or g.screen.page == ui.TJC_PAGE_FILAMENT_POP_3
-                    or g.screen.page == ui.TJC_PAGE_AUTO_UNLOAD):
+            if (g.screen.page == ids.FILAMENT_POP_2 or g.screen.page == ids.FILAMENT_POP_3
+                    or g.screen.page == ids.AUTO_UNLOAD):
                 g.levelling.step_1 = True
         elif (params0.find("echo: Detected unexpected interruption during the last print.") != -1
               or params0.find("echo: Yes: RESUME_INTERRUPTED") != -1 or params0.find("echo: No: CLEAR_LAST_FILE") != -1):
@@ -149,6 +150,6 @@ def parse_gcode_response(params):
         # 4.4.22: any of the load / unload messages on any of the three pages
         elif (params0.find("echo: Load finish") != -1 or params0.find("echo: Unload finish") != -1
               or params0.find("echo: Filament loaded") != -1 or params0.find("echo: Filament unloaded") != -1):
-            if g.screen.page in (ui.TJC_PAGE_AUTO_UNLOAD, ui.TJC_PAGE_FILAMENT_POP_2, ui.TJC_PAGE_FILAMENT_POP_3):
+            if g.screen.page in (ids.AUTO_UNLOAD, ids.FILAMENT_POP_2, ids.FILAMENT_POP_3):
                 g.levelling.step_2 = True
                 MKSLOG_BLUE("load / unload filament success, step_2=%d", 1)

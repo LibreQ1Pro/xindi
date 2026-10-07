@@ -1,6 +1,7 @@
 """What every screen page shows: the refresh functions are called with the page that is open."""
 
 from . import state as g
+from . import pageids as ids
 from . import pics
 from . import ui
 from . import thumbnail
@@ -33,7 +34,7 @@ def show():
     # otherwise this would loop forever)
     if g.screen.jump_move_pop_1 == True:
         g.screen.jump_move_pop_1 = False
-        page_to(ui.TJC_PAGE_MOVE_POP_1)
+        page_to(ids.MOVE_POP_1)
     if g.screen.jump_move_pop_2 == True:
         homing = "SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"
         moves = {
@@ -49,37 +50,37 @@ def show():
             g.ep.Send(json_run_a_gcode(moves[g.screen.unhomed_move_mode]))
         g.screen.unhomed_move_mode = 0
         g.screen.jump_move_pop_2 = False
-        page_to(ui.TJC_PAGE_MOVE_POP_2)
+        page_to(ids.MOVE_POP_2)
     if g.screen.jump_detect_error == True:
         g.screen.jump_detect_error = False
-        page_to(ui.TJC_PAGE_DETECT_ERROR)
+        page_to(ids.DETECT_ERROR)
         send_cmd_txt(g.tty_fd, "msg", g.screen.error_message)
     if g.screen.jump_level_error == True:
         g.screen.jump_level_error = False
-        page_to(ui.TJC_PAGE_LEVEL_ERROR)
+        page_to(ids.LEVEL_ERROR)
     if g.screen.jump_filament_pop_1 == True:
         g.screen.jump_filament_pop_1 = False
-        page_to(ui.TJC_PAGE_FILAMENT_POP_1)
+        page_to(ids.FILAMENT_POP_1)
     if g.screen.jump_print_low_temp == True:
         g.screen.jump_print_low_temp = False
-        page_to(ui.TJC_PAGE_PRINT_LOW_TEMP)
+        page_to(ids.PRINT_LOW_TEMP)
     if g.screen.jump_resume_print == True:
         # 4.4.24: the flag is reset when the page reports that it is shown
-        page_to(ui.TJC_PAGE_RESUME_PRINT)
+        page_to(ids.RESUME_PRINT)
     if g.screen.jump_memory_warning == True:
         g.screen.jump_memory_warning = False
-        page_to(ui.TJC_PAGE_MEMORY_WARNING)
+        page_to(ids.MEMORY_WARNING)
 
-    if g.screen.page != ui.TJC_PAGE_PRINTING:
-        if g.screen.page in (ui.TJC_PAGE_PRINT_ZOFFSET, ui.TJC_PAGE_PRINT_FILAMENT):
+    if g.screen.page != ids.PRINTING:
+        if g.screen.page in (ids.PRINT_ZOFFSET, ids.PRINT_FILAMENT):
             pass
-        elif g.screen.page in (ui.TJC_PAGE_PRINT_STOP, ui.TJC_PAGE_PRINT_NO_FILAMENT,
-                                   ui.TJC_PAGE_PRINT_NO_FILAMENT_2, ui.TJC_PAGE_SHUTDOWN,
-                                   ui.TJC_PAGE_PRINT_STOPPING, ui.TJC_PAGE_MOVE_POP_1,
-                                   ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_DETECT_ERROR, ui.TJC_PAGE_RESET,
-                                   ui.TJC_PAGE_PREVIEW, ui.TJC_PAGE_PREVIEW_POP_1, ui.TJC_PAGE_PREVIEW_POP_2,
-                                   ui.TJC_PAGE_PRINTING_2, ui.TJC_PAGE_FILAMENT_POP_2,
-                                   ui.TJC_PAGE_FILAMENT_POP_3, ui.TJC_PAGE_STOP_CONFIRM):
+        elif g.screen.page in (ids.PRINT_STOP, ids.PRINT_NO_FILAMENT,
+                                   ids.PRINT_NO_FILAMENT_2, ids.SHUTDOWN,
+                                   ids.PRINT_STOPPING, ids.MOVE_POP_1,
+                                   ids.GCODE_ERROR, ids.DETECT_ERROR, ids.RESET,
+                                   ids.PREVIEW, ids.PREVIEW_POP_1, ids.PREVIEW_POP_2,
+                                   ids.PRINTING_2, ids.FILAMENT_POP_2,
+                                   ids.FILAMENT_POP_3, ids.STOP_CONFIRM):
             pass
         else:
             if g.klippy.print_stats_state == "printing":
@@ -93,94 +94,94 @@ def show():
                     sleep(1)
                     g.screen.jump_print = True
                     g.klippy.ready = False
-                    page_to(ui.TJC_PAGE_PREVIEW)
+                    page_to(ids.PREVIEW)
 
-    if g.screen.page != ui.TJC_PAGE_RESET:
-        if g.screen.page in (ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_DETECT_ERROR, ui.TJC_PAGE_LEVEL_ERROR,
-                                 ui.TJC_PAGE_SHUTDOWN, ui.TJC_PAGE_SERVICE, ui.TJC_PAGE_LANGUAGE,
-                                 ui.TJC_PAGE_COMMON_SETTING, ui.TJC_PAGE_SLEEP_MODE, ui.TJC_PAGE_INTERNET,
-                                 ui.TJC_PAGE_WIFI_LIST, ui.TJC_PAGE_WIFI_KB, ui.TJC_PAGE_WIFI_CONNECT,
-                                 ui.TJC_PAGE_WIFI_FAILED, ui.TJC_PAGE_WIFI_SUCCESS, ui.TJC_PAGE_WIFI_SAVING,
-                                 ui.TJC_PAGE_NET_SAVED, ui.TJC_PAGE_NET_DETAIL, ui.TJC_PAGE_NET_CONFIRM,
-                                 ui.TJC_PAGE_NET_INFO,
-                                 ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_INTERNET_PAGE):
+    if g.screen.page != ids.RESET:
+        if g.screen.page in (ids.GCODE_ERROR, ids.DETECT_ERROR, ids.LEVEL_ERROR,
+                                 ids.SHUTDOWN, ids.SERVICE, ids.LANGUAGE,
+                                 ids.COMMON_SETTING, ids.SLEEP_MODE, ids.INTERNET,
+                                 ids.WIFI_LIST, ids.WIFI_KB, ids.WIFI_CONNECT,
+                                 ids.WIFI_FAILED, ids.WIFI_SUCCESS, ids.WIFI_SAVING,
+                                 ids.NET_SAVED, ids.NET_DETAIL, ids.NET_CONFIRM,
+                                 ids.NET_INFO,
+                                 ids.RESTORE_CONFIG, ids.INTERNET_PAGE):
             pass
         else:
             # jump to the restart page when the toolhead board is disconnected
             if g.klippy.webhooks_state == "shutdown" or g.klippy.webhooks_state == "error":
-                if g.klippy.webhooks_state == "shutdown" and (g.screen.page == ui.TJC_PAGE_AUTO_MOVING
-                                                               or g.screen.page == ui.TJC_PAGE_OPEN_CALIBRATE):
+                if g.klippy.webhooks_state == "shutdown" and (g.screen.page == ids.AUTO_MOVING
+                                                               or g.screen.page == ids.OPEN_CALIBRATE):
                     pass
                 else:
-                    page_to(ui.TJC_PAGE_RESET)
+                    page_to(ids.RESET)
                     cout("Restart page")
                     if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
                         g.shown.webhooks_state_message = g.klippy.webhooks_state_message
                         send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
-    elif g.screen.page == ui.TJC_PAGE_RESET:
+    elif g.screen.page == ids.RESET:
         if g.klippy.webhooks_state == "shutdown" or g.klippy.webhooks_state == "error":
             if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
                 g.shown.webhooks_state_message = g.klippy.webhooks_state_message
                 send_cmd_txt(g.tty_fd, "err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
         if g.klippy.webhooks_state == "ready":
-            page_to(ui.TJC_PAGE_SYS_OK)
+            page_to(ids.SYS_OK)
 
     page = g.screen.page
-    if page == ui.TJC_PAGE_MAIN:
+    if page == ids.MAIN:
         main()
-    elif page == ui.TJC_PAGE_PREVIEW:
+    elif page == ids.PREVIEW:
         preview()
-    elif page in (ui.TJC_PAGE_PRINTING, ui.TJC_PAGE_PRINTING_2):
+    elif page in (ids.PRINTING, ids.PRINTING_2):
         printing()
-    elif page == ui.TJC_PAGE_PRINT_FILAMENT:
+    elif page == ids.PRINT_FILAMENT:
         print_filament()
-    elif page == ui.TJC_PAGE_MOVE:
+    elif page == ids.MOVE:
         move_page()
-    elif page == ui.TJC_PAGE_PRINT_ZOFFSET:
+    elif page == ids.PRINT_ZOFFSET:
         printing_zoffset()
-    elif page == ui.TJC_PAGE_AUTO_MOVING:
+    elif page == ids.AUTO_MOVING:
         auto_moving()
-    elif page == ui.TJC_PAGE_AUTO_FINISH:
+    elif page == ids.AUTO_FINISH:
         auto_finish()
-    elif page == ui.TJC_PAGE_SYNTONY_MOVE:
+    elif page == ids.SYNTONY_MOVE:
         syntony_move()
-    elif page == ui.TJC_PAGE_SYNTONY_FINISH:
+    elif page == ids.SYNTONY_FINISH:
         pass
-    elif page == ui.TJC_PAGE_PRINT_STOPPING:
+    elif page == ids.PRINT_STOPPING:
         stopping()
-    elif page == ui.TJC_PAGE_PRE_BED_CALIBRATION:
+    elif page == ids.PRE_BED_CALIBRATION:
         auto_level()
-    elif page == ui.TJC_PAGE_OPEN_FILAMENTVIDEO_2:
+    elif page == ids.OPEN_FILAMENTVIDEO_2:
         open_filament_video_2()
-    elif page == ui.TJC_PAGE_ZOFFSET:
+    elif page == ids.ZOFFSET:
         zoffset()
-    elif page == ui.TJC_PAGE_AUTO_HEATERBED:
+    elif page == ids.AUTO_HEATERBED:
         auto_heaterbed()
-    elif page == ui.TJC_PAGE_OPEN_HEATERBED:
+    elif page == ids.OPEN_HEATERBED:
         open_heaterbed()
-    elif page in (ui.TJC_PAGE_FILAMENT_POP_2, ui.TJC_PAGE_FILAMENT_POP_3):
+    elif page in (ids.FILAMENT_POP_2, ids.FILAMENT_POP_3):
         filament_pop()
-    elif page in (ui.TJC_PAGE_PREVIEW_POP_1, ui.TJC_PAGE_PREVIEW_POP_2):
+    elif page in (ids.PREVIEW_POP_1, ids.PREVIEW_POP_2):
         preview_pop()
-    elif page == ui.TJC_PAGE_FILE_LIST:
+    elif page == ids.FILE_LIST:
         pass        # 4.4.2 CLL local / USB buttons on the file list page
-    elif page == ui.TJC_PAGE_BED_MOVING:
+    elif page == ids.BED_MOVING:
         bed_moving()
-    elif page == ui.TJC_PAGE_OPEN_CALIBRATE:
+    elif page == ids.OPEN_CALIBRATE:
         open_calibrate()
-    elif page == ui.TJC_PAGE_COMMON_SETTING:
+    elif page == ids.COMMON_SETTING:
         common_setting()
-    elif page == ui.TJC_PAGE_FILAMENT_SET_FAN:
+    elif page == ids.FILAMENT_SET_FAN:
         filament_set_fan()
-    elif page == ui.TJC_PAGE_WIFI_KB:
+    elif page == ids.WIFI_KB:
         wifi_ui.refresh_wifi_keyboard()
-    elif page == ui.TJC_PAGE_FILAMENT:
+    elif page == ids.FILAMENT:
         filament()
-    elif page == ui.TJC_PAGE_INTERNET_PAGE:
+    elif page == ids.INTERNET_PAGE:
         wifi_ui.refresh_show_ip()
-    elif page == ui.TJC_PAGE_AUTO_UNLOAD:
+    elif page == ids.AUTO_UNLOAD:
         auto_unload()
-    elif page == ui.TJC_PAGE_OPEN_MOVING:
+    elif page == ids.OPEN_MOVING:
         open_moving()
 
 
@@ -217,7 +218,7 @@ def syntony_finish():
         actions.sub_object_status()
         actions.get_object_status()
         sleep(10)
-        page_to(ui.TJC_PAGE_LEVEL_MODE)
+        page_to(ids.LEVEL_MODE)
         MKSLOG_RED("Left from line 739")
 
 
@@ -247,7 +248,7 @@ def stopping():
         actions.clear_previous_data()
         sleep(5)
         actions.save_current_zoffset()
-        page_to(ui.TJC_PAGE_MAIN)
+        page_to(ids.MAIN)
 
 
 def syntony_move():
@@ -258,7 +259,7 @@ def syntony_move():
 
     if g.levelling.step_1 == True:
         sleep(15)
-        page_to(ui.TJC_PAGE_SYNTONY_FINISH)
+        page_to(ids.SYNTONY_FINISH)
         g.levelling.step_1 = False
 
 
@@ -291,18 +292,18 @@ def print_filament():
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
-        page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT)
+        page_to(ids.PRINT_NO_FILAMENT)
 
     if g.klippy.print_stats_state == "printing":
         if g.klippy.ready == True:
             g.klippy.ready = False
-            page_to(ui.TJC_PAGE_PRINTING)
+            page_to(ids.PRINTING)
 
     if g.klippy.print_stats_state == "standby":
-        page_to(ui.TJC_PAGE_PRINT_STOPPING)
+        page_to(ids.PRINT_STOPPING)
 
     if g.klippy.print_stats_state == "error":
-        page_to(ui.TJC_PAGE_GCODE_ERROR)
+        page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
         send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
@@ -350,7 +351,7 @@ def auto_moving():
         g.ep.Send(json_run_a_gcode("M4027\n"))
     if g.levelling.step_4 == True:
         sleep(15)
-        page_to(ui.TJC_PAGE_AUTO_FINISH)
+        page_to(ids.AUTO_FINISH)
         g.levelling.step_4 = False
 
 
@@ -446,22 +447,22 @@ def printing_zoffset():
         if g.klippy.fila_sensor_detected == False:
             g.klippy.ready = False
             actions.set_print_pause()
-            page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT_2)
+            page_to(ids.PRINT_NO_FILAMENT_2)
 
     # 4.4.2 CLL support mates and hall filament width sensors
     if g.klippy.filament_detected == False:
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
-        page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT)
+        page_to(ids.PRINT_NO_FILAMENT)
 
     if g.klippy.print_stats_state == "standby":
-        page_to(ui.TJC_PAGE_PRINT_STOPPING)
+        page_to(ids.PRINT_STOPPING)
 
     if g.klippy.print_stats_state == "paused":
         if g.klippy.ready == True:
             g.klippy.ready = False
-            page_to(ui.TJC_PAGE_PRINT_FILAMENT)
+            page_to(ids.PRINT_FILAMENT)
 
     if g.klippy.print_stats_state == "complete":
         time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
@@ -469,11 +470,11 @@ def printing_zoffset():
         actions.clear_previous_data()
         sleep(5)
         actions.save_current_zoffset()
-        page_to(ui.TJC_PAGE_PRINT_FINISH)
+        page_to(ids.PRINT_FINISH)
         send_cmd_txt(g.tty_fd, "time_txt", time_duration)
 
     if g.klippy.print_stats_state == "error":
-        page_to(ui.TJC_PAGE_GCODE_ERROR)
+        page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
         send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
@@ -493,7 +494,7 @@ def printing():
 
     # the z offset of the second page is always refreshed: the page starts with
     # the designer's "-1.000", it must not stay while the keyboard flag is set
-    if g.screen.page == ui.TJC_PAGE_PRINTING_2:
+    if g.screen.page == ids.PRINTING_2:
         send_cmd_txt(g.tty_fd, "zoffset_val", z_offset)
 
     if g.screen.printing_keyboard_enabled == True:     # 4.4.22 silent mode button of the keyboard
@@ -504,7 +505,7 @@ def printing():
             send_cmd_picc(g.tty_fd, "mute_btn", pics.kb_mute_on)
             send_cmd_picc2(g.tty_fd, "mute_btn", pics.kb_mute_on_press)
     else:                                       # CLL refresh only while the keyboard is not shown
-        if g.screen.page == ui.TJC_PAGE_PRINTING:
+        if g.screen.page == ids.PRINTING:
             # CLL fan speeds
             send_cmd_val(g.tty_fd, "fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
             send_cmd_val(g.tty_fd, "fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
@@ -551,7 +552,7 @@ def printing():
             else:
                 send_cmd_vis(g.tty_fd, "thumb", "0")
                 send_cmd_val(g.tty_fd, "thumb_flag", "0")
-        elif g.screen.page == ui.TJC_PAGE_PRINTING_2:
+        elif g.screen.page == ids.PRINTING_2:
             if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
                 g.shown.speed_factor = g.klippy.gcode_move_speed_factor
                 send_cmd_val(g.tty_fd, "speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
@@ -574,13 +575,13 @@ def printing():
         if g.klippy.fila_sensor_detected == False:
             g.klippy.ready = False
             actions.set_print_pause()
-            page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT_2)
+            page_to(ids.PRINT_NO_FILAMENT_2)
 
     if g.klippy.filament_detected == False:
         sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
-        page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT)
+        page_to(ids.PRINT_NO_FILAMENT)
 
     if g.klippy.print_stats_state == "complete":
         time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
@@ -588,19 +589,19 @@ def printing():
         actions.clear_previous_data()
         sleep(5)
         actions.save_current_zoffset()
-        page_to(ui.TJC_PAGE_PRINT_FINISH)
+        page_to(ids.PRINT_FINISH)
         send_cmd_txt(g.tty_fd, "time_txt", time_duration)
 
     if g.klippy.print_stats_state == "paused":
         if g.klippy.ready == True:
             g.klippy.ready = False
-            page_to(ui.TJC_PAGE_PRINT_FILAMENT)
+            page_to(ids.PRINT_FILAMENT)
 
     if g.klippy.print_stats_state == "standby":
-        page_to(ui.TJC_PAGE_PRINT_STOPPING)
+        page_to(ids.PRINT_STOPPING)
 
     if g.klippy.print_stats_state == "error":
-        page_to(ui.TJC_PAGE_GCODE_ERROR)
+        page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
         send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
@@ -905,9 +906,9 @@ def move_home_tips():
 
 
 def filament_tips():
-    if g.screen.page == ui.TJC_PAGE_OPEN_FILAMENTVIDEO_3:
+    if g.screen.page == ids.OPEN_FILAMENTVIDEO_3:
         pass
-    elif g.screen.page == ui.TJC_PAGE_PRINT_FILAMENT:
+    elif g.screen.page == ids.PRINT_FILAMENT:
         g.screen.jump_print_low_temp = True
     else:
         g.screen.jump_filament_pop_1 = True
@@ -915,8 +916,8 @@ def filament_tips():
 
 def move_tips():
     g.screen.jump_move_pop_1 = True
-    if g.screen.page in (ui.TJC_PAGE_PRINTING, ui.TJC_PAGE_PRINT_ZOFFSET, ui.TJC_PAGE_PRINT_FILAMENT,
-                             ui.TJC_PAGE_PRINTING_2):
+    if g.screen.page in (ids.PRINTING, ids.PRINT_ZOFFSET, ids.PRINT_FILAMENT,
+                             ids.PRINTING_2):
         actions.cancel_print()
 
 
@@ -968,7 +969,7 @@ def auto_heaterbed():
 def open_moving():
     """4.4.22: leave the "moving" page of the guide once Klipper is idle again."""
     if g.klippy.idle_timeout_state != "Printing":
-        page_to(ui.TJC_PAGE_OPEN_FILAMENTVIDEO_0)
+        page_to(ids.OPEN_FILAMENTVIDEO_0)
 
 
 def open_heaterbed():
@@ -1012,11 +1013,11 @@ def preview_pop():
     if g.klippy.filament_detected == False:
         sleep(1)
         actions.set_print_pause()
-        page_to(ui.TJC_PAGE_PRINT_NO_FILAMENT)
+        page_to(ids.PRINT_NO_FILAMENT)
     if g.klippy.print_stats_state == "standby":
-        page_to(ui.TJC_PAGE_PRINT_STOPPING)
+        page_to(ids.PRINT_STOPPING)
     if g.klippy.print_stats_state == "error":
-        page_to(ui.TJC_PAGE_GCODE_ERROR)
+        page_to(ids.GCODE_ERROR)
         actions.cancel_print()
         actions.clear_previous_data()
         send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
@@ -1035,11 +1036,11 @@ def replace_characters(path, searchChars, replacement):
 def bed_moving():
     if g.klippy.idle_timeout_state == "Ready":
         if g.screen.manual_count == 3:
-            page_to(ui.TJC_PAGE_PRE_BED_CALIBRATION)
+            page_to(ids.PRE_BED_CALIBRATION)
         elif g.screen.manual_count == -2:
-            page_to(ui.TJC_PAGE_BED_FINISH)
+            page_to(ids.BED_FINISH)
         else:
-            page_to(ui.TJC_PAGE_BED_CALIBRATION)
+            page_to(ids.BED_CALIBRATION)
 
 
 def open_calibrate():
@@ -1049,7 +1050,7 @@ def open_calibrate():
         sleep(10)
         actions.get_object_status()
         actions.sub_object_status()
-        page_to(ui.TJC_PAGE_OPEN_FILAMENTVIDEO_0)
+        page_to(ids.OPEN_FILAMENTVIDEO_0)
     if g.levelling.step_2 == True and g.klippy.webhooks_state == "ready":
         g.levelling.step_2 = False
         sleep(5)

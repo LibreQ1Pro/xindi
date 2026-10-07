@@ -5,6 +5,7 @@ import urllib.request
 
 from . import paths
 from . import state as g
+from . import pageids as ids
 from . import pics
 from . import ui
 from .ui import page_to
@@ -188,7 +189,7 @@ def start_auto_level():
     g.levelling.step_4 = False
     if g.levelling.start_pre_auto_level == False:
         g.klippy.idle_timeout_state = "Printing"
-    page_to(ui.TJC_PAGE_AUTO_MOVING)
+    page_to(ids.AUTO_MOVING)
     set_heater_bed_target(g.config.heater_bed_target)
     g.ep.Send(json_run_a_gcode("M4029"))
 
@@ -246,7 +247,7 @@ def finish_print():
     filelist.clear_cp0_image()
     pages.clear_preview()
     g.screen.show_preview_complete = False
-    page_to(ui.TJC_PAGE_MAIN)
+    page_to(ids.MAIN)
 
 
 def set_filament_sensor():
@@ -281,12 +282,12 @@ def beep_on_off():
 def led_on_off():
     if g.klippy.caselight_value == 0:
         g.ep.Send(json_run_a_gcode("SET_PIN PIN=caselight VALUE=1"))
-        if g.screen.page != ui.TJC_PAGE_SCREEN_SLEEP:
+        if g.screen.page != ids.SCREEN_SLEEP:
             g.config.led_status = True
             settings.set_led_status()
     else:
         g.ep.Send(json_run_a_gcode("SET_PIN PIN=caselight VALUE=0"))
-        if g.screen.page != ui.TJC_PAGE_SCREEN_SLEEP:
+        if g.screen.page != ids.SCREEN_SLEEP:
             g.config.led_status = False
             settings.set_led_status()
 
@@ -301,7 +302,7 @@ def firmware_reset():
 
 
 def go_to_page_power_off():
-    page_to(ui.TJC_PAGE_SHUTDOWN)
+    page_to(ids.SHUTDOWN)
 
 
 def filament_extruder_target():
@@ -351,10 +352,10 @@ def filament_fan3():
 
 def go_to_reset():
     if g.klippy.webhooks_state == "shutdown":
-        page_to(ui.TJC_PAGE_RESET)
+        page_to(ids.RESET)
     else:
         # 4.4.22: fixed name (was read from /dev_info.txt)
-        page_to(ui.TJC_PAGE_SYS_OK)
+        page_to(ids.SYS_OK)
         send_cmd_txt(g.tty_fd, "info_txt", "Q1 Pro")
 
 
@@ -376,14 +377,14 @@ def complete_print():
 
 def back_to_main():
     clear_previous_data()
-    page_to(ui.TJC_PAGE_MAIN)
+    page_to(ids.MAIN)
 
 
 def go_to_syntony_move():
     g.levelling.step_1 = False
     g.levelling.syntony_finished = False
     g.klippy.idle_timeout_state = "Printing"
-    page_to(ui.TJC_PAGE_SYNTONY_MOVE)
+    page_to(ids.SYNTONY_MOVE)
     g.ep.Send(json_run_a_gcode("M901\n"))
 
 
@@ -443,7 +444,7 @@ def open_more_level_finish():
     settings.get_babystep()      # 4.4.22 (was init_mks_status())
     settings.set_oobe_enabled(False)     # turn the out-of-box guide off
     get_object_status()
-    page_to(ui.TJC_PAGE_MAIN)
+    page_to(ids.MAIN)
 
 
 def open_set_print_filament_target():
@@ -463,7 +464,7 @@ def open_calibrate_start():
     g.levelling.step_2 = False    # CLL True: compensation values collected
     g.levelling.step_3 = False    # CLL True: input shaping done
     g.klippy.idle_timeout_state = "Printing"
-    page_to(ui.TJC_PAGE_OPEN_CALIBRATE)
+    page_to(ids.OPEN_CALIBRATE)
     g.ep.Send(json_run_a_gcode("M4028"))   # custom gcode "M4028" in printer.cfg
 
 
@@ -498,11 +499,11 @@ def set_auto_level_heater_bed_target(positive):
 
 
 def detect_error():
-    if g.screen.page in (ui.TJC_PAGE_PRINTING, ui.TJC_PAGE_PRINT_ZOFFSET, ui.TJC_PAGE_PRINT_FILAMENT,
-                             ui.TJC_PAGE_PRINTING_2, ui.TJC_PAGE_GCODE_ERROR, ui.TJC_PAGE_LEVEL_ERROR,
-                             ui.TJC_PAGE_DETECT_ERROR):
+    if g.screen.page in (ids.PRINTING, ids.PRINT_ZOFFSET, ids.PRINT_FILAMENT,
+                             ids.PRINTING_2, ids.GCODE_ERROR, ids.LEVEL_ERROR,
+                             ids.DETECT_ERROR):
         pass
-    elif g.screen.page in (ui.TJC_PAGE_OPEN_CALIBRATE, ui.TJC_PAGE_AUTO_MOVING):
+    elif g.screen.page in (ids.OPEN_CALIBRATE, ids.AUTO_MOVING):
         g.ep.Send(json_run_a_gcode("RESTART"))
         g.screen.jump_level_error = True
     else:
@@ -548,7 +549,7 @@ def bed_leveling_switch(positive):
 def save_current_zoffset():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
     z_offset = pages._cut_after_point(z_offset, 4)
-    if g.screen.page in (ui.TJC_PAGE_AUTO_MOVING, ui.TJC_PAGE_OPEN_CALIBRATE):
+    if g.screen.page in (ids.AUTO_MOVING, ids.OPEN_CALIBRATE):
         g.klippy.idle_timeout_state = "Printing"
         settings.get_babystep()
         z = f32(stof(g.config.babystep_value) + stof(g.config.adxl_offset))
@@ -573,11 +574,11 @@ def check_filament_type():
     MKSLOG_YELLOW("filament_type : %s", filament_type)
     # 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
     if (filament_type.find("pla") != -1 or filament_type.find("petg") != -1) and g.screen.preview_pop_1_on == True:
-        page_to(ui.TJC_PAGE_PREVIEW_POP_1)
+        page_to(ids.PREVIEW_POP_1)
     elif filament_type.find("abs") != -1 and g.screen.preview_pop_2_on == True:
-        page_to(ui.TJC_PAGE_PREVIEW_POP_2)
+        page_to(ids.PREVIEW_POP_2)
     else:
-        page_to(ui.TJC_PAGE_PRINTING)
+        page_to(ids.PRINTING)
 
 
 def check_filament_width():
@@ -600,27 +601,27 @@ def bed_calibrate():
         g.ep.Send(json_run_a_gcode("ABORT\n"))
         g.ep.Send(json_run_a_gcode("M4031\n"))     # 4.4.22
         g.ep.Send(json_run_a_gcode("M4030\n"))
-        page_to(ui.TJC_PAGE_BED_MOVING)
+        page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 3:
         g.klippy.idle_timeout_state = "Printing"
         g.ep.Send(json_run_a_gcode("G1 Z10 F600"))
         g.ep.Send(json_run_a_gcode("BED_SCREWS_ADJUST\n"))
         g.ep.Send(json_run_a_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n"))
         MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)
-        page_to(ui.TJC_PAGE_BED_MOVING)
+        page_to(ids.BED_MOVING)
     elif g.screen.manual_count > 0:
         g.klippy.idle_timeout_state = "Printing"
         g.ep.Send(json_run_a_gcode("ACCEPT\n"))
         g.ep.Send(json_run_a_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n"))
-        page_to(ui.TJC_PAGE_BED_MOVING)
+        page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 0:
         g.ep.Send(json_run_a_gcode("ACCEPT\n"))
         g.ep.Send(json_run_a_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n"))
         settings.get_babystep()      # 4.4.22 (was init_mks_status())
-        page_to(ui.TJC_PAGE_BED_FINISH)
+        page_to(ids.BED_FINISH)
     else:
         g.ep.Send(json_run_a_gcode("G1 Z10 F600\n"))
-        page_to(ui.TJC_PAGE_BED_FINISH)
+        page_to(ids.BED_FINISH)
     g.screen.manual_count -= 1
 
 
@@ -642,16 +643,16 @@ def send_gcode(command):
 def go_to_adjust():
     """CLL remember the last choice of the adjust page"""
     if g.screen.adjust_mode == "Filament":
-        page_to(ui.TJC_PAGE_FILAMENT)
+        page_to(ids.FILAMENT)
     else:
-        page_to(ui.TJC_PAGE_MOVE)
+        page_to(ids.MOVE)
 
 
 def go_to_setting():
     if g.screen.set_mode == "Level_mode":
-        page_to(ui.TJC_PAGE_LEVEL_MODE)
+        page_to(ids.LEVEL_MODE)
     else:
-        page_to(ui.TJC_PAGE_COMMON_SETTING)
+        page_to(ids.COMMON_SETTING)
 
 
 TIMELAPSE_URL = "http://127.0.0.1:7125/machine/timelapse/settings"

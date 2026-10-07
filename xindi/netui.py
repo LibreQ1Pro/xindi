@@ -3,6 +3,7 @@ display_firmware/tools/add_network_pages.py): saved networks, one network, "forg
 interfaces, and the keyboard modes (password of a scanned / saved network, hidden network)."""
 
 from . import state as g
+from . import pageids as ids
 from . import pics
 from . import ui
 from . import network
@@ -54,7 +55,7 @@ def _lines(*lines):
 def open_saved():
     S.saved = network.saved_wifi()
     S.page = 0
-    ui.page_to(ui.TJC_PAGE_NET_SAVED)
+    ui.page_to(ids.NET_SAVED)
     show_saved()
 
 
@@ -105,7 +106,7 @@ def saved_clicked(widget_id):
 # ---------------------------------------------------------------------------------------------- one network
 def open_detail(item):
     S.sel = item
-    ui.page_to(ui.TJC_PAGE_NET_DETAIL)
+    ui.page_to(ids.NET_DETAIL)
     show_detail()
 
 
@@ -137,7 +138,7 @@ def detail_clicked(widget_id):
             _reload_selected()
             show_detail()
         else:
-            ui.page_to(ui.TJC_PAGE_WIFI_CONNECT)
+            ui.page_to(ids.WIFI_CONNECT)
             network.start_connect_saved(item["uuid"], item["ssid"])
     elif widget_id == 2:
         open_keyboard(KB_PSK_SAVED, 8, item["ssid"])
@@ -146,7 +147,7 @@ def detail_clicked(widget_id):
         _reload_selected()
         show_detail()
     elif widget_id == 4:
-        ui.page_to(ui.TJC_PAGE_NET_CONFIRM)
+        ui.page_to(ids.NET_CONFIRM)
         _txt("msg", _lines(tr("forget"), '"' + _clip(item["ssid"], 22) + '"?',
                             tr("saved_password"), tr("will_be_deleted")))
     elif widget_id == 23:
@@ -166,7 +167,7 @@ def confirm_clicked(widget_id):
 
 # ---------------------------------------------------------------------------------------------- interfaces
 def open_info():
-    ui.page_to(ui.TJC_PAGE_NET_INFO)
+    ui.page_to(ids.NET_INFO)
     show_info()
 
 
@@ -198,7 +199,7 @@ def show_info():
 def _toggle_thread(arg):
     network.set_wifi_radio(not network.wifi_radio())
     sleep(2)        # NetworkManager needs a moment to bring the radio up / down
-    if g.screen.page == ui.TJC_PAGE_NET_INFO:
+    if g.screen.page == ids.NET_INFO:
         show_info()
 
 
@@ -219,7 +220,7 @@ def open_keyboard(mode, minimum, title):
     g.screen.printing_wifi_keyboard_enabled = True
     send_cmd_raw(g.tty_fd, "kbmode=%d" % mode)
     send_cmd_raw(g.tty_fd, "kbmin=%d" % minimum)
-    ui.page_to(ui.TJC_PAGE_WIFI_KB)
+    ui.page_to(ids.WIFI_KB)
 
 
 def open_hidden():
@@ -242,16 +243,16 @@ def keyboard_text(mode, text):
     MKSLOG_BLUE("Keyboard mode %d", mode)
     g.screen.printing_wifi_keyboard_enabled = False
     if mode == KB_PSK_SCANNED:
-        ui.page_to(ui.TJC_PAGE_WIFI_CONNECT)
+        ui.page_to(ids.WIFI_CONNECT)
         wifi_ui.print_ssid_psk(text.encode("utf-8"))
     elif mode == KB_PSK_SAVED and S.sel is not None:
-        ui.page_to(ui.TJC_PAGE_WIFI_CONNECT)
+        ui.page_to(ids.WIFI_CONNECT)
         network.start_connect_saved(S.sel["uuid"], S.sel["ssid"], text)
     elif mode == KB_HIDDEN_SSID:
         S.hidden_ssid = text
         open_keyboard(KB_HIDDEN_PSK, 0, text)
     elif mode == KB_HIDDEN_PSK:
-        ui.page_to(ui.TJC_PAGE_WIFI_CONNECT)
+        ui.page_to(ids.WIFI_CONNECT)
         network.mks_start_connect(S.hidden_ssid, text, hidden=True)
     else:
         MKSLOG("Unknown keyboard mode %d", mode)

@@ -1,6 +1,7 @@
 """The Wi-Fi list page, the IP address and the connection details."""
 
 from . import state as g
+from . import pageids as ids
 from . import pics
 from . import ui
 from . import network
@@ -37,10 +38,10 @@ def go_to_network():
             g.net.current_connected_ssid_name = g.net.status_result.ssid   # name of the connected wifi
         elif g.net.status_result.wpa_state != "INACTIVE":
             g.net.current_connected_ssid_name = ""      # not connected: forget the name of the connected wifi
-        page_to(ui.TJC_PAGE_WIFI_LIST)
+        page_to(ids.WIFI_LIST)
         scan_ssid_and_show()
     else:
-        page_to(ui.TJC_PAGE_INTERNET)
+        page_to(ids.INTERNET)
 
 
 def scan_ssid_and_show():
@@ -52,7 +53,7 @@ def scan_ssid_and_show():
         set_page_wifi_ssid_list(g.net.wifi_current_pages)
         refresh_wifi_list()
     else:
-        page_to(ui.TJC_PAGE_INTERNET)
+        page_to(ids.INTERNET)
 
 
 def refresh_wifi_list():
@@ -108,7 +109,7 @@ def print_ssid_psk(psk):
 
 def refresh_ip_address():
     """4.4.22: show the network page with the address of wlan0."""
-    page_to(ui.TJC_PAGE_INTERNET_PAGE)
+    page_to(ids.INTERNET_PAGE)
     ip_address = get_wlan0_ip()
     if ip_address != "":
         MKSLOG_GREEN("ip_address updated")

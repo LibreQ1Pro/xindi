@@ -5,6 +5,7 @@ MakerbaseCommand.method2id), notifications by their method name.
 """
 
 from . import state as g
+from . import pageids as ids
 from . import ui
 from .cpp import jget, jpath, jstr, jint, jeq, json_dump, json_clear
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
@@ -95,8 +96,8 @@ def json_parse(arg=None):
                         MKSLOG_BLUE("Moonraker process statistics update")
                     elif method == "notify_history_changed":
                         # 4.4.3 CLL web print information subscription
-                        if g.screen.page in (ui.TJC_PAGE_PRINTING, ui.TJC_PAGE_PRINT_ZOFFSET,
-                                                 ui.TJC_PAGE_PRINT_FILAMENT, ui.TJC_PAGE_PRINTING_2):
+                        if g.screen.page in (ids.PRINTING, ids.PRINT_ZOFFSET,
+                                                 ids.PRINT_FILAMENT, ids.PRINTING_2):
                             pass
                         else:
                             parse_file_estimated_time_send(jpath(g.rpc.response, "params", 0, "job", "metadata"))

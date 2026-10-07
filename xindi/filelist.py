@@ -4,6 +4,7 @@ import os
 
 from . import paths
 from . import state as g
+from . import pageids as ids
 from . import pics
 from . import ui
 from . import mks_file
@@ -186,7 +187,7 @@ def refresh_files_list_2():
     if g.screen.file_mode == "USB":
         if detect_disk() == -1:
             g.screen.file_mode = "NULL"
-            page_to(ui.TJC_PAGE_FILE_LIST)
+            page_to(ids.FILE_LIST)
             g.files.list_pages = 0
             g.files.list_current_pages = 0
             g.files.list_folder_layers = 1
@@ -200,7 +201,7 @@ def refresh_files_list_2():
         if detect_disk() == 0:
             sleep(1)
             g.screen.file_mode = "USB"
-            page_to(ui.TJC_PAGE_FILE_LIST)
+            page_to(ids.FILE_LIST)
             g.files.list_pages = 0
             g.files.list_current_pages = 0
             g.files.list_folder_layers = 1
@@ -215,7 +216,7 @@ def refresh_files_list_2():
 def go_to_file_list():
     # 4.4.22: the folder and page are kept while the list is up to date
     if g.screen.file_mode == "Local":
-        page_to(ui.TJC_PAGE_FILE_LIST)
+        page_to(ids.FILE_LIST)
         if g.screen.file_list_refreshed == False:
             g.files.list_pages = 0
             g.files.list_current_pages = 0
@@ -227,7 +228,7 @@ def go_to_file_list():
         refresh_files_list()
         actions.get_object_status()
     else:
-        page_to(ui.TJC_PAGE_FILE_LIST)
+        page_to(ids.FILE_LIST)
         if g.screen.file_list_refreshed == False:
             g.files.list_pages = 0
             g.files.list_current_pages = 0
@@ -244,13 +245,13 @@ def go_to_file_list():
 def print_log():
     """CLL export the logs to the USB drive"""
     if detect_disk() == -1:
-        page_to(ui.TJC_PAGE_PRINT_LOG_F)    # CLL no USB drive: tell the user the export failed
+        page_to(ids.PRINT_LOG_F)    # CLL no USB drive: tell the user the export failed
     else:
         system("mkdir " + paths.gcode_files() + "/sda1/QD_Log")
         system("bash -c 'cp " + paths.klipper_logs() + "/klippy.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
         system("bash -c 'cp " + paths.klipper_logs() + "/moonraker.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
         system("bash -c 'cp " + paths.klipper_logs() + "/auto_update.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
-        page_to(ui.TJC_PAGE_PRINT_LOG_S)
+        page_to(ids.PRINT_LOG_S)
 
 
 def send_file_picture(path, pixel, obj):

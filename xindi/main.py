@@ -9,6 +9,7 @@ import time
 from . import paths
 from . import state as g
 from . import ui
+from . import pageids as ids
 from .cpp import access, system, sleep, pthread_create, terminate
 from .mks_log import MKSLOG, MKSLOG_BLUE, cout, cerr
 from .MakerbaseClient import MakerbaseClient
@@ -176,13 +177,13 @@ def main(argv):
             # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
             ui.send_ui_version()
             if g.update.find_screen_tft_file == False:
-                g.screen.previous_page = ui.TJC_PAGE_LOGO
+                g.screen.previous_page = ids.LOGO
                 if settings.get_oobe_enabled() == True:
-                    g.screen.page = ui.TJC_PAGE_OPEN_LANGUAGE
+                    g.screen.page = ids.OPEN_LANGUAGE
                 else:
-                    g.screen.page = ui.TJC_PAGE_MAIN
+                    g.screen.page = ids.MAIN
             else:
-                g.screen.page = ui.TJC_PAGE_UPDATE_SUCCESS
+                g.screen.page = ids.UPDATE_SUCCESS
             ui.page_to(g.screen.page)
         except Exception as e:
             cerr("Page main error, ", str(e), "\n")
