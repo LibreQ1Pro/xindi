@@ -102,6 +102,13 @@ binfmt), curl, Python 3 on the host.
 Traces (`out/<impl>_<scenario>.json`) and the program logs
 (`out/<impl>_<scenario>.log`) are kept in `tests/e2e/out/`.
 
+Golden traces of the port alone (the C++ comparison is obsolete, the port follows firmware 4.4.24):
+
+```sh
+tests/e2e/golden.py check -j 8     # compare with tests/e2e/golden/; run it after every refactoring step
+tests/e2e/golden.py record -j 8    # accept a deliberate change of behaviour
+```
+
 Additional library-level tests (run inside the image):
 
 ```sh

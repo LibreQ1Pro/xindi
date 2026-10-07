@@ -1,0 +1,110 @@
+{
+ "alive": true,
+ "files": {
+  "/home/mks/gcode_files/.cache/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
+  "/home/mks/gcode_files/.cache/.thumbs/last_print-160x160.png": "sha1:85bfb61decd68dcf:2205",
+  "/home/mks/gcode_files/.cache/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
+  "/home/mks/gcode_files/.cache/last_print.gcode": "sha1:621cb21c24f86a54:4878",
+  "/home/mks/gcode_files/.hidden.gcode": "sha1:e9c4f663cb3921c3:26",
+  "/home/mks/gcode_files/.thumbs/Benchy PLA-112x112_QD.jpg": "sha1:2d5b7d600246d2e9:3974",
+  "/home/mks/gcode_files/.thumbs/Benchy PLA-160x160.png": "sha1:2d2625e7c0cb78cc:2209",
+  "/home/mks/gcode_files/.thumbs/cube-112x112_QD.jpg": "sha1:8c4d6554d025b74f:3925",
+  "/home/mks/gcode_files/.thumbs/cube-160x160.png": "sha1:2fafb38caf1b4c13:2137",
+  "/home/mks/gcode_files/.thumbs/part_abs-112x112_QD.jpg": "sha1:15013ab210f2794e:4047",
+  "/home/mks/gcode_files/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
+  "/home/mks/gcode_files/Benchy PLA.gcode": "sha1:1f635b4abd4d1ae8:4876",
+  "/home/mks/gcode_files/big_petg.gcode": "sha1:fb0996f14638abd8:27",
+  "/home/mks/gcode_files/cube.gcode": "sha1:3e75611c7d75d17d:4822",
+  "/home/mks/gcode_files/models/deep/deeper.gcode": "sha1:6d807b2db29596cb:4",
+  "/home/mks/gcode_files/models/inner.gcode": "sha1:6d807b2db29596cb:4",
+  "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
+  "/home/mks/gcode_files/part_abs.gcode": "sha1:3a0314247caa6391:44801",
+  "/home/mks/gcode_files/z_last.gcode": "sha1:57539c0d633d7184:25",
+  "/home/mks/klipper/klippy/chelper/c_helper.so": "sha1:acdb4c096d16ce95:20004",
+  "/home/mks/klipper_config/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 1\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n\n[app]\ndevice_code                    = \nsubdomain                      = \ntoken                          = \nusername                       = \navatar                         = \nbind_status                    = \n\n\n",
+  "/home/mks/klipper_config/saved_variables.cfg": "[Variables]\nbed_temp = 80.0\nfilepath = ''\nhot_temp = 0.0\nlast_file = ''\npower_resume_z = 0.8\nprint_temp = 245.0\nprofile_name = 'kamp'\nwas_interrupted = False\nz_offset = 0.0\n",
+  "/home/mks/klipper_config/saved_variables.cfg.bak": "sha1:6848972cc3e85599:173",
+  "/root/800_480.tft": null,
+  "/root/800_480.tft.bak": null,
+  "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
+  "/root/frp/frpc.toml": "serverAddr = \"old.example.invalid\"\nserverPort = 7000\n\n[[proxies]]\nname = \"web\"\ntype = \"http\"\n",
+  "/root/klipper.bin": null,
+  "/root/mcu_shutdown.txt": null,
+  "/root/xindi/version": "sha1:a26a542db586bd9c:88"
+ },
+ "http": [],
+ "pages": [
+  3,
+  10,
+  72,
+  11,
+  12
+ ],
+ "screen": [
+  {
+   "attrs": {
+    "logo.version.val": [
+     "100"
+    ]
+   },
+   "page": null
+  },
+  {
+   "attrs": {},
+   "page": 3
+  },
+  {
+   "attrs": {},
+   "page": 10
+  },
+  {
+   "attrs": {},
+   "page": 72
+  },
+  {
+   "attrs": {},
+   "page": 11
+  },
+  {
+   "attrs": {
+    "heat_toggle.picc": [
+     "9"
+    ],
+    "heat_toggle.picc2": [
+     "25"
+    ],
+    "temp_now.pco": [
+     "65535"
+    ],
+    "temp_now.txt": [
+     "\"25/\""
+    ],
+    "temp_target.pco": [
+     "65535"
+    ],
+    "temp_target.val": [
+     "0"
+    ]
+   },
+   "page": 12
+  }
+ ],
+ "shell": [
+  "sync"
+ ],
+ "wpa": [],
+ "ws": [
+  "{\"id\":5656,\"jsonrpc\":\"2.0\",\"method\":\"server.history.totals\"}",
+  "{\"id\":5434,\"jsonrpc\":\"2.0\",\"method\":\"printer.objects.subscribe\",\"params\":{\"objects\":{\"bed_mesh\":null,\"display_status\":[\"progress\",\"message\"],\"extruder\":null,\"fan\":[\"speed\"],\"fan_generic auxiliary_cooling_fan\":[\"speed\",\"rpm\"],\"fan_generic chamber_circulation_fan\":[\"speed\",\"rpm\"],\"fan_generic cooling_fan\":[\"speed\",\"rpm\"],\"filament_switch_sensor fila\":[\"filament_detected\",\"enabled\"],\"firmware_retraction\":[\"retract_length\",\"retract_speed\",\"unretract_extra_length\",\"unretract_speed\"],\"gcode_move\":null,\"heater_bed\":null,\"heater_fan fan1\":[\"speed\"],\"heater_fan my_nozzle_fan1\":null,\"heater_generic chamber\":null,\"idle_timeout\":[\"state\"],\"output_pin caselight\":null,\"output_pin sound\":null,\"pause_resume\":[\"is_paused\"],\"print_stats\":[\"print_duration\",\"total_duration\",\"filament_used\",\"filename\",\"state\",\"message\"],\"probe\":null,\"toolhead\":null,\"webhooks\":[\"state\",\"state_message\"]}}}",
+  "{\"id\":4654,\"jsonrpc\":\"2.0\",\"method\":\"printer.objects.query\",\"params\":{\"objects\":{\"bed_mesh\":null,\"display_status\":[\"progress\",\"message\"],\"extruder\":null,\"fan\":[\"speed\"],\"fan_generic auxiliary_cooling_fan\":[\"speed\",\"rpm\"],\"fan_generic chamber_circulation_fan\":[\"speed\",\"rpm\"],\"fan_generic cooling_fan\":[\"speed\",\"rpm\"],\"filament_switch_sensor fila\":[\"filament_detected\",\"enabled\"],\"firmware_retraction\":[\"retract_length\",\"retract_speed\",\"unretract_extra_length\",\"unretract_speed\"],\"gcode_move\":null,\"heater_bed\":null,\"heater_fan fan1\":[\"speed\"],\"heater_fan my_nozzle_fan1\":null,\"heater_generic chamber\":null,\"idle_timeout\":[\"state\"],\"output_pin caselight\":null,\"output_pin sound\":null,\"pause_resume\":[\"is_paused\"],\"print_stats\":[\"print_duration\",\"total_duration\",\"filament_used\",\"filename\",\"state\",\"message\"],\"probe\":null,\"toolhead\":null,\"webhooks\":[\"state\",\"state_message\"]}}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=heater_bed target=63\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=heater_bed target=60\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"M4028\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=heater_bed target=60\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"M190 S60\\n\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"M4027\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"M901\"}}",
+  "{\"id\":4654,\"jsonrpc\":\"2.0\",\"method\":\"printer.objects.query\",\"params\":{\"objects\":{\"bed_mesh\":null,\"display_status\":[\"progress\",\"message\"],\"extruder\":null,\"fan\":[\"speed\"],\"fan_generic auxiliary_cooling_fan\":[\"speed\",\"rpm\"],\"fan_generic chamber_circulation_fan\":[\"speed\",\"rpm\"],\"fan_generic cooling_fan\":[\"speed\",\"rpm\"],\"filament_switch_sensor fila\":[\"filament_detected\",\"enabled\"],\"firmware_retraction\":[\"retract_length\",\"retract_speed\",\"unretract_extra_length\",\"unretract_speed\"],\"gcode_move\":null,\"heater_bed\":null,\"heater_fan fan1\":[\"speed\"],\"heater_fan my_nozzle_fan1\":null,\"heater_generic chamber\":null,\"idle_timeout\":[\"state\"],\"output_pin caselight\":null,\"output_pin sound\":null,\"pause_resume\":[\"is_paused\"],\"print_stats\":[\"print_duration\",\"total_duration\",\"filament_used\",\"filename\",\"state\",\"message\"],\"probe\":null,\"toolhead\":null,\"webhooks\":[\"state\",\"state_message\"]}}}",
+  "{\"id\":5434,\"jsonrpc\":\"2.0\",\"method\":\"printer.objects.subscribe\",\"params\":{\"objects\":{\"bed_mesh\":null,\"display_status\":[\"progress\",\"message\"],\"extruder\":null,\"fan\":[\"speed\"],\"fan_generic auxiliary_cooling_fan\":[\"speed\",\"rpm\"],\"fan_generic chamber_circulation_fan\":[\"speed\",\"rpm\"],\"fan_generic cooling_fan\":[\"speed\",\"rpm\"],\"filament_switch_sensor fila\":[\"filament_detected\",\"enabled\"],\"firmware_retraction\":[\"retract_length\",\"retract_speed\",\"unretract_extra_length\",\"unretract_speed\"],\"gcode_move\":null,\"heater_bed\":null,\"heater_fan fan1\":[\"speed\"],\"heater_fan my_nozzle_fan1\":null,\"heater_generic chamber\":null,\"idle_timeout\":[\"state\"],\"output_pin caselight\":null,\"output_pin sound\":null,\"pause_resume\":[\"is_paused\"],\"print_stats\":[\"print_duration\",\"total_duration\",\"filament_used\",\"filename\",\"state\",\"message\"],\"probe\":null,\"toolhead\":null,\"webhooks\":[\"state\",\"state_message\"]}}}"
+ ]
+}
