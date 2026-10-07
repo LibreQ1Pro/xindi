@@ -250,7 +250,7 @@
         ],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints fan1_slider.val,2",
           "prints 0xff,1",
@@ -317,7 +317,7 @@
         ],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints fan2_slider.val,2",
           "prints 0xff,1",
@@ -382,7 +382,7 @@
         ],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints fan3_slider.val,2",
           "prints 0xff,1",
@@ -586,7 +586,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "output.val=fan1_val.val-10",
           "if(fan1_val.val==0)",
@@ -656,7 +656,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "output.val=fan2_val.val-10",
           "if(fan2_val.val==0)",
@@ -726,7 +726,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "output.val=fan3_val.val-10",
           "if(fan3_val.val==0)",
@@ -796,7 +796,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "if(fan1_val.val==0)",
           "{",
@@ -869,7 +869,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "if(fan2_val.val==0)",
           "{",
@@ -942,7 +942,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "if(fan3_val.val==0)",
           "{",
@@ -1348,7 +1348,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints 20,2",
           "prints 0xff,1",
@@ -1406,7 +1406,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints 40,2",
           "prints 0xff,1",
@@ -1464,7 +1464,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints 60,2",
           "prints 0xff,1",
@@ -1522,7 +1522,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints 80,2",
           "prints 0xff,1",
@@ -1580,7 +1580,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 12,1",
           "prints 100,2",
           "prints 0xff,1",
@@ -1638,7 +1638,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints 100,2",
           "prints 0xff,1",
@@ -1696,7 +1696,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints 80,2",
           "prints 0xff,1",
@@ -1754,7 +1754,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints 60,2",
           "prints 0xff,1",
@@ -1812,7 +1812,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints 40,2",
           "prints 0xff,1",
@@ -1870,7 +1870,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 13,1",
           "prints 20,2",
           "prints 0xff,1",
@@ -1928,7 +1928,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints 100,2",
           "prints 0xff,1",
@@ -1986,7 +1986,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints 80,2",
           "prints 0xff,1",
@@ -2044,7 +2044,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints 60,2",
           "prints 0xff,1",
@@ -2102,7 +2102,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints 20,2",
           "prints 0xff,1",
@@ -2160,7 +2160,7 @@
         "codesdown": [],
         "codesup": [
           "prints 113,1",
-          "prints 75,1",
+          "prints 71,1",
           "prints 14,1",
           "prints 40,2",
           "prints 0xff,1",
