@@ -44,7 +44,6 @@
         "  msg.txt=\"Восстановить заводские\\rнастройки?\"",
         "  cancel.txt=\"Отмена\"",
         "  ok.txt=\"ОК\"",
-        "  ok.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
         "  msg.txt=\"Restore the factory\\rsettings?\"",

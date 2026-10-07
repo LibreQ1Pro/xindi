@@ -42,7 +42,6 @@
         "}else if(lang==1)",
         "{",
         "  ok.txt=\"Да\"",
-        "  ok.font=${font:font_small14}",
         "  cancel.txt=\"Нет\"",
         "  msg.txt=\"Остановить печать?\"",
         "}else if(lang==2)",

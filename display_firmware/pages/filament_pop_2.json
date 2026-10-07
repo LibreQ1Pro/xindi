@@ -96,7 +96,6 @@
         "  step2_txt.txt=\"Filament wird\\rentladen.\"",
         "  step3_txt.txt=\"Fertig.\"",
         "  hint.txt=\"Filament\\rabschneiden, dann\\r„Weiter“ tippen.\"",
-        "  hint.font=${font:font_small14}",
         "  done_btn.txt=\"OK\"",
         "  alt_btn.txt=\"Laden\"",
         "  next_btn.txt=\"Weiter\"",

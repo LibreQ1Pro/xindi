@@ -48,7 +48,6 @@
         "  msg.txt=\"Прошлая печать была\\rпрервана. Продолжить\\rпечать?\"",
         "  cancel.txt=\"Нет\"",
         "  ok.txt=\"Да\"",
-        "  ok.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
         "  msg.txt=\"The last print was\\rinterrupted. Resume\\rprinting?\"",

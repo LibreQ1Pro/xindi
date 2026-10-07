@@ -44,7 +44,6 @@
         "  msg.txt=\"Убедитесь, что верхняя\\rкрышка и передняя\\rдверца закрыты.\\rТемпература камеры не\\rдолжна превышать 55℃.\"",
         "  ok.txt=\"ОК\"",
         "  no_more.txt=\"Больше не\\rпоказывать\"",
-        "  no_more.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
         "  msg.txt=\"Please make sure the top\\rcover and front door are\\rclosed. The chamber\\rtemperature should not\\rexceed 55℃.\"",

@@ -44,8 +44,6 @@
         "  msg.txt=\"Печать PLA или PETG в\\rзакрытой камере может\\rпривести к перегреву:\\rфиламент размягчается\\rслишком рано и может\\rзаклинить хотэнд.\\rОткройте верхнюю\\rкрышку и обеспечьте\\rвентиляцию.\"",
         "  ok.txt=\"ОК\"",
         "  no_more.txt=\"Больше не\\rпоказывать\"",
-        "  ok.font=${font:font_small14}",
-        "  no_more.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
         "  msg.txt=\"Printing PLA or PETG in a\\rclosed chamber may\\roverheat and soften the\\rfilament too early, which\\rcan jam the hotend. Please\\ropen the top cover and\\rkeep the machine\\rventilated.\"",

@@ -44,7 +44,6 @@
         "  msg.txt=\"Выполнить аварийную\\rостановку?\"",
         "  cancel.txt=\"Нет\"",
         "  ok.txt=\"Да\"",
-        "  ok.font=${font:font_small14}",
         "}else if(lang==2)",
         "{",
         "  msg.txt=\"Are you sure you want to\\rdo an emergency stop?\"",
