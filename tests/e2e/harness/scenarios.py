@@ -195,6 +195,7 @@ def scenario_boot_tft_update(h):
 def scenario_boot_interrupted(h):
     """Power loss recovery question after boot."""
     boot(h, RESUME_PRINT)
+    h.touch(RESUME_PRINT, 0x02, settle=0.5)     # the page reports that it is shown (its codesload)
     h.touch(RESUME_PRINT, 0x01, settle=1.5)     # no
     h.wait_page(MAIN)
     h.screen.send(bytes([0x65, RESUME_PRINT, 0x00, 0x01]) + b"\xff\xff\xff")  # yes button of the resume page

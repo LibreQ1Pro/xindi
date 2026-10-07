@@ -96,8 +96,9 @@ def requested_jumps():
         jump_to("jump_filament_pop_1", ids.FILAMENT_POP_1)
     if g.screen.jump_print_low_temp:
         jump_to("jump_print_low_temp", ids.PRINT_LOW_TEMP)
-    if g.screen.jump_resume_print:
-        # 4.4.24: the flag is reset when the page reports that it is shown
+    if g.screen.jump_resume_print and g.screen.page != ids.RESUME_PRINT:
+        # 4.4.24: the flag is reset when the page reports that it is shown; until then the page is not sent again
+        # (every page command restarts the page and spoils previous_page)
         page_to(ids.RESUME_PRINT)
     if g.screen.jump_memory_warning:
         jump_to("jump_memory_warning", ids.MEMORY_WARNING)
