@@ -946,7 +946,7 @@ def refresh_page_main():
                 send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
                 send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
                 send_cmd_vis(g.tty_fd, "last_file_pic", "1")
-                refresh_files_list_picture(picture_path, 160, 0)
+                refresh_files_list_picture(picture_path, 160, "last_file_pic")
                 g.main_picture_detected = True
             else:
                 if thumb is not None:
@@ -954,7 +954,7 @@ def refresh_page_main():
                     send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_photo)
                     send_cmd_picc(g.tty_fd, "last_file_btn", pics.main_bg_photo)
                     send_cmd_picc2(g.tty_fd, "last_file_btn", pics.nav_btn_press)
-                    refresh_files_list_picture(picture_path, 160, 0)
+                    refresh_files_list_picture(picture_path, 160, "last_file_pic")
                     g.main_picture_detected = True
                 else:
                     send_cmd_pic(g.tty_fd, "b[0]", pics.main_bg_noimg)
@@ -2340,7 +2340,9 @@ def print_log():
         page_to(ui.TJC_PAGE_PRINT_LOG_S)
 
 
-def refresh_files_list_picture(path, pixel, i):
+def refresh_files_list_picture(path, pixel, obj):
+    """Sends the picture of ``path`` into the picture widget ``obj`` of the current page (the main page
+    calls it last_file_pic; the screen answers "invalid variable name" to a widget the page lacks)."""
     g.file_metadata_simage = ""
     g.file_metadata_gimage = ""
     g.mks_file_parse_finished = False
@@ -2354,14 +2356,14 @@ def refresh_files_list_picture(path, pixel, i):
     send_cmd_baud(g.tty_fd, 921600)
     usleep(10000)
     set_option(g.tty_fd, 921600, 8, 'N', 1)
-    send_cmd_cp_close(g.tty_fd, "cp" + to_string(i))
+    send_cmd_cp_close(g.tty_fd, obj)
     if g.file_metadata_gimage != "":
         cout("Sending the file picture")
-        _send_chunks_cp("cp" + to_string(i), g.file_metadata_gimage)
+        _send_chunks_cp(obj, g.file_metadata_gimage)
     send_cmd_baud(g.tty_fd, 115200)
     usleep(10000)
     set_option(g.tty_fd, 115200, 8, 'N', 1)
-    send_cmd_vis(g.tty_fd, "cp" + to_string(i), "1")
+    send_cmd_vis(g.tty_fd, obj, "1")
 
 
 def refresh_files_list_picture_2(path, size, i):
