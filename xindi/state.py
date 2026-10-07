@@ -346,12 +346,8 @@ class Rpc(object):
     """The Moonraker message that is being handled."""
 
     def __init__(self):
-        self.message = ""
-        self.is_get_message = False
         self.message_queue = _queue.Queue()
         self.response_type_id = 0
-        self.response = None
-        self.res = None
 
 
 screen = Screen()

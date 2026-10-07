@@ -1,5 +1,5 @@
 {
- "alive": false,
+ "alive": true,
  "files": {
   "/home/mks/gcode_files/.cache/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
   "/home/mks/gcode_files/.cache/.thumbs/last_print-160x160.png": "sha1:85bfb61decd68dcf:2205",
@@ -52,7 +52,7 @@
   {
    "attrs": {
     "#mark": [
-     "crash"
+     "invalid_json"
     ],
     "b[0].pic": [
      "29"

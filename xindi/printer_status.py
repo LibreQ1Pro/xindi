@@ -4,18 +4,8 @@ import math
 
 from . import state as g
 from .cpp import jget, jpath, jstr, jfloat, jdouble, jbool, f32, c_int, c_round
+from .jsonfields import read_fields
 from .mks_log import MKSLOG_RED, cout
-
-
-def _read(target, source, fields):
-    """Copy the keys of the JSON object ``source`` that are present into attributes of ``target``.
-
-    ``fields`` is a list of ``(attribute, key, conversion)``.
-    """
-    for attr, key, convert in fields:
-        value = jget(source, key)
-        if value is not None:
-            setattr(target, attr, convert(value))
 
 
 def _temperature(value):
@@ -24,47 +14,47 @@ def _temperature(value):
 
 
 def parse_server_history_totals(totals):
-    _read(g.klippy, totals, [("total_print_time", "total_print_time", jdouble)])
+    read_fields(g.klippy, totals, [("total_print_time", "total_print_time", jdouble)])
     cout("total_print_time = ", c_int(g.klippy.total_print_time))
 
 
 def parse_printer_probe(probe):
-    _read(g.klippy, probe, [("probe_x_zoffset", "x_offset", jfloat),
+    read_fields(g.klippy, probe, [("probe_x_zoffset", "x_offset", jfloat),
                             ("probe_y_zoffset", "y_offset", jfloat),
                             ("probe_z_zoffset", "z_offset", jfloat)])
 
 
 def parse_printer_beep(beep):
-    _read(g.klippy, beep, [("out_pin_beep_value", "value", jfloat)])
+    read_fields(g.klippy, beep, [("out_pin_beep_value", "value", jfloat)])
 
 
 def parse_printer_caselight(caselight):
-    _read(g.klippy, caselight, [("caselight_value", "value", jfloat)])
+    read_fields(g.klippy, caselight, [("caselight_value", "value", jfloat)])
 
 
 def parse_printer_heater_fan_my_nozzle_fan1(fan):
-    _read(g.klippy, fan, [("heater_fan_my_nozzle_fan1_speed", "speed", jfloat)])
+    read_fields(g.klippy, fan, [("heater_fan_my_nozzle_fan1_speed", "speed", jfloat)])
 
 
 def parse_printer_out_pin_fan0(fan):
-    _read(g.klippy, fan, [("out_pin_fan0_value", "speed", jfloat)])
+    read_fields(g.klippy, fan, [("out_pin_fan0_value", "speed", jfloat)])
 
 
 def parse_printer_out_pin_fan2(fan):
-    _read(g.klippy, fan, [("out_pin_fan2_value", "speed", jfloat)])
+    read_fields(g.klippy, fan, [("out_pin_fan2_value", "speed", jfloat)])
 
 
 def parse_printer_out_pin_fan3(fan):
-    _read(g.klippy, fan, [("out_pin_fan3_value", "speed", jfloat)])
+    read_fields(g.klippy, fan, [("out_pin_fan3_value", "speed", jfloat)])
 
 
 def parse_filament_switch_sensor_fila(sensor):
-    _read(g.klippy, sensor, [("fila_sensor_detected", "filament_detected", jbool),
+    read_fields(g.klippy, sensor, [("fila_sensor_detected", "filament_detected", jbool),
                              ("fila_sensor_enabled", "enabled", jbool)])
 
 
 def parse_idle_timeout(idle_timeout):
-    _read(g.klippy, idle_timeout, [("idle_timeout_state", "state", jstr)])
+    read_fields(g.klippy, idle_timeout, [("idle_timeout_state", "state", jstr)])
 
 
 def parse_bed_mesh(bed_mesh):
@@ -78,7 +68,7 @@ def parse_bed_mesh(bed_mesh):
 
     mesh_params = jpath(bed_mesh, "profiles", "default", "mesh_params")
     if mesh_params is not None:
-        _read(levelling, mesh_params, [("mesh_tension", "tension", jfloat),
+        read_fields(levelling, mesh_params, [("mesh_tension", "tension", jfloat),
                                        ("mesh_mesh_x_pps", "mesh_x_pps", jfloat),
                                        ("mesh_algo", "algo", jstr),
                                        ("mesh_min_x", "min_x", jfloat),
@@ -98,13 +88,13 @@ def parse_bed_mesh(bed_mesh):
 
 
 def parse_webhooks(webhooks):
-    _read(g.klippy, webhooks, [("webhooks_state", "state", jstr),
+    read_fields(g.klippy, webhooks, [("webhooks_state", "state", jstr),
                                ("webhooks_state_message", "state_message", jstr)])
     MKSLOG_RED("State message: %s", g.klippy.webhooks_state_message)
 
 
 def parse_gcode_move(gcode_move):
-    _read(g.klippy, gcode_move, [("gcode_move_speed_factor", "speed_factor", jfloat),
+    read_fields(g.klippy, gcode_move, [("gcode_move_speed_factor", "speed_factor", jfloat),
                                  ("gcode_move_speed", "speed", jfloat),
                                  ("gcode_move_extrude_factor", "extrude_factor", jfloat)])
     if jget(gcode_move, "homing_origin") is not None:
@@ -133,41 +123,41 @@ def parse_toolhead(toolhead):
 
 
 def parse_extruder(extruder):
-    _read(g.klippy, extruder, [("extruder_temperature", "temperature", _temperature),
+    read_fields(g.klippy, extruder, [("extruder_temperature", "temperature", _temperature),
                                ("extruder_target", "target", _temperature)])
 
 
 def parse_heater_bed(heater_bed):
-    _read(g.klippy, heater_bed, [("heater_bed_temperature", "temperature", _temperature),
+    read_fields(g.klippy, heater_bed, [("heater_bed_temperature", "temperature", _temperature),
                                  ("heater_bed_target", "target", _temperature)])
 
 
 def parse_heater_generic_hot(heater):
-    _read(g.klippy, heater, [("hot_temperature", "temperature", _temperature),
+    read_fields(g.klippy, heater, [("hot_temperature", "temperature", _temperature),
                              ("hot_target", "target", _temperature)])
 
 
 def parse_fan(fan):
-    _read(g.klippy, fan, [("fan_speed", "speed", jfloat)])
+    read_fields(g.klippy, fan, [("fan_speed", "speed", jfloat)])
 
 
 def parse_heater_fan(heater_fan):
-    _read(g.klippy, heater_fan, [("heater_fan_speed", "speed", jfloat)])
+    read_fields(g.klippy, heater_fan, [("heater_fan_speed", "speed", jfloat)])
 
 
 def parse_print_stats(print_stats):
-    _read(g.klippy, print_stats, [("print_stats_state", "state", jstr),
+    read_fields(g.klippy, print_stats, [("print_stats_state", "state", jstr),
                                   ("print_stats_filename", "filename", jstr),
                                   ("print_stats_print_duration", "print_duration", jfloat),
                                   ("print_stats_total_duration", "total_duration", jfloat)])
 
 
 def parse_display_status(display_status):
-    _read(g.klippy, display_status, [("display_status_progress", "progress", lambda v: c_int(jdouble(v) * 100))])
+    read_fields(g.klippy, display_status, [("display_status_progress", "progress", lambda v: c_int(jdouble(v) * 100))])
 
 
 def parse_pause_resume(pause_resume):
-    _read(g.klippy, pause_resume, [("pause_resume_is_paused", "is_paused", jbool)])
+    read_fields(g.klippy, pause_resume, [("pause_resume_is_paused", "is_paused", jbool)])
 
 
 # object of the "status" of a subscription -> its parser

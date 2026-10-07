@@ -726,9 +726,8 @@ def scenario_notifications(h):
     h.settle(1.0)
     h.mr.push_raw(json.dumps({"jsonrpc": "2.0", "result": {"status": {"extruder": {"temperature": 99.9}}}, "id": 4654}))
     h.settle(2.0)
-    h.mark("crash")
-    # invalid JSON after a response with an id: the C++ code keeps the stale
-    # "res" object and reads "id" from the cleared "response" -> type_error -> std::terminate
+    h.mark("invalid_json")
+    # invalid JSON is logged and ignored (the C++ code died with std::terminate)
     h.mr.push_raw("{not json")
     h.settle(3.0)
 

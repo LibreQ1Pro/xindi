@@ -59,6 +59,6 @@ second) instead of fixed pauses, and the time-outs are a few seconds.
 | bed_calibration | manual bed screw calibration loop |
 | settings | system info, log export to USB, restarts, guide switch, factory reset |
 | errors | Klipper shutdown / error / ready, gcode errors, Klipper state messages, levelling error |
-| notifications | all Moonraker notifications, error responses, and a malformed message that makes the port abort |
+| notifications | all Moonraker notifications, error responses, and an invalid message (ignored) |
 | screen_sleep | screen sleep with the LED and wake-up |
 | filament | filament load / unload, automatic and manual |

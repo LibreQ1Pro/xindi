@@ -8,49 +8,34 @@ from . import pageids as ids
 from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of,
                   json_parse, json_dump)
+from .jsonfields import read_fields
 from .mks_log import MKSLOG, MKSLOG_RED, cout
 from .http_client import send_request
 
 
 def parse_file_estimated_time(response):
     result = jget(response, "result")
-    if jget(result, "estimated_time") is not None:
-        g.files.meta_estimated_time = c_int(jfloat(jget(result, "estimated_time")))
-    if jget(result, "filename") is not None:
-        g.files.meta_filename = jstr(jget(result, "filename"))
-    if jget(result, "filament_total") is not None:
-        g.files.meta_filament_total = f32(jint(jget(result, "filament_total")))
-        MKSLOG_RED("Filament length %f", g.files.meta_filament_total)
-    if jget(result, "object_height") is not None:
-        g.files.meta_object_height = jint(jget(result, "object_height"))
-    if jget(result, "filament_name") is not None:
-        g.files.meta_filament_name = jstr(jget(result, "filament_name"))
-    if jget(result, "filament_type") is not None:
-        g.files.meta_filament_type = jstr(jget(result, "filament_type"))
-    if jget(result, "filament_weight_total") is not None:
-        g.files.meta_filament_weight_total = jfloat(jget(result, "filament_weight_total"))
-    if jget(result, "gimage") is not None:
-        g.files.meta_gimage = jstr(jget(result, "gimage"))
-    if jget(result, "simage") is not None:
-        g.files.meta_simage = jstr(jget(result, "simage"))
+    read_fields(g.files, result, [("meta_estimated_time", "estimated_time", lambda v: c_int(jfloat(v))),
+                                  ("meta_filename", "filename", jstr),
+                                  ("meta_filament_total", "filament_total", lambda v: f32(jint(v))),
+                                  ("meta_object_height", "object_height", jint),
+                                  ("meta_filament_name", "filament_name", jstr),
+                                  ("meta_filament_type", "filament_type", jstr),
+                                  ("meta_filament_weight_total", "filament_weight_total", jfloat),
+                                  ("meta_gimage", "gimage", jstr),
+                                  ("meta_simage", "simage", jstr)])
     thumbnails = jget(result, "thumbnails")
-    if thumbnails is not None:
-        i = 0
-        while jget(thumbnails, i) is not None:
-            thumb = jget(thumbnails, i)
-            width = jget(thumb, "width")
-            if jeq(width, 168) or jeq(width, 300):
-                g.files.thumbnail_relative_path = jstr(jget(thumb, "relative_path"))
-                if parent_directory(g.files.meta_filename) == "":
-                    g.files.thumbnail_path = g.files.thumbnail_relative_path
-                else:
-                    g.files.thumbnail_path = parent_directory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
-                MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
-                break
-            if jget(thumbnails, i) is None:
-                g.files.thumbnail_relative_path = ""
-                g.files.thumbnail_path = ""
-            i += 1
+    for i in range(jsize(thumbnails)):
+        thumb = jget(thumbnails, i)
+        if jeq(jget(thumb, "width"), 168) or jeq(jget(thumb, "width"), 300):
+            g.files.thumbnail_relative_path = jstr(jget(thumb, "relative_path"))
+            directory = parent_directory(g.files.meta_filename)
+            if directory == "":
+                g.files.thumbnail_path = g.files.thumbnail_relative_path
+            else:
+                g.files.thumbnail_path = directory + "/" + g.files.thumbnail_relative_path
+            MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
+            break
     g.files.meta_parse_finished = True
 
 
