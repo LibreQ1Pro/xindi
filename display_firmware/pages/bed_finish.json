@@ -1,0 +1,552 @@
+{
+  "name": "bed_finish",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_61"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(lang==0)",
+        "{",
+        "  t0.txt=\"可在上方选择前往对应螺母位置，重新进行调节。\"",
+        "  b0.txt=\"完成\"",
+        "  b1.txt=\"螺母1\"",
+        "  b2.txt=\"螺母2\"",
+        "  b3.txt=\"螺母3\"",
+        "  b4.txt=\"倾斜校准\"",
+        "}else if(lang==1)",
+        "{",
+        "  t0.txt=\"Выше можно выбрать место, где находится соответствующая гайка, и повторно отрегулировать.\"",
+        "  b0.txt=\"Завершено\"",
+        "  b1.txt=\"Винт1\"",
+        "  b2.txt=\"Винт2\"",
+        "  b3.txt=\"Винт3\"",
+        "  b4.txt=\"калибровка наклона\"",
+        "}else if(lang==2)",
+        "{",
+        "  t0.txt=\"You can choose to go to the corresponding nut position above and readjust it.\"",
+        "  b0.txt=\"Completed\"",
+        "  b1.txt=\"screw1\"",
+        "  b2.txt=\"screw2\"",
+        "  b3.txt=\"screw3\"",
+        "  b4.txt=\"tilt calibration\"",
+        "}else if(lang==3)",
+        "{",
+        "  t0.txt=\"上方で対応するナット位置への移動を選択し、再調整することができます。\"",
+        "  b0.txt=\"完成\"",
+        "  b1.txt=\"ねじくぎ1\"",
+        "  b2.txt=\"ねじくぎ2\"",
+        "  b3.txt=\"ねじくぎ3\"",
+        "  b4.txt=\"傾斜キャリブレーション\"",
+        "}else if(lang==4)",
+        "{",
+        "  t0.txt=\"Le réglage peut être effectué à nouveau en choisissant d'aller à la position d'écrou correspondante au - dessus.\"",
+        "  b0.txt=\"Complété\"",
+        "  b1.txt=\"Vis1\"",
+        "  b2.txt=\"Vis2\"",
+        "  b3.txt=\"Vis3\"",
+        "  b4.txt=\"calibration d’inclinaison\"",
+        "}else if(lang==5)",
+        "{",
+        "  t0.txt=\"Sie können wählen, in die entsprechende Mutternposition oben zu gehen und sie neu einzustellen.\"",
+        "  b0.txt=\"Fertig\"",
+        "  b1.txt=\"Schraube1\"",
+        "  b2.txt=\"Schraube2\"",
+        "  b3.txt=\"Schraube3\"",
+        "  b4.txt=\"Neigungskalibrierung\"",
+        "}else if(lang==6)",
+        "{",
+        "  t0.txt=\"È possibile scegliere di andare alla posizione corrispondente del dado sopra e riadattarla.\"",
+        "  b0.txt=\"Completato\"",
+        "  b1.txt=\"Dado1\"",
+        "  b2.txt=\"Dado2\"",
+        "  b3.txt=\"Dado3\"",
+        "  b4.txt=\"calibrazione \\rdell'inclinazione\"",
+        "}else if(lang==7)",
+        "{",
+        "  t0.txt=\"Se puede seleccionar arriba para ir a la posición de la tuerca correspondiente y reajustar.\"",
+        "  b0.txt=\"Completado\"",
+        "  b1.txt=\"Tuerca1\"",
+        "  b2.txt=\"Tuerca2\"",
+        "  b3.txt=\"Tuerca3\"",
+        "  b4.txt=\"calibración \\rde inclinación\"",
+        "}else if(lang==8)",
+        "{",
+        "  t0.txt=\"위에서 해당 너트 위치로 이동하여 다시 조정할 수 있습니다.\"",
+        "  b0.txt=\"마치다\"",
+        "  b1.txt=\"너트1\"",
+        "  b2.txt=\"너트2\"",
+        "  b3.txt=\"너트3\"",
+        "  b4.txt=\"기울기 교정\"",
+        "}else if(lang==9)",
+        "{",
+        "  t0.txt=\"Você pode optar por ir para a posição correspondente da porca acima e reajustá-la.\"",
+        "  b0.txt=\"Concluído\"",
+        "  b1.txt=\"Porca 1\"",
+        "  b2.txt=\"Porca 2\"",
+        "  b3.txt=\"Porca 3\"",
+        "  b4.txt=\"calibração de inclinação\"",
+        "}else if(lang==10)",
+        "{",
+        "  t0.txt=\"يمكن أن يكون في الجزء العلوي من اختيار موقف المقابلة الجوز ، إعادة ضبط .\"",
+        "  b0.txt=\"منجز\"",
+        "  b1.txt=\"صامولة 1\"",
+        "  b2.txt=\"صامولة 2\"",
+        "  b3.txt=\"صامولة 3\"",
+        "  b4.txt=\"معايرة الميل\"",
+        "}else if(lang==11)",
+        "{",
+        "  t0.txt=\"Yukarıdaki saçma pozisyonuna gitmeyi ve düzeltmeyi seçebilirsiniz.\"",
+        "  b0.txt=\"Tamamlandı\"",
+        "  b1.txt=\"Somun1\"",
+        "  b2.txt=\"Somun2\"",
+        "  b3.txt=\"Somun3\"",
+        "  b4.txt=\"eğim kalibrasyonu\"",
+        "}else if(lang==12)",
+        "{",
+        "  t0.txt=\"אתה יכול לבחור ללכת למצב האגוזים המתאים מעל ולהתקן אותו מחדש.\"",
+        "  b0.txt=\"הושלם\"",
+        "  b1.txt=\" נוט 1\"",
+        "  b2.txt=\" נוט 2\"",
+        "  b3.txt=\" נוט 3\"",
+        "  b4.txt=\"כיול הטיה\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 420,
+        "w": 236,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_61"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_62"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "完成",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "touch",
+      "type": "touch_capture",
+      "attributes": {
+        "objname": "touch",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "val": 0
+      },
+      "events": {
+        "codesdown": [
+          "sleep_counts=0",
+          "dim=max_dim"
+        ],
+        "codesup": []
+      }
+    },
+    {
+      "key": "sleep_counter",
+      "type": "timer",
+      "attributes": {
+        "objname": "sleep_counter",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "tim": 1000,
+        "en": 1
+      },
+      "events": {
+        "codestimer": [
+          "sleep_counts+=1",
+          "if(sleep_counts==sleep_time)",
+          "{",
+          "  prints 0x65,1",
+          "  prints 73,1",
+          "  prints 1,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b1",
+      "type": "button",
+      "attributes": {
+        "objname": "b1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 29,
+        "y": 88,
+        "w": 100,
+        "h": 48,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_61"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_62"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "螺母1",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=1",
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 1,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b2",
+      "type": "button",
+      "attributes": {
+        "objname": "b2",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 143,
+        "y": 88,
+        "w": 100,
+        "h": 48,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_61"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_62"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "螺母2",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=2",
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 2,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b3",
+      "type": "button",
+      "attributes": {
+        "objname": "b3",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 86,
+        "y": 24,
+        "w": 100,
+        "h": 48,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_61"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_62"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "螺母3",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=3",
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 3,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b4",
+      "type": "button",
+      "attributes": {
+        "objname": "b4",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 272,
+        "y": 164,
+        "w": 236,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_61"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_62"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "倾斜校准",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 4,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 164,
+        "w": 256,
+        "h": 248,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 0,
+        "pw": 0,
+        "txt": "可在上方选择前往对应螺母位置，重新进行调节。",
+        "txt_maxl": 300,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,2493 @@
+{
+  "name": "account_kb",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_102"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(sys0==0)",
+        "{",
+        "  if(lang==0)",
+        "  {",
+        "    t0.txt=\"用户名\"",
+        "  }else if(lang==1)",
+        "  {",
+        "    t0.txt=\"Имя пользователя\"",
+        "  }else if(lang==2)",
+        "  {",
+        "    t0.txt=\"user name\"",
+        "  }else if(lang==3)",
+        "  {",
+        "    t0.txt=\"ユーザー名\"",
+        "  }else if(lang==4)",
+        "  {",
+        "    t0.txt=\"Nom d'utilisateur\"",
+        "  }else if(lang==5)",
+        "  {",
+        "    t0.txt=\"Benutzername\"",
+        "  }else if(lang==6)",
+        "  {",
+        "    t0.txt=\"nome utente\"",
+        "  }else if(lang==7)",
+        "  {",
+        "    t0.txt=\"Nombre de usuario\"",
+        "  }else if(lang==8)",
+        "  {",
+        "    t0.txt=\"사용자 이름\"",
+        "  }else if(lang==9)",
+        "  {",
+        "    t0.txt=\"nome de utilizador\"",
+        "  }else if(lang==10)",
+        "  {",
+        "    t0.txt=\"اسم المستخدم \"",
+        "  }else if(lang==11)",
+        "  {",
+        "    t0.txt=\"kullanıcı adı\"",
+        "  }else if(lang==12)",
+        "  {",
+        "    t0.txt=\"שם משתמש\"",
+        "  }",
+        "}else if(sys0==1||sys0==2)",
+        "{",
+        "  if(lang==0)",
+        "  {",
+        "    t0.txt=\"密码\"",
+        "  }else if(lang==1)",
+        "  {",
+        "    t0.txt=\"Пароль\"",
+        "  }else if(lang==2)",
+        "  {",
+        "    t0.txt=\"password\"",
+        "  }else if(lang==3)",
+        "  {",
+        "    t0.txt=\"パスワード\"",
+        "  }else if(lang==4)",
+        "  {",
+        "    t0.txt=\"Mot de passe\"",
+        "  }else if(lang==5)",
+        "  {",
+        "    t0.txt=\"Passwort\"",
+        "  }else if(lang==6)",
+        "  {",
+        "    t0.txt=\"password\"",
+        "  }else if(lang==7)",
+        "  {",
+        "    t0.txt=\"Contraseña\"",
+        "  }else if(lang==8)",
+        "  {",
+        "    t0.txt=\"암호\"",
+        "  }else if(lang==9)",
+        "  {",
+        "    t0.txt=\"senha\"",
+        "  }else if(lang==10)",
+        "  {",
+        "    t0.txt=\"كلمة السر\"",
+        "  }else if(lang==11)",
+        "  {",
+        "    t0.txt=\"Parola\"",
+        "  }else if(lang==12)",
+        "  {",
+        "    t0.txt=\"סיסמה\"",
+        "  }",
+        "}else if(sys0==3)",
+        "{",
+        "  if(lang==0)",
+        "  {",
+        "    t0.txt=\"确认密码\"",
+        "  }else if(lang==1)",
+        "  {",
+        "    t0.txt=\"Подтвердить пароль\"",
+        "  }else if(lang==2)",
+        "  {",
+        "    t0.txt=\"Confirm password\"",
+        "  }else if(lang==3)",
+        "  {",
+        "    t0.txt=\"パスワードの確認\"",
+        "  }else if(lang==4)",
+        "  {",
+        "    t0.txt=\"Confirmez votre mot de passe\"",
+        "  }else if(lang==5)",
+        "  {",
+        "    t0.txt=\"Passwort bestätigen\"",
+        "  }else if(lang==6)",
+        "  {",
+        "    t0.txt=\"Conferma password\"",
+        "  }else if(lang==7)",
+        "  {",
+        "    t0.txt=\"Confirme la contraseña\"",
+        "  }else if(lang==8)",
+        "  {",
+        "    t0.txt=\"암호 확인\"",
+        "  }else if(lang==9)",
+        "  {",
+        "    t0.txt=\"Confirmar a senha\"",
+        "  }else if(lang==10)",
+        "  {",
+        "    t0.txt=\"تأكيد كلمة المرور \"",
+        "  }else if(lang==11)",
+        "  {",
+        "    t0.txt=\"Parola doğrula\"",
+        "  }else if(lang==12)",
+        "  {",
+        "    t0.txt=\"אישור סיסמה\"",
+        "  }",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "b27",
+      "type": "button",
+      "attributes": {
+        "objname": "b27",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 0,
+        "y": 0,
+        "w": 272,
+        "h": 50,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "if(sys0==0||sys0==1)",
+          "{",
+          "  prints 0x65,1",
+          "  prints dp,1",
+          "  prints 0,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}else",
+          "{",
+          "  prints 0x65,1",
+          "  prints dp,1",
+          "  prints 1,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 123,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "a",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b0.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b1",
+      "type": "button",
+      "attributes": {
+        "objname": "b1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 123,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "b",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b1.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b2",
+      "type": "button",
+      "attributes": {
+        "objname": "b2",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 123,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "c",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b2.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b3",
+      "type": "button",
+      "attributes": {
+        "objname": "b3",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 123,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "d",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b3.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b4",
+      "type": "button",
+      "attributes": {
+        "objname": "b4",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 173,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "e",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b4.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b5",
+      "type": "button",
+      "attributes": {
+        "objname": "b5",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 173,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "f",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b5.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b6",
+      "type": "button",
+      "attributes": {
+        "objname": "b6",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 173,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "g",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b6.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b7",
+      "type": "button",
+      "attributes": {
+        "objname": "b7",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 173,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "h",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b7.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b8",
+      "type": "button",
+      "attributes": {
+        "objname": "b8",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 223,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "i",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b8.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b9",
+      "type": "button",
+      "attributes": {
+        "objname": "b9",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 223,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "j",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b9.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b10",
+      "type": "button",
+      "attributes": {
+        "objname": "b10",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 223,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "k",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b10.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b11",
+      "type": "button",
+      "attributes": {
+        "objname": "b11",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 223,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "l",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b11.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b12",
+      "type": "button",
+      "attributes": {
+        "objname": "b12",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 273,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "m",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b12.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b13",
+      "type": "button",
+      "attributes": {
+        "objname": "b13",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 273,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "n",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b13.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b14",
+      "type": "button",
+      "attributes": {
+        "objname": "b14",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 273,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "o",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b14.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b15",
+      "type": "button",
+      "attributes": {
+        "objname": "b15",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 273,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "p",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b15.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b16",
+      "type": "button",
+      "attributes": {
+        "objname": "b16",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 323,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "q",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b16.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b17",
+      "type": "button",
+      "attributes": {
+        "objname": "b17",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 323,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "r",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b17.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b18",
+      "type": "button",
+      "attributes": {
+        "objname": "b18",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 323,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "s",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b18.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b19",
+      "type": "button",
+      "attributes": {
+        "objname": "b19",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 323,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "t",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b19.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b20",
+      "type": "button",
+      "attributes": {
+        "objname": "b20",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 373,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "u",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b20.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b21",
+      "type": "button",
+      "attributes": {
+        "objname": "b21",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 373,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "v",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b21.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b22",
+      "type": "button",
+      "attributes": {
+        "objname": "b22",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 373,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "w",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b22.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b23",
+      "type": "button",
+      "attributes": {
+        "objname": "b23",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 165,
+        "y": 373,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "x",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b23.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b24",
+      "type": "button",
+      "attributes": {
+        "objname": "b24",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 15,
+        "y": 423,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "y",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b24.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b25",
+      "type": "button",
+      "attributes": {
+        "objname": "b25",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 65,
+        "y": 423,
+        "w": 42,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "z",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=b25.txt",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b26",
+      "type": "button",
+      "attributes": {
+        "objname": "b26",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 115,
+        "y": 423,
+        "w": 92,
+        "h": 42,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "btlen input.txt,temp.val",
+          "if(temp.val<inputlenth.val)",
+          "{",
+          "  input.txt+=\" \"",
+          "  show.txt=input.txt",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b28",
+      "type": "button",
+      "attributes": {
+        "objname": "b28",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 215,
+        "y": 123,
+        "w": 42,
+        "h": 92,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "input.txt-=1",
+          "show.txt=input.txt"
+        ]
+      }
+    },
+    {
+      "key": "b29",
+      "type": "button",
+      "attributes": {
+        "objname": "b29",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 215,
+        "y": 223,
+        "w": 42,
+        "h": 67,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_158"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_105"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "if(b29.picc==${picture:pic_128})",
+          "{",
+          "  b29.picc=${picture:pic_158}",
+          "  b29.picc2=${picture:pic_105}",
+          "}else if(b29.picc==${picture:pic_158})",
+          "{",
+          "  b29.picc=${picture:pic_128}",
+          "  b29.picc2=${picture:pic_103}",
+          "}else if(b29.txt==\"1/2\")",
+          "{",
+          "  b29.txt=\"2/2\"",
+          "}else if(b29.txt==\"2/2\")",
+          "{",
+          "  b29.txt=\"1/2\"",
+          "}",
+          "click refresh_show,0"
+        ]
+      }
+    },
+    {
+      "key": "b30",
+      "type": "button",
+      "attributes": {
+        "objname": "b30",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 215,
+        "y": 298,
+        "w": 42,
+        "h": 67,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_1"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_105"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "123,.",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "if(b30.txt==\"123,.\")",
+          "{",
+          "  b30.txt=\"abc\"",
+          "  b29.picc=${picture:pic_157}",
+          "  b29.picc2=${picture:pic_127}",
+          "  b29.txt=\"1/2\"",
+          "}else",
+          "{",
+          "  b30.txt=\"123,.\"",
+          "  b29.picc=${picture:pic_158}",
+          "  b29.picc2=${picture:pic_105}",
+          "  b29.txt=\"\"",
+          "}",
+          "click refresh_show,0"
+        ]
+      }
+    },
+    {
+      "key": "b31",
+      "type": "button",
+      "attributes": {
+        "objname": "b31",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 215,
+        "y": 373,
+        "w": 42,
+        "h": 92,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_102"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_103"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 5,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "if(sys0==0&&temp.val>0)",
+          "{",
+          "  prints 112,1",
+          "  prints dp,1",
+          "  prints 2,1",
+          "  prints show.txt,0",
+          "}else if(sys0==1&&temp.val>=4)",
+          "{",
+          "  prints 112,1",
+          "  prints dp,1",
+          "  prints 3,1",
+          "  prints show.txt,0",
+          "}else if(sys0==2&&temp.val>=4)",
+          "{",
+          "  prints 112,1",
+          "  prints dp,1",
+          "  prints 4,1",
+          "  prints show.txt,0",
+          "}else if(sys0==3&&temp.val>=4)",
+          "{",
+          "  prints 112,1",
+          "  prints dp,1",
+          "  prints 5,1",
+          "  prints show.txt,0",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "show",
+      "type": "text",
+      "attributes": {
+        "objname": "show",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 12,
+        "y": 51,
+        "w": 248,
+        "h": 71,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 0,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "",
+        "txt_maxl": 64,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 50,
+        "y": 0,
+        "w": 172,
+        "h": 50,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "用户名",
+        "txt_maxl": 50,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click b27,1"
+        ],
+        "codesup": [
+          "click b27,0"
+        ]
+      }
+    },
+    {
+      "key": "refresh_show",
+      "type": "touch_hotspot",
+      "attributes": {
+        "objname": "refresh_show",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 272,
+        "y": 0,
+        "w": 95,
+        "h": 60,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "if(b29.picc==${picture:pic_158})",
+          "{",
+          "  b0.txt=\"a\"",
+          "  b1.txt=\"b\"",
+          "  b2.txt=\"c\"",
+          "  b3.txt=\"d\"",
+          "  b4.txt=\"e\"",
+          "  b5.txt=\"f\"",
+          "  b6.txt=\"g\"",
+          "  b7.txt=\"h\"",
+          "  b8.txt=\"i\"",
+          "  b9.txt=\"j\"",
+          "  b10.txt=\"k\"",
+          "  b11.txt=\"l\"",
+          "  b12.txt=\"m\"",
+          "  b13.txt=\"n\"",
+          "  b14.txt=\"o\"",
+          "  b15.txt=\"p\"",
+          "  b16.txt=\"q\"",
+          "  b17.txt=\"r\"",
+          "  b18.txt=\"s\"",
+          "  b19.txt=\"t\"",
+          "  b20.txt=\"u\"",
+          "  b21.txt=\"v\"",
+          "  b22.txt=\"w\"",
+          "  b23.txt=\"x\"",
+          "  b24.txt=\"y\"",
+          "  b25.txt=\"z\"",
+          "}else if(b29.picc==${picture:pic_128})",
+          "{",
+          "  b0.txt=\"A\"",
+          "  b1.txt=\"B\"",
+          "  b2.txt=\"C\"",
+          "  b3.txt=\"D\"",
+          "  b4.txt=\"E\"",
+          "  b5.txt=\"F\"",
+          "  b6.txt=\"G\"",
+          "  b7.txt=\"H\"",
+          "  b8.txt=\"I\"",
+          "  b9.txt=\"J\"",
+          "  b10.txt=\"K\"",
+          "  b11.txt=\"L\"",
+          "  b12.txt=\"M\"",
+          "  b13.txt=\"N\"",
+          "  b14.txt=\"O\"",
+          "  b15.txt=\"P\"",
+          "  b16.txt=\"Q\"",
+          "  b17.txt=\"R\"",
+          "  b18.txt=\"S\"",
+          "  b19.txt=\"T\"",
+          "  b20.txt=\"U\"",
+          "  b21.txt=\"V\"",
+          "  b22.txt=\"W\"",
+          "  b23.txt=\"X\"",
+          "  b24.txt=\"Y\"",
+          "  b25.txt=\"Z\"",
+          "}else if(b29.txt==\"1/2\")",
+          "{",
+          "  b0.txt=\"1\"",
+          "  b1.txt=\"2\"",
+          "  b2.txt=\"3\"",
+          "  b3.txt=\"4\"",
+          "  b4.txt=\"5\"",
+          "  b5.txt=\"6\"",
+          "  b6.txt=\"7\"",
+          "  b7.txt=\"8\"",
+          "  b8.txt=\"9\"",
+          "  b9.txt=\"0\"",
+          "  b10.txt=\"-\"",
+          "  b11.txt=\"/\"",
+          "  b12.txt=\":\"",
+          "  b13.txt=\";\"",
+          "  b14.txt=\"(\"",
+          "  b15.txt=\")\"",
+          "  b16.txt=\"$\"",
+          "  b17.txt=\"&\"",
+          "  b18.txt=\"@\"",
+          "  b19.txt=\"\\\"\"",
+          "  b20.txt=\".\"",
+          "  b21.txt=\",\"",
+          "  b22.txt=\"?\"",
+          "  b23.txt=\"!\"",
+          "  b24.txt=\"‘\"",
+          "  b25.txt=\"’\"",
+          "}else if(b29.txt==\"2/2\")",
+          "{",
+          "  b0.txt=\"[\"",
+          "  b1.txt=\"]\"",
+          "  b2.txt=\"{\"",
+          "  b3.txt=\"}\"",
+          "  b4.txt=\"#\"",
+          "  b5.txt=\"%\"",
+          "  b6.txt=\"^\"",
+          "  b7.txt=\"*\"",
+          "  b8.txt=\"+\"",
+          "  b9.txt=\"=\"",
+          "  b10.txt=\"_\"",
+          "  b11.txt=\"\\\\\"",
+          "  b12.txt=\"|\"",
+          "  b13.txt=\"~\"",
+          "  b14.txt=\"<\"",
+          "  b15.txt=\">\"",
+          "  b16.txt=\"€\"",
+          "  b17.txt=\"£\"",
+          "  b18.txt=\"¥\"",
+          "  b19.txt=\"•\"",
+          "  b20.txt=\"`\"",
+          "  b21.txt=\"“\"",
+          "  b22.txt=\"”\"",
+          "  b23.txt=\"、\"",
+          "  b24.txt=\"《\"",
+          "  b25.txt=\"》\"",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "input",
+      "type": "variable",
+      "attributes": {
+        "objname": "input",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 1,
+        "txt": "",
+        "txt_maxl": 64,
+        "val": 0
+      },
+      "events": {}
+    },
+    {
+      "key": "temp",
+      "type": "variable",
+      "attributes": {
+        "objname": "temp",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "txt": "newtxt",
+        "txt_maxl": 10,
+        "val": 0
+      },
+      "events": {}
+    },
+    {
+      "key": "inputlenth",
+      "type": "variable",
+      "attributes": {
+        "objname": "inputlenth",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "txt": "newtxt",
+        "txt_maxl": 10,
+        "val": 64
+      },
+      "events": {}
+    },
+    {
+      "key": "refresh",
+      "type": "timer",
+      "attributes": {
+        "objname": "refresh",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "tim": 400,
+        "en": 1
+      },
+      "events": {
+        "codestimer": [
+          "btlen input.txt,temp.val",
+          "if(sys0==0)",
+          "{",
+          "  if(temp.val==0)",
+          "  {",
+          "    b31.picc=${picture:pic_103}",
+          "  }else",
+          "  {",
+          "    b31.picc=${picture:pic_102}",
+          "  }",
+          "}else",
+          "{",
+          "  if(temp.val<4)",
+          "  {",
+          "    b31.picc=${picture:pic_103}",
+          "  }else",
+          "  {",
+          "    b31.picc=${picture:pic_102}",
+          "  }",
+          "}"
+        ]
+      }
+    }
+  ]
+}

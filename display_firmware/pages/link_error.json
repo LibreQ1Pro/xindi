@@ -1,0 +1,546 @@
+{
+  "name": "link_error",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01420300000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_224"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(lang==0)",
+        "{",
+        "  t1.txt=\"请连接互联网，恢复机器与\\rLink账户的连接。\"",
+        "}else if(lang==1)",
+        "{",
+        "  t1.txt=\"Подключитесь к\\rИнтернету и\\rвосстановите\\rподключение машины\\rк учетной записи Link.\"",
+        "}else if(lang==2)",
+        "{",
+        "  t1.txt=\"Please connect to the\\rInternet and restore the\\rconnection between the\\rmachine and the Link\\raccount.\"",
+        "}else if(lang==3)",
+        "{",
+        "  t1.txt=\"インターネットに接続し、マシンとLinkアカウントの接続を再開してください。\"",
+        "}else if(lang==4)",
+        "{",
+        "  t1.txt=\"Veuillez vous connecter à\\rInternet pour rétablir la\\rconnexion de la machine\\rà votre compte Link.\"",
+        "}else if(lang==5)",
+        "{",
+        "  t1.txt=\"Bitte verbinden Sie sich\\rmit dem Internet und\\rstellen Sie die Verbindung\\rzwischen dem Gerät und\\rdem Link-Konto wieder\\rher.\"",
+        "}else if(lang==6)",
+        "{",
+        "  t1.txt=\"Collegarsi a Internet\\re ripristinare la\\rconnessione tra\\rla rmacchina\\re l'account Link.\"",
+        "}else if(lang==7)",
+        "{",
+        "  t1.txt=\"Por favor, conecte a\\rInternet para restaurar la\\rconexión de la máquina a\\rla cuenta de enlace.\"",
+        "}else if(lang==8)",
+        "{",
+        "  t1.txt=\"인터넷에 연결하여 시스템과\\rLink 계정의 연결을\\r복원하십시오.\"",
+        "}else if(lang==9)",
+        "{",
+        "  t1.txt=\"Conecte-se à Internet e\\rRestaure a Conexão\\rEntre a Máquina e a\\rConta Link.\"",
+        "}else if(lang==10)",
+        "{",
+        "  t1.txt=\"يرجى الاتصال بالإنترنت ،\\rواستعادة اتصال الجهاز إلى\\rحساب الارتباط .\"",
+        "}else if(lang==11)",
+        "{",
+        "  t1.txt=\"Lütfen internete bağlanın\\rve makinenizin Link\\rhesabınızla bağlantısını\\rgeri yükleyin.\"",
+        "}else if(lang==12)",
+        "{",
+        "  t1.txt=\"התחבר לאינטרנט כדי לשחזר את החיבור בין המכונה\\rלחשבון הלינק.\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "b33",
+      "type": "button",
+      "attributes": {
+        "objname": "b33",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 200,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 33,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b32",
+      "type": "button",
+      "attributes": {
+        "objname": "b32",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 136,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 32,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b31",
+      "type": "button",
+      "attributes": {
+        "objname": "b31",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 72,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 31,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b30",
+      "type": "button",
+      "attributes": {
+        "objname": "b30",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 30,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 5,
+        "y": 6,
+        "w": 262,
+        "h": 47,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_82"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_76"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 58,
+        "y": 8,
+        "w": 203,
+        "h": 46,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 0,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "QIDI Link",
+        "txt_maxl": 50,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click b0,1"
+        ],
+        "codesup": [
+          "click b0,0"
+        ]
+      }
+    },
+    {
+      "key": "t1",
+      "type": "text",
+      "attributes": {
+        "objname": "t1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 100,
+        "w": 236,
+        "h": 200,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "请连接互联网，恢复机器与Link账户的连接。",
+        "txt_maxl": 200,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "if(lang==0)",
+          "{",
+          "  t1.txt=\"请连接互联网，恢复机器与\\rLink账户的连接。\"",
+          "}else if(lang==1)",
+          "{",
+          "  t1.txt=\"Подключитесь к\\rИнтернету и восстановите\\rподключение машины\\rк учетной записи Link.\"",
+          "}else if(lang==2)",
+          "{",
+          "  t1.txt=\"Please connect to the Internet and restore the connection between the machine and the Link account.\"",
+          "}else if(lang==3)",
+          "{",
+          "  t1.txt=\"インターネットに接続し、マシンとLinkアカウントの接続を再開してください。\"",
+          "}else if(lang==4)",
+          "{",
+          "  t1.txt=\"Veuillez vous connecter à Internet pour rétablir la connexion de la machine à votre compte Link.\"",
+          "}else if(lang==5)",
+          "{",
+          "  t1.txt=\"Bitte verbinden Sie sich mit dem Internet und stellen Sie die Verbindung zwischen dem Gerät und dem Link-Konto wieder\\rher.\"",
+          "}else if(lang==6)",
+          "{",
+          "  t1.txt=\"Collegarsi a Internet\\re ripristinare la\\rconnessione tra\\rla rmacchina\\re l'account Link.\"",
+          "}else if(lang==7)",
+          "{",
+          "  t1.txt=\"Por favor, conecte a Internet para restaurar la conexión de la máquina a la cuenta de enlace.\"",
+          "}else if(lang==8)",
+          "{",
+          "  t1.txt=\"인터넷에 연결하여 시스템과 Link 계정의 연결을 복원하십시오.\"",
+          "}else if(lang==9)",
+          "{",
+          "  t1.txt=\"Conecte-se à Internet e restaure a conexão entre a máquina e a conta Link.\"",
+          "}else if(lang==10)",
+          "{",
+          "  t1.txt=\"يرجى الاتصال بالإنترنت ، واستعادة اتصال الجهاز إلى حساب الارتباط .\"",
+          "}else if(lang==11)",
+          "{",
+          "  t1.txt=\"Lütfen internete bağlanın\\rve makinenizin Link\\rhesabınızla bağlantısını geri yükleyin.\"",
+          "}else if(lang==12)",
+          "{",
+          "  t1.txt=\"התחבר לאינטרנט כדי לשחזר את החיבור בין המכונה לחשבון הלינק.\"",
+          "}"
+        ],
+        "codesup": []
+      }
+    }
+  ]
+}

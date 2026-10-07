@@ -1,0 +1,547 @@
+{
+  "name": "service",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_135"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(lang==0)",
+        "{",
+        "  t0.txt=\"售后信息\"",
+        "  q0.picc=${picture:pic_237}",
+        "}else if(lang==1)",
+        "{",
+        "  t0.txt=\"после продажи\"",
+        "  q0.picc=${picture:pic_241}",
+        "}else if(lang==2)",
+        "{",
+        "  t0.txt=\"After-sales\"",
+        "  q0.picc=${picture:pic_240}",
+        "}else if(lang==3)",
+        "{",
+        "  t0.txt=\"アフターセールス\"",
+        "  q0.picc=${picture:pic_264}",
+        "}else if(lang==4)",
+        "{",
+        "  t0.txt=\"Après-vente\"",
+        "  q0.picc=${picture:pic_265}",
+        "}else if(lang==5)",
+        "{",
+        "  t0.txt=\"After-Sales\"",
+        "  q0.picc=${picture:pic_266}",
+        "}else if(lang==6)",
+        "{",
+        "  t0.txt=\"Assistenza \\rpost-vendita\"",
+        "  q0.picc=${picture:pic_267}",
+        "}else if(lang==7)",
+        "{",
+        "  t0.txt=\"Post-venta\"",
+        "  q0.picc=${picture:pic_268}",
+        "}else if(lang==8)",
+        "{",
+        "  t0.txt=\"판매 후\"",
+        "  q0.picc=${picture:pic_269}",
+        "}else if(lang==9)",
+        "{",
+        "  t0.txt=\"Pós-venda\"",
+        "  q0.picc=${picture:pic_270}",
+        "}else if(lang==10)",
+        "{",
+        "  t0.txt=\"خدمة ما بعد البيع\"",
+        "  q0.picc=${picture:pic_271}",
+        "}else if(lang==11)",
+        "{",
+        "  t0.txt=\"Satış Sonrası\"",
+        "  q0.picc=${picture:pic_272}",
+        "}else if(lang==12)",
+        "{",
+        "  t0.txt=\"שירות לקוחות\"",
+        "  q0.picc=${picture:pic_273}",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "touch",
+      "type": "touch_capture",
+      "attributes": {
+        "objname": "touch",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "val": 0
+      },
+      "events": {
+        "codesdown": [
+          "sleep_counts=0",
+          "dim=max_dim"
+        ],
+        "codesup": []
+      }
+    },
+    {
+      "key": "sleep_counter",
+      "type": "timer",
+      "attributes": {
+        "objname": "sleep_counter",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "tim": 1000,
+        "en": 1
+      },
+      "events": {
+        "codestimer": [
+          "sleep_counts+=1",
+          "if(sleep_counts==sleep_time)",
+          "{",
+          "  prints 0x65,1",
+          "  prints 73,1",
+          "  prints 1,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b33",
+      "type": "button",
+      "attributes": {
+        "objname": "b33",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 200,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 33,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b32",
+      "type": "button",
+      "attributes": {
+        "objname": "b32",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 136,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 32,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b31",
+      "type": "button",
+      "attributes": {
+        "objname": "b31",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 72,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 31,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b30",
+      "type": "button",
+      "attributes": {
+        "objname": "b30",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 30,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 5,
+        "y": 6,
+        "w": 262,
+        "h": 47,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_82"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_76"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 57,
+        "y": 8,
+        "w": 203,
+        "h": 46,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 0,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "售后信息",
+        "txt_maxl": 50,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click b0,1"
+        ],
+        "codesup": [
+          "click b0,0"
+        ]
+      }
+    },
+    {
+      "key": "q0",
+      "type": "crop_picture",
+      "attributes": {
+        "objname": "q0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 0,
+        "y": 54,
+        "w": 272,
+        "h": 370,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "picc": {
+          "$ref": "picture:pic_237"
+        }
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    }
+  ]
+}

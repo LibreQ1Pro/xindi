@@ -1,0 +1,829 @@
+{
+  "name": "level_mode",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01420300000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_8"
+      }
+    },
+    "events": {
+      "codesload": [
+        "sys0=0",
+        "if(lang==0)",
+        "{",
+        "  t0.txt=\"请确认喷嘴上无杂物。\"",
+        "  b0.txt=\"自动调平\"",
+        "  b1.txt=\"共振补偿\"",
+        "  b2.txt=\"平台校准\"",
+        "  b24.txt=\"通用设置\"",
+        "  b23.txt=\"校准设置\"",
+        "}else if(lang==1)",
+        "{",
+        "  t0.txt=\"Пожалуйста, убедитесь, что сопло не содержит \\rпосторонних предметов. \"",
+        "  b0.txt=\"Автовыравнивание \\rкровати\"",
+        "  b1.txt=\"Формирование \\rввода\"",
+        "  b2.txt=\"Калибровка платформы\"",
+        "  b24.txt=\"Настройка\"",
+        "  b23.txt=\"Калибровка\"",
+        "}else if(lang==2)",
+        "{",
+        "  t0.txt=\"Please make sure there \\rare no foreign objects \\ron the Nozzle.\"",
+        "  b0.txt=\"Auto Bed Leveling \"",
+        "  b1.txt=\"Input Shaping\"",
+        "  b2.txt=\"Platform Calibration\"",
+        "  b24.txt=\"Settings\"",
+        "  b23.txt=\"Calibration\"",
+        "}else if(lang==3)",
+        "{",
+        "  t0.txt=\"ノズルに異物がないか確認してください。\"",
+        "  b0.txt=\"オートベッドレベリング\"",
+        "  b1.txt=\"インプットシェーピング\"",
+        "  b2.txt=\"プラットフォームの校正\"",
+        "  b24.txt=\"設定\"",
+        "  b23.txt=\"マニュアル\"",
+        "}else if(lang==4)",
+        "{",
+        "  t0.txt=\"Veuillez vous assurer \\rqu’il n’y a pas d’objets \\rétrangers sur la buse.\"",
+        "  b0.txt=\"Nivellement \\rautomatique du lit\"",
+        "  b1.txt=\"Input shaping\"",
+        "  b2.txt=\"Calibration de \\rla plateforme\"",
+        "  b24.txt=\"Paramètres\"",
+        "  b23.txt=\"Étalonnage\"",
+        "}else if(lang==5)",
+        "{",
+        "  t0.txt=\"Bitte stellen Sie sicher, \\rdass sich keine \\rFremdkörper auf der \\rDüse befinden.\"",
+        "  b0.txt=\"Automatische \\rBettnivellierung\"",
+        "  b1.txt=\"Resonanzkompensation\"",
+        "  b2.txt=\"Plattform-Kalibrierung\"",
+        "  b24.txt=\"Einrichten\"",
+        "  b23.txt=\"Kalibrierung\"",
+        "}else if(lang==6)",
+        "{",
+        "  t0.txt=\"Assicurarsi che la punta \\rdell'ugello sia \\rpulita e priva di qualsiasi \\rfilamento sulla punta.\"",
+        "  b0.txt=\"Livellamento \\rautomatico del letto\"",
+        "  b1.txt=\"Forma degli input\"",
+        "  b2.txt=\"Calibrazione \\rdella piattaforma\"",
+        "  b24.txt=\"Impostazioni \\rgenerali\"",
+        "  b23.txt=\"Impostazioni \\rdi calibrazione\"",
+        "  b23.font=${font:font_1}",
+        "  b24.font=${font:font_1}",
+        "}else if(lang==7)",
+        "{",
+        "  t0.txt=\"Asegúrese de que la \\rboquilla esté limpia y \\rlibre de cualquier \\rfilamento en la punta.\"",
+        "  b0.txt=\"Nivelación automáticar \\rde la cama\"",
+        "  b1.txt=\"Cirugía plástica \\rde entrada\"",
+        "  b2.txt=\"calibración de \\rplataforma\"",
+        "  b24.txt=\"Configuración \\rgeneral\"",
+        "  b23.txt=\"Ajustes de \\rcalibración\"",
+        "  b23.font=${font:font_1}",
+        "  b24.font=${font:font_1}",
+        "}else if(lang==8)",
+        "{",
+        "  t0.txt=\"노즐이 깨끗하고 끝에 필라멘트가 없는지 확인하십시오.\"",
+        "  b0.txt=\"자동 침대 레벨링\"",
+        "  b1.txt=\"입력 성형\"",
+        "  b2.txt=\"플랫폼 교정\"",
+        "  b24.txt=\"일반 설정\"",
+        "  b23.txt=\"보정 설정\"",
+        "}else if(lang==9)",
+        "{",
+        "  t0.txt=\"Certifique-se de que a \\rponta do bico esteja \\rlimpa e livre de \\rqualquer filamento.\"",
+        "  b0.txt=\"Nivelamento Automático \\rda Cama\"",
+        "  b1.txt=\"Forma de \\rentrada\"",
+        "  b2.txt=\"calibração \\rda plataforma\"",
+        "  b24.txt=\"Definições \\rgerais\"",
+        "  b23.txt=\"Definições \\rde calibração\"",
+        "  b23.font=${font:font_1}",
+        "  b24.font=${font:font_1}",
+        "}else if(lang==10)",
+        "{",
+        "  t0.txt=\"تأكد من أن الفوهة نظيفة وخالية من أي فيلمنت على الطرف.\"",
+        "  b0.txt=\"مستوى سطح السرير الآلي\"",
+        "  b1.txt=\"مدخلات تشكيل\"",
+        "  b2.txt=\"معايرة المنصة\"",
+        "  b24.txt=\"الإعدادات العامة\"",
+        "  b23.txt=\"إعدادات المعايرة\"",
+        "}else if(lang==11)",
+        "{",
+        "  t0.txt=\"Nozülün temiz ve uçta \\rfilament olmadığından \\remin olun.\"",
+        "  b0.txt=\"Oto Yatak Düzleme\"",
+        "  b1.txt=\"Girdi düzenlemesi\"",
+        "  b2.txt=\"platform kalibrasyonu\"",
+        "  b24.txt=\"Genel ayarlar\"",
+        "  b23.txt=\"Kalibrasyon \\rayarları\"",
+        "  b23.font=${font:font_1}",
+        "}else if(lang==12)",
+        "{",
+        "  t0.txt=\"וודא שהבוזל נקי וללא כל פילמנט בקצה.\"",
+        "  b0.txt=\"פיצול מיטת אוטומטי\"",
+        "  b1.txt=\"צורת כניסה\"",
+        "  b2.txt=\"כיוון הפלטפורמה\"",
+        "  b24.txt=\"הגדרות כיול\"",
+        "  b23.txt=\"הגדרות כלליות\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "b24",
+      "type": "button",
+      "attributes": {
+        "objname": "b24",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 136,
+        "y": 7,
+        "w": 130,
+        "h": 45,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "通用设置",
+        "txt_maxl": 30,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 23,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b23",
+      "type": "button",
+      "attributes": {
+        "objname": "b23",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 6,
+        "y": 7,
+        "w": 130,
+        "h": 45,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "校准设置",
+        "txt_maxl": 30,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0+=1",
+          "if(sys0==5)",
+          "{",
+          "  prints 0x65,1",
+          "  prints dp,1",
+          "  prints 24,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b30",
+      "type": "button",
+      "attributes": {
+        "objname": "b30",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 30,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b31",
+      "type": "button",
+      "attributes": {
+        "objname": "b31",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 72,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 31,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b32",
+      "type": "button",
+      "attributes": {
+        "objname": "b32",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 136,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 32,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b33",
+      "type": "button",
+      "attributes": {
+        "objname": "b33",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 200,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 33,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 218,
+        "w": 236,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "自动调平",
+        "txt_maxl": 50,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b1",
+      "type": "button",
+      "attributes": {
+        "objname": "b1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 268,
+        "w": 236,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "共振补偿",
+        "txt_maxl": 50,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 1,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "touch",
+      "type": "touch_capture",
+      "attributes": {
+        "objname": "touch",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "val": 0
+      },
+      "events": {
+        "codesdown": [
+          "sleep_counts=0",
+          "dim=max_dim"
+        ],
+        "codesup": []
+      }
+    },
+    {
+      "key": "sleep_counter",
+      "type": "timer",
+      "attributes": {
+        "objname": "sleep_counter",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "tim": 1000,
+        "en": 1
+      },
+      "events": {
+        "codestimer": [
+          "sleep_counts+=1",
+          "if(sleep_counts==sleep_time)",
+          "{",
+          "  prints 0x65,1",
+          "  prints 73,1",
+          "  prints 1,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "b2",
+      "type": "button",
+      "attributes": {
+        "objname": "b2",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 318,
+        "w": 236,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_8"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_9"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "平台校准",
+        "txt_maxl": 50,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 2,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 20,
+        "y": 63,
+        "w": 232,
+        "h": 141,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "请确认喷嘴上无杂物。",
+        "txt_maxl": 200,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    }
+  ]
+}

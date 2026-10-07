@@ -1,0 +1,133 @@
+{
+  "name": "update_finish",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_40"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(lang==0)",
+        "{",
+        "  t0.txt=\"请关闭电源，在20秒后重启机器进行自动更新。\"",
+        "}else if(lang==1)",
+        "{",
+        "  t0.txt=\"Пожалуйста, отключите питание, перезагрузитесь через 20 секунд, и затем начнется обновление.\"",
+        "}else if(lang==2)",
+        "{",
+        "  t0.txt=\"Please turn off the power \\rsupply, reboot after 20 \\rseconds, and then it will \\rstart updating.\"",
+        "}else if(lang==3)",
+        "{",
+        "  t0.txt=\"電源を切って、20秒後に再起動してください。その後、更新が開始されます。\"",
+        "}else if(lang==4)",
+        "{",
+        "  t0.txt=\"Veuillez éteindre l’alimentation, redémarrer après 20 secondes, puis il commencera la mise à jour.\"",
+        "}else if(lang==5)",
+        "{",
+        "  t0.txt=\"Bitte schalten Sie die \\rStromversorgung aus, \\rstarten Sie nach 20 \\rSekunden neu und dann \\rwird es mit dem Update \\rbeginnen.\"",
+        "}else if(lang==6)",
+        "{",
+        "  t0.txt=\"Spegnere l'alimentazione \\relettrica, riavviare dopo \\r20 secondi e poi inizierà \\rl'aggiornamento..\"",
+        "}else if(lang==7)",
+        "{",
+        "  t0.txt=\"Apague la energía y reinicie \\ren 20 segundos antes de que \\rcomience a actualizarse..\"",
+        "}else if(lang==8)",
+        "{",
+        "  t0.txt=\"전원을 끄고 20초 후에 재부팅하면 업데이트가 시작됩니다..\"",
+        "}else if(lang==9)",
+        "{",
+        "  t0.txt=\"Por favor, desligue a fonte \\rde alimentação, reinicie \\rapós 20 segundos e, em \\rseguida, começará a \\ratualizar.\"",
+        "}else if(lang==10)",
+        "{",
+        "  t0.txt=\"يرجى إيقاف تشغيل الطاقة وإعادة تشغيل في 20 ثانية ، ثم أنها سوف تبدأ في التحديث.\"",
+        "}else if(lang==11)",
+        "{",
+        "  t0.txt=\"Lütfen güç kapatın ve 20 \\rsaniye içinde otomatik \\rgüncelleştirmeler için \\rmakineyi yeniden \\rbaşlatın.\"",
+        "}else if(lang==12)",
+        "{",
+        "  t0.txt=\"בבקשה כבו את הכוח ותתחילו מחדש את המכונה לעדכונים אוטומטיים אחרי 20 שניות.\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 77,
+        "w": 256,
+        "h": 234,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "请关闭电源，在20秒后重启机器进行自动更新。",
+        "txt_maxl": 300,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    }
+  ]
+}

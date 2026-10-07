@@ -1,0 +1,101 @@
+{
+  "name": "logo",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_10"
+      }
+    },
+    "events": {
+      "codesload": [
+        "printh 91"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "tm0",
+      "type": "timer",
+      "attributes": {
+        "objname": "tm0",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "tim": 1000,
+        "en": 1
+      },
+      "events": {
+        "codestimer": [
+          "va0.val++",
+          "if(va0.val==100)",
+          "{",
+          "  page restart",
+          "}"
+        ]
+      }
+    },
+    {
+      "key": "va0",
+      "type": "variable",
+      "attributes": {
+        "objname": "va0",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "txt": "newtxt",
+        "txt_maxl": 10,
+        "val": 0
+      },
+      "events": {}
+    },
+    {
+      "key": "version",
+      "type": "variable",
+      "attributes": {
+        "objname": "version",
+        "vscope": 1,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "txt": "newtxt",
+        "txt_maxl": 10,
+        "val": 0
+      },
+      "events": {}
+    }
+  ]
+}

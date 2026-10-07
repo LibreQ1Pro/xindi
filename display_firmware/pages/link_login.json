@@ -1,0 +1,1056 @@
+{
+  "name": "link_login",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01420300000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_224"
+      }
+    },
+    "events": {
+      "codesload": [
+        "// 扫描二维码登录",
+        "vis gm0,0",
+        "vis b1,0",
+        "vis t1,0",
+        "vis t3,0",
+        "vis t4,0",
+        "vis t5,0",
+        "vis cp0,0",
+        "// 登录成功页",
+        "// b[0].pic=296",
+        "vis t2,0",
+        "vis t7,0",
+        "vis t6,0",
+        "vis b6,0",
+        "prints 0xfb,1",
+        "prints lang,1",
+        "if(lang==0)",
+        "{",
+        "  t1.txt=\"扫描二维码，登录\\rQIDI Link账号\"",
+        "  t2.txt=\"用户名:\"",
+        "  t3.txt=\"二维码将在连接网络后刷新。\"",
+        "  t5.txt=\"当前二维码已失效。\"",
+        "  t6.txt=\"退出账号\"",
+        "}else if(lang==1)",
+        "{",
+        "  t1.txt=\"Сканируйте QR - код и войдите в учетную запись QIDI Link\"",
+        "  t2.txt=\"Имя пользователя:\"",
+        "  t3.txt=\"QR - код будет\\rобновлен после\\rподключения к\\rсети.\"",
+        "  t5.txt=\"В настоящее время\\rQR - код не работает\"",
+        "  t6.txt=\"Выйти из аккаунта\"",
+        "}else if(lang==2)",
+        "{",
+        "  t1.txt=\"Scan the QR Code and\\rlog in to your QIDI Link\\rAccount\"",
+        "  t2.txt=\"User Name:\"",
+        "  t3.txt=\"The QR Code will\\rrefresh after\\rconnecting to the\\rNetwork.\"",
+        "  t5.txt=\"The current QR Code\\ris no longer valid.\"",
+        "  t6.txt=\"Exit Account\"",
+        "}else if(lang==3)",
+        "{",
+        "  t1.txt=\"QRコードをスキャンし、\\rQIDI Linkアカウントにログインする\"",
+        "  t2.txt=\"ユーザー名：\"",
+        "  t3.txt=\"ネットワークに接続すると、QRコードが更新されます。\"",
+        "  t5.txt=\"現在のQRコードは無効です。\"",
+        "  t6.txt=\"アカウントを終了する\"",
+        "}else if(lang==4)",
+        "{",
+        "  t1.txt=\"Scannez le Code QR,\\rConnectez - Vous au\\rCompte QIDI Link\"",
+        "  t2.txt=\"Nom d'utilisateur:\"",
+        "  t3.txt=\"Le Code QR Sera\\rrafraîchi après la\\rConnexion au\\rréseau.\"",
+        "  t5.txt=\"Le Code QR Actuel Est Invalide.\"",
+        "  t6.txt=\"Log Out\"",
+        "}else if(lang==5)",
+        "{",
+        "  t1.txt=\"Scannen Sie den QR-Code\\rund loggen Sie sich in Ihr QIDI Link-Konto ein\"",
+        "  t2.txt=\"Benutzername:\"",
+        "  t3.txt=\"Der QR-Code wird\\rnach der Verbindung\\rmit dem Netzwerk\\raktualisiert.\"",
+        "  t5.txt=\"Der aktuelle QR-Code ist nicht mehr gültig.\"",
+        "  t6.txt=\"Konto beenden\"",
+        "}else if(lang==6)",
+        "{",
+        "  t1.txt=\"Scansiona il codice QR\\re accedi al tuo account\\rQIDI Link\"",
+        "  t2.txt=\"Nome Utente:\"",
+        "  t3.txt=\"Il codice QR si\\raggiornerà dopo la\\rconnessione alla\\rrete.\"",
+        "  t5.txt=\"Il codice QR corrente\\rnon è più valido.\"",
+        "  t6.txt=\"Esci dal conto\"",
+        "}else if(lang==7)",
+        "{",
+        "  t1.txt=\"Escanee el Código QR e\\rinicie sesión en la cuenta de enlace QIDI\"",
+        "  t2.txt=\"Nombre de usuario:\"",
+        "  t3.txt=\"El Código QR se\\ractualizará después\\rde conectarse a la\\rred.\"",
+        "  t5.txt=\"El Código QR actual\\rha fallado.\"",
+        "  t6.txt=\"Cuenta de salida\"",
+        "}else if(lang==8)",
+        "{",
+        "  t1.txt=\"QR코드를 스캔하여 QIDI\\rLink 계정에 로그인\"",
+        "  t2.txt=\"사용자 이름:\"",
+        "  t3.txt=\"네트워크에 연결되면 QR코드가 새로 고쳐집니다.\"",
+        "  t5.txt=\"현재 QR코드가\\r유효하지 않습니다.\"",
+        "  t6.txt=\"계정 탈퇴\"",
+        "}else if(lang==9)",
+        "{",
+        "  t1.txt=\"Digitalize o código QR e\\rfaça login na sua conta\\rQIDI Link\"",
+        "  t2.txt=\"nome de utilizador:\"",
+        "  t3.txt=\"O código QR será\\ratualizado após a\\rconexão à rede.\"",
+        "  t5.txt=\"O código QR atual\\rnão é mais válido.\"",
+        "  t6.txt=\"Conta de saída\"",
+        "}else if(lang==10)",
+        "{",
+        "  t1.txt=\"مسح رمز ثنائي الأبعاد ،\\rتسجيل الدخول\"",
+        "  t2.txt=\"اسم المستخدم :\"",
+        "  t3.txt=\"رمز ثنائي الأبعاد سيتم تحديث بعد الاتصال بالشبكة .\"",
+        "  t5.txt=\"رمز ثنائي الأبعاد الحالية قد فشلت .\"",
+        "  t6.txt=\"خروج الحساب\"",
+        "}else if(lang==11)",
+        "{",
+        "  t1.txt=\"QR kodunu tarayın ve\\rQIDI Link hesabınıza\\rgiriş yapın\"",
+        "  t2.txt=\"Kullanıcı Adı:\"",
+        "  t3.txt=\"QR kodu ağa\\rbağlandıktan sonra\\ryenilenecektir.\"",
+        "  t5.txt=\"Mevcut QR kodunun\\rgeçerliliği doldu.\"",
+        "  t6.txt=\"Hesabından çıkış\"",
+        "}else if(lang==12)",
+        "{",
+        "  t1.txt=\"סרוק את קוד QR, להיכנס\\rלחשבון QIDI Link\"",
+        "  t2.txt=\"שם משתמש:\"",
+        "  t3.txt=\"קוד QR ירענן לאחר חיבור לרשת.\"",
+        "  t5.txt=\"קוד QR הנוכחי פג.\"",
+        "  t6.txt=\"צאת מספר החשבון\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": [
+        "prints 0xfc,1"
+      ]
+    }
+  },
+  "objects": [
+    {
+      "key": "b33",
+      "type": "button",
+      "attributes": {
+        "objname": "b33",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 200,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 33,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b32",
+      "type": "button",
+      "attributes": {
+        "objname": "b32",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 136,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 32,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b31",
+      "type": "button",
+      "attributes": {
+        "objname": "b31",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 72,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 31,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b30",
+      "type": "button",
+      "attributes": {
+        "objname": "b30",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 8,
+        "y": 424,
+        "w": 64,
+        "h": 56,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
+        "picc": {
+          "$ref": "picture:pic_25"
+        },
+        "bco": 50712,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
+        "picc2": {
+          "$ref": "picture:pic_36"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints 58,1",
+          "prints 30,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 5,
+        "y": 6,
+        "w": 262,
+        "h": 47,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_82"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_76"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 58,
+        "y": 9,
+        "w": 203,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 0,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "QIDI Link",
+        "txt_maxl": 50,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click b0,1"
+        ],
+        "codesup": [
+          "click b0,0"
+        ]
+      }
+    },
+    {
+      "key": "t1",
+      "type": "text",
+      "attributes": {
+        "objname": "t1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 24,
+        "y": 280,
+        "w": 224,
+        "h": 100,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "扫描二维码，登录QIDI Link账号",
+        "txt_maxl": 200,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "gm0",
+      "type": "animation",
+      "attributes": {
+        "objname": "gm0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 46,
+        "y": 88,
+        "w": 180,
+        "h": 180,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "from": 0,
+        "vid": {
+          "$ref": "animation:anim_6"
+        },
+        "path": "",
+        "path_m": 255,
+        "en": 1,
+        "loop": 1,
+        "dis": 100,
+        "tim": 0,
+        "stim": 0,
+        "qty": 0,
+        "molloc_s": 12000,
+        "molloc": 12000
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [],
+        "codesplayend": []
+      }
+    },
+    {
+      "key": "cp0",
+      "type": "col_pic",
+      "attributes": {
+        "objname": "cp0",
+        "vscope": 1,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 36,
+        "y": 88,
+        "w": 200,
+        "h": 200,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "write": 357,
+        "close": 101,
+        "buffsize": 60000,
+        "buff": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "t3",
+      "type": "text",
+      "attributes": {
+        "objname": "t3",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 46,
+        "y": 108,
+        "w": 180,
+        "h": 160,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "二维码将在连接网络后刷新。",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "t4",
+      "type": "text",
+      "attributes": {
+        "objname": "t4",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 64,
+        "movex": 0,
+        "movey": 0,
+        "x": 36,
+        "y": 88,
+        "w": 200,
+        "h": 200,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 1,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 0,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 63488,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "t5",
+      "type": "text",
+      "attributes": {
+        "objname": "t5",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 39,
+        "y": 108,
+        "w": 194,
+        "h": 160,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "当前二维码已失效。",
+        "txt_maxl": 100,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "t2",
+      "type": "text",
+      "attributes": {
+        "objname": "t2",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 26,
+        "y": 220,
+        "w": 220,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "用户名:",
+        "txt_maxl": 200,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "b6",
+      "type": "button",
+      "attributes": {
+        "objname": "b6",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 16,
+        "y": 368,
+        "w": 240,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_298"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_227"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 6,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t6",
+      "type": "text",
+      "attributes": {
+        "objname": "t6",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 26,
+        "y": 368,
+        "w": 220,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "退出账号",
+        "txt_maxl": 100,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click b6,1"
+        ],
+        "codesup": [
+          "click b6,0"
+        ]
+      }
+    },
+    {
+      "key": "b1",
+      "type": "button",
+      "attributes": {
+        "objname": "b1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 46,
+        "y": 88,
+        "w": 180,
+        "h": 180,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_224"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_215"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 0,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 1,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t7",
+      "type": "text",
+      "attributes": {
+        "objname": "t7",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 36,
+        "y": 260,
+        "w": 199,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "",
+        "txt_maxl": 200,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    }
+  ]
+}

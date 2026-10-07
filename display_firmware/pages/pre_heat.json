@@ -1,0 +1,483 @@
+{
+  "name": "pre_heat",
+  "header": {
+    "lock": "0000000000552100",
+    "writer": "01410500000000000000000000000000"
+  },
+  "root": {
+    "attributes": {
+      "vscope": 0,
+      "drag": 0,
+      "sendkey": 0,
+      "aph": 127,
+      "movex": 0,
+      "movey": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 480,
+      "effect": 0,
+      "first": 0,
+      "time": 300,
+      "lockobj": 0,
+      "groupid0": 0,
+      "groupid1": 0,
+      "up": 255,
+      "down": 255,
+      "left": 255,
+      "right": 255,
+      "sta": 2,
+      "bco": 65535,
+      "pic": {
+        "$ref": "picture:pic_16"
+      }
+    },
+    "events": {
+      "codesload": [
+        "if(sys2==1)",
+        "{",
+        "  b[${obj:pre_heat/(page)}].pic=${picture:pic_32}",
+        "}",
+        "sys0=0",
+        "b0.picc=${picture:pic_219}",
+        "b0.picc2=${picture:pic_28}",
+        "if(lang==0)",
+        "{",
+        "  t0.txt=\"请选择喷头温度。\"",
+        "  b3.txt=\"下一步\"",
+        "  b4.txt=\"返回\"",
+        "}else if(lang==1)",
+        "{",
+        "  t0.txt=\"Пожалуйста, выберите \\rтемпературу сопла.\"",
+        "  b3.txt=\"следующий\"",
+        "  b4.txt=\"Назад\"",
+        "}else if(lang==2)",
+        "{",
+        "  t0.txt=\"Please select the nozzle \\rtemperature.\"",
+        "  b3.txt=\"Next\"",
+        "  b4.txt=\"Back\"",
+        "}else if(lang==3)",
+        "{",
+        "  t0.txt=\"ノズルの温度を選択してください。\"",
+        "  b3.txt=\"次\"",
+        "  b4.txt=\"戻る\"",
+        "}else if(lang==4)",
+        "{",
+        "  t0.txt=\"Veuillez sélectionner la \\rtempérature de la buse.\"",
+        "  b3.txt=\"prochain\"",
+        "  b4.txt=\"dos\"",
+        "}else if(lang==5)",
+        "{",
+        "  t0.txt=\"Bitte wählen Sie die \\rDüsentemperatur aus.\"",
+        "  b3.txt=\"Weiter\"",
+        "  b4.txt=\"Zurück\"",
+        "}else if(lang==6)",
+        "{",
+        "  t0.txt=\"Selezionare la temperatura dell'ugello.\"",
+        "  b3.txt=\"Avanti\"",
+        "  b4.txt=\"Indietro\"",
+        "}else if(lang==7)",
+        "{",
+        "  t0.txt=\"Seleccione la temperatura \\rde la boquilla.\"",
+        "  b3.txt=\"Siguiente\"",
+        "  b4.txt=\"Atrás\"",
+        "}else if(lang==8)",
+        "{",
+        "  t0.txt=\"노즐온도를 선택해주세요.\"",
+        "  b3.txt=\"다음\"",
+        "  b4.txt=\"뒤로\"",
+        "}else if(lang==9)",
+        "{",
+        "  t0.txt=\"Selecione a temperatura \\rdo bico.\"",
+        "  b3.txt=\"Próximo\"",
+        "  b4.txt=\"Voltar\"",
+        "}else if(lang==10)",
+        "{",
+        "  t0.txt=\"يرجى تحديد درجة حرارة الفوهة.\"",
+        "  b3.txt=\"التالي\"",
+        "  b4.txt=\"السابق\"",
+        "}else if(lang==11)",
+        "{",
+        "  t0.txt=\"Lütfen nozül sıcaklığını \\rseçin.\"",
+        "  b3.txt=\"Sonraki\"",
+        "  b4.txt=\"Geri\"",
+        "}else if(lang==12)",
+        "{",
+        "  t0.txt=\"אנא בחר את טמפרטורת הזרבובית.\"",
+        "  b3.txt=\"הבא\"",
+        "  b4.txt=\"חזרה\"",
+        "}"
+      ],
+      "codesloadend": [],
+      "codesdown": [],
+      "codesup": [],
+      "codesunload": []
+    }
+  },
+  "objects": [
+    {
+      "key": "b0",
+      "type": "button",
+      "attributes": {
+        "objname": "b0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 129,
+        "w": 72,
+        "h": 70,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_220"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_18"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=0",
+          "b0.picc=${picture:pic_219}",
+          "b0.picc2=${picture:pic_28}",
+          "b1.picc=${picture:pic_220}",
+          "b1.picc2=${picture:pic_18}",
+          "b2.picc=${picture:pic_220}",
+          "b2.picc2=${picture:pic_18}"
+        ]
+      }
+    },
+    {
+      "key": "b1",
+      "type": "button",
+      "attributes": {
+        "objname": "b1",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 100,
+        "y": 129,
+        "w": 72,
+        "h": 70,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_220"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_18"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=1",
+          "b0.picc=${picture:pic_220}",
+          "b0.picc2=${picture:pic_18}",
+          "b1.picc=${picture:pic_219}",
+          "b1.picc2=${picture:pic_28}",
+          "b2.picc=${picture:pic_220}",
+          "b2.picc2=${picture:pic_18}"
+        ]
+      }
+    },
+    {
+      "key": "b2",
+      "type": "button",
+      "attributes": {
+        "objname": "b2",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 182,
+        "y": 129,
+        "w": 72,
+        "h": 70,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_220"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_18"
+        },
+        "bco2": 1024,
+        "pco": 0,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 10,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "sys0=2",
+          "b0.picc=${picture:pic_220}",
+          "b0.picc2=${picture:pic_18}",
+          "b1.picc=${picture:pic_220}",
+          "b1.picc2=${picture:pic_18}",
+          "b2.picc=${picture:pic_219}",
+          "b2.picc2=${picture:pic_28}"
+        ]
+      }
+    },
+    {
+      "key": "b3",
+      "type": "button",
+      "attributes": {
+        "objname": "b3",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 141,
+        "y": 311,
+        "w": 113,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_16"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_18"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "下一步",
+        "txt_maxl": 50,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "if(sys0==0)",
+          "{",
+          "  prints 0,1",
+          "}else if(sys0==1)",
+          "{",
+          "  prints 1,1",
+          "}else if(sys0==2)",
+          "{",
+          "  prints 2,1",
+          "}",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "t0",
+      "type": "text",
+      "attributes": {
+        "objname": "t0",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 12,
+        "y": 203,
+        "w": 248,
+        "h": 105,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "请选择喷头温度。",
+        "txt_maxl": 200,
+        "isbr": 1,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "b4",
+      "type": "button",
+      "attributes": {
+        "objname": "b4",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 311,
+        "w": 113,
+        "h": 40,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:pic_16"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:pic_18"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "返回",
+        "txt_maxl": 50,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 4,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    }
+  ]
+}
