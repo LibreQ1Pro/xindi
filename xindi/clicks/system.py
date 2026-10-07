@@ -116,8 +116,6 @@ def common_setting(page_id, widget_id):
         wifi.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
     elif widget_id == ids.COMMON_SETTING_SYSTEM:
         klipper.go_to_reset()
-    elif widget_id == ids.COMMON_SETTING_SERVICE:
-        page_to(ids.SERVICE)
     elif widget_id == ids.COMMON_SETTING_SCREEN_SLEEP:
         page_to(ids.SLEEP_MODE)
     elif widget_id == ids.COMMON_SETTING_RESTORE:
@@ -222,7 +220,6 @@ HANDLERS = {
     ids.NET_INFO: net_saved_or_net_info,
     ids.COMMON_SETTING: common_setting,
     ids.LANGUAGE: language_or_sleep_mode,
-    ids.SERVICE: language_or_sleep_mode,
     ids.SYS_OK: language_or_sleep_mode,
     ids.RESET: language_or_sleep_mode,
     ids.SLEEP_MODE: language_or_sleep_mode,
