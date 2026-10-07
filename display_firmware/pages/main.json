@@ -35,7 +35,7 @@
     "events": {
       "codesload": [
         "soc_ver.val=logo.version.val",
-        "if(logo.version.val==23)",
+        "if(logo.version.val==100)",
         "{",
         "  vis ver_warning,0",
         "  vis soc_ver,0",
@@ -1207,7 +1207,7 @@
         "xcen": 1,
         "ycen": 1,
         "pw": 0,
-        "txt": "UI:23",
+        "txt": "UI:100",
         "txt_maxl": 30,
         "isbr": 0,
         "spax": 0,

@@ -22,7 +22,7 @@ above belong to the firmware V4.4.19; the changes for V4.4.24 follow QIDI's
 xindi **V4.4.22** binary, for which there are no sources (it was decompiled;
 functions changed in it are marked "4.4.22" in the code). The main changes:
 
-* the screen checks the version 23 (`logo.version`),
+* the screen checks the version as `major * 10000 + minor * 100 + patch` (`logo.version`; 0.1.0 is 100, see `ui.VERSION`),
 * page 81 (QR code) became the network page: IP address, ethernet / Wi-Fi,
 * new pages: 94 (the bed is moving, start-up guide), 95 (emergency stop
   confirmation from the printing page); the case light moved to the second
