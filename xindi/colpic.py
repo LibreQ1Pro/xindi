@@ -3,12 +3,12 @@
 The C++ program converts thumbnails for the screen by running
 ``python3 /home/mks/gene4.py <image> /home/mks/tjc <size>``.  The script scales
 the image into a square, converts it to RGB565 and encodes it with
-``ColPic_EncodeStr()`` from the aarch64 library ``libColPic.so``; the resulting
+``col_pic_encode_str()`` from the aarch64 library ``libColPic.so``; the resulting
 text is written to /home/mks/tjc and later streamed to the screen's
 ``cp0``-style picture widgets.
 
 ``libColPic.so`` was reverse engineered from its disassembly (functions
-ADList0, Byte8bitEncode, ColPicEncode, ColPic_EncodeStr); the code below is a
+ad_list0, byte8bit_encode, col_pic_encode, col_pic_encode_str); the code below is a
 transliteration that produces byte identical output, including the quirks of
 the original (e.g. the colour "distance" uses (value >> 5) & 0xff and
 value & 0xff instead of real RGB components, and three NUL bytes of padding are
@@ -42,7 +42,7 @@ class _ColorEntry(object):
         return _ColorEntry(self.colo16, self.A0, self.A1, self.A2, self.qty)
 
 
-def ADList0(val, color_list, listqty, maxqty):
+def ad_list0(val, color_list, listqty, maxqty):
     """Adds a colour to the list (or increments its counter); returns the new length."""
     qty = listqty
     if qty >= maxqty:
@@ -58,7 +58,7 @@ def ADList0(val, color_list, listqty, maxqty):
     return qty + 1
 
 
-def Byte8bitEncode(fromcolor16, listu16, listqty, dotsqty, outputdata, outpos, decMaxBytesize):
+def byte8bit_encode(fromcolor16, listu16, listqty, dotsqty, outputdata, outpos, decMaxBytesize):
     """Run length encoding of the palette indexes; returns the number of bytes written."""
     dots = 0
     srcindex = 0
@@ -104,7 +104,7 @@ def Byte8bitEncode(fromcolor16, listu16, listqty, dotsqty, outputdata, outpos, d
     return decindex
 
 
-def ColPicEncode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax):
+def col_pic_encode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax):
     """Builds the ColPic header + palette + encoded pixels in ``outputdata``.
 
     ``fromcolor16`` is modified in place (colours outside the palette are
@@ -116,7 +116,7 @@ def ColPicEncode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax)
     if colorsmax > 1024:
         colorsmax = 1024
     for i in range(dotsqty):
-        listqty = ADList0(fromcolor16[i], color_list, listqty, 1024)
+        listqty = ad_list0(fromcolor16[i], color_list, listqty, 1024)
 
     # sort by number of occurrences (insertion sort, descending)
     for cindex in range(1, listqty):
@@ -159,7 +159,7 @@ def ColPicEncode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax)
     for i in range(listqty):
         struct.pack_into("<H", outputdata, 32 + i * 2, color_list[i].colo16)
         listu16.append(color_list[i].colo16)
-    enqty = Byte8bitEncode(fromcolor16, listu16, list_data_size >> 1, dotsqty, outputdata,
+    enqty = byte8bit_encode(fromcolor16, listu16, list_data_size >> 1, dotsqty, outputdata,
                            32 + list_data_size, outputmaxtsize - list_data_size - 32)
     struct.pack_into("<I", outputdata, 20, enqty & 0xFFFFFFFF)   # ColorDataSize
     struct.pack_into("<I", outputdata, 4, picw)
@@ -167,11 +167,11 @@ def ColPicEncode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax)
     return list_data_size + enqty + 32
 
 
-def ColPic_EncodeStr(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax):
+def col_pic_encode_str(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax):
     """Encodes the picture and converts the binary result into printable text
     (6 bits per character, offset '0', '\\' replaced by '~').  Returns the text
     length (0 on failure); ``outputdata`` holds the NUL terminated text."""
-    qty = ColPicEncode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax)
+    qty = col_pic_encode(fromcolor16, picw, pich, outputdata, outputmaxtsize, colorsmax)
     if qty == 0:
         return 0
     temp = 3 - (qty % 3)
@@ -236,7 +236,7 @@ def encode_picture(image_path, size=200):
     # crash in the original); a larger scratch buffer is used and only the
     # w*h*10 visible bytes are taken, which gives the same file content.
     outputdata = bytearray(outsize + 32 + 2 * LIST_MAX + 16)
-    ColPic_EncodeStr(pixels, width, height, outputdata, width * height * 10, 1024)
+    col_pic_encode_str(pixels, width, height, outputdata, width * height * 10, 1024)
 
     # text up to the first NUL, like .rstrip('\x00') on the zero filled buffer
     return bytes(outputdata[:outsize]).decode("utf-8").rstrip("\x00")

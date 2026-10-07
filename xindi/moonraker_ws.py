@@ -267,7 +267,7 @@ class _Connection(object):
         return None
 
 
-class connection_metadata(object):
+class ConnectionMetadata(object):
     """Keeps the metadata of one connection."""
 
     def __init__(self, hdl, url):
@@ -326,7 +326,7 @@ class MoonrakerClient(object):
             return False
 
         # create the metadata of the connection and keep it
-        metadata_ptr = connection_metadata(con, url)
+        metadata_ptr = ConnectionMetadata(con, url)
         self.m_ConnectionMetadataPtr = metadata_ptr
 
         try:

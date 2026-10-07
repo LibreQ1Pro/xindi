@@ -57,7 +57,7 @@ def _is_digit(c):
     return "0" <= c <= "9"
 
 
-def parseUri(uri_string):
+def parse_uri(uri_string):
     """RFC 3986, 3. Syntax Components"""
     result = Uri()
     s = uri_string
@@ -141,7 +141,7 @@ def _parse_status_line(header):
 
 class Request(object):
     def __init__(self, uri_string):
-        self.uri = parseUri(uri_string)
+        self.uri = parse_uri(uri_string)
 
     def send(self, method="GET", body=b"", headerFields=None):
         uri = self.uri

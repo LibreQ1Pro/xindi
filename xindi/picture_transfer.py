@@ -90,7 +90,7 @@ def delet_pic(ram_path):
     g.port.delfile(ram_path)
 
 
-def getFileSize(f):
+def file_size(f):
     """Size of an opened file"""
     try:
         cur = f.tell()
@@ -152,7 +152,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         log.debug("Failed to open the file")
         return True
 
-    filesize = getFileSize(f)
+    filesize = file_size(f)
 
     # send the pass-through instruction
     g.port.twfile(ram_path, to_string(filesize))
