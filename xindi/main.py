@@ -11,7 +11,7 @@ from . import paths
 from . import state as g
 from . import ui
 from . import pageids as ids
-from .cpp import access, system, sleep, pthread_create, terminate
+from .cpp import system, pthread_create, terminate
 from .moonraker_ws import MoonrakerClient
 from .moonraker_messages import json_parse
 from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults, get_wlan0_status, get_ssid_list_pages
@@ -42,24 +42,24 @@ def mount_usb_drive():
                     system("/usr/bin/systemctl --no-block restart makerbase-automount@%s.service" % partition_suffix)
 
     # 4.4.22: mount the USB drive if it is not mounted yet
-    if (((access("/dev/sda") == 0 and access("/dev/sda1") == 0) or
-         (access("/dev/sda1") == 0 and access("/dev/sdb1") == 0)) and
-            access(paths.gcode_files() + "/sda1") != 0):
+    if (((os.path.exists("/dev/sda") and os.path.exists("/dev/sda1")) or
+         (os.path.exists("/dev/sda1") and os.path.exists("/dev/sdb1"))) and
+            not os.path.exists(paths.gcode_files() + "/sda1")):
         system("/usr/bin/systemctl --no-block restart makerbase-automount@sda1.service")
 
 
 def apply_usb_recovery_files():
     usb = paths.gcode_files() + "/sda1"
-    if access(usb + "/mksscreen.recovery") == 0:
+    if os.path.exists(usb + "/mksscreen.recovery"):
         system("cp " + usb + "/mksscreen.recovery /root/800_480.tft; sync")
 
-    if access(usb + "/mksclient.recovery") == 0:
+    if os.path.exists(usb + "/mksclient.recovery"):
         system("dpkg -i --force-overwrite " + usb + "/mksclient.recovery; sync")
 
 
 def update_screen_firmware():
     """Flash /root/800_480.tft into the screen when there is one."""
-    g.update.find_screen_tft_file = access("/root/800_480.tft") == 0
+    g.update.find_screen_tft_file = os.path.exists("/root/800_480.tft")
     if not g.update.find_screen_tft_file:
         log.debug("No tft update file found")
         return
@@ -73,9 +73,9 @@ def update_screen_firmware():
 
 def run_factory_mode_script():
     usb = paths.gcode_files() + "/sda1"
-    if access(usb + "/QD_factory_mode.txt") == 0:
+    if os.path.exists(usb + "/QD_factory_mode.txt"):
         system("dmesg > " + usb + "/mks-dmesg.log; sync; ")
-        if access(usb + "/mks-super.sh") == 0:
+        if os.path.exists(usb + "/mks-super.sh"):
             system("bash " + usb + "/mks-super.sh")
 
 
@@ -124,9 +124,9 @@ def connect_moonraker(argv):
         g.ep.close()
         g.ep.connect(url)
         connected_count += 1
-        sleep(1)
+        time.sleep(1)
         g.ep.poll_status()
-        sleep(1)
+        time.sleep(1)
 
 
 def open_screen_port():
@@ -151,19 +151,19 @@ def start_screen(fd, frames):
         pthread_create(lambda _: screen_rx.reader_thread(fd, parser, frames), None)
 
         settings.get_total_time()
-        sleep(2)
+        time.sleep(2)
         actions.sub_object_status()       # subscribe to the printer objects
 
-        sleep(2)
+        time.sleep(2)
 
         actions.get_object_status()       # query the required values
-        sleep(2)
+        time.sleep(2)
         settings.init()     # 4.4.22 (was init_mks_status())
         get_wlan0_status()
         mks_wpa_scan_scanresults()
         get_ssid_list_pages()
         settings.load_versions()
-        sleep(3)
+        time.sleep(3)
 
         # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
         ui.send_ui_version()

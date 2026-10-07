@@ -1,12 +1,13 @@
 """Handling of the "notify_gcode_response" messages of Moonraker."""
 
+import time
 import logging
 import re
 
 from . import state as g
 from . import pageids as ids
 from . import ui
-from .cpp import (jget, jstr, json_dump, to_string, substr, stream_float, f32, sleep)
+from .cpp import (jget, jstr, json_dump, to_string, substr, stream_float, f32)
 
 log = logging.getLogger(__name__)
 
@@ -30,9 +31,9 @@ def parse_gcode_response(params):
             log.info("Klipper restarted and is ready, sending the subscriptions")
             g.klippy.webhooks_state = "ready"
             g.klippy.webhooks_state_message = "Klipper state: Ready"
-            sleep(5)
+            time.sleep(5)
             actions.sub_object_status()
-            sleep(2)
+            time.sleep(2)
             actions.get_object_status()
             settings.get_babystep()    # 4.4.22 (was init_mks_status())
             if not g.levelling.all_level_saving:

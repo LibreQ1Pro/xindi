@@ -1,11 +1,11 @@
 """Clicks on the main page, the file list, the preview and the pages of a print. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
+import time
 import logging
 
 from .. import state as g
 from .. import actions, filelist, file_browser, pages
 from .. import pageids as ids
-from ..cpp import sleep
 from ..ui import page_to
 
 log = logging.getLogger(__name__)
@@ -147,7 +147,7 @@ def preview(page_id, widget_id):
             elif g.screen.show_preview_complete:
                 g.screen.muted = False             # 4.4.22 silent mode is per print
                 actions.print_start()
-                sleep(1)
+                time.sleep(1)
                 if g.klippy.filament_detected:
                     log.info("No filament runout detected")
                     g.klippy.print_stats_state = "printing"

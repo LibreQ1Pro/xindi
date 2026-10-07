@@ -2,6 +2,7 @@
 display_firmware/tools/add_network_pages.py): saved networks, one network, "forget" confirmation, the state of the
 interfaces, and the keyboard modes (password of a scanned / saved network, hidden network)."""
 
+import time
 import logging
 
 from . import state as g
@@ -10,7 +11,7 @@ from . import pics
 from . import ui
 from . import network
 from . import netstrings
-from .cpp import sleep, pthread_create
+from .cpp import pthread_create
 
 log = logging.getLogger(__name__)
 
@@ -200,7 +201,7 @@ def show_info():
 
 def _toggle_thread(arg):
     network.set_wifi_radio(not network.wifi_radio())
-    sleep(2)        # NetworkManager needs a moment to bring the radio up / down
+    time.sleep(2)        # NetworkManager needs a moment to bring the radio up / down
     if g.screen.page == ids.NET_INFO:
         show_info()
 

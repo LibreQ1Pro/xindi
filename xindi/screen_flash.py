@@ -16,8 +16,9 @@ Strings printed by the original (partly Chinese) are translated to English.
 import fcntl
 import os
 import termios
+import time
 
-from .cpp import access, substr, to_string, usleep
+from .cpp import substr, to_string
 from .serial_port import _cfmakeraw_zeroed
 
 SEND_FILE_NAME = "/root/800_480.tft"     # uart.cpp: "UI/MATE_272_480.tft"
@@ -97,11 +98,11 @@ def main():
     else:
         set_option(fd, INIT_BAUD, 8, 'N', 1)
         fcntl.fcntl(fd, fcntl.F_SETFL, FNDELAY)
-        if access(SEND_FILE_NAME, os.F_OK) == 0:
+        if os.path.exists(SEND_FILE_NAME):
             init_download_to_screen()
             # first_ack = 0
             send_cmd_download(fd, filesize)
-            usleep(10000)
+            time.sleep(0.01)
             if TRANSFER_BAUD != INIT_BAUD:
                 _close(fd)
 
@@ -124,7 +125,7 @@ def main():
             parse_cmd(cmd)
             buff = b""
 
-        usleep(5000)
+        time.sleep(0.005)
     _close(fd)
     return 0
 
@@ -213,7 +214,7 @@ def set_option(fd, baudrate, bits, parity, stopbit):
 
 def init_download_to_screen():
     global tftfile, tft_data, filesize, tft_len, tft_end, send_finish
-    if access(SEND_FILE_NAME, os.F_OK) == 0:
+    if os.path.exists(SEND_FILE_NAME):
         tft_data = b""
         try:
             tftfile = open(SEND_FILE_NAME, "rb")
@@ -276,7 +277,7 @@ def send_cmd_download_data(fd, data):
         _write(fd, sub_data)
         start = end
         end = end + num
-        # usleep(1550000);
+        # time.sleep(1.55);
         try:
             termios.tcdrain(fd)
         except (termios.error, OSError):

@@ -21,7 +21,6 @@ import math
 import os
 import re
 import struct
-import time
 
 ENCODING = "utf-8"
 ERRORS = "surrogateescape"
@@ -284,21 +283,6 @@ def stream_float(s):
 # libc wrappers
 # ---------------------------------------------------------------------------
 
-def sleep(seconds):
-    """sleep(3)"""
-    time.sleep(seconds)
-
-
-def usleep(usec):
-    """usleep(3)"""
-    time.sleep(usec / 1000000.0)
-
-
-def access(path, mode=os.F_OK):
-    """access(2): 0 on success, -1 on failure"""
-    return 0 if os.access(path, mode) else -1
-
-
 def system(command):
     """system(3)"""
     return os.system(command)
@@ -448,23 +432,6 @@ def json_parse(text):
 
 class JsonParseError(ValueError):
     """nlohmann::json::parse_error"""
-
-
-def json_clear(value):
-    """``json.clear()`` - empties containers / resets scalars, keeps the type."""
-    if isinstance(value, dict):
-        return {}
-    if isinstance(value, list):
-        return []
-    if isinstance(value, str):
-        return ""
-    if isinstance(value, bool):
-        return False
-    if isinstance(value, int):
-        return 0
-    if isinstance(value, float):
-        return 0.0
-    return None
 
 
 # ---------------------------------------------------------------------------

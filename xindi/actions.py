@@ -1,5 +1,7 @@
 """What the user and the screen start: commands to Klipper / Moonraker, the printing flow, the levelling and filament steps."""
 
+import os
+import time
 import logging
 import json as _json
 import urllib.request
@@ -9,7 +11,7 @@ from . import state as g
 from . import pageids as ids
 from . import pics
 from .ui import page_to
-from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
+from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, read_file, system, str_lower_ascii
 from .moonraker_api import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_print_a_file, json_emergency_stop)
 from .gcodes import (AXIS_X, AXIS_Y, AXIS_Z, move_relative, set_heater_temp, set_fan0_speed, set_fan2_speed,
@@ -149,7 +151,7 @@ def cancel_print():
     system("curl -X POST http://127.0.0.1:7125/printer/breakheater")
     g.ep.send(json_run_a_gcode("CANCEL_PRINT"))
     # 4.4.22: the total print time is no longer kept in config.mksini
-    usleep(10000)
+    time.sleep(0.01)
     sdcard_reset_file()
 
 
@@ -224,7 +226,7 @@ def finish_print():
 
 def motors_off():
     g.ep.send(json_emergency_stop())
-    sleep(1)
+    time.sleep(1)
     g.ep.send(json_run_a_gcode("FIRMWARE_RESTART\n"))     # "motors off" was turned into an emergency stop
 
 
@@ -559,7 +561,7 @@ def switch_timelapse_state():
 
 def finish_screen_update():
     """The screen has flashed its firmware: the file is kept as .bak."""
-    if access("/root/800_480.tft") == 0:
+    if os.path.exists("/root/800_480.tft"):
         system("mv /root/800_480.tft /root/800_480.tft.bak; sync")
 
 

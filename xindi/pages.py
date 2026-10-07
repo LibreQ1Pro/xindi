@@ -1,5 +1,6 @@
 """What every screen page shows: the refresh functions are called with the page that is open."""
 
+import time
 import logging
 
 from . import state as g
@@ -7,7 +8,7 @@ from . import pageids as ids
 from . import pics
 from . import thumbnail
 from .ui import page_to
-from .cpp import to_string, substr, f32, c_int, c_round, system, sleep, usleep
+from .cpp import to_string, substr, f32, c_int, c_round, system
 from .moonraker_api import json_run_a_gcode
 from .printer_status import get_cal_printing_time
 from .file_browser import output_imgdata
@@ -87,9 +88,9 @@ def show():
                     g.screen.main_picture_refreshed = False
                     g.screen.muted = False         # 4.4.22 silent mode is per print
                     log.debug("Jumping to the print page\n")
-                    sleep(1)
+                    time.sleep(1)
                     filelist.get_file_estimated_time(g.klippy.print_stats_filename)
-                    sleep(1)
+                    time.sleep(1)
                     g.screen.jump_print = True
                     g.klippy.ready = False
                     page_to(ids.PREVIEW)
@@ -208,14 +209,14 @@ def syntony_finish():
 
     if g.klippy.idle_timeout_state == "Ready" and g.klippy.webhooks_state == "ready":
         log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
-        sleep(10)
+        time.sleep(10)
         system("sync")      # make sure the config file is saved
 
         g.levelling.all_level_saving = False
         settings.get_babystep()  # 4.4.22 (was init_mks_status())
         actions.sub_object_status()
         actions.get_object_status()
-        sleep(10)
+        time.sleep(10)
         page_to(ids.LEVEL_MODE)
         log.info("Left from line 739")
 
@@ -244,7 +245,7 @@ def stopping():
     log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
     if g.klippy.idle_timeout_state == "Ready":
         actions.clear_previous_data()
-        sleep(5)
+        time.sleep(5)
         actions.save_current_zoffset()
         page_to(ids.MAIN)
 
@@ -256,7 +257,7 @@ def syntony_move():
         log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
 
     if g.levelling.step_1:
-        sleep(15)
+        time.sleep(15)
         page_to(ids.SYNTONY_FINISH)
         g.levelling.step_1 = False
 
@@ -287,7 +288,7 @@ def print_filament():
 
     # 4.4.2 CLL support mates and hall filament width sensors
     if not g.klippy.filament_detected:
-        sleep(1)
+        time.sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
@@ -345,10 +346,10 @@ def auto_moving():
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
         g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
-        sleep(1)
+        time.sleep(1)
         g.ep.send(json_run_a_gcode("M4027\n"))
     if g.levelling.step_4:
-        sleep(15)
+        time.sleep(15)
         page_to(ids.AUTO_FINISH)
         g.levelling.step_4 = False
 
@@ -449,7 +450,7 @@ def printing_zoffset():
 
     # 4.4.2 CLL support mates and hall filament width sensors
     if not g.klippy.filament_detected:
-        sleep(1)
+        time.sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
@@ -466,7 +467,7 @@ def printing_zoffset():
         time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
         actions.complete_print()
         actions.clear_previous_data()
-        sleep(5)
+        time.sleep(5)
         actions.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
         g.port.txt("time_txt", time_duration)
@@ -576,7 +577,7 @@ def printing():
             page_to(ids.PRINT_NO_FILAMENT_2)
 
     if not g.klippy.filament_detected:
-        sleep(1)
+        time.sleep(1)
         g.klippy.ready = False
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
@@ -585,7 +586,7 @@ def printing():
         time_duration = actions.show_time(c_int(g.klippy.print_stats_print_duration))
         actions.complete_print()
         actions.clear_previous_data()
-        sleep(5)
+        time.sleep(5)
         actions.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
         g.port.txt("time_txt", time_duration)
@@ -743,12 +744,12 @@ def preview():
                     g.port.txt("preview.cp_pad", "")
                     if g.files.meta_simage != "":
                         g.port.baud(921600)
-                        usleep(50000)
+                        time.sleep(0.05)
                         g.port.set_baud(921600)
                         log.debug("Sending the small picture")
                         _send_chunks_txt(g.files.meta_simage)
                         g.port.baud(115200)
-                        usleep(50000)
+                        time.sleep(0.05)
                         g.port.set_baud(115200)
 
                     # big picture
@@ -760,14 +761,14 @@ def preview():
                             return
                         g.files.meta_gimage = data
                         g.port.baud(921600)
-                        usleep(50000)
+                        time.sleep(0.05)
                         g.port.set_baud(921600)
                         g.port.cp_close("preview.preview_pic")
                         if g.files.meta_gimage != "":
                             log.debug("Sending the big picture")
                             _send_chunks_cp("preview_pic", g.files.meta_gimage)
                         g.port.baud(115200)
-                        usleep(50000)
+                        time.sleep(0.05)
                         g.port.set_baud(115200)
                         actions.bed_leveling_switch(True)
                     g.screen.show_preview_gimage_completed = True
@@ -997,7 +998,7 @@ def filament_pop():
 def preview_pop():
     # 4.4.2 support mates and hall filament width sensors
     if not g.klippy.filament_detected:
-        sleep(1)
+        time.sleep(1)
         actions.set_print_pause()
         page_to(ids.PRINT_NO_FILAMENT)
     if g.klippy.print_stats_state == "standby":
@@ -1023,20 +1024,20 @@ def open_calibrate():
     if g.levelling.step_3:
         g.levelling.step_3 = False
         system("sync")      # CLL save the system information, then go to the filament loading page
-        sleep(10)
+        time.sleep(10)
         actions.get_object_status()
         actions.sub_object_status()
         page_to(ids.OPEN_FILAMENTVIDEO_0)
     if g.levelling.step_2 and g.klippy.webhooks_state == "ready":
         g.levelling.step_2 = False
-        sleep(5)
+        time.sleep(5)
         g.ep.send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
     if g.levelling.step_1 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_1 = False
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
         g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
-        sleep(5)
+        time.sleep(5)
         g.ep.send(json_run_a_gcode("M4027"))   # CLL levelling after the platform / nozzle initialisation
 
 

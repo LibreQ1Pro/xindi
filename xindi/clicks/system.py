@@ -1,11 +1,11 @@
 """Clicks on the network, settings, error and pop-up pages. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
+import time
 import logging
 
 from .. import state as g
 from .. import actions, filelist, netui, settings, wifi_ui
 from .. import pageids as ids
-from ..cpp import sleep
 from ..ui import page_to
 from ..network import set_page_wifi_ssid_list
 from .common import nav_guarded
@@ -22,7 +22,7 @@ def internet(page_id, widget_id):
         log.debug("################## refresh button pressed")
         wifi_ui.scan_ssid_and_show()
         log.debug("Waiting 3s...")
-        sleep(3)
+        time.sleep(3)
         wifi_ui.scan_ssid_and_show()
     elif widget_id == ids.INTERNET_TO_WIFI:
         pass

@@ -1,5 +1,6 @@
 """The file list pages and their pictures, the USB drive."""
 
+import time
 import logging
 import os
 
@@ -10,7 +11,7 @@ from . import pics
 from . import file_browser
 from . import thumbnail
 from .ui import page_to
-from .cpp import to_string, substr, access, system, sleep, usleep
+from .cpp import to_string, substr, system
 from .moonraker_api import json_get_gcode_metadata
 from .file_browser import output_imgdata
 from .picture_transfer import delete_small_jpg
@@ -156,11 +157,11 @@ def detect_disk_2():
 
 
 def detect_disk():
-    if access("/dev/sda") == 0:
-        if access("/dev/sda1") == 0:
-            if access(paths.gcode_files() + "/sda1") != 0:
+    if os.path.exists("/dev/sda"):
+        if os.path.exists("/dev/sda1"):
+            if not os.path.exists(paths.gcode_files() + "/sda1"):
                 system("/usr/bin/systemctl --no-block restart makerbase-automount@sda1.service")
-                sleep(1)
+                time.sleep(1)
         return 0
     else:
         return -1
@@ -221,14 +222,14 @@ def send_file_picture(path, pixel, obj):
         return
     g.files.meta_gimage = data
     g.port.baud(921600)
-    usleep(10000)
+    time.sleep(0.01)
     g.port.set_baud(921600)
     g.port.cp_close(obj)
     if g.files.meta_gimage != "":
         log.debug("Sending the file picture")
         pages._send_chunks_cp(obj, g.files.meta_gimage)
     g.port.baud(115200)
-    usleep(10000)
+    time.sleep(0.01)
     g.port.set_baud(115200)
     g.port.vis(obj, "1")
 

@@ -17,7 +17,7 @@ import time
 from . import state as g
 from . import pageids as ids
 from . import ui
-from .cpp import sleep, pthread_create
+from .cpp import pthread_create
 
 log = logging.getLogger(__name__)
 
@@ -309,7 +309,7 @@ def mks_save_config():
     """The connection is saved by NetworkManager when it is made, only the screen steps remain."""
     mks_wifi_run_cmd_status(g.net.status_result)
     if ids.WIFI_SAVING == g.screen.page:
-        sleep(3)
+        time.sleep(3)
         g.screen.wifi_ssid_button_enabled[0] = False
         g.screen.wifi_ssid_button_enabled[1] = False
         g.screen.wifi_ssid_button_enabled[2] = False
@@ -329,7 +329,7 @@ def mks_wifi_hdlevent_thread(arg=None):
             proc = subprocess.Popen([NMCLI, "monitor"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=ENV,
                                     bufsize=0)
         except OSError:
-            sleep(10)
+            time.sleep(10)
             continue
         try:
             while proc.poll() is None:
@@ -344,7 +344,7 @@ def mks_wifi_hdlevent_thread(arg=None):
         finally:
             proc.kill()
             proc.wait()
-        sleep(5)        # NetworkManager restarted or is not running yet
+        time.sleep(5)        # NetworkManager restarted or is not running yet
 
 
 def set_page_wifi_ssid_list(pages):

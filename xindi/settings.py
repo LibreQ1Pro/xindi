@@ -1,5 +1,6 @@
 """The saved settings (config.mksini): reading and writing them, and loading the versions."""
 
+import time
 import logging
 
 from . import paths
@@ -8,7 +9,7 @@ from . import pageids as ids
 from . import network
 from .network import get_wlan0_status
 from .ui import page_to
-from .cpp import to_string, system, sleep
+from .cpp import to_string, system
 from .moonraker_api import json_run_a_gcode, json_get_job_totals
 from .config_ini import open_settings, save_setting, open_version_file
 
@@ -90,7 +91,7 @@ def load_versions():
 def wifi_save_config():
     page_to(ids.WIFI_SAVING)
     network.mks_save_config()
-    sleep(2)
+    time.sleep(2)
     get_wlan0_status()
 
 

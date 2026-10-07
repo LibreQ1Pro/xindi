@@ -15,7 +15,7 @@ import time
 from . import paths
 from . import state as g
 from . import thumbnail
-from .cpp import to_string, usleep, sleep
+from .cpp import to_string
 
 log = logging.getLogger(__name__)
 
@@ -65,7 +65,7 @@ def sent_jpg_thread_handle(arg=None):
             g.pictures.send_jpg_status = True
             for i in range(6):
                 if g.pictures.have_64_jpg[i]:
-                    usleep(50500 + i * 500)
+                    time.sleep((50500 + i * 500) / 1e6)
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
                     if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
                         # Python only: jpg made from the thumbnail inside the gcode file
@@ -82,7 +82,7 @@ def sent_jpg_thread_handle(arg=None):
             g.port.tsw("255", "1")      # enable touch
             log.debug("Touch enabled")
 
-        usleep(60000)
+        time.sleep(0.06)
 
 
 def delet_pic(ram_path):
@@ -129,13 +129,13 @@ def check_crc(buf, length):
 def delete_small_jpg():
     """Delete all small preview pictures"""
     delet_pic("ram/file0.jpg")
-    usleep(56000)
+    time.sleep(0.056)
     delet_pic("ram/file1.jpg")
-    usleep(56000)
+    time.sleep(0.056)
     delet_pic("ram/file2.jpg")
-    usleep(56000)
+    time.sleep(0.056)
     delet_pic("ram/file3.jpg")
-    usleep(56000)
+    time.sleep(0.056)
 
 
 def sent_jpg_to_tjc(ram_path, jpg_path):
@@ -157,7 +157,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
     # send the pass-through instruction
     g.port.twfile(ram_path, to_string(filesize))
     # wait for 0xfe + terminator
-    usleep(105000)
+    time.sleep(0.105)
     # send header + data frames until the end of the file
     g.pictures.sent_jpg_to_tjc_start_time = int(time.time())
     while True:
@@ -189,7 +189,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         g.update.get_0xfd = False
         g.update.get_0x04 = False
         while not g.update.get_0x05 and not g.update.get_0xfd:
-            usleep(2000)
+            time.sleep(0.002)
             # 0x04 means the frame could not be written
             if g.update.get_0x04:
                 # leave the pass-through mode
@@ -219,7 +219,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
 
             # CLL stop sending when the screen buffer overflows
             if g.update.get_0x24:
-                sleep(4)
+                time.sleep(4)
                 g.update.get_0x24 = False
                 f.close()       # (Python only: the original leaks the FILE)
                 return False

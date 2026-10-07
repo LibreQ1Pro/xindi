@@ -7,7 +7,7 @@ from . import paths
 from . import state as g
 from . import pageids as ids
 from . import ui
-from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of,
+from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of, 
                   json_parse, json_dump)
 from .jsonfields import read_fields
 from .http_client import send_request
