@@ -12,8 +12,8 @@ from . import pageids as ids
 from . import pics
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, read_file, system, str_lower_ascii
-from .moonraker_api import (json_run_a_gcode, json_subscribe_to_printer_object_status,
-                           json_query_printer_object_status, json_print_a_file, json_emergency_stop)
+from .moonraker_api import (json_subscribe_to_printer_object_status, json_query_printer_object_status,
+                            json_print_a_file, json_emergency_stop)
 from .gcodes import (AXIS_X, AXIS_Y, AXIS_Z, move_relative, set_heater_temp, set_fan0_speed, set_fan2_speed,
                            set_fan3_speed, set_speed_rate)
 from .printer_status import subscribe_objects_status
@@ -40,7 +40,7 @@ def start_printing(filepath):
 
 
 def set_target(heater, target):
-    g.ep.send(json_run_a_gcode(set_heater_temp(heater, target)))
+    g.ep.run_gcode(set_heater_temp(heater, target))
 
 
 def set_extruder_target(target):
@@ -52,19 +52,19 @@ def set_heater_bed_target(target):
 
 
 def set_hot_target(target):
-    g.ep.send(json_run_a_gcode("M141 S" + to_string(target)))
+    g.ep.run_gcode("M141 S" + to_string(target))
 
 
 def set_fan0(speed):
-    g.ep.send(json_run_a_gcode(set_fan0_speed(speed)))
+    g.ep.run_gcode(set_fan0_speed(speed))
 
 
 def set_fan2(speed):
-    g.ep.send(json_run_a_gcode(set_fan2_speed(speed)))
+    g.ep.run_gcode(set_fan2_speed(speed))
 
 
 def set_fan3(speed):
-    g.ep.send(json_run_a_gcode(set_fan3_speed(speed)))
+    g.ep.run_gcode(set_fan3_speed(speed))
 
 
 def set_intern_zoffset(offset):
@@ -73,9 +73,9 @@ def set_intern_zoffset(offset):
 
 def set_zoffset(positive):
     if positive:
-        g.ep.send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=+" + to_string(g.klippy.set_offset) + " MOVE=1"))
+        g.ep.run_gcode("SET_GCODE_OFFSET Z_ADJUST=+" + to_string(g.klippy.set_offset) + " MOVE=1")
     else:
-        g.ep.send(json_run_a_gcode("SET_GCODE_OFFSET Z_ADJUST=-" + to_string(g.klippy.set_offset) + " MOVE=1"))
+        g.ep.run_gcode("SET_GCODE_OFFSET Z_ADJUST=-" + to_string(g.klippy.set_offset) + " MOVE=1")
 
 
 def set_move_dist(dist):
@@ -84,11 +84,11 @@ def set_move_dist(dist):
 
 def set_printer_speed(speed):
     log.debug("Rate = %s", to_string(speed))
-    g.ep.send(json_run_a_gcode(set_speed_rate(to_string(speed))))
+    g.ep.run_gcode(set_speed_rate(to_string(speed)))
 
 
 def set_printer_flow(rate):
-    g.ep.send(json_run_a_gcode("M221 S" + to_string(rate)))
+    g.ep.run_gcode("M221 S" + to_string(rate))
 
 
 def show_time(seconds):
@@ -96,7 +96,7 @@ def show_time(seconds):
 
 
 def move_home():
-    g.ep.send(json_run_a_gcode("G28\n"))
+    g.ep.run_gcode("G28\n")
 
 
 def move_x_decrease():
@@ -138,25 +138,25 @@ def get_filament_detected_enable():
 
 
 def set_print_pause():
-    g.ep.send(json_run_a_gcode("PAUSE"))
+    g.ep.run_gcode("PAUSE")
 
 
 def set_print_resume():
-    g.ep.send(json_run_a_gcode("RESUME"))
+    g.ep.run_gcode("RESUME")
 
 
 def cancel_print():
     g.klippy.print_stats_filename = ""
     system("curl -X POST http://127.0.0.1:7125/printer/breakmacro")
     system("curl -X POST http://127.0.0.1:7125/printer/breakheater")
-    g.ep.send(json_run_a_gcode("CANCEL_PRINT"))
+    g.ep.run_gcode("CANCEL_PRINT")
     # 4.4.22: the total print time is no longer kept in config.mksini
     time.sleep(0.01)
     sdcard_reset_file()
 
 
 def sdcard_reset_file():
-    g.ep.send(json_run_a_gcode("SDCARD_RESET_FILE"))
+    g.ep.run_gcode("SDCARD_RESET_FILE")
 
 
 def set_auto_level_dist(dist):
@@ -173,7 +173,7 @@ def start_auto_level():
         g.klippy.idle_timeout_state = "Printing"
     page_to(ids.AUTO_MOVING)
     set_heater_bed_target(g.config.heater_bed_target)
-    g.ep.send(json_run_a_gcode("M4029"))
+    g.ep.run_gcode("M4029")
 
 
 def set_filament_extruder_target(positive):
@@ -201,19 +201,19 @@ def set_print_filament_dist(dist):
 
 
 def start_retract():
-    g.ep.send(json_run_a_gcode("M83\nG1 E-" + to_string(g.klippy.filament_extruder_dist) + " F300\n"))
+    g.ep.run_gcode("M83\nG1 E-" + to_string(g.klippy.filament_extruder_dist) + " F300\n")
 
 
 def start_extrude():
-    g.ep.send(json_run_a_gcode("M83\nG1 E" + to_string(g.klippy.filament_extruder_dist) + " F300\n"))
+    g.ep.run_gcode("M83\nG1 E" + to_string(g.klippy.filament_extruder_dist) + " F300\n")
 
 
 def reset_klipper():
-    g.ep.send(json_run_a_gcode("RESTART\n"))
+    g.ep.run_gcode("RESTART\n")
 
 
 def reset_firmware():
-    g.ep.send(json_run_a_gcode("FIRMWARE_RESTART\n"))
+    g.ep.run_gcode("FIRMWARE_RESTART\n")
 
 
 def finish_print():
@@ -227,28 +227,28 @@ def finish_print():
 def motors_off():
     g.ep.send(json_emergency_stop())
     time.sleep(1)
-    g.ep.send(json_run_a_gcode("FIRMWARE_RESTART\n"))     # "motors off" was turned into an emergency stop
+    g.ep.run_gcode("FIRMWARE_RESTART\n")     # "motors off" was turned into an emergency stop
 
 
 def beep_on_off():
     if g.klippy.out_pin_beep_value == 0:
-        g.ep.send(json_run_a_gcode("beep_on"))
+        g.ep.run_gcode("beep_on")
         g.config.beep_status = True
         settings.set_beep_status()
     else:
-        g.ep.send(json_run_a_gcode("beep_off"))
+        g.ep.run_gcode("beep_off")
         g.config.beep_status = False
         settings.set_beep_status()
 
 
 def led_on_off():
     if g.klippy.caselight_value == 0:
-        g.ep.send(json_run_a_gcode("SET_PIN PIN=caselight VALUE=1"))
+        g.ep.run_gcode("SET_PIN PIN=caselight VALUE=1")
         if g.screen.page != ids.SCREEN_SLEEP:
             g.config.led_status = True
             settings.set_led_status()
     else:
-        g.ep.send(json_run_a_gcode("SET_PIN PIN=caselight VALUE=0"))
+        g.ep.run_gcode("SET_PIN PIN=caselight VALUE=0")
         if g.screen.page != ids.SCREEN_SLEEP:
             g.config.led_status = False
             settings.set_led_status()
@@ -297,9 +297,9 @@ def set_print_filament_target():
 
 def complete_print():
     if not g.screen.shutdown_after_print:
-        g.ep.send(json_run_a_gcode("PRINT_END"))
+        g.ep.run_gcode("PRINT_END")
     else:
-        g.ep.send(json_run_a_gcode("PRINT_END_POWEROFF"))
+        g.ep.run_gcode("PRINT_END_POWEROFF")
     # 4.4.22: the total print time is no longer kept in config.mksini
 
 
@@ -308,7 +308,7 @@ def go_to_syntony_move():
     g.levelling.syntony_finished = False
     g.klippy.idle_timeout_state = "Printing"
     page_to(ids.SYNTONY_MOVE)
-    g.ep.send(json_run_a_gcode("M901\n"))
+    g.ep.run_gcode("M901\n")
 
 
 def filament_load():
@@ -321,18 +321,18 @@ def filament_load():
     g.port.vis("spin1", "0")
     g.port.vis("spin2", "1")
     g.klippy.idle_timeout_state = "Printing"
-    g.ep.send(json_run_a_gcode("M109 S" + to_string(g.screen.load_target) + "\n"))
-    g.ep.send(json_run_a_gcode("M604\n"))
+    g.ep.run_gcode("M109 S" + to_string(g.screen.load_target) + "\n")
+    g.ep.run_gcode("M604\n")
 
 
 def filament_unload():
     g.klippy.idle_timeout_state = "Printing"
-    g.ep.send(json_run_a_gcode("M109 S" + to_string(g.screen.load_target) + "\n"))
-    g.ep.send(json_run_a_gcode("M603\n"))
+    g.ep.run_gcode("M109 S" + to_string(g.screen.load_target) + "\n")
+    g.ep.run_gcode("M603\n")
 
 
 def move_motors_off():
-    g.ep.send(json_run_a_gcode("M84\n"))
+    g.ep.run_gcode("M84\n")
 
 
 def open_more_level_finish():
@@ -351,7 +351,7 @@ def open_set_print_filament_target():
 
 
 def open_start_extrude():
-    g.ep.send(json_run_a_gcode("M83\nG1 E20 F300\n"))
+    g.ep.run_gcode("M83\nG1 E20 F300\n")
 
 
 def open_calibrate_start():
@@ -360,7 +360,7 @@ def open_calibrate_start():
     g.levelling.step_3 = False    # CLL True: input shaping done
     g.klippy.idle_timeout_state = "Printing"
     page_to(ids.OPEN_CALIBRATE)
-    g.ep.send(json_run_a_gcode("M4028"))   # custom gcode "M4028" in printer.cfg
+    g.ep.run_gcode("M4028")   # custom gcode "M4028" in printer.cfg
 
 
 def set_auto_level_heater_bed_target(positive):
@@ -384,7 +384,7 @@ def detect_error():
                              ids.DETECT_ERROR):
         pass
     elif g.screen.page in (ids.OPEN_CALIBRATE, ids.AUTO_MOVING):
-        g.ep.send(json_run_a_gcode("RESTART"))
+        g.ep.run_gcode("RESTART")
         g.screen.jump_level_error = True
     else:
         if g.klippy.webhooks_state != "shutdown" and g.klippy.webhooks_state != "error":
@@ -401,28 +401,28 @@ def clear_previous_data():
 
 def print_start():
     if g.screen.bed_leveling:
-        g.ep.send(json_run_a_gcode("G31\n"))
+        g.ep.run_gcode("G31\n")
     else:
-        g.ep.send(json_run_a_gcode("G32\n"))
+        g.ep.run_gcode("G32\n")
 
 
 def open_heater_bed_up():
     # 4.4.22: the caller shows the "moving" page, which waits until Klipper is idle
     # again (refresh_page_open_moving()); the bed is homed and moved up and down
     g.klippy.idle_timeout_state = "Printing"
-    g.ep.send(json_run_a_gcode("SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"))
-    g.ep.send(json_run_a_gcode("G91\nG1 Z-30 F600\nG1 X-30 Y-30 F1200\nG90\nM84\n"))
-    g.ep.send(json_run_a_gcode("M4031\n"))
-    g.ep.send(json_run_a_gcode("G28\n"))
-    g.ep.send(json_run_a_gcode("G1 Z240 F600\nG1 Z10 F600\n G1 Z240 F600\n G1 Z20 F600\n"))
+    g.ep.run_gcode("SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n")
+    g.ep.run_gcode("G91\nG1 Z-30 F600\nG1 X-30 Y-30 F1200\nG90\nM84\n")
+    g.ep.run_gcode("M4031\n")
+    g.ep.run_gcode("G28\n")
+    g.ep.run_gcode("G1 Z240 F600\nG1 Z10 F600\n G1 Z240 F600\n G1 Z20 F600\n")
 
 
 def bed_leveling_switch(positive):
     if positive:
-        g.ep.send(json_run_a_gcode("G31"))
+        g.ep.run_gcode("G31")
         g.screen.bed_leveling = True
     else:
-        g.ep.send(json_run_a_gcode("G32"))
+        g.ep.run_gcode("G32")
         g.screen.bed_leveling = False
 
 
@@ -478,46 +478,46 @@ def bed_calibrate():
     if g.screen.manual_count == 4:
         g.levelling.bed_offset = 0.0
         g.klippy.idle_timeout_state = "Printing"
-        g.ep.send(json_run_a_gcode("ABORT\n"))
-        g.ep.send(json_run_a_gcode("M4031\n"))     # 4.4.22
-        g.ep.send(json_run_a_gcode("M4030\n"))
+        g.ep.run_gcode("ABORT\n")
+        g.ep.run_gcode("M4031\n")     # 4.4.22
+        g.ep.run_gcode("M4030\n")
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 3:
         g.klippy.idle_timeout_state = "Printing"
-        g.ep.send(json_run_a_gcode("G1 Z10 F600"))
-        g.ep.send(json_run_a_gcode("BED_SCREWS_ADJUST\n"))
-        g.ep.send(json_run_a_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n"))
+        g.ep.run_gcode("G1 Z10 F600")
+        g.ep.run_gcode("BED_SCREWS_ADJUST\n")
+        g.ep.run_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n")
         log.debug("Current bed_offset:%f", g.levelling.bed_offset)
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count > 0:
         g.klippy.idle_timeout_state = "Printing"
-        g.ep.send(json_run_a_gcode("ACCEPT\n"))
-        g.ep.send(json_run_a_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n"))
+        g.ep.run_gcode("ACCEPT\n")
+        g.ep.run_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n")
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 0:
-        g.ep.send(json_run_a_gcode("ACCEPT\n"))
-        g.ep.send(json_run_a_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n"))
+        g.ep.run_gcode("ACCEPT\n")
+        g.ep.run_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
         settings.get_babystep()      # 4.4.22 (was init_mks_status())
         page_to(ids.BED_FINISH)
     else:
-        g.ep.send(json_run_a_gcode("G1 Z10 F600\n"))
+        g.ep.run_gcode("G1 Z10 F600\n")
         page_to(ids.BED_FINISH)
     g.screen.manual_count -= 1
 
 
 def bed_adjust(status):
     if status:
-        g.ep.send(json_run_a_gcode("G91\nG1 Z" + to_string(-g.levelling.auto_level_dist) + " F600\nG90\n"))
+        g.ep.run_gcode("G91\nG1 Z" + to_string(-g.levelling.auto_level_dist) + " F600\nG90\n")
         g.levelling.bed_offset = f32(g.levelling.bed_offset - g.levelling.auto_level_dist)
         log.debug("Current bed_offset:%f", g.levelling.bed_offset)
     else:
-        g.ep.send(json_run_a_gcode("G91\nG1 Z" + to_string(g.levelling.auto_level_dist) + " F600\nG90\n"))
+        g.ep.run_gcode("G91\nG1 Z" + to_string(g.levelling.auto_level_dist) + " F600\nG90\n")
         g.levelling.bed_offset = f32(g.levelling.bed_offset + g.levelling.auto_level_dist)
         log.debug("Current bed_offset:%f", g.levelling.bed_offset)
 
 
 def send_gcode(command):
-    g.ep.send(json_run_a_gcode(command))
+    g.ep.run_gcode(command)
 
 
 def go_to_adjust():
@@ -572,5 +572,5 @@ def check_print_interrupted():
         return
     print_interrupted_status = substr(printer_variables, printer_variables.find("was_interrupted =") + 18, 5)
     if print_interrupted_status != "False":
-        g.ep.send(json_run_a_gcode("DETECT_INTERRUPTION\n"))
+        g.ep.run_gcode("DETECT_INTERRUPTION\n")
         g.screen.jump_resume_print = True

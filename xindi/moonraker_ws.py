@@ -18,6 +18,7 @@ import threading
 
 from . import state as g
 from .cpp import b2s, s2b
+from .moonraker_api import json_run_a_gcode
 
 log = logging.getLogger(__name__)
 
@@ -359,6 +360,10 @@ class MoonrakerClient(object):
                 self.sending_message = message
                 log.debug("%s", "Data sent, content: " + self.sending_message)
         return True
+
+    def run_gcode(self, script):
+        """Ask Klipper to run a gcode script."""
+        return self.send(json_run_a_gcode(script))
 
     def connected(self):
         return self.is_connected

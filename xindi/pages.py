@@ -10,7 +10,6 @@ from . import pics
 from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, c_round, system
-from .moonraker_api import json_run_a_gcode
 from .printer_status import get_cal_printing_time
 from .file_browser import output_imgdata
 from . import actions, filelist, settings, wifi_ui
@@ -59,8 +58,8 @@ def _jump_to(flag, page):
 
 def _unhomed_move_pop():
     if g.screen.unhomed_move_mode in UNHOMED_MOVES:
-        g.ep.send(json_run_a_gcode(UNHOMED_HOMING))
-        g.ep.send(json_run_a_gcode(UNHOMED_MOVES[g.screen.unhomed_move_mode]))
+        g.ep.run_gcode(UNHOMED_HOMING)
+        g.ep.run_gcode(UNHOMED_MOVES[g.screen.unhomed_move_mode])
     g.screen.unhomed_move_mode = 0
     _jump_to("jump_move_pop_2", ids.MOVE_POP_2)
 
@@ -272,7 +271,7 @@ def print_filament():
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.klippy.idle_timeout_state == "Idle":
-        g.ep.send(json_run_a_gcode("G28\n"))
+        g.ep.run_gcode("G28\n")
         actions.cancel_print()
 
 
@@ -308,9 +307,9 @@ def auto_moving():
         g.klippy.idle_timeout_state = "Printing"
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
+        g.ep.run_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n")
         time.sleep(1)
-        g.ep.send(json_run_a_gcode("M4027\n"))
+        g.ep.run_gcode("M4027\n")
     if g.levelling.step_4:
         time.sleep(15)
         page_to(ids.AUTO_FINISH)
@@ -971,14 +970,14 @@ def open_calibrate():
     if g.levelling.step_2 and g.klippy.webhooks_state == "ready":
         g.levelling.step_2 = False
         time.sleep(5)
-        g.ep.send(json_run_a_gcode("M901"))    # CLL input shaping after the bed levelling
+        g.ep.run_gcode("M901")    # CLL input shaping after the bed levelling
     if g.levelling.step_1 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_1 = False
         settings.get_heater_bed_target()
         actions.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.send(json_run_a_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n"))
+        g.ep.run_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n")
         time.sleep(5)
-        g.ep.send(json_run_a_gcode("M4027"))   # CLL levelling after the platform / nozzle initialisation
+        g.ep.run_gcode("M4027")   # CLL levelling after the platform / nozzle initialisation
 
 
 def filament_set_fan():

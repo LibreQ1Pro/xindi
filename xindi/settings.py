@@ -10,7 +10,7 @@ from . import network
 from .network import get_wlan0_status
 from .ui import page_to
 from .cpp import to_string, system
-from .moonraker_api import json_run_a_gcode, json_get_job_totals
+from .moonraker_api import json_get_job_totals
 from .config_ini import open_settings, save_setting, open_version_file
 
 log = logging.getLogger(__name__)
@@ -117,7 +117,7 @@ def restore_config():
     system("curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'")
     system("cp /root/config.mksini " + paths.klipper_config() + "/config.mksini")
     system("cp " + paths.klipper_config() + "/saved_variables.cfg.bak " + paths.klipper_config() + "/saved_variables.cfg")
-    g.ep.send(json_run_a_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0"))
+    g.ep.run_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0")
     page_to(ids.MAIN)
 
 
