@@ -222,12 +222,12 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:fila_set_fan_fan1_slider_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_en"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_en"
         },
         "bco1": 64235,
         "pic2": {
@@ -289,12 +289,12 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:fila_set_fan_fan1_slider_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_en"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_en"
         },
         "bco1": 64235,
         "pic2": {
@@ -356,12 +356,12 @@
         "dis": 100,
         "pic": 65535,
         "picc": {
-          "$ref": "picture:fila_set_fan_fan1_slider_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_en"
         },
         "bco": 1024,
         "pic1": 65535,
         "picc1": {
-          "$ref": "picture:fila_set_fan_fan1_slider_fg_cn"
+          "$ref": "picture:fila_set_fan_fan1_slider_fg_en"
         },
         "bco1": 64235,
         "pic2": 65535,

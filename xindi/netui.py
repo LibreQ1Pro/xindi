@@ -6,6 +6,7 @@ from . import state as g
 from . import pics
 from . import ui
 from . import network
+from . import netstrings
 from .cpp import b2s, sleep, pthread_create
 from .mks_log import MKSLOG, MKSLOG_BLUE
 from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
@@ -28,11 +29,11 @@ class S:
     kbmode = KB_PSK_SCANNED
 
 
-def tr(en, ru):
-    """The language of the screen: Russian, or English for everything else."""
+def tr(key):
+    """The text ``key`` of netstrings in the language of the screen."""
     from . import event
     event.get_mks_language_status()
-    return ru if g.mks_language_status == 1 else en
+    return netstrings.text(key, g.mks_language_status)
 
 
 def _clip(text, length):
@@ -118,14 +119,14 @@ def _reload_selected():
 
 def show_detail():
     item = S.sel
-    state = tr("Saved", "Сохранена")
+    state = tr("saved")
     if item["active"]:
         ip = network.device_report("wifi")["ip"]
-        state = tr("Connected", "Подключено") + (", " + ip if ip else "")
+        state = tr("connected") + (", " + ip if ip else "")
     _txt("ssid_txt", _clip(item["ssid"], 24))
     _txt("status_txt", _clip(state, 30))
-    _txt("connect_btn", tr("Disconnect", "Отключиться") if item["active"] else tr("Connect", "Подключиться"))
-    _txt("auto_btn", tr("Autoconnect: ", "Автоподключение: ") + (tr("on", "вкл") if item["autoconnect"] else tr("off", "выкл")))
+    _txt("connect_btn", tr("disconnect") if item["active"] else tr("connect"))
+    _txt("auto_btn", tr("autoconnect") + (tr("on") if item["autoconnect"] else tr("off")))
 
 
 def detail_clicked(widget_id):
@@ -146,8 +147,8 @@ def detail_clicked(widget_id):
         show_detail()
     elif widget_id == 4:
         ui.page_to(ui.TJC_PAGE_NET_CONFIRM)
-        _txt("msg", _lines(tr("Forget", "Забыть"), '"' + _clip(item["ssid"], 22) + '"?',
-                            tr("The saved password", "Сохранённый пароль"), tr("will be deleted.", "будет удалён.")))
+        _txt("msg", _lines(tr("forget"), '"' + _clip(item["ssid"], 22) + '"?',
+                            tr("saved_password"), tr("will_be_deleted")))
     elif widget_id == 23:
         open_saved()
 
@@ -171,18 +172,18 @@ def open_info():
 
 def _state_word(report, radio=True):
     if report["name"] is None:
-        return tr("No adapter", "Нет адаптера")
+        return tr("no_adapter")
     if not radio:
-        return tr("Off", "Выключено")
-    return {"connected": tr("Connected", "Подключено"),
-            "unavailable": tr("Unavailable", "Недоступно")}.get(report["state"], tr("Disconnected", "Не подключено"))
+        return tr("off_state")
+    return {"connected": tr("connected"),
+            "unavailable": tr("unavailable")}.get(report["state"], tr("disconnected"))
 
 
 def show_info():
     wifi = network.device_report("wifi")
     radio = network.wifi_radio()
     lan = network.device_report("ethernet")
-    gw = tr("GW", "Шлюз")
+    gw = tr("gateway")
     wifi_lines = ["Wi-Fi  " + (wifi["name"] or "-"), _state_word(wifi, radio)]
     if wifi["state"] == "connected":
         wifi_lines += ["SSID  " + _clip(wifi["ssid"], 18), "IP  " + wifi["ip"], gw + "  " + wifi["gateway"]]
@@ -191,7 +192,7 @@ def show_info():
         lan_lines += ["IP  " + lan["ip"], gw + "  " + lan["gateway"], "MAC  " + lan["mac"]]
     _txt("wifi_txt", _lines(*[_clip(line, 28) for line in wifi_lines]))
     _txt("lan_txt", _lines(*[_clip(line, 28) for line in lan_lines]))
-    _txt("radio_btn", "Wi-Fi: " + (tr("on", "вкл") if radio else tr("off", "выкл")))
+    _txt("radio_btn", "Wi-Fi: " + (tr("on") if radio else tr("off")))
 
 
 def _toggle_thread(arg):
@@ -223,7 +224,7 @@ def open_keyboard(mode, minimum, title):
 
 def open_hidden():
     S.hidden_ssid = ""
-    open_keyboard(KB_HIDDEN_SSID, 1, tr("Network name (SSID)", "Имя сети (SSID)"))
+    open_keyboard(KB_HIDDEN_SSID, 1, tr("network_name"))
 
 
 def keyboard_back():

@@ -16,10 +16,31 @@ python3 hmi_parse.py out.HMI --check
 `.tft` (the printer flashes `/root/800_480.tft` into the screen at start-up).
 
 `tools/add_network_pages.py` is the script that made the network changes from the stock sources (it refuses to run
-twice); `tools/draw_network_pictures.py` draws the backgrounds of the network pages (antialiased rounded corners, run it
+twice); `tools/draw_source_switch.py` redraws the LAN / Wi-Fi switch of the network page as a two-segment control with Lucide icons (`icons/`, ISC license);
+`tools/draw_network_pictures.py` draws the backgrounds of the network pages (antialiased rounded corners, run it
 again after changing a layout). Helpers: `tools/page_dump.py` (a page as text), `tools/pic_sheet.py` (pictures by id on one
 image), `tools/name_pictures.py` (how the picture names were proposed); on the printer, `tests/printer/check_network.py`
 checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...` draws a rough preview of pages (Noto Sans instead of the screen fonts).
+
+## Languages
+
+The screen has 13 languages (the global `lang`: 0 zh, 1 ru, 2 en, 3 ja, 4 fr, 5 de, 6 it, 7 es, 8 ko, 9 pt, 10 ar, 11 tr,
+12 he); every page sets its texts in `codesload` with an `if(lang==N)` chain. The text stored in the component itself
+(what the editor shows) is English, and so are the pictures the editor shows by default (the per-language pictures
+`*_cn`, `*_en`, `*_ru` ... are chosen by `codesload`). Rules for new texts:
+
+- put the English text into the `txt` attribute, translations into `codesload`; a component whose text comes from the host at run time (the network pages: names, addresses, states) is left
+  empty, so nothing wrong flashes while the page loads (`tools/preview_page.py` has its own sample data to draw them);
+- `txt_maxl` is in bytes: a Chinese character takes 3, an Arabic one 2; check the longest language;
+- the network pages take their texts from `xindi/netstrings.py` (the host uses the same table for the texts that depend on
+  the state): edit the table, then run `python3 tools/net_i18n.py` from this directory;
+- the copy of every language lives in tools: English and Russian in `tools/english_copy.py`, the other ten languages as
+  translations of the English text in `tools/translations.py` (keyed by the English text; `SHORT` in `english_copy.py`
+  holds the shorter texts where a translation does not fit its component). Run `python3 tools/english_copy.py` after
+  changing either; it also reports a text that is wider or taller than its component (glyph widths of the screen font);
+  Japanese, Arabic and Hebrew are not broken into lines by hand, the screen wraps them;
+- `tools/lint_program.py` checks `Program.s`: every global is used by a page or the host and none is declared twice;
+- `tools/page_context.py` prints every page next to the buttons it really has (to check that "tap Next" refers to a button that exists; buttons named in a text are put in quotes, an icon button is written as the icon: “>”, “+”, “↓”);
 
 ## Frames to the host
 

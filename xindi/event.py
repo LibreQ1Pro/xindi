@@ -370,7 +370,7 @@ def refresh_page_print_filament():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.error_message)
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.printer_idle_timeout_state == "Idle":
@@ -541,7 +541,7 @@ def refresh_page_printing_zoffset():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.error_message)
 
 
 def refresh_page_printing():
@@ -668,7 +668,7 @@ def refresh_page_printing():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.error_message)
 
 
 def clear_page_printing_arg():
@@ -2094,7 +2094,7 @@ def refresh_page_preview_pop():
         page_to(ui.TJC_PAGE_GCODE_ERROR)
         cancel_print()
         clear_previous_data()
-        send_cmd_txt(g.tty_fd, "msg", "gcode error:" + g.error_message)
+        send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.error_message)
 
 
 def replaceCharacters(path, searchChars, replacement):
