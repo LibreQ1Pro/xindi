@@ -78,17 +78,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "29"
+     "26"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -97,16 +97,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -115,10 +115,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "29"
+     "26"
     ],
     "last_file_btn.picc2": [
-     "30"
+     "27"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -142,16 +142,16 @@
      "2a2ab89f367b5253:8"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -160,13 +160,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "32"
+     "29"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -178,10 +178,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -196,10 +196,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -230,10 +230,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -248,12 +248,12 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137",
-     "138"
+     "125",
+     "126"
     ],
     "reset_btn.picc2": [
-     "135",
-     "136"
+     "123",
+     "124"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -264,10 +264,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -282,10 +282,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -304,13 +304,13 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "23"
     ],
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -319,16 +319,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -337,25 +337,25 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "23"
     ],
     "last_file_btn.picc2": [
-     "31"
+     "28"
     ],
     "last_file_name.txt": [
      "\"\""
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -364,13 +364,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "32"
+     "29"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -378,10 +378,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""

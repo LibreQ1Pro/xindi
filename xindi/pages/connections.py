@@ -84,8 +84,8 @@ def show_saved():
     first = pages <= 1 or S.page == 0
     last = pages <= 1 or S.page == pages - 1
     for button, off in (("prev_btn", first), ("next_btn", last)):
-        g.port.picc(button, "126" if off else "125")
-        g.port.picc2(button, "123" if off else "124")
+        g.port.picc(button, pics.rows_check if off else pics.rows_lock)
+        g.port.picc2(button, pics.bg_settings_press if off else pics.rows_check_press)
 
 
 def saved_clicked(widget_id):

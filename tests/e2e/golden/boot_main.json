@@ -58,17 +58,17 @@
      "stop"
     ],
     "b[0].pic": [
-     "29"
+     "26"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -78,20 +78,20 @@
      "40"
     ],
     "beep_btn.picc": [
-     "32",
-     "33"
+     "29",
+     "30"
     ],
     "beep_btn.picc2": [
-     "30",
-     "31"
+     "27",
+     "28"
     ],
     "chamber_btn.picc": [
-     "32",
-     "33"
+     "29",
+     "30"
     ],
     "chamber_btn.picc2": [
-     "30",
-     "31"
+     "27",
+     "28"
     ],
     "chamber_temp.pco": [
      "65535",
@@ -102,10 +102,10 @@
      "31"
     ],
     "last_file_btn.picc": [
-     "29"
+     "26"
     ],
     "last_file_btn.picc2": [
-     "30"
+     "27"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -129,22 +129,22 @@
      "2a2ab89f367b5253:8"
     ],
     "light_btn.picc": [
-     "32",
-     "33",
-     "32"
+     "29",
+     "30",
+     "29"
     ],
     "light_btn.picc2": [
-     "30",
-     "31",
-     "30"
+     "27",
+     "28",
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32",
-     "33"
+     "29",
+     "30"
     ],
     "nozzle_btn.picc2": [
-     "30",
-     "31"
+     "27",
+     "28"
     ],
     "nozzle_temp.pco": [
      "65535",
@@ -155,13 +155,13 @@
      "32"
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15

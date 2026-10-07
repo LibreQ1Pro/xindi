@@ -2444,24 +2444,6 @@
       }
     },
     {
-      "key": "unused_37",
-      "source": {
-        "png": "pictures/unused_37.png"
-      }
-    },
-    {
-      "key": "unused_53",
-      "source": {
-        "png": "pictures/unused_53.png"
-      }
-    },
-    {
-      "key": "unused_54",
-      "source": {
-        "png": "pictures/unused_54.png"
-      }
-    },
-    {
       "key": "bg_filamentVideo2",
       "source": {
         "png": "pictures/bg_filamentVideo2.png"
@@ -2609,12 +2591,6 @@
       "key": "popup2_bg",
       "source": {
         "png": "pictures/popup2_bg.png"
-      }
-    },
-    {
-      "key": "unused_296",
-      "source": {
-        "png": "pictures/unused_296.png"
       }
     },
     {
@@ -2792,18 +2768,6 @@
       }
     },
     {
-      "key": "unused_66",
-      "source": {
-        "png": "pictures/unused_66.png"
-      }
-    },
-    {
-      "key": "unused_83",
-      "source": {
-        "png": "pictures/unused_83.png"
-      }
-    },
-    {
       "key": "popup_ok_press",
       "source": {
         "png": "pictures/popup_ok_press.png"
@@ -2831,12 +2795,6 @@
       "key": "bg_move_pop_2",
       "source": {
         "png": "pictures/bg_move_pop_2.png"
-      }
-    },
-    {
-      "key": "unused_19",
-      "source": {
-        "png": "pictures/unused_19.png"
       }
     },
     {
@@ -2888,18 +2846,6 @@
       }
     },
     {
-      "key": "unused_193",
-      "source": {
-        "png": "pictures/unused_193.png"
-      }
-    },
-    {
-      "key": "unused_192",
-      "source": {
-        "png": "pictures/unused_192.png"
-      }
-    },
-    {
       "key": "bg_level_mode",
       "source": {
         "png": "pictures/bg_level_mode.png"
@@ -2909,24 +2855,6 @@
       "key": "level_mode_tab_settings_press",
       "source": {
         "png": "pictures/level_mode_tab_settings_press.png"
-      }
-    },
-    {
-      "key": "unused_204",
-      "source": {
-        "png": "pictures/unused_204.png"
-      }
-    },
-    {
-      "key": "unused_115",
-      "source": {
-        "png": "pictures/unused_115.png"
-      }
-    },
-    {
-      "key": "unused_116",
-      "source": {
-        "png": "pictures/unused_116.png"
       }
     },
     {
@@ -3212,18 +3140,6 @@
       }
     },
     {
-      "key": "bg_service",
-      "source": {
-        "png": "pictures/bg_service.png"
-      }
-    },
-    {
-      "key": "unused_136",
-      "source": {
-        "png": "pictures/unused_136.png"
-      }
-    },
-    {
       "key": "bg_sleep_mode",
       "source": {
         "png": "pictures/bg_sleep_mode.png"
@@ -3251,18 +3167,6 @@
       "key": "bg_info_popup",
       "source": {
         "png": "pictures/bg_info_popup.png"
-      }
-    },
-    {
-      "key": "update_nfound_ok_press",
-      "source": {
-        "png": "pictures/update_nfound_ok_press.png"
-      }
-    },
-    {
-      "key": "unused_46",
-      "source": {
-        "png": "pictures/unused_46.png"
       }
     },
     {
@@ -3398,54 +3302,6 @@
       }
     },
     {
-      "key": "unused_194",
-      "source": {
-        "png": "pictures/unused_194.png"
-      }
-    },
-    {
-      "key": "unused_195",
-      "source": {
-        "png": "pictures/unused_195.png"
-      }
-    },
-    {
-      "key": "unused_196",
-      "source": {
-        "png": "pictures/unused_196.png"
-      }
-    },
-    {
-      "key": "unused_197",
-      "source": {
-        "png": "pictures/unused_197.png"
-      }
-    },
-    {
-      "key": "unused_109",
-      "source": {
-        "png": "pictures/unused_109.png"
-      }
-    },
-    {
-      "key": "unused_129",
-      "source": {
-        "png": "pictures/unused_129.png"
-      }
-    },
-    {
-      "key": "unused_130",
-      "source": {
-        "png": "pictures/unused_130.png"
-      }
-    },
-    {
-      "key": "unused_142",
-      "source": {
-        "png": "pictures/unused_142.png"
-      }
-    },
-    {
       "key": "filament_kb_input_bg_he_2",
       "source": {
         "png": "pictures/filament_kb_input_bg_he_2.png"
@@ -3470,18 +3326,6 @@
       }
     },
     {
-      "key": "unused_150",
-      "source": {
-        "png": "pictures/unused_150.png"
-      }
-    },
-    {
-      "key": "unused_151",
-      "source": {
-        "png": "pictures/unused_151.png"
-      }
-    },
-    {
       "key": "filament_pop_2_steps_bar",
       "source": {
         "png": "pictures/filament_pop_2_steps_bar.png"
@@ -3497,12 +3341,6 @@
       "key": "pop_steps_2",
       "source": {
         "png": "pictures/pop_steps_2.png"
-      }
-    },
-    {
-      "key": "unused_107",
-      "source": {
-        "png": "pictures/unused_107.png"
       }
     },
     {
@@ -3542,18 +3380,6 @@
       }
     },
     {
-      "key": "unused_22",
-      "source": {
-        "png": "pictures/unused_22.png"
-      }
-    },
-    {
-      "key": "unused_72",
-      "source": {
-        "png": "pictures/unused_72.png"
-      }
-    },
-    {
       "key": "bg_pre_heat",
       "source": {
         "png": "pictures/bg_pre_heat.png"
@@ -3590,12 +3416,6 @@
       }
     },
     {
-      "key": "unused_92",
-      "source": {
-        "png": "pictures/unused_92.png"
-      }
-    },
-    {
       "key": "bg_open_finish",
       "source": {
         "png": "pictures/bg_open_finish.png"
@@ -3620,12 +3440,6 @@
       }
     },
     {
-      "key": "bg_server_set",
-      "source": {
-        "png": "pictures/bg_server_set.png"
-      }
-    },
-    {
       "key": "server_row_off",
       "source": {
         "png": "pictures/server_row_off.png"
@@ -3647,18 +3461,6 @@
       "key": "server_press_off",
       "source": {
         "png": "pictures/server_press_off.png"
-      }
-    },
-    {
-      "key": "bg_update_mode",
-      "source": {
-        "png": "pictures/bg_update_mode.png"
-      }
-    },
-    {
-      "key": "update_mode_bg_crop1",
-      "source": {
-        "png": "pictures/update_mode_bg_crop1.png"
       }
     },
     {
@@ -3854,84 +3656,6 @@
       }
     },
     {
-      "key": "service_info_pic_cn",
-      "source": {
-        "png": "pictures/service_info_pic_cn.png"
-      }
-    },
-    {
-      "key": "service_info_pic_ru",
-      "source": {
-        "png": "pictures/service_info_pic_ru.png"
-      }
-    },
-    {
-      "key": "service_info_pic_en",
-      "source": {
-        "png": "pictures/service_info_pic_en.png"
-      }
-    },
-    {
-      "key": "service_info_pic_jp",
-      "source": {
-        "png": "pictures/service_info_pic_jp.png"
-      }
-    },
-    {
-      "key": "service_info_pic_fr",
-      "source": {
-        "png": "pictures/service_info_pic_fr.png"
-      }
-    },
-    {
-      "key": "service_info_pic_de",
-      "source": {
-        "png": "pictures/service_info_pic_de.png"
-      }
-    },
-    {
-      "key": "service_info_pic_it",
-      "source": {
-        "png": "pictures/service_info_pic_it.png"
-      }
-    },
-    {
-      "key": "service_info_pic_es",
-      "source": {
-        "png": "pictures/service_info_pic_es.png"
-      }
-    },
-    {
-      "key": "service_info_pic_kr",
-      "source": {
-        "png": "pictures/service_info_pic_kr.png"
-      }
-    },
-    {
-      "key": "service_info_pic_pt",
-      "source": {
-        "png": "pictures/service_info_pic_pt.png"
-      }
-    },
-    {
-      "key": "service_info_pic_ar",
-      "source": {
-        "png": "pictures/service_info_pic_ar.png"
-      }
-    },
-    {
-      "key": "service_info_pic_tr",
-      "source": {
-        "png": "pictures/service_info_pic_tr.png"
-      }
-    },
-    {
-      "key": "service_info_pic_he",
-      "source": {
-        "png": "pictures/service_info_pic_he.png"
-      }
-    },
-    {
       "key": "ip_switch_off",
       "source": {
         "png": "pictures/ip_switch_off.png"
@@ -3980,225 +3704,15 @@
       }
     },
     {
-      "key": "unused_149",
-      "source": {
-        "png": "pictures/unused_149.png"
-      }
-    },
-    {
-      "key": "unused_257",
-      "source": {
-        "png": "pictures/unused_257.png"
-      }
-    },
-    {
-      "key": "unused_225",
-      "source": {
-        "png": "pictures/unused_225.png"
-      }
-    },
-    {
-      "key": "unused_218",
-      "source": {
-        "png": "pictures/unused_218.png"
-      }
-    },
-    {
-      "key": "unused_226",
-      "source": {
-        "png": "pictures/unused_226.png"
-      }
-    },
-    {
-      "key": "bg_add_account",
-      "source": {
-        "png": "pictures/bg_add_account.png"
-      }
-    },
-    {
-      "key": "add_account_user_btn_press",
-      "source": {
-        "png": "pictures/add_account_user_btn_press.png"
-      }
-    },
-    {
-      "key": "bg_popup_dark",
-      "source": {
-        "png": "pictures/bg_popup_dark.png"
-      }
-    },
-    {
-      "key": "unused_291",
-      "source": {
-        "png": "pictures/unused_291.png"
-      }
-    },
-    {
-      "key": "bg_account_list",
-      "source": {
-        "png": "pictures/bg_account_list.png"
-      }
-    },
-    {
-      "key": "account_list_acct1",
-      "source": {
-        "png": "pictures/account_list_acct1.png"
-      }
-    },
-    {
-      "key": "unused_287",
-      "source": {
-        "png": "pictures/unused_287.png"
-      }
-    },
-    {
-      "key": "account_list_refresh_btn_press",
-      "source": {
-        "png": "pictures/account_list_refresh_btn_press.png"
-      }
-    },
-    {
-      "key": "unused_289",
-      "source": {
-        "png": "pictures/unused_289.png"
-      }
-    },
-    {
       "key": "preview_press_off",
       "source": {
         "png": "pictures/preview_press_off.png"
       }
     },
     {
-      "key": "unused_161",
-      "source": {
-        "png": "pictures/unused_161.png"
-      }
-    },
-    {
-      "key": "unused_162",
-      "source": {
-        "png": "pictures/unused_162.png"
-      }
-    },
-    {
-      "key": "unused_177",
-      "source": {
-        "png": "pictures/unused_177.png"
-      }
-    },
-    {
-      "key": "unused_178",
-      "source": {
-        "png": "pictures/unused_178.png"
-      }
-    },
-    {
-      "key": "bg_link_login",
-      "source": {
-        "png": "pictures/bg_link_login.png"
-      }
-    },
-    {
-      "key": "link_login_logout_btn_press",
-      "source": {
-        "png": "pictures/link_login_logout_btn_press.png"
-      }
-    },
-    {
-      "key": "link_login_qr_btn_press",
-      "source": {
-        "png": "pictures/link_login_qr_btn_press.png"
-      }
-    },
-    {
-      "key": "link_login_logout_btn",
-      "source": {
-        "png": "pictures/link_login_logout_btn.png"
-      }
-    },
-    {
-      "key": "unused_21",
-      "source": {
-        "png": "pictures/unused_21.png"
-      }
-    },
-    {
-      "key": "bg_link_logout",
-      "source": {
-        "png": "pictures/bg_link_logout.png"
-      }
-    },
-    {
-      "key": "bg_device_code",
-      "source": {
-        "png": "pictures/bg_device_code.png"
-      }
-    },
-    {
-      "key": "unused_305",
-      "source": {
-        "png": "pictures/unused_305.png"
-      }
-    },
-    {
-      "key": "unused_304",
-      "source": {
-        "png": "pictures/unused_304.png"
-      }
-    },
-    {
-      "key": "unused_306",
-      "source": {
-        "png": "pictures/unused_306.png"
-      }
-    },
-    {
-      "key": "unused_301",
-      "source": {
-        "png": "pictures/unused_301.png"
-      }
-    },
-    {
-      "key": "unused_302",
-      "source": {
-        "png": "pictures/unused_302.png"
-      }
-    },
-    {
-      "key": "unused_308",
-      "source": {
-        "png": "pictures/unused_308.png"
-      }
-    },
-    {
-      "key": "unused_307",
-      "source": {
-        "png": "pictures/unused_307.png"
-      }
-    },
-    {
-      "key": "unused_309",
-      "source": {
-        "png": "pictures/unused_309.png"
-      }
-    },
-    {
       "key": "internet_page_back_btn",
       "source": {
         "png": "pictures/internet_page_back_btn.png"
-      }
-    },
-    {
-      "key": "bg_server_error2",
-      "source": {
-        "png": "pictures/bg_server_error2.png"
-      }
-    },
-    {
-      "key": "server_error2_ok_press",
-      "source": {
-        "png": "pictures/server_error2_ok_press.png"
       }
     },
     {

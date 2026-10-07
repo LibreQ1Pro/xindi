@@ -66,17 +66,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "29"
+     "26"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -85,16 +85,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -103,10 +103,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "29"
+     "26"
     ],
     "last_file_btn.picc2": [
-     "30"
+     "27"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -130,16 +130,16 @@
      "2a2ab89f367b5253:8"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -148,13 +148,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -170,10 +170,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "137"
+     "125"
     ],
     "reset_btn.picc2": [
-     "135"
+     "123"
     ],
     "version_txt.txt": [
      "\"V4.4.21\""
@@ -203,10 +203,10 @@
      "gcode errors"
     ],
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -215,16 +215,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -233,16 +233,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -251,10 +251,10 @@
      "25"
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -273,10 +273,10 @@
   {
    "attrs": {
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -285,16 +285,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -303,16 +303,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -330,10 +330,10 @@
      ""
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -349,10 +349,10 @@
   {
    "attrs": {
     "bed_btn.picc": [
-     "32"
+     "29"
     ],
     "bed_btn.picc2": [
-     "30"
+     "27"
     ],
     "bed_temp.pco": [
      "65535"
@@ -361,16 +361,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -379,16 +379,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -397,10 +397,10 @@
      "25"
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
@@ -412,12 +412,12 @@
   {
    "attrs": {
     "heat_toggle.picc": [
-     "107",
-     "106"
+     "95",
+     "94"
     ],
     "heat_toggle.picc2": [
-     "104",
-     "105"
+     "92",
+     "93"
     ],
     "temp_now.pco": [
      "65535",
@@ -456,10 +456,10 @@
   {
    "attrs": {
     "bed_btn.picc": [
-     "33"
+     "30"
     ],
     "bed_btn.picc2": [
-     "31"
+     "28"
     ],
     "bed_temp.pco": [
      "63488"
@@ -468,16 +468,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "32"
+     "29"
     ],
     "beep_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_btn.picc": [
-     "32"
+     "29"
     ],
     "chamber_btn.picc2": [
-     "30"
+     "27"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -486,16 +486,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "32"
+     "29"
     ],
     "light_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_btn.picc": [
-     "32"
+     "29"
     ],
     "nozzle_btn.picc2": [
-     "30"
+     "27"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -504,10 +504,10 @@
      "25"
     ],
     "usb_icon.picc": [
-     "33"
+     "30"
     ],
     "wifi_icon.picc": [
-     "33"
+     "30"
     ]
    },
    "page": 15
