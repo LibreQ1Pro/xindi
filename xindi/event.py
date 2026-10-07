@@ -152,6 +152,8 @@ def refresh_page_show():
                                  ui.TJC_PAGE_COMMON_SETTING, ui.TJC_PAGE_SLEEP_MODE, ui.TJC_PAGE_INTERNET,
                                  ui.TJC_PAGE_WIFI_LIST, ui.TJC_PAGE_WIFI_KB, ui.TJC_PAGE_WIFI_CONNECT,
                                  ui.TJC_PAGE_WIFI_FAILED, ui.TJC_PAGE_WIFI_SUCCESS, ui.TJC_PAGE_WIFI_SAVING,
+                                 ui.TJC_PAGE_NET_SAVED, ui.TJC_PAGE_NET_DETAIL, ui.TJC_PAGE_NET_CONFIRM,
+                                 ui.TJC_PAGE_NET_INFO,
                                  ui.TJC_PAGE_UPDATE_FOUND, ui.TJC_PAGE_UPDATE_NOT_FOUND, ui.TJC_PAGE_UPDATING,
                                  ui.TJC_PAGE_UPDATE_FINISH, ui.TJC_PAGE_RESTORE_CONFIG, ui.TJC_PAGE_INTERNET_PAGE,
                                  ui.TJC_PAGE_SERVER_SET, ui.TJC_PAGE_UPDATE_MODE, ui.TJC_PAGE_ONLINE_UPDATE,
@@ -202,8 +204,6 @@ def refresh_page_show():
         refresh_page_stopping()
     elif page == ui.TJC_PAGE_PRE_BED_CALIBRATION:
         refresh_page_auto_level()
-    elif page == ui.TJC_PAGE_WIFI_LIST:
-        refresh_page_wifi_list_2()
     elif page == ui.TJC_PAGE_OPEN_FILAMENTVIDEO_2:
         refresh_page_open_filament_video_2()
     elif page == ui.TJC_PAGE_ZOFFSET:
@@ -1601,10 +1601,6 @@ def refresh_page_wifi_list():
         else:
             send_cmd_picc(g.tty_fd, "b2", "125")
             send_cmd_picc2(g.tty_fd, "b2", "124")
-
-
-def refresh_page_wifi_list_2():
-    send_cmd_txt(g.tty_fd, "t0", g.status_result.ip_address)
 
 
 def get_wifi_list_ssid(index):

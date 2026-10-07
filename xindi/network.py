@@ -166,7 +166,7 @@ def _forget(ssid):
             _run(["con", "delete", "uuid", fields[1]])
 
 
-def mks_connect(ssid, psk):
+def mks_connect(ssid, psk, hidden=False):
     """Connects to the network and saves the connection (NetworkManager keeps it by itself).
     Returns True on success."""
     dev = _device("wifi")
@@ -177,24 +177,129 @@ def mks_connect(ssid, psk):
     args = ["-w", "40", "dev", "wifi", "connect", ssid, "ifname", dev]
     if psk:
         args += ["password", psk]
+    if hidden:
+        args += ["hidden", "yes"]
     ret, out = _run(args, timeout=60)
     if ret != 0:
         _forget(ssid)   # do not keep a connection with a wrong password
     return ret == 0
 
 
+def connect_saved(uuid, psk=None):
+    """Brings a saved connection up, with a new password if given. Returns True on success."""
+    if psk is not None:
+        ret, out = _run(["-t", "-f", "802-11-wireless-security.key-mgmt", "con", "show", "uuid", uuid])
+        args = ["con", "modify", "uuid", uuid]
+        if ret == 0 and not _kv(out).get("802-11-wireless-security.key-mgmt"):
+            args += ["wifi-sec.key-mgmt", "wpa-psk"]    # an open network gets a password
+        ret, out = _run(args + ["wifi-sec.psk", psk])
+        if ret != 0:
+            return False
+    dev = _device("wifi")
+    ret, out = _run(["-w", "40", "con", "up", "uuid", uuid] + (["ifname", dev] if dev else []), timeout=60)
+    return ret == 0
+
+
 def _connect_thread(arg):
-    ssid, psk = arg
+    func, args, ssid = arg
     MKSLOG_BLUE("Connecting to %s", ssid)
-    ok = mks_connect(ssid, psk)
+    ok = func(*args)
     mks_wifi_run_cmd_status(g.status_result)
     if g.current_page_id == ui.TJC_PAGE_WIFI_CONNECT:
         ui.page_to(ui.TJC_PAGE_WIFI_SUCCESS if ok else ui.TJC_PAGE_WIFI_FAILED)
 
 
-def mks_start_connect(ssid, psk):
+def mks_start_connect(ssid, psk, hidden=False):
     """Starts the connection in the background; the screen is moved to the result page."""
-    pthread_create(_connect_thread, (ssid, psk))
+    pthread_create(_connect_thread, (mks_connect, (ssid, psk, hidden), ssid))
+
+
+def start_connect_saved(uuid, name, psk=None):
+    pthread_create(_connect_thread, (connect_saved, (uuid, psk), name))
+
+
+# ---------------------------------------------------------------------------------------------- saved networks
+def _unescape(value):
+    return value.replace("\\:", ":").replace("\\\\", "\\")
+
+
+def _kv(out):
+    """``nmcli -t -f A,B ...`` output as a dict (repeated fields "X[1]" keep the first value)."""
+    info = {}
+    for line in out.splitlines():
+        key, _, value = line.partition(":")
+        info.setdefault(key.split("[")[0], _unescape(value))
+    return info
+
+
+def saved_wifi():
+    """The saved wifi connections: the active one first, then the most recently used."""
+    ret, out = _run(["-t", "-f", "NAME,UUID,TYPE,ACTIVE", "con", "show"])
+    items = []
+    for line in out.splitlines():
+        fields = _split(line)
+        if len(fields) != 4 or fields[2] != "802-11-wireless":
+            continue
+        ret, detail = _run(["-t", "-f", "802-11-wireless.ssid,connection.autoconnect,connection.timestamp",
+                            "con", "show", "uuid", fields[1]])
+        kv = _kv(detail)
+        stamp = kv.get("connection.timestamp", "0")
+        items.append({"name": fields[0], "uuid": fields[1], "ssid": kv.get("802-11-wireless.ssid") or fields[0],
+                      "autoconnect": kv.get("connection.autoconnect", "yes") == "yes",
+                      "active": fields[3] == "yes", "stamp": int(stamp) if stamp.isdigit() else 0})
+    items.sort(key=lambda c: (not c["active"], -c["stamp"], c["ssid"].lower()))
+    return items
+
+
+def forget(uuid):
+    return _run(["con", "delete", "uuid", uuid])[0] == 0
+
+
+def set_autoconnect(uuid, enabled):
+    return _run(["con", "modify", "uuid", uuid, "connection.autoconnect", "yes" if enabled else "no"])[0] == 0
+
+
+def disconnect_wifi():
+    dev = _device("wifi")
+    return dev is not None and _run(["dev", "disconnect", dev])[0] == 0
+
+
+# ---------------------------------------------------------------------------------------------- interfaces
+def wifi_radio():
+    """Is the wifi radio switched on?"""
+    return _run(["radio", "wifi"])[1].strip() == "enabled"
+
+
+def set_wifi_radio(enabled):
+    return _run(["radio", "wifi", "on" if enabled else "off"])[0] == 0
+
+
+def set_link(kind, enabled):
+    """Connects / disconnects the interface of the type ``kind`` ("ethernet" or "wifi")."""
+    dev = _device(kind)
+    return dev is not None and _run(["-w", "30", "dev", "connect" if enabled else "disconnect", dev], timeout=40)[0] == 0
+
+
+def device_report(kind):
+    """State of the interface: dict(name, state, ip, gateway, mac, ssid); name is None without an interface."""
+    dev = _device(kind)
+    report = {"name": dev, "state": "", "ip": "", "gateway": "", "mac": "", "ssid": ""}
+    if dev is None:
+        return report
+    ret, out = _run(["-t", "-f", "GENERAL.STATE,GENERAL.HWADDR,GENERAL.CON-UUID,IP4.ADDRESS,IP4.GATEWAY",
+                     "dev", "show", dev])
+    info = _kv(out)
+    state = info.get("GENERAL.STATE", "")
+    report["state"] = "connected" if "(connected)" in state else ("unavailable" if "(unavailable)" in state
+                                                                  else "disconnected")
+    report["ip"] = info.get("IP4.ADDRESS", "").split("/")[0]
+    report["gateway"] = info.get("IP4.GATEWAY", "")
+    report["mac"] = info.get("GENERAL.HWADDR", "")
+    uuid = info.get("GENERAL.CON-UUID", "")
+    if kind == "wifi" and report["state"] == "connected" and uuid:
+        ret, out = _run(["-t", "-f", "802-11-wireless.ssid", "con", "show", "uuid", uuid])
+        report["ssid"] = _kv(out).get("802-11-wireless.ssid", "")
+    return report
 
 
 def mks_save_config():

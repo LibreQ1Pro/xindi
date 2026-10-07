@@ -3,6 +3,7 @@ int sys0=0,sys1=0,sys2=0     //全局变量定义目前仅支持4字节有符号
 int pintai,pentou
 int lang=0,zoffset_step=1,open_filament_step=10,babystep_step=1,printing_filament_step=10,move_step=1,filament_step=10,manual_level_step=1,auto_level_step=2
 int sleep_counts=0
+int kbmode=1,kbmin=8
 int sleep_time=300
 int max_dim=100
 int min_dim=0

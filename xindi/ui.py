@@ -288,6 +288,8 @@ TJC_PAGE_WIFI_LIST_PREVIOUS = 0x05
 TJC_PAGE_WIFI_LIST_NEXT = 0x06
 TJC_PAGE_WIFI_LIST_TO_WIFI = 0x16
 TJC_PAGE_WIFI_LIST_TO_SETTING = 0x17
+TJC_PAGE_WIFI_LIST_SAVED = 0x08       # display_firmware: saved networks / hidden network buttons
+TJC_PAGE_WIFI_LIST_HIDDEN = 0x09
 
 TJC_PAGE_WIFI_CONNECT = 52
 TJC_PAGE_WIFI_CONNECT_TIMEOUT = 0x00      # 4.4.24: timer of the page
@@ -405,11 +407,15 @@ TJC_PAGE_INTERNET_PAGE = 81
 TJC_PAGE_INTERNET_PAGE_BACK = 0x01
 TJC_PAGE_INTERNET_PAGE_ETHERNET = 0x02
 TJC_PAGE_INTERNET_PAGE_WIFI = 0x03
-TJC_PAGE_INTERNET_PAGE_LINK = 0x04        # QIDI Link on / off (not implemented)
-TJC_PAGE_INTERNET_PAGE_LOGIN = 0x05       # QIDI Link pages (not implemented)
-TJC_PAGE_INTERNET_PAGE_ACCOUNTS = 0x06
-TJC_PAGE_INTERNET_PAGE_SERVER = 0x07
-TJC_PAGE_INTERNET_PAGE_DEVICE_CODE = 0x08
+TJC_PAGE_INTERNET_PAGE_INFO = 0x05        # display_firmware: the QIDI Link rows became network rows
+TJC_PAGE_INTERNET_PAGE_SAVED = 0x06
+TJC_PAGE_INTERNET_PAGE_HIDDEN = 0x07
+
+# pages added by display_firmware (network management), see netui.py
+TJC_PAGE_NET_SAVED = 110
+TJC_PAGE_NET_DETAIL = 111
+TJC_PAGE_NET_CONFIRM = 112
+TJC_PAGE_NET_INFO = 113
 
 TJC_PAGE_SERVER_SET = 82
 TJC_PAGE_SERVER_SET_REFRESH = 0x00
@@ -1275,8 +1281,11 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             index = widget_id - TJC_PAGE_WIFI_LIST_SSID_1
             if g.page_wifi_list_ssid_button_enabled[index] == True:
                 ev.get_wifi_list_ssid(index)
-                g.printing_wifi_keyboard_enabled = True
-                page_to(TJC_PAGE_WIFI_KB)
+                netui.open_keyboard(netui.KB_PSK_SCANNED, 8, g.get_wifi_name)
+        elif widget_id == TJC_PAGE_WIFI_LIST_SAVED:
+            netui.open_saved()
+        elif widget_id == TJC_PAGE_WIFI_LIST_HIDDEN:
+            netui.open_hidden()
         elif widget_id == TJC_PAGE_WIFI_LIST_REFRESH:
             cout("################## refresh button pressed")
             ev.scan_ssid_and_show()
@@ -1315,8 +1324,19 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
 
     elif page_id == TJC_PAGE_WIFI_KB:
         if widget_id == TJC_PAGE_WIFI_KB_BACK:
-            ev.go_to_network()                  # 4.4.22 (was page_to(TJC_PAGE_WIFI_LIST))
-            g.printing_wifi_keyboard_enabled = False
+            netui.keyboard_back()
+
+    elif page_id in (TJC_PAGE_NET_SAVED, TJC_PAGE_NET_DETAIL, TJC_PAGE_NET_CONFIRM, TJC_PAGE_NET_INFO):
+        if _nav_guarded(widget_id):
+            pass
+        elif page_id == TJC_PAGE_NET_SAVED:
+            netui.saved_clicked(widget_id)
+        elif page_id == TJC_PAGE_NET_DETAIL:
+            netui.detail_clicked(widget_id)
+        elif page_id == TJC_PAGE_NET_CONFIRM:
+            netui.confirm_clicked(widget_id)
+        else:
+            netui.info_clicked(widget_id)
 
     elif page_id == TJC_PAGE_COMMON_SETTING:
         if _nav_guarded(widget_id):
@@ -1454,9 +1474,12 @@ def tjc_event_clicked_handler(page_id, widget_id, type_id):
             ev.set_mks_ethernet(0 if g.mks_ethernet == 1 else 1)
         elif widget_id == TJC_PAGE_INTERNET_PAGE_WIFI:
             ev.go_to_network()
-        elif widget_id in (TJC_PAGE_INTERNET_PAGE_LINK, TJC_PAGE_INTERNET_PAGE_LOGIN, TJC_PAGE_INTERNET_PAGE_ACCOUNTS,
-                           TJC_PAGE_INTERNET_PAGE_SERVER, TJC_PAGE_INTERNET_PAGE_DEVICE_CODE):
-            MKSLOG_BLUE("QIDI Link is not supported (LAN only)")
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_INFO:
+            netui.open_info()
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_SAVED:
+            netui.open_saved()
+        elif widget_id == TJC_PAGE_INTERNET_PAGE_HIDDEN:
+            netui.open_hidden()
 
     elif TJC_PAGE_LINK_FIRST <= page_id <= TJC_PAGE_LINK_LAST:
         pass        # QIDI Link pages: not reachable, the network page keeps the buttons disabled
@@ -1617,14 +1640,12 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
 
 def tjc_event_keyboard(cmd):
     ev = _ev()
-    MKSLOG("Keyboard value received: %s\n", b2s(cstr(cmd)))
-    MKSLOG("cmd 1  %d\n", cmd[1])
-    MKSLOG("cmd 2  %d\n", cmd[2])
+    MKSLOG("Keyboard value received, mode %d, row %d\n", cmd[1], cmd[2])        # the text may be a password
     psk = cstr(cmd[3:])         # char *psk = &cmd[3];
-    if cmd[1] == TJC_PAGE_WIFI_LIST:
-        if cmd[2] in (TJC_PAGE_WIFI_LIST_SSID_1, TJC_PAGE_WIFI_LIST_SSID_2, TJC_PAGE_WIFI_LIST_SSID_3,
-                      TJC_PAGE_WIFI_LIST_SSID_4, TJC_PAGE_WIFI_LIST_SSID_5):
-            MKSLOG_RED("Password received, %d, password: %s", len(psk), b2s(psk))
-            g.printing_wifi_keyboard_enabled = False
-            page_to(TJC_PAGE_WIFI_CONNECT)
-            ev.print_ssid_psk(psk)
+    # display_firmware: the keyboard page sends its mode (cmd[1]), see netui.py
+    mode = netui.KB_PSK_SCANNED if cmd[1] == TJC_PAGE_WIFI_LIST else cmd[1]      # the stock keyboard sends the page id
+    if mode in (netui.KB_PSK_SCANNED, netui.KB_PSK_SAVED, netui.KB_HIDDEN_SSID, netui.KB_HIDDEN_PSK):
+        netui.keyboard_text(mode, b2s(psk))
+
+
+from . import netui    # noqa: E402  (netui imports this module)

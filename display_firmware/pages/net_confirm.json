@@ -1,8 +1,8 @@
 {
-  "name": "internet_page",
+  "name": "net_confirm",
   "header": {
     "lock": "0000000000552100",
-    "writer": "01420300000000000000000000000000"
+    "writer": "01410500000000000000000000000000"
   },
   "root": {
     "attributes": {
@@ -29,23 +29,21 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:net_bg_internet"
+        "$ref": "picture:net_bg_confirm"
       }
     },
     "events": {
       "codesload": [
         "if(lang==1)",
         "{",
-        "  t1.txt=\"Сеть\"",
-        "  t5.txt=\"Сведения о сети\"",
-        "  t6.txt=\"Сохранённые сети\"",
-        "  t7.txt=\"Скрытая сеть\"",
+        "  t6.txt=\"Забыть сеть\"",
+        "  byes.txt=\"Забыть\"",
+        "  bno.txt=\"Отмена\"",
         "}else",
         "{",
-        "  t1.txt=\"Network\"",
-        "  t5.txt=\"Network info\"",
-        "  t6.txt=\"Saved networks\"",
-        "  t7.txt=\"Hidden network\"",
+        "  t6.txt=\"Forget network\"",
+        "  byes.txt=\"Forget\"",
+        "  bno.txt=\"Cancel\"",
         "}"
       ],
       "codesloadend": [],
@@ -56,87 +54,10 @@
   },
   "objects": [
     {
-      "key": "q0",
-      "type": "crop_picture",
-      "attributes": {
-        "objname": "q0",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 18,
-        "y": 63,
-        "w": 236,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "picc": {
-          "$ref": "picture:pic_312"
-        }
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": []
-      }
-    },
-    {
-      "key": "t0",
-      "type": "text",
-      "attributes": {
-        "objname": "t0",
-        "vscope": 1,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 59,
-        "y": 69,
-        "w": 160,
-        "h": 31,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 3,
-        "style": 0,
-        "key": 255,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_1"
-        },
-        "bco": 65535,
-        "picc": 65535,
-        "pic": 65535,
-        "pco": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "pw": 0,
-        "txt": "",
-        "txt_maxl": 80,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": []
-      }
-    },
-    {
-      "key": "b1",
+      "key": "b23",
       "type": "button",
       "attributes": {
-        "objname": "b1",
+        "objname": "b23",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -144,9 +65,9 @@
         "movex": 0,
         "movey": 0,
         "x": 5,
-        "y": 10,
-        "w": 260,
-        "h": 40,
+        "y": 5,
+        "w": 262,
+        "h": 48,
         "effect": 0,
         "first": 0,
         "time": 300,
@@ -160,23 +81,27 @@
         "font": {
           "$ref": "font:font_0"
         },
-        "pic": 65535,
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
         "picc": {
-          "$ref": "picture:pic_313"
+          "$ref": "picture:pic_25"
         },
         "bco": 50712,
-        "pic2": 65535,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
         "picc2": {
-          "$ref": "picture:pic_205"
+          "$ref": "picture:pic_36"
         },
         "bco2": 1024,
-        "pco": 0,
+        "pco": 65535,
         "pco2": 65535,
         "xcen": 1,
         "ycen": 1,
         "val": 0,
         "txt": "",
-        "txt_maxl": 10,
+        "txt_maxl": 50,
         "isbr": 0,
         "spax": 0,
         "spay": 0
@@ -186,7 +111,7 @@
         "codesup": [
           "prints 0x65,1",
           "prints dp,1",
-          "prints 1,1",
+          "prints 23,1",
           "prints 0xff,1",
           "prints 0xff,1",
           "prints 0xff,1"
@@ -194,20 +119,20 @@
       }
     },
     {
-      "key": "t1",
+      "key": "t6",
       "type": "text",
       "attributes": {
-        "objname": "t1",
+        "objname": "t6",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
         "aph": 127,
         "movex": 0,
         "movey": 0,
-        "x": 44,
-        "y": 10,
-        "w": 206,
-        "h": 40,
+        "x": 58,
+        "y": 8,
+        "w": 203,
+        "h": 46,
         "effect": 0,
         "first": 0,
         "time": 300,
@@ -229,94 +154,33 @@
         "xcen": 0,
         "ycen": 1,
         "pw": 0,
-        "txt": "网络",
-        "txt_maxl": 100,
+        "txt": "Forget network",
+        "txt_maxl": 50,
         "isbr": 0,
         "spax": 0,
         "spay": 0
       },
       "events": {
         "codesdown": [
-          "click b1,1"
+          "click b23,1"
         ],
         "codesup": [
-          "click b1,0"
+          "click b23,0"
         ]
       }
     },
     {
-      "key": "b3",
+      "key": "b30",
       "type": "button",
       "attributes": {
-        "objname": "b3",
+        "objname": "b30",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
         "aph": 127,
         "movex": 0,
         "movey": 0,
-        "x": 116,
-        "y": 114,
-        "w": 138,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:pic_313"
-        },
-        "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pic_205"
-        },
-        "bco2": 1024,
-        "pco": 65535,
-        "pco2": 65535,
-        "xcen": 1,
-        "ycen": 1,
-        "val": 0,
-        "txt": "WiFi",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 3,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "b33",
-      "type": "button",
-      "attributes": {
-        "objname": "b33",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 200,
+        "x": 8,
         "y": 424,
         "w": 64,
         "h": 56,
@@ -363,72 +227,7 @@
         "codesup": [
           "prints 0x65,1",
           "prints dp,1",
-          "prints 33,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "b32",
-      "type": "button",
-      "attributes": {
-        "objname": "b32",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 136,
-        "y": 424,
-        "w": 64,
-        "h": 56,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "pic": {
-          "$ref": "picture:pic_230"
-        },
-        "picc": {
-          "$ref": "picture:pic_25"
-        },
-        "bco": 50712,
-        "pic2": {
-          "$ref": "picture:pic_230"
-        },
-        "picc2": {
-          "$ref": "picture:pic_36"
-        },
-        "bco2": 1024,
-        "pco": 0,
-        "pco2": 65535,
-        "xcen": 1,
-        "ycen": 1,
-        "val": 0,
-        "txt": "",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 32,1",
+          "prints 30,1",
           "prints 0xff,1",
           "prints 0xff,1",
           "prints 0xff,1"
@@ -501,17 +300,17 @@
       }
     },
     {
-      "key": "b30",
+      "key": "b32",
       "type": "button",
       "attributes": {
-        "objname": "b30",
+        "objname": "b32",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
         "aph": 127,
         "movex": 0,
         "movey": 0,
-        "x": 8,
+        "x": 136,
         "y": 424,
         "w": 64,
         "h": 56,
@@ -558,7 +357,7 @@
         "codesup": [
           "prints 0x65,1",
           "prints dp,1",
-          "prints 30,1",
+          "prints 32,1",
           "prints 0xff,1",
           "prints 0xff,1",
           "prints 0xff,1"
@@ -566,20 +365,20 @@
       }
     },
     {
-      "key": "b2",
+      "key": "b33",
       "type": "button",
       "attributes": {
-        "objname": "b2",
+        "objname": "b33",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
         "aph": 127,
         "movex": 0,
         "movey": 0,
-        "x": 18,
-        "y": 114,
-        "w": 88,
-        "h": 40,
+        "x": 200,
+        "y": 424,
+        "w": 64,
+        "h": 56,
         "effect": 0,
         "first": 0,
         "time": 300,
@@ -593,17 +392,21 @@
         "font": {
           "$ref": "font:font_0"
         },
-        "pic": 65535,
+        "pic": {
+          "$ref": "picture:pic_230"
+        },
         "picc": {
-          "$ref": "picture:pic_311"
+          "$ref": "picture:pic_25"
         },
         "bco": 50712,
-        "pic2": 65535,
+        "pic2": {
+          "$ref": "picture:pic_230"
+        },
         "picc2": {
-          "$ref": "picture:pic_312"
+          "$ref": "picture:pic_36"
         },
         "bco2": 1024,
-        "pco": 65535,
+        "pco": 0,
         "pco2": 65535,
         "xcen": 1,
         "ycen": 1,
@@ -619,7 +422,7 @@
         "codesup": [
           "prints 0x65,1",
           "prints dp,1",
-          "prints 2,1",
+          "prints 24,1",
           "prints 0xff,1",
           "prints 0xff,1",
           "prints 0xff,1"
@@ -627,295 +430,56 @@
       }
     },
     {
-      "key": "b6",
-      "type": "button",
+      "key": "touch",
+      "type": "touch_capture",
       "attributes": {
-        "objname": "b6",
+        "objname": "touch",
         "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 18,
-        "y": 264,
-        "w": 236,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:net_bg_internet"
-        },
-        "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pic_205"
-        },
-        "bco2": 1024,
-        "pco": 65535,
-        "pco2": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "val": 0,
-        "txt": "",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 6,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "b7",
-      "type": "button",
-      "attributes": {
-        "objname": "b7",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 18,
-        "y": 314,
-        "w": 236,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:net_bg_internet"
-        },
-        "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pic_205"
-        },
-        "bco2": 1024,
-        "pco": 65535,
-        "pco2": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "val": 0,
-        "txt": "",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 7,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "t6",
-      "type": "text",
-      "attributes": {
-        "objname": "t6",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 26,
-        "y": 264,
-        "w": 189,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 3,
-        "style": 0,
-        "key": 255,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "bco": 65535,
-        "picc": 65535,
-        "pic": 65535,
-        "pco": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "pw": 0,
-        "txt": "Saved networks",
-        "txt_maxl": 100,
-        "isbr": 1,
-        "spax": 0,
-        "spay": 0
+        "val": 0
       },
       "events": {
         "codesdown": [
-          "click b6,1"
+          "sleep_counts=0",
+          "dim=max_dim"
         ],
-        "codesup": [
-          "click b6,0"
-        ]
+        "codesup": []
       }
     },
     {
-      "key": "t7",
-      "type": "text",
+      "key": "sleep_counter",
+      "type": "timer",
       "attributes": {
-        "objname": "t7",
+        "objname": "sleep_counter",
         "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 25,
-        "y": 314,
-        "w": 189,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 3,
-        "style": 0,
-        "key": 255,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "bco": 65535,
-        "picc": 65535,
-        "pic": 65535,
-        "pco": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "pw": 0,
-        "txt": "Hidden network",
-        "txt_maxl": 100,
-        "isbr": 1,
-        "spax": 0,
-        "spay": 0
+        "tim": 1000,
+        "en": 1
       },
       "events": {
-        "codesdown": [
-          "click b7,1"
-        ],
-        "codesup": [
-          "click b7,0"
+        "codestimer": [
+          "sleep_counts+=1",
+          "if(sleep_counts==sleep_time)",
+          "{",
+          "  prints 0x65,1",
+          "  prints 73,1",
+          "  prints 1,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
         ]
       }
     },
     {
-      "key": "b5",
-      "type": "button",
-      "attributes": {
-        "objname": "b5",
-        "vscope": 0,
-        "drag": 0,
-        "sendkey": 0,
-        "aph": 127,
-        "movex": 0,
-        "movey": 0,
-        "x": 18,
-        "y": 214,
-        "w": 236,
-        "h": 40,
-        "effect": 0,
-        "first": 0,
-        "time": 300,
-        "lockobj": 0,
-        "groupid0": 0,
-        "groupid1": 0,
-        "sta": 0,
-        "style": 4,
-        "borderc": 0,
-        "borderw": 2,
-        "font": {
-          "$ref": "font:font_0"
-        },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:net_bg_internet"
-        },
-        "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pic_205"
-        },
-        "bco2": 1024,
-        "pco": 65535,
-        "pco2": 65535,
-        "xcen": 0,
-        "ycen": 1,
-        "val": 0,
-        "txt": "",
-        "txt_maxl": 10,
-        "isbr": 0,
-        "spax": 0,
-        "spay": 0
-      },
-      "events": {
-        "codesdown": [],
-        "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 5,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
-        ]
-      }
-    },
-    {
-      "key": "t5",
+      "key": "tmsg",
       "type": "text",
       "attributes": {
-        "objname": "t5",
+        "objname": "tmsg",
         "vscope": 0,
         "drag": 0,
         "sendkey": 0,
@@ -923,9 +487,9 @@
         "movex": 0,
         "movey": 0,
         "x": 28,
-        "y": 213,
-        "w": 189,
-        "h": 41,
+        "y": 80,
+        "w": 216,
+        "h": 160,
         "effect": 0,
         "first": 0,
         "time": 300,
@@ -944,21 +508,139 @@
         "picc": 65535,
         "pic": 65535,
         "pco": 65535,
-        "xcen": 0,
+        "xcen": 1,
         "ycen": 1,
         "pw": 0,
-        "txt": "Network info",
-        "txt_maxl": 100,
+        "txt": "",
+        "txt_maxl": 120,
         "isbr": 1,
         "spax": 0,
         "spay": 0
       },
       "events": {
-        "codesdown": [
-          "click b5,1"
-        ],
+        "codesdown": [],
+        "codesup": []
+      }
+    },
+    {
+      "key": "byes",
+      "type": "button",
+      "attributes": {
+        "objname": "byes",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 18,
+        "y": 280,
+        "w": 112,
+        "h": 48,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:net_bg_confirm"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:net_bg_confirm_p"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 40,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
         "codesup": [
-          "click b5,0"
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 1,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
+        ]
+      }
+    },
+    {
+      "key": "bno",
+      "type": "button",
+      "attributes": {
+        "objname": "bno",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 142,
+        "y": 280,
+        "w": 112,
+        "h": 48,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "style": 4,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_0"
+        },
+        "pic": 65535,
+        "picc": {
+          "$ref": "picture:net_bg_confirm"
+        },
+        "bco": 50712,
+        "pic2": 65535,
+        "picc2": {
+          "$ref": "picture:net_bg_confirm_p"
+        },
+        "bco2": 1024,
+        "pco": 65535,
+        "pco2": 65535,
+        "xcen": 1,
+        "ycen": 1,
+        "val": 0,
+        "txt": "",
+        "txt_maxl": 40,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [],
+        "codesup": [
+          "prints 0x65,1",
+          "prints dp,1",
+          "prints 0,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     }

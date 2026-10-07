@@ -327,6 +327,11 @@ def send_cmd_beep(fd, time):
     _send(fd, cmd)
 
 
+def send_cmd_raw(fd, instruction):
+    """Any instruction of the screen, e.g. a global variable assignment ``kbmode=2``"""
+    _send(fd, s2b(instruction) + END)
+
+
 def send_cmd_txt(fd, obj, txt):
     """Change the text of a widget"""
     cmd = s2b(obj + ".txt=" + "\"" + txt + "\"") + END

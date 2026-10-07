@@ -2460,6 +2460,34 @@
         "mode": "json",
         "path": "pages/server_error2.json"
       }
+    },
+    {
+      "key": "net_saved",
+      "content": {
+        "mode": "json",
+        "path": "pages/net_saved.json"
+      }
+    },
+    {
+      "key": "net_detail",
+      "content": {
+        "mode": "json",
+        "path": "pages/net_detail.json"
+      }
+    },
+    {
+      "key": "net_confirm",
+      "content": {
+        "mode": "json",
+        "path": "pages/net_confirm.json"
+      }
+    },
+    {
+      "key": "net_info",
+      "content": {
+        "mode": "json",
+        "path": "pages/net_info.json"
+      }
     }
   ],
   "pictures": [
@@ -4339,6 +4367,66 @@
       "key": "pic_63",
       "source": {
         "png": "pictures/pic_63.png"
+      }
+    },
+    {
+      "key": "net_bg_blank",
+      "source": {
+        "png": "pictures/net_bg_blank.png"
+      }
+    },
+    {
+      "key": "net_bg_list",
+      "source": {
+        "png": "pictures/net_bg_list.png"
+      }
+    },
+    {
+      "key": "net_bg_list_p",
+      "source": {
+        "png": "pictures/net_bg_list_p.png"
+      }
+    },
+    {
+      "key": "net_bg_detail",
+      "source": {
+        "png": "pictures/net_bg_detail.png"
+      }
+    },
+    {
+      "key": "net_bg_detail_p",
+      "source": {
+        "png": "pictures/net_bg_detail_p.png"
+      }
+    },
+    {
+      "key": "net_bg_confirm",
+      "source": {
+        "png": "pictures/net_bg_confirm.png"
+      }
+    },
+    {
+      "key": "net_bg_confirm_p",
+      "source": {
+        "png": "pictures/net_bg_confirm_p.png"
+      }
+    },
+    {
+      "key": "net_bg_info",
+      "source": {
+        "png": "pictures/net_bg_info.png"
+      }
+    },
+    {
+      "key": "net_bg_info_p",
+      "source": {
+        "png": "pictures/net_bg_info_p.png"
+      }
+    },
+    {
+      "key": "net_bg_internet",
+      "source": {
+        "png": "pictures/net_bg_internet.png"
       }
     }
   ],
