@@ -61,6 +61,7 @@ class Screen(threading.Thread):
         self.current = {"page": None, "attrs": {}}
         self.visits.append(self.current)
         self.instructions = 0
+        self.last_instruction = time.time()
         self.stopped = False
         self.page_changed = threading.Condition(self.lock)
 
@@ -128,11 +129,13 @@ class Screen(threading.Thread):
         lst = self.current["attrs"].setdefault(key, [])
         if not lst or lst[-1] != value:
             lst.append(value)
+            self.last_instruction = time.time()     # something new reached the screen (repeats do not count)
 
     def _new_visit(self, page):
         self.current = {"page": page, "attrs": {}}
         self.visits.append(self.current)
         self.pages.append(page)
+        self.last_instruction = time.time()
         self.page_changed.notify_all()
 
     def _handle_instruction(self, raw):
@@ -252,7 +255,7 @@ class Screen(threading.Thread):
             lst = self.current["attrs"].get(key)
             return lst[-1] if lst else None
 
-    def wait_value(self, key, predicate, timeout=20.0):
+    def wait_value(self, key, predicate, timeout=6.0):
         deadline = time.time() + timeout
         while time.time() < deadline:
             v = self.value(key)
@@ -428,7 +431,7 @@ class Moonraker(object):
     def push_raw(self, text):
         self.loop.call_soon_threadsafe(self.queue.put_nowait, (None, text))
 
-    def wait_received(self, predicate, timeout=20.0):
+    def wait_received(self, predicate, timeout=6.0):
         deadline = time.time() + timeout
         while time.time() < deadline:
             with self.lock:
@@ -440,9 +443,11 @@ class Moonraker(object):
     def drain(self, timeout=10.0):
         """Waits until all queued messages were sent."""
         deadline = time.time() + timeout
+        pending = self.queue is not None and not self.queue.empty()
         while time.time() < deadline and self.queue is not None and not self.queue.empty():
             time.sleep(0.05)
-        time.sleep(self.gap)
+        if pending:
+            time.sleep(self.gap)
 
 
 # ---------------------------------------------------------------------------
@@ -525,24 +530,40 @@ class Harness(object):
     # -- scenario helpers --------------------------------------------------
     def touch(self, page, widget, settle=0.6):
         self.screen.touch(page, widget)
-        time.sleep(settle)
+        self.settle(settle)
 
     def set_number(self, page, widget, value, settle=0.6):
         self.screen.set_number(page, widget, value)
-        time.sleep(settle)
+        self.settle(settle)
 
     def keyboard(self, page, widget, text, settle=0.6):
         self.screen.keyboard(page, widget, text)
-        time.sleep(settle)
+        self.settle(settle)
 
-    def wait_page(self, page, timeout=40.0):
+    def wait_page(self, page, timeout=6.0):
+        t0 = time.time()
         ok = self.screen.wait_page(page, timeout)
+        if os.environ.get("XINDI_E2E_TIMING"):
+            print("wait_page %r: %.1fs" % (page, time.time() - t0), flush=True)
         if not ok:
             self.errors.append("timeout waiting for page %r (current %r)" % (page, self.screen.page))
         return ok
 
+    QUIET = 0.5     # the port is done when the screen got nothing for this long
+
     def settle(self, seconds):
-        time.sleep(seconds)
+        """Waits until the port went quiet (no instruction for QUIET seconds), at most ``seconds``; the
+        scenarios say how long a step may take, the port usually needs a fraction of it."""
+        start = time.time()
+        if os.environ.get("XINDI_E2E_TIMING"):
+            print("settle(%s) at %.1f" % (seconds, start - self.t_start), flush=True)
+        if getattr(self, "mr", None) is not None:
+            self.mr.drain(timeout=seconds)
+        while True:
+            now = time.time()
+            if now - start >= seconds or now - max(self.screen.last_instruction, start) >= self.QUIET:
+                return
+            time.sleep(0.05)
 
     def mark(self, label):
         self.screen.mark(label)
@@ -614,12 +635,17 @@ class Harness(object):
     def run(self):
         import scenarios
         func = getattr(scenarios, "scenario_" + self.scenario_name)
+        t0 = self.t_start = time.time()
         self.setup()
         self.start_sut()
+        if os.environ.get("XINDI_E2E_TIMING"):
+            print("setup %.1fs" % (time.time() - t0), flush=True)
         try:
             func(self)
         except Exception:
             self.errors.append("scenario exception: " + traceback.format_exc())
+        if os.environ.get("XINDI_E2E_TIMING"):
+            print("scenario done after %.1fs" % (time.time() - t0), flush=True)
         time.sleep(1.0)
         rc = self.stop_sut()
         self.screen.stopped = True
