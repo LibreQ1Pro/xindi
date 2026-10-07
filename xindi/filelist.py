@@ -32,6 +32,50 @@ def _name_of(path):
     return substr(path, path.rfind("/") + 1)
 
 
+# entry type of the list -> pictures of its row (released, pressed)
+def _row_pictures():
+    return {
+        "[c]": (pics.files_item_img, pics.files_tab_local_press),      # the last printed file
+        "[d]": (pics.files_item_dir, pics.files_dir_press),
+        "[f]": (pics.files_item_img, pics.files_tab_local_press),
+        "[n]": (pics.files_tab_usb, pics.files_tab_usb),                # no drive
+    }
+
+
+def _nav_button(button, disabled):
+    """The page / folder buttons look different when there is nothing to go to."""
+    if disabled:
+        g.port.picc(button, pics.files_item_img)
+        g.port.picc2(button, pics.files_dir_press)
+    else:
+        g.port.picc(button, pics.files_item_dir)
+        g.port.picc2(button, pics.files_tab_local_press)
+
+
+def _queue_list_pictures():
+    """CLL refresh the pictures after all the other widgets: the picture thread sends them."""
+    for i in range(4):
+        g.pictures.have_64_jpg[i] = False
+        g.pictures.have_64_png_path[i] = ""
+        t = g.files.list_list_show_type[i]
+        if t == "[c]" or t == "[f]":
+            name = g.files.list_list_show_name[i]
+            # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
+            # by QIDI's slicer / Moonraker) to the screen; the port takes the
+            # thumbnail from the gcode file itself (see thumbnail.py).
+            if t == "[c]":
+                picture_path = g.files.list_path + "/.cache/" + name
+            else:
+                picture_path = g.files.list_path + "/" + name
+            picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
+            log.info("Picture path:%s", picture_path)
+            if thumbnail.find(picture_path, 112, "JPEG") is not None:
+                g.pictures.have_64_jpg[i] = True
+                g.pictures.have_64_png_path[i] = picture_path
+        # the picture thread also enables the touch again when there is no picture
+        g.pictures.begin_show_64_jpg = True
+
+
 def refresh_files_list():
     # 4.4.22: the pictures are only sent again when the list changed
     # (file_list_refreshed), the folder and page are kept meanwhile
@@ -42,78 +86,37 @@ def refresh_files_list():
     elif detect_disk_2() == 0 and g.screen.file_mode == "USB":
         g.port.txt("empty_msg", "\u7a7a")     # "empty"
     g.port.vis("file1_mark", "0")
+    row_pictures = _row_pictures()
     for i in range(4):
-        g.port.txt("file" + to_string(i + 1) + "_name", g.files.list_list_show_name[i])
+        row = "file" + to_string(i + 1)
+        g.port.txt(row + "_name", g.files.list_list_show_name[i])
         g.port.vis("cp" + to_string(i), "0")
         t = g.files.list_list_show_type[i]
+        if t in row_pictures:
+            g.port.picc(row, row_pictures[t][0])
+            g.port.picc2(row, row_pictures[t][1])
         if t == "[c]":
-            g.port.picc("file" + to_string(i + 1), pics.files_item_img)
-            g.port.picc2("file" + to_string(i + 1), pics.files_tab_local_press)
             g.port.vis("file1_mark", "1")
-        elif t == "[d]":
-            g.port.picc("file" + to_string(i + 1), pics.files_item_dir)
-            g.port.picc2("file" + to_string(i + 1), pics.files_dir_press)
-        elif t == "[f]":
-            g.port.picc("file" + to_string(i + 1), pics.files_item_img)
-            g.port.picc2("file" + to_string(i + 1), pics.files_tab_local_press)
-        elif t == "[n]":
-            g.port.picc("file" + to_string(i + 1), pics.files_tab_usb)
-            g.port.picc2("file" + to_string(i + 1), pics.files_tab_usb)
 
     # 4.4.2 CLL local / USB buttons on the file list page
     if g.screen.file_mode == "Local":
-        g.port.picc("local_tab", pics.files_tab_local)
-        g.port.picc2("local_tab", pics.files_tab_local_press)
-        g.port.picc("usb_tab", pics.files_tab_local)
-        g.port.picc2("usb_tab", pics.files_tab_local_press)
+        for tab in ("local_tab", "usb_tab"):
+            g.port.picc(tab, pics.files_tab_local)
+            g.port.picc2(tab, pics.files_tab_local_press)
     elif g.screen.file_mode == "USB":
-        g.port.picc("local_tab", pics.files_tab_usb)
-        g.port.picc2("local_tab", pics.files_tab_usb_press)
-        g.port.picc("usb_tab", pics.files_tab_usb)
-        g.port.picc2("usb_tab", pics.files_tab_usb_press)
+        for tab in ("local_tab", "usb_tab"):
+            g.port.picc(tab, pics.files_tab_usb)
+            g.port.picc2(tab, pics.files_tab_usb_press)
         if detect_disk() == -1:
             g.port.vis("empty_msg", "1")
-    if g.files.list_current_pages == 0:
-        g.port.picc("prev", pics.files_item_img)
-        g.port.picc2("prev", pics.files_dir_press)
-    else:
-        g.port.picc("prev", pics.files_item_dir)
-        g.port.picc2("prev", pics.files_tab_local_press)
-    if g.files.list_current_pages == g.files.list_pages:
-        g.port.picc("next", pics.files_item_img)
-        g.port.picc2("next", pics.files_dir_press)
-    else:
-        g.port.picc("next", pics.files_item_dir)
-        g.port.picc2("next", pics.files_tab_local_press)
-    if g.files.list_folder_layers == 0 or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"):
-        g.port.picc("up_dir", pics.files_item_img)
-        g.port.picc2("up_dir", pics.files_dir_press)
-    else:
-        g.port.picc("up_dir", pics.files_item_dir)
-        g.port.picc2("up_dir", pics.files_tab_local_press)
+    _nav_button("prev", g.files.list_current_pages == 0)
+    _nav_button("next", g.files.list_current_pages == g.files.list_pages)
+    _nav_button("up_dir", g.files.list_folder_layers == 0
+                or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"))
     if g.screen.file_list_refreshed:
         g.port.tsw("255", "1")      # pictures still in the screen memory: enable touch
     else:
-        for i in range(4):      # CLL refresh the pictures after all the other widgets
-            g.pictures.have_64_jpg[i] = False
-            g.pictures.have_64_png_path[i] = ""
-            t = g.files.list_list_show_type[i]
-            if t == "[c]" or t == "[f]":
-                name = g.files.list_list_show_name[i]
-                # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
-                # by QIDI's slicer / Moonraker) to the screen; the port takes the
-                # thumbnail from the gcode file itself (see thumbnail.py).
-                if t == "[c]":
-                    picture_path = g.files.list_path + "/.cache/" + name
-                else:
-                    picture_path = g.files.list_path + "/" + name
-                picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
-                log.info("Picture path:%s", picture_path)
-                if thumbnail.find(picture_path, 112, "JPEG") is not None:
-                    g.pictures.have_64_jpg[i] = True
-                    g.pictures.have_64_png_path[i] = picture_path
-            # the picture thread also enables the touch again when there is no picture
-            g.pictures.begin_show_64_jpg = True
+        _queue_list_pictures()
         g.screen.file_list_refreshed = True
 
 
