@@ -2045,6 +2045,9 @@
           "  prints kbmode,1",
           "  prints sys2,1",
           "  prints input_show.txt,0",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
           "}"
         ]
       }

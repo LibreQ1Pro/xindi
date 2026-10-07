@@ -252,7 +252,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints fan1_slider.val,2"
+          "prints fan1_slider.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ],
         "codesslide": []
       }
@@ -316,7 +319,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints fan2_slider.val,2"
+          "prints fan2_slider.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ],
         "codesslide": []
       }
@@ -378,7 +384,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints fan3_slider.val,2"
+          "prints fan3_slider.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ],
         "codesslide": []
       }
@@ -587,7 +596,10 @@
           "{",
           "  output.val=0",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -654,7 +666,10 @@
           "{",
           "  output.val=0",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -721,7 +736,10 @@
           "{",
           "  output.val=0",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -791,7 +809,10 @@
           "    output.val=100",
           "  }",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -861,7 +882,10 @@
           "    output.val=100",
           "  }",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -931,7 +955,10 @@
           "    output.val=100",
           "  }",
           "}",
-          "prints output.val,2"
+          "prints output.val,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1323,7 +1350,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints 20,2"
+          "prints 20,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1378,7 +1408,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints 40,2"
+          "prints 40,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1433,7 +1466,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints 60,2"
+          "prints 60,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1488,7 +1524,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints 80,2"
+          "prints 80,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1543,7 +1582,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 12,1",
-          "prints 100,2"
+          "prints 100,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1598,7 +1640,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints 100,2"
+          "prints 100,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1653,7 +1698,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints 80,2"
+          "prints 80,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1708,7 +1756,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints 60,2"
+          "prints 60,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1763,7 +1814,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints 40,2"
+          "prints 40,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1818,7 +1872,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 13,1",
-          "prints 20,2"
+          "prints 20,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1873,7 +1930,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints 100,2"
+          "prints 100,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1928,7 +1988,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints 80,2"
+          "prints 80,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -1983,7 +2046,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints 60,2"
+          "prints 60,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -2038,7 +2104,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints 20,2"
+          "prints 20,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     },
@@ -2093,7 +2162,10 @@
           "prints 113,1",
           "prints 75,1",
           "prints 14,1",
-          "prints 40,2"
+          "prints 40,2",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1"
         ]
       }
     }

@@ -188,7 +188,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         g.get_0xfd = False
         g.get_0x04 = False
         while not g.get_0x05 and not g.get_0xfd:
-            usleep(80000)
+            usleep(2000)
             # 0x04 means the frame could not be written
             if g.get_0x04:
                 # leave the pass-through mode

@@ -50,6 +50,9 @@
         "vis logout_btn,0",
         "prints 0xfb,1",
         "prints lang,1",
+        "prints 0xff,1",
+        "prints 0xff,1",
+        "prints 0xff,1",
         "if(lang==0)",
         "{",
         "  scan_msg.txt=\"扫描二维码，登录\\rQIDI Link账号\"",
@@ -147,7 +150,10 @@
       "codesdown": [],
       "codesup": [],
       "codesunload": [
-        "prints 0xfc,1"
+        "prints 0xfc,1",
+        "prints 0xff,1",
+        "prints 0xff,1",
+        "prints 0xff,1"
       ]
     }
   },

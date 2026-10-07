@@ -157,6 +157,9 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
 
 ## Tests
 
+`tests/unit/` has the tests of the pure logic (no printer, no network): `PYTHONPATH=. python3 -I -m unittest discover -s tests/unit -t .`
+(the splitting of the screen's byte stream into frames, `xindi/screen_rx.py`).
+
 `tests/e2e/` contains the E2E equivalence tests. Every scenario runs once with
 the original C++ program and once with this port in docker, and the complete
 external behaviour is compared. The C++ sources are downloaded at the pinned

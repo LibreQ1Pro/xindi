@@ -21,6 +21,17 @@ again after changing a layout). Helpers: `tools/page_dump.py` (a page as text), 
 image), `tools/name_pictures.py` (how the picture names were proposed); on the printer, `tests/printer/check_network.py`
 checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...` draws a rough preview of pages (Noto Sans instead of the screen fonts).
 
+## Frames to the host
+
+Everything the screen sends is a frame that ends with `ff ff ff`. The editor adds it by itself to the keys of
+"send key" components and to `get` / `sendme`, but `prints` and `printh` send exactly what they are told: every handler
+that prints a frame has to print the terminator itself (three `prints 0xff,1`, or `printh ... ff ff ff`). The host
+(`xindi/screen_rx.py`) cuts the stream at the terminators, so a frame without one is glued to the next frame and both are
+lost. `python3 tools/lint_frames.py` finds such handlers (`--fix` adds the terminators); run it after every change of
+an event. Frames the host knows: `65 page widget [event]` (click), `70 mode row text` (keyboard), `71 page widget low high`
+(a number, 2 bytes, may be `ff ff`), `1a` (invalid variable name), `91` (the screen was updated). The only thing without
+a terminator is the single byte `05` the screen answers to every data packet of a picture transfer.
+
 ## Network pages
 
 | page (id) | what | actions sent as `65 <page id> <action> ff ff ff` |

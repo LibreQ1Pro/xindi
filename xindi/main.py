@@ -2,12 +2,14 @@
 
 import fcntl
 import os
+import queue
 import sys
+import time
 
 from . import paths
 from . import state as g
 from . import ui
-from .cpp import access, system, sleep, usleep, pthread_create, terminate
+from .cpp import access, system, sleep, pthread_create, terminate
 from .mks_log import MKSLOG, MKSLOG_BLUE, cout, cerr
 from .MakerbaseClient import MakerbaseClient
 from .MakerbaseSerial import set_option
@@ -17,7 +19,10 @@ from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages
 from .send_jpg import sent_jpg_thread_handle
 from .send_msg import send_cmd_val
 from . import event
+from . import screen_rx
 from . import uart
+
+REFRESH_INTERVAL = 0.05     # s between two redraws of the page
 
 
 def main(argv):
@@ -133,6 +138,7 @@ def main(argv):
     pthread_create(json_parse, None)
     pthread_create(sent_jpg_thread_handle, None)        # preview picture thread
 
+    frames = queue.Queue()
     try:
         fd = os.open("/dev/ttyS1", os.O_RDWR | os.O_NDELAY | os.O_NOCTTY)
     except OSError:
@@ -146,6 +152,12 @@ def main(argv):
         set_option(fd, 115200, 8, 'N', 1)
         try:
             fcntl.fcntl(fd, fcntl.F_SETFL, os.O_NDELAY)
+
+            # the port is read by a thread of its own, the frames wait in a queue (see screen_rx.py): the main loop
+            # spends its time on writing to the screen and may be busy for a while without losing what the screen
+            # sent meanwhile
+            parser = screen_rx.FrameParser()
+            pthread_create(lambda _: screen_rx.reader_thread(fd, parser, frames), None)
 
             event.get_total_time()
             sleep(2)
@@ -177,20 +189,14 @@ def main(argv):
         except Exception as e:
             cerr("Page main error, ", str(e), "\n")
 
+    next_refresh = 0.0
     while True:
-        # CLL refresh conflicts fixed: only one screen message is handled at a time,
-        # several messages arriving together are lost (as in the original)
-        event.refresh_page_show()
-        try:
-            data = os.read(fd, 4096) if fd >= 0 else b""
-        except (BlockingIOError, InterruptedError):
-            data = b""
-        except OSError:
-            data = b""
-        if len(data) > 0:
-            buff = data + b"\0" * (4096 - len(data))
-            ui.parse_cmd_msg_from_tjc_screen(buff)
-        usleep(1000)
+        frame = screen_rx.next_frame(frames, max(0.0, next_refresh - time.monotonic()))
+        if frame is not None:
+            ui.parse_cmd_msg_from_tjc_screen(frame.ljust(4096, b"\0"))
+        if time.monotonic() >= next_refresh:
+            event.refresh_page_show()
+            next_refresh = time.monotonic() + REFRESH_INTERVAL
 
 
 def run():
