@@ -1,13 +1,16 @@
 """Clicks on the network, settings, error and pop-up pages. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
+import logging
+
 from .. import state as g
 from .. import actions, filelist, netui, settings, wifi_ui
 from .. import pageids as ids
 from ..cpp import sleep
-from ..mks_log import cout
 from ..ui import page_to
 from ..network import set_page_wifi_ssid_list
 from .common import nav_guarded
+
+log = logging.getLogger(__name__)
 
 
 def internet(page_id, widget_id):
@@ -16,9 +19,9 @@ def internet(page_id, widget_id):
     elif widget_id == ids.ALL_TO_SETTING:
         pass
     elif widget_id == ids.INTERNET_REFRESH:
-        cout("################## refresh button pressed")
+        log.debug("################## refresh button pressed")
         wifi_ui.scan_ssid_and_show()
-        cout("Waiting 3s...")
+        log.debug("Waiting 3s...")
         sleep(3)
         wifi_ui.scan_ssid_and_show()
     elif widget_id == ids.INTERNET_TO_WIFI:
@@ -43,20 +46,20 @@ def wifi_list(page_id, widget_id):
     elif widget_id == ids.WIFI_LIST_HIDDEN:
         netui.open_hidden()
     elif widget_id == ids.WIFI_LIST_REFRESH:
-        cout("################## refresh button pressed")
+        log.debug("################## refresh button pressed")
         wifi_ui.scan_ssid_and_show()
         # 4.4.1 CLL wifi refresh fix
     elif widget_id == ids.WIFI_LIST_PREVIOUS:
         if g.net.wifi_current_pages > 0:
-            cout("page_wifi_current_pages = ", g.net.wifi_current_pages)
-            cout("page_wifi_ssid_list_pages = ", g.net.wifi_ssid_list_pages)
+            log.debug("page_wifi_current_pages = %s", g.net.wifi_current_pages)
+            log.debug("page_wifi_ssid_list_pages = %s", g.net.wifi_ssid_list_pages)
             g.net.wifi_current_pages -= 1
             set_page_wifi_ssid_list(g.net.wifi_current_pages)
             wifi_ui.refresh_wifi_list()
     elif widget_id == ids.WIFI_LIST_NEXT:
         if g.net.wifi_current_pages < g.net.wifi_ssid_list_pages - 1:
-            cout("page_wifi_current_pages = ", g.net.wifi_current_pages)
-            cout("page_wifi_ssid_list_pages = ", g.net.wifi_ssid_list_pages)
+            log.debug("page_wifi_current_pages = %s", g.net.wifi_current_pages)
+            log.debug("page_wifi_ssid_list_pages = %s", g.net.wifi_ssid_list_pages)
             g.net.wifi_current_pages += 1
             set_page_wifi_ssid_list(g.net.wifi_current_pages)
             wifi_ui.refresh_wifi_list()

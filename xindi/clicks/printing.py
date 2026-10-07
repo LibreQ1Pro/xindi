@@ -1,11 +1,14 @@
 """Clicks on the main page, the file list, the preview and the pages of a print. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
+import logging
+
 from .. import state as g
 from .. import actions, filelist, file_browser, pages
 from .. import pageids as ids
 from ..cpp import sleep
-from ..mks_log import MKSLOG, MKSLOG_BLUE
 from ..ui import page_to
+
+log = logging.getLogger(__name__)
 
 
 def main(page_id, widget_id):
@@ -72,7 +75,7 @@ def file_list(page_id, widget_id):
             g.port.tsw("255", "0")
             filelist.refresh_page_files(g.files.list_current_pages)
             filelist.refresh_files_list()
-        MKSLOG_BLUE("%d", g.files.list_folder_layers)
+        log.debug("%d", g.files.list_folder_layers)
     elif widget_id == ids.FILE_LIST_NEXT:
         if filelist.detect_disk() == -1 and g.screen.file_mode == "USB":
             g.screen.file_list_refreshed = False
@@ -84,7 +87,7 @@ def file_list(page_id, widget_id):
             g.port.tsw("255", "0")
             filelist.refresh_page_files(g.files.list_current_pages)
             filelist.refresh_files_list()
-        MKSLOG_BLUE("%d", g.files.list_folder_layers)
+        log.debug("%d", g.files.list_folder_layers)
     # 4.4.2 CLL local / USB buttons on the file list page
     elif widget_id == ids.FILE_LIST_LOCAL:
         if g.screen.file_mode != "Local":
@@ -146,13 +149,13 @@ def preview(page_id, widget_id):
                 actions.print_start()
                 sleep(1)
                 if g.klippy.filament_detected:
-                    MKSLOG("No filament runout detected")
+                    log.info("No filament runout detected")
                     g.klippy.print_stats_state = "printing"
                     actions.check_filament_type()
                     actions.start_printing(g.files.list_print_files_path)
                     g.screen.show_preview_complete = False
                 else:
-                    MKSLOG("Filament runout detected")
+                    log.info("Filament runout detected")
                     page_to(ids.PRINT_NO_FILAMENT)
             g.screen.main_picture_detected = False
             g.screen.main_picture_refreshed = False
@@ -202,9 +205,9 @@ def printing(page_id, widget_id):
 def printing_kb(page_id, widget_id):
     if widget_id == ids.PRINTING_KB_BACK:
         g.screen.printing_keyboard_enabled = False
-        MKSLOG_BLUE("Restored")
+        log.debug("Restored")
     elif widget_id == ids.PRINTING_KB_MUTE:
-        MKSLOG_BLUE("Silent mode switched")
+        log.debug("Silent mode switched")
         if not g.screen.muted:
             g.screen.muted = True
             actions.set_printer_speed(50)
@@ -261,8 +264,8 @@ def print_filament(page_id, widget_id):
         g.screen.load_mode = False
         page_to(ids.PRE_HEAT)
     elif widget_id == ids.PRINT_FILAMENT_PAUSE_RESUME:
-        MKSLOG_BLUE("get_filament_detected_enable: %d", int(actions.get_filament_detected_enable()))
-        MKSLOG_BLUE("get_filament_detected: %d", int(actions.get_filament_detected()))
+        log.debug("get_filament_detected_enable: %d", int(actions.get_filament_detected_enable()))
+        log.debug("get_filament_detected: %d", int(actions.get_filament_detected()))
         g.klippy.ready = False
         page_to(ids.PRINTING)
         actions.set_print_resume()

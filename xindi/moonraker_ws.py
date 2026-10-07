@@ -9,6 +9,7 @@ for the previous message to be consumed, exactly like the original), sending on
 a connection that is not open fails with an error message.
 """
 
+import logging
 import base64
 import os
 import socket
@@ -17,7 +18,8 @@ import threading
 
 from . import state as g
 from .cpp import b2s, s2b
-from .mks_log import MKSLOG, cout
+
+log = logging.getLogger(__name__)
 
 _OP_CONT = 0x0
 _OP_TEXT = 0x1
@@ -280,13 +282,13 @@ class connection_metadata(object):
     def on_open(self, con):
         self.m_Status = "Open"
         self.m_Server = con.get_response_header("Server")
-        MKSLOG("websocket connected\n")
+        log.info("websocket connected\n")
 
     def on_fail(self, con):
         self.m_Status = "Failed"
         self.m_Server = con.get_response_header("Server")
         self.m_Error_reason = con.error
-        cout("Failed to connect to the server, please reconnect")
+        log.debug("Failed to connect to the server, please reconnect")
 
     def on_close(self, con):
         self.m_Status = "Closed"
@@ -320,7 +322,7 @@ class MoonrakerClient(object):
         try:
             con = _Connection(url)
         except (WebsocketError, ValueError) as e:
-            cout("> Connect initialization error: ", str(e))
+            log.debug("> Connect initialization error: %s", str(e))
             return False
 
         # create the metadata of the connection and keep it
@@ -333,29 +335,29 @@ class MoonrakerClient(object):
             con.close_handler = metadata_ptr.on_close
             con.message_handler = metadata_ptr.on_message
             con.start()
-            cout("Websocket connecting")
+            log.debug("Websocket connecting")
         except Exception as e:
-            cout(str(e))
+            log.debug("%s", str(e))
         return True
 
     def close(self, reason=""):
         if self.m_ConnectionMetadataPtr is not None:
             ec = self.m_ConnectionMetadataPtr.get_hdl().close(CLOSE_NORMAL, reason)
             if ec:
-                cout("> Error initiating close: ", ec)
+                log.debug("> Error initiating close: %s", ec)
                 return False
-            cout("Websocket connection closed")
+            log.debug("Websocket connection closed")
         return True
 
     def send(self, message):
         if self.m_ConnectionMetadataPtr is not None:
             ec = self.m_ConnectionMetadataPtr.get_hdl().send(message)
             if ec:
-                cout("> Error sending message: ", ec)
+                log.debug("> Error sending message: %s", ec)
                 return False
             else:
                 self.sending_message = message
-                cout("Data sent, content: " + self.sending_message)
+                log.debug("%s", "Data sent, content: " + self.sending_message)
         return True
 
     def connected(self):

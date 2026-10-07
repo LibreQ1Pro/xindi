@@ -1,11 +1,14 @@
 """Clicks on the levelling, z-offset, bed calibration and input shaping pages. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
+import logging
+
 from .. import state as g
 from .. import actions, filelist, settings
 from .. import pageids as ids
 from ..cpp import system
-from ..mks_log import cout
 from ..ui import page_to
+
+log = logging.getLogger(__name__)
 
 
 def level_mode(page_id, widget_id):
@@ -56,7 +59,7 @@ def auto_heaterbed(page_id, widget_id):
 
 def auto_finish(page_id, widget_id):
     if widget_id == ids.AUTO_FINISH_YES:
-        cout("Auto levelling finished")
+        log.debug("Auto levelling finished")
         page_to(ids.LEVEL_MODE)
 
 

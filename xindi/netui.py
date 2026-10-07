@@ -2,6 +2,8 @@
 display_firmware/tools/add_network_pages.py): saved networks, one network, "forget" confirmation, the state of the
 interfaces, and the keyboard modes (password of a scanned / saved network, hidden network)."""
 
+import logging
+
 from . import state as g
 from . import pageids as ids
 from . import pics
@@ -9,7 +11,8 @@ from . import ui
 from . import network
 from . import netstrings
 from .cpp import sleep, pthread_create
-from .mks_log import MKSLOG, MKSLOG_BLUE
+
+log = logging.getLogger(__name__)
 
 ROWS = 5
 
@@ -239,7 +242,7 @@ def keyboard_back():
 def keyboard_text(mode, text):
     """The text accepted on the keyboard page (str)."""
     from . import wifi_ui
-    MKSLOG_BLUE("Keyboard mode %d", mode)
+    log.debug("Keyboard mode %d", mode)
     g.screen.printing_wifi_keyboard_enabled = False
     if mode == KB_PSK_SCANNED:
         ui.page_to(ids.WIFI_CONNECT)
@@ -254,4 +257,4 @@ def keyboard_text(mode, text):
         ui.page_to(ids.WIFI_CONNECT)
         network.mks_start_connect(S.hidden_ssid, text, hidden=True)
     else:
-        MKSLOG("Unknown keyboard mode %d", mode)
+        log.info("Unknown keyboard mode %d", mode)

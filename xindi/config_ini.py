@@ -1,12 +1,14 @@
 """Access to config.mksini (the settings of the screen backend) and the version file."""
 
+import logging
 import os
 
 from . import paths
 from .cpp import b2s, s2b
-from .mks_log import cout
 from .iniparser import (iniparser_load, iniparser_getstring, iniparser_getint,
                         iniparser_getboolean, iniparser_set, iniparser_dump_ini)
+
+log = logging.getLogger(__name__)
 
 XINDI_PLUS = 1
 XINDI_MAX = 0
@@ -87,7 +89,7 @@ def _create_default_mksini(path):
         os.chmod(path, 0o666)
     except OSError:
         pass
-    cout("Created " + path + " with the default settings")
+    log.debug("%s", "Created " + path + " with the default settings")
 
 
 class IniFile:
@@ -97,7 +99,7 @@ class IniFile:
         self.path = path
         self._dict = iniparser_load(path)
         if self._dict is None:
-            cout("Ini parse failure!")
+            log.debug("Ini parse failure!")
 
     def get_string(self, section, key, default):
         if self._dict is None:

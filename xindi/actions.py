@@ -1,5 +1,6 @@
 """What the user and the screen start: commands to Klipper / Moonraker, the printing flow, the levelling and filament steps."""
 
+import logging
 import json as _json
 import urllib.request
 
@@ -9,13 +10,14 @@ from . import pageids as ids
 from . import pics
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
-from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr
 from .moonraker_api import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_print_a_file, json_emergency_stop)
 from .gcodes import (AXIS_X, AXIS_Y, AXIS_Z, move_relative, set_heater_temp, set_fan0_speed, set_fan2_speed,
                            set_fan3_speed, set_speed_rate)
 from .printer_status import subscribe_objects_status
 from . import filelist, pages, settings
+
+log = logging.getLogger(__name__)
 
 
 def _top(stack):
@@ -79,7 +81,7 @@ def set_move_dist(dist):
 
 
 def set_printer_speed(speed):
-    cout("Rate = ", to_string(speed))
+    log.debug("Rate = %s", to_string(speed))
     g.ep.send(json_run_a_gcode(set_speed_rate(to_string(speed))))
 
 
@@ -156,7 +158,7 @@ def sdcard_reset_file():
 
 
 def set_auto_level_dist(dist):
-    MKSLOG_BLUE("SET")
+    log.debug("SET")
     g.levelling.auto_level_dist = f32(dist)
 
 
@@ -432,13 +434,13 @@ def save_current_zoffset():
         if z > -5 and z < 5:    # CLL only z-offsets between -5 and 5 are saved
             g.config.babystep_value = to_string(z)
             settings.set_babystep(g.config.babystep_value)
-            MKSLOG_RED("Current z-offset saved as %s", g.config.babystep_value)
+            log.info("Current z-offset saved as %s", g.config.babystep_value)
     else:
         if z_offset != g.config.babystep_value and z_offset.find("0.000") != -1:
             if stof(z_offset) > -5 and stof(z_offset) < 5:
                 g.config.babystep_value = z_offset
                 settings.set_babystep(g.config.babystep_value)
-                MKSLOG_RED("Current z-offset saved as:%s", g.config.babystep_value)
+                log.info("Current z-offset saved as:%s", g.config.babystep_value)
 
 
 def check_filament_type():
@@ -447,7 +449,7 @@ def check_filament_type():
     else:
         filament_type = g.files.meta_filament_name
     filament_type = str_lower_ascii(filament_type)
-    MKSLOG_YELLOW("filament_type : %s", filament_type)
+    log.info("filament_type : %s", filament_type)
     # 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
     if (filament_type.find("pla") != -1 or filament_type.find("petg") != -1) and g.screen.preview_pop_1_on:
         page_to(ids.PREVIEW_POP_1)
@@ -461,7 +463,7 @@ def check_filament_width():
     """4.4.2 support for the hall filament width sensor"""
     if g.files.filament_message.find("// Filament dia (measured mm):") != -1:
         filament_width = stof(substr(g.files.filament_message, 31))
-        MKSLOG("Filament width: %f", filament_width)
+        log.info("Filament width: %f", filament_width)
         if filament_width < 0.3:
             g.klippy.filament_detected = False
         else:
@@ -483,7 +485,7 @@ def bed_calibrate():
         g.ep.send(json_run_a_gcode("G1 Z10 F600"))
         g.ep.send(json_run_a_gcode("BED_SCREWS_ADJUST\n"))
         g.ep.send(json_run_a_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n"))
-        MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)
+        log.debug("Current bed_offset:%f", g.levelling.bed_offset)
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count > 0:
         g.klippy.idle_timeout_state = "Printing"
@@ -505,11 +507,11 @@ def bed_adjust(status):
     if status:
         g.ep.send(json_run_a_gcode("G91\nG1 Z" + to_string(-g.levelling.auto_level_dist) + " F600\nG90\n"))
         g.levelling.bed_offset = f32(g.levelling.bed_offset - g.levelling.auto_level_dist)
-        MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)
+        log.debug("Current bed_offset:%f", g.levelling.bed_offset)
     else:
         g.ep.send(json_run_a_gcode("G91\nG1 Z" + to_string(g.levelling.auto_level_dist) + " F600\nG90\n"))
         g.levelling.bed_offset = f32(g.levelling.bed_offset + g.levelling.auto_level_dist)
-        MKSLOG_BLUE("Current bed_offset:%f", g.levelling.bed_offset)
+        log.debug("Current bed_offset:%f", g.levelling.bed_offset)
 
 
 def send_gcode(command):
@@ -540,7 +542,7 @@ def check_timelapse_state():
         with urllib.request.urlopen(TIMELAPSE_URL, timeout=2) as resp:
             g.screen.timelapse_enabled = bool(_json.loads(resp.read().decode("utf-8"))["result"]["enabled"])
     except Exception as e:
-        cerr("Timelapse state: ", str(e), "\n")
+        log.error("Timelapse state: %s", str(e))
         g.screen.timelapse_enabled = False
     return g.screen.timelapse_enabled
 
@@ -552,7 +554,7 @@ def switch_timelapse_state():
         urllib.request.urlopen(urllib.request.Request(url, data=b"", method="POST"), timeout=2).close()
         g.screen.timelapse_enabled = not g.screen.timelapse_enabled
     except Exception as e:
-        cerr("Timelapse switch: ", str(e), "\n")     # no plugin: the switch stays off
+        log.error("Timelapse switch: %s", str(e))     # no plugin: the switch stays off
 
 
 def finish_screen_update():
@@ -564,7 +566,7 @@ def finish_screen_update():
 def check_print_interrupted():
     printer_variables = read_file(paths.klipper_config() + "/saved_variables.cfg")
     if printer_variables is None:
-        cerr("Can't open the file ", paths.klipper_config() + "/saved_variables.cfg", "\n")
+        log.error("Can't open the file %s", paths.klipper_config() + "/saved_variables.cfg")
         return
     print_interrupted_status = substr(printer_variables, printer_variables.find("was_interrupted =") + 18, 5)
     if print_interrupted_status != "False":

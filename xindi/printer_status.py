@@ -1,11 +1,13 @@
 """Parsing of the Klipper printer object status."""
 
+import logging
 import math
 
 from . import state as g
 from .cpp import jget, jpath, jstr, jfloat, jdouble, jbool, f32, c_int, c_round
 from .jsonfields import read_fields
-from .mks_log import MKSLOG_RED, cout
+
+log = logging.getLogger(__name__)
 
 
 def _temperature(value):
@@ -15,7 +17,7 @@ def _temperature(value):
 
 def parse_server_history_totals(totals):
     read_fields(g.klippy, totals, [("total_print_time", "total_print_time", jdouble)])
-    cout("total_print_time = ", c_int(g.klippy.total_print_time))
+    log.debug("total_print_time = %s", c_int(g.klippy.total_print_time))
 
 
 def parse_printer_probe(probe):
@@ -90,7 +92,7 @@ def parse_bed_mesh(bed_mesh):
 def parse_webhooks(webhooks):
     read_fields(g.klippy, webhooks, [("webhooks_state", "state", jstr),
                                ("webhooks_state_message", "state_message", jstr)])
-    MKSLOG_RED("State message: %s", g.klippy.webhooks_state_message)
+    log.info("State message: %s", g.klippy.webhooks_state_message)
 
 
 def parse_gcode_move(gcode_move):
@@ -238,4 +240,4 @@ def get_cal_printing_time(print_time, estimated_time, progress):
 def parse_printer_info(result):
     if jget(result, "software_version") is not None:
         g.klippy.info_software_version = jstr(jget(result, "software_version"))
-        MKSLOG_RED("Version: %s", g.klippy.info_software_version)
+        log.info("Version: %s", g.klippy.info_software_version)

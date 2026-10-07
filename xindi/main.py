@@ -1,6 +1,7 @@
 """Start-up sequence and main loop of the screen backend ("xindi")."""
 
 import fcntl
+import logging
 import os
 import queue
 import sys
@@ -11,7 +12,6 @@ from . import state as g
 from . import ui
 from . import pageids as ids
 from .cpp import access, system, sleep, pthread_create, terminate
-from .mks_log import MKSLOG, MKSLOG_BLUE, cout, cerr
 from .moonraker_ws import MoonrakerClient
 from .moonraker_messages import json_parse
 from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults, get_wlan0_status, get_ssid_list_pages
@@ -19,6 +19,8 @@ from .picture_transfer import sent_jpg_thread_handle
 from . import actions, pages, settings
 from . import screen_rx
 from . import screen_flash
+
+log = logging.getLogger(__name__)
 
 REFRESH_INTERVAL = 0.05     # s between two redraws of the page
 
@@ -59,10 +61,10 @@ def update_screen_firmware():
     """Flash /root/800_480.tft into the screen when there is one."""
     g.update.find_screen_tft_file = access("/root/800_480.tft") == 0
     if not g.update.find_screen_tft_file:
-        MKSLOG_BLUE("No tft update file found")
+        log.debug("No tft update file found")
         return
-    MKSLOG_BLUE("Found the tft update file")
-    MKSLOG("Running the screen update")
+    log.debug("Found the tft update file")
+    log.info("Running the screen update")
     # The original runs "/root/uart; mv /root/800_480.tft /root/800_480.tft.bak";
     # the uart helper is built in (see screen_flash.py).
     screen_flash.main()
@@ -105,20 +107,20 @@ def restore_c_helper():
 def connect_moonraker(argv):
     host = "localhost"
     url = "ws://localhost:7125/websocket?"
-    MKSLOG("%s", url)
+    log.info("%s", url)
 
     if len(argv) == 2:
         host = argv[1]
         url = "ws://" + host + ":7125/websocket?"
 
     g.ep = MoonrakerClient(host, "7125")
-    cout(g.ep.url())
-    cout(g.ep.poll_status())
-    cout(int(g.ep.connected()))
+    log.debug("%s", g.ep.url())
+    log.debug("%s", g.ep.poll_status())
+    log.debug("%s", int(g.ep.connected()))
 
     connected_count = 0
     while not g.ep.connected():
-        cout(connected_count, "Not connected: ", int(g.ep.connected()))
+        log.debug("%sNot connected: %s", connected_count, int(g.ep.connected()))
         g.ep.close()
         g.ep.connect(url)
         connected_count += 1
@@ -132,7 +134,7 @@ def open_screen_port():
     if not g.port.open():
         print("Open tty failed")
         return -1
-    MKSLOG_BLUE("%d", g.port.fd)
+    log.debug("%d", g.port.fd)
     print("Open tty success")
     return g.port.fd
 
@@ -172,7 +174,7 @@ def start_screen(fd, frames):
             g.screen.page = ids.OPEN_LANGUAGE if settings.get_oobe_enabled() else ids.MAIN
         ui.page_to(g.screen.page)
     except Exception as e:
-        cerr("Page main error, ", str(e), "\n")
+        log.error("Page main error, %s", str(e))
 
 
 def main_loop(frames):
@@ -205,11 +207,19 @@ def main(argv):
     main_loop(frames)
 
 
+def setup_logging():
+    """Log to stdout (the journal of the service); XINDI_LOG=debug shows the chatty messages too."""
+    level = os.environ.get("XINDI_LOG", "info").upper()
+    logging.basicConfig(stream=sys.stdout, level=getattr(logging, level, logging.INFO),
+                        format="%(levelname).1s %(name)s: %(message)s")
+
+
 def run():
     try:
         sys.stdout.reconfigure(line_buffering=True)
     except Exception:
         pass
+    setup_logging()
     try:
         return main(sys.argv)
     except KeyboardInterrupt:

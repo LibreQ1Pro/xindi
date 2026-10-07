@@ -1,14 +1,17 @@
 """The Wi-Fi list page, the IP address and the connection details."""
 
+import logging
+
 from . import state as g
 from . import pageids as ids
 from . import pics
 from . import network
 from .ui import page_to
 from .cpp import to_string, b2s
-from .mks_log import MKSLOG_BLUE, MKSLOG_RED, MKSLOG_GREEN, cout
 from .network import (get_eth0_ip, get_wlan0_ip, detected_wlan0, get_wlan0_status, get_ssid_list_pages,
                       set_page_wifi_ssid_list)
+
+log = logging.getLogger(__name__)
 
 
 def refresh_wifi_keyboard():
@@ -51,9 +54,9 @@ def scan_ssid_and_show():
 def refresh_wifi_list():
     # 4.4.22: the names come from the list, the first entry of the first page is
     # the connected network; the page buttons are set once after the list
-    MKSLOG_BLUE("pages: %d / %d", g.net.wifi_current_pages + 1, g.net.wifi_ssid_list_pages)
+    log.debug("pages: %d / %d", g.net.wifi_current_pages + 1, g.net.wifi_ssid_list_pages)
     for i in range(5):
-        cout("Refreshed wifi: ", g.net.wifi_ssid_list[i])
+        log.debug("Refreshed wifi: %s", g.net.wifi_ssid_list[i])
         g.port.txt("row" + to_string(i + 1) + "_txt", g.net.wifi_ssid_list[i])
         if g.net.status_result.wpa_state == "COMPLETED" and g.net.wifi_current_pages == 0 and i == 0:
             g.port.picc("row1", pics.rows_check)
@@ -95,7 +98,7 @@ def get_wifi_list_ssid(index):
 
 def print_ssid_psk(psk):
     """psk: bytes received from the screen keyboard"""
-    MKSLOG_RED("SSID is %s", g.net.get_wifi_name)
+    log.info("SSID is %s", g.net.get_wifi_name)
     network.mks_start_connect(g.net.get_wifi_name, b2s(psk))
 
 
@@ -104,7 +107,7 @@ def refresh_ip_address():
     page_to(ids.INTERNET_PAGE)
     ip_address = get_wlan0_ip()
     if ip_address != "":
-        MKSLOG_GREEN("ip_address updated")
+        log.info("ip_address updated")
         g.port.txt("ip_txt", ip_address)
 
 

@@ -1,5 +1,6 @@
 """The gcode file list of the file pages and the metadata of the chosen file."""
 
+import logging
 import sys
 
 from . import paths
@@ -9,8 +10,9 @@ from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of,
                   json_parse, json_dump)
 from .jsonfields import read_fields
-from .mks_log import MKSLOG, MKSLOG_RED, cout
 from .http_client import send_request
+
+log = logging.getLogger(__name__)
 
 
 def parse_file_estimated_time(response):
@@ -34,7 +36,7 @@ def parse_file_estimated_time(response):
                 g.files.thumbnail_path = g.files.thumbnail_relative_path
             else:
                 g.files.thumbnail_path = directory + "/" + g.files.thumbnail_relative_path
-            MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
+            log.info("Picture path %s", g.files.thumbnail_path)
             break
     g.files.meta_parse_finished = True
 
@@ -58,7 +60,7 @@ def get_page_files_filelist(current_dir):
         json_temp = json_parse(json_files_directory)
         result = jget(json_temp, "result")
         if 0 < jsize(jget(result, "files")):
-            cout(json_dump(jpath(result, "files", 0, "filename")))
+            log.debug("%s", json_dump(jpath(result, "files", 0, "filename")))
             temp_filename = jstr(jpath(result, "files", 0, "filename"))
             if temp_filename.find(".gcode") != -1:
                 if temp_filename.find(".") != 0:
@@ -77,7 +79,7 @@ def get_page_files_filelist(current_dir):
             g.files.list_dirname_list.add(temp_dirname)
 
     for j in range(jsize(jget(result, "files"))):
-        cout(json_dump(jpath(result, "files", j, "filename")))
+        log.debug("%s", json_dump(jpath(result, "files", j, "filename")))
         temp_filename = jstr(jpath(result, "files", j, "filename"))
         if temp_filename.find(".gcode") != -1:
             if temp_filename.find(".") != 0:
@@ -117,7 +119,7 @@ def set_page_files_show_list(pages):
         it += 1
         # NOTE: the original dereferences the iterator even past the end (UB)
         if it < len(entries):
-            cout(entries[it])
+            log.debug("%s", entries[it])
     for i in range(4):
         if it < len(entries):
             g.files.list_list_name[i] = entries[it]
@@ -161,7 +163,7 @@ def get_sub_dir_files_list(button):
         g.files.list_path_stack.append(g.files.list_path)
         g.files.list_print_files_path = g.files.list_path + "/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1
-        MKSLOG("%s", substr(g.files.list_print_files_path, 1))
+        log.info("%s", substr(g.files.list_print_files_path, 1))
         filelist.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
         actions.check_timelapse_state()       # 4.4.22 timelapse switch of the preview page
         ui.page_to(ids.PREVIEW)
@@ -209,7 +211,7 @@ def parse_file_estimated_time_send(response):
         g.files.meta_filename = jstr(jget(response, "filename"))
     if jget(response, "filament_total") is not None:
         g.files.meta_filament_total = f32(jint(jget(response, "filament_total")))
-        MKSLOG_RED("Filament length %f", g.files.meta_filament_total)
+        log.info("Filament length %f", g.files.meta_filament_total)
     if jget(response, "object_height") is not None:
         g.files.meta_object_height = jint(jget(response, "object_height"))
     if jget(response, "filament_name") is not None:
@@ -221,10 +223,10 @@ def parse_file_estimated_time_send(response):
         g.files.meta_filament_weight_total = jfloat(jget(response, "filament_weight_total"))
     if jget(response, "gimage") is not None:
         g.files.meta_gimage = jstr(jget(response, "gimage"))
-        MKSLOG_RED("gimage")
+        log.info("gimage")
     if jget(response, "simage") is not None:
         g.files.meta_simage = jstr(jget(response, "simage"))
-        MKSLOG_RED("simage")
+        log.info("simage")
     thumbnails = jpath(response, "result", "thumbnails")
     if thumbnails is not None:
         last = _json_back(thumbnails)
@@ -234,7 +236,7 @@ def parse_file_estimated_time_send(response):
                 g.files.thumbnail_path = g.files.thumbnail_relative_path
             else:
                 g.files.thumbnail_path = parent_directory(g.files.meta_filename) + "/" + g.files.thumbnail_relative_path
-            MKSLOG_RED("Picture path %s", g.files.thumbnail_path)
+            log.info("Picture path %s", g.files.thumbnail_path)
     else:
         g.files.thumbnail_relative_path = ""
         g.files.thumbnail_path = ""
@@ -274,7 +276,7 @@ def output_imgdata(thumbpath, size):
     g.pictures.tjc_data = None
     if isinstance(thumbpath, thumbnail.GcodeRef):
         # Python only: picture from the thumbnails inside the gcode file
-        cout("Converting the thumbnail of " + thumbpath + " (" + to_string(size) + ")")
+        log.debug("%s", "Converting the thumbnail of " + thumbpath + " (" + to_string(size) + ")")
         try:
             g.pictures.tjc_data = thumbnail.colpic(thumbpath, size)
         except Exception as e:
@@ -285,7 +287,7 @@ def output_imgdata(thumbpath, size):
     else:
         path = thumbpath
     temp = "python3 /home/mks/colpic.py \"" + path + "\" /home/mks/tjc " + to_string(size)
-    cout(temp)
+    log.debug("%s", temp)
     try:
         g.pictures.tjc_data = colpic.encode_picture(path, size)
     except Exception as e:

@@ -1,8 +1,11 @@
 """Gcode builders (heater, fan, speed and relative moves)."""
 
+import logging
+
 from .cpp import f32, to_string
-from .mks_log import cout
 from .moonraker_api import json_run_a_gcode
+
+log = logging.getLogger(__name__)
 
 AXIS_X = "X"
 AXIS_Y = "Y"
@@ -47,7 +50,7 @@ def set_heater_temp(heater, temp):
 # Xindi
 def set_fan0_speed(speed):
     speed_temp = to_string(f32(f32(speed * 255) / 100))
-    cout(speed_temp)
+    log.debug("%s", speed_temp)
     return "M106 P0 S" + speed_temp
 
 

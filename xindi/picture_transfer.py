@@ -7,6 +7,7 @@ buffer overflows (those bytes are picked up by ui.parse_cmd_msg_from_tjc_screen
 and stored in the get_0x?? flags).
 """
 
+import logging
 import io
 import os
 import time
@@ -15,7 +16,8 @@ from . import paths
 from . import state as g
 from . import thumbnail
 from .cpp import to_string, usleep, sleep
-from .mks_log import MKSLOG_BLUE, MKSLOG_GREEN, cout
+
+log = logging.getLogger(__name__)
 
 # BLOCK_SIZE 3072
 BLOCK_SIZE = 3800
@@ -67,18 +69,18 @@ def sent_jpg_thread_handle(arg=None):
                     ram_path = "ram/" + "file" + to_string(i) + ".jpg"
                     if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
                         # Python only: jpg made from the thumbnail inside the gcode file
-                        cout(g.pictures.have_64_png_path[i])
+                        log.debug("%s", g.pictures.have_64_png_path[i])
                         jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], 112)
                         if jpg_data is not None:
                             sent_jpg_to_tjc(ram_path, jpg_data)
                     else:
                         jpg_path = paths.gcode_files() + "/" + g.pictures.have_64_png_path[i]
-                        cout(jpg_path)
+                        log.debug("%s", jpg_path)
                         sent_jpg_to_tjc(ram_path, jpg_path)
                     g.pictures.have_64_jpg[i] = False
             g.pictures.send_jpg_status = False
             g.port.tsw("255", "1")      # enable touch
-            MKSLOG_BLUE("Touch enabled")
+            log.debug("Touch enabled")
 
         usleep(60000)
 
@@ -147,7 +149,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
         # (Python only: the picture can also be passed as bytes kept in memory)
         f = io.BytesIO(jpg_path) if isinstance(jpg_path, (bytes, bytearray)) else open(jpg_path, "rb")
     except OSError:
-        MKSLOG_BLUE("Failed to open the file")
+        log.debug("Failed to open the file")
         return True
 
     filesize = getFileSize(f)
@@ -194,7 +196,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 g.port.write(exit_buf)
                 print("".join("%02X" % b for b in exit_buf))
                 g.port.write(exit_buf)
-                MKSLOG_GREEN("Got 0x04, failed")
+                log.info("Got 0x04, failed")
                 f.close()
                 return False
             # re-send on timeout
@@ -203,7 +205,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 # re-send the data frame
                 g.port.write(head_buf)
                 g.port.write(read_buf[:file_res + 2])
-                MKSLOG_GREEN("Timed out waiting for the answer, re-sending the frame")
+                log.info("Timed out waiting for the answer, re-sending the frame")
 
             # timeout
             if time_differ(4, g.pictures.sent_jpg_to_tjc_start_time):
@@ -211,7 +213,7 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
                 print("".join("%02X" % b for b in exit_buf))
                 g.port.write(exit_buf)
                 g.port.write(exit_buf)
-                MKSLOG_GREEN("Timed out writing the data frame, failed")
+                log.info("Timed out writing the data frame, failed")
                 f.close()
                 return False
 
@@ -230,11 +232,11 @@ def sent_jpg_to_tjc(ram_path, jpg_path):
             print("".join("%02X" % b for b in exit_buf))
             g.port.write(exit_buf)
             g.port.write(exit_buf)
-            MKSLOG_GREEN("Timed out writing the picture, failed")
+            log.info("Timed out writing the picture, failed")
             f.close()
             break
 
-    MKSLOG_GREEN("Picture written to the screen memory")
+    log.info("Picture written to the screen memory")
     f.close()
     return True
 

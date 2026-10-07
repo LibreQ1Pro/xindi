@@ -1,16 +1,19 @@
 """What every screen page shows: the refresh functions are called with the page that is open."""
 
+import logging
+
 from . import state as g
 from . import pageids as ids
 from . import pics
 from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, c_round, system, sleep, usleep
-from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
 from .moonraker_api import json_run_a_gcode
 from .printer_status import get_cal_printing_time
 from .file_browser import output_imgdata
 from . import actions, filelist, settings, wifi_ui
+
+log = logging.getLogger(__name__)
 
 
 def _replace_for_screen(text):
@@ -83,7 +86,7 @@ def show():
                     g.screen.main_picture_detected = False
                     g.screen.main_picture_refreshed = False
                     g.screen.muted = False         # 4.4.22 silent mode is per print
-                    MKSLOG_BLUE("Jumping to the print page\n")
+                    log.debug("Jumping to the print page\n")
                     sleep(1)
                     filelist.get_file_estimated_time(g.klippy.print_stats_filename)
                     sleep(1)
@@ -109,7 +112,7 @@ def show():
                     pass
                 else:
                     page_to(ids.RESET)
-                    cout("Restart page")
+                    log.debug("Restart page")
                     if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
                         g.shown.webhooks_state_message = g.klippy.webhooks_state_message
                         g.port.txt("err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
@@ -197,14 +200,14 @@ def open_filament_video_2():
 
 
 def syntony_finish():
-    MKSLOG_BLUE("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
-    MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
+    log.debug("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
+    log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
     if not g.levelling.syntony_finished:
         g.levelling.syntony_finished = True
         g.levelling.all_level_saving = False
 
     if g.klippy.idle_timeout_state == "Ready" and g.klippy.webhooks_state == "ready":
-        MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
+        log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
         sleep(10)
         system("sync")      # make sure the config file is saved
 
@@ -214,7 +217,7 @@ def syntony_finish():
         actions.get_object_status()
         sleep(10)
         page_to(ids.LEVEL_MODE)
-        MKSLOG_RED("Left from line 739")
+        log.info("Left from line 739")
 
 
 def _picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
@@ -237,8 +240,8 @@ def auto_level():
 
 
 def stopping():
-    MKSLOG_BLUE("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
-    MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
+    log.debug("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
+    log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
     if g.klippy.idle_timeout_state == "Ready":
         actions.clear_previous_data()
         sleep(5)
@@ -249,8 +252,8 @@ def stopping():
 def syntony_move():
     if g.screen.temp_idle_state != g.klippy.idle_timeout_state:
         g.screen.temp_idle_state = g.klippy.idle_timeout_state
-        MKSLOG_BLUE("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
-        MKSLOG_BLUE("Printer webhooks state: %s", g.klippy.webhooks_state)
+        log.debug("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
+        log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
 
     if g.levelling.step_1:
         sleep(15)
@@ -717,12 +720,12 @@ def preview():
             picture_path = ""
             for candidate in candidates:
                 candidate = substr(candidate, 1)
-                MKSLOG_RED("picture_path:%s", candidate)
+                log.info("picture_path:%s", candidate)
                 if thumbnail.find(candidate, 160, "PNG") is not None:
                     path_found = True
                     picture_path = thumbnail.GcodeRef(candidate)
                     break
-            MKSLOG_BLUE("Picture path:%s", picture_path)
+            log.debug("Picture path:%s", picture_path)
             if picture_path == "":
                 path_found = False
 
@@ -732,7 +735,7 @@ def preview():
                     output_imgdata(picture_path, 160)
                     data = g.pictures.tjc_data
                     if data is None:
-                        cerr("No converted picture (/home/mks/tjc)", "\n")
+                        log.error("No converted picture (/home/mks/tjc)")
                         g.screen.show_preview_complete = True
                         return
                     g.files.meta_simage = data
@@ -742,7 +745,7 @@ def preview():
                         g.port.baud(921600)
                         usleep(50000)
                         g.port.set_baud(921600)
-                        cout("Sending the small picture")
+                        log.debug("Sending the small picture")
                         _send_chunks_txt(g.files.meta_simage)
                         g.port.baud(115200)
                         usleep(50000)
@@ -752,7 +755,7 @@ def preview():
                     if not g.screen.jump_print:
                         data = g.pictures.tjc_data
                         if data is None:
-                            cerr("No converted picture (/home/mks/tjc)", "\n")
+                            log.error("No converted picture (/home/mks/tjc)")
                             g.screen.show_preview_complete = True
                             return
                         g.files.meta_gimage = data
@@ -761,7 +764,7 @@ def preview():
                         g.port.set_baud(921600)
                         g.port.cp_close("preview.preview_pic")
                         if g.files.meta_gimage != "":
-                            cout("Sending the big picture")
+                            log.debug("Sending the big picture")
                             _send_chunks_cp("preview_pic", g.files.meta_gimage)
                         g.port.baud(115200)
                         usleep(50000)
@@ -851,10 +854,10 @@ def main():
             name0 = g.files.list_list_show_name[0]
             # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
             picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/.cache/" + name0, 1))
-            MKSLOG_RED("Picture path:%s", picture_path)
+            log.info("Picture path:%s", picture_path)
             thumb = thumbnail.find(picture_path, 160, "PNG")
             if thumb is not None and thumb.fmt == "PNG":
-                MKSLOG_RED("Found png picture")
+                log.info("Found png picture")
                 g.port.pic("b[0]", pics.main_bg_photo)
                 g.port.picc("last_file_btn", pics.main_bg_photo)
                 g.port.picc2("last_file_btn", pics.nav_btn_press)
@@ -863,7 +866,7 @@ def main():
                 g.screen.main_picture_detected = True
             else:
                 if thumb is not None:
-                    MKSLOG_RED("Found jpg picture")
+                    log.info("Found jpg picture")
                     g.port.pic("b[0]", pics.main_bg_photo)
                     g.port.picc("last_file_btn", pics.main_bg_photo)
                     g.port.picc2("last_file_btn", pics.nav_btn_press)

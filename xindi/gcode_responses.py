@@ -1,17 +1,19 @@
 """Handling of the "notify_gcode_response" messages of Moonraker."""
 
+import logging
 import re
 
 from . import state as g
 from . import pageids as ids
 from . import ui
 from .cpp import (jget, jstr, json_dump, to_string, substr, stream_float, f32, sleep)
-from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout
+
+log = logging.getLogger(__name__)
 
 
 def parse_gcode_response(params):
     from . import actions, pages, settings
-    cout(json_dump(params))
+    log.debug("%s", json_dump(params))
     if params is not None:
         params0 = jstr(jget(params, 0))
 
@@ -25,7 +27,7 @@ def parse_gcode_response(params):
         # bltouch: z_offset: 1.000
         if params0 == "// Klipper state: Ready":
             g.klippy.idle_timeout_state = "Ready"
-            MKSLOG("Klipper restarted and is ready, sending the subscriptions")
+            log.info("Klipper restarted and is ready, sending the subscriptions")
             g.klippy.webhooks_state = "ready"
             g.klippy.webhooks_state_message = "Klipper state: Ready"
             sleep(5)
@@ -35,25 +37,25 @@ def parse_gcode_response(params):
             settings.get_babystep()    # 4.4.22 (was init_mks_status())
             if not g.levelling.all_level_saving:
                 g.levelling.all_level_saving = True
-            MKSLOG_YELLOW("State after the restart: %s", g.klippy.webhooks_state)
+            log.info("State after the restart: %s", g.klippy.webhooks_state)
         elif params0 == "// Klipper state: Disconnect":
             actions.sub_object_status()
         elif substr(params0, 0, 19) == "// PID parameters: ":
-            MKSLOG_RED("// PID parameters: ")
+            log.info("// PID parameters: ")
             # std::regex_match() of a single decimal number against the whole line
             # never matches here, so only empty sub matches are printed.
             m = re.fullmatch(r"(\d+\.\d+)", params0)
             groups = [m.group(0), m.group(1), ""] if m else ["", "", ""]
             if m:
-                cout("pid_Kp == ", groups[0])
-                cout("pid_Ki == ", groups[1])
-                cout("pid_Kd == ", groups[2])
-            cout(groups[0])
-            cout(groups[1])
-            cout(groups[2])
-            cout("Got the PID values")
+                log.debug("pid_Kp == %s", groups[0])
+                log.debug("pid_Ki == %s", groups[1])
+                log.debug("pid_Kd == %s", groups[2])
+            log.debug("%s", groups[0])
+            log.debug("%s", groups[1])
+            log.debug("%s", groups[2])
+            log.debug("Got the PID values")
         elif substr(params0, 0, 20) == "// probe: z_offset: ":
-            MKSLOG_RED("Got z_offset: %s", substr(params0, 20))
+            log.info("Got z_offset: %s", substr(params0, 20))
             temp = stream_float(substr(params0, 20))
             temp = -temp
             temp = f32(temp - 0.15)      # subtract 0.15mm as required
@@ -61,7 +63,7 @@ def parse_gcode_response(params):
             babystep = substr(value, 0, value.find(".") + 4)
             settings.set_babystep(babystep)        # store the babystep in our config file
         elif substr(params0, 0, 22) == "// bltouch: z_offset: ":
-            MKSLOG_RED("Got z_offset: %s", substr(params0, 22))
+            log.info("Got z_offset: %s", substr(params0, 22))
             temp = stream_float(substr(params0, 22))
             temp = -temp
             value = to_string(temp)
@@ -80,20 +82,20 @@ def parse_gcode_response(params):
             m = re.search(r"(\d+\.\d+)", temp)      # matches a decimal number
             if m:
                 g.levelling.shaper_freq_x = m.group(0)
-            cout("Got the input shaping result")
-            MKSLOG_YELLOW("Shaper_freq_x = %s", g.levelling.shaper_freq_x)
+            log.debug("Got the input shaping result")
+            log.info("Shaper_freq_x = %s", g.levelling.shaper_freq_x)
         elif substr(params0, 0, 31) == "// Recommended shaper_type_y = ":
             temp = substr(params0, 31)
             m = re.search(r"(\d+\.\d+)", temp)
             if m:
                 g.levelling.shaper_freq_y = m.group(0)
-            cout("Got the input shaping result")
-            MKSLOG_YELLOW("Shaper_freq_y = %s", g.levelling.shaper_freq_y)
+            log.debug("Got the input shaping result")
+            log.info("Shaper_freq_y = %s", g.levelling.shaper_freq_y)
         elif substr(params0, 0, 14) == "// Z position:":
             start = params0.find(">") + 1
             end = substr(params0, start).find("<") - 1
             g.levelling.str_manual_level_offset = substr(params0, start, end)
-            cout(substr(params0, start, end))
+            log.debug("%s", substr(params0, start, end))
         elif substr(params0, 0, 21) == "!! Move out of range:":
             pages.move_tips()
         elif substr(params0, 0, 52) == "!! Can not update MCU 'mcu' config as it is shutdown":
@@ -152,4 +154,4 @@ def parse_gcode_response(params):
               or params0.find("echo: Filament loaded") != -1 or params0.find("echo: Filament unloaded") != -1):
             if g.screen.page in (ids.AUTO_UNLOAD, ids.FILAMENT_POP_2, ids.FILAMENT_POP_3):
                 g.levelling.step_2 = True
-                MKSLOG_BLUE("load / unload filament success, step_2=%d", 1)
+                log.debug("load / unload filament success, step_2=%d", 1)

@@ -5,13 +5,15 @@ methods wait for the output to drain (tcdrain) and then issue a single
 write(); errors are ignored.
 """
 
+import logging
 import os
 import termios
 import time
 
 from .cpp import s2b, to_string
-from .mks_log import MKSLOG_YELLOW, MKSLOG_BLUE
 from .serial_port import set_option
+
+log = logging.getLogger(__name__)
 
 END = b"\xff\xff\xff"
 
@@ -82,13 +84,13 @@ class ScreenPort:
     def twfile(self, filepath, filesize):
         """Pass-through file transfer (X3/X5 only)"""
         cmd = s2b("twfile \"" + filepath + "\"," + filesize) + END
-        MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
+        log.info("%s", cmd.decode("utf-8", "replace"))
         self._send(cmd)
 
     def delfile(self, filepath):
         """Delete a file (X3/X5 only)"""
         cmd = s2b("delfile \"" + filepath + "\"") + END
-        MKSLOG_YELLOW("%s", cmd.decode("utf-8", "replace"))
+        log.info("%s", cmd.decode("utf-8", "replace"))
         self._send(cmd)
 
     def raw(self, instruction):
@@ -152,7 +154,7 @@ class ScreenPort:
             self.write(data[start:start + num])
             start = end
             end = end + num
-            MKSLOG_BLUE("Sending download data")
+            log.debug("Sending download data")
 
     def baud(self, baud):
         self._send(s2b("baud=" + to_string(baud)) + END)

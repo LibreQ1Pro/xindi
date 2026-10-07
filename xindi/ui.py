@@ -10,30 +10,33 @@ does not implement: their events are ignored and the network page keeps them
 disabled ("LAN only").
 """
 
+import logging
+
 from . import state as g
 from . import pageids as ids
 from .cpp import b2s, cstr, to_string
-from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, cout
+
+log = logging.getLogger(__name__)
 
 
 def parse_cmd_msg_from_tjc_screen(cmd):
     """``cmd`` is the 4096 byte read buffer (zero padded) of the main loop."""
     g.screen.event_id = cmd[0]
-    MKSLOG_BLUE("#########################%s", b2s(cstr(cmd)))
-    MKSLOG_RED("0x%x", cmd[0])
-    MKSLOG_RED("0x%x", cmd[1])
-    MKSLOG_RED("0x%x", cmd[2])
-    MKSLOG_RED("0x%x", cmd[3])
+    log.debug("#########################%s", b2s(cstr(cmd)))
+    log.info("0x%x", cmd[0])
+    log.info("0x%x", cmd[1])
+    log.info("0x%x", cmd[2])
+    log.info("0x%x", cmd[3])
     event_id = g.screen.event_id
     if event_id == 0x03:
         pass        # error while reading the screen firmware data, screen recovery mode
     elif event_id == 0x05:
         g.update.get_0x05 = True
-        cout("Ready to send data")
-        MKSLOG_RED("0x%x", cmd[0])
+        log.debug("Ready to send data")
+        log.info("0x%x", cmd[0])
         # receiving 0x05 means the screen data can be sent
     elif event_id == 0x1a:
-        cout("Invalid variable name")
+        log.debug("Invalid variable name")
     elif event_id == 0x24:
         g.update.get_0x24 = True
     elif event_id == 0x65:
@@ -45,13 +48,13 @@ def parse_cmd_msg_from_tjc_screen(cmd):
     elif event_id in (0x66, 0x67, 0x68):
         pass
     elif event_id == 0x70:
-        MKSLOG_RED("0x%x", event_id)
+        log.info("0x%x", event_id)
         tjc_event_keyboard(cmd)
     elif event_id == 0x71:
         g.screen.page_id = cmd[1]
         tjc_event_setted_handler(cmd[1], cmd[2], cmd[3], cmd[4])
     elif event_id in (0x86, 0x87, 0x88, 0x89):
-        MKSLOG_RED("0x%x", event_id)
+        log.info("0x%x", event_id)
         if event_id == 0x88:        # the screen has just powered up: it knows nothing of what the host sent before
             send_ui_version()
             if g.screen.page != ids.LOGO:
@@ -61,15 +64,15 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         page_to(ids.UPDATE_SUCCESS)
     elif event_id == 0xfd:
         g.update.get_0xfd = True
-        MKSLOG_RED("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
+        log.info("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
     elif event_id == 0xfe:
         g.update.get_0xfe = True
-        MKSLOG_RED("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
+        log.info("0x%x 0x%x 0x%x 0x%x ", cmd[0], cmd[1], cmd[2], cmd[3])
     elif event_id == 0xff:
-        MKSLOG_RED("0x%x", event_id)
+        log.info("0x%x", event_id)
     elif event_id == 0x04:
         g.update.get_0x04 = True
-        MKSLOG_RED("0x%x", cmd[0])
+        log.info("0x%x", cmd[0])
     elif event_id == 0x06:
         g.update.get_0x06 = True
 
@@ -154,10 +157,10 @@ SETTED = {
 
 
 def tjc_event_setted_handler(page_id, widget_id, first, second):
-    cout("!!!", page_id)
-    cout("!!!", widget_id)
-    cout("!!!", chr(first))
-    cout("!!!", chr(second))
+    log.debug("!!!%s", page_id)
+    log.debug("!!!%s", widget_id)
+    log.debug("!!!%s", chr(first))
+    log.debug("!!!%s", chr(second))
     handler = SETTED.get((page_id, widget_id))
     if handler:
         handler((second << 8) + first)
@@ -165,7 +168,7 @@ def tjc_event_setted_handler(page_id, widget_id, first, second):
 
 def tjc_event_keyboard(cmd):
     pass
-    MKSLOG("Keyboard value received, mode %d, row %d\n", cmd[1], cmd[2])        # the text may be a password
+    log.info("Keyboard value received, mode %d, row %d\n", cmd[1], cmd[2])        # the text may be a password
     psk = cstr(cmd[3:])         # char *psk = &cmd[3];
     # display_firmware: the keyboard page sends its mode (cmd[1]), see netui.py
     mode = netui.KB_PSK_SCANNED if cmd[1] == ids.WIFI_LIST else cmd[1]      # the stock keyboard sends the page id

@@ -1,7 +1,10 @@
 """What a click on the screen does: ``handle`` looks the page up in the tables of the modules of this package."""
 
-from ..mks_log import cout
+import logging
+
 from . import guide, printing, move_filament, levelling, system
+
+log = logging.getLogger(__name__)
 
 HANDLERS = {}
 for _module in (guide, printing, move_filament, levelling, system):
@@ -11,9 +14,9 @@ for _module in (guide, printing, move_filament, levelling, system):
 
 
 def handle(page_id, widget_id, type_id):
-    cout("+++++++++++++++++++", page_id)
-    cout("+++++++++++++++++++", widget_id)
-    cout("+++++++++++++++++++", type_id)
+    log.debug("+++++++++++++++++++%s", page_id)
+    log.debug("+++++++++++++++++++%s", widget_id)
+    log.debug("+++++++++++++++++++%s", type_id)
     handler = HANDLERS.get(page_id)
     if handler is not None:
         handler(page_id, widget_id)

@@ -9,6 +9,7 @@ The status keeps the wpa_supplicant vocabulary the screen code was written for:
 ``wpa_state`` is "COMPLETED" when the wifi is connected.
 """
 
+import logging
 import select
 import subprocess
 import time
@@ -17,7 +18,8 @@ from . import state as g
 from . import pageids as ids
 from . import ui
 from .cpp import sleep, pthread_create
-from .mks_log import MKSLOG_RED, MKSLOG_YELLOW, MKSLOG_BLUE, cout
+
+log = logging.getLogger(__name__)
 
 NMCLI = "nmcli"
 ENV = {"LC_ALL": "C", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
@@ -29,11 +31,11 @@ def _run(args, timeout=20):
         proc = subprocess.run([NMCLI] + list(args), stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                               timeout=timeout, env=ENV)
     except (OSError, subprocess.TimeoutExpired) as e:
-        MKSLOG_RED("nmcli %s failed: %s", args[0] if args else "", e)
+        log.info("nmcli %s failed: %s", args[0] if args else "", e)
         return -1, ""
     out = proc.stdout.decode("utf-8", "replace")
     if proc.returncode != 0:
-        MKSLOG_YELLOW("nmcli: %s", proc.stderr.decode("utf-8", "replace").strip())
+        log.info("nmcli: %s", proc.stderr.decode("utf-8", "replace").strip())
     return proc.returncode, out
 
 
@@ -132,7 +134,7 @@ def mks_wpa_scan_scanresults():
     """Scans, fills ``g.net.ssid_list`` (the connected network first, then by signal) and ``g.levelling.level_list``."""
     dev = _device("wifi")
     if dev is None:
-        MKSLOG_RED("No wifi interface")
+        log.info("No wifi interface")
         return -3
     args = ["-t", "-f", "SSID,SIGNAL", "dev", "wifi", "list", "ifname", dev, "--rescan"]
     ret, out = _run(args + ["yes"], timeout=40)
@@ -160,7 +162,7 @@ def mks_wpa_scan_scanresults():
     g.net.ssid_list = ssids
     g.levelling.level_list = [best[s] for s in ssids]
     for ssid in ssids:
-        MKSLOG_RED("%s", ssid)
+        log.info("%s", ssid)
     return 0
 
 
@@ -178,7 +180,7 @@ def mks_connect(ssid, psk, hidden=False):
     Returns True on success."""
     dev = _device("wifi")
     if dev is None:
-        MKSLOG_RED("No wifi interface")
+        log.info("No wifi interface")
         return False
     _forget(ssid)       # the typed password replaces an older connection of the network
     args = ["-w", "40", "dev", "wifi", "connect", ssid, "ifname", dev]
@@ -209,7 +211,7 @@ def connect_saved(uuid, psk=None):
 
 def _connect_thread(arg):
     func, args, ssid = arg
-    MKSLOG_BLUE("Connecting to %s", ssid)
+    log.debug("Connecting to %s", ssid)
     ok = func(*args)
     mks_wifi_run_cmd_status(g.net.status_result)
     if g.screen.page == ids.WIFI_CONNECT:
@@ -362,7 +364,7 @@ def set_page_wifi_ssid_list(pages):
             it += 1
 
     for j in range(5):
-        cout(g.net.wifi_ssid_list[j])
+        log.debug("%s", g.net.wifi_ssid_list[j])
 
 
 def get_ssid_list_pages():

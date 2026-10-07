@@ -7,10 +7,12 @@ transliterated from the header-only library, including its quirk of giving up
 complete header section.
 """
 
+import logging
 import socket
 
 from .cpp import s2b, b2s
-from .mks_log import MKSLOG_BLUE, cerr
+
+log = logging.getLogger(__name__)
 
 
 class RequestError(Exception):
@@ -249,11 +251,11 @@ def send_request(ip, port, method, request_type):
     url = "http://" + ip + ":" + port + "/" + method
     str_response = ""
     url = url.replace(" ", "%20")
-    MKSLOG_BLUE("Sending request to %s", url)
+    log.debug("Sending request to %s", url)
     try:
         request = Request(url)
         response = request.send(request_type)
         str_response = b2s(response.body)
     except Exception as e:
-        cerr("Request failed, error", str(e), "\n")
+        log.error("Request failed, error%s", str(e))
     return str_response

@@ -1,5 +1,7 @@
 """The saved settings (config.mksini): reading and writing them, and loading the versions."""
 
+import logging
+
 from . import paths
 from . import state as g
 from . import pageids as ids
@@ -7,9 +9,10 @@ from . import network
 from .network import get_wlan0_status
 from .ui import page_to
 from .cpp import to_string, system, sleep
-from .mks_log import cout
 from .moonraker_api import json_run_a_gcode, json_get_job_totals
 from .config_ini import open_settings, save_setting, open_version_file
+
+log = logging.getLogger(__name__)
 
 
 def set_led_status():
@@ -44,7 +47,7 @@ def get_heater_bed_target():
 
 def set_heater_bed_target(target):
     if target != 0:
-        cout("######## ", target)
+        log.debug("######## %s", target)
         save_setting("target", "heaterbed", to_string(target))
         system("sync")
 
@@ -55,7 +58,7 @@ def get_hot_target():
 
 
 def set_hot_target(target):
-    cout("######## ", target)
+    log.debug("######## %s", target)
     save_setting("target", "hot", to_string(target))
     system("sync")
 
@@ -124,6 +127,6 @@ def get_ethernet():
 
 
 def set_ethernet(target):
-    cout("Setting ethernet:", target)
+    log.debug("Setting ethernet:%s", target)
     save_setting("mks_ethernet", "enable", to_string(target))
     g.config.ethernet = target

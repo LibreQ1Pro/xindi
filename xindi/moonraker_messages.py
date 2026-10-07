@@ -4,14 +4,17 @@ The responses are matched by the JSON-RPC id of the request (see
 rpc_methods.method2id), notifications by their method name.
 """
 
+import logging
+
 from . import state as g
 from . import pageids as ids
 from .cpp import jget, jpath, jstr, jint, jeq, json_dump
-from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
 from .moonraker_api import string2json
 from .printer_status import parse_subscribe_objects_status, parse_printer_info, parse_server_history_totals
 from .file_browser import parse_file_estimated_time, parse_file_estimated_time_send
 from .gcode_responses import parse_gcode_response
+
+log = logging.getLogger(__name__)
 
 
 # -- responses, matched by the id of the request ---------------------------------------------------------------------
@@ -25,7 +28,7 @@ def _object_status_response(response):
         return
     status = jpath(response, "result", "status") if jget(response, "result") is not None else None
     if status is not None:
-        cout(json_dump(status))
+        log.debug("%s", json_dump(status))
         parse_subscribe_objects_status(status)
 
 
@@ -52,13 +55,13 @@ RESPONSES = {
 
 def _log(text):
     """A notification that is only logged."""
-    return lambda message, response: MKSLOG_BLUE(text)
+    return lambda message, response: log.debug(text)
 
 
 def _gcode_response(message, response):
-    MKSLOG_RED("%s", message)
+    log.info("%s", message)
     parse_gcode_response(jget(response, "params"))
-    MKSLOG_BLUE("Gcode response")
+    log.debug("Gcode response")
 
 
 def _status_update(message, response):
@@ -67,8 +70,8 @@ def _status_update(message, response):
 
 def _klippy_ready(message, response):
     from . import actions
-    cout(json_dump(response))
-    MKSLOG_BLUE("Klippy is ready")
+    log.debug("%s", json_dump(response))
+    log.debug("Klippy is ready")
     # subscribe here
     actions.get_object_status()
     actions.sub_object_status()
@@ -76,14 +79,14 @@ def _klippy_ready(message, response):
 
 def _klippy_disconnected(message, response):
     from . import actions
-    MKSLOG_BLUE("Klippy disconnected")
+    log.debug("Klippy disconnected")
     actions.get_object_status()
     actions.sub_object_status()
 
 
 def _filelist_changed(message, response):
     g.files.filelist_changed = True
-    MKSLOG_BLUE("File list changed")
+    log.debug("File list changed")
     g.screen.file_list_refreshed = False      # 4.4.22
     g.levelling.all_level_saving = True
 
@@ -93,7 +96,7 @@ def _history_changed(message, response):
     if g.screen.page in (ids.PRINTING, ids.PRINT_ZOFFSET, ids.PRINT_FILAMENT, ids.PRINTING_2):
         return
     parse_file_estimated_time_send(jpath(response, "params", 0, "job", "metadata"))
-    MKSLOG_BLUE("History changed")
+    log.debug("History changed")
 
 
 NOTIFICATIONS = {
@@ -126,13 +129,13 @@ def handle_message(message):
     try:
         response = string2json(message)
     except Exception as e:
-        cerr(str(e), "\n")
+        log.error("%s", str(e))
         return
     if jget(response, "id") is not None:
-        cout(json_dump(jget(response, "id")))
+        log.debug("%s", json_dump(jget(response, "id")))
         handler = RESPONSES.get(jint(jget(response, "id")))
         if handler:
-            cout(json_dump(response))
+            log.debug("%s", json_dump(response))
             handler(response)
 
     if jget(response, "error") is not None:
@@ -150,4 +153,4 @@ def json_parse(arg=None):
 
 
 def parse_error(error):
-    cout(json_dump(error))
+    log.debug("%s", json_dump(error))

@@ -1,5 +1,6 @@
 """The file list pages and their pictures, the USB drive."""
 
+import logging
 import os
 
 from . import paths
@@ -10,11 +11,12 @@ from . import file_browser
 from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, access, system, sleep, usleep
-from .mks_log import MKSLOG, MKSLOG_RED, cout, cerr
 from .moonraker_api import json_get_gcode_metadata
 from .file_browser import output_imgdata
 from .picture_transfer import delete_small_jpg
 from . import actions, pages
+
+log = logging.getLogger(__name__)
 
 
 DEFAULT_DIR = "gcodes/"
@@ -105,7 +107,7 @@ def refresh_files_list():
                 else:
                     picture_path = g.files.list_path + "/" + name
                 picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
-                MKSLOG_RED("Picture path:%s", picture_path)
+                log.info("Picture path:%s", picture_path)
                 if thumbnail.find(picture_path, 112, "JPEG") is not None:
                     g.pictures.have_64_jpg[i] = True
                     g.pictures.have_64_png_path[i] = picture_path
@@ -139,7 +141,7 @@ def is_mounted(path):
     try:
         return 1 if os.stat("/").st_dev != os.stat(path).st_dev else 0
     except OSError as e:
-        cerr("is_mounted ", path, ": ", str(e), "\n")
+        log.error("is_mounted %s: %s", path, str(e))
         return -1
 
 
@@ -147,9 +149,9 @@ def detect_disk_2():
     """4.4.22: is the USB drive mounted (1), not mounted (0), or missing (-1)?"""
     result = is_mounted(paths.gcode_files() + "/sda1")
     if result == 1:
-        MKSLOG("%s is mounted", paths.gcode_files() + "/sda1")
+        log.info("%s is mounted", paths.gcode_files() + "/sda1")
     elif result == 0:
-        MKSLOG("%s is not mounted", paths.gcode_files() + "/sda1")
+        log.info("%s is not mounted", paths.gcode_files() + "/sda1")
     return result
 
 
@@ -214,7 +216,7 @@ def send_file_picture(path, pixel, obj):
     output_imgdata(path, pixel)
     data = g.pictures.tjc_data
     if data is None:
-        cerr("No converted picture (/home/mks/tjc)", "\n")
+        log.error("No converted picture (/home/mks/tjc)")
         g.screen.show_preview_complete = True
         return
     g.files.meta_gimage = data
@@ -223,7 +225,7 @@ def send_file_picture(path, pixel, obj):
     g.port.set_baud(921600)
     g.port.cp_close(obj)
     if g.files.meta_gimage != "":
-        cout("Sending the file picture")
+        log.debug("Sending the file picture")
         pages._send_chunks_cp(obj, g.files.meta_gimage)
     g.port.baud(115200)
     usleep(10000)
