@@ -22,7 +22,7 @@ from . import filelist, pages, settings
 log = logging.getLogger(__name__)
 
 
-def _top(stack):
+def stack_top(stack):
     """std::stack::top() (undefined behaviour on an empty stack in C++)"""
     return stack[-1] if stack else ""
 
@@ -428,7 +428,7 @@ def bed_leveling_switch(positive):
 
 def save_current_zoffset():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
-    z_offset = pages._cut_after_point(z_offset, 4)
+    z_offset = pages.cut_after_point(z_offset, 4)
     if g.screen.page in (ids.AUTO_MOVING, ids.OPEN_CALIBRATE):
         g.klippy.idle_timeout_state = "Printing"
         settings.get_babystep()

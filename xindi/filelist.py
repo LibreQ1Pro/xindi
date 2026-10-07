@@ -23,17 +23,17 @@ log = logging.getLogger(__name__)
 DEFAULT_DIR = "gcodes/"
 
 
-def _file_name_only(path):
+def file_name_only(path):
     return substr(path, path.rfind("/") + 1)
 
 
-def _name_of(path):
+def name_of(path):
     """File name without the directories"""
     return substr(path, path.rfind("/") + 1)
 
 
 # entry type of the list -> pictures of its row (released, pressed)
-def _row_pictures():
+def list_row_pictures():
     return {
         "[c]": (pics.files_item_img, pics.files_tab_local_press),      # the last printed file
         "[d]": (pics.files_item_dir, pics.files_dir_press),
@@ -42,7 +42,7 @@ def _row_pictures():
     }
 
 
-def _nav_button(button, disabled):
+def nav_button(button, disabled):
     """The page / folder buttons look different when there is nothing to go to."""
     if disabled:
         g.port.picc(button, pics.files_item_img)
@@ -52,7 +52,7 @@ def _nav_button(button, disabled):
         g.port.picc2(button, pics.files_tab_local_press)
 
 
-def _queue_list_pictures():
+def queue_list_pictures():
     """CLL refresh the pictures after all the other widgets: the picture thread sends them."""
     for i in range(4):
         g.pictures.have_64_jpg[i] = False
@@ -86,7 +86,7 @@ def refresh_files_list():
     elif detect_disk_2() == 0 and g.screen.file_mode == "USB":
         g.port.txt("empty_msg", "\u7a7a")     # "empty"
     g.port.vis("file1_mark", "0")
-    row_pictures = _row_pictures()
+    row_pictures = list_row_pictures()
     for i in range(4):
         row = "file" + to_string(i + 1)
         g.port.txt(row + "_name", g.files.list_list_show_name[i])
@@ -109,14 +109,14 @@ def refresh_files_list():
             g.port.picc2(tab, pics.files_tab_usb_press)
         if detect_disk() == -1:
             g.port.vis("empty_msg", "1")
-    _nav_button("prev", g.files.list_current_pages == 0)
-    _nav_button("next", g.files.list_current_pages == g.files.list_pages)
-    _nav_button("up_dir", g.files.list_folder_layers == 0
+    nav_button("prev", g.files.list_current_pages == 0)
+    nav_button("next", g.files.list_current_pages == g.files.list_pages)
+    nav_button("up_dir", g.files.list_folder_layers == 0
                 or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"))
     if g.screen.file_list_refreshed:
         g.port.tsw("255", "1")      # pictures still in the screen memory: enable touch
     else:
-        _queue_list_pictures()
+        queue_list_pictures()
         g.screen.file_list_refreshed = True
 
 
@@ -230,7 +230,7 @@ def send_file_picture(path, pixel, obj):
     g.port.cp_close(obj)
     if g.files.meta_gimage != "":
         log.debug("Sending the file picture")
-        pages._send_chunks_cp(obj, g.files.meta_gimage)
+        pages.send_chunks_cp(obj, g.files.meta_gimage)
     g.port.baud(115200)
     time.sleep(0.01)
     g.port.set_baud(115200)

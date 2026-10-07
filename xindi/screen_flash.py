@@ -19,7 +19,7 @@ import termios
 import time
 
 from .cpp import substr, to_string
-from .serial_port import _cfmakeraw_zeroed
+from .serial_port import cfmakeraw_zeroed
 
 SEND_FILE_NAME = "/root/800_480.tft"     # uart.cpp: "UI/MATE_272_480.tft"
 UART_DEV = "/dev/ttyS1"
@@ -147,7 +147,7 @@ def set_option(fd, baudrate, bits, parity, stopbit):
         # error while reading the serial port parameters
         return -1
 
-    iflag, oflag, cflag, lflag, cc = _cfmakeraw_zeroed()      # raw mode
+    iflag, oflag, cflag, lflag, cc = cfmakeraw_zeroed()      # raw mode
 
     # enable the receiver
     cflag |= termios.CREAD

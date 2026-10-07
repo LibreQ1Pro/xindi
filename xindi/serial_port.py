@@ -31,7 +31,7 @@ _BAUDRATES = {
 }
 
 
-def _cfmakeraw_zeroed():
+def cfmakeraw_zeroed():
     """memset(&newtio, 0, sizeof newtio); cfmakeraw(&newtio);"""
     iflag = 0
     oflag = 0
@@ -52,7 +52,7 @@ def set_option(fd, baudrate, bits, parity, stopbit):
         # error while reading the serial port parameters
         return -1
 
-    iflag, oflag, cflag, lflag, cc = _cfmakeraw_zeroed()      # raw mode
+    iflag, oflag, cflag, lflag, cc = cfmakeraw_zeroed()      # raw mode
 
     # enable the receiver
     cflag |= _CREAD

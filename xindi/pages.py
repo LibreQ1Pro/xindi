@@ -17,7 +17,7 @@ from . import actions, filelist, settings, wifi_ui
 log = logging.getLogger(__name__)
 
 
-def _replace_for_screen(text):
+def replace_for_screen(text):
     text = text.replace("\n", ".")
     text = text.replace("'", " ")
     text = text.replace("\"", " ")
@@ -50,50 +50,50 @@ UNHOMED_MOVES = {
 }
 
 
-def _jump_to(flag, page):
+def jump_to(flag, page):
     """Reset the flag, then switch the page (the flag has to be reset first, otherwise this would loop forever)."""
     setattr(g.screen, flag, False)
     page_to(page)
 
 
-def _unhomed_move_pop():
+def unhomed_move_pop():
     if g.screen.unhomed_move_mode in UNHOMED_MOVES:
         g.ep.run_gcode(UNHOMED_HOMING)
         g.ep.run_gcode(UNHOMED_MOVES[g.screen.unhomed_move_mode])
     g.screen.unhomed_move_mode = 0
-    _jump_to("jump_move_pop_2", ids.MOVE_POP_2)
+    jump_to("jump_move_pop_2", ids.MOVE_POP_2)
 
 
-def _detect_error_pop():
-    _jump_to("jump_detect_error", ids.DETECT_ERROR)
+def detect_error_pop():
+    jump_to("jump_detect_error", ids.DETECT_ERROR)
     g.port.txt("msg", g.screen.error_message)
 
 
-def _requested_jumps():
+def requested_jumps():
     """The other threads ask for a page by setting a flag; the page is switched here, in the main thread.
 
     CLL the jumps are unconditional, the flags were set after the checks were done.
     """
     if g.screen.jump_move_pop_1:
-        _jump_to("jump_move_pop_1", ids.MOVE_POP_1)
+        jump_to("jump_move_pop_1", ids.MOVE_POP_1)
     if g.screen.jump_move_pop_2:
-        _unhomed_move_pop()
+        unhomed_move_pop()
     if g.screen.jump_detect_error:
-        _detect_error_pop()
+        detect_error_pop()
     if g.screen.jump_level_error:
-        _jump_to("jump_level_error", ids.LEVEL_ERROR)
+        jump_to("jump_level_error", ids.LEVEL_ERROR)
     if g.screen.jump_filament_pop_1:
-        _jump_to("jump_filament_pop_1", ids.FILAMENT_POP_1)
+        jump_to("jump_filament_pop_1", ids.FILAMENT_POP_1)
     if g.screen.jump_print_low_temp:
-        _jump_to("jump_print_low_temp", ids.PRINT_LOW_TEMP)
+        jump_to("jump_print_low_temp", ids.PRINT_LOW_TEMP)
     if g.screen.jump_resume_print:
         # 4.4.24: the flag is reset when the page reports that it is shown
         page_to(ids.RESUME_PRINT)
     if g.screen.jump_memory_warning:
-        _jump_to("jump_memory_warning", ids.MEMORY_WARNING)
+        jump_to("jump_memory_warning", ids.MEMORY_WARNING)
 
 
-def _open_print_page_when_printing():
+def open_print_page_when_printing():
     """A print was started from elsewhere (the web UI): show it."""
     if g.screen.page in NO_PRINT_JUMP_PAGES:
         return
@@ -110,18 +110,18 @@ def _open_print_page_when_printing():
         page_to(ids.PREVIEW)
 
 
-def _show_failure_message():
+def show_failure_message():
     if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
         g.shown.webhooks_state_message = g.klippy.webhooks_state_message
-        g.port.txt("err_msg", _replace_for_screen(g.klippy.webhooks_state_message))
+        g.port.txt("err_msg", replace_for_screen(g.klippy.webhooks_state_message))
 
 
-def _open_reset_page_on_failure():
+def open_reset_page_on_failure():
     """Jump to the restart page when the toolhead board is disconnected (Klipper shut down)."""
     state = g.klippy.webhooks_state
     if g.screen.page == ids.RESET:
         if state in ("shutdown", "error"):
-            _show_failure_message()
+            show_failure_message()
         if state == "ready":
             page_to(ids.SYS_OK)
     elif g.screen.page not in NO_RESET_JUMP_PAGES and state in ("shutdown", "error"):
@@ -129,7 +129,7 @@ def _open_reset_page_on_failure():
             return
         page_to(ids.RESET)
         log.debug("Restart page")
-        _show_failure_message()
+        show_failure_message()
 
 
 def show():
@@ -137,9 +137,9 @@ def show():
     # 4.4.22: nothing is sent to the screen while the list pictures are transferred
     if g.pictures.send_jpg_status:
         return
-    _requested_jumps()
-    _open_print_page_when_printing()
-    _open_reset_page_on_failure()
+    requested_jumps()
+    open_print_page_when_printing()
+    open_reset_page_on_failure()
 
     refresh = REFRESH.get(g.screen.page)
     if refresh:
@@ -183,7 +183,7 @@ def syntony_finish():
         log.info("Left from line 739")
 
 
-def _picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
+def picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
     for i, name in enumerate(names):
         g.port.picc(name, on_picc if i == selected else off_picc)
     for i, name in enumerate(names):
@@ -193,13 +193,13 @@ def _picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
 def auto_level():
     names = ["step_001", "step_005", "step_01", "step_05"]
     if g.levelling.auto_level_dist == f32(0.01):
-        _picc_group(names, 0, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
+        picc_group(names, 0, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.levelling.auto_level_dist == f32(0.05):
-        _picc_group(names, 1, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
+        picc_group(names, 1, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.levelling.auto_level_dist == f32(0.1):
-        _picc_group(names, 2, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
+        picc_group(names, 2, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
     elif g.levelling.auto_level_dist == f32(0.5):
-        _picc_group(names, 3, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
+        picc_group(names, 3, pics.prebed_step_on, pics.prebed_step_off, pics.prebed_press_on, pics.prebed_press_off)
 
 
 def stopping():
@@ -225,7 +225,7 @@ def syntony_move():
 
 
 def print_filament():
-    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", filelist.file_name_only(g.klippy.print_stats_filename))
 
     if g.klippy.extruder_target == 0:
         g.port.pco("temp_now", "65535")
@@ -316,15 +316,15 @@ def auto_moving():
         g.levelling.step_4 = False
 
 
-def _cut_after_point(text, n):
+def cut_after_point(text, n):
     """``s.substr(0, s.find(".") + n)``"""
     return substr(text, 0, text.find(".") + n)
 
 
 def move_page():
-    x_pos = _cut_after_point(to_string(g.klippy.x_position), 2)
-    y_pos = _cut_after_point(to_string(g.klippy.y_position), 2)
-    z_pos = _cut_after_point(to_string(g.klippy.z_position), 2)
+    x_pos = cut_after_point(to_string(g.klippy.x_position), 2)
+    y_pos = cut_after_point(to_string(g.klippy.y_position), 2)
+    z_pos = cut_after_point(to_string(g.klippy.z_position), 2)
 
     g.port.txt("x_pos", x_pos)
     g.port.txt("y_pos", y_pos)
@@ -359,7 +359,7 @@ def offset(intern_zoffset):
     g.klippy.z_offset = f32(g.klippy.intern_z_offset + g.klippy.extern_z_offset)
 
 
-def _zoffset_buttons():
+def zoffset_buttons():
     pairs = {
         0: (pics.zoffset_step_on, pics.zoffset_step_press_on),
         1: (pics.zoffset_step_off, pics.zoffset_step_press_off),
@@ -384,9 +384,9 @@ def _zoffset_buttons():
 def printing_zoffset():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
     show_gcode_z = to_string(g.klippy.gcode_z_position)
-    z_offset = _cut_after_point(z_offset, 4)
-    show_gcode_z = _cut_after_point(show_gcode_z, 4)
-    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    z_offset = cut_after_point(z_offset, 4)
+    show_gcode_z = cut_after_point(show_gcode_z, 4)
+    g.port.txt("file_name", filelist.file_name_only(g.klippy.print_stats_filename))
     if z_offset != g.config.babystep_value:
         g.config.babystep_value = z_offset
         settings.set_babystep(g.config.babystep_value)
@@ -399,7 +399,7 @@ def printing_zoffset():
                                                                  g.klippy.display_status_progress)))
     g.port.val("progress", to_string(g.klippy.display_status_progress))
 
-    _zoffset_buttons()
+    zoffset_buttons()
 
     if g.klippy.print_stats_state == "printing":
         g.klippy.ready = True
@@ -441,7 +441,7 @@ def printing_zoffset():
         g.port.txt("msg", "G-code error: " + g.screen.error_message)
 
 
-def _heating_widget(temp_widget, button, target):
+def heating_widget(temp_widget, button, target):
     """The number and the button of a heater show with their colour whether the heater is on."""
     if target == 0:
         g.port.pco(temp_widget, "65535")
@@ -453,7 +453,7 @@ def _heating_widget(temp_widget, button, target):
         g.port.picc2(button, pics.printing_press_on)
 
 
-def _printing_keyboard_mute_button():
+def printing_keyboard_mute_button():
     # 4.4.22 silent mode button of the keyboard
     if not g.screen.muted:
         g.port.picc("mute_btn", pics.kb_mute_off)
@@ -463,7 +463,7 @@ def _printing_keyboard_mute_button():
         g.port.picc2("mute_btn", pics.kb_mute_on_press)
 
 
-def _printing_first_page():
+def printing_first_page():
     # CLL fan speeds
     g.port.val("fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
     g.port.val("fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
@@ -471,24 +471,24 @@ def _printing_first_page():
 
     g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
     g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
-    _heating_widget("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
+    heating_widget("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
 
     g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
     g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
-    _heating_widget("bed_temp", "bed_btn", g.klippy.heater_bed_target)
+    heating_widget("bed_temp", "bed_btn", g.klippy.heater_bed_target)
 
     # 4.4.22: the LED button moved to the second printing page
 
     g.port.val("chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
     g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
-    _heating_widget("chamber_temp", "chamber_btn", g.klippy.hot_target)
+    heating_widget("chamber_temp", "chamber_btn", g.klippy.hot_target)
 
     shown = "1" if g.screen.show_preview_gimage_completed else "0"
     g.port.vis("thumb", shown)
     g.port.val("thumb_flag", shown)
 
 
-def _printing_second_page():
+def printing_second_page():
     if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
         g.shown.speed_factor = g.klippy.gcode_move_speed_factor
         g.port.val("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
@@ -505,7 +505,7 @@ def _printing_second_page():
         g.port.picc2("light_btn", pics.printing2_press_on)
 
 
-def _printing_state_changes():
+def printing_state_changes():
     """Filament runout and the end of the print, as Klipper reports them."""
     if g.klippy.print_stats_state == "printing":
         g.klippy.ready = True
@@ -546,7 +546,7 @@ def _printing_state_changes():
 
 def printing():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
-    z_offset = _cut_after_point(z_offset, 4)
+    z_offset = cut_after_point(z_offset, 4)
 
     g.port.val("progress", to_string(g.klippy.display_status_progress))
     g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
@@ -554,7 +554,7 @@ def printing():
     g.port.txt("time_left", actions.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
-    g.port.txt("file_name", filelist._file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", filelist.file_name_only(g.klippy.print_stats_filename))
 
     # the z offset of the second page is always refreshed: the page starts with
     # the designer's "-1.000", it must not stay while the keyboard flag is set
@@ -562,13 +562,13 @@ def printing():
         g.port.txt("zoffset_val", z_offset)
 
     if g.screen.printing_keyboard_enabled:
-        _printing_keyboard_mute_button()
+        printing_keyboard_mute_button()
     elif g.screen.page == ids.PRINTING:         # CLL refresh only while the keyboard is not shown
-        _printing_first_page()
+        printing_first_page()
     elif g.screen.page == ids.PRINTING_2:
-        _printing_second_page()
+        printing_second_page()
 
-    _printing_state_changes()
+    printing_state_changes()
 
 
 def clear_printing_arg():
@@ -586,7 +586,7 @@ def clear_printing_arg():
     g.shown.extruder_factor = 0.0
 
 
-def _send_chunks_txt(data):
+def send_chunks_txt(data):
     """Sends a picture string in 2048 byte pieces through the "add" text variable."""
     num = 2048
     length = len(data)
@@ -609,7 +609,7 @@ def _send_chunks_txt(data):
         g.port.drain()
 
 
-def _send_chunks_cp(obj, data):
+def send_chunks_cp(obj, data):
     """Writes a picture string in 2048 byte pieces into a picture widget."""
     num = 2048
     length = len(data)
@@ -628,13 +628,13 @@ def _send_chunks_cp(obj, data):
         g.port.cp_image(obj, part)
 
 
-def _two_state_button(button, is_on, on_pic, off_pic, on_press, off_press):
+def two_state_button(button, is_on, on_pic, off_pic, on_press, off_press):
     g.port.picc(button, on_pic if is_on else off_pic)
     g.port.picc2(button, on_press if is_on else off_press)
 
 
 @contextlib.contextmanager
-def _fast_screen_link():
+def fast_screen_link():
     """The pictures go over the serial line at 921600 baud."""
     g.port.baud(921600)
     time.sleep(0.05)
@@ -647,9 +647,9 @@ def _fast_screen_link():
         g.port.set_baud(115200)
 
 
-def _preview_details():
+def preview_details():
     # 4.4.2 CLL only the file name is shown on the preview page
-    g.port.txt("err_msg", filelist._file_name_only(g.files.meta_filename))
+    g.port.txt("err_msg", filelist.file_name_only(g.files.meta_filename))
     if g.files.meta_estimated_time:
         g.port.txt("est_time", actions.show_time(g.files.meta_estimated_time))
     else:
@@ -657,13 +657,13 @@ def _preview_details():
 
     if g.files.meta_filament_weight_total:
         temp = to_string(g.files.meta_filament_weight_total)
-        g.port.txt("fil_weight", _cut_after_point(temp, 2) + "g")
+        g.port.txt("fil_weight", cut_after_point(temp, 2) + "g")
     else:
         g.port.txt("fil_weight", "-")
 
     if g.files.meta_filament_total:
         temp = to_string(f32(g.files.meta_filament_total / 1000))
-        g.port.txt("fil_length", _cut_after_point(temp, 2) + "m")
+        g.port.txt("fil_length", cut_after_point(temp, 2) + "m")
     else:
         g.port.txt("fil_length", "-")
 
@@ -675,7 +675,7 @@ def _preview_details():
         g.port.txt("fil_type", "-")
 
 
-def _preview_picture_ref():
+def preview_picture_ref():
     """The gcode file with the thumbnail of the file, or "" when there is none.
 
     NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then .jpg, made by QIDI's Moonraker; the port
@@ -683,13 +683,13 @@ def _preview_picture_ref():
     original only looks at the .cache copy of the file.
     """
     if g.screen.jump_print:
-        candidates = ["/.cache/" + filelist._name_of(g.klippy.print_stats_filename),
+        candidates = ["/.cache/" + filelist.name_of(g.klippy.print_stats_filename),
                       "/" + g.klippy.print_stats_filename]
     elif g.screen.cache_clicked:
-        candidates = [actions._top(g.files.list_path_stack) + "/.cache/" + filelist._name_of(g.files.meta_filename)]
+        candidates = [actions.stack_top(g.files.list_path_stack) + "/.cache/" + filelist.name_of(g.files.meta_filename)]
         g.screen.cache_clicked = False
     else:
-        candidates = [actions._top(g.files.list_path_stack) + "/" + filelist._name_of(g.files.meta_filename)]
+        candidates = [actions.stack_top(g.files.list_path_stack) + "/" + filelist.name_of(g.files.meta_filename)]
     for candidate in candidates:
         candidate = substr(candidate, 1)
         log.info("picture_path:%s", candidate)
@@ -698,7 +698,7 @@ def _preview_picture_ref():
     return ""
 
 
-def _send_preview_pictures(picture_path):
+def send_preview_pictures(picture_path):
     """Send the small and the big picture to the screen; False when the picture could not be converted."""
     # small picture
     output_imgdata(picture_path, 160)
@@ -710,9 +710,9 @@ def _send_preview_pictures(picture_path):
     g.port.txt("preview.cp_data", "")
     g.port.txt("preview.cp_pad", "")
     if g.files.meta_simage != "":
-        with _fast_screen_link():
+        with fast_screen_link():
             log.debug("Sending the small picture")
-            _send_chunks_txt(g.files.meta_simage)
+            send_chunks_txt(g.files.meta_simage)
 
     # big picture
     if not g.screen.jump_print:
@@ -721,29 +721,29 @@ def _send_preview_pictures(picture_path):
             log.error("No converted picture (/home/mks/tjc)")
             return False
         g.files.meta_gimage = data
-        with _fast_screen_link():
+        with fast_screen_link():
             g.port.cp_close("preview.preview_pic")
             if g.files.meta_gimage != "":
                 log.debug("Sending the big picture")
-                _send_chunks_cp("preview_pic", g.files.meta_gimage)
+                send_chunks_cp("preview_pic", g.files.meta_gimage)
         actions.bed_leveling_switch(True)
     return True
 
 
 def preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
-    _two_state_button("level_btn", g.screen.bed_leveling,
+    two_state_button("level_btn", g.screen.bed_leveling,
                       pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
-    _two_state_button("timelapse_btn", g.screen.timelapse_enabled,
+    two_state_button("timelapse_btn", g.screen.timelapse_enabled,
                       pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
     if not g.files.meta_parse_finished or g.screen.show_preview_complete:
         return
 
-    _preview_details()
-    picture_path = _preview_picture_ref()
+    preview_details()
+    picture_path = preview_picture_ref()
     log.debug("Picture path:%s", picture_path)
     if picture_path != "" and not g.screen.show_preview_gimage_completed:
-        if not _send_preview_pictures(picture_path):
+        if not send_preview_pictures(picture_path):
             g.screen.show_preview_complete = True
             return
         g.screen.show_preview_gimage_completed = True
@@ -756,13 +756,13 @@ def preview():
         g.screen.jump_print = False
 
 
-def _main_heater(temp_widget, button, target):
+def main_heater(temp_widget, button, target):
     """CLL heating state on the main page: the colour of the number and the button of a heater."""
     g.port.pco(temp_widget, "65535" if target == 0 else "63488")
-    _two_state_button(button, target != 0, pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
+    two_state_button(button, target != 0, pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
 
 
-def _main_last_file_picture():
+def main_last_file_picture():
     """CLL the picture and the name of the last printed file (the first entry of the file list)."""
     g.files.list_pages = 0
     g.files.list_current_pages = 0
@@ -811,18 +811,18 @@ def main():
     g.port.picc("wifi_icon", pics.main_off if g.net.status_result.wpa_state == "COMPLETED" else pics.main_on)
 
     # LED logo, beeper
-    _two_state_button("light_btn", g.klippy.caselight_value != 0,
+    two_state_button("light_btn", g.klippy.caselight_value != 0,
                       pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
-    _two_state_button("beep_btn", g.klippy.out_pin_beep_value != 0,
+    two_state_button("beep_btn", g.klippy.out_pin_beep_value != 0,
                       pics.main_on, pics.main_off, pics.main_on_press, pics.nav_btn_press)
 
-    _main_heater("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
-    _main_heater("bed_temp", "bed_btn", g.klippy.heater_bed_target)
-    _main_heater("chamber_temp", "chamber_btn", g.klippy.hot_target)
+    main_heater("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
+    main_heater("bed_temp", "bed_btn", g.klippy.heater_bed_target)
+    main_heater("chamber_temp", "chamber_btn", g.klippy.hot_target)
 
     # CLL refresh the picture after every boot or print
     if not g.screen.main_picture_refreshed:
-        _main_last_file_picture()
+        main_last_file_picture()
         g.screen.main_picture_refreshed = True
 
     # CLL ask for the power loss recovery once after boot
@@ -871,7 +871,7 @@ def zoffset():
             if j == 5:
                 break
             temp = to_string(g.levelling.mesh_points[i][j])
-            temp = _cut_after_point(temp, 3)
+            temp = cut_after_point(temp, 3)
             g.port.txt("cell_" + to_string(5 * i + j), temp)
             j += 1
         i += 1
