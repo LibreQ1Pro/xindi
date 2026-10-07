@@ -1,4 +1,4 @@
-"""Port of src/mks_gcode.cpp - handling of the "notify_gcode_response" messages."""
+"""Handling of the "notify_gcode_response" messages of Moonraker."""
 
 import re
 

@@ -38,15 +38,15 @@ functions changed in it are marked "4.4.22" in the code). The main changes:
 **QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
 binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
 from the screen firmware (their pages are removed, so the page numbers of the screen firmware differ from QIDI's).
-The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/uart.py`). The start-up cleanup
+The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/screen_flash.py`). The start-up cleanup
 of the binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and QIDI's frpc service) is not done.
 
-The port is not refactored. Every C++ file has a Python module with the same
-name, and every function keeps its name, order of statements and quirks, so the
-C++ sources can be used side by side with the port. Strings that are only
-written to the log, and all comments, are in English. Text that is sent to the
-screen is byte-identical to the original, because the screen's behaviour
-depends on it.
+The port began as a line-by-line translation of the C++ program and has been refactored since: the
+global state is split by area (`xindi/state.py`), the page logic by what it does (`pages`, `actions`,
+`settings`, `filelist`, `wifi_ui`), the clicks of the screen are a table of handlers per page
+(`xindi/clicks/`), and the dead code and the modules named after the C++ files are gone. The names of
+the modules and functions no longer follow the C++ sources. What the screen is sent is unchanged
+and checked by the golden traces of `tests/e2e`.
 
 ## Running
 
@@ -69,12 +69,12 @@ To use it on the printer instead of the C++ binary, change the last line of
 
 | Original | Replacement | Notes |
 |---|---|---|
-| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/uart.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
-| `/home/mks/gene4.py` | `xindi/gene4.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
-| `/home/mks/libColPic.so` (aarch64) | `xindi/gene4.py` (`ColPic_EncodeStr` …) | Reverse engineered (`ADList0`, `Byte8bitEncode`, `ColPicEncode`, `ColPic_EncodeStr`). Output is byte-identical to the original library, including its quirks. |
+| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen_flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
+| `/home/mks/gene4.py` | `xindi/colpic.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
+| `/home/mks/libColPic.so` (aarch64) | `xindi/colpic.py` (`ColPic_EncodeStr` …) | Reverse engineered (`ADList0`, `Byte8bitEncode`, `ColPicEncode`, `ColPic_EncodeStr`). Output is byte-identical to the original library, including its quirks. |
 | wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
-| websocketpp | `xindi/MakerbaseClient.py` | Minimal RFC 6455 client with the same connection-state semantics. |
-| HTTPRequest.hpp | `xindi/HTTPRequest.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
+| websocketpp | `xindi/moonraker_ws.py` | Minimal RFC 6455 client with the same connection-state semantics. |
+| HTTPRequest.hpp | `xindi/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
 | iniparser / dictionary | `xindi/iniparser.py`, `xindi/dictionary.py` | Byte-exact parsing and `iniparser_dump_ini()` output, including slot order. |
 
 Scripts that are not part of this repository and are not present on the printer
@@ -177,4 +177,4 @@ Ported third-party code keeps its own copyright and license:
 
 * `xindi/iniparser.py`, `xindi/dictionary.py`: port of iniparser,
   Copyright (c) 2000-2011 Nicolas Devillard, MIT License.
-* `xindi/HTTPRequest.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).
+* `xindi/http_client.py`: port of HTTPRequest by Elviss Strazdins, public domain (Unlicense).

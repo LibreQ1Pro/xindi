@@ -1,4 +1,4 @@
-"""Port of src/send_jpg.cpp - transfer of preview pictures (jpg) to the screen RAM.
+"""Transfer of the pictures of the file list (jpg) to the screen RAM.
 
 The TJC screen accepts files with the ``twfile`` instruction followed by data
 frames: 12 byte header + payload + 2 byte CRC.  The screen answers 0x05 for
@@ -16,7 +16,7 @@ from . import state as g
 from . import thumbnail
 from .cpp import to_string, usleep, sleep
 from .mks_log import MKSLOG_BLUE, MKSLOG_GREEN, cout
-from .send_msg import send_cmd_tsw, send_cmd_delfile, send_cmd_twfile
+from .screen_tx import send_cmd_tsw, send_cmd_delfile, send_cmd_twfile
 
 # BLOCK_SIZE 3072
 BLOCK_SIZE = 3800

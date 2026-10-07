@@ -1,4 +1,4 @@
-"""Port of include/MakerbaseCommand.h - command code to JSON-RPC method / id maps."""
+"""Command code to JSON-RPC method / id maps."""
 
 # Mapping between the internal command codes and the Moonraker API methods
 method2command = {

@@ -1,18 +1,17 @@
-"""Port of src/MakerbaseParseMessage.cpp - dispatch of the messages received from Moonraker.
+"""Dispatch of the messages received from Moonraker.
 
 The responses are matched by the JSON-RPC id of the request (see
-MakerbaseCommand.method2id), notifications by their method name.
+rpc_methods.method2id), notifications by their method name.
 """
 
 from . import state as g
 from . import pageids as ids
 from .cpp import jget, jpath, jstr, jint, jeq, json_dump, json_clear
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
-from .MoonrakerAPI import string2json
-from .mks_error import parse_error
-from .mks_printer import parse_subscribe_objects_status, parse_printer_info, parse_server_history_totals
-from .mks_file import parse_file_estimated_time, parse_file_estimated_time_send
-from .mks_gcode import parse_gcode_response
+from .moonraker_api import string2json
+from .printer_status import parse_subscribe_objects_status, parse_printer_info, parse_server_history_totals
+from .file_browser import parse_file_estimated_time, parse_file_estimated_time_send
+from .gcode_responses import parse_gcode_response
 
 
 def json_parse(arg=None):
@@ -123,3 +122,7 @@ def json_parse(arg=None):
                         MKSLOG_BLUE("notify_power_changed")
             g.rpc.response = json_clear(g.rpc.response)
             g.rpc.is_get_message = False
+
+
+def parse_error(error):
+    cout(json_dump(error))

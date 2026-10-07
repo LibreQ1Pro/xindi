@@ -1,4 +1,4 @@
-"""Minimal port of include/HTTPRequest.hpp (HTTP/1.1 client) as used by KlippyRest.
+"""Minimal HTTP/1.1 client (port of HTTPRequest.hpp) and the requests to Moonraker's HTTP API.
 
 Only what the program needs is implemented: plain ``http://`` URLs, an empty
 request body, Content-Length / chunked responses.  The response parsing loop is
@@ -9,7 +9,8 @@ complete header section.
 
 import socket
 
-from .cpp import s2b
+from .cpp import s2b, b2s
+from .mks_log import MKSLOG_BLUE, cerr
 
 
 class RequestError(Exception):
@@ -242,3 +243,17 @@ class Request(object):
             return response
         finally:
             sock.close()
+
+
+def send_request(ip, port, method, request_type):
+    url = "http://" + ip + ":" + port + "/" + method
+    str_response = ""
+    url = url.replace(" ", "%20")
+    MKSLOG_BLUE("Sending request to %s", url)
+    try:
+        request = Request(url)
+        response = request.send(request_type)
+        str_response = b2s(response.body)
+    except Exception as e:
+        cerr("Request failed, error", str(e), "\n")
+    return str_response

@@ -10,7 +10,7 @@ from . import network
 from . import netstrings
 from .cpp import sleep, pthread_create
 from .mks_log import MKSLOG, MKSLOG_BLUE
-from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
+from .screen_tx import send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_raw
 
 ROWS = 5
 

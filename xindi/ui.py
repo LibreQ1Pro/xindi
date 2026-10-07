@@ -14,7 +14,7 @@ from . import state as g
 from . import pageids as ids
 from .cpp import b2s, cstr, to_string
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, cout
-from .send_msg import send_cmd_page, send_cmd_val
+from .screen_tx import send_cmd_page, send_cmd_val
 
 
 def parse_cmd_msg_from_tjc_screen(cmd):

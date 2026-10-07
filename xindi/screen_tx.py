@@ -1,4 +1,4 @@
-"""Port of src/send_msg.cpp - instructions for the TJC (USART HMI) screen.
+"""Instructions for the TJC (USART HMI) screen.
 
 Every instruction is terminated by three 0xFF bytes.  Like the original the
 functions wait for the output to drain (tcdrain) and then issue a single

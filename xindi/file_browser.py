@@ -1,4 +1,4 @@
-"""Port of src/mks_file.cpp - gcode file list and metadata handling."""
+"""The gcode file list of the file pages and the metadata of the chosen file."""
 
 import sys
 
@@ -9,7 +9,7 @@ from . import ui
 from .cpp import (jget, jpath, jstr, jfloat, jint, jsize, jeq, c_int, f32, to_string, substr, find_last_of,
                   json_parse, json_dump)
 from .mks_log import MKSLOG, MKSLOG_RED, cout
-from .KlippyRest import send_request
+from .http_client import send_request
 
 
 def parse_file_estimated_time(response):
@@ -278,14 +278,14 @@ def getParentDirectory(path):
 def output_imgdata(thumbpath, size):
     """Converts a thumbnail into the screen's ColPic text format.
 
-    The original runs ``python3 /home/mks/gene4.py "<path>" /home/mks/tjc <size>``
-    which uses /home/mks/libColPic.so; both are re-implemented in gene4.py of
+    The original runs ``python3 /home/mks/colpic.py "<path>" /home/mks/tjc <size>``
+    which uses /home/mks/libColPic.so; both are re-implemented in colpic.py of
     this package and called directly.  The result is kept in memory
     (``g.pictures.tjc_data``) instead of the file /home/mks/tjc.  A failed conversion
     leaves None there (the original keeps the previous file and shows the
     picture of another file).
     """
-    from . import gene4, thumbnail
+    from . import colpic, thumbnail
     g.pictures.tjc_data = None
     if isinstance(thumbpath, thumbnail.GcodeRef):
         # Python only: picture from the thumbnails inside the gcode file
@@ -299,10 +299,10 @@ def output_imgdata(thumbpath, size):
         path = paths.gcode_files() + "/" + thumbpath
     else:
         path = thumbpath
-    temp = "python3 /home/mks/gene4.py \"" + path + "\" /home/mks/tjc " + to_string(size)
+    temp = "python3 /home/mks/colpic.py \"" + path + "\" /home/mks/tjc " + to_string(size)
     cout(temp)
     try:
-        g.pictures.tjc_data = gene4.encode_picture(path, size)
+        g.pictures.tjc_data = colpic.encode_picture(path, size)
     except Exception as e:
         # the original script dies with a traceback (the old output stays)
         sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))

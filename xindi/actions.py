@@ -10,13 +10,12 @@ from . import pics
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, cdiv, cmod, stof, access, read_file, system, sleep, usleep, str_lower_ascii
 from .mks_log import MKSLOG, MKSLOG_BLUE, MKSLOG_RED, MKSLOG_YELLOW, cout, cerr
-from .send_msg import send_cmd_txt, send_cmd_pco, send_cmd_picc, send_cmd_vis
-from .MoonrakerAPI import (json_run_a_gcode, json_subscribe_to_printer_object_status,
+from .screen_tx import send_cmd_txt, send_cmd_pco, send_cmd_picc, send_cmd_vis
+from .moonraker_api import (json_run_a_gcode, json_subscribe_to_printer_object_status,
                            json_query_printer_object_status, json_print_a_file, json_emergency_stop)
-from .MakerbasePanel import move
-from .KlippyGcodes import (AXIS_X, AXIS_Y, AXIS_Z, set_heater_temp, set_fan0_speed, set_fan2_speed,
+from .gcodes import (AXIS_X, AXIS_Y, AXIS_Z, move_relative, set_heater_temp, set_fan0_speed, set_fan2_speed,
                            set_fan3_speed, set_speed_rate)
-from .mks_printer import subscribe_objects_status
+from .printer_status import subscribe_objects_status
 from . import filelist, pages, settings
 
 
@@ -98,32 +97,32 @@ def move_home():
 
 
 def move_x_decrease():
-    g.ep.Send(move(AXIS_X, "-" + to_string(g.klippy.move_dist), 130))
+    g.ep.Send(move_relative(AXIS_X, "-" + to_string(g.klippy.move_dist), 130))
     g.screen.unhomed_move_mode = 2
 
 
 def move_x_increase():
-    g.ep.Send(move(AXIS_X, "+" + to_string(g.klippy.move_dist), 130))
+    g.ep.Send(move_relative(AXIS_X, "+" + to_string(g.klippy.move_dist), 130))
     g.screen.unhomed_move_mode = 1
 
 
 def move_y_decrease():
-    g.ep.Send(move(AXIS_Y, "-" + to_string(g.klippy.move_dist), 130))
+    g.ep.Send(move_relative(AXIS_Y, "-" + to_string(g.klippy.move_dist), 130))
     g.screen.unhomed_move_mode = 4
 
 
 def move_y_increase():
-    g.ep.Send(move(AXIS_Y, "+" + to_string(g.klippy.move_dist), 130))
+    g.ep.Send(move_relative(AXIS_Y, "+" + to_string(g.klippy.move_dist), 130))
     g.screen.unhomed_move_mode = 3
 
 
 def move_z_decrease():
-    g.ep.Send(move(AXIS_Z, "-" + to_string(g.klippy.move_dist), 10))
+    g.ep.Send(move_relative(AXIS_Z, "-" + to_string(g.klippy.move_dist), 10))
     g.screen.unhomed_move_mode = 5
 
 
 def move_z_increase():
-    g.ep.Send(move(AXIS_Z, "+" + to_string(g.klippy.move_dist), 10))
+    g.ep.Send(move_relative(AXIS_Z, "+" + to_string(g.klippy.move_dist), 10))
     g.screen.unhomed_move_mode = 6
 
 

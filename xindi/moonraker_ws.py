@@ -1,5 +1,4 @@
-"""Port of src/MakerbaseClient.cpp / include/MakerbaseClient.h - websocket client
-for Moonraker.
+"""Websocket client for Moonraker (was MakerbaseClient.cpp).
 
 The C++ code uses websocketpp (asio, no TLS).  It is replaced by a small RFC 6455
 client implemented inline here.  The externally visible behaviour is kept:
@@ -308,7 +307,7 @@ class connection_metadata(object):
         return self.m_Status
 
 
-class MakerbaseClient(object):
+class MoonrakerClient(object):
     def __init__(self, host="localhost", port="7125"):
         self.is_connected = False           # connection flag
         self.status = "none"                # connection state as a string

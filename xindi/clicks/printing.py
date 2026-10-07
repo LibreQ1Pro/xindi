@@ -1,11 +1,11 @@
 """Clicks on the main page, the file list, the preview and the pages of a print. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
 from .. import state as g
-from .. import actions, filelist, mks_file, pages
+from .. import actions, filelist, file_browser, pages
 from .. import pageids as ids
 from ..cpp import sleep
 from ..mks_log import MKSLOG, MKSLOG_BLUE
-from ..send_msg import send_cmd_tsw
+from ..screen_tx import send_cmd_tsw
 from ..ui import page_to
 
 
@@ -37,7 +37,7 @@ def main(page_id, widget_id):
         filelist.refresh_page_files(g.files.list_current_pages)
         if g.files.list_list_show_type[0] == "[c]":
             filelist.clear_cp0_image()
-            mks_file.get_sub_dir_files_list(0)
+            file_browser.get_sub_dir_files_list(0)
             g.screen.file_mode = "Local"
 
 
@@ -54,11 +54,11 @@ def file_list(page_id, widget_id):
         if g.files.list_folder_layers == 0 or (g.files.list_folder_layers == 1 and g.screen.file_mode != "Local"):
             pass
         else:
-            mks_file.get_parenet_dir_files_list()
+            file_browser.get_parenet_dir_files_list()
     elif widget_id in (ids.FILE_LIST_BTN_1, ids.FILE_LIST_BTN_2, ids.FILE_LIST_BTN_3,
                        ids.FILE_LIST_BTN_4):
         filelist.clear_cp0_image()
-        mks_file.get_sub_dir_files_list(widget_id - ids.FILE_LIST_BTN_1)
+        file_browser.get_sub_dir_files_list(widget_id - ids.FILE_LIST_BTN_1)
         g.screen.bed_leveling = True
     # 4.4.22: the list is marked as changed and the touch is disabled
     # until the pictures of the new page are sent
@@ -128,13 +128,13 @@ def preview(page_id, widget_id):
                 page_to(ids.PRINTING)
                 g.screen.jump_print = False
             elif g.files.meta_parse_finished == False:
-                mks_file.get_parenet_dir_files_list()
+                file_browser.get_parenet_dir_files_list()
                 pages.clear_preview()
                 g.screen.show_preview_complete = False
                 filelist.clear_cp0_image()
             else:
                 if g.screen.show_preview_complete == True:     # the button only works once the preview is loaded
-                    mks_file.get_parenet_dir_files_list()
+                    file_browser.get_parenet_dir_files_list()
                     pages.clear_preview()             # clear the data when going back
                     g.screen.show_preview_complete = False
                     filelist.clear_cp0_image()

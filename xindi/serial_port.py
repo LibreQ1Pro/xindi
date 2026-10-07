@@ -1,4 +1,4 @@
-"""Port of src/MakerbaseSerial.cpp - serial port configuration."""
+"""Configuration of the screen's serial port."""
 
 import termios
 

@@ -3,10 +3,10 @@
 from .. import state as g
 from .. import actions, filelist, netui, settings, wifi_ui
 from .. import pageids as ids
-from ..MakerbaseWiFi import set_page_wifi_ssid_list
 from ..cpp import sleep
 from ..mks_log import cout
 from ..ui import page_to
+from ..network import set_page_wifi_ssid_list
 from .common import nav_guarded
 
 

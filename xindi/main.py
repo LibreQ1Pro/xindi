@@ -1,4 +1,4 @@
-"""Port of main.cpp - start-up sequence and main loop of the screen backend ("xindi")."""
+"""Start-up sequence and main loop of the screen backend ("xindi")."""
 
 import fcntl
 import os
@@ -12,15 +12,14 @@ from . import ui
 from . import pageids as ids
 from .cpp import access, system, sleep, pthread_create, terminate
 from .mks_log import MKSLOG, MKSLOG_BLUE, cout, cerr
-from .MakerbaseClient import MakerbaseClient
-from .MakerbaseSerial import set_option
-from .MakerbaseParseMessage import json_parse
-from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults
-from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages
-from .send_jpg import sent_jpg_thread_handle
+from .moonraker_ws import MoonrakerClient
+from .serial_port import set_option
+from .moonraker_messages import json_parse
+from .network import mks_wifi_hdlevent_thread, mks_wpa_scan_scanresults, get_wlan0_status, get_ssid_list_pages
+from .picture_transfer import sent_jpg_thread_handle
 from . import actions, pages, settings
 from . import screen_rx
-from . import uart
+from . import screen_flash
 
 REFRESH_INTERVAL = 0.05     # s between two redraws of the page
 
@@ -63,8 +62,8 @@ def main(argv):
     if g.update.find_screen_tft_file == True:
         MKSLOG("Running the screen update")
         # The original runs "/root/uart; mv /root/800_480.tft /root/800_480.tft.bak";
-        # the uart helper is built in (see uart.py).
-        uart.main()
+        # the uart helper is built in (see screen_flash.py).
+        screen_flash.main()
         system("mv /root/800_480.tft /root/800_480.tft.bak")
 
     if access(paths.gcode_files() + "/sda1/QD_factory_mode.txt") == 0:
@@ -119,7 +118,7 @@ def main(argv):
         host = argv[1]
         url = "ws://" + host + ":7125/websocket?"
 
-    g.ep = MakerbaseClient(host, "7125")
+    g.ep = MoonrakerClient(host, "7125")
     cout(g.ep.GetURL())
     cout(g.ep.GetStatus())
     cout(int(g.ep.GetIsConnected()))

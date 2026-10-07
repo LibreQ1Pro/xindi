@@ -7,13 +7,13 @@ from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, f32, c_int, c_round, system, sleep, usleep
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, cout, cerr
-from .send_msg import (send_cmd_txt, send_cmd_val, send_cmd_pco, send_cmd_picc, send_cmd_picc2,
+from .screen_tx import (send_cmd_txt, send_cmd_val, send_cmd_pco, send_cmd_picc, send_cmd_picc2,
                        send_cmd_vis, send_cmd_pic, send_cmd_cp_close, send_cmd_cp_image,
                        send_cmd_baud, send_cmd_txt_plus)
-from .MakerbaseSerial import set_option
-from .MoonrakerAPI import json_run_a_gcode
-from .mks_printer import get_cal_printing_time
-from .mks_file import output_imgdata
+from .serial_port import set_option
+from .moonraker_api import json_run_a_gcode
+from .printer_status import get_cal_printing_time
+from .file_browser import output_imgdata
 from . import actions, filelist, settings, wifi_ui
 
 
@@ -1016,16 +1016,6 @@ def preview_pop():
         actions.cancel_print()
         actions.clear_previous_data()
         send_cmd_txt(g.tty_fd, "msg", "G-code error: " + g.screen.error_message)
-
-
-def replace_characters(path, searchChars, replacement):
-    result = path
-    for c in searchChars:
-        found = result.find(c)
-        while found != -1:
-            result = result[:found] + replacement + result[found + 1:]
-            found = result.find(c, found + len(replacement))
-    return result
 
 
 def bed_moving():

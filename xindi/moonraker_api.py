@@ -1,11 +1,8 @@
-"""Port of src/MoonrakerAPI.cpp / include/MoonrakerAPI.h
-
-Builders for the Moonraker JSON-RPC requests (https://moonraker.readthedocs.io).
-"""
+"""Builders for the Moonraker JSON-RPC requests (https://moonraker.readthedocs.io)."""
 
 from . import state as g
 from .cpp import json_dump, json_parse
-from .MakerbaseCommand import method2command, method2id
+from .rpc_methods import method2command, method2id
 
 # JSON message used by the makerbase client to identify the connection
 STRING_IDENTIFY_CONNECTION = "{\"jsonrpc\":\"2.0\",\"method\":\"server.connection.identify\",\"params\":{\"client_name\":\"makerbase-client\",\"version\":\"0.0.1\",\"type\":\"web\",\"url\":\"http://makerbase.com/test\"},\"id\":4656}"

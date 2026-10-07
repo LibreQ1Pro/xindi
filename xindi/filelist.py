@@ -6,17 +6,17 @@ from . import paths
 from . import state as g
 from . import pageids as ids
 from . import pics
-from . import mks_file
+from . import file_browser
 from . import thumbnail
 from .ui import page_to
 from .cpp import to_string, substr, access, system, sleep, usleep
 from .mks_log import MKSLOG, MKSLOG_RED, cout, cerr
-from .send_msg import (send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_vis, send_cmd_cp_close,
+from .screen_tx import (send_cmd_txt, send_cmd_picc, send_cmd_picc2, send_cmd_vis, send_cmd_cp_close,
                        send_cmd_baud, send_cmd_tsw)
-from .MakerbaseSerial import set_option
-from .MoonrakerAPI import json_get_gcode_metadata
-from .mks_file import output_imgdata
-from .send_jpg import delete_small_jpg
+from .serial_port import set_option
+from .moonraker_api import json_get_gcode_metadata
+from .file_browser import output_imgdata
+from .picture_transfer import delete_small_jpg
 from . import actions, pages
 
 
@@ -118,8 +118,8 @@ def refresh_files_list():
 
 
 def refresh_page_files(pages):
-    mks_file.get_page_files_filelist(g.files.list_root_path + g.files.list_path)
-    mks_file.set_page_files_show_list(pages)
+    file_browser.get_page_files_filelist(g.files.list_root_path + g.files.list_path)
+    file_browser.set_page_files_show_list(pages)
 
 
 def get_file_estimated_time(filename):

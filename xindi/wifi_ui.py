@@ -7,9 +7,9 @@ from . import network
 from .ui import page_to
 from .cpp import to_string, b2s
 from .mks_log import MKSLOG_BLUE, MKSLOG_RED, MKSLOG_GREEN, cout
-from .send_msg import send_cmd_txt, send_cmd_picc, send_cmd_picc2
-from .network import get_eth0_ip, get_wlan0_ip, detected_wlan0
-from .MakerbaseWiFi import get_wlan0_status, get_ssid_list_pages, set_page_wifi_ssid_list
+from .screen_tx import send_cmd_txt, send_cmd_picc, send_cmd_picc2
+from .network import (get_eth0_ip, get_wlan0_ip, detected_wlan0, get_wlan0_status, get_ssid_list_pages,
+                      set_page_wifi_ssid_list)
 
 
 def refresh_wifi_keyboard():

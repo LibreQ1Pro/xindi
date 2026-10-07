@@ -3,7 +3,7 @@
 The original looks for pictures that QIDI's Moonraker extracts next to the
 files (``/home/mks/gcode_files/<dir>/.thumbs/<name>-160x160.png`` and the
 ``-112x112_QD.jpg`` made only by QIDI's slicer), converts them with
-gene4.py into /home/mks/tjc and sends the jpg files to the screen.  That only
+colpic.py into /home/mks/tjc and sends the jpg files to the screen.  That only
 works with QIDI's own software and file layout.
 
 The port reads the thumbnails embedded in the gcode itself instead.  The start of
@@ -189,7 +189,7 @@ def _screen_image(thumb, turn=True):
 
 def _flatten(image):
     """RGB image with the transparent parts black, like the screen's background
-    (Python only: gene4.py drops the alpha channel and shows whatever colour
+    (Python only: colpic.py drops the alpha channel and shows whatever colour
     the slicer left under the transparent pixels)."""
     from PIL import Image
     if image.mode in ("RGBA", "LA", "P", "PA"):
@@ -202,12 +202,12 @@ def _flatten(image):
 
 def colpic(path, size):
     """ColPic text (the content of /home/mks/tjc in the original) of the
-    preview picture of a gcode file; raises like gene4.py when it fails."""
-    from . import gene4
+    preview picture of a gcode file; raises like colpic.py when it fails."""
+    from . import colpic
     thumb = find(path, size, "PNG")
     if thumb is None:
         raise IOError("no thumbnail in %s" % path)
-    return gene4.encode_picture(_flatten(_screen_image(thumb, False)), size)
+    return colpic.encode_picture(_flatten(_screen_image(thumb, False)), size)
 
 
 def jpeg(path, size):
@@ -217,10 +217,10 @@ def jpeg(path, size):
     thumb = find(path, size, "JPEG")
     if thumb is None:
         return None
-    from . import gene4
+    from . import colpic
     try:
         image = _flatten(_screen_image(thumb))
-        image = gene4.resize_to_square(image, size).convert("RGB")
+        image = colpic.resize_to_square(image, size).convert("RGB")
         out = io.BytesIO()
         image.save(out, "JPEG", quality=90, progressive=False, optimize=False)
         return out.getvalue()

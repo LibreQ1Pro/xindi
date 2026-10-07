@@ -1,8 +1,8 @@
-"""Port of uart.cpp - the ``/root/uart`` helper that flashes the TJC screen.
+"""Flashes the screen firmware (the ``/root/uart`` helper of the original, built in).
 
 On the printer the C++ program runs ``/root/uart; mv /root/800_480.tft
 /root/800_480.tft.bak`` at start-up when a screen firmware file is present.
-This module is built in instead and called as ``uart.main()``.
+This module is built in instead and called as ``screen_flash.main()``.
 
 The port follows a copy of uart.cpp recovered from the printer's eMMC.  That
 copy is a development variant: SEND_FILE_NAME is "UI/MATE_272_480.tft" and
@@ -18,7 +18,7 @@ import os
 import termios
 
 from .cpp import access, substr, to_string, usleep
-from .MakerbaseSerial import _cfmakeraw_zeroed
+from .serial_port import _cfmakeraw_zeroed
 
 SEND_FILE_NAME = "/root/800_480.tft"     # uart.cpp: "UI/MATE_272_480.tft"
 UART_DEV = "/dev/ttyS1"

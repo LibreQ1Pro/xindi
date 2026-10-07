@@ -1,4 +1,4 @@
-"""Port of include/mks_log.h - coloured printf style logging macros."""
+"""Coloured logging helpers."""
 
 import sys
 

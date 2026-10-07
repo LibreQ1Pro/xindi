@@ -1,4 +1,4 @@
-"""Port of src/MakerbaseParseIni.cpp - access to /home/mks/klipper_config/config.mksini."""
+"""Access to config.mksini (the settings of the screen backend) and the version file."""
 
 import os
 
