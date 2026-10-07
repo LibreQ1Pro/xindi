@@ -423,12 +423,17 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "prints 0x65,1",
-          "prints dp,1",
-          "prints 2,1",
-          "prints 0xff,1",
-          "prints 0xff,1",
-          "prints 0xff,1"
+          "spstr temp_now.txt,cur_str.txt,\"/\",0",
+          "covx cur_str.txt,cur_val.val,0,0",
+          "if(cur_val.val>=175)",
+          "{",
+          "  prints 0x65,1",
+          "  prints dp,1",
+          "  prints 2,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "  prints 0xff,1",
+          "}"
         ]
       }
     },
@@ -594,6 +599,38 @@
           "click heat_toggle,0"
         ]
       }
+    },
+    {
+      "key": "cur_str",
+      "type": "variable",
+      "attributes": {
+        "objname": "cur_str",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 1,
+        "txt": "",
+        "txt_maxl": 10,
+        "val": 0
+      },
+      "events": {}
+    },
+    {
+      "key": "cur_val",
+      "type": "variable",
+      "attributes": {
+        "objname": "cur_val",
+        "vscope": 0,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 0,
+        "txt": "newtxt",
+        "txt_maxl": 10,
+        "val": 0
+      },
+      "events": {}
     }
   ]
 }
