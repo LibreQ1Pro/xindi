@@ -14,7 +14,7 @@ python3 tools/build_hmi.py [OUT.HMI]     # default: out/display.HMI
 
 It runs the three lints (`lint_program`, `lint_frames`, `lint_page_ids`), `validate`, `pack`, `hmi_parse --check`
 and writes `OUT.HMI.sha256`. hmi-builder is found through `$HMI_BUILDER` (its checkout), then `../../hmi-builder`,
-then `~/Projects/QSART_Linux_EN/hmi-builder`. `.github/workflows/display.yml` does the same in CI and uploads the
+then `~/Projects/QSART_Linux_EN/hmi-builder`. `.github/workflows/display.yml` runs the lints and the `ponywka/hmi-builder` action in CI and uploads the
 `.HMI` as an artifact.
 
 `OUT.HMI` is a project, not the firmware: open it in USART HMI and use *File -> Output production file* to get the
