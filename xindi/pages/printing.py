@@ -267,16 +267,16 @@ def printing():
                                                                  g.klippy.display_status_progress)))
     g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
 
-    # the z offset of the second page is always refreshed: the page starts with
-    # the designer's "-1.000", it must not stay while the keyboard flag is set
-    if g.screen.page == ids.PRINTING_2:
-        g.port.txt("zoffset_val", z_offset)
-
+    # While the keyboard (keybdB) is shown the page behind it is not on the screen: its objects (zoffset_val, ...)
+    # do not exist there and every instruction for them is answered with "invalid variable name".
+    # The keyboard page returns to the printing page after the value (or "back") frame, which ends the flag,
+    # and the page is refreshed again - the z offset first, the page starts with the designer's "-1.000".
     if g.screen.printing_keyboard_enabled:
         printing_keyboard_mute_button()
     elif g.screen.page == ids.PRINTING:         # CLL refresh only while the keyboard is not shown
         printing_first_page()
     elif g.screen.page == ids.PRINTING_2:
+        g.port.txt("zoffset_val", z_offset)
         printing_second_page()
 
     printing_state_changes()
