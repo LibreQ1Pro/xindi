@@ -71,6 +71,7 @@ MACROS = {
     "M603": ["M118 Heat up complete", "G92 E0", "G0 E15 F400", "G4 P1000", "G92 E0", "G1 E-90 F800", "M400",
              "M118 Unload finish"],
 }
+FANS = {"0": "cooling_fan", "2": "auxiliary_cooling_fan", "3": "chamber_circulation_fan"}      # M106 P<n>
 TARGET_CMD = {"M104": "extruder", "M109": "extruder", "M140": "heater_bed", "M190": "heater_bed",
               "M141": "chamber", "M191": "chamber"}
 MOVE_SPEED = 1.0        # execution speed of moves: 1.0 = as long as the real printer takes
@@ -109,6 +110,11 @@ class Moonraker(harness.Moonraker):
 
     def set_target(self, name, target):
         self.push_status({HEATERS[name][0]: {"target": float(target)}})
+
+    def set_fan(self, name, speed):
+        obj = "fan_generic " + name
+        if obj in self.state:
+            self.push_status({obj: {"speed": round(max(0.0, min(1.0, speed)), 3)}})
 
     def temperature(self, name):
         return self.state.get(HEATERS[name][0], {}).get("temperature", AMBIENT)
@@ -158,6 +164,17 @@ class Moonraker(harness.Moonraker):
             if name in HEATERS:
                 self.wait_temperature(name, float(params.get("MINIMUM", 0)),
                                       float(params["MAXIMUM"]) if "MAXIMUM" in params else None)
+        elif cmd == "M106":
+            fan = FANS.get(params.get("P", "0"))
+            if fan:
+                self.set_fan(fan, float(params["S"]) / 255.0 if "S" in params else 1.0)
+        elif cmd == "M107":
+            self.set_fan("cooling_fan", 0.0)
+        elif cmd == "SET_FAN_SPEED":
+            self.set_fan(params.get("FAN", ""), float(params.get("SPEED", 0)))
+        elif cmd == "SET_PIN":                  # LED (caselight) and beeper (sound)
+            if params.get("PIN") in ("caselight", "sound"):
+                self.push_status({"output_pin " + params["PIN"]: {"value": float(params.get("VALUE", 0))}})
         elif cmd == "G4":
             time.sleep(min(float(params.get("P", 0)) / 1000.0, 30))
         elif cmd in ("G0", "G1"):

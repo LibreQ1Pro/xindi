@@ -77,7 +77,7 @@ The printer is played through the fake Moonraker (`harness/devserver.py`), which
 1.5 / 0.3, chamber 0.5 / 0.1, ambient 25 °C) and reported like `notify_status_update`. `M109`, `M190`, `M191` and
 `TEMPERATURE_WAIT` wait for the temperature, `G1` with `E` takes as long as the extrusion, `M603` / `M604` (unload / load
 filament) run the macros of QIDI's configuration with their `M118` messages (`echo: Heat up complete`, `echo: Load finish`),
-and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
+`M106`/`M107`/`SET_FAN_SPEED` set the three fans and `SET_PIN` the LED and the beeper, and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
 A load takes about 40 s (heating 25 → 250 °C) + 12 s.
 
 **Wi-Fi.** `harness/fakenm/nmcli` stands in for NetworkManager (state in `/tmp/fake_nm.json`). Three networks are in range and the
