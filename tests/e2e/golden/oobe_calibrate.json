@@ -46,6 +46,15 @@
    "attrs": {
     "logo.version.val": [
      "100"
+    ],
+    "prints 0xa0": [
+     "0xa0,1"
+    ],
+    "prints 0xff": [
+     "0xff,1"
+    ],
+    "prints lang": [
+     "lang,1"
     ]
    },
    "page": null

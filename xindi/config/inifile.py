@@ -30,9 +30,6 @@ enable = 0
 [beep]
 enable = 0
 
-[system]
-language = 0
-
 [target]
 extruder = 200
 heaterbed = 40

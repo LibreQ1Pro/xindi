@@ -84,6 +84,7 @@ class Screen(threading.Thread):
         self.current = {"page": None, "attrs": {}}
         self.visits.append(self.current)
         self.instructions = 0
+        self.lang = 2               # the language of the screen (its global ``lang``)
         self.unknown = []           # "page: instruction" for objects the page does not have (invalid variable)
         self.last_instruction = time.time()
         self.stopped = False
@@ -196,12 +197,27 @@ class Screen(threading.Thread):
             if entry not in self.unknown:
                 self.unknown.append(entry)
 
+    def set_language(self, lang):
+        """The user picked a language on the screen: ``lang`` changes and the language pages report it."""
+        self.lang = lang
+        self.send(bytes([0xa0, lang]) + END)
+
+    def _answer_prints(self, text):
+        """``prints N,1`` / ``prints lang,1`` sent by the host: the screen prints the byte."""
+        value = text[len("prints "):].split(",")[0]
+        if value == "lang":
+            self.send(bytes([self.lang]))
+        elif value.isdigit() or value.lower().startswith("0x"):
+            self.send(bytes([int(value, 0)]))
+
     def _handle_instruction(self, raw):
         self.instructions += 1
         try:
             text = raw.decode("utf-8")
         except UnicodeDecodeError:
             text = raw.decode("utf-8", "surrogateescape")
+        if text.startswith("prints "):
+            self._answer_prints(text)
         if not text.startswith(("page ", "twfile ", "whmi-wri ")) and ".write(\"" not in text:
             self._check_object(text)
         if text.startswith("page "):

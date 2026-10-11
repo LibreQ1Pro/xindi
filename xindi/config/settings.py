@@ -25,11 +25,6 @@ def set_beep_status():
     system("sync")
 
 
-def get_language_status():
-    ini = open_settings()
-    g.config.language_status = ini.get_int("system", "language", 0)
-
-
 def get_extruder_target():
     ini = open_settings()
     g.config.extruder_target = ini.get_int("target", "extruder", 200)

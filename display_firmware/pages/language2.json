@@ -146,6 +146,11 @@
         "codesup": [
           "lang=8",
           "wepo lang,100",
+          "prints 0xa0,1",
+          "prints lang,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
           "page dp"
         ]
       }
@@ -204,6 +209,11 @@
         "codesup": [
           "lang=9",
           "wepo lang,100",
+          "prints 0xa0,1",
+          "prints lang,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
           "page dp"
         ]
       }
@@ -262,6 +272,11 @@
         "codesup": [
           "lang=10",
           "wepo lang,100",
+          "prints 0xa0,1",
+          "prints lang,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
           "page dp"
         ]
       }
@@ -320,6 +335,11 @@
         "codesup": [
           "lang=11",
           "wepo lang,100",
+          "prints 0xa0,1",
+          "prints lang,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
           "page dp"
         ]
       }
@@ -378,6 +398,11 @@
         "codesup": [
           "lang=12",
           "wepo lang,100",
+          "prints 0xa0,1",
+          "prints lang,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
+          "prints 0xff,1",
           "page dp"
         ]
       }

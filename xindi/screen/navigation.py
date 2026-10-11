@@ -27,6 +27,18 @@ def send_ui_version():
     g.port.val("logo.version", UI_VERSION)
 
 
+LANGUAGE_FRAME = 0xa0
+
+
+def request_language():
+    """Asks the screen for its language: it answers with the frame ``a0 lang`` (the same frame it sends when the
+    user picks a language). The screen is the only place the language is stored (``lang``, in its EEPROM)."""
+    g.port.raw("prints 0x%x,1" % LANGUAGE_FRAME)
+    g.port.raw("prints lang,1")
+    for _ in range(3):
+        g.port.raw("prints 0xff,1")
+
+
 def page_to(page_id):
     if page_id == ids.MAIN:
         send_ui_version()

@@ -7,7 +7,8 @@ from xindi.config import settings
 from xindi.pages import connections
 from xindi.printer import heating
 from xindi.screen import pageids as ids
-from xindi.screen.navigation import page_to, send_ui_version
+from xindi.screen import navigation
+from xindi.screen.navigation import page_to, send_ui_version, request_language
 from xindi.util.cpp import b2s, cstr, to_string
 
 log = logging.getLogger(__name__)
@@ -31,6 +32,9 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         # receiving 0x05 means the screen data can be sent
     elif event_id == 0x1a:
         log.debug("Invalid variable name")
+    elif event_id == navigation.LANGUAGE_FRAME:
+        g.config.language_status = cmd[1]        # the screen owns the language (``lang``, kept in its EEPROM)
+        log.info("Screen language: %d", cmd[1])
     elif event_id == 0x24:
         g.update.get_0x24 = True
     elif event_id == 0x65:
@@ -51,6 +55,7 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         log.info("0x%x", event_id)
         if event_id == 0x88:        # the screen has just powered up: it knows nothing of what the host sent before
             send_ui_version()
+            request_language()
             if g.screen.page != ids.LOGO:
                 page_to(g.screen.page)
     elif event_id == 0x91:

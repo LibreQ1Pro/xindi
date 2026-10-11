@@ -300,7 +300,7 @@ class Config(object):
         self.led_status = False
         self.beep_status = False
         self.fila_status = False
-        self.language_status = 0
+        self.language_status = 2        # the screen's language (index of netstrings), reported by the screen
         self.extruder_target = 0
         self.heater_bed_target = 0
         self.hot_target = 0

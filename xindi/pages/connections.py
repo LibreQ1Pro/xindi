@@ -33,8 +33,6 @@ class S:
 
 def tr(key):
     """The text ``key`` of netstrings in the language of the screen."""
-    from xindi.config import settings
-    settings.get_language_status()
     return netstrings.text(key, g.config.language_status)
 
 

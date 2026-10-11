@@ -44,6 +44,7 @@ BED_CALIBRATION = 46
 BED_FINISH = 47
 SYNTONY_MOVE, SYNTONY_FINISH = 48, 49
 INTERNET = 50
+INTERNET_PAGE, NET_SAVED = 76, 86
 WIFI_LIST = 51
 WIFI_CONNECT, WIFI_SAVING, WIFI_SUCCESS, WIFI_FAILED, WIFI_KB = 52, 53, 54, 55, 56
 COMMON_SETTING = 57
@@ -639,6 +640,27 @@ def scenario_settings(h):
     h.settle(4.0)
     h.touch(MAIN, ALL_TO_SETTING, settle=1.5)
     h.touch(COMMON_SETTING, 0x16, settle=1.5)
+    h.settle(1.0)
+
+
+def scenario_language(h):
+    """The language lives on the screen only: the port asks for it at start-up and follows a change (the network
+    page texts come from the language of the screen)."""
+    h.screen.lang = 1                           # Russian, stored in the EEPROM of the screen
+    boot(h)
+    h.mark("russian")
+    goto_common_setting(h)
+    h.touch(COMMON_SETTING, 0x01, settle=1.5)   # network
+    h.wait_page(INTERNET_PAGE)
+    h.touch(INTERNET_PAGE, 0x06, settle=1.5)    # saved networks
+    h.wait_page(NET_SAVED)
+    h.mark("japanese")
+    h.screen.set_language(3)                    # picked on the language page
+    h.settle(1.0)
+    h.touch(NET_SAVED, 23, settle=1.5)          # back
+    h.touch(COMMON_SETTING, 0x01, settle=1.5)
+    h.touch(INTERNET_PAGE, 0x06, settle=1.5)
+    h.wait_page(NET_SAVED)
     h.settle(1.0)
 
 

@@ -29,6 +29,11 @@ checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...`
 
 ## Languages
 
+The language is stored in one place, the screen: `lang` lives in its EEPROM (address 100, `Program.s` reads it, the language pages
+write it with `wepo`). The host keeps no copy on disk (`config.mksini` has no language): it asks for the value at
+start-up and when the screen powers up (`prints 0xa0,1`, `prints lang,1`, terminator) and the language buttons report every change
+with the frame `a0 lang ff ff ff`; the host only caches the number to pick the texts it sends itself (`util/netstrings.py`).
+
 The screen has 13 languages (the global `lang`: 0 zh, 1 ru, 2 en, 3 ja, 4 fr, 5 de, 6 it, 7 es, 8 ko, 9 pt, 10 ar, 11 tr,
 12 he); every page sets its texts in `codesload` with an `if(lang==N)` chain. The text stored in the component itself
 (what the editor shows) is English, and so are the pictures the editor shows by default (the per-language pictures

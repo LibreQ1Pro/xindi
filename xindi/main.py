@@ -169,6 +169,7 @@ def start_screen(fd, frames):
 
         # CLL UI / SOC version check of the main page (the screen may start later: see ui.send_ui_version)
         navigation.send_ui_version()
+        navigation.request_language()
         if g.update.find_screen_tft_file:
             g.screen.page = ids.UPDATE_SUCCESS
         else:
