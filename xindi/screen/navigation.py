@@ -44,4 +44,5 @@ def page_to(page_id):
         send_ui_version()
     g.screen.previous_page = g.screen.page
     g.screen.page = page_id
+    g.shown.page_values.clear()         # the page starts from its stored values
     g.port.page(to_string(page_id))

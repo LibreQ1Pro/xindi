@@ -118,10 +118,13 @@ def refresh_show_ip():
     """4.4.22 refresh of the network page."""
     if g.config.ethernet == 1:
         ip_address = get_eth0_ip()
-        g.port.txt("ip_txt", ip_address if ip_address.find(":") == -1 else "")
-        g.port.picc("source_switch", pics.ip_switch_on)
-        g.port.picc2("source_switch", pics.ip_press_on)
+        ip_address = ip_address if ip_address.find(":") == -1 else ""
+        switch = (pics.ip_switch_on, pics.ip_press_on)
     else:
-        g.port.txt("ip_txt", g.net.status_result.ip_address)
-        g.port.picc("source_switch", pics.ip_switch_off)
-        g.port.picc2("source_switch", pics.ip_press_off)
+        ip_address = g.net.status_result.ip_address
+        switch = (pics.ip_switch_off, pics.ip_press_off)
+    if g.shown.changed("ip_txt", ip_address):
+        g.port.txt("ip_txt", ip_address)
+    if g.shown.changed("source_switch", switch):
+        g.port.picc("source_switch", switch[0])
+        g.port.picc2("source_switch", switch[1])

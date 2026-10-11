@@ -186,6 +186,15 @@ class Shown(object):
         self.out_pin_fan2_value = 0.0
         self.oobe_enabled = False
         self.webhooks_state_message = ""
+        self.page_values = {}       # what the shown page got from the refresh functions; page_to() clears it
+
+    def changed(self, key, value):
+        """True when ``value`` is not what the page got last for ``key`` (and remembers it): the refresh runs
+        every 50 ms, a page is only written to when something changed."""
+        if key in self.page_values and self.page_values[key] == value:
+            return False
+        self.page_values[key] = value
+        return True
 
 
 class Levelling(object):
