@@ -10,14 +10,21 @@ The fake Moonraker takes commands over HTTP so that the printer can be played fr
 
     POST /emu/status   {"extruder": {"temperature": 31.6}}        status update (notify_status_update)
     POST /emu/gcode    plain text                                  gcode response (notify_gcode_response)
+    POST /emu/script   plain text                                  run a gcode script (changes heater targets)
     POST /emu/notify   {"method": "notify_klippy_shutdown"}       any notification ("params" optional)
     POST /emu/preset/<name>                                        a ready-made situation, see PRESETS
     GET  /emu/state                                                status objects, requests of the port
+
+Heaters: a target set by the port (M104/M109/M140/M190/M141/M191, SET_HEATER_TEMPERATURE, TURN_OFF_HEATERS) is
+approached by the temperature every second (and the ambient 25 degrees when the target is 0). M109 / M190 do not
+block: Klipper's answer comes at once, the port follows the temperatures.
+Wi-Fi: the fake nmcli shows three networks whose password is their own name (12345678, qwerty123, letmein99).
 """
 
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import threading
@@ -47,8 +54,72 @@ PRESETS = {
 }
 
 
+# heater -> (Klipper object, heating rate, cooling rate in degrees per second). Faster than the real ones so that
+# the steps that wait for a temperature do not take minutes.
+HEATERS = {
+    "extruder": ("extruder", 6.0, 1.0),
+    "heater_bed": ("heater_bed", 1.5, 0.3),
+    "chamber": ("heater_generic chamber", 0.5, 0.1),
+}
+AMBIENT = 25.0
+TICK = 1.0
+
+GCODE_TARGET = {"M104": "extruder", "M109": "extruder", "M140": "heater_bed", "M190": "heater_bed",
+                "M141": "chamber", "M191": "chamber"}
+
+
+def heater_targets(script):
+    """{heater: target} set by the gcode lines of a script (M104/M109, M140/M190, M141/M191,
+    SET_HEATER_TEMPERATURE, TURN_OFF_HEATERS)."""
+    found = {}
+    for line in script.replace(";", "\n").splitlines():
+        words = line.split()
+        if not words:
+            continue
+        cmd = words[0].upper()
+        params = {w.split("=")[0].upper(): w.split("=", 1)[1] for w in words[1:] if "=" in w}
+        try:
+            if cmd in GCODE_TARGET:
+                for w in words[1:]:
+                    if w[0].upper() == "S":
+                        found[GCODE_TARGET[cmd]] = float(w[1:])
+            elif cmd == "SET_HEATER_TEMPERATURE" and "HEATER" in params:
+                name = params["HEATER"].replace("heater_generic ", "")
+                if name in HEATERS:
+                    found[name] = float(params.get("TARGET", 0))
+            elif cmd == "TURN_OFF_HEATERS":
+                found.update({name: 0.0 for name in HEATERS})
+        except ValueError:
+            pass
+    return found
+
+
 class Moonraker(harness.Moonraker):
-    """The fake Moonraker of the tests plus the /emu/ control interface."""
+    """The fake Moonraker of the tests plus the /emu/ control interface and heaters that really heat."""
+
+    def _handle_rpc(self, req):
+        if req.get("method") == "printer.gcode.script":
+            for name, target in heater_targets((req.get("params") or {}).get("script", "")).items():
+                self.push_status({HEATERS[name][0]: {"target": target}})
+        return super()._handle_rpc(req)
+
+    def simulate_heaters(self):
+        """Moves every temperature towards its target (or the ambient one) and reports the changes."""
+        while True:
+            time.sleep(TICK)
+            changes = {}
+            for obj, up, down in HEATERS.values():
+                cur = self.state.get(obj)
+                if cur is None or "temperature" not in cur:
+                    continue
+                temp, target = cur["temperature"], cur.get("target") or 0.0
+                goal = target if target > 0 else AMBIENT
+                step = (up if goal > temp else down) * TICK
+                new = round(goal if abs(goal - temp) <= step else temp + (step if goal > temp else -step), 1)
+                if new != temp:
+                    changes[obj] = {"temperature": new, "power": 1.0 if new < target else 0.0}
+            if changes:
+                self.push_status(changes)
 
     async def _http(self, request):
         from aiohttp import web
@@ -65,6 +136,9 @@ class Moonraker(harness.Moonraker):
                 self.push_status(json.loads(body))
             elif path == "/emu/gcode":
                 self.push_gcode(body)
+            elif path == "/emu/script":         # a gcode script as the port would send it (heaters, see above)
+                for name, target in heater_targets(body).items():
+                    self.push_status({HEATERS[name][0]: {"target": target}})
             elif path == "/emu/notify":
                 msg = json.loads(body)
                 self.notify(msg["method"], msg.get("params"))
@@ -106,10 +180,11 @@ def main():
     mr = Moonraker(fixture)
     mr.host = "0.0.0.0"
     mr.start()
-    wifi = fixture.wifi()
-    if wifi is not None:
-        wpa = harness.FakeWpa(wifi["status"], wifi["scan_results"])
-        wpa.start()
+    threading.Thread(target=mr.simulate_heaters, daemon=True).start()
+    # NetworkManager: a stateful stand-in with three networks (see fakenm/nmcli)
+    shutil.copy(os.path.join(HERE, "fakenm", "nmcli"), "/usr/local/bin/nmcli")
+    if os.path.exists("/tmp/fake_nm.json"):
+        os.unlink("/tmp/fake_nm.json")
 
     env = dict(os.environ, PYTHONUNBUFFERED="1", PYTHONDONTWRITEBYTECODE="1", XINDI_SHELL_LOG="/tmp/xindi_shell.log")
     sut = subprocess.Popen(["python3", "/opt/src_py/main.py", "localhost"], env=env, cwd="/root")

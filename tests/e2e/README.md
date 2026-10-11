@@ -63,12 +63,23 @@ The printer is played through the fake Moonraker (`harness/devserver.py`), which
 |---|---|
 | `POST /emu/preset/<name>` | `idle`, `heating`, `printing`, `paused`, `complete`, `cancelled`, `runout`, `shutdown` |
 | `POST /emu/status` `{"extruder": {"temperature": 150}}` | `notify_status_update` with these objects |
+| `POST /emu/script` (gcode text) | runs a script as Klipper would: heater targets change (see below) |
 | `POST /emu/gcode` (text) | `notify_gcode_response` |
 | `POST /emu/notify` `{"method": "notify_klippy_shutdown", "params": []}` | any notification |
 | `GET /emu/state` | status objects and the last requests of the port |
 
+**Heaters.** A target set by the port (`M104`/`M109`, `M140`/`M190`, `M141`/`M191`, `SET_HEATER_TEMPERATURE`,
+`TURN_OFF_HEATERS`) is approached every second (extruder 6 °C/s, bed 1.5, chamber 0.5; cooling to 25 °C), and the changes are
+reported like `notify_status_update`. `M109`/`M190` do not block, Klipper's reply comes at once and the port follows the
+temperatures, so the heating-wait steps finish.
+
+**Wi-Fi.** `harness/fakenm/nmcli` stands in for NetworkManager (state in `/tmp/fake_nm.json`). Three networks are in range and the
+password of each is its own name: `12345678`, `qwerty123`, `letmein99`. A wrong password fails after two seconds like a real
+one; saved networks, autoconnect, forgetting, disconnect and the radio switch work. The wired interface is connected
+(192.168.1.50).
+
 Differences from the real printer: the emulator does not draw `col_pic` and does not take over the timing of the display;
-`nmcli` and the system tools are stubs, so Wi-Fi pages show no interface; the sleeps are the real ones.
+the other system tools are stubs; the sleeps are the real ones.
 
 ## Scenarios
 
