@@ -89,7 +89,6 @@ def refresh_files_list():
     for i in range(4):
         row = "file" + to_string(i + 1)
         g.port.txt(row + "_name", g.files.list_list_show_name[i])
-        g.port.vis("cp" + to_string(i), "0")
         t = g.files.list_list_show_type[i]
         if t in row_pictures:
             g.port.picc(row, row_pictures[t][0])

@@ -19,6 +19,7 @@ written as JSON and compared with the golden traces by golden.py.
 
 import argparse
 import asyncio
+import contextlib
 import hashlib
 import json
 import os
@@ -45,6 +46,28 @@ def sha(data):
 # Virtual TJC screen
 # ---------------------------------------------------------------------------
 
+PROJECT = "/opt/src_py/display_firmware"
+_widgets = None
+
+
+def widgets_of_pages():
+    """{page id: (page key, {object keys})} of the screen project, for the check that the port only addresses
+    objects the page has."""
+    global _widgets
+    if _widgets is None:
+        _widgets = {}
+        try:
+            with open(os.path.join(PROJECT, "project.json"), encoding="utf-8") as f:
+                project = json.load(f)
+            for number, entry in enumerate(project["pages"]):
+                with open(os.path.join(PROJECT, entry["content"]["path"]), encoding="utf-8") as f:
+                    page = json.load(f)
+                _widgets[number] = (entry["key"], {o["key"] for o in page["objects"]})
+        except (OSError, ValueError, KeyError):
+            _widgets = {}
+    return _widgets
+
+
 class Screen(threading.Thread):
     """Plays the role of the TJC display on the master side of a pty."""
 
@@ -61,6 +84,7 @@ class Screen(threading.Thread):
         self.current = {"page": None, "attrs": {}}
         self.visits.append(self.current)
         self.instructions = 0
+        self.unknown = []           # "page: instruction" for objects the page does not have (invalid variable)
         self.last_instruction = time.time()
         self.stopped = False
         self.page_changed = threading.Condition(self.lock)
@@ -138,12 +162,48 @@ class Screen(threading.Thread):
         self.last_instruction = time.time()
         self.page_changed.notify_all()
 
+    OBJECT_COMMANDS = ("vis", "tsw", "click", "ref", "picq", "cls")
+
+    ignore_unknown = 0      # >0 while a scenario sends events for another page than the one shown
+
+    def _check_object(self, text):
+        if self.ignore_unknown:
+            return
+        """The screen answers 0x1a (invalid variable name) for an object that is not on the page."""
+        widgets = widgets_of_pages()
+        page = self.current["page"]
+        if not widgets or page not in widgets:
+            return
+        name = None
+        eq, sp = text.find("="), text.find(" ")
+        if eq != -1 and (sp == -1 or eq < sp):
+            left = text[:eq]
+            if "." in left:
+                name = left.rsplit(".", 1)[0]
+        elif sp != -1 and text[:sp] in self.OBJECT_COMMANDS:
+            name = text[sp + 1:].split(",")[0]
+        if not name or not name.replace("_", "a").replace(".", "a").isalnum() or name.isdigit():
+            return
+        key, objects = widgets[page]
+        if "." in name:
+            other, _, obj = name.partition(".")
+            target = [o for k, o in widgets.values() if k == other]
+            ok = bool(target) and obj in target[0]
+        else:
+            ok = name in objects or name == key
+        if not ok:
+            entry = "page %d (%s): %s" % (page, key, text[:60])
+            if entry not in self.unknown:
+                self.unknown.append(entry)
+
     def _handle_instruction(self, raw):
         self.instructions += 1
         try:
             text = raw.decode("utf-8")
         except UnicodeDecodeError:
             text = raw.decode("utf-8", "surrogateescape")
+        if not text.startswith(("page ", "twfile ", "whmi-wri ")) and ".write(\"" not in text:
+            self._check_object(text)
         if text.startswith("page "):
             try:
                 page = int(text[5:])
@@ -569,6 +629,18 @@ class Harness(object):
     def mark(self, label):
         self.screen.mark(label)
 
+    @contextlib.contextmanager
+    def other_page_events(self):
+        """The events of the steps inside are meant for another page than the virtual screen shows (the scenario
+        only wants the port's reaction), so the instructions the port answers with may name objects that are not on
+        this page."""
+        self.screen.ignore_unknown += 1
+        try:
+            yield
+        finally:
+            self.settle(0.6)
+            self.screen.ignore_unknown -= 1
+
     def check(self, condition, message):
         if not condition:
             self.errors.append(message)
@@ -661,6 +733,7 @@ class Harness(object):
             "http": list(self.mr.http),
             "shell": self.shell_log(),
             "wpa": list(self.wpa.received) if self.wpa else [],
+            "unknown_objects": list(self.screen.unknown),
             "files": self.fixture.snapshot(),
         }
         with open(os.path.join(self.out_dir, "%s_%s.json" % (self.impl, self.scenario_name)), "w") as f:

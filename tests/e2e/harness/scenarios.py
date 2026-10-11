@@ -306,7 +306,8 @@ def scenario_print_flow(h):
     h.settle(1.5)
     h.touch(PRINTING, 0x03, settle=1.0)     # LED
     h.touch(PRINTING, 0x00, settle=1.0)     # keyboard opened
-    h.set_number(PRINTING, 0x00, 230, settle=1.0)
+    with h.other_page_events():             # the virtual screen shows the stop page here
+        h.set_number(PRINTING, 0x00, 230, settle=1.0)
     h.touch(PRINTING, 0x02, settle=1.5)     # next
     h.wait_page(PRINTING_2)
     h.mr.push_status({"gcode_move": {"speed_factor": 1.25, "extrude_factor": 0.95,
@@ -454,8 +455,9 @@ def scenario_temperatures(h):
     h.touch(FILAMENT_SET_FAN, 0x00, settle=1.5)
     h.wait_page(FILAMENT)
     h.mark("printing keyboard")
-    for w, v in ((0x00, 400), (0x01, 70), (0x04, 120), (0x05, 50), (0x06, 7), (0x02, 200), (0x03, 99), (0x07, 61)):
-        h.set_number(PRINTING, w, v, settle=1.0)
+    with h.other_page_events():             # the virtual screen shows the filament page here
+        for w, v in ((0x00, 400), (0x01, 70), (0x04, 120), (0x05, 50), (0x06, 7), (0x02, 200), (0x03, 99), (0x07, 61)):
+            h.set_number(PRINTING, w, v, settle=1.0)
     h.touch(FILAMENT, ALL_TO_SETTING, settle=1.5)
     h.wait_page(LEVEL_MODE)
     h.touch(LEVEL_MODE, ALL_TO_ADJUST, settle=1.5)

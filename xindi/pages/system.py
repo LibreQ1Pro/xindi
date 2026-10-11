@@ -7,7 +7,6 @@ from xindi.screen import pics
 
 def common_setting():
     g.shown.oobe_enabled = settings.get_oobe_enabled()
-    g.port.txt("version_txt", g.config.version_soc)
     if not g.shown.oobe_enabled:
         g.port.picc("reset_btn", pics.reset_row)
         g.port.picc2("reset_btn", pics.settings_press)

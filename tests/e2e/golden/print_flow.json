@@ -280,18 +280,6 @@
     "usb_tab.picc2": [
      "34"
     ],
-    "vis cp0": [
-     "cp0,0"
-    ],
-    "vis cp1": [
-     "cp1,0"
-    ],
-    "vis cp2": [
-     "cp2,0"
-    ],
-    "vis cp3": [
-     "cp3,0"
-    ],
     "vis file1_mark": [
      "file1_mark,0",
      "file1_mark,1"
@@ -401,18 +389,6 @@
     ],
     "usb_tab.picc2": [
      "34"
-    ],
-    "vis cp0": [
-     "cp0,0"
-    ],
-    "vis cp1": [
-     "cp1,0"
-    ],
-    "vis cp2": [
-     "cp2,0"
-    ],
-    "vis cp3": [
-     "cp3,0"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1234,18 +1210,6 @@
     ],
     "usb_tab.picc2": [
      "34"
-    ],
-    "vis cp0": [
-     "cp0,0"
-    ],
-    "vis cp1": [
-     "cp1,0"
-    ],
-    "vis cp2": [
-     "cp2,0"
-    ],
-    "vis cp3": [
-     "cp3,0"
     ],
     "vis file1_mark": [
      "file1_mark,0",

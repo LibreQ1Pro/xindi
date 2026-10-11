@@ -40,6 +40,10 @@ tests/e2e/golden.py record -j 22   # accept a deliberate change of behaviour
 A full run takes under a minute: the harness waits for the port to go quiet (nothing new on the screen for half a
 second) instead of fixed pauses, and the time-outs are a few seconds.
 
+A scenario also fails (`BAD`) when the port addresses an object the current page does not have (`version_txt.txt=...` on a
+page without `version_txt`): the real screen answers such an instruction with `0x1a`. A step whose events are meant for
+another page than the virtual screen shows is wrapped in `h.other_page_events()`.
+
 ## Running the port against the screen emulator
 
 The golden traces use a recording virtual screen. For developing the screen project there is also the HMI emulator of

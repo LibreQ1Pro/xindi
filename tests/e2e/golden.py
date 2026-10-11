@@ -75,6 +75,10 @@ def normalise(result):
     }
 
 
+def unknown_objects(result):
+    return result.get("unknown_objects", [])
+
+
 def fmt_lines(value):
     return json.dumps(value, indent=1, ensure_ascii=False, sort_keys=True).split("\n")
 
@@ -83,7 +87,9 @@ def trace(scenario, out_dir, timeout):
     result, output = run_one(scenario, out_dir, timeout)
     if result is None:
         return None, output
-    return normalise(result), output
+    now = normalise(result)
+    now["unknown_objects"] = unknown_objects(result)
+    return now, output
 
 
 def main():
@@ -108,6 +114,7 @@ def main():
             print("FAIL  %-20s no trace\n%s" % (s, output[-500:]))
             failed += 1
         elif args.mode == "record":
+            now = {k: v for k, v in now.items() if k != "unknown_objects"}
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(now, f, indent=1, ensure_ascii=False, sort_keys=True)
                 f.write("\n")
@@ -120,6 +127,9 @@ def main():
                 print("FAIL  %-20s no golden trace" % s)
                 failed += 1
                 continue
+            for entry in now["unknown_objects"]:
+                print("BAD   %-20s the screen has no such object: %s" % (s, entry))
+            failed += bool(now["unknown_objects"])
             bad = [k for k in SECTIONS if old[k] != now[k]]
             if bad:
                 failed += 1
