@@ -7,7 +7,7 @@ function heatEdit(x,y,w,glyph,cur,tar,on,name){     // toggle + current / target
   return btn(x,y,50,50,'',{icon:'',css:'background:'+(on?'var(--danger-bg)':'var(--btn)')},name+'_toggle') +
     `<div style="${st(x+12,y+12,26,26)}color:${on?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
     box(x+58,y,w-58,50,'card hi','',name+'_row') +
-    txt(x+70,y,w-74,50,`<b style="font-size:22px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},name+'_temp');
+    vals(x+70,y,w-74,50,[{t:String(cur),s:22,w:600,c:on?HOT:'var(--text)'},{t:'/ '+tar,s:16,c:'var(--text3)'},{t:'°C',s:13,c:'var(--text2)'}],'l',name+'_temp');
 }
 S('filament','Filament and movement','Filament',()=>{
   CUR='filament';
@@ -33,7 +33,7 @@ S('fans','Filament and movement','Fans',()=>{
     [20,40,60,80,100].forEach(v=>{ s += rect(tx+tw*v/100-1,y+66,2,6,'#4a4a54',1); });
     s += `<div style="${st(kx-14,y+43,28,28)}background:#fff;border-radius:14px"></div>`;
     s += box(24,y+78,60,26,'', toggle(0,0,on),'fan'+n+'_toggle');
-    s += txt(140,y+74,108,30,`<b style="font-size:22px">${val}</b><span style="font-size:14px;color:var(--text2)"> %</span>`,{a:'r',num:1},'fan'+n+'_val');
+    s += vals(140,y+74,108,30,[{t:String(val),s:22,w:600},{t:'%',s:13,c:'var(--text2)'}],'r','fan'+n+'_val');
   });
   s += nav('adjust');
   return screen('fila_set_fan', s);
@@ -59,7 +59,7 @@ S('keypad','Filament and movement','Number keyboard',()=>{
   CUR='filament_kb';
   let s = header(T('title@sys1=0','filament_kb'));
   s += card(12,56,248,72,'background:#111114');
-  s += txt(24,60,160,44,'<span style="font-size:32px;font-weight:600">220</span><span style="font-size:18px;color:var(--text2)"> °C</span>',{a:'r',num:1},'input_show');
+  s += vals(24,60,224,44,[{t:'220',s:32,w:600},{t:'°C',s:16,c:'var(--text2)'}],'r','input_show');
   s += txt(24,102,224,22,'MAX : 350',{sz:'s',mute:1,num:1},null);
   ['1','2','3','4','5','6','7','8','9','del','0','ok'].forEach((k,i)=>{
     const c=i%3,r=Math.floor(i/3); const fn=(k==='del'||k==='ok');

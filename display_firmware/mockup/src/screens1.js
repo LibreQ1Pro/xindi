@@ -6,7 +6,7 @@ const HOT = '#ff7a59';
 function heaterTile(x,y,w,h,glyph,temp,on,name,target){
   return box(x,y,w,h,'card hi','',name) +
     `<div style="${st(x+14,y+(h-26)/2,26,26)}color:${on?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
-    txt(x+48,y,w-56,h,`<b style="font-size:28px;font-weight:600;color:${on?HOT:'var(--text)'}">${temp}</b><span style="font-size:14px;color:var(--text2)"> °C${target?' <span style="color:var(--text3)">/ '+target+'</span>':''}</span>`,{num:1},null);
+    vals(x+48,y,w-56,h,[{t:String(temp),s:28,w:600,c:on?HOT:'var(--text)'},{t:'°C',s:13,c:'var(--text2)'}].concat(target?[{t:'/ '+target,s:13,c:'var(--text3)'}]:[]),'l',null);
 }
 function iconTile(x,y,w,h,glyph,on,name,o){
   o = o || {};
@@ -67,13 +67,13 @@ function printTop(page, paused){
   let s = thumb(12,12,132,132,'thumb');
   s += btn(152,12,108,62,'',{icon:paused?'play':'pause',is:30},'pause_btn') + btn(152,82,108,62,'',{icon:'square',is:26,v:'danger'},'stop_btn');
   s += txt(12,150,248,26,'Benchy_PLA_0.2mm.gcode',{a:'c'},'file_name');
-  s += txt(12,178,80,22,'0h10m',{sz:'s',num:1},'time_elapsed') + txt(96,174,80,28,'<b style="font-size:20px">35</b><span style="font-size:13px;color:var(--text2)"> %</span>',{a:'c',num:1},'progress_pct') + txt(180,178,80,22,'0h18m',{a:'r',sz:'s',num:1},'time_left');
+  s += txt(12,178,80,22,'0h10m',{sz:'s',num:1},'time_elapsed') + vals(96,174,80,28,[{t:'35',s:20,w:600},{t:'%',s:13,c:'var(--text2)'}],'c','progress_pct') + txt(180,178,80,22,'0h18m',{a:'r',sz:'s',num:1},'time_left');
   s += progress(12,206,248,8,35,'progress');
   return s;
 }
 function heatRow(x,y,w,glyph,cur,tar,on,name){
   return box(x,y,w,50,'card hi','',name) + `<div style="${st(x+12,y+12,26,26)}color:${on?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
-    txt(x+44,y,w-50,50,`<b style="font-size:24px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},null);
+    vals(x+44,y,w-50,50,[{t:String(cur),s:24,w:600,c:on?HOT:'var(--text)'},{t:'/ '+tar,s:16,c:'var(--text3)'},{t:'°C',s:13,c:'var(--text2)'}],'l',null);
 }
 function fanTile(x,y,w,h,i,val,name){
   return box(x,y,w,h,'card hi','',name) + `<div style="${st(x+10,y+13,24,24)}color:var(--text2)">${ico('fan',22)}</div>` +
@@ -90,7 +90,7 @@ S('printing','Printing','Printing',()=>{
 
 S('printing2','Printing','Printing 2',()=>{
   let s = printTop('printing_2');
-  const tool = (x,y,glyph,val,unit,name,w)=> box(x,y,w,92,'card hi','',name)+`<div style="${st(x+(w-24)/2,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+txt(x,y+46,w,40,`<b style="font-size:20px">${val}</b><span style="font-size:13px;color:var(--text2)"> ${unit}</span>`,{a:'c',num:1},name+'_val');
+  const tool = (x,y,glyph,val,unit,name,w)=> box(x,y,w,92,'card hi','',name)+`<div style="${st(x+(w-24)/2,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+vals(x,y+46,w,40,[{t:String(val),s:20,w:600},{t:unit,s:13,c:'var(--text2)'}],'c',name+'_val');
   s += tool(12,222,'arrow-up-down','-1.000','mm','zoffset_btn',77)+tool(97,222,'gauge','100','%','speed_btn',78)+tool(183,222,'droplet','100','%','flow_btn',77);
   s += box(12,322,77,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:10px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
   s += btn(183,322,77,92,'',{icon:'undo-2',is:28},'back_btn');

@@ -34,3 +34,7 @@ follow the same rules (selected = blue radio and raised row; pressed = darker; d
 ## Checking the spacing
 
 `index.html?audit=1` measures the real DOM: the gaps between neighbouring blocks (buttons, cards, rows, keys) and the margins to the screen edge, for every screen. The rule is a gap of 8 and a margin of 12; `google-chrome --headless=new --dump-dom 'file:///.../index.html?audit=1'` prints the result as JSON in `<pre id=audit>`.
+
+## Numbers with units
+
+A text widget draws one font, so "35 %" and "220 °C" are two widgets: the number (digit font 20/28) and the unit (13), each as wide as its text, with the baselines on one line. The host knows the widths from the font and sets `x` of the unit (`unit.x=`); `y` of the unit comes from the font metrics. `vals()` in `src/kit.js` does exactly this, and the hover titles show the real rectangle of every part.

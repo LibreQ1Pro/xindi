@@ -123,7 +123,7 @@ S('pre_heat','Setup guide','Preheat: choose temperature',()=>{
   CUR='pre_heat';
   let s = rect(0,0,272,480,'#0c0c0e') + `<div class="popup" style="${st(12,84,248,324)}"></div>`;
   s += tt(28,100,216,80,'msg',{a:'c',v:'top',css:'font-size:15px'},'msg');
-  ['220','250','300'].forEach((v,i)=>{ const sel=i===0; s += `<div${nm('temp_opt'+(i+1))} style="${st(28+76*i,200,68,74)};background:${sel?'var(--btn-hi)':'var(--btn)'};border-radius:12px"></div><div class="radio${sel?' on':''}" style="left:${28+76*i+23}px;top:210px"></div>`+txt(28+76*i,238,68,30,v+' °C',{a:'c',num:1}); });
+  ['220','250','300'].forEach((v,i)=>{ const sel=i===0; s += `<div${nm('temp_opt'+(i+1))} style="${st(28+76*i,200,68,74)};background:${sel?'var(--btn-hi)':'var(--btn)'};border-radius:12px"></div><div class="radio${sel?' on':''}" style="left:${28+76*i+23}px;top:210px"></div>`+vals(28+76*i,238,68,30,[{t:v,s:16,w:500},{t:'°C',s:13,c:'var(--text2)'}],'c',null); });
   s += tb(28,336,104,48,'back_btn',{},'back_btn')+tb(140,336,104,48,'next_btn',{v:'primary'},'next_btn');
   return screen('pre_heat', s);
 });

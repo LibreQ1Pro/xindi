@@ -32,6 +32,25 @@ function txt(x,y,w,h,content,o,name){
   const cls = ['t', o.a==='c'?'c':'', o.a==='r'?'r':'', o.sz||'m', o.mute?'mute':'', o.acc?'acc':'', o.red?'red':'', o.v==='top'?'top':'', o.v==='bottom'?'bottom':'', isRtl()&&!o.num?'rtl':''].join(' ');
   return `<div class="${cls}"${nm(name)} title="${name?CUR+'.'+name+'  '+x+','+y+'  '+w+'×'+h:''}" style="${st(x,y,w,h,o.css)}"><span>${content}</span></div>`;
 }
+
+// A value with units on the screen: a text widget draws one font only, so "35 %" is two widgets (number, unit), each as wide as its
+// text (the host knows the widths from the font and sets x), and their baselines lie on one line (y is computed from the font
+// metrics: the baseline of a centred line is y + h/2 + 0.388*size for the preview font; measure the real .zi font and put its numbers here).
+const _cv = document.createElement('canvas').getContext('2d');
+function measure(t,size,weight){ _cv.font = `${weight||400} ${size}px 'Noto Sans'`; return Math.ceil(_cv.measureText(t).width); }
+// parts: [{t, s:size, w:weight, c:colour}], the first is the main one. y,h: the box of the main part. align l/c/r inside x..x+w
+function vals(x,y,w,h,parts,align,name,gap){
+  gap = gap == null ? 3 : gap;
+  const ws = parts.map(p => measure(p.t,p.s,p.w)+1);
+  const total = ws.reduce((a,b)=>a+b,0) + gap*(parts.length-1);
+  let cx = align==='r' ? x+w-total : align==='c' ? x+Math.round((w-total)/2) : x;
+  const base = y + h/2 + 0.388*parts[0].s;
+  return parts.map((p,i)=>{
+    const ph = Math.ceil(p.s*1.4/2)*2, py = Math.round(base - ph/2 - 0.388*p.s);
+    const out = `<div class="t vp"${i===0?nm(name):''} title="${name?CUR+'.'+name+(i?'_u'+i:'')+'  '+cx+','+py+'  '+ws[i]+'×'+ph:''}" style="${st(cx,py,ws[i],ph)};font-size:${p.s}px;font-weight:${p.w||400};color:${p.c||'var(--text)'}"><span style="white-space:nowrap">${p.t}</span></div>`;
+    cx += ws[i] + gap; return out;
+  }).join('');
+}
 const tt = (x,y,w,h,key,o,name) => txt(x,y,w,h,T(key),o,name||key);   // a text widget of the page
 // buttons
 function btn(x,y,w,h,label,o,name){
