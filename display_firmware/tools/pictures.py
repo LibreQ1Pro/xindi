@@ -4,13 +4,13 @@
     from pictures import Pictures
     p = Pictures()
     p.add("fan_slider_track", "/path/track.png")      # copies the file to pictures/<key>.png, appends the key
-    p.rename("hdr_back_press", "header_back_press")  # file, project.json, every reference, names.json, xindi pics.py
+    p.rename("hdr_back_press", "header_back_press")  # file, project.json, every reference, names.json
     p.remove(["unused_one"])                          # refuses while the picture is still referenced
-    p.save()                                          # writes project.json and renumbers xindi/screen/pics.py
+    p.save()                                          # writes project.json and xindi/screen/faces.py
 
-The id of a picture is its position in ``project.json``; the host (xindi/screen/pics.py) sends the ids of some of
-them by name, so pics.py is written again from the names of the new positions. A reference is ``"$ref": "picture:KEY"``
-in the pages and ``${picture:KEY}`` in their code.
+The id of a picture is its position in ``project.json``. The host sends the ids of the looks of its widgets from
+xindi/screen/faces.py, which gen_faces.py writes from tools/faces.json (save() runs it). A reference is
+``"$ref": "picture:KEY"`` in the pages and ``${picture:KEY}`` in their code.
 """
 import glob
 import json
@@ -18,8 +18,9 @@ import os
 import re
 import shutil
 
+import gen_faces
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))          # display_firmware/
-PICS_PY = os.path.join(os.path.dirname(ROOT), "xindi", "screen", "pics.py")
 
 
 def reference(key):
@@ -32,8 +33,6 @@ class Pictures(object):
         with open(os.path.join(ROOT, "project.json"), encoding="utf-8") as f:
             self.project = json.load(f)
         self.raw = open(os.path.join(ROOT, "project.json"), encoding="utf-8").read()
-        self.old_keys = self.keys()
-        self.renamed = {}                       # old key -> new key (for pics.py)
 
     def keys(self):
         return [p["key"] for p in self.project["pictures"]]
@@ -92,6 +91,15 @@ class Pictures(object):
             if rx.search(text):
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(rx.sub("picture:" + new, text))
+        faces = os.path.join(ROOT, "tools", "faces.json")
+        with open(faces, encoding="utf-8") as f:
+            looks = json.load(f)
+        for states in looks.values():
+            for state, tiles in states.items():
+                states[state] = [new if t == old else t for t in tiles]
+        with open(faces, "w", encoding="utf-8") as f:
+            json.dump(looks, f, indent=1, ensure_ascii=False)
+            f.write("\n")
         names = os.path.join(ROOT, "tools", "names.json")
         with open(names, encoding="utf-8") as f:
             data = json.load(f)
@@ -101,34 +109,9 @@ class Pictures(object):
         with open(names, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)
             f.write("\n")
-        for was, now in list(self.renamed.items()):
-            if now == old:
-                self.renamed[was] = new
-                break
-        else:
-            self.renamed[old] = new
 
     def save(self):
         with open(os.path.join(ROOT, "project.json"), "w", encoding="utf-8") as f:
             json.dump(self.project, f, ensure_ascii=False, indent=2)
             f.write("\n")
-        self.sync_host()
-
-    def sync_host(self):
-        """Writes xindi/screen/pics.py again: the same names, the ids of the new positions."""
-        keys = self.keys()
-        with open(PICS_PY, encoding="utf-8") as f:
-            lines = f.read().split("\n")
-        out = []
-        for line in lines:
-            m = re.match(r'^([A-Za-z0-9_]+) = "(\d+)"$', line)
-            if m:
-                name = m.group(1)
-                old_key = self.old_keys[int(m.group(2))]
-                key = self.renamed.get(old_key, old_key)
-                if key not in keys:
-                    raise ValueError("pics.py: the picture %s (%s) is gone" % (name, old_key))
-                line = '%s = "%d"' % (name, keys.index(key))
-            out.append(line)
-        with open(PICS_PY, "w", encoding="utf-8") as f:
-            f.write("\n".join(out))
+        gen_faces.main()                         # the ids of the looks of the host moved with the pictures

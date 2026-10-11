@@ -111,22 +111,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_bed_btn_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_bed_btn_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -172,22 +172,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_chamber_btn_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_chamber_btn_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -233,22 +233,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_nozzle_btn_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_nozzle_btn_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -294,22 +294,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_light_btn_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_light_btn_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -355,22 +355,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_beep_btn_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_beep_btn_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -416,22 +416,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_stop_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_stop_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -657,7 +657,7 @@
     },
     {
       "key": "wifi_icon",
-      "type": "crop_picture",
+      "type": "picture",
       "attributes": {
         "objname": "wifi_icon",
         "vscope": 0,
@@ -676,8 +676,8 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_wifi_icon_off"
         }
       },
       "events": {
@@ -687,7 +687,7 @@
     },
     {
       "key": "usb_icon",
-      "type": "crop_picture",
+      "type": "picture",
       "attributes": {
         "objname": "usb_icon",
         "vscope": 0,
@@ -706,8 +706,8 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "picc": {
-          "$ref": "picture:main_off"
+        "pic": {
+          "$ref": "picture:main_usb_icon_off"
         }
       },
       "events": {
@@ -736,7 +736,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -744,18 +744,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:main_nav_main"
         },
-        "picc": {
-          "$ref": "picture:main_bg_photo"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:main_nav_main_press"
         },
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -801,7 +797,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -809,18 +805,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust"
         },
-        "picc": {
-          "$ref": "picture:main_bg_photo"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust_press"
         },
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -866,7 +858,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -874,18 +866,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files"
         },
-        "picc": {
-          "$ref": "picture:main_bg_photo"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files_press"
         },
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -931,7 +919,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -939,18 +927,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:fila_set_fan_nav_settings"
         },
-        "picc": {
-          "$ref": "picture:main_bg_photo"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:fila_set_fan_nav_settings_press"
         },
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -996,22 +980,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:main_bg_photo"
+        "pic": {
+          "$ref": "picture:main_last_file_photo"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:nav_btn_press"
+        "pic2": {
+          "$ref": "picture:main_last_file_photo_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1143,7 +1127,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 0,
         "key": 255,
         "borderc": 0,
@@ -1152,10 +1136,10 @@
           "$ref": "font:font_title18"
         },
         "bco": 65535,
-        "picc": {
-          "$ref": "picture:main_ver_warning"
+        "picc": 65535,
+        "pic": {
+          "$ref": "picture:main_ver_warning_256x244"
         },
-        "pic": 65535,
         "pco": 63488,
         "xcen": 1,
         "ycen": 1,

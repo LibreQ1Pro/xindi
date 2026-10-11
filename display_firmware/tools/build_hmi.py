@@ -14,7 +14,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJECT = os.path.dirname(HERE)
-LINTS = ["lint_program.py", "lint_frames.py", "lint_page_ids.py"]
+LINTS = ["lint_program.py", "lint_frames.py", "lint_page_ids.py", "lint_faces.py"]
 
 
 def find_builder():

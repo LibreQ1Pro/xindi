@@ -100,8 +100,7 @@ Components, pictures, fonts and animations have readable names (the stock projec
 rewrites the names and every reference in event code, checks the result, and verifies that the inverse renaming gives
 the original project back; the compiled pages differ from the stock ones only in the names). The names the Python xindi
 writes in instructions were changed with `tools/rename_host.py` (`--verify` re-checks that every name the host uses
-exists on the page it addresses), the picture ids it sends as numbers are the names of `xindi/screen/pics.py`
-(`tools/pics_to_names.py`).
+exists on the page it addresses).
 
 Conventions (names are at most 14 characters, the editor's limit):
 
@@ -118,11 +117,32 @@ Conventions (names are at most 14 characters, the editor's limit):
 | `spin1`..`spin4`, `steps_bar`, `step1_txt`.. | the step indicator of the wizards |
 | `lang_cn`, `lang_ru`, ... | language buttons (the order is the value of the screen's `lang`) |
 
-Pictures are named after what they show or where they are used (`main_off`, `main_on_press`, `bg_settings_panel`,
-`rows_lock`, `files_item_dir`, ...); `unused_N` are pictures nothing refers to (N is the number in the stock name).
-The language pages use full-screen sheets that the buttons show a part of: `<page>_btn` (normal), `_press`, `_selected` and
-`_selected_press` (the pages `language`, `language2`, `open_language`, `open_language2`); `klipper_status_buttons(_press)` hold the
-faces of the buttons of the status pages. `tools/pictures.py` adds, renames and removes pictures (project, pages, `names.json` and the ids
-of `xindi/screen/pics.py` stay consistent); the `tools/unbake_*.py` and `tools/add_brightness.py` scripts record how the text was taken out of the
-pictures and the brightness slider was added.
+## Pictures
 
+There are two kinds of pictures. A **background** is the background of a page and nothing else: panels, headers, lines,
+labels that are not buttons (`bg_<page>`; `boot_logo` for the logo). A **tile** is one button (or indicator) with the size
+of its widget, released and pressed (`<name>` and `<name>_press`); the corners around a rounded button are transparent, so
+a tile lies on any background. A button shows its tile with `sta=2`, `pic` (released) and `pic2` (pressed); a widget that
+only showed a part of a sheet is a `picture`. No picture holds the same button twice, and no button is drawn into a
+background. (The stock project did both: a sheet held a button once per place it is used, and the backgrounds had the buttons
+drawn in. `tools/tile_pictures.py` turned it into this; it is kept as the record of how, and refuses to run again.
+`tools/tile_check.py` renders the old and the new project and compares pages, looks and touches: the pages look the same.)
+
+Names: the look the host switches is `<page>_<group>_<state>` (`filament_toggle_on`, `main_heater_off`; a widget of the
+group with its own tile is `filament_nozzle_toggle_on`), a button that shows one picture is named after the widget
+(`internet_page_saved_btn`, `nav_files` when every page uses the same one); `nav_*` and the like have a `<page>_` variant where the
+current page is marked. `unused_N` are pictures nothing refers to (N is the number in the stock name). Where the screen's own code changes a
+look (`codesload`, `codesup`, `codestimer`: the language buttons, the keyboard keys, the sleep options ...) it sets `<widget>.pic` /
+`.pic2` to a tile, with the name of the tile in the code.
+
+**Looks of the host.** The host (xindi/pages) does not send picture ids by name: `g.port.face("nozzle_btn", "on")` sends
+`nozzle_btn.pic=<tile>` and `nozzle_btn.pic2=<tile>` of that state. `tools/faces.json` lists the tiles of every
+`widget -> state` (the states are named after what they mean: `on`/`off`, `check`/`item`/`blank` for the list rows, `file`/`dir`
+for the file entries, `load_1`.. for the wizard steps; two pages that use the same widget name with different looks have different
+state names); `tools/gen_faces.py` writes `xindi/screen/faces.py` from it and the position of the pictures (`Pictures.save()` runs it),
+`tools/lint_faces.py` (part of `build_hmi.py`) checks that the tiles exist and are as big as the widget. To add a look, make the tile, add it to
+`faces.json` and ask for it with `face()`; `tests/unit/test_faces.py` finds a `face()` of the host that asks for a look that is not in the table.
+
+Other tools: `tools/pictures.py` adds, renames and removes pictures (project, pages, `names.json` and `faces.json` stay consistent); the
+`tools/unbake_*.py` and `tools/add_brightness.py` scripts record how the text was taken out of the pictures and the brightness
+slider was added (they were written before the tiles: the sheets they mention are gone).

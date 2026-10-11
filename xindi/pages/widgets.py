@@ -4,15 +4,13 @@ import contextlib
 import time
 
 from xindi import state as g
-from xindi.screen import pics
 from xindi.util.cpp import substr
 
 
-def picc_group(names, selected, on_picc, off_picc, on_picc2, off_picc2):
+def face_group(names, selected, on="on", off="off"):
+    """Of a row of buttons the selected one looks ``on``, the others ``off``."""
     for i, name in enumerate(names):
-        g.port.picc(name, on_picc if i == selected else off_picc)
-    for i, name in enumerate(names):
-        g.port.picc2(name, on_picc2 if i == selected else off_picc2)
+        g.port.face(name, on if i == selected else off)
 
 
 def cut_after_point(text, n):
@@ -22,14 +20,8 @@ def cut_after_point(text, n):
 
 def heating_widget(temp_widget, button, target):
     """The number and the button of a heater show with their colour whether the heater is on."""
-    if target == 0:
-        g.port.pco(temp_widget, "65535")
-        g.port.picc(button, pics.printing_row_off)
-        g.port.picc2(button, pics.printing_press_off)
-    else:
-        g.port.pco(temp_widget, "63488")
-        g.port.picc(button, pics.printing_row_on)
-        g.port.picc2(button, pics.printing_press_on)
+    g.port.pco(temp_widget, "65535" if target == 0 else "63488")
+    g.port.face(button, "heat_off" if target == 0 else "heat_on")
 
 
 def send_chunks_txt(data):
@@ -74,9 +66,8 @@ def send_chunks_cp(obj, data):
         g.port.cp_image(obj, part)
 
 
-def two_state_button(button, is_on, on_pic, off_pic, on_press, off_press):
-    g.port.picc(button, on_pic if is_on else off_pic)
-    g.port.picc2(button, on_press if is_on else off_press)
+def two_state_button(button, is_on):
+    g.port.face(button, "on" if is_on else "off")
 
 
 @contextlib.contextmanager

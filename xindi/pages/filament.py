@@ -1,7 +1,8 @@
 """The filament page, its pop-ups and the unload page."""
 
 from xindi import state as g
-from xindi.screen import pageids as ids, pics
+from xindi.pages.widgets import face_group
+from xindi.screen import pageids as ids
 from xindi.util.cpp import c_int, f32, to_string
 
 
@@ -19,7 +20,7 @@ def filament_pop():
                  to_string(g.klippy.extruder_target) + "℃)")
     if g.levelling.step_1:
         g.levelling.step_1 = False
-        g.port.picc("steps_bar", pics.pop_steps_2)
+        g.port.face("steps_bar", "load_2")
         g.port.pco("step2_txt", "65535")
         g.port.pco("step1_txt", "38066")
         g.port.pco("temp_txt", "38066")
@@ -27,7 +28,7 @@ def filament_pop():
         g.port.vis("spin3", "1")
     if g.levelling.step_2 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_2 = False
-        g.port.picc("steps_bar", pics.pop_steps_3)
+        g.port.face("steps_bar", "load_3")
         g.port.pco("step3_txt", "65535")
         g.port.pco("step2_txt", "38066")
         g.port.vis("done_btn", "1")
@@ -48,12 +49,7 @@ def filament_set_fan():
         g.port.val("fan3_val", fan3)
         for name, value in (("fan1_toggle", g.klippy.out_pin_fan0_value), ("fan2_toggle", g.klippy.out_pin_fan2_value),
                             ("fan3_toggle", g.klippy.out_pin_fan3_value)):
-            if value == 0:
-                g.port.picc(name, pics.fan_row_off)
-                g.port.picc2(name, pics.fan_press_off)
-            else:
-                g.port.picc(name, pics.fan_row_on)
-                g.port.picc2(name, pics.fan_press_on)
+            g.port.face(name, "off" if value == 0 else "on")
 
 
 def filament():
@@ -63,54 +59,17 @@ def filament():
     g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
     g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
     g.port.val("chamber_set", to_string(g.klippy.hot_target))
-    if g.klippy.extruder_target > 0:   # CLL button state depends on the nozzle heating
-        g.port.picc("nozzle_toggle", pics.filament_row_on)
-        g.port.picc2("nozzle_toggle", pics.filament_press_on)
-        g.port.picc("nozzle_row", pics.filament_row_on)
-        g.port.picc2("nozzle_row", pics.filament_press_on)
-        g.port.pco("nozzle_temp", "63488")
-    else:
-        g.port.picc("nozzle_toggle", pics.filament_row_off)
-        g.port.picc2("nozzle_toggle", pics.filament_press_off)
-        g.port.picc("nozzle_row", pics.filament_row_off)
-        g.port.picc2("nozzle_row", pics.filament_press_off)
-        g.port.pco("nozzle_temp", "65535")
-
-    if g.klippy.heater_bed_target > 0:     # CLL button state depends on the bed heating
-        g.port.picc("bed_toggle", pics.filament_row_on)
-        g.port.picc2("bed_toggle", pics.filament_press_on)
-        g.port.picc("bed_row", pics.filament_row_on)
-        g.port.picc2("bed_row", pics.filament_press_on)
-        g.port.pco("bed_temp", "63488")
-    else:
-        g.port.picc("bed_toggle", pics.filament_row_off)
-        g.port.picc2("bed_toggle", pics.filament_press_off)
-        g.port.picc("bed_row", pics.filament_row_off)
-        g.port.picc2("bed_row", pics.filament_press_off)
-        g.port.pco("bed_temp", "65535")
-
-    if g.klippy.hot_target > 0:
-        g.port.picc("chamber_toggle", pics.filament_row_on)
-        g.port.picc2("chamber_toggle", pics.filament_press_on)
-        g.port.picc("chamber_row", pics.filament_row_on)
-        g.port.picc2("chamber_row", pics.filament_press_on)
-        g.port.pco("chamber_temp", "63488")
-    else:
-        g.port.picc("chamber_toggle", pics.filament_row_off)
-        g.port.picc2("chamber_toggle", pics.filament_press_off)
-        g.port.picc("chamber_row", pics.filament_row_off)
-        g.port.picc2("chamber_row", pics.filament_press_off)
-        g.port.pco("chamber_temp", "65535")
+    # CLL the buttons of a heater and its number show whether the heater is on
+    for heater, target in (("nozzle", g.klippy.extruder_target), ("bed", g.klippy.heater_bed_target),
+                           ("chamber", g.klippy.hot_target)):
+        state = "on" if target > 0 else "off"
+        g.port.face(heater + "_toggle", state)
+        g.port.face(heater + "_row", state)
+        g.port.pco(heater + "_temp", "63488" if target > 0 else "65535")
 
     sel = {10: 0, 50: 1, 100: 2}.get(g.klippy.filament_extruder_dist)
     if sel is not None:
-        for k, name in enumerate(("step_10", "step_50", "step_100")):
-            if k == sel:
-                g.port.picc(name, pics.filament_row_on)
-                g.port.picc2(name, pics.filament_press_on)
-            else:
-                g.port.picc(name, pics.filament_row_off)
-                g.port.picc2(name, pics.filament_press_off)
+        face_group(("step_10", "step_50", "step_100"), sel)
 
 
 def auto_unload():
@@ -120,13 +79,13 @@ def auto_unload():
         g.levelling.step_1 = False
         g.port.vis("spin1", "0")
         g.port.vis("spin2", "1")
-        g.port.picc("steps_bar", pics.unload_steps_1)
+        g.port.face("steps_bar", "unload_1")
         g.port.pco("step2_txt", "65535")
         g.port.pco("step1_txt", "38066")
     if g.levelling.step_2:
         g.levelling.step_2 = False
         g.port.vis("spin2", "0")
-        g.port.picc("steps_bar", pics.unload_steps_2)
+        g.port.face("steps_bar", "unload_2")
         g.port.pco("step3_txt", "65535")
         g.port.pco("step2_txt", "38066")
         g.port.vis("load_btn", "1")

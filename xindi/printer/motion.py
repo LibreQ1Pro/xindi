@@ -8,7 +8,7 @@ from xindi.config import settings
 from xindi.moonraker.gcodes import AXIS_X, AXIS_Y, AXIS_Z, move_relative
 from xindi.moonraker.rpc_requests import json_emergency_stop
 from xindi.pages import widgets
-from xindi.screen import pageids as ids, pics
+from xindi.screen import pageids as ids
 from xindi.util.cpp import c_int, f32, stof, to_string
 
 log = logging.getLogger(__name__)
@@ -85,7 +85,7 @@ def filament_load():
     g.port.vis("next_btn", "0")
     g.port.vis("temp_txt", "1")
     g.port.vis("back_btn", "0")
-    g.port.picc("steps_bar", pics.pop_steps_1)
+    g.port.face("steps_bar", "load_1")
     g.port.pco("step1_txt", "65535")
     g.port.pco("hint", "38066")
     g.port.vis("spin1", "0")

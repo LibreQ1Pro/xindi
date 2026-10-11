@@ -77,11 +77,11 @@
   },
   {
    "attrs": {
-    "heat_toggle.picc": [
-     "7"
+    "heat_toggle.pic": [
+     "201"
     ],
-    "heat_toggle.picc2": [
-     "20"
+    "heat_toggle.pic2": [
+     "202"
     ],
     "temp_now.pco": [
      "65535"

@@ -8,7 +8,7 @@ from xindi.moonraker.gcode_files import output_imgdata
 from xindi.pages import file_list
 from xindi.pages.widgets import cut_after_point, fast_screen_link, send_chunks_cp, send_chunks_txt, two_state_button
 from xindi.printer import calibration, job
-from xindi.screen import pageids as ids, pics, thumbnail
+from xindi.screen import pageids as ids, thumbnail
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import f32, substr, to_string
 
@@ -100,10 +100,8 @@ def send_preview_pictures(picture_path):
 
 def preview():
     # 4.4.22: pictures of the 4.4.24 screen, timelapse switch b3
-    two_state_button("level_btn", g.screen.bed_leveling,
-                      pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
-    two_state_button("timelapse_btn", g.screen.timelapse_enabled,
-                      pics.preview_chk_on, pics.preview_chk_off, pics.preview_press_on, pics.preview_press_off)
+    two_state_button("level_btn", g.screen.bed_leveling)
+    two_state_button("timelapse_btn", g.screen.timelapse_enabled)
     if not g.files.meta_parse_finished or g.screen.show_preview_complete:
         return
 

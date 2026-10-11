@@ -102,18 +102,15 @@
   },
   {
    "attrs": {
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -121,17 +118,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -139,11 +136,11 @@
     "chamber_temp.val": [
      "26"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -161,17 +158,17 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -179,14 +176,14 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
@@ -205,59 +202,59 @@
     "delfile \"ram/file3.jpg\"": [
      "\"ram/file3.jpg\""
     ],
-    "file1.picc": [
-     "35"
+    "file1.pic": [
+     "236"
     ],
-    "file1.picc2": [
-     "32"
+    "file1.pic2": [
+     "237"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
-    "file2.picc": [
-     "36"
+    "file2.pic": [
+     "238"
     ],
-    "file2.picc2": [
-     "34"
+    "file2.pic2": [
+     "239"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
-    "file3.picc": [
-     "35"
+    "file3.pic": [
+     "241"
     ],
-    "file3.picc2": [
-     "32"
+    "file3.pic2": [
+     "242"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
-    "file4.picc": [
-     "35"
+    "file4.pic": [
+     "241"
     ],
-    "file4.picc2": [
-     "32"
+    "file4.pic2": [
+     "242"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
-    "local_tab.picc": [
-     "30"
+    "local_tab.pic": [
+     "245"
     ],
-    "local_tab.picc2": [
-     "32"
+    "local_tab.pic2": [
+     "246"
     ],
-    "next.picc": [
-     "36"
+    "next.pic": [
+     "259"
     ],
-    "next.picc2": [
-     "32"
+    "next.pic2": [
+     "260"
     ],
-    "prev.picc": [
-     "35"
+    "prev.pic": [
+     "253"
     ],
-    "prev.picc2": [
-     "34"
+    "prev.pic2": [
+     "254"
     ],
     "tsw 255": [
      "255,1"
@@ -272,17 +269,17 @@
     "twfile-data:ram/file2.jpg": [
      "2d5b7d600246d2e9:3974:2"
     ],
-    "up_dir.picc": [
-     "35"
+    "up_dir.pic": [
+     "261"
     ],
-    "up_dir.picc2": [
-     "34"
+    "up_dir.pic2": [
+     "262"
     ],
-    "usb_tab.picc": [
-     "30"
+    "usb_tab.pic": [
+     "249"
     ],
-    "usb_tab.picc2": [
-     "32"
+    "usb_tab.pic2": [
+     "250"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -305,59 +302,59 @@
     "delfile \"ram/file3.jpg\"": [
      "\"ram/file3.jpg\""
     ],
-    "file1.picc": [
-     "35"
+    "file1.pic": [
+     "236"
     ],
-    "file1.picc2": [
-     "32"
+    "file1.pic2": [
+     "237"
     ],
     "file1_name.txt": [
      "\"cube.gcode\""
     ],
-    "file2.picc": [
-     "35"
+    "file2.pic": [
+     "236"
     ],
-    "file2.picc2": [
-     "32"
+    "file2.pic2": [
+     "237"
     ],
     "file2_name.txt": [
      "\"part_abs.gcode\""
     ],
-    "file3.picc": [
-     "35"
+    "file3.pic": [
+     "241"
     ],
-    "file3.picc2": [
-     "32"
+    "file3.pic2": [
+     "242"
     ],
     "file3_name.txt": [
      "\"z_last.gcode\""
     ],
-    "file4.picc": [
-     "29"
+    "file4.pic": [
+     "240"
     ],
-    "file4.picc2": [
-     "29"
+    "file4.pic2": [
+     "240"
     ],
     "file4_name.txt": [
      "\"\""
     ],
-    "local_tab.picc": [
-     "30"
+    "local_tab.pic": [
+     "245"
     ],
-    "local_tab.picc2": [
-     "32"
+    "local_tab.pic2": [
+     "246"
     ],
-    "next.picc": [
-     "35"
+    "next.pic": [
+     "257"
     ],
-    "next.picc2": [
-     "34"
+    "next.pic2": [
+     "258"
     ],
-    "prev.picc": [
-     "36"
+    "prev.pic": [
+     "255"
     ],
-    "prev.picc2": [
-     "32"
+    "prev.pic2": [
+     "256"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -382,17 +379,17 @@
     "twfile-data:ram/file1.jpg": [
      "15013ab210f2794e:4047:2"
     ],
-    "up_dir.picc": [
-     "35"
+    "up_dir.pic": [
+     "261"
     ],
-    "up_dir.picc2": [
-     "34"
+    "up_dir.pic2": [
+     "262"
     ],
-    "usb_tab.picc": [
-     "30"
+    "usb_tab.pic": [
+     "249"
     ],
-    "usb_tab.picc2": [
-     "32"
+    "usb_tab.pic2": [
+     "250"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -436,11 +433,11 @@
     "fil_weight.txt": [
      "\"3.7g\""
     ],
-    "level_btn.picc": [
-     "40"
+    "level_btn.pic": [
+     "190"
     ],
-    "level_btn.picc2": [
-     "39"
+    "level_btn.pic2": [
+     "191"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -461,11 +458,11 @@
      "903ecfe1afcda457:2048",
      "f171578b4d9ff5ee:576"
     ],
-    "timelapse_btn.picc": [
-     "41"
+    "timelapse_btn.pic": [
+     "194"
     ],
-    "timelapse_btn.picc2": [
-     "203"
+    "timelapse_btn.pic2": [
+     "193"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -479,13 +476,13 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "47",
-     "48"
+    "bed_btn.pic": [
+     "140",
+     "138"
     ],
-    "bed_btn.picc2": [
-     "45",
-     "46"
+    "bed_btn.pic2": [
+     "141",
+     "139"
     ],
     "bed_set.val": [
      "0",
@@ -499,11 +496,11 @@
      "\"25\"",
      "\"60\""
     ],
-    "chamber_btn.picc": [
-     "47"
+    "chamber_btn.pic": [
+     "144"
     ],
-    "chamber_btn.picc2": [
-     "45"
+    "chamber_btn.pic2": [
+     "145"
     ],
     "chamber_set.val": [
      "0"
@@ -527,13 +524,13 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "nozzle_btn.picc": [
-     "47",
-     "48"
+    "nozzle_btn.pic": [
+     "136",
+     "134"
     ],
-    "nozzle_btn.picc2": [
-     "45",
-     "46"
+    "nozzle_btn.pic2": [
+     "137",
+     "135"
     ],
     "nozzle_set.val": [
      "0",
@@ -594,11 +591,11 @@
      "100",
      "95"
     ],
-    "light_btn.picc": [
-     "199"
+    "light_btn.pic": [
+     "146"
     ],
-    "light_btn.picc2": [
-     "61"
+    "light_btn.pic2": [
+     "147"
     ],
     "progress.val": [
      "45"
@@ -638,45 +635,45 @@
     "progress_pct.val": [
      "45"
     ],
-    "step_001.picc": [
-     "51",
-     "52",
-     "51"
+    "step_001.pic": [
+     "154",
+     "156",
+     "154"
     ],
-    "step_001.picc2": [
-     "54",
-     "53",
-     "54"
+    "step_001.pic2": [
+     "155",
+     "157",
+     "155"
     ],
-    "step_005.picc": [
-     "52",
-     "51",
-     "52"
+    "step_005.pic": [
+     "160",
+     "158",
+     "160"
     ],
-    "step_005.picc2": [
-     "53",
-     "54",
-     "53"
+    "step_005.pic2": [
+     "161",
+     "159",
+     "161"
     ],
-    "step_01.picc": [
-     "52",
-     "51",
-     "52"
+    "step_01.pic": [
+     "164",
+     "162",
+     "164"
     ],
-    "step_01.picc2": [
-     "53",
-     "54",
-     "53"
+    "step_01.pic2": [
+     "165",
+     "163",
+     "165"
     ],
-    "step_05.picc": [
-     "52",
-     "51",
-     "52"
+    "step_05.pic": [
+     "168",
+     "166",
+     "168"
     ],
-    "step_05.picc2": [
-     "53",
-     "54",
-     "53"
+    "step_05.pic2": [
+     "169",
+     "167",
+     "169"
     ],
     "time_elapsed.txt": [
      "\"0h41m\""
@@ -696,11 +693,11 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "light_btn.picc": [
-     "199"
+    "light_btn.pic": [
+     "146"
     ],
-    "light_btn.picc2": [
-     "61"
+    "light_btn.pic2": [
+     "147"
     ],
     "progress.val": [
      "45"
@@ -725,11 +722,11 @@
     "#mark": [
      "pause"
     ],
-    "bed_btn.picc": [
-     "48"
+    "bed_btn.pic": [
+     "138"
     ],
-    "bed_btn.picc2": [
-     "46"
+    "bed_btn.pic2": [
+     "139"
     ],
     "bed_set.val": [
      "60"
@@ -740,11 +737,11 @@
     "bed_temp.txt": [
      "\"60\""
     ],
-    "chamber_btn.picc": [
-     "47"
+    "chamber_btn.pic": [
+     "144"
     ],
-    "chamber_btn.picc2": [
-     "45"
+    "chamber_btn.pic2": [
+     "145"
     ],
     "chamber_set.val": [
      "0"
@@ -767,11 +764,11 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "nozzle_btn.picc": [
-     "48"
+    "nozzle_btn.pic": [
+     "134"
     ],
-    "nozzle_btn.picc2": [
-     "46"
+    "nozzle_btn.pic2": [
+     "135"
     ],
     "nozzle_set.val": [
      "220"
@@ -808,11 +805,11 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "heat_btn.picc": [
-     "56"
+    "heat_btn.pic": [
+     "150"
     ],
-    "heat_btn.picc2": [
-     "59"
+    "heat_btn.pic2": [
+     "151"
     ],
     "progress.val": [
      "45"
@@ -843,11 +840,11 @@
     "#mark": [
      "stop"
     ],
-    "bed_btn.picc": [
-     "48"
+    "bed_btn.pic": [
+     "138"
     ],
-    "bed_btn.picc2": [
-     "46"
+    "bed_btn.pic2": [
+     "139"
     ],
     "bed_set.val": [
      "60"
@@ -858,11 +855,11 @@
     "bed_temp.txt": [
      "\"60\""
     ],
-    "chamber_btn.picc": [
-     "47"
+    "chamber_btn.pic": [
+     "144"
     ],
-    "chamber_btn.picc2": [
-     "45"
+    "chamber_btn.pic2": [
+     "145"
     ],
     "chamber_set.val": [
      "0"
@@ -885,11 +882,11 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "nozzle_btn.picc": [
-     "48"
+    "nozzle_btn.pic": [
+     "134"
     ],
-    "nozzle_btn.picc2": [
-     "46"
+    "nozzle_btn.pic2": [
+     "135"
     ],
     "nozzle_set.val": [
      "220"
@@ -927,11 +924,11 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "48"
+    "bed_btn.pic": [
+     "138"
     ],
-    "bed_btn.picc2": [
-     "46"
+    "bed_btn.pic2": [
+     "139"
     ],
     "bed_set.val": [
      "60"
@@ -942,11 +939,11 @@
     "bed_temp.txt": [
      "\"60\""
     ],
-    "chamber_btn.picc": [
-     "47"
+    "chamber_btn.pic": [
+     "144"
     ],
-    "chamber_btn.picc2": [
-     "45"
+    "chamber_btn.pic2": [
+     "145"
     ],
     "chamber_set.val": [
      "0"
@@ -969,11 +966,11 @@
     "file_name.txt": [
      "\"cube.gcode\""
     ],
-    "nozzle_btn.picc": [
-     "48"
+    "nozzle_btn.pic": [
+     "134"
     ],
-    "nozzle_btn.picc2": [
-     "46"
+    "nozzle_btn.pic2": [
+     "135"
     ],
     "nozzle_set.val": [
      "220"
@@ -1031,18 +1028,15 @@
     "#mark": [
      "complete"
     ],
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "28"
+    "bed_btn.pic": [
+     "110"
     ],
-    "bed_btn.picc2": [
-     "26"
+    "bed_btn.pic2": [
+     "111"
     ],
     "bed_temp.pco": [
      "63488"
@@ -1050,17 +1044,17 @@
     "bed_temp.val": [
      "60"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -1068,11 +1062,11 @@
     "chamber_temp.val": [
      "26"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -1090,17 +1084,17 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "28"
+    "light_btn.pic": [
+     "118"
     ],
-    "light_btn.picc2": [
-     "26"
+    "light_btn.pic2": [
+     "119"
     ],
-    "nozzle_btn.picc": [
-     "28"
+    "nozzle_btn.pic": [
+     "106"
     ],
-    "nozzle_btn.picc2": [
-     "26"
+    "nozzle_btn.pic2": [
+     "107"
     ],
     "nozzle_temp.pco": [
      "63488"
@@ -1108,73 +1102,73 @@
     "nozzle_temp.val": [
      "220"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
   },
   {
    "attrs": {
-    "file1.picc": [
-     "35"
+    "file1.pic": [
+     "236"
     ],
-    "file1.picc2": [
-     "32"
+    "file1.pic2": [
+     "237"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
-    "file2.picc": [
-     "36"
+    "file2.pic": [
+     "238"
     ],
-    "file2.picc2": [
-     "34"
+    "file2.pic2": [
+     "239"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
-    "file3.picc": [
-     "35"
+    "file3.pic": [
+     "241"
     ],
-    "file3.picc2": [
-     "32"
+    "file3.pic2": [
+     "242"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
-    "file4.picc": [
-     "35"
+    "file4.pic": [
+     "241"
     ],
-    "file4.picc2": [
-     "32"
+    "file4.pic2": [
+     "242"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
-    "local_tab.picc": [
-     "30"
+    "local_tab.pic": [
+     "245"
     ],
-    "local_tab.picc2": [
-     "32"
+    "local_tab.pic2": [
+     "246"
     ],
-    "next.picc": [
-     "36"
+    "next.pic": [
+     "259"
     ],
-    "next.picc2": [
-     "32"
+    "next.pic2": [
+     "260"
     ],
-    "prev.picc": [
-     "35"
+    "prev.pic": [
+     "253"
     ],
-    "prev.picc2": [
-     "34"
+    "prev.pic2": [
+     "254"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1188,17 +1182,17 @@
     "tsw 255": [
      "255,1"
     ],
-    "up_dir.picc": [
-     "35"
+    "up_dir.pic": [
+     "261"
     ],
-    "up_dir.picc2": [
-     "34"
+    "up_dir.pic2": [
+     "262"
     ],
-    "usb_tab.picc": [
-     "30"
+    "usb_tab.pic": [
+     "249"
     ],
-    "usb_tab.picc2": [
-     "32"
+    "usb_tab.pic2": [
+     "250"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -1243,11 +1237,11 @@
     "fil_weight.txt": [
      "\"-\""
     ],
-    "level_btn.picc": [
-     "40"
+    "level_btn.pic": [
+     "190"
     ],
-    "level_btn.picc2": [
-     "39"
+    "level_btn.pic2": [
+     "191"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1268,11 +1262,11 @@
      "2a6407e3f2f0d894:2048",
      "22a14534e55cb902:1288"
     ],
-    "timelapse_btn.picc": [
-     "41"
+    "timelapse_btn.pic": [
+     "194"
     ],
-    "timelapse_btn.picc2": [
-     "203"
+    "timelapse_btn.pic2": [
+     "193"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1286,11 +1280,11 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "48"
+    "bed_btn.pic": [
+     "138"
     ],
-    "bed_btn.picc2": [
-     "46"
+    "bed_btn.pic2": [
+     "139"
     ],
     "bed_set.val": [
      "60"
@@ -1301,11 +1295,11 @@
     "bed_temp.txt": [
      "\"60\""
     ],
-    "chamber_btn.picc": [
-     "47"
+    "chamber_btn.pic": [
+     "144"
     ],
-    "chamber_btn.picc2": [
-     "45"
+    "chamber_btn.pic2": [
+     "145"
     ],
     "chamber_set.val": [
      "0"
@@ -1328,11 +1322,11 @@
     "file_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
-    "nozzle_btn.picc": [
-     "48"
+    "nozzle_btn.pic": [
+     "134"
     ],
-    "nozzle_btn.picc2": [
-     "46"
+    "nozzle_btn.pic2": [
+     "135"
     ],
     "nozzle_set.val": [
      "220"
@@ -1400,18 +1394,15 @@
   },
   {
    "attrs": {
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "28"
+    "bed_btn.pic": [
+     "110"
     ],
-    "bed_btn.picc2": [
-     "26"
+    "bed_btn.pic2": [
+     "111"
     ],
     "bed_temp.pco": [
      "63488"
@@ -1419,17 +1410,17 @@
     "bed_temp.val": [
      "60"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -1437,11 +1428,11 @@
     "chamber_temp.val": [
      "26"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -1459,17 +1450,17 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "28"
+    "light_btn.pic": [
+     "118"
     ],
-    "light_btn.picc2": [
-     "26"
+    "light_btn.pic2": [
+     "119"
     ],
-    "nozzle_btn.picc": [
-     "28"
+    "nozzle_btn.pic": [
+     "106"
     ],
-    "nozzle_btn.picc2": [
-     "26"
+    "nozzle_btn.pic2": [
+     "107"
     ],
     "nozzle_temp.pco": [
      "63488"
@@ -1477,14 +1468,14 @@
     "nozzle_temp.val": [
      "220"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15

@@ -3,7 +3,7 @@
 import logging
 
 from xindi import state as g
-from xindi.screen import pageids as ids, pics
+from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.system import network
 from xindi.system.network import (detected_wlan0,
@@ -62,36 +62,21 @@ def refresh_wifi_list():
         log.debug("Refreshed wifi: %s", g.net.wifi_ssid_list[i])
         g.port.txt("row" + to_string(i + 1) + "_txt", g.net.wifi_ssid_list[i])
         if g.net.status_result.wpa_state == "COMPLETED" and g.net.wifi_current_pages == 0 and i == 0:
-            g.port.picc("row1", pics.rows_check)
-            g.port.picc2("row" + to_string(i + 1), pics.rows_check_press)
+            g.port.face("row1", "check")
             g.screen.wifi_ssid_button_enabled[i] = False
         elif g.net.wifi_ssid_list[i] != "":
-            g.port.picc("row" + to_string(i + 1), pics.rows_lock)
-            g.port.picc2("row" + to_string(i + 1), pics.bg_settings_press)
+            g.port.face("row" + to_string(i + 1), "item")
             g.screen.wifi_ssid_button_enabled[i] = True
         else:
-            g.port.picc("row" + to_string(i + 1), pics.bg_settings_panel)
-            g.port.picc2("row" + to_string(i + 1), pics.bg_settings_panel)
+            g.port.face("row" + to_string(i + 1), "blank")
             g.screen.wifi_ssid_button_enabled[i] = False
 
     if g.net.wifi_ssid_list_pages == 0:
-        g.port.picc("prev_btn", pics.rows_check)
-        g.port.picc2("prev_btn", pics.bg_settings_press)
-        g.port.picc("next_btn", pics.rows_check)
-        g.port.picc2("next_btn", pics.bg_settings_press)
+        g.port.face("prev_btn", "edge")
+        g.port.face("next_btn", "edge")
     else:
-        if g.net.wifi_current_pages == 0:
-            g.port.picc("prev_btn", pics.rows_check)
-            g.port.picc2("prev_btn", pics.bg_settings_press)
-        else:
-            g.port.picc("prev_btn", pics.rows_lock)
-            g.port.picc2("prev_btn", pics.rows_check_press)
-        if g.net.wifi_ssid_list_pages - 1 == g.net.wifi_current_pages:
-            g.port.picc("next_btn", pics.rows_check)
-            g.port.picc2("next_btn", pics.bg_settings_press)
-        else:
-            g.port.picc("next_btn", pics.rows_lock)
-            g.port.picc2("next_btn", pics.rows_check_press)
+        g.port.face("prev_btn", "edge" if g.net.wifi_current_pages == 0 else "more")
+        g.port.face("next_btn", "edge" if g.net.wifi_ssid_list_pages - 1 == g.net.wifi_current_pages else "more")
 
 
 def get_wifi_list_ssid(index):
@@ -119,12 +104,11 @@ def refresh_show_ip():
     if g.config.ethernet == 1:
         ip_address = get_eth0_ip()
         ip_address = ip_address if ip_address.find(":") == -1 else ""
-        switch = (pics.ip_switch_on, pics.ip_press_on)
+        switch = "wired"
     else:
         ip_address = g.net.status_result.ip_address
-        switch = (pics.ip_switch_off, pics.ip_press_off)
+        switch = "wifi"
     if g.shown.changed("ip_txt", ip_address):
         g.port.txt("ip_txt", ip_address)
     if g.shown.changed("source_switch", switch):
-        g.port.picc("source_switch", switch[0])
-        g.port.picc2("source_switch", switch[1])
+        g.port.face("source_switch", switch)

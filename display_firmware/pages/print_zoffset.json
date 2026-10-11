@@ -75,22 +75,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_print_zoffset"
+        "pic": {
+          "$ref": "picture:print_zoffset_back_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_back_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -281,22 +281,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:zoffset_step_off"
+        "pic": {
+          "$ref": "picture:print_zoffset_step_001_z_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_step_001_z_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -342,22 +342,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:zoffset_step_off"
+        "pic": {
+          "$ref": "picture:print_zoffset_step_005_z_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_step_005_z_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -403,22 +403,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:zoffset_step_off"
+        "pic": {
+          "$ref": "picture:print_zoffset_step_01_z_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_step_01_z_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -464,22 +464,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:zoffset_step_off"
+        "pic": {
+          "$ref": "picture:print_zoffset_step_05_z_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_step_05_z_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -525,22 +525,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_print_zoffset"
+        "pic": {
+          "$ref": "picture:print_zoffset_z_up"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_z_up_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -586,22 +586,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_print_zoffset"
+        "pic": {
+          "$ref": "picture:print_zoffset_z_down"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:zoffset_step_press_off"
+        "pic2": {
+          "$ref": "picture:print_zoffset_z_down_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -647,22 +647,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_printing"
+        "pic": {
+          "$ref": "picture:pause_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:printing_press_off"
+        "pic2": {
+          "$ref": "picture:pause_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -708,22 +708,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_printing"
+        "pic": {
+          "$ref": "picture:stop_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:printing_press_off"
+        "pic2": {
+          "$ref": "picture:stop_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,

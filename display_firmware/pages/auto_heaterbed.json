@@ -103,22 +103,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_auto_heaterbed"
+        "pic": {
+          "$ref": "picture:auto_heaterbed_temp_down"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:autobed_press_off"
+        "pic2": {
+          "$ref": "picture:auto_heaterbed_temp_down_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -164,22 +164,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_auto_heaterbed"
+        "pic": {
+          "$ref": "picture:auto_heaterbed_temp_up"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:autobed_press_off"
+        "pic2": {
+          "$ref": "picture:auto_heaterbed_temp_up_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -225,22 +225,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:autobed_off"
+        "pic": {
+          "$ref": "picture:auto_heaterbed_heat_bed_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:autobed_press_on"
+        "pic2": {
+          "$ref": "picture:auto_heaterbed_heat_bed_on_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -286,22 +286,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_auto_heaterbed"
+        "pic": {
+          "$ref": "picture:back_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:autobed_press_off"
+        "pic2": {
+          "$ref": "picture:back_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -347,22 +347,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_auto_heaterbed"
+        "pic": {
+          "$ref": "picture:next_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:autobed_press_off"
+        "pic2": {
+          "$ref": "picture:next_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,

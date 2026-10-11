@@ -7,9 +7,9 @@ from xindi import state as g
 from xindi.config import settings
 from xindi.moonraker.printer_status import get_cal_printing_time
 from xindi.pages import file_list
-from xindi.pages.widgets import cut_after_point, heating_widget
+from xindi.pages.widgets import cut_after_point, face_group, heating_widget
 from xindi.printer import job, motion
-from xindi.screen import pageids as ids, pics
+from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import c_int, c_round, f32, to_string
 
@@ -31,12 +31,10 @@ def print_filament():
 
     if g.klippy.extruder_target == 0:
         g.port.pco("temp_now", "65535")
-        g.port.picc("heat_btn", pics.printfil_heat_off)
-        g.port.picc2("heat_btn", pics.printfil_press_off)
+        g.port.face("heat_btn", "off")
     else:
         g.port.pco("temp_now", "63488")
-        g.port.picc("heat_btn", pics.printfil_heat_on)
-        g.port.picc2("heat_btn", pics.printfil_press_on)
+        g.port.face("heat_btn", "on")
 
     g.port.val("progress", to_string(g.klippy.display_status_progress))
     g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
@@ -83,25 +81,11 @@ def offset(intern_zoffset):
 
 
 def zoffset_buttons():
-    pairs = {
-        0: (pics.zoffset_step_on, pics.zoffset_step_press_on),
-        1: (pics.zoffset_step_off, pics.zoffset_step_press_off),
-    }
-    sel = None
-    if g.klippy.set_offset == f32(0.01):
-        sel = 1
-    elif g.klippy.set_offset == f32(0.05):
-        sel = 2
-    elif g.klippy.set_offset == f32(0.1):
-        sel = 3
-    elif g.klippy.set_offset == f32(0.5):
-        sel = 4
-    if sel is None:
-        return
-    for b in range(1, 5):
-        picc, picc2 = pairs[0] if b == sel else pairs[1]
-        g.port.picc(("step_001", "step_005", "step_01", "step_05")[b - 1], picc)
-        g.port.picc2(("step_001", "step_005", "step_01", "step_05")[b - 1], picc2)
+    sel = {0.01: 0, 0.05: 1, 0.1: 2, 0.5: 3}
+    for dist, number in sel.items():
+        if g.klippy.set_offset == f32(dist):
+            face_group(("step_001", "step_005", "step_01", "step_05"), number, "z_on", "z_off")
+            return
 
 
 def printing_zoffset():
@@ -166,12 +150,7 @@ def printing_zoffset():
 
 def printing_keyboard_mute_button():
     # 4.4.22 silent mode button of the keyboard
-    if not g.screen.muted:
-        g.port.picc("mute_btn", pics.kb_mute_off)
-        g.port.picc2("mute_btn", pics.kb_mute_off_press)
-    else:
-        g.port.picc("mute_btn", pics.kb_mute_on)
-        g.port.picc2("mute_btn", pics.kb_mute_on_press)
+    g.port.face("mute_btn", "off" if not g.screen.muted else "on")
 
 
 def printing_first_page():
@@ -208,12 +187,7 @@ def printing_second_page():
         g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
         g.port.val("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
 
-    if g.klippy.caselight_value == 0:      # 4.4.22 LED state
-        g.port.picc("light_btn", pics.light_off)
-        g.port.picc2("light_btn", pics.printing2_press_off)
-    else:
-        g.port.picc("light_btn", pics.light_on)
-        g.port.picc2("light_btn", pics.printing2_press_on)
+    g.port.face("light_btn", "lamp_off" if g.klippy.caselight_value == 0 else "lamp_on")      # 4.4.22 LED state
 
 
 def printing_state_changes():

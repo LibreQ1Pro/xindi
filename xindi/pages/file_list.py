@@ -10,7 +10,7 @@ from xindi.moonraker.gcode_files import output_imgdata
 from xindi.moonraker.rpc_requests import json_get_gcode_metadata
 from xindi.pages import widgets
 from xindi.printer import klipper
-from xindi.screen import pageids as ids, pics, thumbnail
+from xindi.screen import pageids as ids, thumbnail
 from xindi.screen.navigation import page_to
 from xindi.screen.transfer import delete_small_jpg
 from xindi.util import paths
@@ -31,24 +31,18 @@ def name_of(path):
     return substr(path, path.rfind("/") + 1)
 
 
-# entry type of the list -> pictures of its row (released, pressed)
-def list_row_pictures():
-    return {
-        "[c]": (pics.files_item_img, pics.files_tab_local_press),      # the last printed file
-        "[d]": (pics.files_item_dir, pics.files_dir_press),
-        "[f]": (pics.files_item_img, pics.files_tab_local_press),
-        "[n]": (pics.files_tab_usb, pics.files_tab_usb),                # no drive
-    }
+# entry type of the list -> look of its row
+ROW_LOOKS = {
+    "[c]": "file",          # the last printed file
+    "[d]": "dir",
+    "[f]": "file",
+    "[n]": "none",          # no drive
+}
 
 
 def nav_button(button, disabled):
     """The page / folder buttons look different when there is nothing to go to."""
-    if disabled:
-        g.port.picc(button, pics.files_item_img)
-        g.port.picc2(button, pics.files_dir_press)
-    else:
-        g.port.picc(button, pics.files_item_dir)
-        g.port.picc2(button, pics.files_tab_local_press)
+    g.port.face(button, "off" if disabled else "on")
 
 
 def queue_list_pictures():
@@ -85,26 +79,22 @@ def refresh_files_list():
     elif detect_disk_2() == 0 and g.screen.file_mode == "USB":
         g.port.txt("empty_msg", "\u7a7a")     # "empty"
     g.port.vis("file1_mark", "0")
-    row_pictures = list_row_pictures()
     for i in range(4):
         row = "file" + to_string(i + 1)
         g.port.txt(row + "_name", g.files.list_list_show_name[i])
         t = g.files.list_list_show_type[i]
-        if t in row_pictures:
-            g.port.picc(row, row_pictures[t][0])
-            g.port.picc2(row, row_pictures[t][1])
+        if t in ROW_LOOKS:
+            g.port.face(row, ROW_LOOKS[t])
         if t == "[c]":
             g.port.vis("file1_mark", "1")
 
     # 4.4.2 CLL local / USB buttons on the file list page
     if g.screen.file_mode == "Local":
         for tab in ("local_tab", "usb_tab"):
-            g.port.picc(tab, pics.files_tab_local)
-            g.port.picc2(tab, pics.files_tab_local_press)
+            g.port.face(tab, "local")
     elif g.screen.file_mode == "USB":
         for tab in ("local_tab", "usb_tab"):
-            g.port.picc(tab, pics.files_tab_usb)
-            g.port.picc2(tab, pics.files_tab_usb_press)
+            g.port.face(tab, "usb")
         if detect_disk() == -1:
             g.port.vis("empty_msg", "1")
     nav_button("prev", g.files.list_current_pages == 0)

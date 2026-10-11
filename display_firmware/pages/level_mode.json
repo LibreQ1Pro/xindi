@@ -174,7 +174,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -182,18 +182,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:level_mode_tab_settings_130x45"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:level_mode_tab_settings_130x45_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -239,7 +235,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -247,18 +243,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:level_mode_tab_calib"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:level_mode_tab_calib_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -308,7 +300,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -316,18 +308,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -373,7 +361,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -381,18 +369,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -438,7 +422,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -446,18 +430,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -503,7 +483,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -511,18 +491,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings"
         },
-        "picc": {
-          "$ref": "picture:bg_level_mode"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings_press"
         },
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -568,22 +544,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_level_mode"
+        "pic": {
+          "$ref": "picture:level_mode_auto_level"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
+        "pic2": {
+          "$ref": "picture:level_mode_auto_level_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -629,22 +605,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_level_mode"
+        "pic": {
+          "$ref": "picture:level_mode_auto_level"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
+        "pic2": {
+          "$ref": "picture:level_mode_auto_level_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -736,22 +712,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_level_mode"
+        "pic": {
+          "$ref": "picture:level_mode_auto_level"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:level_mode_tab_settings_press"
+        "pic2": {
+          "$ref": "picture:level_mode_auto_level_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,

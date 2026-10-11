@@ -1,0 +1,644 @@
+{
+ "bed_btn": {
+  "heat_off": [
+   "printing_bed_btn_heat_off",
+   "printing_bed_btn_heat_off_press"
+  ],
+  "heat_on": [
+   "printing_bed_btn_heat_on",
+   "printing_bed_btn_heat_on_press"
+  ],
+  "off": [
+   "main_bed_btn_off",
+   "main_bed_btn_off_press"
+  ],
+  "on": [
+   "main_bed_btn_on",
+   "main_bed_btn_on_press"
+  ]
+ },
+ "bed_row": {
+  "off": [
+   "filament_row_off_138x40",
+   "filament_row_off_138x40_press"
+  ],
+  "on": [
+   "filament_row_on_138x40",
+   "filament_row_on_138x40_press"
+  ]
+ },
+ "bed_toggle": {
+  "off": [
+   "filament_bed_toggle_off",
+   "filament_bed_toggle_off_press"
+  ],
+  "on": [
+   "filament_bed_toggle_on",
+   "filament_bed_toggle_on_press"
+  ]
+ },
+ "beep_btn": {
+  "off": [
+   "main_beep_btn_off",
+   "main_beep_btn_off_press"
+  ],
+  "on": [
+   "main_beep_btn_on",
+   "main_beep_btn_on_press"
+  ]
+ },
+ "chamber_btn": {
+  "heat_off": [
+   "printing_chamber_btn_heat_off",
+   "printing_chamber_btn_heat_off_press"
+  ],
+  "heat_on": [
+   "printing_chamber_btn_heat_on",
+   "printing_chamber_btn_heat_on_press"
+  ],
+  "off": [
+   "main_chamber_btn_off",
+   "main_chamber_btn_off_press"
+  ],
+  "on": [
+   "main_chamber_btn_on",
+   "main_chamber_btn_on_press"
+  ]
+ },
+ "chamber_row": {
+  "off": [
+   "filament_row_off_138x40",
+   "filament_row_off_138x40_press"
+  ],
+  "on": [
+   "filament_row_on_138x40",
+   "filament_row_on_138x40_press"
+  ]
+ },
+ "chamber_toggle": {
+  "off": [
+   "filament_chamber_toggle_off",
+   "filament_chamber_toggle_off_press"
+  ],
+  "on": [
+   "filament_chamber_toggle_on",
+   "filament_chamber_toggle_on_press"
+  ]
+ },
+ "dist_01": {
+  "off": [
+   "move_dist_01_off",
+   "move_dist_01_off_press"
+  ],
+  "on": [
+   "move_dist_01_on",
+   "move_dist_01_on_press"
+  ]
+ },
+ "dist_1": {
+  "off": [
+   "move_dist_1_off",
+   "move_dist_1_off_press"
+  ],
+  "on": [
+   "move_dist_1_on",
+   "move_dist_1_on_press"
+  ]
+ },
+ "dist_10": {
+  "off": [
+   "move_dist_10_off",
+   "move_dist_10_off_press"
+  ],
+  "on": [
+   "move_dist_10_on",
+   "move_dist_10_on_press"
+  ]
+ },
+ "fan1_toggle": {
+  "off": [
+   "fila_set_fan_fan1_toggle_off",
+   "fila_set_fan_fan1_toggle_off_press"
+  ],
+  "on": [
+   "fila_set_fan_fan1_toggle_on",
+   "fila_set_fan_fan1_toggle_on_press"
+  ]
+ },
+ "fan2_toggle": {
+  "off": [
+   "fila_set_fan_fan2_toggle_off",
+   "fila_set_fan_fan2_toggle_off_press"
+  ],
+  "on": [
+   "fila_set_fan_fan2_toggle_on",
+   "fila_set_fan_fan2_toggle_on_press"
+  ]
+ },
+ "fan3_toggle": {
+  "off": [
+   "fila_set_fan_fan3_toggle_off",
+   "fila_set_fan_fan3_toggle_off_press"
+  ],
+  "on": [
+   "fila_set_fan_fan3_toggle_on",
+   "fila_set_fan_fan3_toggle_on_press"
+  ]
+ },
+ "file1": {
+  "dir": [
+   "filelist_file1_dir",
+   "filelist_file1_dir_press"
+  ],
+  "file": [
+   "filelist_file1_file",
+   "filelist_file1_file_press"
+  ],
+  "none": [
+   "blank_120x160",
+   "blank_120x160"
+  ]
+ },
+ "file2": {
+  "dir": [
+   "filelist_file1_dir",
+   "filelist_file1_dir_press"
+  ],
+  "file": [
+   "filelist_file1_file",
+   "filelist_file1_file_press"
+  ],
+  "none": [
+   "blank_120x160",
+   "blank_120x160"
+  ]
+ },
+ "file3": {
+  "dir": [
+   "filelist_file3_dir",
+   "filelist_file3_dir_press"
+  ],
+  "file": [
+   "filelist_file3_file",
+   "filelist_file3_file_press"
+  ],
+  "none": [
+   "blank_120x160",
+   "blank_120x160"
+  ]
+ },
+ "file4": {
+  "dir": [
+   "filelist_file3_dir",
+   "filelist_file3_dir_press"
+  ],
+  "file": [
+   "filelist_file3_file",
+   "filelist_file3_file_press"
+  ],
+  "none": [
+   "blank_120x160",
+   "blank_120x160"
+  ]
+ },
+ "heat_btn": {
+  "off": [
+   "print_filament_heat_off",
+   "print_filament_heat_off_press"
+  ],
+  "on": [
+   "print_filament_heat_on",
+   "print_filament_heat_on_press"
+  ]
+ },
+ "heat_toggle": {
+  "bed_off": [
+   "auto_heaterbed_heat_bed_off",
+   "auto_heaterbed_heat_bed_off_press"
+  ],
+  "bed_on": [
+   "auto_heaterbed_heat_bed_on",
+   "auto_heaterbed_heat_bed_on_press"
+  ],
+  "guide_off": [
+   "filamentVideo2_heat_guide_off",
+   "filamentVideo2_heat_guide_off_press"
+  ],
+  "guide_on": [
+   "filamentVideo2_heat_guide_on",
+   "filamentVideo2_heat_guide_on_press"
+  ]
+ },
+ "last_file_btn": {
+  "noimg": [
+   "main_last_file_noimg",
+   "main_last_file_noimg_press"
+  ],
+  "photo": [
+   "main_last_file_photo",
+   "main_last_file_photo_press"
+  ]
+ },
+ "level_btn": {
+  "off": [
+   "preview_level_btn_off",
+   "preview_level_btn_off_press"
+  ],
+  "on": [
+   "preview_check_on",
+   "preview_check_on_press"
+  ]
+ },
+ "light_btn": {
+  "lamp_off": [
+   "printing_2_light_lamp_off",
+   "printing_2_light_lamp_off_press"
+  ],
+  "lamp_on": [
+   "printing_2_light_lamp_on",
+   "printing_2_light_lamp_on_press"
+  ],
+  "off": [
+   "main_light_btn_off",
+   "main_light_btn_off_press"
+  ],
+  "on": [
+   "main_light_btn_on",
+   "main_light_btn_on_press"
+  ]
+ },
+ "local_tab": {
+  "local": [
+   "filelist_local_tab_local",
+   "filelist_local_tab_local_press"
+  ],
+  "usb": [
+   "filelist_local_tab_usb",
+   "filelist_local_tab_usb_press"
+  ]
+ },
+ "mute_btn": {
+  "off": [
+   "keybdB_mute_off",
+   "keybdB_mute_off_press"
+  ],
+  "on": [
+   "keybdB_mute_on",
+   "keybdB_mute_on_press"
+  ]
+ },
+ "next": {
+  "off": [
+   "filelist_next_off",
+   "filelist_next_off_press"
+  ],
+  "on": [
+   "filelist_next_on",
+   "filelist_next_on_press"
+  ]
+ },
+ "next_btn": {
+  "edge": [
+   "wifi_list_next_btn_edge",
+   "wifi_list_next_btn_edge_press"
+  ],
+  "more": [
+   "wifi_list_next_btn_more",
+   "wifi_list_next_btn_more_press"
+  ]
+ },
+ "nozzle_btn": {
+  "heat_off": [
+   "printing_nozzle_btn_heat_off",
+   "printing_nozzle_btn_heat_off_press"
+  ],
+  "heat_on": [
+   "printing_nozzle_btn_heat_on",
+   "printing_nozzle_btn_heat_on_press"
+  ],
+  "off": [
+   "main_nozzle_btn_off",
+   "main_nozzle_btn_off_press"
+  ],
+  "on": [
+   "main_nozzle_btn_on",
+   "main_nozzle_btn_on_press"
+  ]
+ },
+ "nozzle_row": {
+  "off": [
+   "filament_row_off_138x40",
+   "filament_row_off_138x40_press"
+  ],
+  "on": [
+   "filament_row_on_138x40",
+   "filament_row_on_138x40_press"
+  ]
+ },
+ "nozzle_toggle": {
+  "off": [
+   "filament_nozzle_toggle_off",
+   "filament_nozzle_toggle_off_press"
+  ],
+  "on": [
+   "filament_nozzle_toggle_on",
+   "filament_nozzle_toggle_on_press"
+  ]
+ },
+ "prev": {
+  "off": [
+   "filelist_prev_off",
+   "filelist_prev_off_press"
+  ],
+  "on": [
+   "filelist_prev_on",
+   "filelist_prev_on_press"
+  ]
+ },
+ "prev_btn": {
+  "edge": [
+   "wifi_list_prev_btn_edge",
+   "wifi_list_prev_btn_edge_press"
+  ],
+  "more": [
+   "wifi_list_prev_btn_more",
+   "wifi_list_prev_btn_more_press"
+  ]
+ },
+ "reset_btn": {
+  "oobe_off": [
+   "common_set_reset_oobe_off",
+   "common_set_reset_oobe_off_press"
+  ],
+  "oobe_on": [
+   "common_set_reset_oobe_on",
+   "common_set_reset_oobe_on_press"
+  ]
+ },
+ "row1": {
+  "blank": [
+   "blank_244x48",
+   "blank_244x48"
+  ],
+  "check": [
+   "wifi_list_row1_check",
+   "wifi_list_row1_check_press"
+  ],
+  "item": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ]
+ },
+ "row2": {
+  "blank": [
+   "blank_244x48",
+   "blank_244x48"
+  ],
+  "check": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ],
+  "item": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ]
+ },
+ "row3": {
+  "blank": [
+   "blank_244x48",
+   "blank_244x48"
+  ],
+  "check": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ],
+  "item": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ]
+ },
+ "row4": {
+  "blank": [
+   "blank_244x48",
+   "blank_244x48"
+  ],
+  "check": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ],
+  "item": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ]
+ },
+ "row5": {
+  "blank": [
+   "blank_244x48",
+   "blank_244x48"
+  ],
+  "check": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ],
+  "item": [
+   "wifi_list_row2_check",
+   "wifi_list_row2_check_press"
+  ]
+ },
+ "source_switch": {
+  "wifi": [
+   "internet_page_source_wifi",
+   "internet_page_source_wifi_press"
+  ],
+  "wired": [
+   "internet_page_source_wired",
+   "internet_page_source_wired_press"
+  ]
+ },
+ "step_001": {
+  "off": [
+   "pre_bed_cal_step_001_off",
+   "pre_bed_cal_step_001_off_press"
+  ],
+  "on": [
+   "pre_bed_cal_step_001_on",
+   "pre_bed_cal_step_001_on_press"
+  ],
+  "z_off": [
+   "print_zoffset_step_001_z_off",
+   "print_zoffset_step_001_z_off_press"
+  ],
+  "z_on": [
+   "print_zoffset_step_001_z_on",
+   "print_zoffset_step_001_z_on_press"
+  ]
+ },
+ "step_005": {
+  "off": [
+   "pre_bed_cal_step_005_off",
+   "pre_bed_cal_step_005_off_press"
+  ],
+  "on": [
+   "pre_bed_cal_step_005_on",
+   "pre_bed_cal_step_005_on_press"
+  ],
+  "z_off": [
+   "print_zoffset_step_005_z_off",
+   "print_zoffset_step_005_z_off_press"
+  ],
+  "z_on": [
+   "print_zoffset_step_005_z_on",
+   "print_zoffset_step_005_z_on_press"
+  ]
+ },
+ "step_01": {
+  "off": [
+   "pre_bed_cal_step_01_off",
+   "pre_bed_cal_step_01_off_press"
+  ],
+  "on": [
+   "pre_bed_cal_step_01_on",
+   "pre_bed_cal_step_01_on_press"
+  ],
+  "z_off": [
+   "print_zoffset_step_01_z_off",
+   "print_zoffset_step_01_z_off_press"
+  ],
+  "z_on": [
+   "print_zoffset_step_01_z_on",
+   "print_zoffset_step_01_z_on_press"
+  ]
+ },
+ "step_05": {
+  "off": [
+   "pre_bed_cal_step_05_off",
+   "pre_bed_cal_step_05_off_press"
+  ],
+  "on": [
+   "pre_bed_cal_step_05_on",
+   "pre_bed_cal_step_05_on_press"
+  ],
+  "z_off": [
+   "print_zoffset_step_05_z_off",
+   "print_zoffset_step_05_z_off_press"
+  ],
+  "z_on": [
+   "print_zoffset_step_05_z_on",
+   "print_zoffset_step_05_z_on_press"
+  ]
+ },
+ "step_10": {
+  "off": [
+   "filament_step_10_off",
+   "filament_step_10_off_press"
+  ],
+  "on": [
+   "filament_step_10_on",
+   "filament_step_10_on_press"
+  ]
+ },
+ "step_100": {
+  "off": [
+   "filament_step_100_off",
+   "filament_step_100_off_press"
+  ],
+  "on": [
+   "filament_step_100_on",
+   "filament_step_100_on_press"
+  ]
+ },
+ "step_50": {
+  "off": [
+   "filament_step_50_off",
+   "filament_step_50_off_press"
+  ],
+  "on": [
+   "filament_step_50_on",
+   "filament_step_50_on_press"
+  ]
+ },
+ "steps_bar": {
+  "level_1": [
+   "auto_moving_steps_level_1",
+   null
+  ],
+  "level_2": [
+   "auto_moving_steps_level_2",
+   null
+  ],
+  "level_3": [
+   "auto_moving_steps_level_3",
+   null
+  ],
+  "load_1": [
+   "filament_pop_2_steps_load_1",
+   null
+  ],
+  "load_2": [
+   "filament_pop_2_steps_load_2",
+   null
+  ],
+  "load_3": [
+   "filament_pop_2_steps_load_3",
+   null
+  ],
+  "unload_1": [
+   "auto_unload_steps_unload_1",
+   null
+  ],
+  "unload_2": [
+   "auto_unload_steps_unload_2",
+   null
+  ]
+ },
+ "timelapse_btn": {
+  "off": [
+   "preview_timelapse_btn_off",
+   "preview_level_btn_off_press"
+  ],
+  "on": [
+   "preview_check_on",
+   "preview_check_on_press"
+  ]
+ },
+ "up_dir": {
+  "off": [
+   "filelist_up_dir_off",
+   "filelist_up_dir_off_press"
+  ],
+  "on": [
+   "filelist_up_dir_on",
+   "filelist_up_dir_on_press"
+  ]
+ },
+ "usb_icon": {
+  "off": [
+   "main_usb_icon_off",
+   null
+  ],
+  "on": [
+   "main_usb_icon_on",
+   null
+  ]
+ },
+ "usb_tab": {
+  "local": [
+   "filelist_usb_tab_local",
+   "filelist_usb_tab_local_press"
+  ],
+  "usb": [
+   "filelist_usb_tab_usb",
+   "filelist_usb_tab_usb_press"
+  ]
+ },
+ "wifi_icon": {
+  "off": [
+   "main_wifi_icon_off",
+   null
+  ],
+  "on": [
+   "main_wifi_icon_on",
+   null
+  ]
+ }
+}

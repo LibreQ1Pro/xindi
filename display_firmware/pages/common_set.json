@@ -202,7 +202,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -210,18 +210,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -267,7 +263,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -275,18 +271,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -332,7 +324,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -340,18 +332,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -397,7 +385,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -405,18 +393,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -462,7 +446,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -470,18 +454,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:common_set_tab_settings"
         },
-        "picc": {
-          "$ref": "picture:bg_common_set"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:common_set_tab_settings_press"
         },
-        "picc2": {
-          "$ref": "picture:settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -532,7 +512,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -540,18 +520,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:common_set_tab_calib"
         },
-        "picc": {
-          "$ref": "picture:bg_common_set"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:common_set_tab_calib_press"
         },
-        "picc2": {
-          "$ref": "picture:settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -597,22 +573,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_common_set"
+        "pic": {
+          "$ref": "picture:common_set_lang_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
+        "pic2": {
+          "$ref": "picture:common_set_lang_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -709,22 +685,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_common_set"
+        "pic": {
+          "$ref": "picture:common_set_lang_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
+        "pic2": {
+          "$ref": "picture:common_set_lang_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -821,22 +797,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_common_set"
+        "pic": {
+          "$ref": "picture:common_set_lang_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
+        "pic2": {
+          "$ref": "picture:common_set_lang_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -933,22 +909,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_common_set"
+        "pic": {
+          "$ref": "picture:common_set_lang_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
+        "pic2": {
+          "$ref": "picture:common_set_lang_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1045,22 +1021,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:reset_row"
+        "pic": {
+          "$ref": "picture:common_set_reset_oobe_off"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:settings_press"
+        "pic2": {
+          "$ref": "picture:common_set_reset_oobe_off_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1076,7 +1052,7 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(reset_btn.picc==${picture:reset_row})",
+          "if(reset_btn.pic==${picture:common_set_reset_oobe_off})",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -1084,7 +1060,7 @@
           "  prints 0xff,1",
           "  prints 0xff,1",
           "  prints 0xff,1",
-          "}else if(reset_btn.picc==${picture:reset_row_on})",
+          "}else if(reset_btn.pic==${picture:common_set_reset_oobe_on})",
           "{",
           "  prints 0x65,1",
           "  prints dp,1",
@@ -1209,7 +1185,7 @@
       },
       "events": {
         "codestimer": [
-          "if(reset_btn.picc==${picture:reset_row_on})",
+          "if(reset_btn.pic==${picture:common_set_reset_oobe_on})",
           "{",
           "  reset_lbl.txt=guide_txt.txt",
           "}",

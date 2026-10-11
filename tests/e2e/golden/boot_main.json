@@ -66,18 +66,15 @@
      "beep",
      "stop"
     ],
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -86,21 +83,21 @@
      "25",
      "40"
     ],
-    "beep_btn.picc": [
-     "27",
-     "28"
+    "beep_btn.pic": [
+     "124",
+     "122"
     ],
-    "beep_btn.picc2": [
-     "25",
-     "26"
+    "beep_btn.pic2": [
+     "125",
+     "123"
     ],
-    "chamber_btn.picc": [
-     "27",
-     "28"
+    "chamber_btn.pic": [
+     "116",
+     "114"
     ],
-    "chamber_btn.picc2": [
-     "25",
-     "26"
+    "chamber_btn.pic2": [
+     "117",
+     "115"
     ],
     "chamber_temp.pco": [
      "65535",
@@ -110,11 +107,11 @@
      "26",
      "31"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -132,23 +129,23 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "27",
-     "28",
-     "27"
+    "light_btn.pic": [
+     "120",
+     "118",
+     "120"
     ],
-    "light_btn.picc2": [
-     "25",
-     "26",
-     "25"
+    "light_btn.pic2": [
+     "121",
+     "119",
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27",
-     "28"
+    "nozzle_btn.pic": [
+     "108",
+     "106"
     ],
-    "nozzle_btn.picc2": [
-     "25",
-     "26"
+    "nozzle_btn.pic2": [
+     "109",
+     "107"
     ],
     "nozzle_temp.pco": [
      "65535",
@@ -158,14 +155,14 @@
      "25",
      "32"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15

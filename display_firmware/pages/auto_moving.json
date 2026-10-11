@@ -186,7 +186,7 @@
     },
     {
       "key": "steps_bar",
-      "type": "crop_picture",
+      "type": "picture",
       "attributes": {
         "objname": "steps_bar",
         "vscope": 0,
@@ -205,8 +205,8 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "picc": {
-          "$ref": "picture:auto_moving_steps_bar"
+        "pic": {
+          "$ref": "picture:auto_moving_steps_bar_50x480"
         }
       },
       "events": {

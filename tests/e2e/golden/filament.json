@@ -87,18 +87,15 @@
   },
   {
    "attrs": {
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -106,17 +103,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -124,11 +121,11 @@
     "chamber_temp.val": [
      "26"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -146,17 +143,17 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -164,25 +161,25 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
   },
   {
    "attrs": {
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -193,17 +190,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -214,17 +211,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "147"
+    "nozzle_row.pic": [
+     "72"
     ],
-    "nozzle_row.picc2": [
-     "146"
+    "nozzle_row.pic2": [
+     "73"
     ],
     "nozzle_set.val": [
      "0"
@@ -235,29 +232,29 @@
     "nozzle_temp.txt": [
      "\"25\""
     ],
-    "nozzle_toggle.picc": [
-     "147"
+    "nozzle_toggle.pic": [
+     "60"
     ],
-    "nozzle_toggle.picc2": [
-     "146"
+    "nozzle_toggle.pic2": [
+     "61"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70
@@ -282,10 +279,10 @@
     "step3_txt.pco": [
      "65535"
     ],
-    "steps_bar.picc": [
-     "155",
-     "156",
-     "157"
+    "steps_bar.pic": [
+     "98",
+     "99",
+     "100"
     ],
     "temp_txt.pco": [
      "38066"
@@ -331,8 +328,8 @@
     "step1_txt.pco": [
      "65535"
     ],
-    "steps_bar.picc": [
-     "155"
+    "steps_bar.pic": [
+     "98"
     ],
     "temp_txt.txt": [
      "\"(250/250℃)\""
@@ -372,11 +369,11 @@
     "#mark": [
      "unload"
     ],
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -387,17 +384,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -408,17 +405,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "148"
+    "nozzle_row.pic": [
+     "70"
     ],
-    "nozzle_row.picc2": [
-     "145"
+    "nozzle_row.pic2": [
+     "71"
     ],
     "nozzle_set.val": [
      "250"
@@ -429,29 +426,29 @@
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.picc": [
-     "148"
+    "nozzle_toggle.pic": [
+     "58"
     ],
-    "nozzle_toggle.picc2": [
-     "145"
+    "nozzle_toggle.pic2": [
+     "59"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70
@@ -476,9 +473,9 @@
     "step3_txt.pco": [
      "65535"
     ],
-    "steps_bar.picc": [
-     "185",
-     "186"
+    "steps_bar.pic": [
+     "101",
+     "102"
     ],
     "temp_txt.txt": [
      "\"(250/250℃)\""
@@ -505,11 +502,11 @@
   },
   {
    "attrs": {
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -520,17 +517,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -541,17 +538,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "148"
+    "nozzle_row.pic": [
+     "70"
     ],
-    "nozzle_row.picc2": [
-     "145"
+    "nozzle_row.pic2": [
+     "71"
     ],
     "nozzle_set.val": [
      "250"
@@ -562,29 +559,29 @@
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.picc": [
-     "148"
+    "nozzle_toggle.pic": [
+     "58"
     ],
-    "nozzle_toggle.picc2": [
-     "145"
+    "nozzle_toggle.pic2": [
+     "59"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70
@@ -609,9 +606,9 @@
     "step2_txt.pco": [
      "65535"
     ],
-    "steps_bar.picc": [
-     "155",
-     "156"
+    "steps_bar.pic": [
+     "98",
+     "99"
     ],
     "temp_txt.pco": [
      "38066"
@@ -647,11 +644,11 @@
   },
   {
    "attrs": {
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -662,17 +659,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -683,17 +680,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "148"
+    "nozzle_row.pic": [
+     "70"
     ],
-    "nozzle_row.picc2": [
-     "145"
+    "nozzle_row.pic2": [
+     "71"
     ],
     "nozzle_set.val": [
      "250"
@@ -704,29 +701,29 @@
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.picc": [
-     "148"
+    "nozzle_toggle.pic": [
+     "58"
     ],
-    "nozzle_toggle.picc2": [
-     "145"
+    "nozzle_toggle.pic2": [
+     "59"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70
@@ -757,11 +754,11 @@
   },
   {
    "attrs": {
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -772,17 +769,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -793,17 +790,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "148"
+    "nozzle_row.pic": [
+     "70"
     ],
-    "nozzle_row.picc2": [
-     "145"
+    "nozzle_row.pic2": [
+     "71"
     ],
     "nozzle_set.val": [
      "250"
@@ -814,29 +811,29 @@
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.picc": [
-     "148"
+    "nozzle_toggle.pic": [
+     "58"
     ],
-    "nozzle_toggle.picc2": [
-     "145"
+    "nozzle_toggle.pic2": [
+     "59"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70
@@ -859,11 +856,11 @@
   },
   {
    "attrs": {
-    "bed_row.picc": [
-     "147"
+    "bed_row.pic": [
+     "72"
     ],
-    "bed_row.picc2": [
-     "146"
+    "bed_row.pic2": [
+     "73"
     ],
     "bed_set.val": [
      "0"
@@ -874,17 +871,17 @@
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.picc": [
-     "147"
+    "bed_toggle.pic": [
+     "64"
     ],
-    "bed_toggle.picc2": [
-     "146"
+    "bed_toggle.pic2": [
+     "65"
     ],
-    "chamber_row.picc": [
-     "147"
+    "chamber_row.pic": [
+     "72"
     ],
-    "chamber_row.picc2": [
-     "146"
+    "chamber_row.pic2": [
+     "73"
     ],
     "chamber_set.val": [
      "0"
@@ -895,17 +892,17 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.picc": [
-     "147"
+    "chamber_toggle.pic": [
+     "68"
     ],
-    "chamber_toggle.picc2": [
-     "146"
+    "chamber_toggle.pic2": [
+     "69"
     ],
-    "nozzle_row.picc": [
-     "148"
+    "nozzle_row.pic": [
+     "70"
     ],
-    "nozzle_row.picc2": [
-     "145"
+    "nozzle_row.pic2": [
+     "71"
     ],
     "nozzle_set.val": [
      "250"
@@ -916,29 +913,29 @@
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.picc": [
-     "148"
+    "nozzle_toggle.pic": [
+     "58"
     ],
-    "nozzle_toggle.picc2": [
-     "145"
+    "nozzle_toggle.pic2": [
+     "59"
     ],
-    "step_10.picc": [
-     "147"
+    "step_10.pic": [
+     "76"
     ],
-    "step_10.picc2": [
-     "146"
+    "step_10.pic2": [
+     "77"
     ],
-    "step_100.picc": [
-     "147"
+    "step_100.pic": [
+     "84"
     ],
-    "step_100.picc2": [
-     "146"
+    "step_100.pic2": [
+     "85"
     ],
-    "step_50.picc": [
-     "148"
+    "step_50.pic": [
+     "78"
     ],
-    "step_50.picc2": [
-     "145"
+    "step_50.pic2": [
+     "79"
     ]
    },
    "page": 70

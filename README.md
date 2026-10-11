@@ -85,7 +85,7 @@ xindi/
   main.py            start-up sequence and the main loop
   state.py           the shared state, one object per area (g.screen, g.klippy, g.files, ...)
   screen/            the TJC screen: tx.py (instructions, g.port), rx.py (frames), serial.py, events.py (touches,
-                     values, keyboard), navigation.py (page_to), pageids.py, pics.py, transfer.py (pictures),
+                     values, keyboard), navigation.py (page_to), pageids.py, faces.py (looks of the widgets), transfer.py (pictures),
                      colpic.py, thumbnail.py, flash.py (firmware download)
   moonraker/         ws_client.py, http_client.py, rpc_requests.py (JSON-RPC builders), rpc_messages.py (dispatch of
                      what Moonraker sends), printer_status.py, gcode_responses.py, gcode_files.py, gcodes.py

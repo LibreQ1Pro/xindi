@@ -34,13 +34,9 @@
     },
     "events": {
       "codesload": [
-        "if(sys2==1)",
-        "{",
-        "  b[${obj:pre_heat/(page)}].pic=${picture:unused_32}",
-        "}",
         "sys0=0",
-        "temp_opt1.picc=${picture:pre_heat_temp_opt1}",
-        "temp_opt1.picc2=${picture:pre_heat_temp_opt1_press_2}",
+        "temp_opt1.pic=${picture:pre_heat_temp_opt1_72x70_2}",
+        "temp_opt1.pic2=${picture:pre_heat_temp_opt1_press_2_72x70}",
         "if(lang==0)",
         "{",
         "  msg.txt=\"请选择喷头温度。\"",
@@ -136,22 +132,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:pre_heat_temp_opt1_2"
+        "pic": {
+          "$ref": "picture:pre_heat_temp_opt1_72x70"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pre_heat_temp_opt1_press"
+        "pic2": {
+          "$ref": "picture:pre_heat_temp_opt1_72x70_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -168,12 +164,12 @@
         "codesdown": [],
         "codesup": [
           "sys0=0",
-          "temp_opt1.picc=${picture:pre_heat_temp_opt1}",
-          "temp_opt1.picc2=${picture:pre_heat_temp_opt1_press_2}",
-          "temp_opt2.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt2.picc2=${picture:pre_heat_temp_opt1_press}",
-          "temp_opt3.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt3.picc2=${picture:pre_heat_temp_opt1_press}"
+          "temp_opt1.pic=${picture:pre_heat_temp_opt1_72x70_2}",
+          "temp_opt1.pic2=${picture:pre_heat_temp_opt1_press_2_72x70}",
+          "temp_opt2.pic=${picture:pre_heat_temp_opt2}",
+          "temp_opt2.pic2=${picture:pre_heat_temp_opt2_press}",
+          "temp_opt3.pic=${picture:pre_heat_temp_opt3}",
+          "temp_opt3.pic2=${picture:pre_heat_temp_opt3_press}"
         ]
       }
     },
@@ -198,22 +194,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:pre_heat_temp_opt1_2"
+        "pic": {
+          "$ref": "picture:pre_heat_temp_opt2"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pre_heat_temp_opt1_press"
+        "pic2": {
+          "$ref": "picture:pre_heat_temp_opt2_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -230,12 +226,12 @@
         "codesdown": [],
         "codesup": [
           "sys0=1",
-          "temp_opt1.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt1.picc2=${picture:pre_heat_temp_opt1_press}",
-          "temp_opt2.picc=${picture:pre_heat_temp_opt1}",
-          "temp_opt2.picc2=${picture:pre_heat_temp_opt1_press_2}",
-          "temp_opt3.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt3.picc2=${picture:pre_heat_temp_opt1_press}"
+          "temp_opt1.pic=${picture:pre_heat_temp_opt1_72x70}",
+          "temp_opt1.pic2=${picture:pre_heat_temp_opt1_72x70_press}",
+          "temp_opt2.pic=${picture:pre_heat_temp_opt2_opt1}",
+          "temp_opt2.pic2=${picture:pre_heat_temp_opt2_opt1_press_2}",
+          "temp_opt3.pic=${picture:pre_heat_temp_opt3}",
+          "temp_opt3.pic2=${picture:pre_heat_temp_opt3_press}"
         ]
       }
     },
@@ -260,22 +256,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:pre_heat_temp_opt1_2"
+        "pic": {
+          "$ref": "picture:pre_heat_temp_opt3"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pre_heat_temp_opt1_press"
+        "pic2": {
+          "$ref": "picture:pre_heat_temp_opt3_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -292,12 +288,12 @@
         "codesdown": [],
         "codesup": [
           "sys0=2",
-          "temp_opt1.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt1.picc2=${picture:pre_heat_temp_opt1_press}",
-          "temp_opt2.picc=${picture:pre_heat_temp_opt1_2}",
-          "temp_opt2.picc2=${picture:pre_heat_temp_opt1_press}",
-          "temp_opt3.picc=${picture:pre_heat_temp_opt1}",
-          "temp_opt3.picc2=${picture:pre_heat_temp_opt1_press_2}"
+          "temp_opt1.pic=${picture:pre_heat_temp_opt1_72x70}",
+          "temp_opt1.pic2=${picture:pre_heat_temp_opt1_72x70_press}",
+          "temp_opt2.pic=${picture:pre_heat_temp_opt2}",
+          "temp_opt2.pic2=${picture:pre_heat_temp_opt2_press}",
+          "temp_opt3.pic=${picture:pre_heat_temp_opt3_opt1}",
+          "temp_opt3.pic2=${picture:pre_heat_temp_opt3_opt1_press_2}"
         ]
       }
     },
@@ -322,22 +318,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_pre_heat"
+        "pic": {
+          "$ref": "picture:cancel"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pre_heat_temp_opt1_press"
+        "pic2": {
+          "$ref": "picture:cancel_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -439,22 +435,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_pre_heat"
+        "pic": {
+          "$ref": "picture:cancel"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:pre_heat_temp_opt1_press"
+        "pic2": {
+          "$ref": "picture:cancel_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,

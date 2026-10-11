@@ -74,18 +74,15 @@
   },
   {
    "attrs": {
-    "b[0].pic": [
-     "24"
-    ],
     "baud": [
      "921600",
      "115200"
     ],
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -93,17 +90,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -111,11 +108,11 @@
     "chamber_temp.val": [
      "26"
     ],
-    "last_file_btn.picc": [
-     "24"
+    "last_file_btn.pic": [
+     "128"
     ],
-    "last_file_btn.picc2": [
-     "25"
+    "last_file_btn.pic2": [
+     "129"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -133,17 +130,17 @@
      "cf8288d0ca407a6d:2048",
      "7de2e0119283074b:128"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -151,14 +148,14 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
@@ -173,11 +170,11 @@
   },
   {
    "attrs": {
-    "reset_btn.picc": [
-     "123"
+    "reset_btn.pic": [
+     "234"
     ],
-    "reset_btn.picc2": [
-     "121"
+    "reset_btn.pic2": [
+     "235"
     ]
    },
    "page": 56
@@ -203,11 +200,11 @@
     "#mark": [
      "gcode errors"
     ],
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -215,17 +212,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -233,17 +230,17 @@
     "chamber_temp.val": [
      "26"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -251,11 +248,11 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
@@ -273,11 +270,11 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -285,17 +282,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -303,17 +300,17 @@
     "chamber_temp.val": [
      "26"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -330,11 +327,11 @@
     "preview.preview_pic.close()": [
      ""
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
@@ -349,11 +346,11 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "27"
+    "bed_btn.pic": [
+     "112"
     ],
-    "bed_btn.picc2": [
-     "25"
+    "bed_btn.pic2": [
+     "113"
     ],
     "bed_temp.pco": [
      "65535"
@@ -361,17 +358,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -379,17 +376,17 @@
     "chamber_temp.val": [
      "26"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -397,11 +394,11 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15
@@ -412,13 +409,13 @@
   },
   {
    "attrs": {
-    "heat_toggle.picc": [
-     "93",
-     "92"
+    "heat_toggle.pic": [
+     "197",
+     "195"
     ],
-    "heat_toggle.picc2": [
-     "90",
-     "91"
+    "heat_toggle.pic2": [
+     "198",
+     "196"
     ],
     "temp_now.pco": [
      "65535",
@@ -456,11 +453,11 @@
   },
   {
    "attrs": {
-    "bed_btn.picc": [
-     "28"
+    "bed_btn.pic": [
+     "110"
     ],
-    "bed_btn.picc2": [
-     "26"
+    "bed_btn.pic2": [
+     "111"
     ],
     "bed_temp.pco": [
      "63488"
@@ -468,17 +465,17 @@
     "bed_temp.val": [
      "25"
     ],
-    "beep_btn.picc": [
-     "27"
+    "beep_btn.pic": [
+     "124"
     ],
-    "beep_btn.picc2": [
-     "25"
+    "beep_btn.pic2": [
+     "125"
     ],
-    "chamber_btn.picc": [
-     "27"
+    "chamber_btn.pic": [
+     "116"
     ],
-    "chamber_btn.picc2": [
-     "25"
+    "chamber_btn.pic2": [
+     "117"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -486,17 +483,17 @@
     "chamber_temp.val": [
      "26"
     ],
-    "light_btn.picc": [
-     "27"
+    "light_btn.pic": [
+     "120"
     ],
-    "light_btn.picc2": [
-     "25"
+    "light_btn.pic2": [
+     "121"
     ],
-    "nozzle_btn.picc": [
-     "27"
+    "nozzle_btn.pic": [
+     "108"
     ],
-    "nozzle_btn.picc2": [
-     "25"
+    "nozzle_btn.pic2": [
+     "109"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -504,11 +501,11 @@
     "nozzle_temp.val": [
      "25"
     ],
-    "usb_icon.picc": [
-     "28"
+    "usb_icon.pic": [
+     "130"
     ],
-    "wifi_icon.picc": [
-     "28"
+    "wifi_icon.pic": [
+     "132"
     ]
    },
    "page": 15

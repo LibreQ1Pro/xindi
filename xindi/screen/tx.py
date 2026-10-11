@@ -11,6 +11,7 @@ import select
 import termios
 import time
 
+from xindi.screen import faces
 from xindi.screen.serial import set_option
 from xindi.util.cpp import s2b, to_string
 
@@ -142,15 +143,12 @@ class ScreenPort:
         rejected as "trailing tokens"), so a quote in the text becomes an apostrophe."""
         self._set(obj + ".txt", s2b(obj + ".txt=" + "\"" + txt.replace("\"", "'") + "\"") + END)
 
-    def pic(self, obj, pic):
-        """Change the picture of a widget"""
-        self._set(obj + ".pic", s2b(obj + ".pic=" + pic) + END)
-
-    def picc(self, obj, picc):
-        self._set(obj + ".picc", s2b(obj + ".picc=" + picc) + END)
-
-    def picc2(self, obj, picc):
-        self._set(obj + ".picc2", s2b(obj + ".picc2=" + picc) + END)
+    def face(self, obj, state):
+        """Show a look of a widget: the tiles of its released and its pressed state (xindi/screen/faces.py)."""
+        released, pressed = faces.FACES[obj][state]
+        self._set(obj + ".pic", s2b(obj + ".pic=" + released) + END)
+        if pressed is not None:
+            self._set(obj + ".pic2", s2b(obj + ".pic2=" + pressed) + END)
 
     def val(self, obj, val):
         """Change the value of a variable"""

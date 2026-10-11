@@ -6,7 +6,7 @@ import logging
 import time
 
 from xindi import state as g
-from xindi.screen import navigation, pageids as ids, pics
+from xindi.screen import navigation, pageids as ids
 from xindi.system import network
 from xindi.util import netstrings
 from xindi.util.cpp import pthread_create
@@ -69,21 +69,12 @@ def show_saved():
         item = S.saved[index] if index < len(S.saved) else None
         row = "row" + str(i + 1)
         _txt(row + "_txt", _clip(item["ssid"], 24) if item else "")
-        if item and item["active"]:
-            g.port.picc(row, pics.rows_check)
-            g.port.picc2(row, pics.rows_check_press)
-        elif item:
-            g.port.picc(row, pics.rows_lock)
-            g.port.picc2(row, pics.bg_settings_press)
-        else:
-            g.port.picc(row, pics.bg_settings_panel)
-            g.port.picc2(row, pics.bg_settings_panel)
+        g.port.face(row, "check" if item and item["active"] else "item" if item else "blank")
         S.enabled[i] = item is not None
     first = pages <= 1 or S.page == 0
     last = pages <= 1 or S.page == pages - 1
     for button, off in (("prev_btn", first), ("next_btn", last)):
-        g.port.picc(button, pics.rows_check if off else pics.rows_lock)
-        g.port.picc2(button, pics.bg_settings_press if off else pics.rows_check_press)
+        g.port.face(button, "edge" if off else "more")
 
 
 def saved_clicked(widget_id):

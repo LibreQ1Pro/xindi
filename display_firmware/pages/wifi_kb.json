@@ -103,22 +103,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_back_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_back_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -164,22 +164,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -225,22 +225,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -286,22 +286,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -347,22 +347,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -408,22 +408,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -469,22 +469,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -530,22 +530,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -591,22 +591,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -652,22 +652,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -713,22 +713,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -774,22 +774,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -835,22 +835,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -896,22 +896,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -957,22 +957,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1018,22 +1018,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1079,22 +1079,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1140,22 +1140,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1201,22 +1201,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1262,22 +1262,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1323,22 +1323,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1384,22 +1384,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1445,22 +1445,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1506,22 +1506,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1567,22 +1567,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1628,22 +1628,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1689,22 +1689,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_a"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_a_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1750,22 +1750,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_space"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_space_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1811,22 +1811,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_del"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_del_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1868,22 +1868,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:kb_shift_on"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_shift"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_shift_on_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_shift_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1899,14 +1899,14 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(key_shift.picc==${picture:kb_shift_off})",
+          "if(key_shift.pic==${picture:wifi_kb_key_shift_off})",
           "{",
-          "  key_shift.picc=${picture:kb_shift_on}",
-          "  key_shift.picc2=${picture:kb_shift_on_press}",
-          "}else if(key_shift.picc==${picture:kb_shift_on})",
+          "  key_shift.pic=${picture:wifi_kb_key_shift}",
+          "  key_shift.pic2=${picture:wifi_kb_key_shift_press}",
+          "}else if(key_shift.pic==${picture:wifi_kb_key_shift})",
           "{",
-          "  key_shift.picc=${picture:kb_shift_off}",
-          "  key_shift.picc2=${picture:kb_key_press}",
+          "  key_shift.pic=${picture:wifi_kb_key_shift_off}",
+          "  key_shift.pic2=${picture:wifi_kb_key_shift_press_42x67}",
           "}else if(key_shift.txt==\"1/2\")",
           "{",
           "  key_shift.txt=\"2/2\"",
@@ -1939,22 +1939,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_small14"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_sym"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_shift_on_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_sym_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -1973,14 +1973,14 @@
           "if(key_sym.txt==\"123,.\")",
           "{",
           "  key_sym.txt=\"abc\"",
-          "  key_shift.picc=${picture:kb_sym_page}",
-          "  key_shift.picc2=${picture:kb_sym_page_press}",
+          "  key_shift.pic=${picture:wifi_kb_key_shift_sym_page}",
+          "  key_shift.pic2=${picture:wifi_kb_key_sym_press}",
           "  key_shift.txt=\"1/2\"",
           "}else",
           "{",
           "  key_sym.txt=\"123,.\"",
-          "  key_shift.picc=${picture:kb_shift_on}",
-          "  key_shift.picc2=${picture:kb_shift_on_press}",
+          "  key_shift.pic=${picture:wifi_kb_key_shift}",
+          "  key_shift.pic2=${picture:wifi_kb_key_shift_press}",
           "  key_shift.txt=\"\"",
           "}",
           "click refresh_show,0"
@@ -2008,22 +2008,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keyboard"
+        "pic": {
+          "$ref": "picture:wifi_kb_key_ok"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_key_press"
+        "pic2": {
+          "$ref": "picture:wifi_kb_key_ok_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -2167,10 +2167,10 @@
           "btlen input.txt,temp.val",
           "if(temp.val<kbmin)",
           "{",
-          "  key_ok.picc=${picture:kb_key_press}",
+          "  key_ok.pic=${picture:wifi_kb_key_ok_press}",
           "}else",
           "{",
-          "  key_ok.picc=${picture:bg_keyboard}",
+          "  key_ok.pic=${picture:wifi_kb_key_ok}",
           "}"
         ]
       }
@@ -2216,7 +2216,7 @@
       "events": {
         "codesdown": [],
         "codesup": [
-          "if(key_shift.picc==${picture:kb_shift_on})",
+          "if(key_shift.pic==${picture:wifi_kb_key_shift})",
           "{",
           "  key_a.txt=\"a\"",
           "  key_b.txt=\"b\"",
@@ -2244,7 +2244,7 @@
           "  key_x.txt=\"x\"",
           "  key_y.txt=\"y\"",
           "  key_z.txt=\"z\"",
-          "}else if(key_shift.picc==${picture:kb_shift_off})",
+          "}else if(key_shift.pic==${picture:wifi_kb_key_shift_off})",
           "{",
           "  key_a.txt=\"A\"",
           "  key_b.txt=\"B\"",

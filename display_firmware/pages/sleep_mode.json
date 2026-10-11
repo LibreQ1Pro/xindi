@@ -36,20 +36,20 @@
       "codesload": [
         "if(sleep_time==300)",
         "{",
-        "  opt_5min.picc=${picture:sleep_mode_opt_5min_2}",
-        "  opt_5min.picc2=${picture:sleep_mode_opt_5min_2}",
+        "  opt_5min.pic=${picture:sleep_mode_opt_5min_2_242x48}",
+        "  opt_5min.pic2=${picture:sleep_mode_opt_5min_2_242x48}",
         "}else if(sleep_time==900)",
         "{",
-        "  opt_15min.picc=${picture:sleep_mode_opt_5min_2}",
-        "  opt_15min.picc2=${picture:sleep_mode_opt_5min_2}",
+        "  opt_15min.pic=${picture:sleep_mode_opt_5min_2_242x48}",
+        "  opt_15min.pic2=${picture:sleep_mode_opt_5min_2_242x48}",
         "}else if(sleep_time==1800)",
         "{",
-        "  opt_30min.picc=${picture:sleep_mode_opt_5min_2}",
-        "  opt_30min.picc2=${picture:sleep_mode_opt_5min_2}",
+        "  opt_30min.pic=${picture:sleep_mode_opt_5min_2_242x48}",
+        "  opt_30min.pic2=${picture:sleep_mode_opt_5min_2_242x48}",
         "}else if(sleep_time==0)",
         "{",
-        "  opt_never.picc=${picture:sleep_mode_opt_5min_2}",
-        "  opt_never.picc2=${picture:sleep_mode_opt_5min_2}",
+        "  opt_never.pic=${picture:sleep_mode_opt_5min_2_242x48}",
+        "  opt_never.pic2=${picture:sleep_mode_opt_5min_2_242x48}",
         "}",
         "if(lang==0)",
         "{",
@@ -186,22 +186,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:sleep_mode_opt_5min"
+        "pic": {
+          "$ref": "picture:sleep_mode_opt_15min"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:sleep_mode_opt_5min_press"
+        "pic2": {
+          "$ref": "picture:sleep_mode_opt_15min_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -249,22 +249,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:sleep_mode_opt_5min"
+        "pic": {
+          "$ref": "picture:sleep_mode_opt_15min"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:sleep_mode_opt_5min_press"
+        "pic2": {
+          "$ref": "picture:sleep_mode_opt_15min_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -312,22 +312,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:sleep_mode_opt_5min"
+        "pic": {
+          "$ref": "picture:sleep_mode_opt_15min"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:sleep_mode_opt_5min_press"
+        "pic2": {
+          "$ref": "picture:sleep_mode_opt_15min_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -375,22 +375,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:sleep_mode_opt_5min"
+        "pic": {
+          "$ref": "picture:sleep_mode_opt_15min"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:sleep_mode_opt_5min_press"
+        "pic2": {
+          "$ref": "picture:sleep_mode_opt_15min_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
@@ -740,22 +740,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_language"
+        "pic": {
+          "$ref": "picture:language_back_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:language_btn_selected_press"
+        "pic2": {
+          "$ref": "picture:language_back_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -801,7 +801,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -809,18 +809,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_settings_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -866,7 +862,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -874,18 +870,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_files_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -931,7 +923,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -939,18 +931,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_adjust_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -996,7 +984,7 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
@@ -1004,18 +992,14 @@
           "$ref": "font:font_title18"
         },
         "pic": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main"
         },
-        "picc": {
-          "$ref": "picture:bg_settings_panel"
-        },
+        "picc": 65535,
         "bco": 50712,
         "pic2": {
-          "$ref": "picture:nav_btn_press"
+          "$ref": "picture:nav_main_press"
         },
-        "picc2": {
-          "$ref": "picture:bg_settings_press"
-        },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,

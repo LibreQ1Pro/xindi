@@ -459,22 +459,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_0"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_0_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -567,22 +567,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_ok"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_ok_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -742,22 +742,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_1"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_1_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -803,22 +803,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_2"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_2_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -864,22 +864,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_3"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_3_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -925,22 +925,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_4"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_4_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -986,22 +986,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_5"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_5_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1047,22 +1047,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_6"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_6_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1108,22 +1108,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_7"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_7_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1169,22 +1169,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_8"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_8_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1230,22 +1230,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_del"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_del_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1287,22 +1287,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 1,
         "borderc": 7583,
         "borderw": 1,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_key_9"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_key_9_press"
         },
+        "picc2": 65535,
         "bco2": 32799,
         "pco": 65535,
         "pco2": 65535,
@@ -1428,22 +1428,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 0,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_keybdB"
+        "pic": {
+          "$ref": "picture:keybdB_back_btn"
         },
+        "picc": 65535,
         "bco": 14823,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_off_press"
+        "pic2": {
+          "$ref": "picture:keybdB_back_btn_press"
         },
+        "picc2": 65535,
         "bco2": 63488,
         "pco": 65535,
         "pco2": 65535,
@@ -1573,22 +1573,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_printing"
+        "pic": {
+          "$ref": "picture:pause_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:printing_press_off"
+        "pic2": {
+          "$ref": "picture:pause_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1634,22 +1634,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:bg_printing"
+        "pic": {
+          "$ref": "picture:stop_btn"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:printing_press_off"
+        "pic2": {
+          "$ref": "picture:stop_btn_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 0,
         "pco2": 65535,
@@ -1991,32 +1991,32 @@
         "codestimer": [
           "if(sys0==2)",
           "{",
-          "  if(mute_btn.picc==${picture:kb_mute_on})",
+          "  if(mute_btn.pic==${picture:keybdB_mute_on})",
           "  {",
-          "    key_1.picc=${picture:kb_mute_on}",
-          "    key_1.picc2=${picture:kb_mute_on}",
-          "    key_2.picc=${picture:kb_mute_on}",
-          "    key_2.picc2=${picture:kb_mute_on}",
-          "    key_3.picc=${picture:kb_mute_on}",
-          "    key_3.picc2=${picture:kb_mute_on}",
-          "    key_4.picc=${picture:kb_mute_on}",
-          "    key_4.picc2=${picture:kb_mute_on}",
-          "    key_5.picc=${picture:kb_mute_on}",
-          "    key_5.picc2=${picture:kb_mute_on}",
-          "    key_6.picc=${picture:kb_mute_on}",
-          "    key_6.picc2=${picture:kb_mute_on}",
-          "    key_7.picc=${picture:kb_mute_on}",
-          "    key_7.picc2=${picture:kb_mute_on}",
-          "    key_8.picc=${picture:kb_mute_on}",
-          "    key_8.picc2=${picture:kb_mute_on}",
-          "    key_9.picc=${picture:kb_mute_on}",
-          "    key_9.picc2=${picture:kb_mute_on}",
-          "    key_0.picc=${picture:kb_mute_on}",
-          "    key_0.picc2=${picture:kb_mute_on}",
-          "    key_del.picc=${picture:kb_mute_on}",
-          "    key_del.picc2=${picture:kb_mute_on}",
-          "    key_ok.picc=${picture:kb_mute_on}",
-          "    key_ok.picc2=${picture:kb_mute_on}",
+          "    key_1.pic=${picture:keybdB_key_1_kb_mute_on}",
+          "    key_1.pic2=${picture:keybdB_key_1_kb_mute_on}",
+          "    key_2.pic=${picture:keybdB_key_2_kb_mute_on}",
+          "    key_2.pic2=${picture:keybdB_key_2_kb_mute_on}",
+          "    key_3.pic=${picture:keybdB_key_3_kb_mute_on}",
+          "    key_3.pic2=${picture:keybdB_key_3_kb_mute_on}",
+          "    key_4.pic=${picture:keybdB_key_4_kb_mute_on}",
+          "    key_4.pic2=${picture:keybdB_key_4_kb_mute_on}",
+          "    key_5.pic=${picture:keybdB_key_5_kb_mute_on}",
+          "    key_5.pic2=${picture:keybdB_key_5_kb_mute_on}",
+          "    key_6.pic=${picture:keybdB_key_6_kb_mute_on}",
+          "    key_6.pic2=${picture:keybdB_key_6_kb_mute_on}",
+          "    key_7.pic=${picture:keybdB_key_7_kb_mute_on}",
+          "    key_7.pic2=${picture:keybdB_key_7_kb_mute_on}",
+          "    key_8.pic=${picture:keybdB_key_8_kb_mute_on}",
+          "    key_8.pic2=${picture:keybdB_key_8_kb_mute_on}",
+          "    key_9.pic=${picture:keybdB_key_9_kb_mute_on}",
+          "    key_9.pic2=${picture:keybdB_key_9_kb_mute_on}",
+          "    key_0.pic=${picture:keybdB_key_0_kb_mute_on}",
+          "    key_0.pic2=${picture:keybdB_key_0_kb_mute_on}",
+          "    key_del.pic=${picture:keybdB_key_del_kb_mute_on}",
+          "    key_del.pic2=${picture:keybdB_key_del_kb_mute_on}",
+          "    key_ok.pic=${picture:keybdB_key_ok_kb_mute_on}",
+          "    key_ok.pic2=${picture:keybdB_key_ok_kb_mute_on}",
           "    tsw key_1,0",
           "    tsw key_2,0",
           "    tsw key_3,0",
@@ -2031,30 +2031,30 @@
           "    tsw key_ok,0",
           "  }else",
           "  {",
-          "    key_1.picc=${picture:bg_keybdB}",
-          "    key_1.picc2=${picture:kb_mute_off_press}",
-          "    key_2.picc=${picture:bg_keybdB}",
-          "    key_2.picc2=${picture:kb_mute_off_press}",
-          "    key_3.picc=${picture:bg_keybdB}",
-          "    key_3.picc2=${picture:kb_mute_off_press}",
-          "    key_4.picc=${picture:bg_keybdB}",
-          "    key_4.picc2=${picture:kb_mute_off_press}",
-          "    key_5.picc=${picture:bg_keybdB}",
-          "    key_5.picc2=${picture:kb_mute_off_press}",
-          "    key_6.picc=${picture:bg_keybdB}",
-          "    key_6.picc2=${picture:kb_mute_off_press}",
-          "    key_7.picc=${picture:bg_keybdB}",
-          "    key_7.picc2=${picture:kb_mute_off_press}",
-          "    key_8.picc=${picture:bg_keybdB}",
-          "    key_8.picc2=${picture:kb_mute_off_press}",
-          "    key_9.picc=${picture:bg_keybdB}",
-          "    key_9.picc2=${picture:kb_mute_off_press}",
-          "    key_0.picc=${picture:bg_keybdB}",
-          "    key_0.picc2=${picture:kb_mute_off_press}",
-          "    key_del.picc=${picture:bg_keybdB}",
-          "    key_del.picc2=${picture:kb_mute_off_press}",
-          "    key_ok.picc=${picture:bg_keybdB}",
-          "    key_ok.picc2=${picture:kb_mute_off_press}",
+          "    key_1.pic=${picture:keybdB_key_1}",
+          "    key_1.pic2=${picture:keybdB_key_1_press}",
+          "    key_2.pic=${picture:keybdB_key_2}",
+          "    key_2.pic2=${picture:keybdB_key_2_press}",
+          "    key_3.pic=${picture:keybdB_key_3}",
+          "    key_3.pic2=${picture:keybdB_key_3_press}",
+          "    key_4.pic=${picture:keybdB_key_4}",
+          "    key_4.pic2=${picture:keybdB_key_4_press}",
+          "    key_5.pic=${picture:keybdB_key_5}",
+          "    key_5.pic2=${picture:keybdB_key_5_press}",
+          "    key_6.pic=${picture:keybdB_key_6}",
+          "    key_6.pic2=${picture:keybdB_key_6_press}",
+          "    key_7.pic=${picture:keybdB_key_7}",
+          "    key_7.pic2=${picture:keybdB_key_7_press}",
+          "    key_8.pic=${picture:keybdB_key_8}",
+          "    key_8.pic2=${picture:keybdB_key_8_press}",
+          "    key_9.pic=${picture:keybdB_key_9}",
+          "    key_9.pic2=${picture:keybdB_key_9_press}",
+          "    key_0.pic=${picture:keybdB_key_0}",
+          "    key_0.pic2=${picture:keybdB_key_0_press}",
+          "    key_del.pic=${picture:keybdB_key_del}",
+          "    key_del.pic2=${picture:keybdB_key_del_press}",
+          "    key_ok.pic=${picture:keybdB_key_ok}",
+          "    key_ok.pic2=${picture:keybdB_key_ok_press}",
           "    tsw key_1,1",
           "    tsw key_2,1",
           "    tsw key_3,1",
@@ -2093,22 +2093,22 @@
         "lockobj": 0,
         "groupid0": 0,
         "groupid1": 0,
-        "sta": 0,
+        "sta": 2,
         "style": 4,
         "borderc": 0,
         "borderw": 2,
         "font": {
           "$ref": "font:font_title18"
         },
-        "pic": 65535,
-        "picc": {
-          "$ref": "picture:kb_mute_on"
+        "pic": {
+          "$ref": "picture:keybdB_mute_on"
         },
+        "picc": 65535,
         "bco": 50712,
-        "pic2": 65535,
-        "picc2": {
-          "$ref": "picture:kb_mute_on_press"
+        "pic2": {
+          "$ref": "picture:keybdB_mute_on_press"
         },
+        "picc2": 65535,
         "bco2": 1024,
         "pco": 65535,
         "pco2": 65535,
