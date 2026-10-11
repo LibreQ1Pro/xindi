@@ -102,36 +102,44 @@
         "}",
         "if(lang==0)",
         "{",
-        "  lang_cn.picc=${picture:open_language_next_page_cn}",
-        "  lang_cn.picc2=${picture:open_language_next_press_cn}",
+        "  lang_cn.picc=${picture:open_language_btn_selected}",
+        "  lang_cn_name.pco=65535",
+        "  lang_cn.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==1)",
         "{",
-        "  lang_ru.picc=${picture:open_language_next_page_cn}",
-        "  lang_ru.picc2=${picture:open_language_next_press_cn}",
+        "  lang_ru.picc=${picture:open_language_btn_selected}",
+        "  lang_ru_name.pco=65535",
+        "  lang_ru.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==2)",
         "{",
-        "  lang_en.picc=${picture:open_language_next_page_cn}",
-        "  lang_en.picc2=${picture:open_language_next_press_cn}",
+        "  lang_en.picc=${picture:open_language_btn_selected}",
+        "  lang_en_name.pco=65535",
+        "  lang_en.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==3)",
         "{",
-        "  lang_jp.picc=${picture:open_language_next_page_cn}",
-        "  lang_jp.picc2=${picture:open_language_next_press_cn}",
+        "  lang_jp.picc=${picture:open_language_btn_selected}",
+        "  lang_jp_name.pco=65535",
+        "  lang_jp.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==4)",
         "{",
-        "  lang_fr.picc=${picture:open_language_next_page_cn}",
-        "  lang_fr.picc2=${picture:open_language_next_press_cn}",
+        "  lang_fr.picc=${picture:open_language_btn_selected}",
+        "  lang_fr_name.pco=65535",
+        "  lang_fr.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==5)",
         "{",
-        "  lang_de.picc=${picture:open_language_next_page_cn}",
-        "  lang_de.picc2=${picture:open_language_next_press_cn}",
+        "  lang_de.picc=${picture:open_language_btn_selected}",
+        "  lang_de_name.pco=65535",
+        "  lang_de.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==6)",
         "{",
-        "  lang_it.picc=${picture:open_language_next_page_cn}",
-        "  lang_it.picc2=${picture:open_language_next_press_cn}",
+        "  lang_it.picc=${picture:open_language_btn_selected}",
+        "  lang_it_name.pco=65535",
+        "  lang_it.picc2=${picture:open_language_btn_selected_press}",
         "}else if(lang==7)",
         "{",
-        "  lang_es.picc=${picture:open_language_next_page_cn}",
-        "  lang_es.picc2=${picture:open_language_next_press_cn}",
+        "  lang_es.picc=${picture:open_language_btn_selected}",
+        "  lang_es_name.pco=65535",
+        "  lang_es.picc2=${picture:open_language_btn_selected_press}",
         "}"
       ],
       "codesloadend": [],
@@ -218,12 +226,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -248,6 +256,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_cn_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_cn_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 24,
+        "y": 90,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "中文简体",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_cn,1"
+        ],
+        "codesup": [
+          "click lang_cn,0"
         ]
       }
     },
@@ -281,12 +340,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -311,6 +370,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_ru_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_ru_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 150,
+        "y": 90,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "Русский",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_ru,1"
+        ],
+        "codesup": [
+          "click lang_ru,0"
         ]
       }
     },
@@ -344,12 +454,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -374,6 +484,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_en_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_en_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 24,
+        "y": 166,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "English",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_en,1"
+        ],
+        "codesup": [
+          "click lang_en,0"
         ]
       }
     },
@@ -407,12 +568,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -437,6 +598,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_jp_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_jp_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 150,
+        "y": 166,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "日本語",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_jp,1"
+        ],
+        "codesup": [
+          "click lang_jp,0"
         ]
       }
     },
@@ -470,12 +682,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -500,6 +712,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_fr_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_fr_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 24,
+        "y": 242,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "Français",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_fr,1"
+        ],
+        "codesup": [
+          "click lang_fr,0"
         ]
       }
     },
@@ -533,12 +796,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -563,6 +826,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_de_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_de_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 150,
+        "y": 242,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "Deutsch",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_de,1"
+        ],
+        "codesup": [
+          "click lang_de,0"
         ]
       }
     },
@@ -601,7 +915,7 @@
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_next_press_cn"
+          "$ref": "picture:open_language_btn_selected_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -662,7 +976,7 @@
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_next_press_cn"
+          "$ref": "picture:open_language_btn_selected_press"
         },
         "bco2": 1024,
         "pco": 65535,
@@ -718,12 +1032,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -748,6 +1062,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_it_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_it_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 24,
+        "y": 318,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "Italiano",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_it,1"
+        ],
+        "codesup": [
+          "click lang_it,0"
         ]
       }
     },
@@ -781,12 +1146,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_lang_cn"
+          "$ref": "picture:open_language_btn"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -811,6 +1176,57 @@
           "prints 0xff,1",
           "prints 0xff,1",
           "page dp"
+        ]
+      }
+    },
+    {
+      "key": "lang_es_name",
+      "type": "text",
+      "attributes": {
+        "objname": "lang_es_name",
+        "vscope": 0,
+        "drag": 0,
+        "sendkey": 0,
+        "aph": 127,
+        "movex": 0,
+        "movey": 0,
+        "x": 150,
+        "y": 318,
+        "w": 98,
+        "h": 26,
+        "effect": 0,
+        "first": 0,
+        "time": 300,
+        "lockobj": 0,
+        "groupid0": 0,
+        "groupid1": 0,
+        "sta": 3,
+        "style": 0,
+        "key": 255,
+        "borderc": 0,
+        "borderw": 2,
+        "font": {
+          "$ref": "font:font_title18"
+        },
+        "bco": 65535,
+        "picc": 65535,
+        "pic": 65535,
+        "pco": 48631,
+        "xcen": 1,
+        "ycen": 1,
+        "pw": 0,
+        "txt": "Español",
+        "txt_maxl": 20,
+        "isbr": 0,
+        "spax": 0,
+        "spay": 0
+      },
+      "events": {
+        "codesdown": [
+          "click lang_es,1"
+        ],
+        "codesup": [
+          "click lang_es,0"
         ]
       }
     },
@@ -844,12 +1260,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_prev_page"
+          "$ref": "picture:open_language2_btn_selected"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_prev_page_press"
+          "$ref": "picture:open_language2_btn_press"
         },
         "bco2": 1024,
         "pco": 0,
@@ -898,12 +1314,12 @@
         },
         "pic": 65535,
         "picc": {
-          "$ref": "picture:open_language_next_page_cn"
+          "$ref": "picture:open_language_btn_selected"
         },
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:open_language_lang_cn_press"
+          "$ref": "picture:open_language_btn_press"
         },
         "bco2": 1024,
         "pco": 0,

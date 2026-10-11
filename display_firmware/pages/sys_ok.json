@@ -236,7 +236,7 @@
         "bco": 50712,
         "pic2": 65535,
         "picc2": {
-          "$ref": "picture:hdr_back_press"
+          "$ref": "picture:language_btn_selected_press"
         },
         "bco2": 1024,
         "pco": 0,

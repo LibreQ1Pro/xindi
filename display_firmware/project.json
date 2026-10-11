@@ -2329,27 +2329,27 @@
       }
     },
     {
-      "key": "open_language_lang_cn",
+      "key": "open_language_btn",
       "source": {
-        "png": "pictures/open_language_lang_cn.png"
+        "png": "pictures/open_language_btn.png"
       }
     },
     {
-      "key": "open_language_next_page_cn",
+      "key": "open_language_btn_selected",
       "source": {
-        "png": "pictures/open_language_next_page_cn.png"
+        "png": "pictures/open_language_btn_selected.png"
       }
     },
     {
-      "key": "open_language_next_press_cn",
+      "key": "open_language_btn_selected_press",
       "source": {
-        "png": "pictures/open_language_next_press_cn.png"
+        "png": "pictures/open_language_btn_selected_press.png"
       }
     },
     {
-      "key": "open_language_lang_cn_press",
+      "key": "open_language_btn_press",
       "source": {
-        "png": "pictures/open_language_lang_cn_press.png"
+        "png": "pictures/open_language_btn_press.png"
       }
     },
     {
@@ -3073,27 +3073,27 @@
       }
     },
     {
-      "key": "hdr_back_press",
+      "key": "language_btn_selected_press",
       "source": {
-        "png": "pictures/hdr_back_press.png"
+        "png": "pictures/language_btn_selected_press.png"
       }
     },
     {
-      "key": "language_lang_cn_press",
+      "key": "language_btn_press",
       "source": {
-        "png": "pictures/language_lang_cn_press.png"
+        "png": "pictures/language_btn_press.png"
       }
     },
     {
-      "key": "language_lang_cn",
+      "key": "language_btn",
       "source": {
-        "png": "pictures/language_lang_cn.png"
+        "png": "pictures/language_btn.png"
       }
     },
     {
-      "key": "language_next_page_cn",
+      "key": "language_btn_selected",
       "source": {
-        "png": "pictures/language_next_page_cn.png"
+        "png": "pictures/language_btn_selected.png"
       }
     },
     {
@@ -3439,51 +3439,51 @@
       }
     },
     {
-      "key": "open_language2_lang_kr",
+      "key": "open_language2_btn",
       "source": {
-        "png": "pictures/open_language2_lang_kr.png"
+        "png": "pictures/open_language2_btn.png"
       }
     },
     {
-      "key": "open_language_prev_page",
+      "key": "open_language2_btn_selected",
       "source": {
-        "png": "pictures/open_language_prev_page.png"
+        "png": "pictures/open_language2_btn_selected.png"
       }
     },
     {
-      "key": "open_language_prev_page_press",
+      "key": "open_language2_btn_press",
       "source": {
-        "png": "pictures/open_language_prev_page_press.png"
+        "png": "pictures/open_language2_btn_press.png"
       }
     },
     {
-      "key": "open_language2_lang_kr_press_kr",
+      "key": "open_language2_btn_selected_press",
       "source": {
-        "png": "pictures/open_language2_lang_kr_press_kr.png"
+        "png": "pictures/open_language2_btn_selected_press.png"
       }
     },
     {
-      "key": "language2_lang_kr",
+      "key": "language2_btn",
       "source": {
-        "png": "pictures/language2_lang_kr.png"
+        "png": "pictures/language2_btn.png"
       }
     },
     {
-      "key": "language_prev_page",
+      "key": "language2_btn_selected",
       "source": {
-        "png": "pictures/language_prev_page.png"
+        "png": "pictures/language2_btn_selected.png"
       }
     },
     {
-      "key": "language2_lang_kr_press_kr",
+      "key": "language2_btn_selected_press",
       "source": {
-        "png": "pictures/language2_lang_kr_press_kr.png"
+        "png": "pictures/language2_btn_selected_press.png"
       }
     },
     {
-      "key": "language_prev_page_press",
+      "key": "language2_btn_press",
       "source": {
-        "png": "pictures/language_prev_page_press.png"
+        "png": "pictures/language2_btn_press.png"
       }
     },
     {
