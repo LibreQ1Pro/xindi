@@ -78,7 +78,7 @@ function heatRow(x,y,w,glyph,cur,tar,on,name){
 function fanTile(x,y,w,h,i,val,name){
   return box(x,y,w,h,'card hi','',name) + `<div style="${st(x+10,y+13,24,24)}color:var(--text2)">${ico('fan',22)}</div>` +
     `<div style="${st(x+30,y+30,14,14)}font-size:11px;color:var(--text3)">${i}</div>` +
-    txt(x+36,y,w-44,h,`<b style="font-size:19px">${val}</b><span style="font-size:12px;color:var(--text2)">%</span>`,{a:'r',num:1},name+'_val');
+    txt(x+38,y,w-46,h,`<b style="font-size:19px">${val}</b>`,{a:'r',num:1},name+'_val');
 }
 S('printing','Printing','Printing',()=>{
   let s = printTop('printing');
