@@ -27,6 +27,16 @@ again after changing a layout). Helpers: `tools/page_dump.py` (a page as text), 
 image), `tools/name_pictures.py` (how the picture names were proposed); on the printer, `tests/printer/check_network.py`
 checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...` draws a rough preview of pages (Noto Sans instead of the screen fonts).
 
+## Settings kept in the screen's EEPROM
+
+| address | variable | set by |
+|---|---|---|
+| 100 | `lang` | the language pages (`wepo lang,100`) |
+| 200 | `sleep_time` | the screen sleep page |
+| 300 | `max_dim` (brightness 10..100) | the slider of the screen sleep page (`tools/add_brightness.py` built it): moving it sets `max_dim` and `dim` at once, releasing it writes the EEPROM; `Program.s` applies it at power-up and the pages restore it with `dim=max_dim` |
+
+`Program.s` repairs a value out of range (an erased EEPROM reads -1).
+
 ## Languages
 
 The language is stored in one place, the screen: `lang` lives in its EEPROM (address 100, `Program.s` reads it, the language pages

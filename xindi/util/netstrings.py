@@ -80,6 +80,9 @@ TEXT = {
                      "Nom du réseau (SSID)", "Netzwerkname (SSID)", "Nome rete (SSID)", "Nombre de red (SSID)",
                      "네트워크 이름 (SSID)", "Nome da rede (SSID)", "اسم الشبكة (SSID)", "Ağ adı (SSID)",
                      "שם הרשת (SSID)"),
+    # label of the brightness slider on the screen sleep page
+    "brightness": ("亮度", "Яркость", "Brightness", "明るさ", "Luminosité", "Helligkeit", "Luminosità", "Brillo",
+                   "밝기", "Brilho", "السطوع", "Parlaklık", "בהירות"),
 }
 
 

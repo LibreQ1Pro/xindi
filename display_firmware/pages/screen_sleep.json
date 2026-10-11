@@ -39,7 +39,7 @@
       "codesup": [],
       "codesunload": [
         "sleep_counts=0",
-        "dim=100"
+        "dim=max_dim"
       ]
     }
   },

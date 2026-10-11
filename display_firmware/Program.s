@@ -29,4 +29,11 @@ if(sleep_time!=0&&sleep_time!=300&&sleep_time!=900&&sleep_time!=1800)
   sleep_time=300
 }
 
+repo max_dim,300
+if(max_dim<10||max_dim>100)
+{
+  max_dim=100
+}
+dim=max_dim
+
 page ${page:logo}
