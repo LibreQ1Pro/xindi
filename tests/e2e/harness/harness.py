@@ -51,8 +51,8 @@ _widgets = None
 
 
 def widgets_of_pages():
-    """{page id: (page key, {object keys})} of the screen project, for the check that the port only addresses
-    objects the page has."""
+    """{page id: (page key, {object key: {attribute names}})} of the screen project, for the check that the port only
+    addresses objects the page has, and attributes the object has."""
     global _widgets
     if _widgets is None:
         _widgets = {}
@@ -62,7 +62,7 @@ def widgets_of_pages():
             for number, entry in enumerate(project["pages"]):
                 with open(os.path.join(PROJECT, entry["content"]["path"]), encoding="utf-8") as f:
                     page = json.load(f)
-                _widgets[number] = (entry["key"], {o["key"] for o in page["objects"]})
+                _widgets[number] = (entry["key"], {o["key"]: set(o["attributes"]) for o in page["objects"]})
         except (OSError, ValueError, KeyError):
             _widgets = {}
     return _widgets
@@ -175,12 +175,12 @@ class Screen(threading.Thread):
         page = self.current["page"]
         if not widgets or page not in widgets:
             return
-        name = None
+        name = attribute = None
         eq, sp = text.find("="), text.find(" ")
         if eq != -1 and (sp == -1 or eq < sp):
             left = text[:eq]
             if "." in left:
-                name = left.rsplit(".", 1)[0]
+                name, attribute = left.rsplit(".", 1)
         elif sp != -1 and text[:sp] in self.OBJECT_COMMANDS:
             name = text[sp + 1:].split(",")[0]
         if not name or not name.replace("_", "a").replace(".", "a").isalnum() or name.isdigit():
@@ -190,8 +190,12 @@ class Screen(threading.Thread):
             other, _, obj = name.partition(".")
             target = [o for k, o in widgets.values() if k == other]
             ok = bool(target) and obj in target[0]
+            attributes = target[0].get(obj) if ok else None
         else:
             ok = name in objects or name == key
+            attributes = objects.get(name)
+        if ok and attribute is not None and attributes is not None and attribute not in attributes:
+            ok = False
         if not ok:
             entry = "page %d (%s): %s" % (page, key, text[:60])
             if entry not in self.unknown:

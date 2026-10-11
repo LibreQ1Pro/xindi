@@ -40,7 +40,7 @@ tests/e2e/golden.py record -j 22   # accept a deliberate change of behaviour
 A full run takes under a minute: the harness waits for the port to go quiet (nothing new on the screen for half a
 second) instead of fixed pauses, and the time-outs are a few seconds.
 
-A scenario also fails (`BAD`) when the port addresses an object the current page does not have (`version_txt.txt=...` on a
+A scenario also fails (`BAD`) when the port addresses an object, or an attribute of it, that the current page does not have (`version_txt.txt=...` on a
 page without `version_txt`): the real screen answers such an instruction with `0x1a`. A step whose events are meant for
 another page than the virtual screen shows is wrapped in `h.other_page_events()`.
 
@@ -81,7 +81,7 @@ filament) run the macros of QIDI's configuration with their `M118` messages (`ec
 an axis is not homed (`!! Must home axis first: x y z [e]`, the rest of the script is dropped and a `G91` stays in force), when
 the target is out of range (`!! Move out of range`) or when extruding below 170 °C (`!! Extrude below minimum temp`); `G28`
 homes (X and Y to 125, Z to 10), `SET_KINEMATIC_POSITION` pretends the axes are homed, `M84` (motors off) forgets the homing,
-so the move page shows its "park all?" question after a power-up or after motors off; `M106`/`M107`/`SET_FAN_SPEED` set the three fans and `SET_PIN` the LED and the beeper, and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
+so the move page shows its "park all?" question after a power-up or after motors off; `M106`/`M107`/`SET_FAN_SPEED` set the three fans and `SET_PIN` the LED and the beeper, a print job runs when the port starts one (`printer.print.start`: heating to 220 / 60 °C, progress for the estimated time divided by 20, `complete`, which stays until `SDCARD_RESET_FILE`; `PAUSE`, `RESUME`, `CANCEL_PRINT` work; `M220`, `M221` and `SET_GCODE_OFFSET` change speed, flow and z offset), and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
 A load takes about 40 s (heating 25 → 250 °C) + 12 s.
 
 **Wi-Fi.** `harness/fakenm/nmcli` stands in for NetworkManager (state in `/tmp/fake_nm.json`). Three networks are in range and the

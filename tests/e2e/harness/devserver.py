@@ -11,6 +11,7 @@ The fake Moonraker takes commands over HTTP so that the printer can be played fr
     POST /emu/status   {"extruder": {"temperature": 31.6}}        status update (notify_status_update)
     POST /emu/gcode    plain text                                  gcode response (notify_gcode_response)
     POST /emu/script   plain text                                  run a gcode script (changes heater targets)
+    (a print job - printer.print.start, PAUSE / RESUME / CANCEL_PRINT - heats, runs for its estimated time / 20, completes)
     POST /emu/notify   {"method": "notify_klippy_shutdown"}       any notification ("params" optional)
     POST /emu/preset/<name>                                        a ready-made situation, see PRESETS
     GET  /emu/state                                                status objects, requests of the port
@@ -86,6 +87,10 @@ MIN_EXTRUDE_TEMP = 170.0
 HOME_POSITION = (125.0, 125.0, 10.0)        # where the axes stand after G28
 
 
+PRINT_SPEEDUP = 20.0            # a print takes its estimated time divided by this
+PRINT_TEMPS = {"extruder": 220.0, "heater_bed": 60.0}
+
+
 class Moonraker(harness.Moonraker):
     """The fake Moonraker of the tests plus the /emu/ control interface, heaters that really heat and a gcode
     queue: scripts run one after the other like in Klipper (waits for temperatures, moves take their time, M118
@@ -95,10 +100,20 @@ class Moonraker(harness.Moonraker):
         harness.Moonraker.__init__(self, fixture)
         self.scripts = queue.Queue()
         self.relative = False           # G91
+        self.job = None                 # {"filename", "estimate", "elapsed", "phase": heating|printing|paused}
 
     def _handle_rpc(self, req):
-        if req.get("method") == "printer.gcode.script":
+        method = req.get("method")
+        if method == "printer.gcode.script":
             self.scripts.put((req.get("params") or {}).get("script", ""))
+        elif method == "printer.print.start":
+            self.start_job((req.get("params") or {}).get("filename", ""))
+        elif method == "printer.print.pause":
+            self.scripts.put("PAUSE")
+        elif method == "printer.print.resume":
+            self.scripts.put("RESUME")
+        elif method == "printer.print.cancel":
+            self.scripts.put("CANCEL_PRINT")
         return super()._handle_rpc(req)
 
     # -- gcode ---------------------------------------------------------------
@@ -122,6 +137,46 @@ class Moonraker(harness.Moonraker):
 
     def set_target(self, name, target):
         self.push_status({HEATERS[name][0]: {"target": float(target)}})
+
+    # -- print job -------------------------------------------------------------------------------------------
+    def start_job(self, filename):
+        meta = self.metadata.get(filename) or {}
+        estimate = float(meta.get("estimated_time") or 600) / PRINT_SPEEDUP
+        self.job = {"filename": filename, "estimate": max(estimate, 20.0), "elapsed": 0.0, "phase": "heating",
+                    "filament": float(meta.get("filament_total") or 1000)}
+        self.push_status({"print_stats": {"state": "printing", "filename": filename, "print_duration": 0.0,
+                                          "total_duration": 0.0, "filament_used": 0.0, "message": ""},
+                          "display_status": {"progress": 0.0}, "pause_resume": {"is_paused": False},
+                          "idle_timeout": {"state": "Printing"}})
+        for name, target in PRINT_TEMPS.items():
+            self.set_target(name, target)
+
+    def end_job(self, state):
+        self.job = None
+        self.push_status({"print_stats": {"state": state}, "pause_resume": {"is_paused": False},
+                          "idle_timeout": {"state": "Ready"}})
+        for name in HEATERS:
+            self.set_target(name, 0)
+
+    def simulate_job(self):
+        while True:
+            time.sleep(1.0)
+            job = self.job
+            if job is None or job["phase"] == "paused":
+                continue
+            if job["phase"] == "heating":
+                if (self.temperature("extruder") >= PRINT_TEMPS["extruder"] - 1
+                        and self.temperature("heater_bed") >= PRINT_TEMPS["heater_bed"] - 1):
+                    job["phase"] = "printing"
+                continue
+            job["elapsed"] += 1.0
+            progress = min(job["elapsed"] / job["estimate"], 1.0)
+            self.push_status({"print_stats": {"print_duration": job["elapsed"] * PRINT_SPEEDUP,
+                                              "total_duration": job["elapsed"] * PRINT_SPEEDUP,
+                                              "filament_used": round(job["filament"] * progress, 1)},
+                              "display_status": {"progress": round(progress, 4)}})
+            if progress >= 1.0:
+                self.end_job("complete")
 
     # -- motion ----------------------------------------------------------------------------------------------
     def position(self):
@@ -233,6 +288,29 @@ class Moonraker(harness.Moonraker):
             if name in HEATERS:
                 self.wait_temperature(name, float(params.get("MINIMUM", 0)),
                                       float(params["MAXIMUM"]) if "MAXIMUM" in params else None)
+        elif cmd == "PAUSE" and self.job:
+            self.job["phase"] = "paused"
+            self.push_status({"print_stats": {"state": "paused"}, "pause_resume": {"is_paused": True}})
+        elif cmd == "RESUME" and self.job:
+            self.job["phase"] = "printing"
+            self.push_status({"print_stats": {"state": "printing"}, "pause_resume": {"is_paused": False}})
+        elif cmd == "CANCEL_PRINT":
+            self.end_job("cancelled")
+        elif cmd in ("PRINT_END", "PRINT_END_POWEROFF"):     # heaters off; Klipper keeps "complete" until the file is reset
+            for name in HEATERS:
+                self.set_target(name, 0)
+        elif cmd == "SDCARD_RESET_FILE":
+            self.job = None
+            self.push_status({"print_stats": {"state": "standby", "filename": "", "print_duration": 0.0},
+                              "display_status": {"progress": 0.0}, "idle_timeout": {"state": "Ready"}})
+        elif cmd == "M220" and "S" in params:
+            self.push_status({"gcode_move": {"speed_factor": float(params["S"]) / 100.0}})
+        elif cmd == "M221" and "S" in params:
+            self.push_status({"gcode_move": {"extrude_factor": float(params["S"]) / 100.0}})
+        elif cmd == "SET_GCODE_OFFSET" and "Z_ADJUST" in params:
+            origin = list(self.state["gcode_move"]["homing_origin"])
+            origin[2] = round(origin[2] + float(params["Z_ADJUST"]), 3)
+            self.push_status({"gcode_move": {"homing_origin": origin}})
         elif cmd == "M106":
             fan = FANS.get(params.get("P", "0"))
             if fan:
@@ -343,6 +421,7 @@ def main():
     mr.start()
     threading.Thread(target=mr.simulate_heaters, daemon=True).start()
     threading.Thread(target=mr.run_scripts, daemon=True).start()
+    threading.Thread(target=mr.simulate_job, daemon=True).start()
     # NetworkManager: a stateful stand-in with three networks (see fakenm/nmcli)
     shutil.copy(os.path.join(HERE, "fakenm", "nmcli"), "/usr/local/bin/nmcli")
     if os.path.exists("/tmp/fake_nm.json"):
