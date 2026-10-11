@@ -69,12 +69,11 @@ S('network','Settings and network','Network',()=>{
   CUR='internet_page';
   let s = header(T('title'));
   s += card(12,60,248,52,'background:#111114') + txt(26,60,40,52,'IP',{mute:1,css:'font-weight:600'},null) + txt(66,60,180,52,'192.168.1.57',{css:'font-family:ui-monospace,monospace;font-size:17px',num:1},'ip_txt');
-  s += `<div class="tabs" style="${st(12,122,124,44)}"><div class="tab on" style="${st(3,3,58,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(61,3,60,38)}">${ico('ethernet-port',22)}</div></div>`;
-  s += tb(144,122,116,44,'wifi_btn',{icon:'chevron-right',css:''},'wifi_btn');
-  s += row(12,184,248,52,T('info_lbl'),{chev:1},'info_btn')+row(12,244,248,52,T('saved_lbl'),{chev:1},'saved_btn')+row(12,304,248,52,T('hidden_lbl'),{chev:1},'hidden_btn');
+  s += `<div class="tabs" style="${st(12,122,248,44)}"><div class="tab on" style="${st(3,3,121,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(124,3,121,38)}">${ico('ethernet-port',22)}</div></div>`;
+  s += row(12,178,248,52,T('wifi_btn'),{chev:1},'wifi_btn') + row(12,238,248,52,T('info_lbl'),{chev:1},'info_btn');
   s += nav('settings');
   return screen('internet_page', s);
-});
+}, 'One way to the Wi-Fi list: the Wi-Fi row. Saved and Hidden networks are reached from the list (its two buttons), and Back from them returns to the list.');
 function netList(page, top, withChips){
   const rows=[['Home-Network','check'],['Printer-AP','lock'],['Neighbour_5G','lock'],['Guest',null],['Cafe Free WiFi','lock']];
   let s='';

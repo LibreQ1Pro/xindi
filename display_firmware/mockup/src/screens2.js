@@ -28,8 +28,10 @@ S('fans','Filament and movement','Fans',()=>{
     const [y,key,val,on]=f; const n=i+1;
     s += card(12,y,248,108,'');
     s += tt(24,y+4,224,38,key,{css:'font-size:15px;line-height:1.15;font-weight:500'},key);
-    s += box(24,y+46,224,24,'bar','<i style="width:'+val+'%"></i>','fan'+n+'_slider');
-    s += `<div style="${st(24+Math.max(0,Math.min(204,224*val/100-10)),y+44,28,28)}background:#fff;border-radius:14px"></div>`;
+    const tx=36, tw=200, kx=tx+tw*val/100;
+    s += box(tx,y+52,tw,10,'bar','<i style="width:'+val+'%"></i>','fan'+n+'_slider');
+    [20,40,60,80,100].forEach(v=>{ s += rect(tx+tw*v/100-1,y+66,2,6,'#4a4a54',1); });
+    s += `<div style="${st(kx-14,y+43,28,28)}background:#fff;border-radius:14px"></div>`;
     s += box(24,y+78,60,26,'', toggle(0,0,on),'fan'+n+'_toggle');
     s += txt(140,y+74,108,30,`<b style="font-size:22px">${val}</b><span style="font-size:14px;color:var(--text2)"> %</span>`,{a:'r',num:1},'fan'+n+'_val');
   });
@@ -40,17 +42,15 @@ S('fans','Filament and movement','Fans',()=>{
 S('move','Filament and movement','Move',()=>{
   CUR='move';
   let s = tabs('l','r','r',['tab_load','tab_manual']);
-  s += seg(12,56,248,40,['0.1 mm','1 mm','10 mm'],1,['dist_01','dist_1','dist_10']);
-  // position
-  s += card(12,104,248,48,'');
-  ['X','Y','Z'].forEach((a,i)=>{ s += txt(24+80*i,104,16,48,'<span style="color:var(--text2);font-weight:600">'+a+'</span>',{num:1}) + txt(40+80*i,104,48,48,'0.00',{sz:'m',num:1},a.toLowerCase()+'_pos'); });
-  // d-pad
-  s += `<div style="${st(12,162,184,184)}background:var(--panel);border-radius:92px"></div>`;
-  s += btn(76,168,56,56,'',{icon:'chevron-up',is:30},'y_up')+btn(12+0+6,226,56,56,'',{icon:'chevron-left',is:30},'x_down')+btn(140,226,56,56,'',{icon:'chevron-right',is:30},'x_up')+btn(76,284,56,56,'',{icon:'chevron-down',is:30},'y_down');
-  s += btn(78,228,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
-  // z
-  s += btn(204,162,56,56,'',{icon:'chevrons-up',is:26},'z_up')+btn(204,226,56,56,'',{icon:'power-off',is:22,v:'dim'},'motors_off')+btn(204,290,56,56,'',{icon:'chevrons-down',is:26},'z_down');
-  s += txt(204,350,56,16,'Z',{a:'c',sz:'s'},null);
+  s += card(12,56,248,44,'');
+  ['X','Y','Z'].forEach((a,i)=>{ s += txt(24+80*i,56,16,44,'<span style="color:var(--text2);font-weight:600">'+a+'</span>',{num:1}) + txt(42+80*i,56,52,44,'0.00',{num:1},a.toLowerCase()+'_pos'); });
+  s += seg(12,108,248,40,['0.1 mm','1 mm','10 mm'],1,['dist_01','dist_1','dist_10']);
+  // control: a pad 184 x 184 with 52-pixel keys on a 58-pixel pitch, the Z keys at its right
+  s += `<div style="${st(12,160,184,184)}background:var(--panel);border-radius:92px"></div>`;
+  s += btn(78,168,52,52,'',{icon:'chevron-up',is:28},'y_up')+btn(20,226,52,52,'',{icon:'chevron-left',is:28},'x_down')+btn(136,226,52,52,'',{icon:'chevron-right',is:28},'x_up')+btn(78,284,52,52,'',{icon:'chevron-down',is:28},'y_down');
+  s += btn(78,226,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
+  s += btn(204,160,56,88,'',{icon:'chevrons-up',is:28},'z_up')+btn(204,256,56,88,'',{icon:'chevrons-down',is:28},'z_down');
+  s += btn(12,356,248,44,'',{icon:'power',is:22,v:'dim'},'motors_off');
   s += nav('adjust');
   return screen('move', s);
 });

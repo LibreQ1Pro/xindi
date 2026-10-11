@@ -54,8 +54,8 @@ S('preview','Home and files','File preview',()=>{
   let s = thumb(12,12,152,152,'preview_pic');
   s += btn(172,12,88,70,'',{icon:'undo-2',is:30},'back_btn') + btn(172,94,88,70,'',{icon:'play',is:32,v:'primary'},'start_btn');
   s += card(12,176,248,96,'');
-  const info = [['clock','03h05m','est_time',24,188],['spool','PLA','fil_type',24,228],['ruler','7.9 m','fil_length',140,188],['weight','24 g','fil_weight',140,228]];
-  info.forEach(i=>{ s += `<div style="${st(i[3],i[4],26,26)}color:var(--text2)">${ico(i[0],22)}</div>` + txt(i[3]+34,i[4]-3,84,32,i[1],{num:1},i[2]); });
+  const cell=(x,y,glyph,val,name)=>`<div style="${st(x,y+6,24,24)}color:var(--text2)">${ico(glyph,22)}</div>`+txt(x+34,y,92,36,val,{num:1},name);
+  s += cell(26,184,'clock','03h05m','est_time')+cell(146,184,'ruler','7.9 m','fil_length')+cell(26,228,'spool','PLA','fil_type')+cell(146,228,'weight','24 g','fil_weight');
   s += row(12,284,248,46,T('level_lbl'),{sw:true},'level_btn') + row(12,336,248,46,T('timelapse_lbl'),{sw:false},'timelapse_btn');
   s += nav('files');
   return screen('preview', s);
@@ -90,10 +90,10 @@ S('printing','Printing','Printing',()=>{
 
 S('printing2','Printing','Printing 2',()=>{
   let s = printTop('printing_2');
-  const tool = (x,y,glyph,val,unit,name,o)=> box(x,y,80,92,'card hi','',name)+`<div style="${st(x+27,y+12,26,26)}color:var(--text2)">${ico(glyph,26)}</div>`+txt(x+2,y+46,76,40,`<b style="font-size:22px">${val}</b><span style="font-size:13px;color:var(--text2)"> ${unit}</span>`,{a:'c',num:1},name+'_val');
-  s += tool(12,226,'arrow-up-down','-1.000','mm','zoffset_btn')+tool(96,226,'gauge','100','%','speed_btn')+tool(180,226,'droplets','100','%','flow_btn');
-  s += box(12,326,80,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:8px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
-  s += btn(180,326,80,92,'',{icon:'undo-2',is:28},'back_btn');
+  const tool = (x,y,glyph,val,unit,name)=> box(x,y,76,92,'card hi','',name)+`<div style="${st(x+26,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+txt(x,y+46,76,40,`<b style="font-size:20px">${val}</b><span style="font-size:13px;color:var(--text2)"> ${unit}</span>`,{a:'c',num:1},name+'_val');
+  s += tool(12,226,'arrow-up-down','-1.000','mm','zoffset_btn')+tool(98,226,'gauge','100','%','speed_btn')+tool(184,226,'droplet','100','%','flow_btn');
+  s += box(12,326,76,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:10px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
+  s += btn(184,326,76,92,'',{icon:'undo-2',is:28},'back_btn');
   return screen('printing_2', s);
 });
 
