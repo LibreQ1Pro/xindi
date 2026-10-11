@@ -2791,15 +2791,15 @@
       }
     },
     {
-      "key": "fila_set_fan_fan1_slider_fg_cn",
+      "key": "fan_slider_track",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_cn.png"
+        "png": "pictures/fan_slider_track.png"
       }
     },
     {
-      "key": "fila_set_fan_fan1_slider_cn",
+      "key": "fan_slider_fill",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_cn.png"
+        "png": "pictures/fan_slider_fill.png"
       }
     },
     {
@@ -3127,12 +3127,6 @@
       }
     },
     {
-      "key": "fila_set_fan_fan2_slider_press",
-      "source": {
-        "png": "pictures/fila_set_fan_fan2_slider_press.png"
-      }
-    },
-    {
       "key": "bg_sleep_mode",
       "source": {
         "png": "pictures/bg_sleep_mode.png"
@@ -3196,66 +3190,6 @@
       "key": "filamentVideo3_next_press",
       "source": {
         "png": "pictures/filamentVideo3_next_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_ru",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_ru.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_ru",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_ru.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_en",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_en.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_en",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_en.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_jp",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_jp.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_jp",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_jp.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_fr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_fr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_de",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_de.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_de",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_de.png"
       }
     },
     {
@@ -3562,90 +3496,6 @@
       "key": "language_prev_page_press",
       "source": {
         "png": "pictures/language_prev_page_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_it",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_it.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_it",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_it.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_es",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_es.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_es",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_es.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_kr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_kr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_kr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_kr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_pt",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_pt.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_pt",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_pt.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_ar",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_ar.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_ar",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_ar.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_tr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_tr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_tr",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_tr.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_he",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_he.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan1_slider_fg_he",
-      "source": {
-        "png": "pictures/fila_set_fan_fan1_slider_fg_he.png"
       }
     },
     {

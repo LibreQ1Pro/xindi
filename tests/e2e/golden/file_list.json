@@ -1346,7 +1346,7 @@
     ],
     "level_btn.picc2": [
      "41",
-     "230",
+     "205",
      "41"
     ],
     "preview.cp_data.txt": [
@@ -1372,7 +1372,7 @@
      "43"
     ],
     "timelapse_btn.picc2": [
-     "230"
+     "205"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1538,7 +1538,7 @@
      "43"
     ],
     "timelapse_btn.picc2": [
-     "230"
+     "205"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1679,7 +1679,7 @@
      "43"
     ],
     "timelapse_btn.picc2": [
-     "230"
+     "205"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1693,10 +1693,10 @@
      "jpg thumbnail"
     ],
     "bed_row.picc": [
-     "160"
+     "149"
     ],
     "bed_row.picc2": [
-     "159"
+     "148"
     ],
     "bed_set.val": [
      "0"
@@ -1708,16 +1708,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "160"
+     "149"
     ],
     "bed_toggle.picc2": [
-     "159"
+     "148"
     ],
     "chamber_row.picc": [
-     "160"
+     "149"
     ],
     "chamber_row.picc2": [
-     "159"
+     "148"
     ],
     "chamber_set.val": [
      "0"
@@ -1729,16 +1729,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "160"
+     "149"
     ],
     "chamber_toggle.picc2": [
-     "159"
+     "148"
     ],
     "nozzle_row.picc": [
-     "160"
+     "149"
     ],
     "nozzle_row.picc2": [
-     "159"
+     "148"
     ],
     "nozzle_set.val": [
      "0"
@@ -1750,28 +1750,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "160"
+     "149"
     ],
     "nozzle_toggle.picc2": [
-     "159"
+     "148"
     ],
     "step_10.picc": [
-     "160"
+     "149"
     ],
     "step_10.picc2": [
-     "159"
+     "148"
     ],
     "step_100.picc": [
-     "160"
+     "149"
     ],
     "step_100.picc2": [
-     "159"
+     "148"
     ],
     "step_50.picc": [
-     "161"
+     "150"
     ],
     "step_50.picc2": [
-     "158"
+     "147"
     ]
    },
    "page": 70
@@ -1985,7 +1985,7 @@
      "43"
     ],
     "timelapse_btn.picc2": [
-     "230"
+     "205"
     ],
     "vis preview_pic": [
      "preview_pic,0"
