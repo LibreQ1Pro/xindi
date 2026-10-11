@@ -287,6 +287,7 @@ class Moonraker(object):
         self.started = threading.Event()
         self.lock = threading.Lock()
         self.responses_enabled = True
+        self.host = "127.0.0.1"     # the dev server (devserver.py) opens it to the docker port mapping
 
     def start(self):
         t = threading.Thread(target=self._thread, daemon=True)
@@ -307,7 +308,7 @@ class Moonraker(object):
         app.router.add_route("*", "/{tail:.*}", self._http)
         runner = web.AppRunner(app, access_log=None)
         await runner.setup()
-        site = web.TCPSite(runner, "127.0.0.1", 7125)
+        site = web.TCPSite(runner, self.host, 7125)
         await site.start()
         self.started.set()
         await self._sender()

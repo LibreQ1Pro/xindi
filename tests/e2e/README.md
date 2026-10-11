@@ -40,6 +40,36 @@ tests/e2e/golden.py record -j 22   # accept a deliberate change of behaviour
 A full run takes under a minute: the harness waits for the port to go quiet (nothing new on the screen for half a
 second) instead of fixed pauses, and the time-outs are a few seconds.
 
+## Running the port against the screen emulator
+
+The golden traces use a recording virtual screen. For developing the screen project there is also the HMI emulator of
+hmi-builder (`docs/EMULATOR.md`): it runs `display_firmware` itself (`Program.s`, page events, pictures, fonts) and the
+browser acts as the touch panel.
+
+```sh
+tests/e2e/emulator.py                    # open http://127.0.0.1:8765/ ; --scenario boot_oobe | file_list | boot_interrupted ...
+curl -X POST localhost:7125/emu/preset/printing
+```
+
+One container (`xindi-port-test`) holds the emulator on `/dev/ttyS1`, the fake Moonraker of the tests and the port, so
+nothing of the port runs on the development host. `display_firmware` is mounted and the emulator runs with `--watch`:
+edit a page or `Program.s`, save, and the emulator reloads while the port keeps running (the port does not resend a page it
+already showed, so touch the screen or use the page selector). hmi-builder is found like `display_firmware/tools/build_hmi.py`
+does (`HMI_BUILDER`, or `--builder`).
+
+The printer is played through the fake Moonraker (`harness/devserver.py`), which takes commands on port 7125:
+
+| request | effect |
+|---|---|
+| `POST /emu/preset/<name>` | `idle`, `heating`, `printing`, `paused`, `complete`, `cancelled`, `runout`, `shutdown` |
+| `POST /emu/status` `{"extruder": {"temperature": 150}}` | `notify_status_update` with these objects |
+| `POST /emu/gcode` (text) | `notify_gcode_response` |
+| `POST /emu/notify` `{"method": "notify_klippy_shutdown", "params": []}` | any notification |
+| `GET /emu/state` | status objects and the last requests of the port |
+
+Differences from the real printer: the emulator does not draw `col_pic` and does not take over the timing of the display;
+`nmcli` and the system tools are stubs, so Wi-Fi pages show no interface; the sleeps are the real ones.
+
 ## Scenarios
 
 | Scenario | Covers |
