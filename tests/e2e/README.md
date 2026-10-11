@@ -77,7 +77,11 @@ The printer is played through the fake Moonraker (`harness/devserver.py`), which
 1.5 / 0.3, chamber 0.5 / 0.1, ambient 25 °C) and reported like `notify_status_update`. `M109`, `M190`, `M191` and
 `TEMPERATURE_WAIT` wait for the temperature, `G1` with `E` takes as long as the extrusion, `M603` / `M604` (unload / load
 filament) run the macros of QIDI's configuration with their `M118` messages (`echo: Heat up complete`, `echo: Load finish`),
-`M106`/`M107`/`SET_FAN_SPEED` set the three fans and `SET_PIN` the LED and the beeper, and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
+`G0`/`G1` move the toolhead (absolute or relative with `G90`/`G91`, as long as the distance takes) and answer like Klipper when
+an axis is not homed (`!! Must home axis first: x y z [e]`, the rest of the script is dropped and a `G91` stays in force), when
+the target is out of range (`!! Move out of range`) or when extruding below 170 °C (`!! Extrude below minimum temp`); `G28`
+homes (X and Y to 125, Z to 10), `SET_KINEMATIC_POSITION` pretends the axes are homed, `M84` (motors off) forgets the homing,
+so the move page shows its "park all?" question after a power-up or after motors off; `M106`/`M107`/`SET_FAN_SPEED` set the three fans and `SET_PIN` the LED and the beeper, and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
 A load takes about 40 s (heating 25 → 250 °C) + 12 s.
 
 **Wi-Fi.** `harness/fakenm/nmcli` stands in for NetworkManager (state in `/tmp/fake_nm.json`). Three networks are in range and the

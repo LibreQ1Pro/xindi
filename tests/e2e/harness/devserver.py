@@ -78,6 +78,14 @@ MOVE_SPEED = 1.0        # execution speed of moves: 1.0 = as long as the real pr
 WAIT_LIMIT = 900.0
 
 
+class GcodeError(Exception):
+    """A command Klipper refuses: the message is answered as ``!! message`` and the rest of the script is dropped."""
+
+
+MIN_EXTRUDE_TEMP = 170.0
+HOME_POSITION = (125.0, 125.0, 10.0)        # where the axes stand after G28
+
+
 class Moonraker(harness.Moonraker):
     """The fake Moonraker of the tests plus the /emu/ control interface, heaters that really heat and a gcode
     queue: scripts run one after the other like in Klipper (waits for temperatures, moves take their time, M118
@@ -86,6 +94,7 @@ class Moonraker(harness.Moonraker):
     def __init__(self, fixture):
         harness.Moonraker.__init__(self, fixture)
         self.scripts = queue.Queue()
+        self.relative = False           # G91
 
     def _handle_rpc(self, req):
         if req.get("method") == "printer.gcode.script":
@@ -102,6 +111,9 @@ class Moonraker(harness.Moonraker):
             for line in script.splitlines():
                 try:
                     self.execute(line)
+                except GcodeError as e:
+                    self.push_gcode("!! " + str(e))
+                    break               # Klipper drops the rest of the script (a G91 stays in force)
                 except Exception:
                     import traceback
                     traceback.print_exc()
@@ -110,6 +122,63 @@ class Moonraker(harness.Moonraker):
 
     def set_target(self, name, target):
         self.push_status({HEATERS[name][0]: {"target": float(target)}})
+
+    # -- motion ----------------------------------------------------------------------------------------------
+    def position(self):
+        return list(self.state["toolhead"]["position"])
+
+    def homed(self):
+        return self.state["toolhead"].get("homed_axes", "")
+
+    def set_position(self, pos):
+        pos = [round(v, 3) for v in pos]
+        self.push_status({"toolhead": {"position": pos}, "gcode_move": {"position": pos, "gcode_position": pos}})
+
+    def set_homed(self, axes):
+        self.push_status({"toolhead": {"homed_axes": "".join(a for a in "xyz" if a in axes)}})
+
+    @staticmethod
+    def format_position(pos):
+        return "%.3f %.3f %.3f [%.3f]" % tuple(pos)
+
+    def move(self, params):
+        """G0 / G1: relative or absolute, checked like Klipper's cartesian kinematics."""
+        cur = self.position()
+        new = list(cur)
+        for i, axis in enumerate("XYZ"):
+            if axis in params:
+                value = float(params[axis])
+                new[i] = cur[i] + value if self.relative else value
+        homed = self.homed()
+        minimum = self.state["toolhead"]["axis_minimum"]
+        maximum = self.state["toolhead"]["axis_maximum"]
+        for i, axis in enumerate("xyz"):
+            if abs(new[i] - cur[i]) < 1e-9 and axis in homed:
+                continue
+            if new[i] == cur[i]:
+                continue
+            if axis not in homed:
+                raise GcodeError("Must home axis first: " + self.format_position(new))
+            if not minimum[i] <= new[i] <= maximum[i]:
+                raise GcodeError("Move out of range: " + self.format_position(new))
+        speed = float(params.get("F", 1500)) / 60.0
+        if "E" in params and float(params["E"]) != 0:
+            if self.state.get("extruder", {}).get("temperature", 0) < MIN_EXTRUDE_TEMP:
+                raise GcodeError("Extrude below minimum temp\nSee the 'min_extrude_temp' config option for details")
+            distance = abs(float(params["E"]))
+        else:
+            distance = sum((new[i] - cur[i]) ** 2 for i in range(3)) ** 0.5
+        time.sleep(min(distance / max(speed, 1.0) / MOVE_SPEED, 60) if distance else 0.05)
+        new[3] = cur[3]
+        self.set_position(new)
+
+    def home(self, axes):
+        pos = self.position()
+        for axis in axes:
+            pos["xyz".index(axis)] = HOME_POSITION["xyz".index(axis)]
+        time.sleep(2)
+        self.set_position(pos)
+        self.set_homed(self.homed() + axes)
 
     def set_fan(self, name, speed):
         obj = "fan_generic " + name
@@ -178,13 +247,23 @@ class Moonraker(harness.Moonraker):
         elif cmd == "G4":
             time.sleep(min(float(params.get("P", 0)) / 1000.0, 30))
         elif cmd in ("G0", "G1"):
-            if "E" in params and "F" in params and float(params["F"]) > 0:
-                time.sleep(min(abs(float(params["E"])) / float(params["F"]) * 60 / MOVE_SPEED, 60))
-            else:
-                time.sleep(0.3)
+            self.move(params)
+        elif cmd == "G90":
+            self.relative = False
+        elif cmd == "G91":
+            self.relative = True
         elif cmd == "G28":
-            time.sleep(2)
-            self.push_status({"toolhead": {"homed_axes": "xyz"}})
+            self.home("".join(a for a in "xyz" if a.upper() in params) or "xyz")
+        elif cmd == "SET_KINEMATIC_POSITION":       # pretends the axes are homed
+            pos = self.position()
+            for i, axis in enumerate("XYZ"):
+                if axis in params:
+                    pos[i] = float(params[axis])
+            self.set_position(pos)
+            self.set_homed(self.homed() + "".join(a.lower() for a in "XYZ" if a in params))
+        elif cmd in ("M84", "M18", "SET_STEPPER_ENABLE"):
+            if cmd != "SET_STEPPER_ENABLE" or params.get("ENABLE", "1") == "0":
+                self.set_homed("")                  # motors off: the printer forgets where it is
 
     def simulate_heaters(self):
         """Moves every temperature towards its target (or the ambient one) and reports the changes."""
