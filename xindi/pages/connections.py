@@ -147,7 +147,7 @@ def detail_clicked(widget_id):
         show_detail()
     elif widget_id == 4:
         navigation.page_to(ids.NET_CONFIRM)
-        _txt("msg", _lines(tr("forget"), '"' + _clip(item["ssid"], 22) + '"?',
+        _txt("msg", _lines(tr("forget"), "'" + _clip(item["ssid"], 22) + "'?",
                             tr("saved_password"), tr("will_be_deleted")))
     elif widget_id == 23:
         open_saved()

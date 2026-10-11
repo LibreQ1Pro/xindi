@@ -271,7 +271,7 @@
      "100"
     ],
     "msg.txt": [
-     "\"!! Unknown command:\"FOO\"\""
+     "\"!! Unknown command:'FOO'\""
     ]
    },
    "page": 65

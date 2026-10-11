@@ -98,8 +98,9 @@ class ScreenPort:
         self._send(s2b(instruction) + END)
 
     def txt(self, obj, txt):
-        """Change the text of a widget"""
-        self._send(s2b(obj + ".txt=" + "\"" + txt + "\"") + END)
+        """Change the text of a widget. The screen has no escape for a quote inside a string (the instruction is
+        rejected as "trailing tokens"), so a quote in the text becomes an apostrophe."""
+        self._send(s2b(obj + ".txt=" + "\"" + txt.replace("\"", "'") + "\"") + END)
 
     def pic(self, obj, pic):
         """Change the picture of a widget"""
