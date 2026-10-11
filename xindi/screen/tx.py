@@ -7,6 +7,7 @@ write(); errors are ignored.
 
 import logging
 import os
+import select
 import termios
 import time
 
@@ -22,6 +23,7 @@ END = b"\xff\xff\xff"
 # have changed on its own (a new page, anything the screen reports, i.e. a touch or a typed value) and every
 # FULL_REFRESH seconds, so that an instruction lost on the way is repeated soon.
 FULL_REFRESH = 5.0
+WRITE_TIMEOUT = 5.0         # s, how long one write waits for room in the buffer of the line
 
 # Python only: XINDI_TJC_LOG=1 prints every instruction sent to the screen
 # (debugging aid, off by default: the main loop sends hundreds per second)
@@ -59,10 +61,24 @@ class ScreenPort:
             pass
 
     def write(self, data):
-        try:
-            return os.write(self.fd, bytes(data))
-        except (OSError, ValueError):
-            return -1
+        """Writes all of ``data``: the port is non-blocking, so a write may take only a part of it (the buffer of the
+        line is full) or fail with EAGAIN; the rest is written when the line has room again."""
+        data = bytes(data)
+        sent = 0
+        deadline = time.monotonic() + WRITE_TIMEOUT
+        while sent < len(data):
+            try:
+                sent += os.write(self.fd, data[sent:])
+            except BlockingIOError:
+                if time.monotonic() > deadline:
+                    return -1
+                try:
+                    select.select([], [self.fd], [], 0.5)
+                except (OSError, ValueError):
+                    return -1
+            except (OSError, ValueError):
+                return -1
+        return sent
 
     def _send(self, cmd):
         if _TJC_LOG:
