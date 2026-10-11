@@ -3103,15 +3103,15 @@
       }
     },
     {
-      "key": "sys_ok_export_logs",
+      "key": "klipper_status_buttons",
       "source": {
-        "png": "pictures/sys_ok_export_logs.png"
+        "png": "pictures/klipper_status_buttons.png"
       }
     },
     {
-      "key": "sys_ok_export_logs_press",
+      "key": "klipper_status_buttons_press",
       "source": {
-        "png": "pictures/sys_ok_export_logs_press.png"
+        "png": "pictures/klipper_status_buttons_press.png"
       }
     },
     {
