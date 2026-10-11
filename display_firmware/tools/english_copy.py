@@ -120,7 +120,7 @@ COPY = {
     ("common_set", "lang_lbl"): "Language",
     ("common_set", "network_lbl"): "Network",
     ("common_set", "sysinfo_lbl"): "Klipper Status",
-    ("common_set", "sleep_lbl"): "Screen Sleep",
+    ("common_set", "sleep_lbl"): "Screen",
     ("common_set", "reset_lbl"): "Restore Factory Settings",
     ("detect_error", "msg"): "Error Message",
     ("filament", "tab_manual"): "Move",
@@ -222,7 +222,7 @@ COPY = {
     ("sleep_mode", "opt_15min_lbl"): "15 minutes",
     ("sleep_mode", "opt_30min_lbl"): "30 minutes",
     ("sleep_mode", "opt_never_lbl"): "Never",
-    ("sleep_mode", "title"): "Screen Sleep",
+    ("sleep_mode", "title"): "Screen",
     ("stop_confirm", "msg"): "Are you sure you want to do an emergency stop?",
     ("syntony_finish", "msg"): "Input shaping completed.",
     ("syntony_move", "msg"): "Input shaping in progress, please wait...",
@@ -278,7 +278,7 @@ COPY_RU = {
     ("common_set", "lang_lbl"): "Язык",
     ("common_set", "network_lbl"): "Сеть",
     ("common_set", "sysinfo_lbl"): "Статус Klipper",
-    ("common_set", "sleep_lbl"): "Отключение экрана",
+    ("common_set", "sleep_lbl"): "Экран",
     ("common_set", "reset_lbl"): "Сброс к заводским настройкам",
     ("filament", "tab_manual"): "Движение",
     ("filament", "tab_load"): FILAMENT_TABS_RU,
@@ -378,7 +378,7 @@ COPY_RU = {
     ("sleep_mode", "opt_15min_lbl"): "15 минут",
     ("sleep_mode", "opt_30min_lbl"): "30 минут",
     ("sleep_mode", "opt_never_lbl"): "Никогда",
-    ("sleep_mode", "title"): "Отключение экрана",
+    ("sleep_mode", "title"): "Экран",
     ("stop_confirm", "msg"): "Выполнить аварийную остановку?",
     ("syntony_finish", "msg"): "Input Shaping завершён.",
     ("syntony_move", "msg"): "Выполняется Input Shaping, подождите...",
@@ -415,8 +415,6 @@ def _short(page, comps, english, texts):
 _short("filament_kb", ("title",), "Chamber Temp", {9: "Temp. câmara"})
 _short("filament_pop_3", ("alt_btn",), "Retry", {9: "Repetir"})
 _short("internet", ("msg",), "No network detected.", {3: "ネットワーク未検出。"})
-_short("common_set", ("sleep_lbl",), "Screen Sleep", {5: "Bildschirm aus"})
-_short("sleep_mode", ("title",), "Screen Sleep", {5: "Bildschirm aus", 7: "Reposo de pantalla"})
 _short("server_set", ("title",), "Connection Settings", {5: "Verbindung"})
 _short("update_mode", ("msg_failed",), "Failed to get the online version information.",
        {5: "Online-Version konnte nicht abgerufen werden."})
