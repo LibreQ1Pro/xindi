@@ -23,6 +23,8 @@ def parse_cmd_msg_from_tjc_screen(cmd):
     log.info("0x%x", cmd[2])
     log.info("0x%x", cmd[3])
     event_id = g.screen.event_id
+    if event_id in (0x65, 0x70, 0x71, 0x86, 0x87, 0x88, 0x89):
+        g.port.forget()         # a touch, a typed value or a power-up: the screen may show something else now
     if event_id == 0x03:
         pass        # error while reading the screen firmware data, screen recovery mode
     elif event_id == 0x05:

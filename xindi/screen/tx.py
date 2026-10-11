@@ -17,6 +17,12 @@ log = logging.getLogger(__name__)
 
 END = b"\xff\xff\xff"
 
+# The refresh of the pages runs every 50 ms and sets the same values again and again. Only a change is sent: the
+# setters remember what the screen got last for each ``object.attribute``. The memory is dropped when the screen may
+# have changed on its own (a new page, anything the screen reports, i.e. a touch or a typed value) and every
+# FULL_REFRESH seconds, so that an instruction lost on the way is repeated soon.
+FULL_REFRESH = 5.0
+
 # Python only: XINDI_TJC_LOG=1 prints every instruction sent to the screen
 # (debugging aid, off by default: the main loop sends hundreds per second)
 _TJC_LOG = os.environ.get("XINDI_TJC_LOG") == "1"
@@ -28,6 +34,8 @@ class ScreenPort:
     def __init__(self, fd=-1):
         self.fd = fd
         self._logged = {}
+        self._sent = {}             # "object.attribute" -> the last instruction that set it
+        self._sent_since = time.monotonic()
 
     def open(self, path="/dev/ttyS1", baud=115200):
         """Open the port; returns False when it cannot be opened."""
@@ -67,19 +75,35 @@ class ScreenPort:
         self.drain()
         self.write(cmd)
 
+    def forget(self):
+        """The screen may differ from what was sent: the next setters are sent again."""
+        self._sent.clear()
+        self._sent_since = time.monotonic()
+
+    def _set(self, key, cmd):
+        """Sends a setter unless the screen already has exactly this."""
+        now = time.monotonic()
+        if now - self._sent_since > FULL_REFRESH:
+            self.forget()
+        if self._sent.get(key) == cmd:
+            return
+        self._sent[key] = cmd
+        self._send(cmd)
+
     # -- instructions ------------------------------------------------------------------------------------------
 
     def page(self, pageid):
         """Switch page"""
+        self.forget()
         self._send(s2b("page " + pageid) + END)
 
     def vis(self, obj, state):
         """Hide / show a widget"""
-        self._send(s2b("vis " + obj + "," + state) + END)
+        self._set("vis " + obj, s2b("vis " + obj + "," + state) + END)
 
     def tsw(self, obj, state):
         """Enable / disable touch for a widget"""
-        self._send(s2b("tsw " + obj + "," + state) + END)
+        self._set("tsw " + obj, s2b("tsw " + obj + "," + state) + END)
 
     def twfile(self, filepath, filesize):
         """Pass-through file transfer (X3/X5 only)"""
@@ -100,25 +124,25 @@ class ScreenPort:
     def txt(self, obj, txt):
         """Change the text of a widget. The screen has no escape for a quote inside a string (the instruction is
         rejected as "trailing tokens"), so a quote in the text becomes an apostrophe."""
-        self._send(s2b(obj + ".txt=" + "\"" + txt.replace("\"", "'") + "\"") + END)
+        self._set(obj + ".txt", s2b(obj + ".txt=" + "\"" + txt.replace("\"", "'") + "\"") + END)
 
     def pic(self, obj, pic):
         """Change the picture of a widget"""
-        self._send(s2b(obj + ".pic=" + pic) + END)
+        self._set(obj + ".pic", s2b(obj + ".pic=" + pic) + END)
 
     def picc(self, obj, picc):
-        self._send(s2b(obj + ".picc=" + picc) + END)
+        self._set(obj + ".picc", s2b(obj + ".picc=" + picc) + END)
 
     def picc2(self, obj, picc):
-        self._send(s2b(obj + ".picc2=" + picc) + END)
+        self._set(obj + ".picc2", s2b(obj + ".picc2=" + picc) + END)
 
     def val(self, obj, val):
         """Change the value of a variable"""
-        self._send(s2b(obj + ".val=" + val) + END)
+        self._set(obj + ".val", s2b(obj + ".val=" + val) + END)
 
     def pco(self, obj, poc):
         """Change the colour"""
-        self._send(s2b(obj + ".pco=" + poc) + END)
+        self._set(obj + ".pco", s2b(obj + ".pco=" + poc) + END)
 
     def cp_close(self, obj):
         self._send(s2b(obj + ".close()") + END)
