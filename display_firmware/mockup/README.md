@@ -30,3 +30,7 @@ with google-chrome (`./shot.sh home,files /tmp/a.png 2 1 1000 540`).
 The animations (unboxing, filament loading) are placeholders; the thumbnails are placeholders; the debug pop-up of the main page (wrong UI version) is not drawn.
 Where a state exists (heater on / off, option selected / not, button pressed) the "Components" section and the screens show one state; the others
 follow the same rules (selected = blue radio and raised row; pressed = darker; disabled = dim).
+
+## Checking the spacing
+
+`index.html?audit=1` measures the real DOM: the gaps between neighbouring blocks (buttons, cards, rows, keys) and the margins to the screen edge, for every screen. The rule is a gap of 8 and a margin of 12; `google-chrome --headless=new --dump-dom 'file:///.../index.html?audit=1'` prints the result as JSON in `<pre id=audit>`.

@@ -6,17 +6,17 @@ function seg(x,y,w,h,labels,active,names){
 function heatEdit(x,y,w,glyph,cur,tar,on,name){     // toggle + current / target
   return btn(x,y,50,50,'',{icon:'',css:'background:'+(on?'var(--danger-bg)':'var(--btn)')},name+'_toggle') +
     `<div style="${st(x+12,y+12,26,26)}color:${on?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
-    box(x+54,y,w-54,50,'card hi','',name+'_row') +
-    txt(x+66,y,w-70,50,`<b style="font-size:22px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},name+'_temp');
+    box(x+58,y,w-58,50,'card hi','',name+'_row') +
+    txt(x+70,y,w-74,50,`<b style="font-size:22px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},name+'_temp');
 }
 S('filament','Filament and movement','Filament',()=>{
   CUR='filament';
   let s = tabs('l','r','l',['tab_load','tab_manual']);
-  s += heatEdit(12,56,198,'nozzle',220,220,true,'nozzle')+heatEdit(12,112,198,'bed',60,60,true,'bed')+heatEdit(12,168,198,'chamber',35,0,false,'chamber');
-  s += btn(218,56,42,162,'',{icon:'fan',is:24},'fan_btn');
-  s += tb(12,232,120,46,'load_btn',{},'load_btn')+tb(140,232,120,46,'replace_btn',{wrap:1},'replace_btn');
-  s += seg(12,290,248,40,['10 mm','50 mm','100 mm'],1,['step_10','step_50','step_100']);
-  s += btn(12,342,120,64,'',{icon:'arrow-up',is:28},'extr_up')+btn(140,342,120,64,'',{icon:'arrow-down',is:28},'extr_down');
+  s += heatEdit(12,56,198,'nozzle',220,220,true,'nozzle')+heatEdit(12,114,198,'bed',60,60,true,'bed')+heatEdit(12,172,198,'chamber',35,0,false,'chamber');
+  s += btn(218,56,42,166,'',{icon:'fan',is:24},'fan_btn');
+  s += tb(12,230,120,46,'load_btn',{},'load_btn')+tb(140,230,120,46,'replace_btn',{wrap:1},'replace_btn');
+  s += seg(12,284,248,40,['10 mm','50 mm','100 mm'],1,['step_10','step_50','step_100']);
+  s += btn(12,332,120,64,'',{icon:'arrow-up',is:28},'extr_up')+btn(140,332,120,64,'',{icon:'arrow-down',is:28},'extr_down');
   s += nav('adjust');
   return screen('filament', s);
 }, 'The icon at the left of a heater is its switch (red = heating). The tall button opens the fans.');
@@ -24,7 +24,7 @@ S('filament','Filament and movement','Filament',()=>{
 S('fans','Filament and movement','Fans',()=>{
   CUR='fila_set_fan';
   let s = header('') ;
-  [[56,'fan1_name',0,false],[170,'fan2_name',60,true],[284,'fan3_name',100,true]].forEach((f,i)=>{
+  [[56,'fan1_name',0,false],[172,'fan2_name',60,true],[288,'fan3_name',100,true]].forEach((f,i)=>{
     const [y,key,val,on]=f; const n=i+1;
     s += card(12,y,248,108,'');
     s += tt(24,y+4,224,38,key,{css:'font-size:15px;line-height:1.15;font-weight:500'},key);
@@ -45,12 +45,12 @@ S('move','Filament and movement','Move',()=>{
   s += card(12,56,248,44,'');
   ['X','Y','Z'].forEach((a,i)=>{ s += txt(24+80*i,56,16,44,'<span style="color:var(--text2);font-weight:600">'+a+'</span>',{num:1}) + txt(42+80*i,56,52,44,'0.00',{num:1},a.toLowerCase()+'_pos'); });
   s += seg(12,108,248,40,['0.1 mm','1 mm','10 mm'],1,['dist_01','dist_1','dist_10']);
-  // control: a pad 184 x 184 with 52-pixel keys on a 58-pixel pitch, the Z keys at its right
-  s += `<div style="${st(12,160,184,184)}background:var(--panel);border-radius:92px"></div>`;
-  s += btn(78,168,52,52,'',{icon:'chevron-up',is:28},'y_up')+btn(20,226,52,52,'',{icon:'chevron-left',is:28},'x_down')+btn(136,226,52,52,'',{icon:'chevron-right',is:28},'x_up')+btn(78,284,52,52,'',{icon:'chevron-down',is:28},'y_down');
-  s += btn(78,226,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
-  s += btn(204,160,56,88,'',{icon:'chevrons-up',is:28},'z_up')+btn(204,256,56,88,'',{icon:'chevrons-down',is:28},'z_down');
-  s += btn(12,356,248,44,'',{icon:'power',is:22,v:'dim'},'motors_off');
+  // control: a pad 188 x 188 with 52-pixel keys 8 apart and 8 from the edge, the Z keys at its right (8 away)
+  s += `<div style="${st(12,156,188,188)}background:var(--panel);border-radius:94px"></div>`;
+  s += btn(80,164,52,52,'',{icon:'chevron-up',is:28},'y_up')+btn(20,224,52,52,'',{icon:'chevron-left',is:28},'x_down')+btn(140,224,52,52,'',{icon:'chevron-right',is:28},'x_up')+btn(80,284,52,52,'',{icon:'chevron-down',is:28},'y_down');
+  s += btn(80,224,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
+  s += btn(208,156,52,90,'',{icon:'chevrons-up',is:28},'z_up')+btn(208,254,52,90,'',{icon:'chevrons-down',is:28},'z_down');
+  s += btn(12,352,248,44,'',{icon:'power',is:22,v:'dim'},'motors_off');
   s += nav('adjust');
   return screen('move', s);
 });
@@ -58,12 +58,12 @@ S('move','Filament and movement','Move',()=>{
 S('keypad','Filament and movement','Number keyboard',()=>{
   CUR='filament_kb';
   let s = header(T('title@sys1=0','filament_kb'));
-  s += card(12,60,248,72,'background:#111114');
-  s += txt(24,64,160,44,'<span style="font-size:32px;font-weight:600">220</span><span style="font-size:18px;color:var(--text2)"> °C</span>',{a:'r',num:1},'input_show');
-  s += txt(24,106,224,22,'MAX : 350',{sz:'s',mute:1,num:1},null);
+  s += card(12,56,248,72,'background:#111114');
+  s += txt(24,60,160,44,'<span style="font-size:32px;font-weight:600">220</span><span style="font-size:18px;color:var(--text2)"> °C</span>',{a:'r',num:1},'input_show');
+  s += txt(24,102,224,22,'MAX : 350',{sz:'s',mute:1,num:1},null);
   ['1','2','3','4','5','6','7','8','9','del','0','ok'].forEach((k,i)=>{
     const c=i%3,r=Math.floor(i/3); const fn=(k==='del'||k==='ok');
-    s += `<div class="key${fn&&k==='del'?' fn':''}"${nm('key_'+k)} style="${st(12+86*c,146+66*r,76,58)};font-size:26px${k==='ok'?';background:var(--accent)':''}">${k==='del'?ico('delete',24):k==='ok'?ico('check',28,'#fff',2.5):k}</div>`;
+    s += `<div class="key${fn&&k==='del'?' fn':''}"${nm('key_'+k)} style="${st([12,97,183][c],136+66*r,[77,78,77][c],58)};font-size:26px${k==='ok'?';background:var(--accent)':''}">${k==='del'?ico('delete',24):k==='ok'?ico('check',28,'#fff',2.5):k}</div>`;
   });
   s += nav('adjust');
   return screen('filament_kb', s);
@@ -75,7 +75,7 @@ S('level','Calibration','Calibration menu',()=>{
   let s = tabs('l','r','l',['tab_calib','tab_settings']);
   s += `<div style="${st(12,58,248,148)}border:1.5px dashed #4a4a54;border-radius:14px"></div>`;
   s += tt(24,62,224,140,'msg',{a:'c',mute:1},'msg');
-  s += row(12,218,248,50,T('auto_level'),{chev:1},'auto_level')+row(12,274,248,50,T('shaping'),{chev:1},'shaping')+row(12,330,248,50,T('bed_calib'),{chev:1},'bed_calib');
+  s += row(12,214,248,50,T('auto_level'),{chev:1},'auto_level')+row(12,272,248,50,T('shaping'),{chev:1},'shaping')+row(12,330,248,50,T('bed_calib'),{chev:1},'bed_calib');
   s += nav('settings');
   return screen('level_mode', s);
 });
@@ -102,18 +102,18 @@ S('auto_moving','Calibration','Auto leveling in progress',()=>{
 S('auto_heaterbed','Calibration','Preheat the bed',()=>{
   CUR='auto_heaterbed';
   let s = header('');
-  s += heatEdit(12,60,248,'bed',120,120,true,'heat');
-  s += btn(12,120,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,120,120,46,'',{icon:'plus',is:26},'temp_up');
-  s += tt(16,184,240,230,'msg',{a:'c',mute:1},'msg');
+  s += heatEdit(12,56,248,'bed',120,120,true,'heat');
+  s += btn(12,114,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,114,120,46,'',{icon:'plus',is:26},'temp_up');
+  s += tt(16,176,240,230,'msg',{a:'c',mute:1},'msg');
   s += btn(12,420,248,46,'',{icon:'chevron-right',is:28,v:'primary'},'next_btn');
   return screen('auto_heaterbed', s);
 });
 S('pre_bed_cal','Calibration','Adjust the reference point',()=>{
   CUR='pre_bed_cal';
   let s = box(12,12,248,70,'anim','platform illustration');
-  ['0.01','0.05','0.1','0.5'].forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+66*i,94,60,46)}">${v}</div>`; });
-  s += btn(12,148,120,46,'',{icon:'chevron-up',is:26},'z_up')+btn(140,148,120,46,'',{icon:'chevron-down',is:26},'z_down');
-  s += tt(12,200,248,46,'title',{a:'c',acc:1,sz:'l',css:'font-size:17px;line-height:1.15'},'title')+tt(16,252,240,160,'msg',{a:'c',mute:1},'msg');
+  ['0.01','0.05','0.1','0.5'].forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+64*i,90,56,46)}">${v}</div>`; });
+  s += btn(12,144,120,46,'',{icon:'chevron-up',is:26},'z_up')+btn(140,144,120,46,'',{icon:'chevron-down',is:26},'z_down');
+  s += tt(12,198,248,46,'title',{a:'c',acc:1,sz:'l',css:'font-size:17px;line-height:1.15'},'title')+tt(16,252,240,160,'msg',{a:'c',mute:1},'msg');
   s += btn(12,420,248,46,'',{icon:'chevron-right',is:28,v:'primary'},'enter_btn');
   return screen('pre_bed_cal', s);
 });
@@ -127,7 +127,7 @@ S('bed_calibrate','Calibration','Nut adjusting',()=>{
 S('bed_finish','Calibration','Choose a nut',()=>{
   CUR='bed_finish';
   let s = box(12,12,248,150,'anim','platform with three nuts');
-  s += btn(86,24,100,40,'Nut 3',{},'screw3')+btn(26,100,100,40,'Nut 1',{},'screw1')+btn(146,100,100,40,'Nut 2',{},'screw2');
+  s += btn(86,24,100,40,'Nut 3',{},'screw3')+btn(32,100,100,40,'Nut 1',{},'screw1')+btn(140,100,100,40,'Nut 2',{},'screw2');
   s += tt(16,176,240,230,'msg',{a:'c',mute:1},'msg');
   s += tb(12,420,248,46,'ok',{v:'primary'},'ok');
   return screen('bed_finish', s);

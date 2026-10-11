@@ -228,16 +228,16 @@ S('home','Home and files','Home',()=>{
   CUR='main';
   let s = '';
   s += `<div style="${st(204,10,22,22)}color:var(--text2)">${ico('usb',20)}</div><div style="${st(232,10,22,22)}color:var(--text2)">${ico('wifi',20)}</div>`;
-  s += box(12,38,248,202,'card hi','','last_file_btn');
+  s += box(12,38,248,198,'card hi','','last_file_btn');
   s += thumb(66,48,140,140,'last_file_pic');
   s += `<div style="${st(26,48,26,26)}background:#1b1b20;border-radius:13px;opacity:.9"></div><div style="${st(30,52,18,18)}color:#ddd">${ico('clock',18)}</div>`;
-  s += txt(24,194,224,40,'Benchy_PLA_0.2mm.gcode',{a:'c',sz:'m',css:'line-height:1.2'},'last_file_name');
-  s += heaterTile(12,248,166,52,'nozzle','220',true,'nozzle_btn');
-  s += heaterTile(12,306,166,52,'bed','60',true,'bed_btn');
-  s += heaterTile(12,364,166,52,'chamber','35',false,'chamber_btn');
-  s += iconTile(186,248,74,52,'lightbulb',true,'light_btn');
-  s += iconTile(186,306,74,52,'volume-2',false,'beep_btn');
-  s += iconTile(186,364,74,52,'octagon-x',false,'stop_btn',{v:'danger'});
+  s += txt(24,190,224,40,'Benchy_PLA_0.2mm.gcode',{a:'c',sz:'m',css:'line-height:1.2'},'last_file_name');
+  s += heaterTile(12,244,168,52,'nozzle','220',true,'nozzle_btn');
+  s += heaterTile(12,304,168,52,'bed','60',true,'bed_btn');
+  s += heaterTile(12,364,168,52,'chamber','35',false,'chamber_btn');
+  s += iconTile(188,244,72,52,'lightbulb',true,'light_btn');
+  s += iconTile(188,304,72,52,'volume-2',false,'beep_btn');
+  s += iconTile(188,364,72,52,'octagon-x',false,'stop_btn',{v:'danger'});
   s += nav('main');
   return screen('main', s);
 }, 'Heaters are cards, the three switches are tiles: blue means on. Red value = the heater is on.');
@@ -252,9 +252,9 @@ S('files','Home and files','File list',()=>{
     if(kind==='dir') s += `<div style="${st(x+22,y+14,76,76)}color:#8d8d9b">${ico('folder',64,null,1.5)}</div>`;
     else s += thumb(x+4,y+4,112,112,'file'+(i+1)+'_pic');
     if(last && kind==='file') s += `<div style="${st(x+10,y+10,24,24)}background:#1b1b20;border-radius:12px"></div><div style="${st(x+13,y+13,18,18)}color:#ddd">${ico('clock',18)}</div>`;
-    s += txt(x+6,y+116,108,32,name,{a:'c',sz:'s',css:'color:var(--text);line-height:1.15;font-size:13px'},'file'+(i+1)+'_name');
+    s += txt(x+6,y+116,108,32,name,{a:'c',sz:'s',css:'color:var(--text);line-height:1.15;font-size:13px;word-break:break-all'},'file'+(i+1)+'_name');
   });
-  s += btn(12,372,76,40,'',{icon:'chevron-left',is:24,v:'dim'},'prev')+btn(98,372,76,40,'',{icon:'chevron-right',is:24},'next')+btn(184,372,76,40,'',{icon:'undo-2',is:22},'up_dir');
+  s += btn(12,372,77,40,'',{icon:'chevron-left',is:24,v:'dim'},'prev')+btn(97,372,78,40,'',{icon:'chevron-right',is:24},'next')+btn(183,372,77,40,'',{icon:'undo-2',is:22},'up_dir');
   s += nav('files');
   return screen('filelist', s);
 });
@@ -263,10 +263,10 @@ S('preview','Home and files','File preview',()=>{
   CUR='preview';
   let s = thumb(12,12,152,152,'preview_pic');
   s += btn(172,12,88,72,'',{icon:'undo-2',is:30},'back_btn') + btn(172,92,88,72,'',{icon:'play',is:32,v:'primary'},'start_btn');
-  s += card(12,176,248,96,'');
+  s += card(12,172,248,96,'');
   const cell=(x,y,glyph,val,name)=>`<div style="${st(x,y+6,24,24)}color:var(--text2)">${ico(glyph,22)}</div>`+txt(x+34,y,92,36,val,{num:1},name);
-  s += cell(26,184,'clock','03h05m','est_time')+cell(146,184,'ruler','7.9 m','fil_length')+cell(26,228,'spool','PLA','fil_type')+cell(146,228,'weight','24 g','fil_weight');
-  s += row(12,284,248,46,T('level_lbl'),{sw:true},'level_btn') + row(12,336,248,46,T('timelapse_lbl'),{sw:false},'timelapse_btn');
+  s += cell(26,180,'clock','03h05m','est_time')+cell(146,180,'ruler','7.9 m','fil_length')+cell(26,224,'spool','PLA','fil_type')+cell(146,224,'weight','24 g','fil_weight');
+  s += row(12,276,248,46,T('level_lbl'),{sw:true},'level_btn') + row(12,330,248,46,T('timelapse_lbl'),{sw:false},'timelapse_btn');
   s += nav('files');
   return screen('preview', s);
 });
@@ -275,7 +275,7 @@ S('preview','Home and files','File preview',()=>{
 function printTop(page, paused){
   CUR=page;
   let s = thumb(12,12,132,132,'thumb');
-  s += btn(156,12,104,62,'',{icon:paused?'play':'pause',is:30},'pause_btn') + btn(156,82,104,62,'',{icon:'square',is:26,v:'danger'},'stop_btn');
+  s += btn(152,12,108,62,'',{icon:paused?'play':'pause',is:30},'pause_btn') + btn(152,82,108,62,'',{icon:'square',is:26,v:'danger'},'stop_btn');
   s += txt(12,150,248,26,'Benchy_PLA_0.2mm.gcode',{a:'c'},'file_name');
   s += txt(12,178,80,22,'0h10m',{sz:'s',num:1},'time_elapsed') + txt(96,174,80,28,'<b style="font-size:20px">35</b><span style="font-size:13px;color:var(--text2)"> %</span>',{a:'c',num:1},'progress_pct') + txt(180,178,80,22,'0h18m',{a:'r',sz:'s',num:1},'time_left');
   s += progress(12,206,248,8,35,'progress');
@@ -288,22 +288,22 @@ function heatRow(x,y,w,glyph,cur,tar,on,name){
 function fanTile(x,y,w,h,i,val,name){
   return box(x,y,w,h,'card hi','',name) + `<div style="${st(x+10,y+13,24,24)}color:var(--text2)">${ico('fan',22)}</div>` +
     `<div style="${st(x+30,y+30,14,14)}font-size:11px;color:var(--text3)">${i}</div>` +
-    txt(x+34,y,w-40,h,`<b style="font-size:20px">${val}</b><span style="font-size:13px;color:var(--text2)"> %</span>`,{a:'r',num:1},name+'_val');
+    txt(x+36,y,w-44,h,`<b style="font-size:19px">${val}</b><span style="font-size:12px;color:var(--text2)">%</span>`,{a:'r',num:1},name+'_val');
 }
 S('printing','Printing','Printing',()=>{
   let s = printTop('printing');
-  s += heatRow(12,226,164,'nozzle',220,220,true,'nozzle_btn')+heatRow(12,282,164,'bed',60,60,true,'bed_btn')+heatRow(12,338,164,'chamber',35,0,false,'chamber_btn');
-  s += fanTile(184,226,76,50,1,100,'fan1_btn')+fanTile(184,282,76,50,2,0,'fan2_btn')+fanTile(184,338,76,50,3,60,'fan3_btn');
-  s += btn(12,402,124,52,'',{icon:'layers',is:24},'speed_btn')+btn(144,402,116,52,'',{icon:'octagon-x',is:24,v:'danger'},'flow_btn');
+  s += heatRow(12,222,160,'nozzle',220,220,true,'nozzle_btn')+heatRow(12,280,160,'bed',60,60,true,'bed_btn')+heatRow(12,338,160,'chamber',35,0,false,'chamber_btn');
+  s += fanTile(180,222,80,50,1,100,'fan1_btn')+fanTile(180,280,80,50,2,0,'fan2_btn')+fanTile(180,338,80,50,3,60,'fan3_btn');
+  s += btn(12,396,120,52,'',{icon:'layers',is:24},'speed_btn')+btn(140,396,120,52,'',{icon:'octagon-x',is:24,v:'danger'},'flow_btn');
   return screen('printing', s);
 }, 'Pause / stop are large tiles next to the thumbnail; the lower half is the heaters and fans; the two buttons at the bottom open page 2 and stop the machine.');
 
 S('printing2','Printing','Printing 2',()=>{
   let s = printTop('printing_2');
-  const tool = (x,y,glyph,val,unit,name)=> box(x,y,76,92,'card hi','',name)+`<div style="${st(x+26,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+txt(x,y+46,76,40,`<b style="font-size:20px">${val}</b><span style="font-size:13px;color:var(--text2)"> ${unit}</span>`,{a:'c',num:1},name+'_val');
-  s += tool(12,226,'arrow-up-down','-1.000','mm','zoffset_btn')+tool(98,226,'gauge','100','%','speed_btn')+tool(184,226,'droplet','100','%','flow_btn');
-  s += box(12,326,76,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:10px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
-  s += btn(184,326,76,92,'',{icon:'undo-2',is:28},'back_btn');
+  const tool = (x,y,glyph,val,unit,name,w)=> box(x,y,w,92,'card hi','',name)+`<div style="${st(x+(w-24)/2,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+txt(x,y+46,w,40,`<b style="font-size:20px">${val}</b><span style="font-size:13px;color:var(--text2)"> ${unit}</span>`,{a:'c',num:1},name+'_val');
+  s += tool(12,222,'arrow-up-down','-1.000','mm','zoffset_btn',77)+tool(97,222,'gauge','100','%','speed_btn',78)+tool(183,222,'droplet','100','%','flow_btn',77);
+  s += box(12,322,77,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:10px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
+  s += btn(183,322,77,92,'',{icon:'undo-2',is:28},'back_btn');
   return screen('printing_2', s);
 });
 
@@ -313,35 +313,34 @@ function sheet(page, title, y, body){
 }
 S('print_kb','Printing','Number keyboard (print)',()=>{
   let s = printTop('keybdB');
-  s += rect(0,224,272,256,'#1d1d21',0)+rect(0,224,272,1,'var(--line)');
-  s += btn(8,230,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(52,230,200,40,T('title@sys0=0'),{sz:'l'},'title');
-  s += card(12,276,248,44,'background:#111114') + txt(20,276,232,44,'<span style="font-size:22px;font-weight:600">220</span>',{a:'r',num:1},'input_show');
+  s += rect(0,222,272,258,'#1d1d21',0)+rect(0,222,272,1,'var(--line)');
+  s += btn(8,226,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(52,226,200,40,T('title@sys0=0'),{sz:'l'},'title');
+  s += card(12,274,248,40,'background:#111114') + txt(20,274,232,40,'<span style="font-size:22px;font-weight:600">220</span>',{a:'r',num:1},'input_show');
   ['1','2','3','4','5','6','7','8','9','⌫','0','✓'].forEach((k,i)=>{
     const x=12+62*(i%4)*0, c=i%3, r=Math.floor(i/3);
-    const kx = 12+84*c, ky=330+34*r*0+ 0;
-    s += `<div class="key${(k==='⌫'||k==='✓')?' fn':''}"${nm('key_'+(k==='⌫'?'del':k==='✓'?'ok':k))} style="${st(12+84*c,328+36*r,80,32,k==='✓'?'background:var(--accent)':'')}">${k==='⌫'?ico('delete',20):k==='✓'?ico('check',22,'#fff',2.5):k}</div>`;
+    s += `<div class="key${(k==='⌫'||k==='✓')?' fn':''}"${nm('key_'+(k==='⌫'?'del':k==='✓'?'ok':k))} style="${st([12,97,183][c],322+38*r,[77,78,77][c],30,k==='✓'?'background:var(--accent)':'')}">${k==='⌫'?ico('delete',20):k==='✓'?ico('check',22,'#fff',2.5):k}</div>`;
   });
   return screen('keybdB', s);
 }, 'On the print page the keyboard takes the lower half (the status stays visible).');
 
 S('babystep','Printing','Z offset while printing',()=>{
   let s = printTop('print_zoffset');
-  s += rect(0,224,272,256,'#1d1d21')+rect(0,224,272,1,'var(--line)');
-  s += btn(8,230,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(52,230,200,40,T('title'),{sz:'l'},'title');
+  s += rect(0,222,272,258,'#1d1d21')+rect(0,222,272,1,'var(--line)');
+  s += btn(8,226,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(52,226,200,40,T('title'),{sz:'l'},'title');
   const steps=['0.01','0.05','0.1','0.5'];
-  steps.forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+62*i,278,58,40)}">${v}</div>`; });
-  s += btn(12,326,120,52,'',{icon:'chevron-up',is:26},'z_up')+btn(140,326,120,52,'',{icon:'chevron-down',is:26},'z_down');
-  s += txt(12,390,120,40,'<span style="font-size:13px;color:var(--text2)">G-code Z</span><br><b>0.200</b>',{a:'c',num:1},'gcode_z')+txt(140,390,120,40,'<span style="font-size:13px;color:var(--text2)">Offset</span><br><b>-1.000</b>',{a:'c',num:1},'z_offset');
+  steps.forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+64*i,274,56,40)}">${v}</div>`; });
+  s += btn(12,322,120,52,'',{icon:'chevron-up',is:26},'z_up')+btn(140,322,120,52,'',{icon:'chevron-down',is:26},'z_down');
+  s += txt(12,386,120,40,'<span style="font-size:13px;color:var(--text2)">G-code Z</span><br><b>0.200</b>',{a:'c',num:1},'gcode_z')+txt(140,386,120,40,'<span style="font-size:13px;color:var(--text2)">Offset</span><br><b>-1.000</b>',{a:'c',num:1},'z_offset');
   return screen('print_zoffset', s);
 });
 
 S('print_filament','Printing','Filament while printing',()=>{
   let s = printTop('print_filament');
-  s += rect(0,224,272,256,'#1d1d21')+rect(0,224,272,1,'var(--line)');
-  s += txt(12,230,248,36,T('title'),{sz:'l'},'title');
-  s += heatRow(12,270,248,'nozzle',220,220,true,'heat_btn');
-  s += btn(12,328,120,44,'',{icon:'minus',is:26},'temp_down')+btn(140,328,120,44,'',{icon:'plus',is:26},'temp_up');
-  s += btn(12,384,56,52,'',{icon:'arrow-up',is:24},'retract_btn')+btn(76,384,56,52,'',{icon:'arrow-down',is:24},'extrude_btn')+tb(140,384,120,52,'replace_btn',{wrap:1},'replace_btn');
+  s += rect(0,222,272,258,'#1d1d21')+rect(0,222,272,1,'var(--line)');
+  s += txt(12,226,248,36,T('title'),{sz:'l'},'title');
+  s += heatRow(12,266,248,'nozzle',220,220,true,'heat_btn');
+  s += btn(12,324,120,44,'',{icon:'minus',is:26},'temp_down')+btn(140,324,120,44,'',{icon:'plus',is:26},'temp_up');
+  s += btn(12,376,56,52,'',{icon:'arrow-up',is:24},'retract_btn')+btn(76,376,56,52,'',{icon:'arrow-down',is:24},'extrude_btn')+tb(140,376,120,52,'replace_btn',{wrap:1},'replace_btn');
   return screen('print_filament', s);
 });
 
@@ -353,17 +352,17 @@ function seg(x,y,w,h,labels,active,names){
 function heatEdit(x,y,w,glyph,cur,tar,on,name){     // toggle + current / target
   return btn(x,y,50,50,'',{icon:'',css:'background:'+(on?'var(--danger-bg)':'var(--btn)')},name+'_toggle') +
     `<div style="${st(x+12,y+12,26,26)}color:${on?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
-    box(x+54,y,w-54,50,'card hi','',name+'_row') +
-    txt(x+66,y,w-70,50,`<b style="font-size:22px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},name+'_temp');
+    box(x+58,y,w-58,50,'card hi','',name+'_row') +
+    txt(x+70,y,w-74,50,`<b style="font-size:22px;font-weight:600;color:${on?HOT:'var(--text)'}">${cur}</b><span style="font-size:16px;color:var(--text3)"> / ${tar}</span><span style="font-size:13px;color:var(--text2)"> °C</span>`,{num:1},name+'_temp');
 }
 S('filament','Filament and movement','Filament',()=>{
   CUR='filament';
   let s = tabs('l','r','l',['tab_load','tab_manual']);
-  s += heatEdit(12,56,198,'nozzle',220,220,true,'nozzle')+heatEdit(12,112,198,'bed',60,60,true,'bed')+heatEdit(12,168,198,'chamber',35,0,false,'chamber');
-  s += btn(218,56,42,162,'',{icon:'fan',is:24},'fan_btn');
-  s += tb(12,232,120,46,'load_btn',{},'load_btn')+tb(140,232,120,46,'replace_btn',{wrap:1},'replace_btn');
-  s += seg(12,290,248,40,['10 mm','50 mm','100 mm'],1,['step_10','step_50','step_100']);
-  s += btn(12,342,120,64,'',{icon:'arrow-up',is:28},'extr_up')+btn(140,342,120,64,'',{icon:'arrow-down',is:28},'extr_down');
+  s += heatEdit(12,56,198,'nozzle',220,220,true,'nozzle')+heatEdit(12,114,198,'bed',60,60,true,'bed')+heatEdit(12,172,198,'chamber',35,0,false,'chamber');
+  s += btn(218,56,42,166,'',{icon:'fan',is:24},'fan_btn');
+  s += tb(12,230,120,46,'load_btn',{},'load_btn')+tb(140,230,120,46,'replace_btn',{wrap:1},'replace_btn');
+  s += seg(12,284,248,40,['10 mm','50 mm','100 mm'],1,['step_10','step_50','step_100']);
+  s += btn(12,332,120,64,'',{icon:'arrow-up',is:28},'extr_up')+btn(140,332,120,64,'',{icon:'arrow-down',is:28},'extr_down');
   s += nav('adjust');
   return screen('filament', s);
 }, 'The icon at the left of a heater is its switch (red = heating). The tall button opens the fans.');
@@ -371,7 +370,7 @@ S('filament','Filament and movement','Filament',()=>{
 S('fans','Filament and movement','Fans',()=>{
   CUR='fila_set_fan';
   let s = header('') ;
-  [[56,'fan1_name',0,false],[170,'fan2_name',60,true],[284,'fan3_name',100,true]].forEach((f,i)=>{
+  [[56,'fan1_name',0,false],[172,'fan2_name',60,true],[288,'fan3_name',100,true]].forEach((f,i)=>{
     const [y,key,val,on]=f; const n=i+1;
     s += card(12,y,248,108,'');
     s += tt(24,y+4,224,38,key,{css:'font-size:15px;line-height:1.15;font-weight:500'},key);
@@ -392,12 +391,12 @@ S('move','Filament and movement','Move',()=>{
   s += card(12,56,248,44,'');
   ['X','Y','Z'].forEach((a,i)=>{ s += txt(24+80*i,56,16,44,'<span style="color:var(--text2);font-weight:600">'+a+'</span>',{num:1}) + txt(42+80*i,56,52,44,'0.00',{num:1},a.toLowerCase()+'_pos'); });
   s += seg(12,108,248,40,['0.1 mm','1 mm','10 mm'],1,['dist_01','dist_1','dist_10']);
-  // control: a pad 184 x 184 with 52-pixel keys on a 58-pixel pitch, the Z keys at its right
-  s += `<div style="${st(12,160,184,184)}background:var(--panel);border-radius:92px"></div>`;
-  s += btn(78,168,52,52,'',{icon:'chevron-up',is:28},'y_up')+btn(20,226,52,52,'',{icon:'chevron-left',is:28},'x_down')+btn(136,226,52,52,'',{icon:'chevron-right',is:28},'x_up')+btn(78,284,52,52,'',{icon:'chevron-down',is:28},'y_down');
-  s += btn(78,226,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
-  s += btn(204,160,56,88,'',{icon:'chevrons-up',is:28},'z_up')+btn(204,256,56,88,'',{icon:'chevrons-down',is:28},'z_down');
-  s += btn(12,356,248,44,'',{icon:'power',is:22,v:'dim'},'motors_off');
+  // control: a pad 188 x 188 with 52-pixel keys 8 apart and 8 from the edge, the Z keys at its right (8 away)
+  s += `<div style="${st(12,156,188,188)}background:var(--panel);border-radius:94px"></div>`;
+  s += btn(80,164,52,52,'',{icon:'chevron-up',is:28},'y_up')+btn(20,224,52,52,'',{icon:'chevron-left',is:28},'x_down')+btn(140,224,52,52,'',{icon:'chevron-right',is:28},'x_up')+btn(80,284,52,52,'',{icon:'chevron-down',is:28},'y_down');
+  s += btn(80,224,52,52,'',{icon:'house',is:24,css:'border-radius:26px;background:var(--btn-hi)'},'home_btn');
+  s += btn(208,156,52,90,'',{icon:'chevrons-up',is:28},'z_up')+btn(208,254,52,90,'',{icon:'chevrons-down',is:28},'z_down');
+  s += btn(12,352,248,44,'',{icon:'power',is:22,v:'dim'},'motors_off');
   s += nav('adjust');
   return screen('move', s);
 });
@@ -405,12 +404,12 @@ S('move','Filament and movement','Move',()=>{
 S('keypad','Filament and movement','Number keyboard',()=>{
   CUR='filament_kb';
   let s = header(T('title@sys1=0','filament_kb'));
-  s += card(12,60,248,72,'background:#111114');
-  s += txt(24,64,160,44,'<span style="font-size:32px;font-weight:600">220</span><span style="font-size:18px;color:var(--text2)"> °C</span>',{a:'r',num:1},'input_show');
-  s += txt(24,106,224,22,'MAX : 350',{sz:'s',mute:1,num:1},null);
+  s += card(12,56,248,72,'background:#111114');
+  s += txt(24,60,160,44,'<span style="font-size:32px;font-weight:600">220</span><span style="font-size:18px;color:var(--text2)"> °C</span>',{a:'r',num:1},'input_show');
+  s += txt(24,102,224,22,'MAX : 350',{sz:'s',mute:1,num:1},null);
   ['1','2','3','4','5','6','7','8','9','del','0','ok'].forEach((k,i)=>{
     const c=i%3,r=Math.floor(i/3); const fn=(k==='del'||k==='ok');
-    s += `<div class="key${fn&&k==='del'?' fn':''}"${nm('key_'+k)} style="${st(12+86*c,146+66*r,76,58)};font-size:26px${k==='ok'?';background:var(--accent)':''}">${k==='del'?ico('delete',24):k==='ok'?ico('check',28,'#fff',2.5):k}</div>`;
+    s += `<div class="key${fn&&k==='del'?' fn':''}"${nm('key_'+k)} style="${st([12,97,183][c],136+66*r,[77,78,77][c],58)};font-size:26px${k==='ok'?';background:var(--accent)':''}">${k==='del'?ico('delete',24):k==='ok'?ico('check',28,'#fff',2.5):k}</div>`;
   });
   s += nav('adjust');
   return screen('filament_kb', s);
@@ -422,7 +421,7 @@ S('level','Calibration','Calibration menu',()=>{
   let s = tabs('l','r','l',['tab_calib','tab_settings']);
   s += `<div style="${st(12,58,248,148)}border:1.5px dashed #4a4a54;border-radius:14px"></div>`;
   s += tt(24,62,224,140,'msg',{a:'c',mute:1},'msg');
-  s += row(12,218,248,50,T('auto_level'),{chev:1},'auto_level')+row(12,274,248,50,T('shaping'),{chev:1},'shaping')+row(12,330,248,50,T('bed_calib'),{chev:1},'bed_calib');
+  s += row(12,214,248,50,T('auto_level'),{chev:1},'auto_level')+row(12,272,248,50,T('shaping'),{chev:1},'shaping')+row(12,330,248,50,T('bed_calib'),{chev:1},'bed_calib');
   s += nav('settings');
   return screen('level_mode', s);
 });
@@ -449,18 +448,18 @@ S('auto_moving','Calibration','Auto leveling in progress',()=>{
 S('auto_heaterbed','Calibration','Preheat the bed',()=>{
   CUR='auto_heaterbed';
   let s = header('');
-  s += heatEdit(12,60,248,'bed',120,120,true,'heat');
-  s += btn(12,120,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,120,120,46,'',{icon:'plus',is:26},'temp_up');
-  s += tt(16,184,240,230,'msg',{a:'c',mute:1},'msg');
+  s += heatEdit(12,56,248,'bed',120,120,true,'heat');
+  s += btn(12,114,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,114,120,46,'',{icon:'plus',is:26},'temp_up');
+  s += tt(16,176,240,230,'msg',{a:'c',mute:1},'msg');
   s += btn(12,420,248,46,'',{icon:'chevron-right',is:28,v:'primary'},'next_btn');
   return screen('auto_heaterbed', s);
 });
 S('pre_bed_cal','Calibration','Adjust the reference point',()=>{
   CUR='pre_bed_cal';
   let s = box(12,12,248,70,'anim','platform illustration');
-  ['0.01','0.05','0.1','0.5'].forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+66*i,94,60,46)}">${v}</div>`; });
-  s += btn(12,148,120,46,'',{icon:'chevron-up',is:26},'z_up')+btn(140,148,120,46,'',{icon:'chevron-down',is:26},'z_down');
-  s += tt(12,200,248,46,'title',{a:'c',acc:1,sz:'l',css:'font-size:17px;line-height:1.15'},'title')+tt(16,252,240,160,'msg',{a:'c',mute:1},'msg');
+  ['0.01','0.05','0.1','0.5'].forEach((v,i)=>{ s += `<div class="btn${i===1?' primary':''}"${nm('step_'+v.replace('.',''))} style="${st(12+64*i,90,56,46)}">${v}</div>`; });
+  s += btn(12,144,120,46,'',{icon:'chevron-up',is:26},'z_up')+btn(140,144,120,46,'',{icon:'chevron-down',is:26},'z_down');
+  s += tt(12,198,248,46,'title',{a:'c',acc:1,sz:'l',css:'font-size:17px;line-height:1.15'},'title')+tt(16,252,240,160,'msg',{a:'c',mute:1},'msg');
   s += btn(12,420,248,46,'',{icon:'chevron-right',is:28,v:'primary'},'enter_btn');
   return screen('pre_bed_cal', s);
 });
@@ -474,7 +473,7 @@ S('bed_calibrate','Calibration','Nut adjusting',()=>{
 S('bed_finish','Calibration','Choose a nut',()=>{
   CUR='bed_finish';
   let s = box(12,12,248,150,'anim','platform with three nuts');
-  s += btn(86,24,100,40,'Nut 3',{},'screw3')+btn(26,100,100,40,'Nut 1',{},'screw1')+btn(146,100,100,40,'Nut 2',{},'screw2');
+  s += btn(86,24,100,40,'Nut 3',{},'screw3')+btn(32,100,100,40,'Nut 1',{},'screw1')+btn(140,100,100,40,'Nut 2',{},'screw2');
   s += tt(16,176,240,230,'msg',{a:'c',mute:1},'msg');
   s += tb(12,420,248,46,'ok',{v:'primary'},'ok');
   return screen('bed_finish', s);
@@ -553,17 +552,17 @@ S('screen','Settings and network','Screen (sleep, brightness)',()=>{
 S('klipper','Settings and network','Klipper status',()=>{
   CUR='sys_ok';
   let s = header(T('title'));
-  s += card(12,60,248,150,'') + `<div style="${st(104,76,64,64)}border-radius:32px;background:rgba(48,164,108,.16);color:var(--ok);display:flex;align-items:center;justify-content:center">${ico('circle-check',34)}</div>`;
-  s += tt(24,148,224,48,'msg',{a:'c'},'msg');
-  s += btn(12,222,248,48,T('export_logs'),{},'export_logs');
+  s += card(12,56,248,150,'') + `<div style="${st(104,72,64,64)}border-radius:32px;background:rgba(48,164,108,.16);color:var(--ok);display:flex;align-items:center;justify-content:center">${ico('circle-check',34)}</div>`;
+  s += tt(24,144,224,48,'msg',{a:'c'},'msg');
+  s += btn(12,214,248,48,T('export_logs'),{},'export_logs');
   s += nav('settings');
   return screen('sys_ok', s);
 });
 S('klipper_err','Settings and network','Klipper error',()=>{
   CUR='reset';
   let s = header(T('title'));
-  s += card(12,60,248,148,'') + `<div style="${st(24,72,28,28)}color:var(--danger)">${ico('triangle-alert',26)}</div>` + tt(60,70,190,130,'err_msg',{v:'top',mute:0,css:'font-size:15px'},'err_msg');
-  s += btn(12,220,248,46,T('export_logs'),{},'export_logs')+btn(12,274,248,46,T('restart_klip'),{},'restart_klip')+btn(12,328,248,46,T('restart_fw'),{v:'danger'},'restart_fw');
+  s += card(12,56,248,148,'') + `<div style="${st(24,68,28,28)}color:var(--danger)">${ico('triangle-alert',26)}</div>` + tt(60,66,190,130,'err_msg',{v:'top',mute:0,css:'font-size:15px'},'err_msg');
+  s += btn(12,212,248,46,T('export_logs'),{},'export_logs')+btn(12,266,248,46,T('restart_klip'),{},'restart_klip')+btn(12,320,248,46,T('restart_fw'),{v:'danger'},'restart_fw');
   s += nav('settings');
   return screen('reset', s);
 });
@@ -573,71 +572,71 @@ const NT = k => T(k,'net');
 S('network','Settings and network','Network',()=>{
   CUR='internet_page';
   let s = header(T('title'));
-  s += card(12,60,248,52,'background:#111114') + txt(26,60,40,52,'IP',{mute:1,css:'font-weight:600'},null) + txt(66,60,180,52,'192.168.1.57',{css:'font-family:ui-monospace,monospace;font-size:17px',num:1},'ip_txt');
-  s += `<div class="tabs" style="${st(12,122,248,44)}"><div class="tab on" style="${st(3,3,121,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(124,3,121,38)}">${ico('ethernet-port',22)}</div></div>`;
-  s += row(12,178,248,52,T('wifi_btn'),{chev:1},'wifi_btn') + row(12,238,248,52,T('info_lbl'),{chev:1},'info_btn');
+  s += card(12,56,248,52,'background:#111114') + txt(26,56,40,52,'IP',{mute:1,css:'font-weight:600'},null) + txt(66,56,180,52,'192.168.1.57',{css:'font-family:ui-monospace,monospace;font-size:17px',num:1},'ip_txt');
+  s += `<div class="tabs" style="${st(12,116,248,44)}"><div class="tab on" style="${st(3,3,121,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(124,3,121,38)}">${ico('ethernet-port',22)}</div></div>`;
+  s += row(12,168,248,52,T('wifi_btn'),{chev:1},'wifi_btn') + row(12,228,248,52,T('info_lbl'),{chev:1},'info_btn');
   s += nav('settings');
   return screen('internet_page', s);
 }, 'One way to the Wi-Fi list: the Wi-Fi row. Saved and Hidden networks are reached from the list (its two buttons), and Back from them returns to the list.');
 function netList(page, top, withChips){
   const rows=[['Home-Network','check'],['Printer-AP','lock'],['Neighbour_5G','lock'],['Guest',null],['Cafe Free WiFi','lock']];
   let s='';
-  rows.forEach((r,i)=>{ s += row(12,top+50*i,248,44,r[0],{check:r[1]==='check',lock:r[1]==='lock',num:1},'row'+(i+1)); });
-  s += btn(12,top+262,120,40,'',{icon:'chevron-up',is:22,v:'dim'},'prev_btn')+btn(140,top+262,120,40,'',{icon:'chevron-down',is:22},'next_btn');
+  rows.forEach((r,i)=>{ s += row(12,top+52*i,248,44,r[0],{check:r[1]==='check',lock:r[1]==='lock',num:1},'row'+(i+1)); });
+  s += btn(12,364,120,40,'',{icon:'chevron-up',is:22,v:'dim'},'prev_btn')+btn(140,364,120,40,'',{icon:'chevron-down',is:22},'next_btn');
   return s;
 }
 S('wifi','Settings and network','Wi-Fi list',()=>{
   CUR='wifi_list';
   let s = header(T('title'));
-  s += tb(12,58,86,40,'saved_btn',{},'saved_btn')+tb(104,58,86,40,'hidden_btn',{},'hidden_btn')+btn(220,58,40,40,'',{icon:'rotate-cw',is:20},'refresh_btn');
-  s += netList('wifi_list',106);
+  s += tb(12,56,96,40,'saved_btn',{},'saved_btn')+tb(116,56,96,40,'hidden_btn',{},'hidden_btn')+btn(220,56,40,40,'',{icon:'rotate-cw',is:20},'refresh_btn');
+  s += netList('wifi_list',104);
   s += nav('settings');
   return screen('wifi_list', s);
 });
 S('saved','Settings and network','Saved networks',()=>{
   CUR='net_saved';
   let s = header(T('title'));
-  s += netList('net_saved',60);
+  s += netList('net_saved',56);
   s += nav('settings');
   return screen('net_saved', s);
 });
 S('net_detail','Settings and network','Network details',()=>{
   CUR='net_detail';
   let s = header(T('title'));
-  s += card(12,60,248,84,'') + txt(26,66,220,34,'Home-Network',{sz:'l',num:1},'ssid_txt') + txt(26,100,220,34,NT('connected')+' · 192.168.1.57',{mute:1,sz:'s',num:1},'status_txt');
-  s += btn(12,156,248,46,NT('disconnect'),{v:'primary'},'connect_btn')+tb(12,210,248,46,'passwd_btn',{},'passwd_btn');
-  s += row(12,264,248,46,NT('autoconnect').replace(': ',''),{sw:true},'auto_btn')+tb(12,318,248,46,'forget_btn',{v:'danger'},'forget_btn');
+  s += card(12,56,248,84,'') + txt(26,62,220,34,'Home-Network',{sz:'l',num:1},'ssid_txt') + txt(26,96,220,34,NT('connected')+' · 192.168.1.57',{mute:1,sz:'s',num:1},'status_txt');
+  s += btn(12,148,248,46,NT('disconnect'),{v:'primary'},'connect_btn')+tb(12,202,248,46,'passwd_btn',{},'passwd_btn');
+  s += row(12,256,248,46,NT('autoconnect').replace(': ',''),{sw:true},'auto_btn')+tb(12,310,248,46,'forget_btn',{v:'danger'},'forget_btn');
   s += nav('settings');
   return screen('net_detail', s);
 });
 S('net_confirm','Settings and network','Forget network?',()=>{
   CUR='net_confirm';
   let s = header(T('title'));
-  s += card(12,60,248,170,'') + `<div style="${st(112,76,48,48)}color:var(--danger)">${ico('triangle-alert',40)}</div>` + txt(28,130,216,90,NT('saved_password')+'<br><b>Home-Network</b><br>'+NT('will_be_deleted'),{a:'c',num:1},'msg');
-  s += btn(12,244,120,46,NT('forget'),{v:'danger'},'forget_btn')+btn(140,244,120,46,NT('cancel'),{},'cancel');
+  s += card(12,56,248,170,'') + `<div style="${st(112,72,48,48)}color:var(--danger)">${ico('triangle-alert',40)}</div>` + txt(28,126,216,90,NT('saved_password')+'<br><b>Home-Network</b><br>'+NT('will_be_deleted'),{a:'c',num:1},'msg');
+  s += btn(12,234,120,46,NT('forget'),{v:'danger'},'forget_btn')+btn(140,234,120,46,NT('cancel'),{},'cancel');
   s += nav('settings');
   return screen('net_confirm', s);
 });
 S('net_info','Settings and network','Network info',()=>{
   CUR='net_info';
   let s = header(T('title'));
-  s += card(12,60,248,128,'') + `<div style="${st(24,70,22,22)}color:var(--accent)">${ico('wifi',22)}</div>` + txt(54,68,100,26,'Wi-Fi',{sz:'l'},null) + txt(24,100,224,84,NT('connected')+'<br>Home-Network<br>192.168.1.57 · '+NT('gateway')+' 192.168.1.1',{sz:'s',mute:1,num:1},'wifi_txt');
-  s += card(12,196,248,104,'') + `<div style="${st(24,206,22,22)}color:var(--text2)">${ico('ethernet-port',22)}</div>` + txt(54,204,100,26,'LAN',{sz:'l'},null) + txt(24,236,224,60,NT('disconnected'),{sz:'s',mute:1},'lan_txt');
-  s += row(12,312,248,50,'Wi-Fi',{sw:true},'radio_btn');
+  s += card(12,56,248,128,'') + `<div style="${st(24,66,22,22)}color:var(--accent)">${ico('wifi',22)}</div>` + txt(54,64,100,26,'Wi-Fi',{sz:'l'},null) + txt(24,96,224,84,NT('connected')+'<br>Home-Network<br>192.168.1.57 · '+NT('gateway')+' 192.168.1.1',{sz:'s',mute:1,num:1},'wifi_txt');
+  s += card(12,192,248,104,'') + `<div style="${st(24,202,22,22)}color:var(--text2)">${ico('ethernet-port',22)}</div>` + txt(54,200,100,26,'LAN',{sz:'l'},null) + txt(24,232,224,60,NT('disconnected'),{sz:'s',mute:1},'lan_txt');
+  s += row(12,304,248,50,'Wi-Fi',{sw:true},'radio_btn');
   s += nav('settings');
   return screen('net_info', s);
 });
 S('wifi_kb','Keyboards','Text keyboard (Wi-Fi password)',()=>{
   CUR='wifi_kb';
   let s = header(T('title'));
-  s += card(12,58,248,48,'background:#111114') + txt(24,58,224,48,'<span style="letter-spacing:3px;font-size:22px">••••••••</span>',{num:1},'input_show');
+  s += card(12,56,248,48,'background:#111114') + txt(24,56,224,48,'<span style="letter-spacing:3px;font-size:22px">••••••••</span>',{num:1},'input_show');
   const letters='abcdefghijklmnopqrstuvwxyz';
-  for(let i=0;i<26;i++){ const c=i%4,r=Math.floor(i/4); s += `<div class="key"${nm('key_'+letters[i])} style="${st(12+52*c,114+48*r,46,42)};font-size:20px">${letters[i]}</div>`; }
-  s += `<div class="key"${nm('key_space')} style="${st(116,402,98,42)}">${ico('chevrons-up',1)}<span style="position:static;width:30px;height:2px;background:var(--text2);border-radius:1px"></span></div>`;
-  s += `<div class="key fn"${nm('key_del')} style="${st(220,114,40,90)}">${ico('delete',20)}</div>`;
-  s += `<div class="key fn"${nm('key_shift')} style="${st(220,210,40,90)}">${ico('arrow-big-up',22)}</div>`;
-  s += `<div class="key fn"${nm('key_sym')} style="${st(220,306,40,42)};font-size:12px">123</div>`;
-  s += `<div class="key"${nm('key_ok')} style="${st(220,354,40,90)};background:var(--accent)">${ico('check',24,'#fff',2.5)}</div>`;
+  for(let i=0;i<26;i++){ const c=i%4,r=Math.floor(i/4); s += `<div class="key"${nm('key_'+letters[i])} style="${st(12+52*c,112+48*r,44,40)};font-size:20px">${letters[i]}</div>`; }
+  s += `<div class="key"${nm('key_space')} style="${st(116,400,96,40)}">${ico('chevrons-up',1)}<span style="position:static;width:30px;height:2px;background:var(--text2);border-radius:1px"></span></div>`;
+  s += `<div class="key fn"${nm('key_del')} style="${st(220,112,40,88)}">${ico('delete',20)}</div>`;
+  s += `<div class="key fn"${nm('key_shift')} style="${st(220,208,40,88)}">${ico('arrow-big-up',22)}</div>`;
+  s += `<div class="key fn"${nm('key_sym')} style="${st(220,304,40,40)};font-size:12px">123</div>`;
+  s += `<div class="key"${nm('key_ok')} style="${st(220,352,40,88)};background:var(--accent)">${ico('check',24,'#fff',2.5)}</div>`;
   return screen('wifi_kb', s);
 });
 S('wifi_connect','Settings and network','Connecting',()=>{
@@ -655,12 +654,12 @@ function popup(page, kind, msgs, btns, o){
   const col = {info:'var(--accent)',warn:'var(--warn)',error:'var(--danger)',ok:'var(--ok)',ask:'var(--accent)'}[kind];
   const g = {info:'info',warn:'triangle-alert',error:'octagon-x',ok:'circle-check',ask:'info'}[kind];
   let s = rect(0,0,272,480,'#0c0c0e');
-  s += `<div class="popup" style="${st(16,84,240,324)}"></div>`;
+  s += `<div class="popup" style="${st(12,84,248,324)}"></div>`;
   s += `<div style="${st(112,100,48,48)}border-radius:24px;background:color-mix(in srgb, ${col} 18%, transparent);color:${col};display:flex;align-items:center;justify-content:center">${ico(g,26)}</div>`;
   if (msgs.length === 1) s += tt(28,158,216,160,msgs[0],{a:'c',v:'top',css:'font-size:15px'},msgs[0]);
   else { s += tt(28,158,216,90,msgs[0],{a:'c',v:'top',css:'font-size:15px'},msgs[0]); s += tt(28,248,216,60,msgs[1],{a:'c',v:'top',sz:'l'},msgs[1]); }
   if (btns.length === 1) s += tb(28,336,216,48,btns[0][0],{v:btns[0][1]||'primary'},btns[0][0]);
-  else s += tb(28,336,102,48,btns[0][0],{v:btns[0][1]||'primary',wrap:1,css:'font-size:15px'},btns[0][0]) + tb(142,336,102,48,btns[1][0],{v:btns[1][1]||'',wrap:1,css:'font-size:15px'},btns[1][0]);
+  else s += tb(28,336,104,48,btns[0][0],{v:btns[0][1]||'primary',wrap:1,css:'font-size:15px'},btns[0][0]) + tb(140,336,104,48,btns[1][0],{v:btns[1][1]||'',wrap:1,css:'font-size:15px'},btns[1][0]);
   return screen(page, s);
 }
 const POPS = [
@@ -715,7 +714,7 @@ S('filamentVideo2','Setup guide','Load filament: heat',()=>{
   CUR='filamentVideo2';
   let s = txt(16,8,240,32,T('title'),{sz:'l'},'title');
   s += heatEdit(12,52,248,'nozzle','220','220',true,'heat');
-  s += btn(12,112,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,112,120,46,'',{icon:'plus',is:26},'temp_up');
+  s += btn(12,110,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,110,120,46,'',{icon:'plus',is:26},'temp_up');
   s += tt(16,176,240,90,'msg_heat',{a:'c',mute:1},'msg_heat') + tt(16,272,170,100,'msg_wait',{v:'top',css:'color:var(--warn);font-size:15px'},'msg_wait') + nextRound(196,404);
   return screen('filamentVideo2', s);
 });
@@ -771,10 +770,10 @@ S('auto_unload','Setup guide','Automatic unload',()=>{
 });
 S('pre_heat','Setup guide','Preheat: choose temperature',()=>{
   CUR='pre_heat';
-  let s = rect(0,0,272,480,'#0c0c0e') + `<div class="popup" style="${st(16,84,240,324)}"></div>`;
+  let s = rect(0,0,272,480,'#0c0c0e') + `<div class="popup" style="${st(12,84,248,324)}"></div>`;
   s += tt(28,100,216,80,'msg',{a:'c',v:'top',css:'font-size:15px'},'msg');
   ['220','250','300'].forEach((v,i)=>{ const sel=i===0; s += `<div${nm('temp_opt'+(i+1))} style="${st(28+76*i,200,68,74)};background:${sel?'var(--btn-hi)':'var(--btn)'};border-radius:12px"></div><div class="radio${sel?' on':''}" style="left:${28+76*i+23}px;top:210px"></div>`+txt(28+76*i,238,68,30,v+' °C',{a:'c',num:1}); });
-  s += tb(28,336,102,48,'back_btn',{},'back_btn')+tb(142,336,102,48,'next_btn',{v:'primary'},'next_btn');
+  s += tb(28,336,104,48,'back_btn',{},'back_btn')+tb(140,336,104,48,'next_btn',{v:'primary'},'next_btn');
   return screen('pre_heat', s);
 });
 // -- boot
@@ -850,7 +849,34 @@ function allLanguages(id){
   m.innerHTML = `<div class="box"><h3>${s.title} — all 13 languages <button id="close">Close</button></h3><div class="langgrid">${h}</div></div>`;
   m.classList.add('on'); document.getElementById('close').onclick=()=>m.classList.remove('on');
 }
+function audit(){
+  // gaps between neighbouring blocks (buttons, cards, rows, keys, thumbnails...) and margins to the screen edge, from the real DOM
+  const out = [];
+  SCREENS.forEach(sc=>{
+    const host = document.createElement('div'); host.style.cssText='position:absolute;left:0;top:0'; host.innerHTML = sc.build(); document.body.appendChild(host);
+    const scr = host.querySelector('.scr'); const base = scr.getBoundingClientRect();
+    const items = [];
+    scr.querySelectorAll('.btn,.card,.key,.thumb,.tabs,.bar,.anim,.popup,.sw,.radio').forEach(el=>{
+      if(el.closest('.nav') || el.closest('.btn,.key,.tabs,.popup,.card') && el.closest('.btn,.key,.tabs,.popup,.card')!==el) return;
+      const r = el.getBoundingClientRect();
+      if(r.width<14 || r.height<8) return;
+      items.push({n:(el.dataset.w||el.className.split(' ')[0]).replace(/^[^.]*\./,''), x:Math.round(r.left-base.left), y:Math.round(r.top-base.top), w:Math.round(r.width), h:Math.round(r.height)});
+    });
+    const gaps = {};
+    const add = (axis,g,a,b)=>{ (gaps[axis+g] = gaps[axis+g]||[]).push(a.n+'|'+b.n); };
+    for(let i=0;i<items.length;i++) for(let j=0;j<items.length;j++){ if(i===j) continue; const a=items[i], b=items[j];
+      const oy = Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y), ox = Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x);
+      if(oy>=Math.min(a.h,b.h)*0.5){ const g=b.x-(a.x+a.w); if(g>0 && g<=24) add('H',g,a,b); }
+      if(ox>=Math.min(a.w,b.w)*0.5){ const g=b.y-(a.y+a.h); if(g>0 && g<=24) add('V',g,a,b); }
+    }
+    const margins = items.filter(i=>i.y<424 && (i.w<272)).map(i=>({n:i.n,l:i.x,r:272-(i.x+i.w)})).filter(m=>m.l<30&&m.l>=0&&(m.l!==12||m.r!==12) && !(m.l>=12&&m.r>=12&&m.l+m.r>=24 && (m.l===12||m.r===12)));
+    out.push({id:sc.id, items:items.length, gaps:Object.fromEntries(Object.entries(gaps).map(([k,v])=>[k,[...new Set(v)].slice(0,4)])), margins:margins.slice(0,6)});
+    host.remove();
+  });
+  const pre=document.createElement('pre'); pre.id='audit'; pre.textContent=JSON.stringify(out); document.body.appendChild(pre);
+}
 function init(){
+  if(new URLSearchParams(location.search).has('audit')){ document.getElementById('side').style.display='none'; audit(); return; }
   const side = document.getElementById('side');
   const opts = LANG_NAMES.map((n,i)=>`<option value="${i}"${i===2?' selected':''}>${n} (${LANGS[i]})</option>`).join('');
   side.innerHTML = `<h1>QIDI Q1 Pro screen — mockup</h1><p>272 × 480. Texts are the real ones of the project, in all 13 languages.</p>

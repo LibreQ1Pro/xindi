@@ -5,12 +5,12 @@ function popup(page, kind, msgs, btns, o){
   const col = {info:'var(--accent)',warn:'var(--warn)',error:'var(--danger)',ok:'var(--ok)',ask:'var(--accent)'}[kind];
   const g = {info:'info',warn:'triangle-alert',error:'octagon-x',ok:'circle-check',ask:'info'}[kind];
   let s = rect(0,0,272,480,'#0c0c0e');
-  s += `<div class="popup" style="${st(16,84,240,324)}"></div>`;
+  s += `<div class="popup" style="${st(12,84,248,324)}"></div>`;
   s += `<div style="${st(112,100,48,48)}border-radius:24px;background:color-mix(in srgb, ${col} 18%, transparent);color:${col};display:flex;align-items:center;justify-content:center">${ico(g,26)}</div>`;
   if (msgs.length === 1) s += tt(28,158,216,160,msgs[0],{a:'c',v:'top',css:'font-size:15px'},msgs[0]);
   else { s += tt(28,158,216,90,msgs[0],{a:'c',v:'top',css:'font-size:15px'},msgs[0]); s += tt(28,248,216,60,msgs[1],{a:'c',v:'top',sz:'l'},msgs[1]); }
   if (btns.length === 1) s += tb(28,336,216,48,btns[0][0],{v:btns[0][1]||'primary'},btns[0][0]);
-  else s += tb(28,336,102,48,btns[0][0],{v:btns[0][1]||'primary',wrap:1,css:'font-size:15px'},btns[0][0]) + tb(142,336,102,48,btns[1][0],{v:btns[1][1]||'',wrap:1,css:'font-size:15px'},btns[1][0]);
+  else s += tb(28,336,104,48,btns[0][0],{v:btns[0][1]||'primary',wrap:1,css:'font-size:15px'},btns[0][0]) + tb(140,336,104,48,btns[1][0],{v:btns[1][1]||'',wrap:1,css:'font-size:15px'},btns[1][0]);
   return screen(page, s);
 }
 const POPS = [
@@ -65,7 +65,7 @@ S('filamentVideo2','Setup guide','Load filament: heat',()=>{
   CUR='filamentVideo2';
   let s = txt(16,8,240,32,T('title'),{sz:'l'},'title');
   s += heatEdit(12,52,248,'nozzle','220','220',true,'heat');
-  s += btn(12,112,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,112,120,46,'',{icon:'plus',is:26},'temp_up');
+  s += btn(12,110,120,46,'',{icon:'minus',is:26},'temp_down')+btn(140,110,120,46,'',{icon:'plus',is:26},'temp_up');
   s += tt(16,176,240,90,'msg_heat',{a:'c',mute:1},'msg_heat') + tt(16,272,170,100,'msg_wait',{v:'top',css:'color:var(--warn);font-size:15px'},'msg_wait') + nextRound(196,404);
   return screen('filamentVideo2', s);
 });
@@ -121,10 +121,10 @@ S('auto_unload','Setup guide','Automatic unload',()=>{
 });
 S('pre_heat','Setup guide','Preheat: choose temperature',()=>{
   CUR='pre_heat';
-  let s = rect(0,0,272,480,'#0c0c0e') + `<div class="popup" style="${st(16,84,240,324)}"></div>`;
+  let s = rect(0,0,272,480,'#0c0c0e') + `<div class="popup" style="${st(12,84,248,324)}"></div>`;
   s += tt(28,100,216,80,'msg',{a:'c',v:'top',css:'font-size:15px'},'msg');
   ['220','250','300'].forEach((v,i)=>{ const sel=i===0; s += `<div${nm('temp_opt'+(i+1))} style="${st(28+76*i,200,68,74)};background:${sel?'var(--btn-hi)':'var(--btn)'};border-radius:12px"></div><div class="radio${sel?' on':''}" style="left:${28+76*i+23}px;top:210px"></div>`+txt(28+76*i,238,68,30,v+' °C',{a:'c',num:1}); });
-  s += tb(28,336,102,48,'back_btn',{},'back_btn')+tb(142,336,102,48,'next_btn',{v:'primary'},'next_btn');
+  s += tb(28,336,104,48,'back_btn',{},'back_btn')+tb(140,336,104,48,'next_btn',{v:'primary'},'next_btn');
   return screen('pre_heat', s);
 });
 // -- boot

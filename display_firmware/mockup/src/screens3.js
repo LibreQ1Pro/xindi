@@ -48,17 +48,17 @@ S('screen','Settings and network','Screen (sleep, brightness)',()=>{
 S('klipper','Settings and network','Klipper status',()=>{
   CUR='sys_ok';
   let s = header(T('title'));
-  s += card(12,60,248,150,'') + `<div style="${st(104,76,64,64)}border-radius:32px;background:rgba(48,164,108,.16);color:var(--ok);display:flex;align-items:center;justify-content:center">${ico('circle-check',34)}</div>`;
-  s += tt(24,148,224,48,'msg',{a:'c'},'msg');
-  s += btn(12,222,248,48,T('export_logs'),{},'export_logs');
+  s += card(12,56,248,150,'') + `<div style="${st(104,72,64,64)}border-radius:32px;background:rgba(48,164,108,.16);color:var(--ok);display:flex;align-items:center;justify-content:center">${ico('circle-check',34)}</div>`;
+  s += tt(24,144,224,48,'msg',{a:'c'},'msg');
+  s += btn(12,214,248,48,T('export_logs'),{},'export_logs');
   s += nav('settings');
   return screen('sys_ok', s);
 });
 S('klipper_err','Settings and network','Klipper error',()=>{
   CUR='reset';
   let s = header(T('title'));
-  s += card(12,60,248,148,'') + `<div style="${st(24,72,28,28)}color:var(--danger)">${ico('triangle-alert',26)}</div>` + tt(60,70,190,130,'err_msg',{v:'top',mute:0,css:'font-size:15px'},'err_msg');
-  s += btn(12,220,248,46,T('export_logs'),{},'export_logs')+btn(12,274,248,46,T('restart_klip'),{},'restart_klip')+btn(12,328,248,46,T('restart_fw'),{v:'danger'},'restart_fw');
+  s += card(12,56,248,148,'') + `<div style="${st(24,68,28,28)}color:var(--danger)">${ico('triangle-alert',26)}</div>` + tt(60,66,190,130,'err_msg',{v:'top',mute:0,css:'font-size:15px'},'err_msg');
+  s += btn(12,212,248,46,T('export_logs'),{},'export_logs')+btn(12,266,248,46,T('restart_klip'),{},'restart_klip')+btn(12,320,248,46,T('restart_fw'),{v:'danger'},'restart_fw');
   s += nav('settings');
   return screen('reset', s);
 });
@@ -68,71 +68,71 @@ const NT = k => T(k,'net');
 S('network','Settings and network','Network',()=>{
   CUR='internet_page';
   let s = header(T('title'));
-  s += card(12,60,248,52,'background:#111114') + txt(26,60,40,52,'IP',{mute:1,css:'font-weight:600'},null) + txt(66,60,180,52,'192.168.1.57',{css:'font-family:ui-monospace,monospace;font-size:17px',num:1},'ip_txt');
-  s += `<div class="tabs" style="${st(12,122,248,44)}"><div class="tab on" style="${st(3,3,121,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(124,3,121,38)}">${ico('ethernet-port',22)}</div></div>`;
-  s += row(12,178,248,52,T('wifi_btn'),{chev:1},'wifi_btn') + row(12,238,248,52,T('info_lbl'),{chev:1},'info_btn');
+  s += card(12,56,248,52,'background:#111114') + txt(26,56,40,52,'IP',{mute:1,css:'font-weight:600'},null) + txt(66,56,180,52,'192.168.1.57',{css:'font-family:ui-monospace,monospace;font-size:17px',num:1},'ip_txt');
+  s += `<div class="tabs" style="${st(12,116,248,44)}"><div class="tab on" style="${st(3,3,121,38)}">${ico('wifi',22)}</div><div class="tab" style="${st(124,3,121,38)}">${ico('ethernet-port',22)}</div></div>`;
+  s += row(12,168,248,52,T('wifi_btn'),{chev:1},'wifi_btn') + row(12,228,248,52,T('info_lbl'),{chev:1},'info_btn');
   s += nav('settings');
   return screen('internet_page', s);
 }, 'One way to the Wi-Fi list: the Wi-Fi row. Saved and Hidden networks are reached from the list (its two buttons), and Back from them returns to the list.');
 function netList(page, top, withChips){
   const rows=[['Home-Network','check'],['Printer-AP','lock'],['Neighbour_5G','lock'],['Guest',null],['Cafe Free WiFi','lock']];
   let s='';
-  rows.forEach((r,i)=>{ s += row(12,top+50*i,248,44,r[0],{check:r[1]==='check',lock:r[1]==='lock',num:1},'row'+(i+1)); });
-  s += btn(12,top+262,120,40,'',{icon:'chevron-up',is:22,v:'dim'},'prev_btn')+btn(140,top+262,120,40,'',{icon:'chevron-down',is:22},'next_btn');
+  rows.forEach((r,i)=>{ s += row(12,top+52*i,248,44,r[0],{check:r[1]==='check',lock:r[1]==='lock',num:1},'row'+(i+1)); });
+  s += btn(12,364,120,40,'',{icon:'chevron-up',is:22,v:'dim'},'prev_btn')+btn(140,364,120,40,'',{icon:'chevron-down',is:22},'next_btn');
   return s;
 }
 S('wifi','Settings and network','Wi-Fi list',()=>{
   CUR='wifi_list';
   let s = header(T('title'));
-  s += tb(12,58,86,40,'saved_btn',{},'saved_btn')+tb(104,58,86,40,'hidden_btn',{},'hidden_btn')+btn(220,58,40,40,'',{icon:'rotate-cw',is:20},'refresh_btn');
-  s += netList('wifi_list',106);
+  s += tb(12,56,96,40,'saved_btn',{},'saved_btn')+tb(116,56,96,40,'hidden_btn',{},'hidden_btn')+btn(220,56,40,40,'',{icon:'rotate-cw',is:20},'refresh_btn');
+  s += netList('wifi_list',104);
   s += nav('settings');
   return screen('wifi_list', s);
 });
 S('saved','Settings and network','Saved networks',()=>{
   CUR='net_saved';
   let s = header(T('title'));
-  s += netList('net_saved',60);
+  s += netList('net_saved',56);
   s += nav('settings');
   return screen('net_saved', s);
 });
 S('net_detail','Settings and network','Network details',()=>{
   CUR='net_detail';
   let s = header(T('title'));
-  s += card(12,60,248,84,'') + txt(26,66,220,34,'Home-Network',{sz:'l',num:1},'ssid_txt') + txt(26,100,220,34,NT('connected')+' · 192.168.1.57',{mute:1,sz:'s',num:1},'status_txt');
-  s += btn(12,156,248,46,NT('disconnect'),{v:'primary'},'connect_btn')+tb(12,210,248,46,'passwd_btn',{},'passwd_btn');
-  s += row(12,264,248,46,NT('autoconnect').replace(': ',''),{sw:true},'auto_btn')+tb(12,318,248,46,'forget_btn',{v:'danger'},'forget_btn');
+  s += card(12,56,248,84,'') + txt(26,62,220,34,'Home-Network',{sz:'l',num:1},'ssid_txt') + txt(26,96,220,34,NT('connected')+' · 192.168.1.57',{mute:1,sz:'s',num:1},'status_txt');
+  s += btn(12,148,248,46,NT('disconnect'),{v:'primary'},'connect_btn')+tb(12,202,248,46,'passwd_btn',{},'passwd_btn');
+  s += row(12,256,248,46,NT('autoconnect').replace(': ',''),{sw:true},'auto_btn')+tb(12,310,248,46,'forget_btn',{v:'danger'},'forget_btn');
   s += nav('settings');
   return screen('net_detail', s);
 });
 S('net_confirm','Settings and network','Forget network?',()=>{
   CUR='net_confirm';
   let s = header(T('title'));
-  s += card(12,60,248,170,'') + `<div style="${st(112,76,48,48)}color:var(--danger)">${ico('triangle-alert',40)}</div>` + txt(28,130,216,90,NT('saved_password')+'<br><b>Home-Network</b><br>'+NT('will_be_deleted'),{a:'c',num:1},'msg');
-  s += btn(12,244,120,46,NT('forget'),{v:'danger'},'forget_btn')+btn(140,244,120,46,NT('cancel'),{},'cancel');
+  s += card(12,56,248,170,'') + `<div style="${st(112,72,48,48)}color:var(--danger)">${ico('triangle-alert',40)}</div>` + txt(28,126,216,90,NT('saved_password')+'<br><b>Home-Network</b><br>'+NT('will_be_deleted'),{a:'c',num:1},'msg');
+  s += btn(12,234,120,46,NT('forget'),{v:'danger'},'forget_btn')+btn(140,234,120,46,NT('cancel'),{},'cancel');
   s += nav('settings');
   return screen('net_confirm', s);
 });
 S('net_info','Settings and network','Network info',()=>{
   CUR='net_info';
   let s = header(T('title'));
-  s += card(12,60,248,128,'') + `<div style="${st(24,70,22,22)}color:var(--accent)">${ico('wifi',22)}</div>` + txt(54,68,100,26,'Wi-Fi',{sz:'l'},null) + txt(24,100,224,84,NT('connected')+'<br>Home-Network<br>192.168.1.57 · '+NT('gateway')+' 192.168.1.1',{sz:'s',mute:1,num:1},'wifi_txt');
-  s += card(12,196,248,104,'') + `<div style="${st(24,206,22,22)}color:var(--text2)">${ico('ethernet-port',22)}</div>` + txt(54,204,100,26,'LAN',{sz:'l'},null) + txt(24,236,224,60,NT('disconnected'),{sz:'s',mute:1},'lan_txt');
-  s += row(12,312,248,50,'Wi-Fi',{sw:true},'radio_btn');
+  s += card(12,56,248,128,'') + `<div style="${st(24,66,22,22)}color:var(--accent)">${ico('wifi',22)}</div>` + txt(54,64,100,26,'Wi-Fi',{sz:'l'},null) + txt(24,96,224,84,NT('connected')+'<br>Home-Network<br>192.168.1.57 · '+NT('gateway')+' 192.168.1.1',{sz:'s',mute:1,num:1},'wifi_txt');
+  s += card(12,192,248,104,'') + `<div style="${st(24,202,22,22)}color:var(--text2)">${ico('ethernet-port',22)}</div>` + txt(54,200,100,26,'LAN',{sz:'l'},null) + txt(24,232,224,60,NT('disconnected'),{sz:'s',mute:1},'lan_txt');
+  s += row(12,304,248,50,'Wi-Fi',{sw:true},'radio_btn');
   s += nav('settings');
   return screen('net_info', s);
 });
 S('wifi_kb','Keyboards','Text keyboard (Wi-Fi password)',()=>{
   CUR='wifi_kb';
   let s = header(T('title'));
-  s += card(12,58,248,48,'background:#111114') + txt(24,58,224,48,'<span style="letter-spacing:3px;font-size:22px">••••••••</span>',{num:1},'input_show');
+  s += card(12,56,248,48,'background:#111114') + txt(24,56,224,48,'<span style="letter-spacing:3px;font-size:22px">••••••••</span>',{num:1},'input_show');
   const letters='abcdefghijklmnopqrstuvwxyz';
-  for(let i=0;i<26;i++){ const c=i%4,r=Math.floor(i/4); s += `<div class="key"${nm('key_'+letters[i])} style="${st(12+52*c,114+48*r,46,42)};font-size:20px">${letters[i]}</div>`; }
-  s += `<div class="key"${nm('key_space')} style="${st(116,402,98,42)}">${ico('chevrons-up',1)}<span style="position:static;width:30px;height:2px;background:var(--text2);border-radius:1px"></span></div>`;
-  s += `<div class="key fn"${nm('key_del')} style="${st(220,114,40,90)}">${ico('delete',20)}</div>`;
-  s += `<div class="key fn"${nm('key_shift')} style="${st(220,210,40,90)}">${ico('arrow-big-up',22)}</div>`;
-  s += `<div class="key fn"${nm('key_sym')} style="${st(220,306,40,42)};font-size:12px">123</div>`;
-  s += `<div class="key"${nm('key_ok')} style="${st(220,354,40,90)};background:var(--accent)">${ico('check',24,'#fff',2.5)}</div>`;
+  for(let i=0;i<26;i++){ const c=i%4,r=Math.floor(i/4); s += `<div class="key"${nm('key_'+letters[i])} style="${st(12+52*c,112+48*r,44,40)};font-size:20px">${letters[i]}</div>`; }
+  s += `<div class="key"${nm('key_space')} style="${st(116,400,96,40)}">${ico('chevrons-up',1)}<span style="position:static;width:30px;height:2px;background:var(--text2);border-radius:1px"></span></div>`;
+  s += `<div class="key fn"${nm('key_del')} style="${st(220,112,40,88)}">${ico('delete',20)}</div>`;
+  s += `<div class="key fn"${nm('key_shift')} style="${st(220,208,40,88)}">${ico('arrow-big-up',22)}</div>`;
+  s += `<div class="key fn"${nm('key_sym')} style="${st(220,304,40,40)};font-size:12px">123</div>`;
+  s += `<div class="key"${nm('key_ok')} style="${st(220,352,40,88)};background:var(--accent)">${ico('check',24,'#fff',2.5)}</div>`;
   return screen('wifi_kb', s);
 });
 S('wifi_connect','Settings and network','Connecting',()=>{

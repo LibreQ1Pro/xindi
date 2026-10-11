@@ -53,7 +53,34 @@ function allLanguages(id){
   m.innerHTML = `<div class="box"><h3>${s.title} — all 13 languages <button id="close">Close</button></h3><div class="langgrid">${h}</div></div>`;
   m.classList.add('on'); document.getElementById('close').onclick=()=>m.classList.remove('on');
 }
+function audit(){
+  // gaps between neighbouring blocks (buttons, cards, rows, keys, thumbnails...) and margins to the screen edge, from the real DOM
+  const out = [];
+  SCREENS.forEach(sc=>{
+    const host = document.createElement('div'); host.style.cssText='position:absolute;left:0;top:0'; host.innerHTML = sc.build(); document.body.appendChild(host);
+    const scr = host.querySelector('.scr'); const base = scr.getBoundingClientRect();
+    const items = [];
+    scr.querySelectorAll('.btn,.card,.key,.thumb,.tabs,.bar,.anim,.popup,.sw,.radio').forEach(el=>{
+      if(el.closest('.nav') || el.closest('.btn,.key,.tabs,.popup,.card') && el.closest('.btn,.key,.tabs,.popup,.card')!==el) return;
+      const r = el.getBoundingClientRect();
+      if(r.width<14 || r.height<8) return;
+      items.push({n:(el.dataset.w||el.className.split(' ')[0]).replace(/^[^.]*\./,''), x:Math.round(r.left-base.left), y:Math.round(r.top-base.top), w:Math.round(r.width), h:Math.round(r.height)});
+    });
+    const gaps = {};
+    const add = (axis,g,a,b)=>{ (gaps[axis+g] = gaps[axis+g]||[]).push(a.n+'|'+b.n); };
+    for(let i=0;i<items.length;i++) for(let j=0;j<items.length;j++){ if(i===j) continue; const a=items[i], b=items[j];
+      const oy = Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y), ox = Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x);
+      if(oy>=Math.min(a.h,b.h)*0.5){ const g=b.x-(a.x+a.w); if(g>0 && g<=24) add('H',g,a,b); }
+      if(ox>=Math.min(a.w,b.w)*0.5){ const g=b.y-(a.y+a.h); if(g>0 && g<=24) add('V',g,a,b); }
+    }
+    const margins = items.filter(i=>i.y<424 && (i.w<272)).map(i=>({n:i.n,l:i.x,r:272-(i.x+i.w)})).filter(m=>m.l<30&&m.l>=0&&(m.l!==12||m.r!==12) && !(m.l>=12&&m.r>=12&&m.l+m.r>=24 && (m.l===12||m.r===12)));
+    out.push({id:sc.id, items:items.length, gaps:Object.fromEntries(Object.entries(gaps).map(([k,v])=>[k,[...new Set(v)].slice(0,4)])), margins:margins.slice(0,6)});
+    host.remove();
+  });
+  const pre=document.createElement('pre'); pre.id='audit'; pre.textContent=JSON.stringify(out); document.body.appendChild(pre);
+}
 function init(){
+  if(new URLSearchParams(location.search).has('audit')){ document.getElementById('side').style.display='none'; audit(); return; }
   const side = document.getElementById('side');
   const opts = LANG_NAMES.map((n,i)=>`<option value="${i}"${i===2?' selected':''}>${n} (${LANGS[i]})</option>`).join('');
   side.innerHTML = `<h1>QIDI Q1 Pro screen — mockup</h1><p>272 × 480. Texts are the real ones of the project, in all 13 languages.</p>
