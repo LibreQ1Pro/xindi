@@ -105,7 +105,7 @@ function screen(page, body, o){
 const HEAT = {
   nozzle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="8" rx="2"/><path d="M9 11v3l3 6 3-6v-3"/></svg>',
   bed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M7 14c-1.5-1.5 1.5-2.500 0-4M12 14c-1.5-1.5 1.500-2.500 0-4M17 14c-1.500-1.500 1.500-2.500 0-4"/><path d="M3 21h18"/></svg>',
-  flow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="10" r="8"/><circle cx="11" cy="10" r="3"/><path d="M11 18h10"/></svg>',
-  chamber: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8.500 17c-1.500-1.500 1.500-2.500 0-4.500s1.500-2.500 0-4M15.500 17c-1.500-1.500 1.500-2.500 0-4.500s1.500-2.500 0-4"/></svg>'
+  flow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h10v5l-3 3h-4L7 7z"/><path d="M12 10v5"/><path d="m9.5 13 2.5 3 2.5-3"/><path d="M4 21h16"/></svg>',
+  chamber: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v15"/><path d="M3 21h18"/><path d="M9 17c-1-1.5 1-2.5 0-4s1-2.5 0-4M15 17c-1-1.5 1-2.5 0-4s1-2.5 0-4"/></svg>'
 };
 function hico(name,size,color){ return `<span class="ico" style="width:${size}px;height:${size}px;color:${color||'currentColor'}">${HEAT[name]}</span>`; }
