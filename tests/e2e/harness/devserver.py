@@ -100,6 +100,7 @@ class Moonraker(harness.Moonraker):
         harness.Moonraker.__init__(self, fixture)
         self.scripts = queue.Queue()
         self.relative = False           # G91
+        self.timelapse = False
         self.job = None                 # {"filename", "estimate", "elapsed", "phase": heating|printing|paused}
 
     def _handle_rpc(self, req):
@@ -364,6 +365,12 @@ class Moonraker(harness.Moonraker):
     async def _http(self, request):
         from aiohttp import web
         path = request.path
+        if path == "/machine/timelapse/settings":       # Moonraker's timelapse plugin (preview page switch)
+            if request.method == "POST" and "enabled" in request.query:
+                self.timelapse = request.query["enabled"].lower() == "true"
+                with self.lock:
+                    self.http.append("%s %s" % (request.method, request.path_qs))
+            return web.json_response({"result": {"enabled": self.timelapse, "mode": "layermacro"}})
         if not path.startswith("/emu/"):
             return await super()._http(request)
         try:
