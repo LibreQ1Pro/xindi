@@ -5,7 +5,7 @@
 
 The stock pages were full-screen pictures with the English text drawn in. Now ``shutdown`` and ``restart`` have a plain
 colour as their background (the pictures bg_shutdown / bg_restart are gone), ``logo`` keeps the picture of the logo
-(bg_logo, the text of its lower part is removed) and the texts are components in the 13 languages of the screen
+(now boot_logo, the text of its lower part is removed) and the texts are components in the 13 languages of the screen
 (xindi/util/netstrings.py: shutting_down, system_abnormal, restart_hint, booting_up).
 """
 import json
@@ -75,7 +75,7 @@ def main():
 
     page = load("logo")
     if not any(o["key"] == "boot_msg" for o in page["objects"]):
-        path = os.path.join(ROOT, "pictures", "bg_logo.png")
+        path = os.path.join(ROOT, "pictures", ("boot_logo" if "boot_logo" in pics.keys() else "bg_logo") + ".png")
         img = Image.open(path).convert("RGBA")
         img.paste((52, 52, 52, 255), (0, 305, img.width, 395))       # "BOOTING UP, PLEASE WAIT......"
         img.save(path)

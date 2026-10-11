@@ -2317,9 +2317,9 @@
   ],
   "pictures": [
     {
-      "key": "bg_logo",
+      "key": "boot_logo",
       "source": {
-        "png": "pictures/bg_logo.png"
+        "png": "pictures/boot_logo.png"
       }
     },
     {

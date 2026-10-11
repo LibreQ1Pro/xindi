@@ -46,8 +46,9 @@ with the frame `a0 lang ff ff ff`; the host only caches the number to pick the t
 
 The screen has 13 languages (the global `lang`: 0 zh, 1 ru, 2 en, 3 ja, 4 fr, 5 de, 6 it, 7 es, 8 ko, 9 pt, 10 ar, 11 tr,
 12 he); every page sets its texts in `codesload` with an `if(lang==N)` chain. The text stored in the component itself
-(what the editor shows) is English, and so are the pictures the editor shows by default (the per-language pictures
-`*_cn`, `*_en`, `*_ru` ... are chosen by `codesload`). Rules for new texts:
+(what the editor shows) is English. No picture has text drawn in (the stock firmware had per-language pictures `*_cn`, `*_en`, `*_ru` ...
+for the fan names, the language buttons, the restart buttons and the shutdown / restart / boot pages): the texts are components with the
+`if(lang==N)` chain of `codesload`, so they can be edited in the editor and translated like every other text. Rules for new texts:
 
 - put the English text into the `txt` attribute, translations into `codesload`; a component whose text comes from the host at run time (the network pages: names, addresses, states) is left
   empty, so nothing wrong flashes while the page loads (`tools/preview_page.py` has its own sample data to draw them);
@@ -119,4 +120,9 @@ Conventions (names are at most 14 characters, the editor's limit):
 
 Pictures are named after what they show or where they are used (`main_off`, `main_on_press`, `bg_settings_panel`,
 `rows_lock`, `files_item_dir`, ...); `unused_N` are pictures nothing refers to (N is the number in the stock name).
+The language pages use full-screen sheets that the buttons show a part of: `<page>_btn` (normal), `_press`, `_selected` and
+`_selected_press` (the pages `language`, `language2`, `open_language`, `open_language2`); `klipper_status_buttons(_press)` hold the
+faces of the buttons of the status pages. `tools/pictures.py` adds, renames and removes pictures (project, pages, `names.json` and the ids
+of `xindi/screen/pics.py` stay consistent); the `tools/unbake_*.py` and `tools/add_brightness.py` scripts record how the text was taken out of the
+pictures and the brightness slider was added.
 

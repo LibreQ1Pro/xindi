@@ -29,7 +29,7 @@
       "sta": 2,
       "bco": 65535,
       "pic": {
-        "$ref": "picture:bg_logo"
+        "$ref": "picture:boot_logo"
       }
     },
     "events": {
