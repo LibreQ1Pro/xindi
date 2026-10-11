@@ -90,8 +90,8 @@ S('printing','Printing','Printing',()=>{
 
 S('printing2','Printing','Printing 2',()=>{
   let s = printTop('printing_2');
-  const tool = (x,y,glyph,val,unit,name,w)=> box(x,y,w,92,'card hi','',name)+`<div style="${st(x+(w-24)/2,y+12,24,24)}color:var(--text2)">${ico(glyph,24)}</div>`+vals(x,y+46,w,40,[{t:String(val),s:20,w:600},{t:unit,s:13,c:'var(--text2)'}],'c',name+'_val');
-  s += tool(12,222,'arrow-up-down','-1.000','mm','zoffset_btn',77)+tool(97,222,'gauge','100','%','speed_btn',78)+tool(183,222,'droplet','100','%','flow_btn',77);
+  const tool = (x,y,glyph,val,unit,name,w)=> box(x,y,w,92,'card hi','',name)+`<div style="${st(x+(w-24)/2,y+12,24,24)}color:var(--text2)">${HEAT[glyph]?hico(glyph,24):ico(glyph,24)}</div>`+vals(x,y+46,w,40,[{t:String(val),s:String(val).length>4?15:20,w:600},{t:unit,s:String(val).length>4?12:13,c:'var(--text2)'}],'c',name+'_val');
+  s += tool(12,222,'arrow-up-down','-1.000','mm','zoffset_btn',77)+tool(97,222,'gauge','100','%','speed_btn',78)+tool(183,222,'flow','100','%','flow_btn',77);
   s += box(12,322,77,92,'btn','<div style="position:static;display:flex;flex-direction:column;align-items:center;gap:10px">'+ico('lightbulb',26,'#ffd36b')+'<div style="position:relative;width:44px;height:26px" class="sw on"></div></div>','light_btn');
   s += btn(183,322,77,92,'',{icon:'undo-2',is:28},'back_btn');
   return screen('printing_2', s);
