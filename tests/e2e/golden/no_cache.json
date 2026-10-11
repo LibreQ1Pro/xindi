@@ -65,13 +65,13 @@
   {
    "attrs": {
     "b[0].pic": [
-     "23"
+     "21"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -80,16 +80,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -98,25 +98,25 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "23"
+     "21"
     ],
     "last_file_btn.picc2": [
-     "28"
+     "26"
     ],
     "last_file_name.txt": [
      "\"\""
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -125,13 +125,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -151,58 +151,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"big_petg.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"cube.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
@@ -218,16 +218,16 @@
      "8c4d6554d025b74f:3925:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"

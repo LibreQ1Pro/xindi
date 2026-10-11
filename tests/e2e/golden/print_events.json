@@ -81,17 +81,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -100,16 +100,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -118,10 +118,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -140,16 +140,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -158,13 +158,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -208,10 +208,10 @@
      "\"-\""
     ],
     "level_btn.picc": [
-     "42"
+     "40"
     ],
     "level_btn.picc2": [
-     "41"
+     "39"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -220,10 +220,10 @@
      "\"\""
     ],
     "timelapse_btn.picc": [
-     "43"
+     "41"
     ],
     "timelapse_btn.picc2": [
-     "205"
+     "203"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -241,10 +241,10 @@
      "runout"
     ],
     "bed_btn.picc": [
-     "49"
+     "47"
     ],
     "bed_btn.picc2": [
-     "47"
+     "45"
     ],
     "bed_set.val": [
      "0"
@@ -256,10 +256,10 @@
      "\"25\""
     ],
     "chamber_btn.picc": [
-     "49"
+     "47"
     ],
     "chamber_btn.picc2": [
-     "47"
+     "45"
     ],
     "chamber_set.val": [
      "0"
@@ -283,10 +283,10 @@
      "\"part_abs.gcode\""
     ],
     "nozzle_btn.picc": [
-     "49"
+     "47"
     ],
     "nozzle_btn.picc2": [
-     "47"
+     "45"
     ],
     "nozzle_set.val": [
      "0"
@@ -336,10 +336,10 @@
      "\"part_abs.gcode\""
     ],
     "heat_btn.picc": [
-     "59"
+     "57"
     ],
     "heat_btn.picc2": [
-     "60"
+     "58"
     ],
     "progress.val": [
      "12"
@@ -375,10 +375,10 @@
      "\"part_abs.gcode\""
     ],
     "heat_btn.picc": [
-     "59"
+     "57"
     ],
     "heat_btn.picc2": [
-     "60"
+     "58"
     ],
     "progress.val": [
      "12"
@@ -417,10 +417,10 @@
      "\"part_abs.gcode\""
     ],
     "heat_btn.picc": [
-     "59"
+     "57"
     ],
     "heat_btn.picc2": [
-     "60"
+     "58"
     ],
     "progress.val": [
      "12"
@@ -456,10 +456,10 @@
      "\"part_abs.gcode\""
     ],
     "heat_btn.picc": [
-     "59"
+     "57"
     ],
     "heat_btn.picc2": [
-     "60"
+     "58"
     ],
     "progress.val": [
      "12"
@@ -491,10 +491,10 @@
      "error"
     ],
     "bed_btn.picc": [
-     "49"
+     "47"
     ],
     "bed_btn.picc2": [
-     "47"
+     "45"
     ],
     "bed_set.val": [
      "0"
@@ -506,10 +506,10 @@
      "\"25\""
     ],
     "chamber_btn.picc": [
-     "49"
+     "47"
     ],
     "chamber_btn.picc2": [
-     "47"
+     "45"
     ],
     "chamber_set.val": [
      "0"
@@ -533,10 +533,10 @@
      "\"part_abs.gcode\""
     ],
     "nozzle_btn.picc": [
-     "49"
+     "47"
     ],
     "nozzle_btn.picc2": [
-     "47"
+     "45"
     ],
     "nozzle_set.val": [
      "0"
@@ -591,17 +591,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -610,16 +610,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -628,10 +628,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -650,16 +650,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -668,13 +668,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15

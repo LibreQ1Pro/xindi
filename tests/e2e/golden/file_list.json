@@ -139,17 +139,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -158,16 +158,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -176,10 +176,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -198,16 +198,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -216,13 +216,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "29"
+     "27"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -242,58 +242,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
     "file2.picc": [
-     "38"
+     "36"
     ],
     "file2.picc2": [
-     "36"
+     "34"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
@@ -309,16 +309,16 @@
      "2d5b7d600246d2e9:3974:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -342,58 +342,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"cube.gcode\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"part_abs.gcode\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"z_last.gcode\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "38"
+     "36"
     ],
     "prev.picc2": [
-     "34"
+     "32"
     ],
     "tsw 255": [
      "255,0",
@@ -410,16 +410,16 @@
      "15013ab210f2794e:4047:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -442,58 +442,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
     "file2.picc": [
-     "38"
+     "36"
     ],
     "file2.picc2": [
-     "36"
+     "34"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -519,16 +519,16 @@
      "2d5b7d600246d2e9:3974:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -552,58 +552,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"deep\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"inner.gcode\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -618,16 +618,16 @@
      "255,1"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -650,73 +650,73 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"deeper.gcode\""
     ],
     "file2.picc": [
-     "31"
+     "29"
     ],
     "file2.picc2": [
-     "31"
+     "29"
     ],
     "file2_name.txt": [
      "\"\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -739,73 +739,73 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"deep\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"inner.gcode\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -828,58 +828,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
     "file2.picc": [
-     "38"
+     "36"
     ],
     "file2.picc2": [
-     "36"
+     "34"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
@@ -895,16 +895,16 @@
      "2d5b7d600246d2e9:3974:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -931,73 +931,73 @@
      "\"空\""
     ],
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"folder\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"usb_five.gcode\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"usb_four.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"usb_one.gcode\""
     ],
     "local_tab.picc": [
-     "31"
+     "29"
     ],
     "local_tab.picc2": [
-     "33"
+     "31"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "31"
+     "29"
     ],
     "usb_tab.picc2": [
-     "33"
+     "31"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1023,74 +1023,74 @@
      "\"空\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"usb_three.gcode\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"usb_two.gcode\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "31"
+     "29"
     ],
     "local_tab.picc2": [
-     "33"
+     "31"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "38"
+     "36"
     ],
     "prev.picc2": [
-     "34"
+     "32"
     ],
     "tsw 255": [
      "255,0",
      "255,1"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "31"
+     "29"
     ],
     "usb_tab.picc2": [
-     "33"
+     "31"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1116,74 +1116,74 @@
      "\"空\""
     ],
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"folder\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"usb_five.gcode\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"usb_four.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"usb_one.gcode\""
     ],
     "local_tab.picc": [
-     "31"
+     "29"
     ],
     "local_tab.picc2": [
-     "33"
+     "31"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,0",
      "255,1"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "31"
+     "29"
     ],
     "usb_tab.picc2": [
-     "33"
+     "31"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1209,58 +1209,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
     "file2.picc": [
-     "38"
+     "36"
     ],
     "file2.picc2": [
-     "36"
+     "34"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1285,16 +1285,16 @@
      "2d5b7d600246d2e9:3974:2"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -1340,14 +1340,14 @@
      "\"-\""
     ],
     "level_btn.picc": [
-     "42",
-     "43",
-     "42"
+     "40",
+     "41",
+     "40"
     ],
     "level_btn.picc2": [
-     "41",
-     "205",
-     "41"
+     "39",
+     "203",
+     "39"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1369,10 +1369,10 @@
      "22a14534e55cb902:1288"
     ],
     "timelapse_btn.picc": [
-     "43"
+     "41"
     ],
     "timelapse_btn.picc2": [
-     "205"
+     "203"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1386,58 +1386,58 @@
      "cache"
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"last_print.gcode\""
     ],
     "file2.picc": [
-     "38"
+     "36"
     ],
     "file2.picc2": [
-     "36"
+     "34"
     ],
     "file2_name.txt": [
      "\"models\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"big_petg.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1452,16 +1452,16 @@
      "255,1"
     ],
     "up_dir.picc": [
-     "37"
+     "35"
     ],
     "up_dir.picc2": [
-     "36"
+     "34"
     ],
     "usb_tab.picc": [
-     "32"
+     "30"
     ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0",
@@ -1507,10 +1507,10 @@
      "\"7.2g\""
     ],
     "level_btn.picc": [
-     "42"
+     "40"
     ],
     "level_btn.picc2": [
-     "41"
+     "39"
     ],
     "logo.version.val": [
      "100"
@@ -1535,10 +1535,10 @@
      "7de2e0119283074b:128"
     ],
     "timelapse_btn.picc": [
-     "43"
+     "41"
     ],
     "timelapse_btn.picc2": [
-     "205"
+     "203"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1549,10 +1549,10 @@
   {
    "attrs": {
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -1561,16 +1561,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -1579,16 +1579,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -1606,10 +1606,10 @@
      ""
     ],
     "usb_icon.picc": [
-     "29"
+     "27"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -1651,10 +1651,10 @@
      "\"7.2g\""
     ],
     "level_btn.picc": [
-     "42"
+     "40"
     ],
     "level_btn.picc2": [
-     "41"
+     "39"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1676,10 +1676,10 @@
      "7de2e0119283074b:128"
     ],
     "timelapse_btn.picc": [
-     "43"
+     "41"
     ],
     "timelapse_btn.picc2": [
-     "205"
+     "203"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -1693,10 +1693,10 @@
      "jpg thumbnail"
     ],
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -1708,16 +1708,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -1729,16 +1729,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -1750,28 +1750,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -1779,73 +1779,73 @@
   {
    "attrs": {
     "file1.picc": [
-     "38"
+     "36"
     ],
     "file1.picc2": [
-     "36"
+     "34"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"Benchy PLA.gcode\""
     ],
     "file3.picc": [
-     "37"
+     "35"
     ],
     "file3.picc2": [
-     "34"
+     "32"
     ],
     "file3_name.txt": [
      "\"big_petg.gcode\""
     ],
     "file4.picc": [
-     "37"
+     "35"
     ],
     "file4.picc2": [
-     "34"
+     "32"
     ],
     "file4_name.txt": [
      "\"cube.gcode\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "38"
+     "36"
     ],
     "next.picc2": [
-     "34"
+     "32"
     ],
     "prev.picc": [
-     "37"
+     "35"
     ],
     "prev.picc2": [
-     "36"
+     "34"
     ],
     "tsw 255": [
      "255,1"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1868,58 +1868,58 @@
      "\"ram/file3.jpg\""
     ],
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"part_abs.gcode\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"z_last.gcode\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "38"
+     "36"
     ],
     "prev.picc2": [
-     "34"
+     "32"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -1941,16 +1941,16 @@
      "15013ab210f2794e:4047:2"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"
@@ -1976,16 +1976,16 @@
      "\"0.5g\""
     ],
     "level_btn.picc": [
-     "42"
+     "40"
     ],
     "level_btn.picc2": [
-     "41"
+     "39"
     ],
     "timelapse_btn.picc": [
-     "43"
+     "41"
     ],
     "timelapse_btn.picc2": [
-     "205"
+     "203"
     ],
     "vis preview_pic": [
      "preview_pic,0"
@@ -1996,58 +1996,58 @@
   {
    "attrs": {
     "file1.picc": [
-     "37"
+     "35"
     ],
     "file1.picc2": [
-     "34"
+     "32"
     ],
     "file1_name.txt": [
      "\"part_abs.gcode\""
     ],
     "file2.picc": [
-     "37"
+     "35"
     ],
     "file2.picc2": [
-     "34"
+     "32"
     ],
     "file2_name.txt": [
      "\"z_last.gcode\""
     ],
     "file3.picc": [
-     "31"
+     "29"
     ],
     "file3.picc2": [
-     "31"
+     "29"
     ],
     "file3_name.txt": [
      "\"\""
     ],
     "file4.picc": [
-     "31"
+     "29"
     ],
     "file4.picc2": [
-     "31"
+     "29"
     ],
     "file4_name.txt": [
      "\"\""
     ],
     "local_tab.picc": [
-     "32"
+     "30"
     ],
     "local_tab.picc2": [
-     "34"
+     "32"
     ],
     "next.picc": [
-     "37"
+     "35"
     ],
     "next.picc2": [
-     "36"
+     "34"
     ],
     "prev.picc": [
-     "38"
+     "36"
     ],
     "prev.picc2": [
-     "34"
+     "32"
     ],
     "preview.cp_data.txt": [
      "\"\""
@@ -2062,16 +2062,16 @@
      "255,1"
     ],
     "up_dir.picc": [
-     "38"
+     "36"
     ],
     "up_dir.picc2": [
-     "34"
-    ],
-    "usb_tab.picc": [
      "32"
     ],
+    "usb_tab.picc": [
+     "30"
+    ],
     "usb_tab.picc2": [
-     "34"
+     "32"
     ],
     "vis file1_mark": [
      "file1_mark,0"

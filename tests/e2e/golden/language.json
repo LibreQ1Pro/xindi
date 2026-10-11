@@ -71,17 +71,17 @@
      "russian"
     ],
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -90,16 +90,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -108,10 +108,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -130,16 +130,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -148,13 +148,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -166,10 +166,10 @@
   {
    "attrs": {
     "reset_btn.picc": [
-     "125"
+     "123"
     ],
     "reset_btn.picc2": [
-     "123"
+     "121"
     ]
    },
    "page": 56
@@ -180,10 +180,10 @@
      "\"\""
     ],
     "source_switch.picc": [
-     "197"
+     "195"
     ],
     "source_switch.picc2": [
-     "173"
+     "171"
     ]
    },
    "page": 75
@@ -194,58 +194,58 @@
      "japanese"
     ],
     "next_btn.picc": [
-     "114"
+     "112"
     ],
     "next_btn.picc2": [
-     "111"
+     "109"
     ],
     "prev_btn.picc": [
-     "114"
+     "112"
     ],
     "prev_btn.picc2": [
-     "111"
+     "109"
     ],
     "row1.picc": [
-     "110"
+     "108"
     ],
     "row1.picc2": [
-     "110"
+     "108"
     ],
     "row1_txt.txt": [
      "\"\""
     ],
     "row2.picc": [
-     "110"
+     "108"
     ],
     "row2.picc2": [
-     "110"
+     "108"
     ],
     "row2_txt.txt": [
      "\"\""
     ],
     "row3.picc": [
-     "110"
+     "108"
     ],
     "row3.picc2": [
-     "110"
+     "108"
     ],
     "row3_txt.txt": [
      "\"\""
     ],
     "row4.picc": [
-     "110"
+     "108"
     ],
     "row4.picc2": [
-     "110"
+     "108"
     ],
     "row4_txt.txt": [
      "\"\""
     ],
     "row5.picc": [
-     "110"
+     "108"
     ],
     "row5.picc2": [
-     "110"
+     "108"
     ],
     "row5_txt.txt": [
      "\"\""
@@ -263,10 +263,10 @@
      "\"\""
     ],
     "source_switch.picc": [
-     "197"
+     "195"
     ],
     "source_switch.picc2": [
-     "173"
+     "171"
     ]
    },
    "page": 75
@@ -274,58 +274,58 @@
   {
    "attrs": {
     "next_btn.picc": [
-     "114"
+     "112"
     ],
     "next_btn.picc2": [
-     "111"
+     "109"
     ],
     "prev_btn.picc": [
-     "114"
+     "112"
     ],
     "prev_btn.picc2": [
-     "111"
+     "109"
     ],
     "row1.picc": [
-     "110"
+     "108"
     ],
     "row1.picc2": [
-     "110"
+     "108"
     ],
     "row1_txt.txt": [
      "\"\""
     ],
     "row2.picc": [
-     "110"
+     "108"
     ],
     "row2.picc2": [
-     "110"
+     "108"
     ],
     "row2_txt.txt": [
      "\"\""
     ],
     "row3.picc": [
-     "110"
+     "108"
     ],
     "row3.picc2": [
-     "110"
+     "108"
     ],
     "row3_txt.txt": [
      "\"\""
     ],
     "row4.picc": [
-     "110"
+     "108"
     ],
     "row4.picc2": [
-     "110"
+     "108"
     ],
     "row4_txt.txt": [
      "\"\""
     ],
     "row5.picc": [
-     "110"
+     "108"
     ],
     "row5.picc2": [
-     "110"
+     "108"
     ],
     "row5_txt.txt": [
      "\"\""

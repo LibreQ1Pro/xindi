@@ -2323,18 +2323,6 @@
       }
     },
     {
-      "key": "bg_restart",
-      "source": {
-        "png": "pictures/bg_restart.png"
-      }
-    },
-    {
-      "key": "bg_shutdown",
-      "source": {
-        "png": "pictures/bg_shutdown.png"
-      }
-    },
-    {
       "key": "bg_open_language",
       "source": {
         "png": "pictures/bg_open_language.png"

@@ -71,17 +71,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -90,16 +90,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -108,10 +108,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -130,16 +130,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -148,13 +148,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -162,10 +162,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -177,16 +177,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -198,16 +198,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -219,28 +219,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -252,10 +252,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -267,16 +267,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -288,16 +288,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -309,28 +309,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -338,10 +338,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -353,16 +353,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -374,16 +374,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -395,28 +395,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -424,10 +424,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -439,16 +439,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -460,16 +460,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -481,28 +481,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -510,14 +510,14 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149",
-     "150",
-     "149"
-    ],
-    "bed_row.picc2": [
-     "148",
      "147",
-     "148"
+     "148",
+     "147"
+    ],
+    "bed_row.picc2": [
+     "146",
+     "145",
+     "146"
     ],
     "bed_set.val": [
      "0",
@@ -533,24 +533,24 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149",
-     "150",
-     "149"
+     "147",
+     "148",
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148",
-     "147",
-     "148"
+     "146",
+     "145",
+     "146"
     ],
     "chamber_row.picc": [
-     "149",
-     "150",
-     "149"
+     "147",
+     "148",
+     "147"
     ],
     "chamber_row.picc2": [
-     "148",
-     "147",
-     "148"
+     "146",
+     "145",
+     "146"
     ],
     "chamber_set.val": [
      "0",
@@ -566,24 +566,24 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149",
-     "150",
-     "149"
+     "147",
+     "148",
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148",
-     "147",
-     "148"
+     "146",
+     "145",
+     "146"
     ],
     "nozzle_row.picc": [
-     "149",
-     "150",
-     "149"
+     "147",
+     "148",
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148",
-     "147",
-     "148"
+     "146",
+     "145",
+     "146"
     ],
     "nozzle_set.val": [
      "0",
@@ -599,44 +599,44 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149",
-     "150",
-     "149"
-    ],
-    "nozzle_toggle.picc2": [
-     "148",
-     "147",
-     "148"
-    ],
-    "step_10.picc": [
-     "149",
-     "150",
-     "149"
-    ],
-    "step_10.picc2": [
-     "148",
-     "147",
-     "148"
-    ],
-    "step_100.picc": [
-     "149",
-     "150",
-     "149"
-    ],
-    "step_100.picc2": [
-     "148",
-     "147",
-     "148"
-    ],
-    "step_50.picc": [
-     "150",
-     "149",
-     "150"
-    ],
-    "step_50.picc2": [
      "147",
      "148",
      "147"
+    ],
+    "nozzle_toggle.picc2": [
+     "146",
+     "145",
+     "146"
+    ],
+    "step_10.picc": [
+     "147",
+     "148",
+     "147"
+    ],
+    "step_10.picc2": [
+     "146",
+     "145",
+     "146"
+    ],
+    "step_100.picc": [
+     "147",
+     "148",
+     "147"
+    ],
+    "step_100.picc2": [
+     "146",
+     "145",
+     "146"
+    ],
+    "step_50.picc": [
+     "148",
+     "147",
+     "148"
+    ],
+    "step_50.picc2": [
+     "145",
+     "146",
+     "145"
     ]
    },
    "page": 70
@@ -649,12 +649,12 @@
      "80"
     ],
     "fan1_toggle.picc": [
-     "163",
-     "164"
-    ],
-    "fan1_toggle.picc2": [
      "161",
      "162"
+    ],
+    "fan1_toggle.picc2": [
+     "159",
+     "160"
     ],
     "fan1_val.val": [
      "0",
@@ -666,12 +666,12 @@
      "55"
     ],
     "fan2_toggle.picc": [
-     "163",
-     "164"
-    ],
-    "fan2_toggle.picc2": [
      "161",
      "162"
+    ],
+    "fan2_toggle.picc2": [
+     "159",
+     "160"
     ],
     "fan2_val.val": [
      "0",
@@ -682,12 +682,12 @@
      "100"
     ],
     "fan3_toggle.picc": [
-     "163",
-     "164"
-    ],
-    "fan3_toggle.picc2": [
      "161",
      "162"
+    ],
+    "fan3_toggle.picc2": [
+     "159",
+     "160"
     ],
     "fan3_val.val": [
      "0",
@@ -702,10 +702,10 @@
      "printing keyboard"
     ],
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0",
@@ -719,16 +719,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -740,19 +740,19 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "flow_val.val": [
      "99"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0",
@@ -766,31 +766,31 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "speed_val.val": [
      "150"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -802,10 +802,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -817,16 +817,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -838,16 +838,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -859,28 +859,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70

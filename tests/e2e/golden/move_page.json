@@ -75,17 +75,17 @@
   {
    "attrs": {
     "b[0].pic": [
-     "26"
+     "24"
     ],
     "baud": [
      "921600",
      "115200"
     ],
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -94,16 +94,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -112,10 +112,10 @@
      "26"
     ],
     "last_file_btn.picc": [
-     "26"
+     "24"
     ],
     "last_file_btn.picc2": [
-     "27"
+     "25"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -134,16 +134,16 @@
      "7de2e0119283074b:128"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -152,13 +152,13 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -166,10 +166,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -181,16 +181,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -202,16 +202,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -223,28 +223,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -255,38 +255,38 @@
      "unhomed"
     ],
     "dist_01.picc": [
-     "72",
-     "73",
-     "72",
-     "73"
+     "70",
+     "71",
+     "70",
+     "71"
     ],
     "dist_01.picc2": [
+     "69",
+     "68",
+     "69",
+     "68"
+    ],
+    "dist_1.picc": [
+     "70",
+     "71",
+     "70"
+    ],
+    "dist_1.picc2": [
+     "69",
+     "68",
+     "69"
+    ],
+    "dist_10.picc": [
      "71",
      "70",
      "71",
      "70"
     ],
-    "dist_1.picc": [
-     "72",
-     "73",
-     "72"
-    ],
-    "dist_1.picc2": [
-     "71",
-     "70",
-     "71"
-    ],
-    "dist_10.picc": [
-     "73",
-     "72",
-     "73",
-     "72"
-    ],
     "dist_10.picc2": [
-     "70",
-     "71",
-     "70",
-     "71"
+     "68",
+     "69",
+     "68",
+     "69"
     ],
     "x_pos.txt": [
      "\"125.0\"",
@@ -313,22 +313,22 @@
   {
    "attrs": {
     "dist_01.picc": [
-     "73"
+     "71"
     ],
     "dist_01.picc2": [
-     "70"
+     "68"
     ],
     "dist_1.picc": [
-     "72"
+     "70"
     ],
     "dist_1.picc2": [
-     "71"
+     "69"
     ],
     "dist_10.picc": [
-     "72"
+     "70"
     ],
     "dist_10.picc2": [
-     "71"
+     "69"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -349,22 +349,22 @@
   {
    "attrs": {
     "dist_01.picc": [
-     "73"
+     "71"
     ],
     "dist_01.picc2": [
-     "70"
+     "68"
     ],
     "dist_1.picc": [
-     "72"
+     "70"
     ],
     "dist_1.picc2": [
-     "71"
+     "69"
     ],
     "dist_10.picc": [
-     "72"
+     "70"
     ],
     "dist_10.picc2": [
-     "71"
+     "69"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -385,22 +385,22 @@
   {
    "attrs": {
     "dist_01.picc": [
-     "73"
+     "71"
     ],
     "dist_01.picc2": [
-     "70"
+     "68"
     ],
     "dist_1.picc": [
-     "72"
+     "70"
     ],
     "dist_1.picc2": [
-     "71"
+     "69"
     ],
     "dist_10.picc": [
-     "72"
+     "70"
     ],
     "dist_10.picc2": [
-     "71"
+     "69"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -421,10 +421,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -436,16 +436,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -457,16 +457,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -478,28 +478,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -507,22 +507,22 @@
   {
    "attrs": {
     "dist_01.picc": [
-     "73"
+     "71"
     ],
     "dist_01.picc2": [
-     "70"
+     "68"
     ],
     "dist_1.picc": [
-     "72"
+     "70"
     ],
     "dist_1.picc2": [
-     "71"
+     "69"
     ],
     "dist_10.picc": [
-     "72"
+     "70"
     ],
     "dist_10.picc2": [
-     "71"
+     "69"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -539,10 +539,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -554,16 +554,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -575,19 +575,19 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "logo.version.val": [
      "100"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -599,28 +599,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
@@ -628,10 +628,10 @@
   {
    "attrs": {
     "bed_btn.picc": [
-     "29"
+     "27"
     ],
     "bed_btn.picc2": [
-     "27"
+     "25"
     ],
     "bed_temp.pco": [
      "65535"
@@ -640,16 +640,16 @@
      "25"
     ],
     "beep_btn.picc": [
-     "29"
+     "27"
     ],
     "beep_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_btn.picc": [
-     "29"
+     "27"
     ],
     "chamber_btn.picc2": [
-     "27"
+     "25"
     ],
     "chamber_temp.pco": [
      "65535"
@@ -658,16 +658,16 @@
      "26"
     ],
     "light_btn.picc": [
-     "29"
+     "27"
     ],
     "light_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_btn.picc": [
-     "29"
+     "27"
     ],
     "nozzle_btn.picc2": [
-     "27"
+     "25"
     ],
     "nozzle_temp.pco": [
      "65535"
@@ -676,10 +676,10 @@
      "25"
     ],
     "usb_icon.picc": [
-     "30"
+     "28"
     ],
     "wifi_icon.picc": [
-     "30"
+     "28"
     ]
    },
    "page": 15
@@ -687,10 +687,10 @@
   {
    "attrs": {
     "bed_row.picc": [
-     "149"
+     "147"
     ],
     "bed_row.picc2": [
-     "148"
+     "146"
     ],
     "bed_set.val": [
      "0"
@@ -702,16 +702,16 @@
      "\"25\""
     ],
     "bed_toggle.picc": [
-     "149"
+     "147"
     ],
     "bed_toggle.picc2": [
-     "148"
+     "146"
     ],
     "chamber_row.picc": [
-     "149"
+     "147"
     ],
     "chamber_row.picc2": [
-     "148"
+     "146"
     ],
     "chamber_set.val": [
      "0"
@@ -723,16 +723,16 @@
      "\"26\""
     ],
     "chamber_toggle.picc": [
-     "149"
+     "147"
     ],
     "chamber_toggle.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_row.picc": [
-     "149"
+     "147"
     ],
     "nozzle_row.picc2": [
-     "148"
+     "146"
     ],
     "nozzle_set.val": [
      "0"
@@ -744,28 +744,28 @@
      "\"25\""
     ],
     "nozzle_toggle.picc": [
-     "149"
+     "147"
     ],
     "nozzle_toggle.picc2": [
-     "148"
+     "146"
     ],
     "step_10.picc": [
-     "149"
+     "147"
     ],
     "step_10.picc2": [
-     "148"
+     "146"
     ],
     "step_100.picc": [
-     "149"
+     "147"
     ],
     "step_100.picc2": [
-     "148"
+     "146"
     ],
     "step_50.picc": [
-     "150"
+     "148"
     ],
     "step_50.picc2": [
-     "147"
+     "145"
     ]
    },
    "page": 70
