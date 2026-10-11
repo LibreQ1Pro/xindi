@@ -39,19 +39,19 @@
  ],
  "pages": [
   15,
-  60,
-  57,
-  60,
   59,
+  56,
+  59,
+  58,
   15,
-  66,
+  65,
   15,
-  73,
+  72,
   15,
   39,
   41,
   42,
-  70,
+  69,
   15
  ],
  "screen": [
@@ -174,7 +174,7 @@
      "\"MCU  mcu  shutdown: Timer too close.Once the underlying issue is corrected, use the  FIRMWARE_RESTART  command\""
     ]
    },
-   "page": 60
+   "page": 59
   },
   {
    "attrs": {
@@ -185,7 +185,7 @@
      "123"
     ]
    },
-   "page": 57
+   "page": 56
   },
   {
    "attrs": {
@@ -193,7 +193,7 @@
      "\"Klipper reports: ERROR  x \""
     ]
    },
-   "page": 60
+   "page": 59
   },
   {
    "attrs": {
@@ -201,7 +201,7 @@
      "100"
     ]
    },
-   "page": 59
+   "page": 58
   },
   {
    "attrs": {
@@ -274,7 +274,7 @@
      "\"!! Unknown command:\"FOO\"\""
     ]
    },
-   "page": 66
+   "page": 65
   },
   {
    "attrs": {
@@ -350,7 +350,7 @@
      "100"
     ]
    },
-   "page": 73
+   "page": 72
   },
   {
    "attrs": {
@@ -457,7 +457,7 @@
      "100"
     ]
    },
-   "page": 70
+   "page": 69
   },
   {
    "attrs": {

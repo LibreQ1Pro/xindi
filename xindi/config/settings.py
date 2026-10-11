@@ -1,15 +1,12 @@
 """The saved settings (config.mksini): reading and writing them, and loading the versions."""
 
 import logging
-import time
 
 from xindi import state as g
 from xindi.config.inifile import open_settings, open_version_file, save_setting
 from xindi.moonraker.rpc_requests import json_get_job_totals
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
-from xindi.system import network
-from xindi.system.network import get_wlan0_status
 from xindi.util import paths
 from xindi.util.cpp import system, to_string
 
@@ -81,13 +78,6 @@ def load_versions():
     g.config.version_soc = ini.get_string("version", "soc", "V1.1.1")
     g.config.version_mcu = ini.get_string("version", "mcu", "V0.10.0")
     g.config.version_ui = ini.get_string("version", "ui", "V1.1.1")
-
-
-def wifi_save_config():
-    page_to(ids.WIFI_SAVING)
-    network.mks_save_config()
-    time.sleep(2)
-    get_wlan0_status()
 
 
 def get_total_time():

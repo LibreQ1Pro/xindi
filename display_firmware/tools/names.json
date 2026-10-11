@@ -574,9 +574,6 @@
    "tm0": "timeout_timer",
    "cnt": "count"
   },
-  "wifi_saving": {
-   "t0": "msg"
-  },
   "wifi_success": {
    "q0": "popup_bg",
    "b0": "ok",

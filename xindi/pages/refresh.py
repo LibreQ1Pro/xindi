@@ -45,7 +45,7 @@ NO_PRINT_JUMP_PAGES = frozenset((
 NO_RESET_JUMP_PAGES = frozenset((
     ids.GCODE_ERROR, ids.DETECT_ERROR, ids.LEVEL_ERROR, ids.SHUTDOWN, ids.LANGUAGE,
     ids.COMMON_SETTING, ids.SLEEP_MODE, ids.INTERNET, ids.WIFI_LIST, ids.WIFI_KB, ids.WIFI_CONNECT,
-    ids.WIFI_FAILED, ids.WIFI_SUCCESS, ids.WIFI_SAVING, ids.NET_SAVED, ids.NET_DETAIL, ids.NET_CONFIRM,
+    ids.WIFI_FAILED, ids.WIFI_SUCCESS, ids.NET_SAVED, ids.NET_DETAIL, ids.NET_CONFIRM,
     ids.NET_INFO, ids.RESTORE_CONFIG, ids.INTERNET_PAGE))
 
 # moves of the "move without homing" pop-up, by the button that started it

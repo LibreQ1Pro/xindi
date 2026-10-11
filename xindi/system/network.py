@@ -304,22 +304,6 @@ def device_report(kind):
     return report
 
 
-def mks_save_config():
-    """The connection is saved by NetworkManager when it is made, only the screen steps remain."""
-    mks_wifi_run_cmd_status(g.net.status_result)
-    if ids.WIFI_SAVING == g.screen.page:
-        time.sleep(3)
-        g.screen.wifi_ssid_button_enabled[0] = False
-        g.screen.wifi_ssid_button_enabled[1] = False
-        g.screen.wifi_ssid_button_enabled[2] = False
-        g.screen.wifi_ssid_button_enabled[3] = False
-        g.net.wifi_ssid_list_pages = 0
-        g.net.wifi_current_pages = 0
-        from xindi.pages import wifi
-        wifi.go_to_network()
-    return 0
-
-
 def mks_wifi_hdlevent_thread(arg=None):
     """Keeps the status of the wifi up to date: refreshed on every change NetworkManager reports
     (``nmcli monitor``) and every 30 seconds."""

@@ -79,7 +79,7 @@ def wifi_connect(page_id, widget_id):
 
 def wifi_success(page_id, widget_id):
     if widget_id == ids.WIFI_SUCCESS_YES:
-        settings.wifi_save_config()
+        wifi.go_to_network()
 
 
 def wifi_failed(page_id, widget_id):

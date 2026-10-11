@@ -2063,13 +2063,6 @@
       }
     },
     {
-      "key": "wifi_saving",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_saving.json"
-      }
-    },
-    {
       "key": "wifi_success",
       "content": {
         "mode": "json",

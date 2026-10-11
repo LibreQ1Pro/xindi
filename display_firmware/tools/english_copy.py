@@ -239,7 +239,6 @@ COPY = {
     ("wifi_connect", "msg"): "Connecting to Wi-Fi...",
     ("wifi_fail", "msg"): "Connection failed.",
     ("wifi_kb", "title"): "Enter Password",
-    ("wifi_saving", "msg"): "Saving the Wi-Fi settings...",
     ("wifi_success", "msg"): "Connected successfully.",
 }
 
@@ -396,7 +395,6 @@ COPY_RU = {
     ("wifi_connect", "msg"): "Подключение к Wi-Fi...",
     ("wifi_fail", "msg"): "Не удалось подключиться.",
     ("wifi_kb", "title"): "Введите пароль",
-    ("wifi_saving", "msg"): "Сохранение настроек Wi-Fi...",
     ("wifi_success", "msg"): "Подключение выполнено.",
 }
 

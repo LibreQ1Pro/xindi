@@ -460,7 +460,7 @@
         "codesdown": [],
         "codesup": [
           "prints 0x65,1",
-          "prints 58,1",
+          "prints 57,1",
           "prints 0,1",
           "prints 0xff,1",
           "prints 0xff,1",
@@ -525,7 +525,7 @@
         "codesdown": [],
         "codesup": [
           "prints 0x65,1",
-          "prints 58,1",
+          "prints 57,1",
           "prints 33,1",
           "prints 0xff,1",
           "prints 0xff,1",
@@ -590,7 +590,7 @@
         "codesdown": [],
         "codesup": [
           "prints 0x65,1",
-          "prints 58,1",
+          "prints 57,1",
           "prints 32,1",
           "prints 0xff,1",
           "prints 0xff,1",
@@ -655,7 +655,7 @@
         "codesdown": [],
         "codesup": [
           "prints 0x65,1",
-          "prints 58,1",
+          "prints 57,1",
           "prints 31,1",
           "prints 0xff,1",
           "prints 0xff,1",
@@ -720,7 +720,7 @@
         "codesdown": [],
         "codesup": [
           "prints 0x65,1",
-          "prints 58,1",
+          "prints 57,1",
           "prints 30,1",
           "prints 0xff,1",
           "prints 0xff,1",

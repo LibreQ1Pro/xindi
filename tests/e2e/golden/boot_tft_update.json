@@ -38,8 +38,8 @@
   "GET /server/files/gcodes/.cache/last_print.gcode"
  ],
  "pages": [
-  62,
-  62,
+  61,
+  61,
   15
  ],
  "screen": [
@@ -68,7 +68,7 @@
   },
   {
    "attrs": {},
-   "page": 62
+   "page": 61
   },
   {
    "attrs": {
@@ -76,7 +76,7 @@
      "100"
     ]
    },
-   "page": 62
+   "page": 61
   },
   {
    "attrs": {
