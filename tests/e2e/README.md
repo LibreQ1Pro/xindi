@@ -68,10 +68,13 @@ The printer is played through the fake Moonraker (`harness/devserver.py`), which
 | `POST /emu/notify` `{"method": "notify_klippy_shutdown", "params": []}` | any notification |
 | `GET /emu/state` | status objects and the last requests of the port |
 
-**Heaters.** A target set by the port (`M104`/`M109`, `M140`/`M190`, `M141`/`M191`, `SET_HEATER_TEMPERATURE`,
-`TURN_OFF_HEATERS`) is approached every second (extruder 6 °C/s, bed 1.5, chamber 0.5; cooling to 25 °C), and the changes are
-reported like `notify_status_update`. `M109`/`M190` do not block, Klipper's reply comes at once and the port follows the
-temperatures, so the heating-wait steps finish.
+**Gcode and heaters.** The scripts of the port run one after the other like in Klipper. Targets (`M104`/`M109`, `M140`/`M190`,
+`M141`/`M191`, `SET_HEATER_TEMPERATURE`, `TURN_OFF_HEATERS`) are approached every second (extruder 6 °C/s up and 3 down, bed
+1.5 / 0.3, chamber 0.5 / 0.1, ambient 25 °C) and reported like `notify_status_update`. `M109`, `M190`, `M191` and
+`TEMPERATURE_WAIT` wait for the temperature, `G1` with `E` takes as long as the extrusion, `M603` / `M604` (unload / load
+filament) run the macros of QIDI's configuration with their `M118` messages (`echo: Heat up complete`, `echo: Load finish`),
+and `idle_timeout` is `Printing` while a script runs and `Ready` afterwards. Klipper's reply to the RPC comes at once.
+A load takes about 40 s (heating 25 → 250 °C) + 12 s.
 
 **Wi-Fi.** `harness/fakenm/nmcli` stands in for NetworkManager (state in `/tmp/fake_nm.json`). Three networks are in range and the
 password of each is its own name: `12345678`, `qwerty123`, `letmein99`. A wrong password fails after two seconds like a real

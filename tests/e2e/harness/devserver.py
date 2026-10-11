@@ -24,6 +24,7 @@ Wi-Fi: the fake nmcli shows three networks whose password is their own name (123
 import argparse
 import json
 import os
+import queue
 import shutil
 import subprocess
 import sys
@@ -57,51 +58,116 @@ PRESETS = {
 # heater -> (Klipper object, heating rate, cooling rate in degrees per second). Faster than the real ones so that
 # the steps that wait for a temperature do not take minutes.
 HEATERS = {
-    "extruder": ("extruder", 6.0, 1.0),
+    "extruder": ("extruder", 6.0, 3.0),
     "heater_bed": ("heater_bed", 1.5, 0.3),
     "chamber": ("heater_generic chamber", 0.5, 0.1),
 }
 AMBIENT = 25.0
 TICK = 1.0
 
-GCODE_TARGET = {"M104": "extruder", "M109": "extruder", "M140": "heater_bed", "M190": "heater_bed",
-                "M141": "chamber", "M191": "chamber"}
-
-
-def heater_targets(script):
-    """{heater: target} set by the gcode lines of a script (M104/M109, M140/M190, M141/M191,
-    SET_HEATER_TEMPERATURE, TURN_OFF_HEATERS)."""
-    found = {}
-    for line in script.replace(";", "\n").splitlines():
-        words = line.split()
-        if not words:
-            continue
-        cmd = words[0].upper()
-        params = {w.split("=")[0].upper(): w.split("=", 1)[1] for w in words[1:] if "=" in w}
-        try:
-            if cmd in GCODE_TARGET:
-                for w in words[1:]:
-                    if w[0].upper() == "S":
-                        found[GCODE_TARGET[cmd]] = float(w[1:])
-            elif cmd == "SET_HEATER_TEMPERATURE" and "HEATER" in params:
-                name = params["HEATER"].replace("heater_generic ", "")
-                if name in HEATERS:
-                    found[name] = float(params.get("TARGET", 0))
-            elif cmd == "TURN_OFF_HEATERS":
-                found.update({name: 0.0 for name in HEATERS})
-        except ValueError:
-            pass
-    return found
+# Macros of QIDI's Klipper configuration (config/gcode_macro.cfg) that the port starts; they report with M118.
+MACROS = {
+    "M604": ["M118 Heat up complete", "M83", "G1 E80 F400", "M400", "M118 Load finish"],
+    "M603": ["M118 Heat up complete", "G92 E0", "G0 E15 F400", "G4 P1000", "G92 E0", "G1 E-90 F800", "M400",
+             "M118 Unload finish"],
+}
+TARGET_CMD = {"M104": "extruder", "M109": "extruder", "M140": "heater_bed", "M190": "heater_bed",
+              "M141": "chamber", "M191": "chamber"}
+MOVE_SPEED = 1.0        # execution speed of moves: 1.0 = as long as the real printer takes
+WAIT_LIMIT = 900.0
 
 
 class Moonraker(harness.Moonraker):
-    """The fake Moonraker of the tests plus the /emu/ control interface and heaters that really heat."""
+    """The fake Moonraker of the tests plus the /emu/ control interface, heaters that really heat and a gcode
+    queue: scripts run one after the other like in Klipper (waits for temperatures, moves take their time, M118
+    answers, idle_timeout is "Printing" meanwhile and "Ready" afterwards)."""
+
+    def __init__(self, fixture):
+        harness.Moonraker.__init__(self, fixture)
+        self.scripts = queue.Queue()
 
     def _handle_rpc(self, req):
         if req.get("method") == "printer.gcode.script":
-            for name, target in heater_targets((req.get("params") or {}).get("script", "")).items():
-                self.push_status({HEATERS[name][0]: {"target": target}})
+            self.scripts.put((req.get("params") or {}).get("script", ""))
         return super()._handle_rpc(req)
+
+    # -- gcode ---------------------------------------------------------------
+    def run_scripts(self):
+        while True:
+            script = self.scripts.get()
+            printing = self.state.get("print_stats", {}).get("state") == "printing"
+            if not printing:
+                self.push_status({"idle_timeout": {"state": "Printing"}})
+            for line in script.splitlines():
+                try:
+                    self.execute(line)
+                except Exception:
+                    import traceback
+                    traceback.print_exc()
+            if self.scripts.empty() and not printing:
+                self.push_status({"idle_timeout": {"state": "Ready"}})
+
+    def set_target(self, name, target):
+        self.push_status({HEATERS[name][0]: {"target": float(target)}})
+
+    def temperature(self, name):
+        return self.state.get(HEATERS[name][0], {}).get("temperature", AMBIENT)
+
+    def wait_temperature(self, name, low, high=None):
+        deadline = time.time() + WAIT_LIMIT
+        while time.time() < deadline:
+            t = self.temperature(name)
+            if t >= low and (high is None or t <= high):
+                return
+            time.sleep(0.2)
+
+    def execute(self, line):
+        line = line.split(";")[0].strip()
+        words = line.split()
+        if not words:
+            return
+        cmd = words[0].upper()
+        params = {}
+        for w in words[1:]:
+            if "=" in w:
+                params[w.split("=")[0].upper()] = w.split("=", 1)[1]
+            else:
+                params[w[0].upper()] = w[1:]
+        if cmd in MACROS:
+            for sub in MACROS[cmd]:
+                self.execute(sub)
+        elif cmd == "M118":
+            self.push_gcode("echo: " + line[4:].strip())
+        elif cmd in ("M104", "M140", "M141") and "S" in params:
+            self.set_target(TARGET_CMD[cmd], params["S"])
+        elif cmd in ("M109", "M190", "M191") and "S" in params:
+            target = float(params["S"])
+            self.set_target(TARGET_CMD[cmd], target)
+            if target != 0:
+                # M109 of the QIDI configuration waits for target..target+1, the others for at least target
+                self.wait_temperature(TARGET_CMD[cmd], target, target + 1 if cmd == "M109" else None)
+        elif cmd == "SET_HEATER_TEMPERATURE":
+            name = params.get("HEATER", "").replace("heater_generic ", "")
+            if name in HEATERS:
+                self.set_target(name, params.get("TARGET", 0))
+        elif cmd == "TURN_OFF_HEATERS":
+            for name in HEATERS:
+                self.set_target(name, 0)
+        elif cmd == "TEMPERATURE_WAIT":
+            name = params.get("SENSOR", "").replace("heater_generic ", "")
+            if name in HEATERS:
+                self.wait_temperature(name, float(params.get("MINIMUM", 0)),
+                                      float(params["MAXIMUM"]) if "MAXIMUM" in params else None)
+        elif cmd == "G4":
+            time.sleep(min(float(params.get("P", 0)) / 1000.0, 30))
+        elif cmd in ("G0", "G1"):
+            if "E" in params and "F" in params and float(params["F"]) > 0:
+                time.sleep(min(abs(float(params["E"])) / float(params["F"]) * 60 / MOVE_SPEED, 60))
+            else:
+                time.sleep(0.3)
+        elif cmd == "G28":
+            time.sleep(2)
+            self.push_status({"toolhead": {"homed_axes": "xyz"}})
 
     def simulate_heaters(self):
         """Moves every temperature towards its target (or the ambient one) and reports the changes."""
@@ -137,8 +203,7 @@ class Moonraker(harness.Moonraker):
             elif path == "/emu/gcode":
                 self.push_gcode(body)
             elif path == "/emu/script":         # a gcode script as the port would send it (heaters, see above)
-                for name, target in heater_targets(body).items():
-                    self.push_status({HEATERS[name][0]: {"target": target}})
+                self.scripts.put(body)
             elif path == "/emu/notify":
                 msg = json.loads(body)
                 self.notify(msg["method"], msg.get("params"))
@@ -181,6 +246,7 @@ def main():
     mr.host = "0.0.0.0"
     mr.start()
     threading.Thread(target=mr.simulate_heaters, daemon=True).start()
+    threading.Thread(target=mr.run_scripts, daemon=True).start()
     # NetworkManager: a stateful stand-in with three networks (see fakenm/nmcli)
     shutil.copy(os.path.join(HERE, "fakenm", "nmcli"), "/usr/local/bin/nmcli")
     if os.path.exists("/tmp/fake_nm.json"):
