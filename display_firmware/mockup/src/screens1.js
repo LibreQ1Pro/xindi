@@ -52,7 +52,7 @@ S('files','Home and files','File list',()=>{
 S('preview','Home and files','File preview',()=>{
   CUR='preview';
   let s = thumb(12,12,152,152,'preview_pic');
-  s += btn(172,12,88,70,'',{icon:'undo-2',is:30},'back_btn') + btn(172,94,88,70,'',{icon:'play',is:32,v:'primary'},'start_btn');
+  s += btn(172,12,88,72,'',{icon:'undo-2',is:30},'back_btn') + btn(172,92,88,72,'',{icon:'play',is:32,v:'primary'},'start_btn');
   s += card(12,176,248,96,'');
   const cell=(x,y,glyph,val,name)=>`<div style="${st(x,y+6,24,24)}color:var(--text2)">${ico(glyph,22)}</div>`+txt(x+34,y,92,36,val,{num:1},name);
   s += cell(26,184,'clock','03h05m','est_time')+cell(146,184,'ruler','7.9 m','fil_length')+cell(26,228,'spool','PLA','fil_type')+cell(146,228,'weight','24 g','fil_weight');
