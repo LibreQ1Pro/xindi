@@ -168,6 +168,11 @@ def _image(path, size, seed, fmt, mode="RGBA"):
     """Deterministic test picture."""
     img = _picture(size, seed, mode)
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    if fmt == "PNG":
+        # The PNG thumbnails go to the screen as ColPic, whose palette holds 1024 colours; a slicer's thumbnail has a
+        # few hundred, this gradient had thousands (the converter then shows the other pixels as palette entry 0).
+        from PIL import ImageOps
+        img = ImageOps.posterize(img.convert("RGB"), 3)
     if fmt == "JPEG":
         img.convert("RGB").save(path, "JPEG", quality=85)
     else:
