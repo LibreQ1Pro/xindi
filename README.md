@@ -50,7 +50,8 @@ is unchanged and checked by the golden traces of `tests/e2e`.
 
 ## Installation (Armbian, KIAUH)
 
-Requirements: Python ≥ 3.7, Pillow and NetworkManager (`nmcli`, for Wi-Fi and LAN). Nothing else; the websocket and HTTP
+Requirements: Python ≥ 3.9 and Pillow ≥ 9.1 (`requirements.txt`; tested with Python 3.11 and Pillow 9.4 on Armbian bookworm)
+and NetworkManager (`nmcli`, for Wi-Fi and LAN). Nothing else; the websocket and HTTP
 clients are built in. The screen is on a serial port (`/dev/ttyS1` by default); the user that runs xindi needs the group
 `dialout` (or whatever owns the port) and the right to change connections with `nmcli` (NetworkManager's polkit rules).
 

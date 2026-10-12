@@ -1,6 +1,7 @@
 """Heaters, fans, speed and flow, and the LED / beeper switches."""
 
 import logging
+import sys
 
 from xindi import state as g
 from xindi.config import settings
@@ -12,6 +13,8 @@ log = logging.getLogger(__name__)
 
 
 def set_target(heater, target):
+    # info level on purpose: "the nozzle heats to a temperature nobody chose" needs to show who asked (the caller two frames up)
+    log.info("%s target %s (asked by %s)", heater, target, sys._getframe(2).f_code.co_name)
     g.ep.run_gcode(set_heater_temp(heater, target))
 
 
