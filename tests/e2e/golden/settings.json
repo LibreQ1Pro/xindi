@@ -398,7 +398,6 @@
   "bash -c 'cp /home/mks/klipper_logs/moonraker.log* /home/mks/gcode_files/sda1/QD_Log/'",
   "bash -c 'cp /home/mks/klipper_logs/auto_update.log* /home/mks/gcode_files/sda1/QD_Log/'",
   "sync",
-  "rm /home/mks/gcode_files/.cache/*",
   "curl -X POST http://127.0.0.1:7125/server/history/reset_totals",
   "curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'",
   "cp /root/config.mksini /home/mks/klipper_config/config.mksini",

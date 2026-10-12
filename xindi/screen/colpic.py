@@ -18,7 +18,6 @@ The image handling still uses Pillow, exactly like the original script.
 """
 
 import struct
-import sys
 
 
 # ---------------------------------------------------------------------------
@@ -210,15 +209,8 @@ def col_pic_encode_str(fromcolor16, picw, pich, outputdata, outputmaxtsize, colo
 # gene4.py
 # ---------------------------------------------------------------------------
 
-def convert_to_rgb565(image_path, tjc_path, size=200):
-    text = encode_picture(image_path, size)
-    with open(tjc_path, "w") as tjc:
-        tjc.write(text)
-
-
 def encode_picture(image_path, size=200):
-    """The conversion of convert_to_rgb565() without the output file: returns
-    the ColPic text that the original writes to /home/mks/tjc."""
+    """The ColPic text of a picture (the original wrote it to /home/mks/tjc; the port keeps everything in memory)."""
     from PIL import Image
     # (Python only: an already opened PIL image can be passed as well)
     image = image_path if isinstance(image_path, Image.Image) else Image.open(image_path)
@@ -263,27 +255,3 @@ def resize_to_square(image, size):
 
     square_image = ImageOps.pad(resized_image, (size, size))
     return square_image
-
-
-def main(argv):
-    """Command line of gene4.py: <image path> <output path> <size>"""
-    if len(argv) < 3:
-        print("Please pass the image path and the output path as command line arguments")
-        return 1
-    image_path = argv[0]
-    tjc_path = argv[1]
-    try:
-        size = int(argv[2])
-    except ValueError:
-        size = 200
-    try:
-        convert_to_rgb565(image_path, tjc_path, size)
-    except Exception as e:
-        # the original script dies with a traceback (the output file stays unchanged)
-        sys.stderr.write("gene4: %s: %s\n" % (type(e).__name__, e))
-        return 1
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))

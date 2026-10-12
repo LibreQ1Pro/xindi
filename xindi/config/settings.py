@@ -96,7 +96,6 @@ def set_oobe_enabled(enable):
 
 
 def restore_config():
-    system("rm " + paths.gcode_files() + "/.cache/*")
     g.screen.main_picture_refreshed = False
     system("curl -X POST http://127.0.0.1:7125/server/history/reset_totals")
     system("curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'")

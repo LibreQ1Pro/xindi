@@ -59,12 +59,10 @@ def preview_picture_ref():
     """The gcode file with the thumbnail of the file, or "" when there is none.
 
     NOTE: the original looks for <dir>/.thumbs/<name>-160x160.png, then .jpg, made by QIDI's Moonraker; the port
-    reads the thumbnail from the gcode file itself (see thumbnail.py).  For a print that was just started the
-    original only looks at the .cache copy of the file.
+    reads the thumbnail from the gcode file itself (see thumbnail.py): nothing is written to the file system.
     """
     if g.screen.jump_print:
-        candidates = ["/.cache/" + file_list.name_of(g.klippy.print_stats_filename),
-                      "/" + g.klippy.print_stats_filename]
+        candidates = ["/" + g.klippy.print_stats_filename]
     elif g.screen.cache_clicked:
         candidates = ["/" + g.files.meta_filename]            # the last printed file: the path Moonraker gave
         g.screen.cache_clicked = False
