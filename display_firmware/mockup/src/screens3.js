@@ -44,10 +44,11 @@ S('screen','Settings and network','Screen (sleep, brightness)',()=>{
   CUR='sleep_mode';
   let s = header(T('title'));
   const chosen = VARIANT || 'opt_5min';
-  ['opt_5min_lbl','opt_15min_lbl','opt_30min_lbl','opt_never_lbl'].forEach((o,i)=>{ const id = o.replace('_lbl',''), on = id === chosen; s += row(12,60+56*i,248,48,T(o),{radio:on,sel:on},id); });
-  s += txt(12,296,200,28,T('brightness_lbl'),{role:'t16'},'brightness_lbl') + pctValue(176,296,84,28,'80','bright_val',{align:'r'});
-  s += slider(12,332,248,80,'bright_slider',{min:10,max:100});
-  s += `<div style="${st(12,384,20,20)}color:var(--text3)">${ico('sun-dim',18)}</div>`;
+  s += txt(12,56,248,20,caption('sleephint'),{role:'t13',mute:1},'sleep_hint');
+  ['opt_5min_lbl','opt_15min_lbl','opt_30min_lbl','opt_never_lbl'].forEach((o,i)=>{ const id = o.replace('_lbl',''), on = id === chosen; s += row(12,84+56*i,248,48,T(o),{radio:on,sel:on},id); });
+  s += txt(12,308,200,28,T('brightness_lbl'),{role:'t16'},'brightness_lbl') + pctValue(176,308,84,28,'80','bright_val',{align:'r'});
+  s += slider(12,344,248,80,'bright_slider',{min:10,max:100});
+  s += `<div style="${st(12,396,20,20)}color:var(--text3)">${ico('sun-dim',18)}</div>`;
   s += nav('settings');
   return screen('sleep_mode', s);
 }, 'The brightness slider is a native slider (track 10, knob 28, touch region 44 high), 10..100.',

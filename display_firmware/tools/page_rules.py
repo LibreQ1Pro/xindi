@@ -100,7 +100,7 @@ for _name, _y in (("nozzle_icon", 68), ("bed_icon", 126), ("chamber_icon", 184))
 _FILAMENT_REGIONS.update(segmented("step_seg", [12, 284, 248, 40], {"s10": "seg10", "s50": "seg50", "s100": "seg100"}))
 RULES["filament"] = {"regions": _FILAMENT_REGIONS, "drop": ["fan_btn"], "patch": patches.patch_filament,
                      "actions": {"fan1_btn": {"id": 17, "pre": ["sys1=3"]}, "fan2_btn": {"id": 18, "pre": ["sys1=4"]}, "fan3_btn": {"id": 19, "pre": ["sys1=5"]}}}
-RULES["move"] = {"regions": segmented("dist_seg", [12, 108, 248, 40], {"d01": "seg01", "d1": "seg1", "d10": "seg10"})}
+RULES["move"] = {"patch": patches.patch_move, "regions": segmented("dist_seg", [12, 108, 248, 40], {"d01": "seg01", "d1": "seg1", "d10": "seg10"})}
 
 _OPTIONS = {"pre_heat_temp_opt1_72x70_2": "on", "pre_heat_temp_opt1_press_2_72x70": "on", "pre_heat_temp_opt2_opt1": "on", "pre_heat_temp_opt2_opt1_press_2": "on",
             "pre_heat_temp_opt3_opt1": "on", "pre_heat_temp_opt3_opt1_press_2": "on"}

@@ -993,6 +993,7 @@
   "design": "screen",
   "adapter": "migrate_pages",
   "new": [
+   "sleep_hint",
    "bright_val",
    "bright_val_u"
   ],
@@ -1016,7 +1017,7 @@
   ],
   "dropped": [],
   "baked": 13,
-  "sha256": "6314cc670f1597c3dc1247bd18b624ab8e7878236f047e1b5f759d74a81a20b6"
+  "sha256": "707c12778da25f0e52a6a0dc6c331c22f2fb732abeb08b48f9a293260a9c90f5"
  },
  "filament_pop_2": {
   "design": "unload_steps",
@@ -1414,7 +1415,7 @@
   ],
   "dropped": [],
   "baked": 15,
-  "sha256": "c29a1000a3adccaa59d942a46ca5b740305dc61e0eccaf11d440999ab3911c38"
+  "sha256": "2cf4cdc71f239b96f2d8f73f85d88574f9fd48eee1de81eb0ff0ab2087566646"
  },
  "pre_heat": {
   "design": "preheat",
@@ -1775,7 +1776,7 @@
   ],
   "dropped": [],
   "baked": 16,
-  "sha256": "ae27eb9ab1078844c27fde68cf6be2310098b798abcf3a8e68f81604513ff7fa"
+  "sha256": "d2d2c0ae20a5953eaca702ea4779ec64b183d3ad8ffafae9e589251a2b5c785c"
  },
  "wifi_kb": {
   "design": "wifi_keyboard",

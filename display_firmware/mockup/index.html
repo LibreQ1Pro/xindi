@@ -434,6 +434,8 @@ const CAPTIONS = {
   // the two arrows of the filament page: up retracts the filament (G1 E-n), down extrudes it (G1 En); no such texts in the stock project
   retract: ['回抽','Втянуть','Retract','引き戻し','Rétracter','Zurückziehen','Ritrai','Retraer','후퇴','Retrair','سحب','Geri çek','משוך'],
   extrude: ['挤出','Выдавить','Extrude','押し出し','Extruder','Extrudieren','Estrudi','Extruir','압출','Extrudir','بثق','Ekstrüde et','שיחול'],
+  // the line above the options of the Screen page
+  sleephint: ['息屏时间','Отключение экрана через','Turn the screen off after','画面を消すまでの時間','Éteindre l\'écran après','Bildschirm ausschalten nach','Spegni lo schermo dopo','Apagar la pantalla después de','화면 꺼짐 시간','Desligar a tela após','إيقاف الشاشة بعد','Ekranı kapatma süresi','כיבוי המסך לאחר'],
   // the new row of the settings page (the page it opens is not designed yet)
   about:   ['关于 LibreQ1Pro','О LibreQ1Pro','About LibreQ1Pro','LibreQ1Proについて','À propos de LibreQ1Pro','Über LibreQ1Pro','Informazioni su LibreQ1Pro','Acerca de LibreQ1Pro','LibreQ1Pro 정보','Sobre o LibreQ1Pro','حول LibreQ1Pro','LibreQ1Pro hakkında','אודות LibreQ1Pro'],
   // the IP field of the network page while there is no address (no such text in the stock project)
@@ -892,10 +894,11 @@ S('screen','Settings and network','Screen (sleep, brightness)',()=>{
   CUR='sleep_mode';
   let s = header(T('title'));
   const chosen = VARIANT || 'opt_5min';
-  ['opt_5min_lbl','opt_15min_lbl','opt_30min_lbl','opt_never_lbl'].forEach((o,i)=>{ const id = o.replace('_lbl',''), on = id === chosen; s += row(12,60+56*i,248,48,T(o),{radio:on,sel:on},id); });
-  s += txt(12,296,200,28,T('brightness_lbl'),{role:'t16'},'brightness_lbl') + pctValue(176,296,84,28,'80','bright_val',{align:'r'});
-  s += slider(12,332,248,80,'bright_slider',{min:10,max:100});
-  s += `<div style="${st(12,384,20,20)}color:var(--text3)">${ico('sun-dim',18)}</div>`;
+  s += txt(12,56,248,20,caption('sleephint'),{role:'t13',mute:1},'sleep_hint');
+  ['opt_5min_lbl','opt_15min_lbl','opt_30min_lbl','opt_never_lbl'].forEach((o,i)=>{ const id = o.replace('_lbl',''), on = id === chosen; s += row(12,84+56*i,248,48,T(o),{radio:on,sel:on},id); });
+  s += txt(12,308,200,28,T('brightness_lbl'),{role:'t16'},'brightness_lbl') + pctValue(176,308,84,28,'80','bright_val',{align:'r'});
+  s += slider(12,344,248,80,'bright_slider',{min:10,max:100});
+  s += `<div style="${st(12,396,20,20)}color:var(--text3)">${ico('sun-dim',18)}</div>`;
   s += nav('settings');
   return screen('sleep_mode', s);
 }, 'The brightness slider is a native slider (track 10, knob 28, touch region 44 high), 10..100.',

@@ -33,26 +33,26 @@ def preview_details():
     if g.files.meta_estimated_time:
         g.port.txt("est_time", job.show_time(g.files.meta_estimated_time))
     else:
-        g.port.txt("est_time", "-")
+        g.port.txt("est_time", "---")
 
     if g.files.meta_filament_weight_total:
         temp = to_string(g.files.meta_filament_weight_total)
         g.port.txt("fil_weight", cut_after_point(temp, 2) + " g")
     else:
-        g.port.txt("fil_weight", "-")
+        g.port.txt("fil_weight", "---")
 
     if g.files.meta_filament_total:
         temp = to_string(f32(g.files.meta_filament_total / 1000))
         g.port.txt("fil_length", cut_after_point(temp, 2) + " m")
     else:
-        g.port.txt("fil_length", "-")
+        g.port.txt("fil_length", "---")
 
     if g.files.meta_filament_type != "":
         g.port.txt("fil_type", g.files.meta_filament_type)
     elif g.files.meta_filament_name != "":
         g.port.txt("fil_type", g.files.meta_filament_name)
     else:
-        g.port.txt("fil_type", "-")
+        g.port.txt("fil_type", "---")
 
 
 def preview_picture_ref():

@@ -11,6 +11,8 @@ const CAPTIONS = {
   // the two arrows of the filament page: up retracts the filament (G1 E-n), down extrudes it (G1 En); no such texts in the stock project
   retract: ['回抽','Втянуть','Retract','引き戻し','Rétracter','Zurückziehen','Ritrai','Retraer','후퇴','Retrair','سحب','Geri çek','משוך'],
   extrude: ['挤出','Выдавить','Extrude','押し出し','Extruder','Extrudieren','Estrudi','Extruir','압출','Extrudir','بثق','Ekstrüde et','שיחול'],
+  // the line above the options of the Screen page
+  sleephint: ['息屏时间','Отключение экрана через','Turn the screen off after','画面を消すまでの時間','Éteindre l\'écran après','Bildschirm ausschalten nach','Spegni lo schermo dopo','Apagar la pantalla después de','화면 꺼짐 시간','Desligar a tela após','إيقاف الشاشة بعد','Ekranı kapatma süresi','כיבוי המסך לאחר'],
   // the new row of the settings page (the page it opens is not designed yet)
   about:   ['关于 LibreQ1Pro','О LibreQ1Pro','About LibreQ1Pro','LibreQ1Proについて','À propos de LibreQ1Pro','Über LibreQ1Pro','Informazioni su LibreQ1Pro','Acerca de LibreQ1Pro','LibreQ1Pro 정보','Sobre o LibreQ1Pro','حول LibreQ1Pro','LibreQ1Pro hakkında','אודות LibreQ1Pro'],
   // the IP field of the network page while there is no address (no such text in the stock project)

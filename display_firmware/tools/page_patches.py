@@ -121,6 +121,8 @@ def patch_preview(m):
     extra["attributes"]["objname"] = "cp_data_s"
     extra["attributes"]["y"] = base["attributes"]["y"] + 60
     m.stock["objects"].append(extra)
+    for name in ("est_time", "fil_length", "fil_type", "fil_weight"):       # the details of the file are not known until the host has read them
+        object_named(m, name)["attributes"]["txt"] = "---"
 
 
 # -- the Wi-Fi keyboard: ``kmode`` is the page of keys (0 lower case, 1 upper case, 2 and 3 the pages of symbols)
@@ -152,9 +154,26 @@ def patch_wifi_kb(m):
                 refresh[i] = new
 
 
+def patch_move(m):
+    """Until the host says where the axes are, the positions show ``---``."""
+    for name in ("x_pos", "y_pos", "z_pos"):
+        object_named(m, name)["attributes"]["txt"] = "---"
+
+
 def patch_sleep_mode(m):
-    """The brightness value next to the slider follows it (``covx`` turns the number into text)."""
+    """The brightness value next to the slider follows it (``covx`` turns the number into text).
+    A time option is applied on the spot: the page stays, only the chosen option is lit (the others get their normal look back)."""
+    import re
     root = m.stock["root"]["events"]
+    on_pic, on_pic2 = re.findall(r"opt_5min\.pic2?=(\$\{picture:[^}]+\})", "\n".join(root["codesload"]))[:2]
+    any_option = object_named(m, "opt_5min")["attributes"]
+    off_pic, off_pic2 = ("${picture:%s}" % any_option[k]["$ref"].split(":", 1)[1] for k in ("pic", "pic2"))
+    options = {"opt_5min": 300, "opt_15min": 900, "opt_30min": 1800, "opt_never": 0}
+    for name, seconds in options.items():
+        code = ["sleep_time=%d" % seconds, "wepo sleep_time,200"]
+        for other in options:
+            code += ["%s.pic=%s" % (other, on_pic if other == name else off_pic), "%s.pic2=%s" % (other, on_pic2 if other == name else off_pic2)]
+        object_named(m, name)["events"]["codesup"] = code
     root["codesload"].append("covx bright_slider.val,bright_val.txt,0,0")
     slider = object_named(m, "bright_slider")
     slider["events"]["codesslide"].append("covx bright_slider.val,bright_val.txt,0,0")

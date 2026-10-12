@@ -514866,10 +514866,67 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 56,
+    "w": 248,
+    "h": 20,
+    "z": 7,
+    "name": "sleep_hint",
+    "kind": "t",
+    "bg": null,
+    "radius": 0,
+    "labels": [
+     {
+      "x": 16,
+      "y": 56,
+      "w": 240,
+      "h": 20,
+      "role": "t13",
+      "align": "l",
+      "color": [
+       165,
+       166,
+       181
+      ],
+      "matte": [
+       23,
+       23,
+       26
+      ],
+      "top": false,
+      "bottom": false,
+      "dyn": false,
+      "scroll": false,
+      "used": 18,
+      "text": "Turn the screen off after",
+      "z": 8,
+      "centered": true
+     }
+    ],
+    "role": "t13",
+    "align": "l",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "top": false,
+    "bottom": false,
+    "dyn": false,
+    "scroll": false,
+    "used": 18,
+    "text": "Turn the screen off after"
+   },
+   {
+    "x": 12,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 7,
+    "z": 9,
     "name": "opt_5min",
     "kind": "rowhit",
     "bg": null,
@@ -514877,7 +514934,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 60,
+      "y": 84,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -514898,17 +514955,17 @@
       "scroll": false,
       "used": 22,
       "text": "5 minutes",
-      "z": 9,
+      "z": 11,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 12,
+    "z": 14,
     "name": "opt_15min",
     "kind": "rowhit",
     "bg": null,
@@ -514916,7 +514973,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 116,
+      "y": 140,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -514937,17 +514994,17 @@
       "scroll": false,
       "used": 22,
       "text": "15 minutes",
-      "z": 14,
+      "z": 16,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 17,
+    "z": 19,
     "name": "opt_30min",
     "kind": "rowhit",
     "bg": null,
@@ -514955,7 +515012,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 172,
+      "y": 196,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -514976,17 +515033,17 @@
       "scroll": false,
       "used": 22,
       "text": "30 minutes",
-      "z": 19,
+      "z": 21,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 22,
+    "z": 24,
     "name": "opt_never",
     "kind": "rowhit",
     "bg": null,
@@ -514994,7 +515051,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 228,
+      "y": 252,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -515015,17 +515072,17 @@
       "scroll": false,
       "used": 22,
       "text": "Never",
-      "z": 24,
+      "z": 26,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 296,
+    "y": 308,
     "w": 200,
     "h": 28,
-    "z": 27,
+    "z": 29,
     "name": "brightness_lbl",
     "kind": "t",
     "bg": null,
@@ -515033,7 +515090,7 @@
     "labels": [
      {
       "x": 16,
-      "y": 298,
+      "y": 310,
       "w": 192,
       "h": 24,
       "role": "t16",
@@ -515054,7 +515111,7 @@
       "scroll": false,
       "used": 22,
       "text": "Brightness",
-      "z": 28,
+      "z": 30,
       "centered": true
      }
     ],
@@ -515079,10 +515136,10 @@
    },
    {
     "x": 201,
-    "y": 296,
+    "y": 308,
     "w": 40,
     "h": 28,
-    "z": 29,
+    "z": 31,
     "name": "bright_val",
     "kind": "t",
     "bg": null,
@@ -515090,7 +515147,7 @@
     "labels": [
      {
       "x": 205,
-      "y": 298,
+      "y": 310,
       "w": 32,
       "h": 24,
       "role": "d20",
@@ -515111,7 +515168,7 @@
       "scroll": false,
       "used": 27,
       "text": "80",
-      "z": 30,
+      "z": 32,
       "centered": true
      }
     ],
@@ -515136,10 +515193,10 @@
    },
    {
     "x": 244,
-    "y": 303,
+    "y": 315,
     "w": 16,
     "h": 20,
-    "z": 31,
+    "z": 33,
     "name": "bright_val_u",
     "kind": "t",
     "bg": null,
@@ -515147,7 +515204,7 @@
     "labels": [
      {
       "x": 248,
-      "y": 303,
+      "y": 315,
       "w": 8,
       "h": 20,
       "role": "t13",
@@ -515168,7 +515225,7 @@
       "scroll": false,
       "used": 18,
       "text": "%",
-      "z": 32,
+      "z": 34,
       "centered": true
      }
     ],
@@ -515193,10 +515250,10 @@
    },
    {
     "x": 12,
-    "y": 332,
+    "y": 344,
     "w": 248,
     "h": 44,
-    "z": 33,
+    "z": 35,
     "name": "bright_slider",
     "kind": "hit",
     "bg": null,
@@ -515208,7 +515265,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 50,
+    "z": 52,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -515220,7 +515277,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 56,
+    "z": 58,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -515232,7 +515289,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 69,
+    "z": 71,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -515244,7 +515301,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 74,
+    "z": 76,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -515292,10 +515349,10 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 8,
+    "z": 10,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515309,10 +515366,10 @@
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 13,
+    "z": 15,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515326,10 +515383,10 @@
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 18,
+    "z": 20,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515343,10 +515400,10 @@
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 23,
+    "z": 25,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515360,10 +515417,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 220,
     "h": 10,
-    "z": 34,
+    "z": 36,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515377,10 +515434,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 172,
     "h": 10,
-    "z": 35,
+    "z": 37,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515394,10 +515451,10 @@
    },
    {
     "x": 183,
-    "y": 340,
+    "y": 352,
     "w": 28,
     "h": 28,
-    "z": 36,
+    "z": 38,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515411,10 +515468,10 @@
    },
    {
     "x": 12,
-    "y": 384,
+    "y": 396,
     "w": 18,
     "h": 18,
-    "z": 38,
+    "z": 40,
     "prim": "icon",
     "icon": "sun-dim",
     "color": [
@@ -515434,7 +515491,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 49,
+    "z": 51,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515451,7 +515508,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 52,
+    "z": 54,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -515471,7 +515528,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 58,
+    "z": 60,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -515491,7 +515548,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 71,
+    "z": 73,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -515511,7 +515568,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 75,
+    "z": 77,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -515528,7 +515585,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 76,
+    "z": 78,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -515587,11 +515644,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "息屏时间",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "息屏时间",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515612,7 +515703,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分钟",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -515622,7 +515713,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515643,7 +515734,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分钟",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -515653,7 +515744,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515674,7 +515765,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分钟",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -515684,7 +515775,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515705,7 +515796,7 @@
         "scroll": false,
         "used": 22,
         "text": "永不",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -515716,7 +515807,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -515737,7 +515828,7 @@
         "scroll": false,
         "used": 22,
         "text": "亮度",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -515750,7 +515841,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -515771,7 +515862,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -515784,7 +515875,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -515805,7 +515896,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -515876,11 +515967,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Отключение экрана через",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Отключение экрана через",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515901,7 +516026,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 минут",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -515911,7 +516036,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515932,7 +516057,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 минут",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -515942,7 +516067,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515963,7 +516088,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 минут",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -515973,7 +516098,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -515994,7 +516119,7 @@
         "scroll": false,
         "used": 22,
         "text": "Никогда",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -516005,7 +516130,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -516026,7 +516151,7 @@
         "scroll": false,
         "used": 22,
         "text": "Яркость",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -516039,7 +516164,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -516060,7 +516185,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -516073,7 +516198,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -516094,7 +516219,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -516165,11 +516290,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Turn the screen off after",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Turn the screen off after",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516190,7 +516349,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -516200,7 +516359,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516221,7 +516380,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -516231,7 +516390,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516252,7 +516411,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -516262,7 +516421,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516283,7 +516442,7 @@
         "scroll": false,
         "used": 22,
         "text": "Never",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -516294,7 +516453,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -516315,7 +516474,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brightness",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -516328,7 +516487,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -516349,7 +516508,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -516362,7 +516521,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -516383,7 +516542,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -516454,11 +516613,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "画面を消すまでの時間",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "画面を消すまでの時間",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516479,7 +516672,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -516489,7 +516682,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516510,7 +516703,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -516520,7 +516713,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516541,7 +516734,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -516551,7 +516744,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516572,7 +516765,7 @@
         "scroll": false,
         "used": 22,
         "text": "しない",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -516583,7 +516776,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -516604,7 +516797,7 @@
         "scroll": false,
         "used": 22,
         "text": "明るさ",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -516617,7 +516810,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -516638,7 +516831,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -516651,7 +516844,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -516672,7 +516865,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -516743,11 +516936,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Éteindre l'écran après",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Éteindre l'écran après",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516768,7 +516995,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -516778,7 +517005,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516799,7 +517026,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -516809,7 +517036,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516830,7 +517057,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -516840,7 +517067,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -516861,7 +517088,7 @@
         "scroll": false,
         "used": 22,
         "text": "Jamais",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -516872,7 +517099,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -516893,7 +517120,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosité",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -516906,7 +517133,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -516927,7 +517154,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -516940,7 +517167,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -516961,7 +517188,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -517032,11 +517259,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Bildschirm ausschalten nach",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Bildschirm ausschalten nach",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517057,7 +517318,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 Minuten",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -517067,7 +517328,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517088,7 +517349,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 Minuten",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -517098,7 +517359,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517119,7 +517380,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 Minuten",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -517129,7 +517390,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517150,7 +517411,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nie",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -517161,7 +517422,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -517182,7 +517443,7 @@
         "scroll": false,
         "used": 22,
         "text": "Helligkeit",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -517195,7 +517456,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -517216,7 +517477,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -517229,7 +517490,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -517250,7 +517511,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -517321,11 +517582,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Spegni lo schermo dopo",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Spegni lo schermo dopo",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517346,7 +517641,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minuti",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -517356,7 +517651,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517377,7 +517672,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minuti",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -517387,7 +517682,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517408,7 +517703,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minuti",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -517418,7 +517713,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517439,7 +517734,7 @@
         "scroll": false,
         "used": 22,
         "text": "Mai",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -517450,7 +517745,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -517471,7 +517766,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosità",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -517484,7 +517779,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -517505,7 +517800,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -517518,7 +517813,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -517539,7 +517834,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -517610,11 +517905,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Apagar la pantalla después de",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Apagar la pantalla después de",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517635,7 +517964,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -517645,7 +517974,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517666,7 +517995,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -517676,7 +518005,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517697,7 +518026,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -517707,7 +518036,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517728,7 +518057,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -517739,7 +518068,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -517760,7 +518089,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brillo",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -517773,7 +518102,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -517794,7 +518123,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -517807,7 +518136,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -517828,7 +518157,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -517899,11 +518228,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "화면 꺼짐 시간",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "화면 꺼짐 시간",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517924,7 +518287,7 @@
         "scroll": false,
         "used": 22,
         "text": "5분",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -517934,7 +518297,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517955,7 +518318,7 @@
         "scroll": false,
         "used": 22,
         "text": "15분",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -517965,7 +518328,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -517986,7 +518349,7 @@
         "scroll": false,
         "used": 22,
         "text": "30분",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -517996,7 +518359,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518017,7 +518380,7 @@
         "scroll": false,
         "used": 22,
         "text": "안 함",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -518028,7 +518391,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -518049,7 +518412,7 @@
         "scroll": false,
         "used": 22,
         "text": "밝기",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -518062,7 +518425,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -518083,7 +518446,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -518096,7 +518459,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -518117,7 +518480,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -518188,11 +518551,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Desligar a tela após",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Desligar a tela após",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518213,7 +518610,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -518223,7 +518620,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518244,7 +518641,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -518254,7 +518651,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518275,7 +518672,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -518285,7 +518682,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518306,7 +518703,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -518317,7 +518714,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -518338,7 +518735,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brilho",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -518351,7 +518748,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -518372,7 +518769,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -518385,7 +518782,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -518406,7 +518803,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -518477,11 +518874,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "إيقاف الشاشة بعد",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "إيقاف الشاشة بعد",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518502,7 +518933,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 دقائق",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -518512,7 +518943,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518533,7 +518964,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 دقيقة",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -518543,7 +518974,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518564,7 +518995,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 دقيقة",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -518574,7 +519005,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518595,7 +519026,7 @@
         "scroll": false,
         "used": 22,
         "text": "أبدًا",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -518606,7 +519037,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -518627,7 +519058,7 @@
         "scroll": false,
         "used": 22,
         "text": "السطوع",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -518640,7 +519071,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -518661,7 +519092,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -518674,7 +519105,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -518695,7 +519126,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -518766,11 +519197,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Ekranı kapatma süresi",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Ekranı kapatma süresi",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518791,7 +519256,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 dakika",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -518801,7 +519266,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518822,7 +519287,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 dakika",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -518832,7 +519297,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518853,7 +519318,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 dakika",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -518863,7 +519328,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -518884,7 +519349,7 @@
         "scroll": false,
         "used": 22,
         "text": "Hiçbir zaman",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -518895,7 +519360,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -518916,7 +519381,7 @@
         "scroll": false,
         "used": 22,
         "text": "Parlaklık",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -518929,7 +519394,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -518950,7 +519415,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -518963,7 +519428,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -518984,7 +519449,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -519055,11 +519520,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "כיבוי המסך לאחר",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "כיבוי המסך לאחר",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -519080,7 +519579,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 דקות",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -519090,7 +519589,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -519111,7 +519610,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 דקות",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -519121,7 +519620,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -519142,7 +519641,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 דקות",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -519152,7 +519651,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -519173,7 +519672,7 @@
         "scroll": false,
         "used": 22,
         "text": "אף פעם",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -519184,7 +519683,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -519205,7 +519704,7 @@
         "scroll": false,
         "used": 22,
         "text": "בהירות",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -519218,7 +519717,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -519239,7 +519738,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -519252,7 +519751,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -519273,7 +519772,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -519387,10 +519886,67 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 56,
+    "w": 248,
+    "h": 20,
+    "z": 7,
+    "name": "sleep_hint",
+    "kind": "t",
+    "bg": null,
+    "radius": 0,
+    "labels": [
+     {
+      "x": 16,
+      "y": 56,
+      "w": 240,
+      "h": 20,
+      "role": "t13",
+      "align": "l",
+      "color": [
+       165,
+       166,
+       181
+      ],
+      "matte": [
+       23,
+       23,
+       26
+      ],
+      "top": false,
+      "bottom": false,
+      "dyn": false,
+      "scroll": false,
+      "used": 18,
+      "text": "Turn the screen off after",
+      "z": 8,
+      "centered": true
+     }
+    ],
+    "role": "t13",
+    "align": "l",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "top": false,
+    "bottom": false,
+    "dyn": false,
+    "scroll": false,
+    "used": 18,
+    "text": "Turn the screen off after"
+   },
+   {
+    "x": 12,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 7,
+    "z": 9,
     "name": "opt_5min",
     "kind": "rowhit",
     "bg": null,
@@ -519398,7 +519954,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 60,
+      "y": 84,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -519419,17 +519975,17 @@
       "scroll": false,
       "used": 22,
       "text": "5 minutes",
-      "z": 9,
+      "z": 11,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 12,
+    "z": 14,
     "name": "opt_15min",
     "kind": "rowhit",
     "bg": null,
@@ -519437,7 +519993,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 116,
+      "y": 140,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -519458,17 +520014,17 @@
       "scroll": false,
       "used": 22,
       "text": "15 minutes",
-      "z": 14,
+      "z": 16,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 17,
+    "z": 19,
     "name": "opt_30min",
     "kind": "rowhit",
     "bg": null,
@@ -519476,7 +520032,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 172,
+      "y": 196,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -519497,17 +520053,17 @@
       "scroll": false,
       "used": 22,
       "text": "30 minutes",
-      "z": 19,
+      "z": 21,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 22,
+    "z": 24,
     "name": "opt_never",
     "kind": "rowhit",
     "bg": null,
@@ -519515,7 +520071,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 228,
+      "y": 252,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -519536,17 +520092,17 @@
       "scroll": false,
       "used": 22,
       "text": "Never",
-      "z": 24,
+      "z": 26,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 296,
+    "y": 308,
     "w": 200,
     "h": 28,
-    "z": 27,
+    "z": 29,
     "name": "brightness_lbl",
     "kind": "t",
     "bg": null,
@@ -519554,7 +520110,7 @@
     "labels": [
      {
       "x": 16,
-      "y": 298,
+      "y": 310,
       "w": 192,
       "h": 24,
       "role": "t16",
@@ -519575,7 +520131,7 @@
       "scroll": false,
       "used": 22,
       "text": "Brightness",
-      "z": 28,
+      "z": 30,
       "centered": true
      }
     ],
@@ -519600,10 +520156,10 @@
    },
    {
     "x": 201,
-    "y": 296,
+    "y": 308,
     "w": 40,
     "h": 28,
-    "z": 29,
+    "z": 31,
     "name": "bright_val",
     "kind": "t",
     "bg": null,
@@ -519611,7 +520167,7 @@
     "labels": [
      {
       "x": 205,
-      "y": 298,
+      "y": 310,
       "w": 32,
       "h": 24,
       "role": "d20",
@@ -519632,7 +520188,7 @@
       "scroll": false,
       "used": 27,
       "text": "80",
-      "z": 30,
+      "z": 32,
       "centered": true
      }
     ],
@@ -519657,10 +520213,10 @@
    },
    {
     "x": 244,
-    "y": 303,
+    "y": 315,
     "w": 16,
     "h": 20,
-    "z": 31,
+    "z": 33,
     "name": "bright_val_u",
     "kind": "t",
     "bg": null,
@@ -519668,7 +520224,7 @@
     "labels": [
      {
       "x": 248,
-      "y": 303,
+      "y": 315,
       "w": 8,
       "h": 20,
       "role": "t13",
@@ -519689,7 +520245,7 @@
       "scroll": false,
       "used": 18,
       "text": "%",
-      "z": 32,
+      "z": 34,
       "centered": true
      }
     ],
@@ -519714,10 +520270,10 @@
    },
    {
     "x": 12,
-    "y": 332,
+    "y": 344,
     "w": 248,
     "h": 44,
-    "z": 33,
+    "z": 35,
     "name": "bright_slider",
     "kind": "hit",
     "bg": null,
@@ -519729,7 +520285,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 50,
+    "z": 52,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -519741,7 +520297,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 56,
+    "z": 58,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -519753,7 +520309,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 69,
+    "z": 71,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -519765,7 +520321,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 74,
+    "z": 76,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -519813,10 +520369,10 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 8,
+    "z": 10,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519830,10 +520386,10 @@
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 13,
+    "z": 15,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519847,10 +520403,10 @@
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 18,
+    "z": 20,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519864,10 +520420,10 @@
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 23,
+    "z": 25,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519881,10 +520437,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 220,
     "h": 10,
-    "z": 34,
+    "z": 36,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519898,10 +520454,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 172,
     "h": 10,
-    "z": 35,
+    "z": 37,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519915,10 +520471,10 @@
    },
    {
     "x": 183,
-    "y": 340,
+    "y": 352,
     "w": 28,
     "h": 28,
-    "z": 36,
+    "z": 38,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519932,10 +520488,10 @@
    },
    {
     "x": 12,
-    "y": 384,
+    "y": 396,
     "w": 18,
     "h": 18,
-    "z": 38,
+    "z": 40,
     "prim": "icon",
     "icon": "sun-dim",
     "color": [
@@ -519955,7 +520511,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 49,
+    "z": 51,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -519972,7 +520528,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 52,
+    "z": 54,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -519992,7 +520548,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 58,
+    "z": 60,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -520012,7 +520568,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 71,
+    "z": 73,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -520032,7 +520588,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 75,
+    "z": 77,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -520049,7 +520605,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 76,
+    "z": 78,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -520108,11 +520664,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "息屏时间",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "息屏时间",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520133,7 +520723,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分钟",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -520143,7 +520733,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520164,7 +520754,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分钟",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -520174,7 +520764,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520195,7 +520785,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分钟",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -520205,7 +520795,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520226,7 +520816,7 @@
         "scroll": false,
         "used": 22,
         "text": "永不",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -520237,7 +520827,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -520258,7 +520848,7 @@
         "scroll": false,
         "used": 22,
         "text": "亮度",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -520271,7 +520861,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -520292,7 +520882,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -520305,7 +520895,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -520326,7 +520916,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -520397,11 +520987,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Отключение экрана через",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Отключение экрана через",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520422,7 +521046,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 минут",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -520432,7 +521056,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520453,7 +521077,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 минут",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -520463,7 +521087,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520484,7 +521108,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 минут",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -520494,7 +521118,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520515,7 +521139,7 @@
         "scroll": false,
         "used": 22,
         "text": "Никогда",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -520526,7 +521150,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -520547,7 +521171,7 @@
         "scroll": false,
         "used": 22,
         "text": "Яркость",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -520560,7 +521184,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -520581,7 +521205,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -520594,7 +521218,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -520615,7 +521239,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -520686,11 +521310,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Turn the screen off after",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Turn the screen off after",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520711,7 +521369,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -520721,7 +521379,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520742,7 +521400,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -520752,7 +521410,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520773,7 +521431,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -520783,7 +521441,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -520804,7 +521462,7 @@
         "scroll": false,
         "used": 22,
         "text": "Never",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -520815,7 +521473,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -520836,7 +521494,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brightness",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -520849,7 +521507,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -520870,7 +521528,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -520883,7 +521541,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -520904,7 +521562,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -520975,11 +521633,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "画面を消すまでの時間",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "画面を消すまでの時間",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521000,7 +521692,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -521010,7 +521702,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521031,7 +521723,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -521041,7 +521733,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521062,7 +521754,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -521072,7 +521764,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521093,7 +521785,7 @@
         "scroll": false,
         "used": 22,
         "text": "しない",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -521104,7 +521796,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -521125,7 +521817,7 @@
         "scroll": false,
         "used": 22,
         "text": "明るさ",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -521138,7 +521830,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -521159,7 +521851,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -521172,7 +521864,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -521193,7 +521885,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -521264,11 +521956,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Éteindre l'écran après",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Éteindre l'écran après",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521289,7 +522015,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -521299,7 +522025,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521320,7 +522046,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -521330,7 +522056,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521351,7 +522077,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -521361,7 +522087,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521382,7 +522108,7 @@
         "scroll": false,
         "used": 22,
         "text": "Jamais",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -521393,7 +522119,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -521414,7 +522140,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosité",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -521427,7 +522153,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -521448,7 +522174,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -521461,7 +522187,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -521482,7 +522208,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -521553,11 +522279,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Bildschirm ausschalten nach",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Bildschirm ausschalten nach",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521578,7 +522338,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 Minuten",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -521588,7 +522348,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521609,7 +522369,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 Minuten",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -521619,7 +522379,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521640,7 +522400,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 Minuten",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -521650,7 +522410,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521671,7 +522431,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nie",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -521682,7 +522442,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -521703,7 +522463,7 @@
         "scroll": false,
         "used": 22,
         "text": "Helligkeit",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -521716,7 +522476,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -521737,7 +522497,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -521750,7 +522510,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -521771,7 +522531,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -521842,11 +522602,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Spegni lo schermo dopo",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Spegni lo schermo dopo",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521867,7 +522661,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minuti",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -521877,7 +522671,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521898,7 +522692,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minuti",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -521908,7 +522702,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521929,7 +522723,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minuti",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -521939,7 +522733,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -521960,7 +522754,7 @@
         "scroll": false,
         "used": 22,
         "text": "Mai",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -521971,7 +522765,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -521992,7 +522786,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosità",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -522005,7 +522799,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -522026,7 +522820,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -522039,7 +522833,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -522060,7 +522854,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -522131,11 +522925,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Apagar la pantalla después de",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Apagar la pantalla después de",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522156,7 +522984,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -522166,7 +522994,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522187,7 +523015,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -522197,7 +523025,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522218,7 +523046,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -522228,7 +523056,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522249,7 +523077,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -522260,7 +523088,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -522281,7 +523109,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brillo",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -522294,7 +523122,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -522315,7 +523143,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -522328,7 +523156,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -522349,7 +523177,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -522420,11 +523248,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "화면 꺼짐 시간",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "화면 꺼짐 시간",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522445,7 +523307,7 @@
         "scroll": false,
         "used": 22,
         "text": "5분",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -522455,7 +523317,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522476,7 +523338,7 @@
         "scroll": false,
         "used": 22,
         "text": "15분",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -522486,7 +523348,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522507,7 +523369,7 @@
         "scroll": false,
         "used": 22,
         "text": "30분",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -522517,7 +523379,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522538,7 +523400,7 @@
         "scroll": false,
         "used": 22,
         "text": "안 함",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -522549,7 +523411,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -522570,7 +523432,7 @@
         "scroll": false,
         "used": 22,
         "text": "밝기",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -522583,7 +523445,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -522604,7 +523466,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -522617,7 +523479,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -522638,7 +523500,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -522709,11 +523571,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Desligar a tela após",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Desligar a tela após",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522734,7 +523630,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -522744,7 +523640,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522765,7 +523661,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -522775,7 +523671,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522796,7 +523692,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -522806,7 +523702,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -522827,7 +523723,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -522838,7 +523734,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -522859,7 +523755,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brilho",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -522872,7 +523768,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -522893,7 +523789,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -522906,7 +523802,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -522927,7 +523823,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -522998,11 +523894,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "إيقاف الشاشة بعد",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "إيقاف الشاشة بعد",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523023,7 +523953,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 دقائق",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -523033,7 +523963,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523054,7 +523984,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 دقيقة",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -523064,7 +523994,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523085,7 +524015,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 دقيقة",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -523095,7 +524025,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523116,7 +524046,7 @@
         "scroll": false,
         "used": 22,
         "text": "أبدًا",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -523127,7 +524057,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -523148,7 +524078,7 @@
         "scroll": false,
         "used": 22,
         "text": "السطوع",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -523161,7 +524091,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -523182,7 +524112,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -523195,7 +524125,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -523216,7 +524146,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -523287,11 +524217,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Ekranı kapatma süresi",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Ekranı kapatma süresi",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523312,7 +524276,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 dakika",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -523322,7 +524286,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523343,7 +524307,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 dakika",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -523353,7 +524317,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523374,7 +524338,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 dakika",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -523384,7 +524348,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523405,7 +524369,7 @@
         "scroll": false,
         "used": 22,
         "text": "Hiçbir zaman",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -523416,7 +524380,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -523437,7 +524401,7 @@
         "scroll": false,
         "used": 22,
         "text": "Parlaklık",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -523450,7 +524414,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -523471,7 +524435,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -523484,7 +524448,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -523505,7 +524469,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -523576,11 +524540,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "כיבוי המסך לאחר",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "כיבוי המסך לאחר",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523601,7 +524599,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 דקות",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -523611,7 +524609,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523632,7 +524630,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 דקות",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -523642,7 +524640,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523663,7 +524661,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 דקות",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -523673,7 +524671,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -523694,7 +524692,7 @@
         "scroll": false,
         "used": 22,
         "text": "אף פעם",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -523705,7 +524703,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -523726,7 +524724,7 @@
         "scroll": false,
         "used": 22,
         "text": "בהירות",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -523739,7 +524737,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -523760,7 +524758,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -523773,7 +524771,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -523794,7 +524792,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -523908,10 +524906,67 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 56,
+    "w": 248,
+    "h": 20,
+    "z": 7,
+    "name": "sleep_hint",
+    "kind": "t",
+    "bg": null,
+    "radius": 0,
+    "labels": [
+     {
+      "x": 16,
+      "y": 56,
+      "w": 240,
+      "h": 20,
+      "role": "t13",
+      "align": "l",
+      "color": [
+       165,
+       166,
+       181
+      ],
+      "matte": [
+       23,
+       23,
+       26
+      ],
+      "top": false,
+      "bottom": false,
+      "dyn": false,
+      "scroll": false,
+      "used": 18,
+      "text": "Turn the screen off after",
+      "z": 8,
+      "centered": true
+     }
+    ],
+    "role": "t13",
+    "align": "l",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "top": false,
+    "bottom": false,
+    "dyn": false,
+    "scroll": false,
+    "used": 18,
+    "text": "Turn the screen off after"
+   },
+   {
+    "x": 12,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 7,
+    "z": 9,
     "name": "opt_5min",
     "kind": "rowhit",
     "bg": null,
@@ -523919,7 +524974,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 60,
+      "y": 84,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -523940,17 +524995,17 @@
       "scroll": false,
       "used": 22,
       "text": "5 minutes",
-      "z": 9,
+      "z": 11,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 12,
+    "z": 14,
     "name": "opt_15min",
     "kind": "rowhit",
     "bg": null,
@@ -523958,7 +525013,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 116,
+      "y": 140,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -523979,17 +525034,17 @@
       "scroll": false,
       "used": 22,
       "text": "15 minutes",
-      "z": 14,
+      "z": 16,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 17,
+    "z": 19,
     "name": "opt_30min",
     "kind": "rowhit",
     "bg": null,
@@ -523997,7 +525052,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 172,
+      "y": 196,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -524018,17 +525073,17 @@
       "scroll": false,
       "used": 22,
       "text": "30 minutes",
-      "z": 19,
+      "z": 21,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 22,
+    "z": 24,
     "name": "opt_never",
     "kind": "rowhit",
     "bg": null,
@@ -524036,7 +525091,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 228,
+      "y": 252,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -524057,17 +525112,17 @@
       "scroll": false,
       "used": 22,
       "text": "Never",
-      "z": 24,
+      "z": 26,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 296,
+    "y": 308,
     "w": 200,
     "h": 28,
-    "z": 27,
+    "z": 29,
     "name": "brightness_lbl",
     "kind": "t",
     "bg": null,
@@ -524075,7 +525130,7 @@
     "labels": [
      {
       "x": 16,
-      "y": 298,
+      "y": 310,
       "w": 192,
       "h": 24,
       "role": "t16",
@@ -524096,7 +525151,7 @@
       "scroll": false,
       "used": 22,
       "text": "Brightness",
-      "z": 28,
+      "z": 30,
       "centered": true
      }
     ],
@@ -524121,10 +525176,10 @@
    },
    {
     "x": 201,
-    "y": 296,
+    "y": 308,
     "w": 40,
     "h": 28,
-    "z": 29,
+    "z": 31,
     "name": "bright_val",
     "kind": "t",
     "bg": null,
@@ -524132,7 +525187,7 @@
     "labels": [
      {
       "x": 205,
-      "y": 298,
+      "y": 310,
       "w": 32,
       "h": 24,
       "role": "d20",
@@ -524153,7 +525208,7 @@
       "scroll": false,
       "used": 27,
       "text": "80",
-      "z": 30,
+      "z": 32,
       "centered": true
      }
     ],
@@ -524178,10 +525233,10 @@
    },
    {
     "x": 244,
-    "y": 303,
+    "y": 315,
     "w": 16,
     "h": 20,
-    "z": 31,
+    "z": 33,
     "name": "bright_val_u",
     "kind": "t",
     "bg": null,
@@ -524189,7 +525244,7 @@
     "labels": [
      {
       "x": 248,
-      "y": 303,
+      "y": 315,
       "w": 8,
       "h": 20,
       "role": "t13",
@@ -524210,7 +525265,7 @@
       "scroll": false,
       "used": 18,
       "text": "%",
-      "z": 32,
+      "z": 34,
       "centered": true
      }
     ],
@@ -524235,10 +525290,10 @@
    },
    {
     "x": 12,
-    "y": 332,
+    "y": 344,
     "w": 248,
     "h": 44,
-    "z": 33,
+    "z": 35,
     "name": "bright_slider",
     "kind": "hit",
     "bg": null,
@@ -524250,7 +525305,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 50,
+    "z": 52,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -524262,7 +525317,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 56,
+    "z": 58,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -524274,7 +525329,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 69,
+    "z": 71,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -524286,7 +525341,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 74,
+    "z": 76,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -524334,10 +525389,10 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 8,
+    "z": 10,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524351,10 +525406,10 @@
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 13,
+    "z": 15,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524368,10 +525423,10 @@
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 18,
+    "z": 20,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524385,10 +525440,10 @@
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 23,
+    "z": 25,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524402,10 +525457,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 220,
     "h": 10,
-    "z": 34,
+    "z": 36,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524419,10 +525474,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 172,
     "h": 10,
-    "z": 35,
+    "z": 37,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524436,10 +525491,10 @@
    },
    {
     "x": 183,
-    "y": 340,
+    "y": 352,
     "w": 28,
     "h": 28,
-    "z": 36,
+    "z": 38,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524453,10 +525508,10 @@
    },
    {
     "x": 12,
-    "y": 384,
+    "y": 396,
     "w": 18,
     "h": 18,
-    "z": 38,
+    "z": 40,
     "prim": "icon",
     "icon": "sun-dim",
     "color": [
@@ -524476,7 +525531,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 49,
+    "z": 51,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524493,7 +525548,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 52,
+    "z": 54,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -524513,7 +525568,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 58,
+    "z": 60,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -524533,7 +525588,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 71,
+    "z": 73,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -524553,7 +525608,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 75,
+    "z": 77,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -524570,7 +525625,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 76,
+    "z": 78,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -524629,11 +525684,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "息屏时间",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "息屏时间",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524654,7 +525743,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分钟",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -524664,7 +525753,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524685,7 +525774,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分钟",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -524695,7 +525784,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524716,7 +525805,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分钟",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -524726,7 +525815,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524747,7 +525836,7 @@
         "scroll": false,
         "used": 22,
         "text": "永不",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -524758,7 +525847,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -524779,7 +525868,7 @@
         "scroll": false,
         "used": 22,
         "text": "亮度",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -524792,7 +525881,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -524813,7 +525902,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -524826,7 +525915,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -524847,7 +525936,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -524918,11 +526007,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Отключение экрана через",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Отключение экрана через",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524943,7 +526066,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 минут",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -524953,7 +526076,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -524974,7 +526097,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 минут",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -524984,7 +526107,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525005,7 +526128,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 минут",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -525015,7 +526138,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525036,7 +526159,7 @@
         "scroll": false,
         "used": 22,
         "text": "Никогда",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -525047,7 +526170,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -525068,7 +526191,7 @@
         "scroll": false,
         "used": 22,
         "text": "Яркость",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -525081,7 +526204,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -525102,7 +526225,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -525115,7 +526238,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -525136,7 +526259,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -525207,11 +526330,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Turn the screen off after",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Turn the screen off after",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525232,7 +526389,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -525242,7 +526399,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525263,7 +526420,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -525273,7 +526430,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525294,7 +526451,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -525304,7 +526461,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525325,7 +526482,7 @@
         "scroll": false,
         "used": 22,
         "text": "Never",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -525336,7 +526493,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -525357,7 +526514,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brightness",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -525370,7 +526527,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -525391,7 +526548,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -525404,7 +526561,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -525425,7 +526582,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -525496,11 +526653,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "画面を消すまでの時間",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "画面を消すまでの時間",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525521,7 +526712,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -525531,7 +526722,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525552,7 +526743,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -525562,7 +526753,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525583,7 +526774,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -525593,7 +526784,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525614,7 +526805,7 @@
         "scroll": false,
         "used": 22,
         "text": "しない",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -525625,7 +526816,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -525646,7 +526837,7 @@
         "scroll": false,
         "used": 22,
         "text": "明るさ",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -525659,7 +526850,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -525680,7 +526871,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -525693,7 +526884,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -525714,7 +526905,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -525785,11 +526976,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Éteindre l'écran après",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Éteindre l'écran après",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525810,7 +527035,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -525820,7 +527045,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525841,7 +527066,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -525851,7 +527076,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525872,7 +527097,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -525882,7 +527107,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -525903,7 +527128,7 @@
         "scroll": false,
         "used": 22,
         "text": "Jamais",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -525914,7 +527139,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -525935,7 +527160,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosité",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -525948,7 +527173,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -525969,7 +527194,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -525982,7 +527207,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -526003,7 +527228,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -526074,11 +527299,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Bildschirm ausschalten nach",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Bildschirm ausschalten nach",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526099,7 +527358,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 Minuten",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -526109,7 +527368,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526130,7 +527389,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 Minuten",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -526140,7 +527399,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526161,7 +527420,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 Minuten",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -526171,7 +527430,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526192,7 +527451,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nie",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -526203,7 +527462,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -526224,7 +527483,7 @@
         "scroll": false,
         "used": 22,
         "text": "Helligkeit",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -526237,7 +527496,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -526258,7 +527517,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -526271,7 +527530,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -526292,7 +527551,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -526363,11 +527622,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Spegni lo schermo dopo",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Spegni lo schermo dopo",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526388,7 +527681,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minuti",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -526398,7 +527691,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526419,7 +527712,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minuti",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -526429,7 +527722,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526450,7 +527743,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minuti",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -526460,7 +527753,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526481,7 +527774,7 @@
         "scroll": false,
         "used": 22,
         "text": "Mai",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -526492,7 +527785,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -526513,7 +527806,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosità",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -526526,7 +527819,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -526547,7 +527840,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -526560,7 +527853,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -526581,7 +527874,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -526652,11 +527945,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Apagar la pantalla después de",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Apagar la pantalla después de",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526677,7 +528004,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -526687,7 +528014,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526708,7 +528035,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -526718,7 +528045,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526739,7 +528066,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -526749,7 +528076,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526770,7 +528097,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -526781,7 +528108,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -526802,7 +528129,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brillo",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -526815,7 +528142,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -526836,7 +528163,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -526849,7 +528176,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -526870,7 +528197,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -526941,11 +528268,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "화면 꺼짐 시간",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "화면 꺼짐 시간",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526966,7 +528327,7 @@
         "scroll": false,
         "used": 22,
         "text": "5분",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -526976,7 +528337,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -526997,7 +528358,7 @@
         "scroll": false,
         "used": 22,
         "text": "15분",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -527007,7 +528368,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527028,7 +528389,7 @@
         "scroll": false,
         "used": 22,
         "text": "30분",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -527038,7 +528399,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527059,7 +528420,7 @@
         "scroll": false,
         "used": 22,
         "text": "안 함",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -527070,7 +528431,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -527091,7 +528452,7 @@
         "scroll": false,
         "used": 22,
         "text": "밝기",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -527104,7 +528465,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -527125,7 +528486,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -527138,7 +528499,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -527159,7 +528520,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -527230,11 +528591,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Desligar a tela após",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Desligar a tela após",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527255,7 +528650,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -527265,7 +528660,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527286,7 +528681,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -527296,7 +528691,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527317,7 +528712,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -527327,7 +528722,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527348,7 +528743,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -527359,7 +528754,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -527380,7 +528775,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brilho",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -527393,7 +528788,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -527414,7 +528809,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -527427,7 +528822,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -527448,7 +528843,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -527519,11 +528914,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "إيقاف الشاشة بعد",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "إيقاف الشاشة بعد",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527544,7 +528973,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 دقائق",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -527554,7 +528983,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527575,7 +529004,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 دقيقة",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -527585,7 +529014,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527606,7 +529035,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 دقيقة",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -527616,7 +529045,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527637,7 +529066,7 @@
         "scroll": false,
         "used": 22,
         "text": "أبدًا",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -527648,7 +529077,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -527669,7 +529098,7 @@
         "scroll": false,
         "used": 22,
         "text": "السطوع",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -527682,7 +529111,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -527703,7 +529132,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -527716,7 +529145,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -527737,7 +529166,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -527808,11 +529237,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Ekranı kapatma süresi",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Ekranı kapatma süresi",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527833,7 +529296,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 dakika",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -527843,7 +529306,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527864,7 +529327,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 dakika",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -527874,7 +529337,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527895,7 +529358,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 dakika",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -527905,7 +529368,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -527926,7 +529389,7 @@
         "scroll": false,
         "used": 22,
         "text": "Hiçbir zaman",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -527937,7 +529400,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -527958,7 +529421,7 @@
         "scroll": false,
         "used": 22,
         "text": "Parlaklık",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -527971,7 +529434,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -527992,7 +529455,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -528005,7 +529468,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -528026,7 +529489,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -528097,11 +529560,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "כיבוי המסך לאחר",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "כיבוי המסך לאחר",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -528122,7 +529619,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 דקות",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -528132,7 +529629,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -528153,7 +529650,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 דקות",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -528163,7 +529660,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -528184,7 +529681,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 דקות",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -528194,7 +529691,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -528215,7 +529712,7 @@
         "scroll": false,
         "used": 22,
         "text": "אף פעם",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -528226,7 +529723,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -528247,7 +529744,7 @@
         "scroll": false,
         "used": 22,
         "text": "בהירות",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -528260,7 +529757,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -528281,7 +529778,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -528294,7 +529791,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -528315,7 +529812,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -528429,10 +529926,67 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 56,
+    "w": 248,
+    "h": 20,
+    "z": 7,
+    "name": "sleep_hint",
+    "kind": "t",
+    "bg": null,
+    "radius": 0,
+    "labels": [
+     {
+      "x": 16,
+      "y": 56,
+      "w": 240,
+      "h": 20,
+      "role": "t13",
+      "align": "l",
+      "color": [
+       165,
+       166,
+       181
+      ],
+      "matte": [
+       23,
+       23,
+       26
+      ],
+      "top": false,
+      "bottom": false,
+      "dyn": false,
+      "scroll": false,
+      "used": 18,
+      "text": "Turn the screen off after",
+      "z": 8,
+      "centered": true
+     }
+    ],
+    "role": "t13",
+    "align": "l",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "top": false,
+    "bottom": false,
+    "dyn": false,
+    "scroll": false,
+    "used": 18,
+    "text": "Turn the screen off after"
+   },
+   {
+    "x": 12,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 7,
+    "z": 9,
     "name": "opt_5min",
     "kind": "rowhit",
     "bg": null,
@@ -528440,7 +529994,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 60,
+      "y": 84,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -528461,17 +530015,17 @@
       "scroll": false,
       "used": 22,
       "text": "5 minutes",
-      "z": 9,
+      "z": 11,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 12,
+    "z": 14,
     "name": "opt_15min",
     "kind": "rowhit",
     "bg": null,
@@ -528479,7 +530033,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 116,
+      "y": 140,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -528500,17 +530054,17 @@
       "scroll": false,
       "used": 22,
       "text": "15 minutes",
-      "z": 14,
+      "z": 16,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 17,
+    "z": 19,
     "name": "opt_30min",
     "kind": "rowhit",
     "bg": null,
@@ -528518,7 +530072,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 172,
+      "y": 196,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -528539,17 +530093,17 @@
       "scroll": false,
       "used": 22,
       "text": "30 minutes",
-      "z": 19,
+      "z": 21,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 22,
+    "z": 24,
     "name": "opt_never",
     "kind": "rowhit",
     "bg": null,
@@ -528557,7 +530111,7 @@
     "labels": [
      {
       "x": 58,
-      "y": 228,
+      "y": 252,
       "w": 190,
       "h": 48,
       "role": "t16",
@@ -528578,17 +530132,17 @@
       "scroll": false,
       "used": 22,
       "text": "Never",
-      "z": 24,
+      "z": 26,
       "centered": true
      }
     ]
    },
    {
     "x": 12,
-    "y": 296,
+    "y": 308,
     "w": 200,
     "h": 28,
-    "z": 27,
+    "z": 29,
     "name": "brightness_lbl",
     "kind": "t",
     "bg": null,
@@ -528596,7 +530150,7 @@
     "labels": [
      {
       "x": 16,
-      "y": 298,
+      "y": 310,
       "w": 192,
       "h": 24,
       "role": "t16",
@@ -528617,7 +530171,7 @@
       "scroll": false,
       "used": 22,
       "text": "Brightness",
-      "z": 28,
+      "z": 30,
       "centered": true
      }
     ],
@@ -528642,10 +530196,10 @@
    },
    {
     "x": 201,
-    "y": 296,
+    "y": 308,
     "w": 40,
     "h": 28,
-    "z": 29,
+    "z": 31,
     "name": "bright_val",
     "kind": "t",
     "bg": null,
@@ -528653,7 +530207,7 @@
     "labels": [
      {
       "x": 205,
-      "y": 298,
+      "y": 310,
       "w": 32,
       "h": 24,
       "role": "d20",
@@ -528674,7 +530228,7 @@
       "scroll": false,
       "used": 27,
       "text": "80",
-      "z": 30,
+      "z": 32,
       "centered": true
      }
     ],
@@ -528699,10 +530253,10 @@
    },
    {
     "x": 244,
-    "y": 303,
+    "y": 315,
     "w": 16,
     "h": 20,
-    "z": 31,
+    "z": 33,
     "name": "bright_val_u",
     "kind": "t",
     "bg": null,
@@ -528710,7 +530264,7 @@
     "labels": [
      {
       "x": 248,
-      "y": 303,
+      "y": 315,
       "w": 8,
       "h": 20,
       "role": "t13",
@@ -528731,7 +530285,7 @@
       "scroll": false,
       "used": 18,
       "text": "%",
-      "z": 32,
+      "z": 34,
       "centered": true
      }
     ],
@@ -528756,10 +530310,10 @@
    },
    {
     "x": 12,
-    "y": 332,
+    "y": 344,
     "w": 248,
     "h": 44,
-    "z": 33,
+    "z": 35,
     "name": "bright_slider",
     "kind": "hit",
     "bg": null,
@@ -528771,7 +530325,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 50,
+    "z": 52,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -528783,7 +530337,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 56,
+    "z": 58,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -528795,7 +530349,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 69,
+    "z": 71,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -528807,7 +530361,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 74,
+    "z": 76,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -528855,10 +530409,10 @@
    },
    {
     "x": 12,
-    "y": 60,
+    "y": 84,
     "w": 248,
     "h": 48,
-    "z": 8,
+    "z": 10,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528872,10 +530426,10 @@
    },
    {
     "x": 12,
-    "y": 116,
+    "y": 140,
     "w": 248,
     "h": 48,
-    "z": 13,
+    "z": 15,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528889,10 +530443,10 @@
    },
    {
     "x": 12,
-    "y": 172,
+    "y": 196,
     "w": 248,
     "h": 48,
-    "z": 18,
+    "z": 20,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528906,10 +530460,10 @@
    },
    {
     "x": 12,
-    "y": 228,
+    "y": 252,
     "w": 248,
     "h": 48,
-    "z": 23,
+    "z": 25,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528923,10 +530477,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 220,
     "h": 10,
-    "z": 34,
+    "z": 36,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528940,10 +530494,10 @@
    },
    {
     "x": 26,
-    "y": 349,
+    "y": 361,
     "w": 172,
     "h": 10,
-    "z": 35,
+    "z": 37,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528957,10 +530511,10 @@
    },
    {
     "x": 183,
-    "y": 340,
+    "y": 352,
     "w": 28,
     "h": 28,
-    "z": 36,
+    "z": 38,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -528974,10 +530528,10 @@
    },
    {
     "x": 12,
-    "y": 384,
+    "y": 396,
     "w": 18,
     "h": 18,
-    "z": 38,
+    "z": 40,
     "prim": "icon",
     "icon": "sun-dim",
     "color": [
@@ -528997,7 +530551,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 49,
+    "z": 51,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -529014,7 +530568,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 52,
+    "z": 54,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -529034,7 +530588,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 58,
+    "z": 60,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -529054,7 +530608,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 71,
+    "z": 73,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -529074,7 +530628,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 75,
+    "z": 77,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -529091,7 +530645,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 76,
+    "z": 78,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -529150,11 +530704,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "息屏时间",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "息屏时间",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529175,7 +530763,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分钟",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -529185,7 +530773,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529206,7 +530794,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分钟",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -529216,7 +530804,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529237,7 +530825,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分钟",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -529247,7 +530835,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529268,7 +530856,7 @@
         "scroll": false,
         "used": 22,
         "text": "永不",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -529279,7 +530867,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -529300,7 +530888,7 @@
         "scroll": false,
         "used": 22,
         "text": "亮度",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -529313,7 +530901,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -529334,7 +530922,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -529347,7 +530935,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -529368,7 +530956,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -529439,11 +531027,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Отключение экрана через",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Отключение экрана через",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529464,7 +531086,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 минут",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -529474,7 +531096,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529495,7 +531117,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 минут",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -529505,7 +531127,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529526,7 +531148,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 минут",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -529536,7 +531158,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529557,7 +531179,7 @@
         "scroll": false,
         "used": 22,
         "text": "Никогда",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -529568,7 +531190,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -529589,7 +531211,7 @@
         "scroll": false,
         "used": 22,
         "text": "Яркость",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -529602,7 +531224,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -529623,7 +531245,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -529636,7 +531258,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -529657,7 +531279,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -529728,11 +531350,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Turn the screen off after",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Turn the screen off after",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529753,7 +531409,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -529763,7 +531419,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529784,7 +531440,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -529794,7 +531450,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529815,7 +531471,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -529825,7 +531481,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -529846,7 +531502,7 @@
         "scroll": false,
         "used": 22,
         "text": "Never",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -529857,7 +531513,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -529878,7 +531534,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brightness",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -529891,7 +531547,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -529912,7 +531568,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -529925,7 +531581,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -529946,7 +531602,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -530017,11 +531673,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "画面を消すまでの時間",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "画面を消すまでの時間",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530042,7 +531732,7 @@
         "scroll": false,
         "used": 22,
         "text": "5分",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -530052,7 +531742,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530073,7 +531763,7 @@
         "scroll": false,
         "used": 22,
         "text": "15分",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -530083,7 +531773,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530104,7 +531794,7 @@
         "scroll": false,
         "used": 22,
         "text": "30分",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -530114,7 +531804,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530135,7 +531825,7 @@
         "scroll": false,
         "used": 22,
         "text": "しない",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -530146,7 +531836,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -530167,7 +531857,7 @@
         "scroll": false,
         "used": 22,
         "text": "明るさ",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -530180,7 +531870,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -530201,7 +531891,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -530214,7 +531904,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -530235,7 +531925,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -530306,11 +531996,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Éteindre l'écran après",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Éteindre l'écran après",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530331,7 +532055,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutes",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -530341,7 +532065,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530362,7 +532086,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutes",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -530372,7 +532096,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530393,7 +532117,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutes",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -530403,7 +532127,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530424,7 +532148,7 @@
         "scroll": false,
         "used": 22,
         "text": "Jamais",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -530435,7 +532159,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -530456,7 +532180,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosité",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -530469,7 +532193,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -530490,7 +532214,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -530503,7 +532227,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -530524,7 +532248,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -530595,11 +532319,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Bildschirm ausschalten nach",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Bildschirm ausschalten nach",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530620,7 +532378,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 Minuten",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -530630,7 +532388,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530651,7 +532409,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 Minuten",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -530661,7 +532419,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530682,7 +532440,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 Minuten",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -530692,7 +532450,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530713,7 +532471,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nie",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -530724,7 +532482,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -530745,7 +532503,7 @@
         "scroll": false,
         "used": 22,
         "text": "Helligkeit",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -530758,7 +532516,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -530779,7 +532537,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -530792,7 +532550,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -530813,7 +532571,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -530884,11 +532642,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Spegni lo schermo dopo",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Spegni lo schermo dopo",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530909,7 +532701,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minuti",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -530919,7 +532711,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530940,7 +532732,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minuti",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -530950,7 +532742,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -530971,7 +532763,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minuti",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -530981,7 +532773,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531002,7 +532794,7 @@
         "scroll": false,
         "used": 22,
         "text": "Mai",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -531013,7 +532805,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -531034,7 +532826,7 @@
         "scroll": false,
         "used": 22,
         "text": "Luminosità",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -531047,7 +532839,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -531068,7 +532860,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -531081,7 +532873,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -531102,7 +532894,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -531173,11 +532965,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Apagar la pantalla después de",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Apagar la pantalla después de",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531198,7 +533024,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -531208,7 +533034,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531229,7 +533055,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -531239,7 +533065,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531260,7 +533086,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -531270,7 +533096,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531291,7 +533117,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -531302,7 +533128,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -531323,7 +533149,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brillo",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -531336,7 +533162,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -531357,7 +533183,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -531370,7 +533196,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -531391,7 +533217,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -531462,11 +533288,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "화면 꺼짐 시간",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "화면 꺼짐 시간",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531487,7 +533347,7 @@
         "scroll": false,
         "used": 22,
         "text": "5분",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -531497,7 +533357,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531518,7 +533378,7 @@
         "scroll": false,
         "used": 22,
         "text": "15분",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -531528,7 +533388,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531549,7 +533409,7 @@
         "scroll": false,
         "used": 22,
         "text": "30분",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -531559,7 +533419,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531580,7 +533440,7 @@
         "scroll": false,
         "used": 22,
         "text": "안 함",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -531591,7 +533451,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -531612,7 +533472,7 @@
         "scroll": false,
         "used": 22,
         "text": "밝기",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -531625,7 +533485,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -531646,7 +533506,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -531659,7 +533519,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -531680,7 +533540,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -531751,11 +533611,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Desligar a tela após",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Desligar a tela após",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531776,7 +533670,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 minutos",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -531786,7 +533680,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531807,7 +533701,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 minutos",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -531817,7 +533711,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531838,7 +533732,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 minutos",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -531848,7 +533742,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -531869,7 +533763,7 @@
         "scroll": false,
         "used": 22,
         "text": "Nunca",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -531880,7 +533774,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -531901,7 +533795,7 @@
         "scroll": false,
         "used": 22,
         "text": "Brilho",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -531914,7 +533808,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -531935,7 +533829,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -531948,7 +533842,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -531969,7 +533863,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -532040,11 +533934,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "إيقاف الشاشة بعد",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "إيقاف الشاشة بعد",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532065,7 +533993,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 دقائق",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -532075,7 +534003,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532096,7 +534024,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 دقيقة",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -532106,7 +534034,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532127,7 +534055,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 دقيقة",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -532137,7 +534065,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532158,7 +534086,7 @@
         "scroll": false,
         "used": 22,
         "text": "أبدًا",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -532169,7 +534097,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -532190,7 +534118,7 @@
         "scroll": false,
         "used": 22,
         "text": "السطوع",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -532203,7 +534131,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -532224,7 +534152,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -532237,7 +534165,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -532258,7 +534186,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -532329,11 +534257,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "Ekranı kapatma süresi",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "Ekranı kapatma süresi",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532354,7 +534316,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 dakika",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -532364,7 +534326,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532385,7 +534347,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 dakika",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -532395,7 +534357,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532416,7 +534378,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 dakika",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -532426,7 +534388,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532447,7 +534409,7 @@
         "scroll": false,
         "used": 22,
         "text": "Hiçbir zaman",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -532458,7 +534420,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -532479,7 +534441,7 @@
         "scroll": false,
         "used": 22,
         "text": "Parlaklık",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -532492,7 +534454,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -532513,7 +534475,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -532526,7 +534488,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -532547,7 +534509,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
@@ -532618,11 +534580,45 @@
       "used": 26
      },
      {
+      "name": "sleep_hint",
+      "text": "כיבוי המסך לאחר",
+      "labels": [
+       {
+        "x": 16,
+        "y": 56,
+        "w": 240,
+        "h": 20,
+        "role": "t13",
+        "align": "l",
+        "color": [
+         165,
+         166,
+         181
+        ],
+        "matte": [
+         23,
+         23,
+         26
+        ],
+        "top": false,
+        "bottom": false,
+        "dyn": false,
+        "scroll": false,
+        "used": 18,
+        "text": "כיבוי המסך לאחר",
+        "z": 8,
+        "centered": true
+       }
+      ],
+      "role": "t13",
+      "used": 18
+     },
+     {
       "name": "opt_5min",
       "labels": [
        {
         "x": 58,
-        "y": 60,
+        "y": 84,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532643,7 +534639,7 @@
         "scroll": false,
         "used": 22,
         "text": "5 דקות",
-        "z": 9,
+        "z": 11,
         "centered": true
        }
       ]
@@ -532653,7 +534649,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 116,
+        "y": 140,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532674,7 +534670,7 @@
         "scroll": false,
         "used": 22,
         "text": "15 דקות",
-        "z": 14,
+        "z": 16,
         "centered": true
        }
       ]
@@ -532684,7 +534680,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 172,
+        "y": 196,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532705,7 +534701,7 @@
         "scroll": false,
         "used": 22,
         "text": "30 דקות",
-        "z": 19,
+        "z": 21,
         "centered": true
        }
       ]
@@ -532715,7 +534711,7 @@
       "labels": [
        {
         "x": 58,
-        "y": 228,
+        "y": 252,
         "w": 190,
         "h": 48,
         "role": "t16",
@@ -532736,7 +534732,7 @@
         "scroll": false,
         "used": 22,
         "text": "אף פעם",
-        "z": 24,
+        "z": 26,
         "centered": true
        }
       ]
@@ -532747,7 +534743,7 @@
       "labels": [
        {
         "x": 16,
-        "y": 298,
+        "y": 310,
         "w": 192,
         "h": 24,
         "role": "t16",
@@ -532768,7 +534764,7 @@
         "scroll": false,
         "used": 22,
         "text": "בהירות",
-        "z": 28,
+        "z": 30,
         "centered": true
        }
       ],
@@ -532781,7 +534777,7 @@
       "labels": [
        {
         "x": 205,
-        "y": 298,
+        "y": 310,
         "w": 32,
         "h": 24,
         "role": "d20",
@@ -532802,7 +534798,7 @@
         "scroll": false,
         "used": 27,
         "text": "80",
-        "z": 30,
+        "z": 32,
         "centered": true
        }
       ],
@@ -532815,7 +534811,7 @@
       "labels": [
        {
         "x": 248,
-        "y": 303,
+        "y": 315,
         "w": 8,
         "h": 20,
         "role": "t13",
@@ -532836,7 +534832,7 @@
         "scroll": false,
         "used": 18,
         "text": "%",
-        "z": 32,
+        "z": 34,
         "centered": true
        }
       ],
