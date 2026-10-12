@@ -318,10 +318,10 @@ class Monkey(object):
 
     def run(self):
         h = self.h
-        h.screen.page_loss = 0.15       # a screen that does not always do what it is told: the service has to notice (sendme) and switch again
         h.mr.gap = 0.05                 # many messages are sent here: the pause of 0.3 s between two of them would keep the state of the program far behind
         h.wait_page(ids.MAIN, 180)
         h.settle(3.0)
+        h.screen.page_loss = 0.15       # a screen that does not always do what it is told: the service has to notice (sendme) and switch again
         self.check_log()
         for number in range(self.steps):
             self.step()
