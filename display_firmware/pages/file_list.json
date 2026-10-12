@@ -113,15 +113,15 @@
     "  empty_msg.txt=\"ריק\"",
     "}",
     "file1_name.txt=\"\"",
-    "file1.pic=${picture:new_file1_none_120x150_e3602a02e6be}",
+    "file1.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
     "file2_name.txt=\"\"",
-    "file2.pic=${picture:new_file1_none_120x150_e3602a02e6be}",
+    "file2.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
     "file3_name.txt=\"\"",
-    "file3.pic=${picture:new_file1_none_120x150_e3602a02e6be}",
+    "file3.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
     "file3_name.txt=\"\"",
-    "file3.pic=${picture:new_file1_none_120x150_e3602a02e6be}",
+    "file3.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
     "file4_name.txt=\"\"",
-    "file4.pic=${picture:new_file1_none_120x150_e3602a02e6be}"
+    "file4.pic=${picture:new_file1_none_120x150_c2e8384513b2}"
    ],
    "codesloadend": [],
    "codesdown": [],
@@ -423,12 +423,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_e3602a02e6be"
+     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_6d14704c2c3c"
+     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -598,12 +598,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_e3602a02e6be"
+     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_6d14704c2c3c"
+     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -773,12 +773,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_e3602a02e6be"
+     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_6d14704c2c3c"
+     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -948,12 +948,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_e3602a02e6be"
+     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_6d14704c2c3c"
+     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1123,12 +1123,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_prev_77x40_b6029754de6e"
+     "$ref": "picture:new_prev_77x40_57a7d802b437"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_prev_press_77x40_c1990e3c051e"
+     "$ref": "picture:new_prev_press_77x40_a9794793b8eb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1184,12 +1184,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_78x40_a0c1a171908c"
+     "$ref": "picture:new_next_78x40_8069ce373de2"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_press_78x40_a45a0a654f36"
+     "$ref": "picture:new_next_press_78x40_b8073e1b969c"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1245,12 +1245,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_up_dir_77x40_335981e38ff9"
+     "$ref": "picture:new_up_dir_77x40_463d04a32658"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_up_dir_press_77x40_b7aecfba2f3d"
+     "$ref": "picture:new_up_dir_press_77x40_6176705ea912"
     },
     "picc2": 65535,
     "bco2": 1024,

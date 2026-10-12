@@ -114,6 +114,7 @@ class Klippy(object):
         self.toolhead_position = [0.0, 0.0, 0.0, 0.0]
         self.toolhead_axis_minimum = [0.0, 0.0, 0.0, 0.0]
         self.toolhead_axis_maximum = [0.0, 0.0, 0.0, 0.0]
+        self.homed_axes = ""                 # the axes Klipper has homed ("xyz"); a position of another axis means nothing
         # x, y, z coordinates
         self.x_position = 0.0
         self.y_position = 0.0
@@ -175,8 +176,6 @@ class Shown(object):
     """The values last sent to the screen, to resend only what changed."""
 
     def __init__(self):
-        self.speed_factor = 0.0
-        self.extruder_factor = 0.0
         self.extruder_temperature = 0
         self.extruder_target = 0
         self.heater_bed_temperature = 0
@@ -187,7 +186,6 @@ class Shown(object):
         self.out_pin_fan3_value = 0.0
         self.out_pin_fan2_value = 0.0
         self.oobe_enabled = False
-        self.webhooks_state_message = ""
         self.page_values = {}       # what the shown page got from the refresh functions; page_to() clears it
 
     def changed(self, key, value):

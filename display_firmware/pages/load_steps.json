@@ -192,7 +192,7 @@
     "x": 0,
     "y": 0,
     "w": 74,
-    "h": 480,
+    "h": 424,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -200,7 +200,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_steps_bar_load_0_74x480_677f00e5442d"
+     "$ref": "picture:new_steps_bar_load_0_74x424_50671563d0cf"
     }
    },
    "events": {
@@ -497,12 +497,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_120x40_8777e59b821b"
+     "$ref": "picture:new_back_btn_120x40_05cf43dbdd5e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_120x40_5196ed97f040"
+     "$ref": "picture:new_back_btn_press_120x40_851b261b9a0c"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -558,12 +558,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_btn_120x40_3de50d39bcf1"
+     "$ref": "picture:new_next_btn_120x40_1ffa054ab653"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_btn_press_120x40_bff7d34d5686"
+     "$ref": "picture:new_next_btn_press_120x40_31bfe9b59c28"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -760,12 +760,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_120x40_8777e59b821b"
+     "$ref": "picture:new_back_btn_120x40_05cf43dbdd5e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_120x40_5196ed97f040"
+     "$ref": "picture:new_back_btn_press_120x40_851b261b9a0c"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -821,12 +821,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_btn_120x40_3de50d39bcf1"
+     "$ref": "picture:new_next_btn_120x40_1ffa054ab653"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_btn_press_120x40_bff7d34d5686"
+     "$ref": "picture:new_next_btn_press_120x40_31bfe9b59c28"
     },
     "picc2": 65535,
     "bco2": 1024,

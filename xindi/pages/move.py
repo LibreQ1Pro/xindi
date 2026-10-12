@@ -7,14 +7,13 @@ from xindi.screen import pageids as ids
 from xindi.util.cpp import f32, to_string
 
 
-def move_page():
-    x_pos = cut_after_point(to_string(g.klippy.x_position), 2)
-    y_pos = cut_after_point(to_string(g.klippy.y_position), 2)
-    z_pos = cut_after_point(to_string(g.klippy.z_position), 2)
+UNKNOWN_POSITION = "---.-"
 
-    g.port.txt("x_pos", x_pos)
-    g.port.txt("y_pos", y_pos)
-    g.port.txt("z_pos", z_pos)
+
+def move_page():
+    for axis, value in (("x", g.klippy.x_position), ("y", g.klippy.y_position), ("z", g.klippy.z_position)):
+        # an axis that is not homed has no position yet
+        g.port.txt(axis + "_pos", cut_after_point(to_string(value), 2) if axis in g.klippy.homed_axes else UNKNOWN_POSITION)
 
     # CLL highlight the selected distance
     for dist, look in ((0.1, "d01"), (1.0, "d1"), (10, "d10")):

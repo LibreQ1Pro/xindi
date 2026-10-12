@@ -45,6 +45,10 @@ def request_language():
 
 
 PAGE_CHECK_INTERVAL = 2.0       # seconds between two questions "which page do you show?"
+# Pages the screen switches to by itself: the "next / previous" arrows of the language lists (the host works for the first of the two, the buttons of both
+# send its id) and the number keyboard that a value of a print page opens and closes on its own (key=2). The answer "that page" is not a wrong page.
+SELF_SWITCHED = {frozenset((ids.LANGUAGE, ids.LANGUAGE2)), frozenset((ids.OPEN_LANGUAGE, ids.OPEN_LANGUAGE2)),
+                 frozenset((ids.PRINTING, ids.PRINTING_KB)), frozenset((ids.PRINTING_2, ids.PRINTING_KB))}
 PAGE_SETTLE = 1.5               # a switch takes a moment: what the screen says earlier is about the page before
 
 
@@ -67,7 +71,7 @@ def page_reported(page_id):
     """The screen says which page it shows (the answer to ``sendme``). When it is not the page the host works for (a switch that did not happen, a page
     that was left by itself), it has to be switched again: the host would otherwise refresh and answer clicks for a page nobody sees.
     Two answers in a row are needed (one may be a switch in progress). Returns True when the page was switched again."""
-    if page_id == g.screen.page:
+    if page_id == g.screen.page or frozenset((page_id, g.screen.page)) in SELF_SWITCHED:
         g.screen.page_mismatch = 0
         return False
     if time.monotonic() - g.screen.page_switched_at < PAGE_SETTLE:

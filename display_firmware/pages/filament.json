@@ -676,40 +676,6 @@
    }
   },
   {
-   "key": "nozzle_toggle",
-   "type": "touch_hotspot",
-   "attributes": {
-    "objname": "nozzle_toggle",
-    "vscope": 0,
-    "drag": 0,
-    "sendkey": 0,
-    "aph": 127,
-    "movex": 0,
-    "movey": 0,
-    "x": 12,
-    "y": 56,
-    "w": 50,
-    "h": 50,
-    "effect": 0,
-    "first": 0,
-    "time": 300,
-    "lockobj": 0,
-    "groupid0": 0,
-    "groupid1": 0
-   },
-   "events": {
-    "codesdown": [],
-    "codesup": [
-     "prints 0x65,1",
-     "prints dp,1",
-     "prints 2,1",
-     "prints 0xff,1",
-     "prints 0xff,1",
-     "prints 0xff,1"
-    ]
-   }
-  },
-  {
    "key": "nozzle_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -720,9 +686,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 62,
+    "x": 12,
     "y": 56,
-    "w": 110,
+    "w": 160,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -739,10 +705,10 @@
    }
   },
   {
-   "key": "bg19",
+   "key": "bg18",
    "type": "picture",
    "attributes": {
-    "objname": "bg19",
+    "objname": "bg18",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -984,40 +950,6 @@
    }
   },
   {
-   "key": "bed_toggle",
-   "type": "touch_hotspot",
-   "attributes": {
-    "objname": "bed_toggle",
-    "vscope": 0,
-    "drag": 0,
-    "sendkey": 0,
-    "aph": 127,
-    "movex": 0,
-    "movey": 0,
-    "x": 12,
-    "y": 114,
-    "w": 50,
-    "h": 50,
-    "effect": 0,
-    "first": 0,
-    "time": 300,
-    "lockobj": 0,
-    "groupid0": 0,
-    "groupid1": 0
-   },
-   "events": {
-    "codesdown": [],
-    "codesup": [
-     "prints 0x65,1",
-     "prints dp,1",
-     "prints 3,1",
-     "prints 0xff,1",
-     "prints 0xff,1",
-     "prints 0xff,1"
-    ]
-   }
-  },
-  {
    "key": "bed_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -1028,9 +960,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 62,
+    "x": 12,
     "y": 114,
-    "w": 110,
+    "w": 160,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -1047,10 +979,10 @@
    }
   },
   {
-   "key": "bg34",
+   "key": "bg32",
    "type": "picture",
    "attributes": {
-    "objname": "bg34",
+    "objname": "bg32",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1292,40 +1224,6 @@
    }
   },
   {
-   "key": "chamber_toggle",
-   "type": "touch_hotspot",
-   "attributes": {
-    "objname": "chamber_toggle",
-    "vscope": 0,
-    "drag": 0,
-    "sendkey": 0,
-    "aph": 127,
-    "movex": 0,
-    "movey": 0,
-    "x": 12,
-    "y": 172,
-    "w": 50,
-    "h": 50,
-    "effect": 0,
-    "first": 0,
-    "time": 300,
-    "lockobj": 0,
-    "groupid0": 0,
-    "groupid1": 0
-   },
-   "events": {
-    "codesdown": [],
-    "codesup": [
-     "prints 0x65,1",
-     "prints dp,1",
-     "prints 15,1",
-     "prints 0xff,1",
-     "prints 0xff,1",
-     "prints 0xff,1"
-    ]
-   }
-  },
-  {
    "key": "chamber_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -1336,9 +1234,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 62,
+    "x": 12,
     "y": 172,
-    "w": 110,
+    "w": 160,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -1383,12 +1281,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_b1adfe94402d"
+     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_f6cc2c25b90e"
+     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1417,10 +1315,10 @@
    }
   },
   {
-   "key": "lbl55",
+   "key": "lbl52",
    "type": "text",
    "attributes": {
-    "objname": "lbl55",
+    "objname": "lbl52",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1543,12 +1441,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_b1adfe94402d"
+     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_f6cc2c25b90e"
+     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1577,10 +1475,10 @@
    }
   },
   {
-   "key": "lbl65",
+   "key": "lbl62",
    "type": "text",
    "attributes": {
-    "objname": "lbl65",
+    "objname": "lbl62",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1703,12 +1601,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_b1adfe94402d"
+     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_f6cc2c25b90e"
+     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1737,10 +1635,10 @@
    }
   },
   {
-   "key": "lbl75",
+   "key": "lbl72",
    "type": "text",
    "attributes": {
-    "objname": "lbl75",
+    "objname": "lbl72",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1863,12 +1761,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_skip_120x46_508e558199ed"
+     "$ref": "picture:new_skip_120x46_34433c73d5a7"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_skip_press_120x46_b1b211c2186d"
+     "$ref": "picture:new_skip_press_120x46_ac87036a305a"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1925,12 +1823,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_skip_120x46_508e558199ed"
+     "$ref": "picture:new_skip_120x46_34433c73d5a7"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_skip_press_120x46_b1b211c2186d"
+     "$ref": "picture:new_skip_press_120x46_ac87036a305a"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2272,12 +2170,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_extr_up_120x64_05ec455b0894"
+     "$ref": "picture:new_extr_up_120x64_c37408a87217"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_extr_up_press_120x64_77080efda507"
+     "$ref": "picture:new_extr_up_press_120x64_06c02dfd2e6b"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2384,12 +2282,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_extr_down_120x64_b4288fd222d7"
+     "$ref": "picture:new_extr_down_120x64_99787041e443"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_extr_down_press_120x64_1a2f67fa6175"
+     "$ref": "picture:new_extr_down_press_120x64_7058f29d3297"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2468,10 +2366,10 @@
    }
   },
   {
-   "key": "bg102",
+   "key": "bg99",
    "type": "picture",
    "attributes": {
-    "objname": "bg102",
+    "objname": "bg99",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,

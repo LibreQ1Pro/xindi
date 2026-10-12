@@ -97,10 +97,10 @@
      "btlen input.txt,temp.val",
      "if(temp.val<kbmin)",
      "{",
-     "  key_ok.pic=${picture:new_key_ok_dim_40x88_506e79cd39ba}",
+     "  key_ok.pic=${picture:new_key_ok_dim_40x88_8c866ae6296c}",
      "}else",
      "{",
-     "  key_ok.pic=${picture:new_key_ok_on_40x88_2d2d59cedb3f}",
+     "  key_ok.pic=${picture:new_key_ok_on_40x88_ea2e6bdc81bc}",
      "}"
     ]
    }
@@ -401,12 +401,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -462,12 +462,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -523,12 +523,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -584,12 +584,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -645,12 +645,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -706,12 +706,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -767,12 +767,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -828,12 +828,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -889,12 +889,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -950,12 +950,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1011,12 +1011,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1072,12 +1072,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1133,12 +1133,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1194,12 +1194,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1255,12 +1255,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1316,12 +1316,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1377,12 +1377,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1438,12 +1438,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1499,12 +1499,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1560,12 +1560,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1621,12 +1621,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1682,12 +1682,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1743,12 +1743,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1804,12 +1804,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1865,12 +1865,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1926,12 +1926,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_a_44x40_62221904506c"
+     "$ref": "picture:new_key_a_44x40_3a1723521330"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_a_press_44x40_a350df705695"
+     "$ref": "picture:new_key_a_press_44x40_3ada17c8f964"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1987,12 +1987,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_key_space_96x40_45b9adb663f0"
+     "$ref": "picture:new_key_space_96x40_5dd641066284"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_space_press_96x40_14b33aaa9320"
+     "$ref": "picture:new_key_space_press_96x40_6d456a95bb68"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2048,12 +2048,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_key_del_40x88_34a2915056d7"
+     "$ref": "picture:new_key_del_40x88_24f73a00fe12"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_del_press_40x88_aaaf68c0510b"
+     "$ref": "picture:new_key_del_press_40x88_c0b3546f8579"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2105,12 +2105,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_shift_lower_40x88_16e0547c28c7"
+     "$ref": "picture:new_key_shift_lower_40x88_7996542ece95"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_shift_lower_press_40x88_08c30fe00576"
+     "$ref": "picture:new_key_shift_lower_press_40x88_a2b4397020c6"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2131,13 +2131,13 @@
      "if(kmode.val==0)",
      "{",
      "  kmode.val=1",
-     "  key_shift.pic=${picture:new_key_shift_upper_40x88_ad79d81ea6fd}",
-     "  key_shift.pic2=${picture:new_key_shift_upper_press_40x88_2117b9ffa691}",
+     "  key_shift.pic=${picture:new_key_shift_upper_40x88_b6cfbc19b864}",
+     "  key_shift.pic2=${picture:new_key_shift_upper_press_40x88_24da52bdbc67}",
      "}else if(kmode.val==1)",
      "{",
      "  kmode.val=0",
-     "  key_shift.pic=${picture:new_key_shift_lower_40x88_16e0547c28c7}",
-     "  key_shift.pic2=${picture:new_key_shift_lower_press_40x88_08c30fe00576}",
+     "  key_shift.pic=${picture:new_key_shift_lower_40x88_7996542ece95}",
+     "  key_shift.pic2=${picture:new_key_shift_lower_press_40x88_a2b4397020c6}",
      "}else if(kmode.val==2)",
      "{",
      "  kmode.val=3",
@@ -2180,12 +2180,12 @@
      "$ref": "font:font_t19"
     },
     "pic": {
-     "$ref": "picture:new_key_sym_40x40_6a82f67050d1"
+     "$ref": "picture:new_key_sym_40x40_b30ee75f50b5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_sym_press_40x40_71da6a02a910"
+     "$ref": "picture:new_key_sym_press_40x40_b5d8a0ead6cd"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2207,15 +2207,15 @@
      "{",
      "  kmode.val=2",
      "  key_sym.txt=\"abc\"",
-     "  key_shift.pic=${picture:new_key_shift_sym_40x88_90df07912c0a}",
-     "  key_shift.pic2=${picture:new_key_shift_sym_press_40x88_c9258ff71aa8}",
+     "  key_shift.pic=${picture:new_key_shift_sym_40x88_2faa76c667b5}",
+     "  key_shift.pic2=${picture:new_key_shift_sym_press_40x88_49c205a0b828}",
      "  key_shift.txt=\"1/2\"",
      "}else",
      "{",
      "  kmode.val=0",
      "  key_sym.txt=\"123\"",
-     "  key_shift.pic=${picture:new_key_shift_lower_40x88_16e0547c28c7}",
-     "  key_shift.pic2=${picture:new_key_shift_lower_press_40x88_08c30fe00576}",
+     "  key_shift.pic=${picture:new_key_shift_lower_40x88_7996542ece95}",
+     "  key_shift.pic2=${picture:new_key_shift_lower_press_40x88_a2b4397020c6}",
      "  key_shift.txt=\"\"",
      "}",
      "click refresh_show,0"
@@ -2251,12 +2251,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_key_ok_on_40x88_2d2d59cedb3f"
+     "$ref": "picture:new_key_ok_on_40x88_ea2e6bdc81bc"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_ok_on_press_40x88_d4cd49948928"
+     "$ref": "picture:new_key_ok_on_press_40x88_81a7d328981f"
     },
     "picc2": 65535,
     "bco2": 1024,

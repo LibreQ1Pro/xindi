@@ -241,12 +241,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_extrude_100x44_3ce096056d8f"
+     "$ref": "picture:new_extrude_100x44_88ad3a618d02"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_extrude_press_100x44_206d761afce5"
+     "$ref": "picture:new_extrude_press_100x44_9fc2b826fd44"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -349,12 +349,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_248x48_932a8c5a7d4a"
+     "$ref": "picture:new_next_248x48_ed17db1af70f"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_press_248x48_abff5fc0d544"
+     "$ref": "picture:new_next_press_248x48_007b255b3885"
     },
     "picc2": 65535,
     "bco2": 1024,

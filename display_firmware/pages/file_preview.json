@@ -222,12 +222,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_88x72_2e57a04b44ee"
+     "$ref": "picture:new_back_btn_88x72_b9cee33b8185"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_88x72_7b7561ba995c"
+     "$ref": "picture:new_back_btn_press_88x72_a52861220c09"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -283,12 +283,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_start_btn_88x72_fff2dba93723"
+     "$ref": "picture:new_start_btn_88x72_5d2f50c07439"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_start_btn_press_88x72_7cfb83ecc25c"
+     "$ref": "picture:new_start_btn_press_88x72_bdbc9e39027f"
     },
     "picc2": 65535,
     "bco2": 1024,

@@ -150,7 +150,7 @@
     "x": 0,
     "y": 0,
     "w": 74,
-    "h": 480,
+    "h": 424,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -158,7 +158,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_steps_bar_unload_0_74x480_2103240c6960"
+     "$ref": "picture:new_steps_bar_unload_0_74x424_9bf4e1f6fa12"
     }
    },
    "events": {
@@ -477,12 +477,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_248x46_a9e9a80f0809"
+     "$ref": "picture:new_back_btn_248x46_3824907fb7c6"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_248x46_95fe6e6d821d"
+     "$ref": "picture:new_back_btn_press_248x46_b874fc4a2f81"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -538,12 +538,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_ok_248x46_a9eee8d1abab"
+     "$ref": "picture:new_ok_248x46_12e8b6bda866"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_ok_press_248x46_f1ad0aeeba53"
+     "$ref": "picture:new_ok_press_248x46_ddbc7bc36b12"
     },
     "picc2": 65535,
     "bco2": 1024,

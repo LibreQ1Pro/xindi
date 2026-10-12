@@ -157,13 +157,10 @@ def printing_first_page():
 
 
 def printing_second_page():
-    if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
-        g.shown.speed_factor = g.klippy.gcode_move_speed_factor
-        g.port.txt("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
-
-    if g.shown.extruder_factor != g.klippy.gcode_move_extrude_factor:    # CLL extrusion factor
-        g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
-        g.port.txt("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
+    # written on every refresh: the sender (tx) skips what the screen has already, and sends it again when the page is shown anew (also by the
+    # keyboard, which brings the page back with its initial "---")
+    for widget, factor in (("speed_val", g.klippy.gcode_move_speed_factor), ("flow_val", g.klippy.gcode_move_extrude_factor)):     # CLL speed / extrusion factor
+        g.port.txt(widget, to_string(c_int(c_round(f32(factor * 100)))))
 
     g.port.face("light2_btn", "off" if g.klippy.caselight_value == 0 else "on")      # 4.4.22 LED state
     fan_values()
@@ -245,6 +242,3 @@ def clear_printing_arg():
     g.shown.out_pin_fan0_value = 0.0
     g.shown.out_pin_fan2_value = 0.0
     g.shown.out_pin_fan3_value = 0.0
-
-    g.shown.speed_factor = 0.0
-    g.shown.extruder_factor = 0.0

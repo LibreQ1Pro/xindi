@@ -1,0 +1,48 @@
+"""Faults found in use: values that stayed "---", positions of axes that are not homed, a message lost on a page that is shown again."""
+import unittest
+
+from xindi import state as g
+from xindi.pages import move, printing, refresh
+from support import PortRecorder
+
+
+class ScreenFixesTest(PortRecorder):
+    def test_the_position_of_an_axis_that_is_not_homed_is_not_shown(self):
+        g.klippy.homed_axes = "xy"
+        g.klippy.x_position, g.klippy.y_position, g.klippy.z_position = 12.5, 30.0, 0.0
+        move.move_page()
+        sent = self.sent()
+        self.assertIn('x_pos.txt="12.5"', " ".join(sent).replace("12.50", "12.5"))
+        self.assertIn('z_pos.txt="%s"' % move.UNKNOWN_POSITION, sent)
+
+    def test_nothing_is_homed_yet(self):
+        g.klippy.homed_axes = ""
+        move.move_page()
+        self.assertEqual([c for c in self.sent() if c.endswith('_pos.txt="%s"' % move.UNKNOWN_POSITION)], ['x_pos.txt="---.-"', 'y_pos.txt="---.-"', 'z_pos.txt="---.-"'])
+
+    def test_speed_and_flow_are_written_again_on_a_page_that_is_shown_anew(self):
+        g.klippy.gcode_move_speed_factor, g.klippy.gcode_move_extrude_factor = 1.0, 0.95
+        printing.printing_second_page()
+        self.assertIn('speed_val.txt="100"', self.sent())
+        self.assertIn('flow_val.txt="95"', self.sent())
+        self.commands.clear()
+        printing.printing_second_page()                                # nothing changed: nothing is sent
+        self.assertNotIn('speed_val.txt="100"', self.sent())
+        self.port.page("36")                                           # a page shown anew forgets its values
+        self.commands.clear()
+        printing.printing_second_page()
+        self.assertIn('speed_val.txt="100"', self.sent())
+
+    def test_the_failure_message_is_written_again_when_the_page_is_reopened(self):
+        g.klippy.webhooks_state_message = "Printer is shutdown"
+        refresh.show_failure_message()
+        self.assertTrue(any(c.startswith("err_msg.txt=") for c in self.sent()))
+        self.commands.clear()
+        self.port.page("77")                                           # the page is opened again: its text is gone
+        self.commands.clear()
+        refresh.show_failure_message()
+        self.assertTrue(any(c.startswith("err_msg.txt=") for c in self.sent()))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -212,12 +212,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_ok_104x48_eb78c4d3bdac"
+     "$ref": "picture:new_ok_104x48_243ee88ed025"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_ok_press_104x48_fad0b36fe41a"
+     "$ref": "picture:new_ok_press_104x48_13620dff6968"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -273,12 +273,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_cancel_104x48_a6ed35b2faaa"
+     "$ref": "picture:new_cancel_104x48_921aa4c1ca89"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_cancel_press_104x48_21a700ed2bbc"
+     "$ref": "picture:new_cancel_press_104x48_b6043eb9391d"
     },
     "picc2": 65535,
     "bco2": 1024,

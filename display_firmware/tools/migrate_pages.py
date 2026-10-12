@@ -182,6 +182,18 @@ def darkened(image, rect, radius, factor=0.82):
     return gp.quantize(out)
 
 
+def rounded(image, radius):
+    """The tile of a button with transparent corners (a PNG with alpha): what lies under the corners on the page shows through, also when the button is pressed."""
+    if not radius:
+        return image
+    w, h = image.size
+    big = Image.new("L", (w * SS, h * SS), 0)
+    ImageDraw.Draw(big).rounded_rectangle((0, 0, w * SS - 1, h * SS - 1), radius=min(radius, w // 2, h // 2) * SS, fill=255)
+    out = image.convert("RGBA")
+    out.putalpha(big.resize((w, h), Image.LANCZOS))
+    return out
+
+
 def lightened(image):
     """The pressed look of a button that has no fill of its own (the title bar: the arrow on the page colour): the bar gets a little lighter."""
     return gp.quantize(image.point(lambda v: min(255, v + 11)))
@@ -285,12 +297,13 @@ class Migration:
                     shot = gp.screenshot(self.base["id"], source.get("variant", self.base["variant"]), source.get("lang", 2))
                     image = shot.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
                 suffix = "" if state == "off" else "_" + state
-                looks[state] = (self.tiles.add(widget["name"] + suffix, image), self.tiles.add(widget["name"] + suffix + "_press", darkened(image, rect, radius)))
+                looks[state] = (self.tiles.add(widget["name"] + suffix, rounded(image, radius)),
+                                self.tiles.add(widget["name"] + suffix + "_press", rounded(darkened(image, rect, radius), radius)))
             self.looks[widget["name"]] = looks
             return looks["off" if "off" in looks else next(iter(looks))]
         image = self.shot_of(widget).crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
-        released = self.tiles.add(widget["name"], image)
-        pressed = self.tiles.add(widget["name"] + "_press", darkened(image, rect, radius) if fill else lightened(image))
+        released = self.tiles.add(widget["name"], rounded(image, radius))
+        pressed = self.tiles.add(widget["name"] + "_press", rounded(darkened(image, rect, radius), radius) if fill else lightened(image))
         return released, pressed
 
     def text_for(self, widget, label=None):

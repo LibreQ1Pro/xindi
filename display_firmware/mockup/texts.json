@@ -6369,36 +6369,6 @@
    "kapalı",
    "כבוי"
   ],
-  "saved_password": [
-   "保存的密码",
-   "Сохранённый пароль",
-   "The saved password",
-   "保存されたパスワードは",
-   "Le mot de passe enregistré",
-   "Das gespeicherte Passwort",
-   "La password salvata",
-   "La contraseña guardada",
-   "저장된 비밀번호가",
-   "A senha salva",
-   "سيتم حذف",
-   "Kayıtlı parola",
-   "הסיסמה השמורה"
-  ],
-  "will_be_deleted": [
-   "将被删除。",
-   "будет удалён.",
-   "will be deleted.",
-   "削除されます。",
-   "sera supprimé.",
-   "wird gelöscht.",
-   "verrà eliminata.",
-   "se eliminará.",
-   "삭제됩니다.",
-   "será excluída.",
-   "كلمة المرور المحفوظة.",
-   "silinecek.",
-   "תימחק."
-  ],
   "network_name": [
    "网络名称 (SSID)",
    "Имя сети (SSID)",
@@ -6518,6 +6488,36 @@
    "إعادة تشغيل البرنامج الثابت",
    "Yazılımı yeniden başlat",
    "הפעל מחדש את הקושחה"
+  ],
+  "forget_q": [
+   "要忘记此网络吗？",
+   "Забыть эту сеть?",
+   "Forget this network?",
+   "このネットワークを削除しますか？",
+   "Oublier ce réseau ?",
+   "Dieses Netzwerk entfernen?",
+   "Eliminare questa rete?",
+   "¿Olvidar esta red?",
+   "이 네트워크를 삭제할까요?",
+   "Esquecer esta rede?",
+   "هل تريد نسيان هذه الشبكة؟",
+   "Bu ağ unutulsun mu?",
+   "לשכוח רשת זו?"
+  ],
+  "password_deleted": [
+   "保存的密码将被删除。",
+   "Сохранённый пароль будет удалён.",
+   "The saved password will be deleted.",
+   "保存されたパスワードも削除されます。",
+   "Le mot de passe enregistré sera supprimé.",
+   "Das gespeicherte Passwort wird gelöscht.",
+   "La password salvata verrà eliminata.",
+   "Se eliminará la contraseña guardada.",
+   "저장된 비밀번호가 삭제됩니다.",
+   "A senha salva será excluída.",
+   "سيتم حذف كلمة المرور المحفوظة.",
+   "Kayıtlı parola silinecek.",
+   "הסיסמה השמורה תימחק."
   ]
  }
 }

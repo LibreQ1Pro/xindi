@@ -155,9 +155,9 @@ def patch_wifi_kb(m):
 
 
 def patch_move(m):
-    """Until the host says where the axes are, the positions show ``---``."""
+    """Until the host says where the axes are (or while an axis is not homed), the positions show ``---.-``."""
     for name in ("x_pos", "y_pos", "z_pos"):
-        object_named(m, name)["attributes"]["txt"] = "---"
+        object_named(m, name)["attributes"]["txt"] = "---.-"
 
 
 def patch_sleep_mode(m):

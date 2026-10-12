@@ -34,6 +34,26 @@ class PageCheckTest(PortRecorder):
         self.assertFalse(navigation.page_reported(17))
         self.assertEqual(self.sent(), [])
 
+    def test_the_second_language_page_is_not_a_wrong_page(self):
+        g.screen.page = navigation.ids.LANGUAGE
+        for _ in range(3):
+            self.assertFalse(navigation.page_reported(navigation.ids.LANGUAGE2))
+        self.assertEqual(self.sent(), [])
+        g.screen.page = navigation.ids.OPEN_LANGUAGE
+        for _ in range(3):
+            self.assertFalse(navigation.page_reported(navigation.ids.OPEN_LANGUAGE2))
+        self.assertEqual(self.sent(), [])
+
+    def test_the_keyboard_of_a_print_page_is_not_a_wrong_page(self):
+        for host_page in (navigation.ids.PRINTING, navigation.ids.PRINTING_2):
+            g.screen.page = host_page
+            for _ in range(3):
+                self.assertFalse(navigation.page_reported(navigation.ids.PRINTING_KB))
+        self.assertEqual(self.sent(), [])
+        g.screen.page = navigation.ids.MAIN                      # but not on any page
+        navigation.page_reported(navigation.ids.PRINTING_KB)
+        self.assertTrue(navigation.page_reported(navigation.ids.PRINTING_KB))
+
     def test_one_right_answer_forgets_the_wrong_ones(self):
         navigation.page_reported(29)
         navigation.page_reported(17)

@@ -44,11 +44,10 @@ S('screen','Settings and network','Screen (sleep, brightness)',()=>{
   CUR='sleep_mode';
   let s = header(T('title'));
   const chosen = VARIANT || 'opt_5min';
-  s += txt(12,56,248,20,caption('sleephint'),{role:'t13',mute:1},'sleep_hint');
+  s += txt(12,56,248,20,caption('sleephint'),{role:'t16'},'sleep_hint');
   ['opt_5min_lbl','opt_15min_lbl','opt_30min_lbl','opt_never_lbl'].forEach((o,i)=>{ const id = o.replace('_lbl',''), on = id === chosen; s += row(12,84+56*i,248,48,T(o),{radio:on,sel:on},id); });
   s += txt(12,308,200,28,T('brightness_lbl'),{role:'t16'},'brightness_lbl') + pctValue(176,308,84,28,'80','bright_val',{align:'r'});
   s += slider(12,344,248,80,'bright_slider',{min:10,max:100});
-  s += `<div style="${st(12,396,20,20)}color:var(--text3)">${ico('sun-dim',18)}</div>`;
   s += nav('settings');
   return screen('sleep_mode', s);
 }, 'The brightness slider is a native slider (track 10, knob 28, touch region 44 high), 10..100.',
@@ -114,16 +113,16 @@ S('network_details','Settings and network','Network details',()=>{
   s += card(12,56,248,84,'') + txt(26,62,220,28,nameHTML('Home-Network',220,DYNAMIC_ROLE,1,{ext:false}),{role:DYNAMIC_ROLE,num:1,dyn:1},'ssid_txt') +
        txt(26,96,220,34,nameHTML(NT('connected').replace(/<br>/g,' ')+' · '+NET_IP,220,'t13',1,{ext:false}),{role:'t13',mute:1,num:1},'status_txt');
   s += btn(12,148,248,46,NT('disconnect'),{v:'primary'},'connect_btn')+tb(12,202,248,46,'passwd_btn',{},'passwd_btn');
-  s += row(12,256,248,46,NT('autoconnect').replace(': ',''),{sw:true},'auto_btn')+tb(12,310,248,46,'forget_btn',{v:'danger'},'forget_btn');
+  s += row(12,256,248,46,NT('autoconnect').replace(': ',''),{sw:!isV('auto_off')},'auto_btn')+tb(12,310,248,46,'forget_btn',{v:'danger'},'forget_btn');
   s += nav('settings');
   return screen('net_detail', s);
-});
+}, '', {variants:[{id:'auto_on',label:'Autoconnect on'},{id:'auto_off',label:'Autoconnect off'}]});
 S('forget_network','Settings and network','Forget network?',()=>{
   CUR='net_confirm';
   let s = header(T('title'));
   s += card(12,56,248,170,'') + `<div style="${st(112,68,48,48)}color:var(--danger)">${ico('triangle-alert',40)}</div>`;
   // the name of the network comes from the host: the same wide font as the other lines, white where the others are muted
-  s += txt(28,122,216,24,NT('saved_password'),{a:'c',num:1,mute:1},'msg') + txt(28,146,216,26,nameHTML('Home-Network',216,DYNAMIC_ROLE,1,{ext:false}),{role:DYNAMIC_ROLE,a:'c',num:1,dyn:1},'ssid_msg') + txt(28,172,216,24,NT('will_be_deleted'),{a:'c',num:1,mute:1},'msg2');
+  s += txt(28,122,216,24,NT('forget_q'),{a:'c',num:1,mute:1},'msg') + txt(28,146,216,26,nameHTML('Home-Network',216,DYNAMIC_ROLE,1,{ext:false}),{role:DYNAMIC_ROLE,a:'c',num:1,dyn:1},'ssid_msg') + txt(28,172,216,44,NT('password_deleted'),{a:'c',mute:1,v:'top'},'msg2');
   s += btn(12,234,120,46,NT('forget'),{v:'danger'},'forget_btn')+btn(140,234,120,46,NT('cancel'),{},'cancel');
   s += nav('settings');
   return screen('net_confirm', s);

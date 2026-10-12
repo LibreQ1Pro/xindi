@@ -331,9 +331,9 @@
     "movex": 0,
     "movey": 0,
     "x": 12,
-    "y": 56,
+    "y": 55,
     "w": 248,
-    "h": 20,
+    "h": 22,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -346,12 +346,12 @@
     "borderc": 0,
     "borderw": 0,
     "font": {
-     "$ref": "font:font_t13"
+     "$ref": "font:font_t16"
     },
     "bco": 65535,
     "picc": 65535,
     "pic": 65535,
-    "pco": 42294,
+    "pco": 63422,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,
@@ -1024,40 +1024,10 @@
    }
   },
   {
-   "key": "bg40",
+   "key": "bg39",
    "type": "picture",
    "attributes": {
-    "objname": "bg40",
-    "vscope": 0,
-    "drag": 0,
-    "sendkey": 0,
-    "aph": 127,
-    "movex": 0,
-    "movey": 0,
-    "x": 12,
-    "y": 396,
-    "w": 18,
-    "h": 18,
-    "effect": 0,
-    "first": 0,
-    "time": 300,
-    "lockobj": 0,
-    "groupid0": 0,
-    "groupid1": 0,
-    "pic": {
-     "$ref": "picture:new_decor_18x18_ac99e8959dec"
-    }
-   },
-   "events": {
-    "codesdown": [],
-    "codesup": []
-   }
-  },
-  {
-   "key": "bg51",
-   "type": "picture",
-   "attributes": {
-    "objname": "bg51",
+    "objname": "bg39",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,

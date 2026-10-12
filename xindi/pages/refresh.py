@@ -120,9 +120,8 @@ def open_print_page_when_printing():
 
 
 def show_failure_message():
-    if g.shown.webhooks_state_message != g.klippy.webhooks_state_message:
-        g.shown.webhooks_state_message = g.klippy.webhooks_state_message
-        g.port.txt("err_msg", replace_for_screen(g.klippy.webhooks_state_message))
+    # every refresh: the sender skips what the screen has, and writes it again to a page that is shown anew (a page forgets its text)
+    g.port.txt("err_msg", replace_for_screen(g.klippy.webhooks_state_message))
 
 
 def open_reset_page_on_failure():

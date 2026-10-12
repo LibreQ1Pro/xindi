@@ -109,6 +109,9 @@ def parse_gcode_move(gcode_move):
 
 
 def parse_toolhead(toolhead):
+    homed = jget(toolhead, "homed_axes")
+    if isinstance(homed, str):
+        g.klippy.homed_axes = homed.lower()
     if jget(toolhead, "position") is not None:
         position = g.klippy.toolhead_position
         for i in range(4):

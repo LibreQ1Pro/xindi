@@ -186,12 +186,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_ok_216x48_98f177ea7c14"
+     "$ref": "picture:new_ok_216x48_8a24e1000310"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_ok_press_216x48_89741e031ee6"
+     "$ref": "picture:new_ok_press_216x48_cf2a3f22f931"
     },
     "picc2": 65535,
     "bco2": 1024,

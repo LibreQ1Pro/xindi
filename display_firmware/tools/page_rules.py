@@ -43,15 +43,17 @@ RULES["sleep_mode"] = {"selectable": {n: {"off": {"variant": "opt_5min" if n != 
                        "picture_states": _selected, "patch": patches.patch_sleep_mode}
 
 # -- the wizards: the circles and lines of the steps are one picture with a look per step (host: face("steps_bar", state))
-def steps(prefix, variants):
-    return {"steps_bar": {"rect": [0, 0, 74, 480], "default": prefix + "_0", "states": {"%s_%d" % (prefix, i): v for i, v in enumerate(variants)}}}
+def steps(prefix, variants, height=424):
+    # The bar is drawn over the page again every time its look changes (a picture that is redrawn covers what lies on it): it must stop above the
+    # buttons of the page (the first row starts at y=428), else it wipes the left half of the buttons.
+    return {"steps_bar": {"rect": [0, 0, 74, height], "default": prefix + "_0", "states": {"%s_%d" % (prefix, i): v for i, v in enumerate(variants)}}}
 
 
 SPINNERS = ["spin1", "spin2", "spin3", "spin4"]
 for _page in ("filament_pop_2", "filament_pop_3"):
     RULES[_page] = {"regions": steps("load", ["start", "heating", "working", "done"]), "drop": SPINNERS + ["temp_txt"]}
 RULES["auto_unload"] = {"regions": steps("unload", ["heating", "unloading", "done"]), "drop": SPINNERS + ["temp_txt"]}
-RULES["auto_moving"] = {"regions": steps("level", ["step1", "step2", "step3", "step4"]), "drop": SPINNERS + ["bed_lbl"]}
+RULES["auto_moving"] = {"regions": steps("level", ["step1", "step2", "step3", "step4"], 480), "drop": SPINNERS + ["bed_lbl"]}
 
 _CSTEPS = {"cstep_001": "d001", "cstep_005": "d005", "cstep_01": "d01", "cstep_05": "d05"}
 RULES["pre_bed_cal"] = {"aliases": {"cstep_001": "step_001", "cstep_005": "step_005", "cstep_01": "step_01", "cstep_05": "step_05"},
@@ -98,7 +100,7 @@ _FILAMENT_REGIONS = {}
 for _name, _y in (("nozzle_icon", 68), ("bed_icon", 126), ("chamber_icon", 184)):
     _FILAMENT_REGIONS.update(heat_icon(_name, 24, _y))
 _FILAMENT_REGIONS.update(segmented("step_seg", [12, 284, 248, 40], {"s10": "seg10", "s50": "seg50", "s100": "seg100"}))
-RULES["filament"] = {"regions": _FILAMENT_REGIONS, "drop": ["fan_btn"], "patch": patches.patch_filament,
+RULES["filament"] = {"regions": _FILAMENT_REGIONS, "drop": ["fan_btn", "nozzle_toggle", "bed_toggle", "chamber_toggle"], "patch": patches.patch_filament,
                      "actions": {"fan1_btn": {"id": 17, "pre": ["sys1=3"]}, "fan2_btn": {"id": 18, "pre": ["sys1=4"]}, "fan3_btn": {"id": 19, "pre": ["sys1=5"]}}}
 RULES["move"] = {"patch": patches.patch_move, "regions": segmented("dist_seg", [12, 108, 248, 40], {"d01": "seg01", "d1": "seg1", "d10": "seg10"})}
 
@@ -167,6 +169,7 @@ RULES["filelist"] = {"keep": ["empty_msg"], "patch": patches.patch_filelist, "pi
                                     "next": {"on": {"variant": "mixed"}, "off": {"variant": "nav_off"}},
                                     "up_dir": {"on": {"variant": "mixed"}, "off": {"variant": "nav_off"}}}}
 
+RULES["net_detail"] = {"selectable": {"auto_btn": {"off": {"variant": "auto_off"}, "on": {"variant": "auto_on"}}}}
 RULES["net_info"] = {"drop": ["wifi_txt", "lan_txt"], "selectable": {"radio_btn": {"off": {"variant": "none"}, "on": {"variant": "wifi"}}}, "actions": {"wifi_btn": 2}}
 
 RULES["preview"] = {"aliases": {"file_name": "err_msg"}, "keep": ["cp_data", "cp_pad"], "patch": patches.patch_preview,

@@ -259,12 +259,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_finish_248x48_c688012e3455"
+     "$ref": "picture:new_finish_248x48_7c2b81f87832"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_finish_press_248x48_2aec95e1565d"
+     "$ref": "picture:new_finish_press_248x48_2ab443251eb0"
     },
     "picc2": 65535,
     "bco2": 1024,

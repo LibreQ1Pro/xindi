@@ -49,10 +49,6 @@ def _txt(obj, text):
     g.port.txt(obj, text)
 
 
-def _lines(*lines):
-    return "\\r".join(line for line in lines if line)       # "\r" is the line break of the screen
-
-
 # ---------------------------------------------------------------------------------------------- saved networks
 def open_saved():
     S.saved = network.saved_wifi()
@@ -139,7 +135,7 @@ def show_detail():
     _txt("ssid_txt", _clip(item["ssid"], 24))
     _txt("status_txt", _clip(state, 30))
     _txt("connect_btn", tr("disconnect") if item["active"] else tr("connect"))
-    _txt("auto_btn", tr("autoconnect") + (tr("on") if item["autoconnect"] else tr("off")))
+    g.port.face("auto_btn", "on" if item["autoconnect"] else "off")      # the switch of the row
 
 
 def detail_clicked(widget_id):
@@ -163,8 +159,8 @@ def detail_clicked(widget_id):
         show_detail()
     elif widget_id == 4:
         navigation.page_to(ids.NET_CONFIRM)
-        _txt("msg", _lines(tr("forget"), "'" + _clip(item["ssid"], 22) + "'?",
-                            tr("saved_password"), tr("will_be_deleted")))
+        _txt("msg", tr("forget_q"))
+        _txt("ssid_msg", _clip(item["ssid"], 24))
     elif widget_id == 23:
         _leave_detail()
 
