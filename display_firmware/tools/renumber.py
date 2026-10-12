@@ -16,6 +16,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import page_names  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 PAGEIDS = ROOT.parent / "xindi" / "screen" / "pageids.py"
 
@@ -84,10 +87,11 @@ def main():
     save(ROOT / "project.json", project, 2)
     done = json.loads((ROOT / "tools" / "migrated.json").read_text(encoding="utf-8"))
     import hashlib
-    for key in removed:
-        done.pop(key, None)
+    for key in list(done):                    # migrated.json is keyed by the stock name; "design" is the page of the project
+        if key in removed or done[key].get("design", key) in removed:
+            del done[key]
     for key, entry in done.items():           # the page files changed (their numbers): what the generator checks against changes with them
-        entry["sha256"] = hashlib.sha256((ROOT / "pages" / (key + ".json")).read_bytes()).hexdigest()
+        entry["sha256"] = hashlib.sha256((ROOT / page_names.page_file(key)).read_bytes()).hexdigest()
     save(ROOT / "tools" / "migrated.json", done, 1)
     names = json.loads((ROOT / "mockup" / "pages.json").read_text(encoding="utf-8"))
     for key in removed:
