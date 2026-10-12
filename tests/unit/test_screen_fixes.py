@@ -3,7 +3,7 @@ import unittest
 import unittest.mock
 
 from xindi import state as g
-from xindi.pages import move, printing, refresh
+from xindi.pages import file_list, move, printing, refresh
 from support import PortRecorder
 
 
@@ -65,3 +65,12 @@ class ListPictureTest(PortRecorder):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ShownNameTest(unittest.TestCase):
+    def test_gcode_is_not_shown(self):
+        self.assertEqual(file_list.shown_name("Benchy_PLA.gcode"), "Benchy_PLA")
+        self.assertEqual(file_list.shown_name("cube.GCODE"), "cube")
+        self.assertEqual(file_list.shown_name("models"), "models")
+        self.assertEqual(file_list.shown_name(".gcode"), ".gcode")
+        self.assertEqual(file_list.shown_name("part.gco"), "part.gco")

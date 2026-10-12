@@ -67,6 +67,11 @@ def queue_list_pictures():
         g.pictures.begin_show_64_jpg = True
 
 
+def shown_name(name):
+    """The name of a slot without ``.gcode`` (Python only: every file of the list is one, and the width of the slot is better spent on the name)."""
+    return name[:-6] if name.lower().endswith(".gcode") and len(name) > 6 else name
+
+
 def refresh_files_list():
     # 4.4.22: the pictures are only sent again when the list changed
     # (file_list_refreshed), the folder and page are kept meanwhile
@@ -74,7 +79,7 @@ def refresh_files_list():
         delete_small_jpg()
     for i in range(4):
         row = "file" + to_string(i + 1)
-        g.port.txt(row + "_name", fit_name(g.files.list_list_show_name[i], NAME_WIDTH, lines=1))
+        g.port.txt(row + "_name", fit_name(shown_name(g.files.list_list_show_name[i]), NAME_WIDTH, lines=1))
         t = g.files.list_list_show_type[i]
         if t in ROW_LOOKS:
             g.port.face(row, ROW_LOOKS[t])

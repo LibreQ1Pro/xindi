@@ -250,7 +250,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -259,7 +259,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -268,7 +268,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "local_tab_lbl.pco": [
      "65535"
@@ -373,7 +373,7 @@
      "396"
     ],
     "file1_name.txt": [
-     "\"last_p….gcode\""
+     "\"last_print\""
     ],
     "file2.pic": [
      "395"
@@ -382,7 +382,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"part_a….gcode\""
+     "\"part_abs\""
     ],
     "file3.pic": [
      "395"
@@ -391,7 +391,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"z_last.gcode\""
+     "\"z_last\""
     ],
     "file4.pic": [
      "320"
@@ -515,7 +515,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -524,7 +524,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -533,7 +533,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "file_preview.cp_data.txt": [
      "\"\""
@@ -754,7 +754,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"inner.gcode\""
+     "\"inner\""
     ],
     "file3.pic": [
      "320"
@@ -876,7 +876,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -885,7 +885,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -894,7 +894,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "local_tab_lbl.pco": [
      "65535"
@@ -1008,7 +1008,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -1017,7 +1017,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -1026,7 +1026,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "local_tab_lbl.pco": [
      "65535"
@@ -1140,7 +1140,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"usb_fi….gcode\""
+     "\"usb_five\""
     ],
     "file3.pic": [
      "395"
@@ -1149,7 +1149,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"usb_f….gcode\""
+     "\"usb_four\""
     ],
     "file4.pic": [
      "395"
@@ -1158,7 +1158,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"usb_o….gcode\""
+     "\"usb_one\""
     ],
     "local_tab_lbl.pco": [
      "42294"
@@ -1253,7 +1253,7 @@
      "396"
     ],
     "file1_name.txt": [
-     "\"usb_t….gcode\""
+     "\"usb_three\""
     ],
     "file2.pic": [
      "395"
@@ -1262,7 +1262,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"usb_t….gcode\""
+     "\"usb_two\""
     ],
     "file3.pic": [
      "320"
@@ -1385,7 +1385,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"usb_fi….gcode\""
+     "\"usb_five\""
     ],
     "file3.pic": [
      "395"
@@ -1394,7 +1394,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"usb_f….gcode\""
+     "\"usb_four\""
     ],
     "file4.pic": [
      "395"
@@ -1403,7 +1403,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"usb_o….gcode\""
+     "\"usb_one\""
     ],
     "local_tab_lbl.pco": [
      "42294"
@@ -1511,7 +1511,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -1520,7 +1520,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -1529,7 +1529,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "file_preview.cp_data.txt": [
      "\"\""
@@ -1685,7 +1685,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -1694,7 +1694,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -1703,7 +1703,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "file_preview.cp_data.txt": [
      "\"\""
@@ -1967,7 +1967,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"Bench….gcode\""
+     "\"Benchy PLA\""
     ],
     "file3.pic": [
      "395"
@@ -1976,7 +1976,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"big_p….gcode\""
+     "\"big_petg\""
     ],
     "file4.pic": [
      "395"
@@ -1985,7 +1985,7 @@
      "396"
     ],
     "file4_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "local_tab_lbl.pco": [
      "65535"
@@ -2080,7 +2080,7 @@
      "396"
     ],
     "file1_name.txt": [
-     "\"last_p….gcode\""
+     "\"last_print\""
     ],
     "file2.pic": [
      "395"
@@ -2089,7 +2089,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"part_a….gcode\""
+     "\"part_abs\""
     ],
     "file3.pic": [
      "395"
@@ -2098,7 +2098,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"z_last.gcode\""
+     "\"z_last\""
     ],
     "file4.pic": [
      "320"
@@ -2303,7 +2303,7 @@
      "396"
     ],
     "file1_name.txt": [
-     "\"last_p….gcode\""
+     "\"last_print\""
     ],
     "file2.pic": [
      "395"
@@ -2312,7 +2312,7 @@
      "396"
     ],
     "file2_name.txt": [
-     "\"part_a….gcode\""
+     "\"part_abs\""
     ],
     "file3.pic": [
      "395"
@@ -2321,7 +2321,7 @@
      "396"
     ],
     "file3_name.txt": [
-     "\"z_last.gcode\""
+     "\"z_last\""
     ],
     "file4.pic": [
      "320"
