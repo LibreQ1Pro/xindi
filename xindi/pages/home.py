@@ -49,7 +49,7 @@ def main_last_file_picture():
     log.info("Picture path:%s", picture_path)
     thumb = thumbnail.find(picture_path, THUMB_SIZE, "PNG")
     g.port.face("last_file_btn", "noimg" if thumb is None else "photo")
-    g.port.txt("last_file_name", fit_name(name, 224, lines=2))
+    g.port.txt("last_file_name", fit_name(name, 224, lines=2, center=True))
     if thumb is None:
         return
     g.screen.main_picture_detected = file_list.send_file_picture(

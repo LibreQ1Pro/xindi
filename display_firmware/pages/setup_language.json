@@ -1260,7 +1260,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Skip",
-    "txt_maxl": 68,
+    "txt_maxl": 84,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -1321,7 +1321,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Next",
-    "txt_maxl": 44,
+    "txt_maxl": 60,
     "isbr": 1,
     "spax": 0,
     "spay": 0

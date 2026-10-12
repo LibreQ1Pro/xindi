@@ -325,7 +325,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Saved",
-    "txt_maxl": 56,
+    "txt_maxl": 72,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -386,7 +386,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Hidden",
-    "txt_maxl": 50,
+    "txt_maxl": 66,
     "isbr": 1,
     "spax": 0,
     "spay": 0

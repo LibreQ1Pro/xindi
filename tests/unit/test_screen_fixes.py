@@ -45,6 +45,28 @@ class ScreenFixesTest(PortRecorder):
         self.assertTrue(any(c.startswith("err_msg.txt=") for c in self.sent()))
 
 
+class CentredNameTest(PortRecorder):
+    def lines(self, text):
+        return text.split("\\r")
+
+    def test_a_shorter_line_is_moved_to_the_middle_of_the_block_with_spaces(self):
+        # the screen puts the block where the alignment says and starts every line at the left edge of the block
+        from xindi.screen.text import fit_name, width
+        lines = self.lines(fit_name("a_fairly_long_model_name_that_needs_two_lines.gcode", 108, lines=2, center=True))
+        self.assertEqual(len(lines), 2)
+        widths = [width(line.lstrip(" ")) for line in lines]
+        pads = [len(line) - len(line.lstrip(" ")) for line in lines]
+        widest = widths.index(max(widths))
+        self.assertEqual(pads[widest], 0)                                     # the widest line starts the block
+        other = 1 - widest
+        self.assertAlmostEqual(pads[other] * width(" "), (widths[widest] - widths[other]) / 2, delta=width(" "))
+        self.assertLessEqual(max(pads[i] * width(" ") + widths[i] for i in (0, 1)), 108)
+
+    def test_without_center_nothing_is_added(self):
+        from xindi.screen.text import fit_name
+        self.assertNotIn("\\r ", fit_name("a_fairly_long_model_name_that_needs_two_lines.gcode", 108, lines=2))
+
+
 class ListPictureTest(PortRecorder):
     def test_the_list_thumbnail_is_a_multiple_of_16_and_420(self):
         # the screen draws the rows of a JPEG whose width is not a multiple of 16 sheared (a staircase)

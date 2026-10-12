@@ -428,7 +428,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Export Logs",
-    "txt_maxl": 101,
+    "txt_maxl": 117,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -489,7 +489,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Restart Klipper",
-    "txt_maxl": 98,
+    "txt_maxl": 114,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -550,7 +550,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Restart Firmware",
-    "txt_maxl": 161,
+    "txt_maxl": 177,
     "isbr": 1,
     "spax": 0,
     "spay": 0

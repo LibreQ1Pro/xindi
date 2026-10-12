@@ -23,8 +23,10 @@ def width(value):
                for ch in value)
 
 
-def fit_name(value, pixels, lines=2, extension=True):
-    """At most ``lines`` lines, each <= ``pixels``; retain a short file extension after the ellipsis."""
+def fit_name(value, pixels, lines=2, extension=True, center=False):
+    """At most ``lines`` lines, each <= ``pixels``; retain a short file extension after the ellipsis.
+    ``center``: for a centred widget. The screen puts a text as a block (as wide as its widest line) and starts every line at the left edge of the block,
+    so a shorter line gets spaces in front of it to sit in the middle of the block."""
     if pixels < width("…") or lines < 1:
         raise ValueError("name slot is too small")
     name = clean(value)
@@ -57,4 +59,7 @@ def fit_name(value, pixels, lines=2, extension=True):
             stem = stem[:-1]
         rest = stem + "…" + ext
     result.append(rest)
+    if center and len(result) > 1:
+        widest, space = max(width(line) for line in result), width(" ")
+        result = [" " * round((widest - width(line)) / 2 / space) + line for line in result]
     return "\\r".join(result)

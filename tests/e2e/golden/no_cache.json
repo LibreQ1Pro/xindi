@@ -166,7 +166,7 @@
      "359"
     ],
     "file2_name.txt": [
-     "\"Benchy PLA\\r.gcode\""
+     "\"Benchy PLA\\r     .gcode\""
     ],
     "file3.pic": [
      "358"
@@ -175,7 +175,7 @@
      "359"
     ],
     "file3_name.txt": [
-     "\"big_petg\\r.gcode\""
+     "\"big_petg\\r  .gcode\""
     ],
     "file4.pic": [
      "358"

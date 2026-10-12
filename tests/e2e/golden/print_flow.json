@@ -224,7 +224,7 @@
      "359"
     ],
     "file2_name.txt": [
-     "\"Benchy PLA\\r.gcode\""
+     "\"Benchy PLA\\r     .gcode\""
     ],
     "file3.pic": [
      "358"
@@ -233,7 +233,7 @@
      "359"
     ],
     "file3_name.txt": [
-     "\"big_petg\\r.gcode\""
+     "\"big_petg\\r  .gcode\""
     ],
     "file4.pic": [
      "358"
@@ -347,7 +347,7 @@
      "359"
     ],
     "file1_name.txt": [
-     "\"last_print\\r.gcode\""
+     "\"last_print\\r  .gcode\""
     ],
     "file2.pic": [
      "358"
@@ -356,7 +356,7 @@
      "359"
     ],
     "file2_name.txt": [
-     "\"part_abs\\r.gcode\""
+     "\"part_abs\\r  .gcode\""
     ],
     "file3.pic": [
      "358"
@@ -1219,7 +1219,7 @@
      "359"
     ],
     "file2_name.txt": [
-     "\"Benchy PLA\\r.gcode\""
+     "\"Benchy PLA\\r     .gcode\""
     ],
     "file3.pic": [
      "358"
@@ -1228,7 +1228,7 @@
      "359"
     ],
     "file3_name.txt": [
-     "\"big_petg\\r.gcode\""
+     "\"big_petg\\r  .gcode\""
     ],
     "file4.pic": [
      "358"

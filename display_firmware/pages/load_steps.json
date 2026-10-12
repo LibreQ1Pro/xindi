@@ -512,7 +512,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Back",
-    "txt_maxl": 38,
+    "txt_maxl": 54,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -573,7 +573,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Next",
-    "txt_maxl": 44,
+    "txt_maxl": 60,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -775,7 +775,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Retry",
-    "txt_maxl": 89,
+    "txt_maxl": 105,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -836,7 +836,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Done",
-    "txt_maxl": 44,
+    "txt_maxl": 60,
     "isbr": 1,
     "spax": 0,
     "spay": 0

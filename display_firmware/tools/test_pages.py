@@ -6,7 +6,7 @@
 * the page loads without an error of the screen (a name that does not exist, an instruction that is not valid);
 * every character of every text is in the font of the text (the glyph table), and the wrapped text of a widget is no taller than the widget;
 * a text widget keeps within the screen;
-* no line of a text starts or ends with a space (a centred line would be pushed to one side).
+* no line of a text ends with a space (the lines of a centred block are padded at the front only: the screen aligns a block, not its lines).
 Exit status 1 when something fails.
 """
 import json
@@ -46,8 +46,8 @@ def main():
                 missing = [ch for ch in a["txt"] if ch not in "\r\n" and renderer._advance(a["font"], ch) is None]
                 if missing:
                     problems.append("%s.%s [%d]: no glyph for %s" % (page, obj.name, lang, "".join(sorted(set(missing)))))
-                if a["txt"] != a["txt"].strip(" ") or " \r" in a["txt"] or "\r " in a["txt"]:
-                    problems.append("%s.%s [%d]: a space at the edge of a line pushes the centred text to one side: %r" % (page, obj.name, lang, a["txt"][:40]))
+                if a["txt"] != a["txt"].rstrip(" ") or " \r" in a["txt"]:
+                    problems.append("%s.%s [%d]: a space at the end of a line pushes the centred text to one side: %r" % (page, obj.name, lang, a["txt"][:40]))
                 lines = renderer._wrap(a["font"], a["txt"], a["w"], a.get("spax", 0), bool(a.get("isbr", 0)))
                 if not a.get("isbr", 0):
                     for line in lines:
