@@ -769,7 +769,7 @@
     "groupid1": 0,
     "sta": 3,
     "style": 0,
-    "key": 2,
+    "key": 255,
     "borderc": 0,
     "borderw": 0,
     "font": {
@@ -796,12 +796,14 @@
      "if(speed_val.pco!=38066)",
      "{",
      "  sys0=2",
+     "  print_keypad.loadpageid.val=dp",
      "  prints 0x65,1",
      "  prints dp,1",
      "  prints 2,1",
      "  prints 0xff,1",
      "  prints 0xff,1",
      "  prints 0xff,1",
+     "  page print_keypad",
      "}"
     ]
    }
@@ -979,7 +981,7 @@
     "groupid1": 0,
     "sta": 3,
     "style": 0,
-    "key": 2,
+    "key": 255,
     "borderc": 0,
     "borderw": 0,
     "font": {
@@ -1004,12 +1006,14 @@
     ],
     "codesup": [
      "sys0=3",
+     "print_keypad.loadpageid.val=dp",
      "prints 0x65,1",
      "prints dp,1",
      "prints 3,1",
      "prints 0xff,1",
      "prints 0xff,1",
-     "prints 0xff,1"
+     "prints 0xff,1",
+     "page print_keypad"
     ]
    }
   },
@@ -1398,7 +1402,7 @@
     "groupid1": 0,
     "sta": 3,
     "style": 0,
-    "key": 2,
+    "key": 255,
     "borderc": 0,
     "borderw": 0,
     "font": {
@@ -1423,12 +1427,14 @@
     ],
     "codesup": [
      "sys0=4",
+     "print_keypad.loadpageid.val=dp",
      "prints 0x65,1",
      "prints dp,1",
      "prints 5,1",
      "prints 0xff,1",
      "prints 0xff,1",
-     "prints 0xff,1"
+     "prints 0xff,1",
+     "page print_keypad"
     ]
    }
   },
@@ -1564,7 +1570,7 @@
     "groupid1": 0,
     "sta": 3,
     "style": 0,
-    "key": 2,
+    "key": 255,
     "borderc": 0,
     "borderw": 0,
     "font": {
@@ -1589,12 +1595,14 @@
     ],
     "codesup": [
      "sys0=5",
+     "print_keypad.loadpageid.val=dp",
      "prints 0x65,1",
      "prints dp,1",
      "prints 6,1",
      "prints 0xff,1",
      "prints 0xff,1",
-     "prints 0xff,1"
+     "prints 0xff,1",
+     "page print_keypad"
     ]
    }
   },
@@ -1730,7 +1738,7 @@
     "groupid1": 0,
     "sta": 3,
     "style": 0,
-    "key": 2,
+    "key": 255,
     "borderc": 0,
     "borderw": 0,
     "font": {
@@ -1755,12 +1763,14 @@
     ],
     "codesup": [
      "sys0=6",
+     "print_keypad.loadpageid.val=dp",
      "prints 0x65,1",
      "prints dp,1",
      "prints 7,1",
      "prints 0xff,1",
      "prints 0xff,1",
-     "prints 0xff,1"
+     "prints 0xff,1",
+     "page print_keypad"
     ]
    }
   },

@@ -111,6 +111,22 @@ def patch_printing_2(m):
                            "codesup": ["sys0=%d" % mode, "prints 0x65,1", "prints dp,1", "prints %d,1" % action] + ["prints 0xff,1"] * 3}
 
 
+def explicit_keypad(m):
+    """A value of a print page that opens the number keyboard does it by itself: the stock binds it to the system keyboard page (``key=2``: the editor fixes the
+    name of that page and the screen opens it without the program saying so). Here the touch says where to return (``loadpageid`` of the keyboard) and opens the page."""
+    keypad = page_names.new("keybdB")
+    for obj in m.stock["objects"]:
+        if obj["attributes"].get("key", 255) != 2:
+            continue
+        obj["attributes"]["key"] = 255
+        up = obj["events"]["codesup"]
+        first = next(i for i, line in enumerate(up) if line.strip() == "prints 0x65,1")      # (a line may be inside an ``if``: keep its indent)
+        last = max(i for i, line in enumerate(up) if line.strip() == "prints 0xff,1")
+        indent = lambda i: up[i][:len(up[i]) - len(up[i].lstrip())]
+        up[last + 1:last + 1] = [indent(last) + "page %s" % keypad]
+        up[first:first] = [indent(first) + "%s.loadpageid.val=dp" % keypad]
+
+
 def patch_preview(m):
     """``cp_data_s`` holds the ColPic of the thumbnail for the number keyboard of the print pages (72 x 72), like ``cp_data`` does for the print pages (132 x 132);
     it is a hidden text beside ``cp_data`` (the pages of a print write them into their ``thumb``)."""

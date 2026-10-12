@@ -1965,10 +1965,10 @@
       }
     },
     {
-      "key": "keybdB",
+      "key": "print_keypad",
       "content": {
         "mode": "json",
-        "path": "pages/keybdB.json"
+        "path": "pages/print_keypad.json"
       }
     },
     {

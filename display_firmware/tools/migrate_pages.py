@@ -36,6 +36,7 @@ from PIL import Image, ImageDraw
 
 import gen_project as gp
 import page_names
+import page_patches as patches
 from gen_project import ROOT, rgb565
 
 sys.path.insert(0, str(ROOT / "tools"))
@@ -790,6 +791,7 @@ class Migration:
         patch = rules.get("patch")
         if patch:
             patch(self)
+        patches.explicit_keypad(self)
 
 
 def merge_faces(faces):

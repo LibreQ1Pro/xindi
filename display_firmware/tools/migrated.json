@@ -7,7 +7,7 @@
    "title"
   ],
   "new": [],
-  "sha256": "cdffa2e051262d8ba55558d558f01356e90f1df3575c36c068b0c2b1d9c45315"
+  "sha256": "a6a96f49c014155f331f8b39d8b324aa5bec62f680c175e20f44d00042a4fc1c"
  },
  "shutdown": {
   "design": "shutting_down",
@@ -16,7 +16,7 @@
    "msg"
   ],
   "new": [],
-  "sha256": "b8dc64c2d526e1680fb099008a4f99f0bbcfcf290c3e6e46baa5aeef7ae96247"
+  "sha256": "cd81b53b07cd52bb228e72fae3bd1eddfad9884b562914d0556dc89cf2352046"
  },
  "logo": {
   "design": "boot_logo",
@@ -25,7 +25,7 @@
    "boot_msg"
   ],
   "new": [],
-  "sha256": "5a80256f079dda10ddcf8130d324f851f0ceb4c9601fa9b8c471e107fb5650b3"
+  "sha256": "cb85622a45bf9465710bbf60e6412bcd6dda21921a55ef23752a9b2dfc163aba"
  },
  "main": {
   "design": "home",
@@ -1564,7 +1564,7 @@
    "pct_sign"
   ],
   "baked": 7,
-  "sha256": "ec006597a44c6eb25013dd68a50765def4eb649cbbd88ec77a66cb7d465a8ff0"
+  "sha256": "81176f9fe3f9cb823a433726c58e9a5048fe1de15c2ee367334969d3e0f93397"
  },
  "printing": {
   "design": "printing",
@@ -1609,7 +1609,7 @@
    "pct_sign"
   ],
   "baked": 9,
-  "sha256": "8fbe6cce91fde93215d7d6fb45ec5a71cccb422a3d15909d49fc927ac64aa60d"
+  "sha256": "3530fa99135797690765da4f2c9d4d25bbdbe04e3fca97cf7da740cf8449d367"
  },
  "printing_2": {
   "design": "print_adjust",
@@ -1654,7 +1654,7 @@
    "pct_sign"
   ],
   "baked": 12,
-  "sha256": "552457f36edb9ce1cd625fe0e0fad4ceb15c77e6b0cc6621c6b781e0fb4fbbe2"
+  "sha256": "5d2f046ec0161b08b0692ab8d416e4466c8c019ca5f0a42c097e2a1c85676d17"
  },
  "print_filament": {
   "design": "print_filament",

@@ -20,6 +20,12 @@ files, printing, calibration, settings, network, errors. The table is `mockup/pa
 name in the project where it is longer than 14 characters, `order`); `tools/page_names.py` reads it and `tools/rename_pages.py` applies a change of it (names, order, the page
 numbers in the code and in `xindi/screen/pageids.py`). The tools keep the stock names as the *source* names (`tools/migration_sources/`, `tools/migrated.json`, the rules).
 
+### The number keyboard of the print pages
+
+`print_keypad` is a page like the others: a value of a print page (nozzle, bed, chamber, speed, flow, fans) opens it with its own touch event
+(`tools/page_patches.py` `explicit_keypad`: it sets `print_keypad.loadpageid` to the page to return to and does `page print_keypad`). The stock binds
+those values to the editor's system keyboard (`key=2`, a page that must be called `keybdB` and cannot be renamed); nothing in the project is bound that way any more.
+
 ### How a page is made
 
 ```bash
