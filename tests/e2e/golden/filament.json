@@ -1,20 +1,20 @@
 {
  "alive": true,
  "files": {
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.cache/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
-  "/home/mks/gcode_files/.cache/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/.hidden.gcode": "sha1:e9c4f663cb3921c3:26",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-112x112_QD.jpg": "sha1:2d5b7d600246d2e9:3974",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-160x160.png": "sha1:0d7d2df0e6db2713:1710",
   "/home/mks/gcode_files/.thumbs/cube-112x112_QD.jpg": "sha1:8c4d6554d025b74f:3925",
   "/home/mks/gcode_files/.thumbs/cube-160x160.png": "sha1:3904430b9e84afa5:1656",
+  "/home/mks/gcode_files/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
+  "/home/mks/gcode_files/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.thumbs/part_abs-112x112_QD.jpg": "sha1:15013ab210f2794e:4047",
   "/home/mks/gcode_files/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
   "/home/mks/gcode_files/Benchy PLA.gcode": "sha1:6ea7950f47676656:4311",
   "/home/mks/gcode_files/big_petg.gcode": "sha1:fb0996f14638abd8:27",
   "/home/mks/gcode_files/cube.gcode": "sha1:2e15189a714756be:4269",
+  "/home/mks/gcode_files/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/models/deep/deeper.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/models/inner.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
@@ -33,44 +33,44 @@
  },
  "http": [
   "GET /server/files/roots",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode"
+  "GET /server/files/gcodes/last_print.gcode"
  ],
  "pages": [
-  15,
-  70,
-  73,
-  37,
-  37,
-  73,
-  37,
-  70,
-  73,
-  76,
-  77,
-  73,
-  70,
-  73,
-  76,
-  36,
-  73,
-  70,
-  73,
-  76,
-  36,
-  76,
-  73,
-  70,
-  73,
-  76,
-  36,
-  70
+  17,
+  21,
+  20,
+  28,
+  28,
+  20,
+  28,
+  19,
+  20,
+  24,
+  26,
+  20,
+  19,
+  20,
+  24,
+  25,
+  20,
+  19,
+  20,
+  24,
+  25,
+  24,
+  20,
+  19,
+  20,
+  24,
+  25,
+  19
  ],
  "screen": [
   {
    "attrs": {
-    "logo.version.val": [
+    "boot_logo.version.val": [
      "100"
     ],
     "prints 0xa0": [
@@ -91,41 +91,41 @@
      "921600",
      "115200"
     ],
-    "bed_btn.pic": [
-     "112"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_btn.pic2": [
-     "113"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "bed_temp.val": [
-     "25"
+    "bed_temp.txt": [
+     "\"25\""
     ],
     "beep_btn.pic": [
-     "124"
+     "385"
     ],
     "beep_btn.pic2": [
-     "125"
+     "386"
     ],
-    "chamber_btn.pic": [
-     "116"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "chamber_btn.pic2": [
-     "117"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "chamber_temp.val": [
-     "26"
+    "chamber_temp.txt": [
+     "\"26\""
     ],
     "last_file_btn.pic": [
-     "128"
+     "375"
     ],
     "last_file_btn.pic2": [
-     "129"
+     "376"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -134,162 +134,92 @@
      ""
     ],
     "last_file_pic.write": [
-     "fcaf136f9c97b20a:2048",
-     "96a7f7344f6aa623:2048",
-     "cdc4307d5b046e43:2048",
-     "a3012462ca595441:2048",
-     "2e1dc1e0374d66d4:2048",
-     "b3d19a6c7b9021ef:2048",
-     "cf8288d0ca407a6d:2048",
-     "7de2e0119283074b:128"
+     "5bcf493026f266e6:2048",
+     "b6a2fc9764b6f4a2:2048",
+     "0727265b7d182a1a:2048",
+     "dbe11c424badbc40:2048",
+     "9ecb34fe6d285f55:2048",
+     "9536bba6491cd037:2048",
+     "17869ae82d94ea25:2048",
+     "097dde0fe53537b4:2048",
+     "3699e83bae42cd24:2048",
+     "f14602d4580845a1:2048",
+     "ab885034953d8a08:2048",
+     "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "120"
+     "381"
     ],
     "light_btn.pic2": [
-     "121"
+     "382"
     ],
-    "nozzle_btn.pic": [
-     "108"
+    "nozzle_icon.pic": [
+     "169"
     ],
-    "nozzle_btn.pic2": [
-     "109"
-    ],
-    "nozzle_temp.pco": [
-     "65535"
-    ],
-    "nozzle_temp.val": [
-     "25"
-    ],
-    "usb_icon.pic": [
-     "130"
-    ],
-    "vis last_file_pic": [
-     "last_file_pic,1"
-    ],
-    "wifi_icon.pic": [
-     "132"
-    ]
-   },
-   "page": 15
-  },
-  {
-   "attrs": {
-    "bed_row.pic": [
-     "72"
-    ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
-    ],
-    "bed_temp.pco": [
-     "65535"
-    ],
-    "bed_temp.txt": [
-     "\"25\""
-    ],
-    "bed_toggle.pic": [
-     "64"
-    ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
-    ],
-    "chamber_temp.pco": [
-     "65535"
-    ],
-    "chamber_temp.txt": [
-     "\"26\""
-    ],
-    "chamber_toggle.pic": [
-     "68"
-    ],
-    "chamber_toggle.pic2": [
-     "69"
-    ],
-    "nozzle_row.pic": [
-     "72"
-    ],
-    "nozzle_row.pic2": [
-     "73"
-    ],
-    "nozzle_set.val": [
-     "0"
+    "nozzle_set.txt": [
+     "\"/ 0\""
     ],
     "nozzle_temp.pco": [
-     "65535"
+     "63422"
     ],
     "nozzle_temp.txt": [
      "\"25\""
     ],
-    "nozzle_toggle.pic": [
-     "60"
+    "sys1": [
+     "0"
     ],
-    "nozzle_toggle.pic2": [
-     "61"
+    "usb_icon.pic": [
+     "371"
     ],
-    "step_10.pic": [
-     "76"
+    "vis last_file_pic": [
+     "last_file_pic,0",
+     "last_file_pic,1"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "wifi_icon.pic": [
+     "373"
     ]
    },
-   "page": 70
+   "page": 17
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 21
+  },
+  {
+   "attrs": {},
+   "page": 20
   },
   {
    "attrs": {
     "hint.pco": [
-     "38066"
+     "42294"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\"",
+     "\"/ 250\""
+    ],
+    "nozzle_temp.pco": [
+     "42294"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\"",
+     "\"250\""
     ],
     "step1_txt.pco": [
      "65535",
-     "38066"
+     "42294"
     ],
     "step2_txt.pco": [
      "65535",
-     "38066"
+     "42294"
     ],
     "step3_txt.pco": [
      "65535"
     ],
     "steps_bar.pic": [
-     "98",
-     "99",
-     "100"
-    ],
-    "temp_txt.pco": [
-     "38066"
-    ],
-    "temp_txt.txt": [
-     "\"(25/0℃)\"",
-     "\"(250/250℃)\""
+     "117",
+     "118",
+     "119"
     ],
     "vis alt_btn": [
      "alt_btn,1"
@@ -303,36 +233,34 @@
     "vis next_btn": [
      "next_btn,0"
     ],
-    "vis spin1": [
-     "spin1,0"
+    "vis nozzle_set": [
+     "nozzle_set,1"
     ],
-    "vis spin2": [
-     "spin2,1",
-     "spin2,0"
+    "vis nozzle_temp": [
+     "nozzle_temp,1"
     ],
-    "vis spin3": [
-     "spin3,1",
-     "spin3,0"
-    ],
-    "vis temp_txt": [
-     "temp_txt,1"
+    "vis nozzle_unit": [
+     "nozzle_unit,1"
     ]
    },
-   "page": 37
+   "page": 28
   },
   {
    "attrs": {
     "hint.pco": [
-     "38066"
+     "42294"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
     ],
     "step1_txt.pco": [
      "65535"
     ],
     "steps_bar.pic": [
-     "98"
-    ],
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+     "117"
     ],
     "vis back_btn": [
      "back_btn,0"
@@ -340,281 +268,235 @@
     "vis next_btn": [
      "next_btn,0"
     ],
-    "vis spin1": [
-     "spin1,0"
+    "vis nozzle_set": [
+     "nozzle_set,1"
     ],
-    "vis spin2": [
-     "spin2,1"
+    "vis nozzle_temp": [
+     "nozzle_temp,1"
     ],
-    "vis temp_txt": [
-     "temp_txt,1"
+    "vis nozzle_unit": [
+     "nozzle_unit,1"
     ]
    },
-   "page": 37
+   "page": 28
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
     ]
    },
-   "page": 37
+   "page": 28
   },
   {
    "attrs": {
     "#mark": [
      "unload"
     ],
-    "bed_row.pic": [
-     "72"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "70"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "71"
+    "nozzle_icon.pic": [
+     "404"
     ],
-    "nozzle_set.val": [
-     "250"
+    "nozzle_set.txt": [
+     "\"/ 250\""
     ],
     "nozzle_temp.pco": [
-     "63488"
+     "64459"
     ],
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.pic": [
-     "58"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "59"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {},
-   "page": 76
+   "page": 24
   },
   {
    "attrs": {
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
+    ],
     "step1_txt.pco": [
-     "38066"
+     "42294"
     ],
     "step2_txt.pco": [
      "65535",
-     "38066"
+     "42294"
     ],
     "step3_txt.pco": [
      "65535"
     ],
     "steps_bar.pic": [
-     "101",
-     "102"
-    ],
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+     "126",
+     "127"
     ],
     "vis load_btn": [
      "load_btn,1"
     ],
     "vis ok": [
      "ok,1"
-    ],
-    "vis spin1": [
-     "spin1,0"
-    ],
-    "vis spin2": [
-     "spin2,1",
-     "spin2,0"
     ]
    },
-   "page": 77
+   "page": 26
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "70"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "71"
+    "nozzle_icon.pic": [
+     "404"
     ],
-    "nozzle_set.val": [
-     "250"
+    "nozzle_set.txt": [
+     "\"/ 250\""
     ],
     "nozzle_temp.pco": [
-     "63488"
+     "64459"
     ],
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.pic": [
-     "58"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "59"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {},
-   "page": 76
+   "page": 24
   },
   {
    "attrs": {
     "hint.pco": [
-     "38066"
+     "42294"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.pco": [
+     "42294"
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
     ],
     "step1_txt.pco": [
      "65535",
-     "38066"
+     "42294"
     ],
     "step2_txt.pco": [
      "65535"
     ],
     "steps_bar.pic": [
-     "98",
-     "99"
-    ],
-    "temp_txt.pco": [
-     "38066"
-    ],
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+     "117",
+     "118"
     ],
     "vis back_btn": [
      "back_btn,0"
@@ -622,323 +504,253 @@
     "vis next_btn": [
      "next_btn,0"
     ],
-    "vis spin1": [
-     "spin1,0"
+    "vis nozzle_set": [
+     "nozzle_set,1"
     ],
-    "vis spin2": [
-     "spin2,1",
-     "spin2,0"
+    "vis nozzle_temp": [
+     "nozzle_temp,1"
     ],
-    "vis spin3": [
-     "spin3,1"
-    ],
-    "vis temp_txt": [
-     "temp_txt,1"
+    "vis nozzle_unit": [
+     "nozzle_unit,1"
     ]
    },
-   "page": 36
+   "page": 25
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "70"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "71"
+    "nozzle_icon.pic": [
+     "404"
     ],
-    "nozzle_set.val": [
-     "250"
+    "nozzle_set.txt": [
+     "\"/ 250\""
     ],
     "nozzle_temp.pco": [
-     "63488"
+     "64459"
     ],
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.pic": [
-     "58"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "59"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {},
-   "page": 76
+   "page": 24
   },
   {
    "attrs": {
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
     ]
    },
-   "page": 36
+   "page": 25
   },
   {
    "attrs": {},
-   "page": 76
+   "page": 24
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "70"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "71"
+    "nozzle_icon.pic": [
+     "404"
     ],
-    "nozzle_set.val": [
-     "250"
+    "nozzle_set.txt": [
+     "\"/ 250\""
     ],
     "nozzle_temp.pco": [
-     "63488"
+     "64459"
     ],
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.pic": [
-     "58"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "59"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
   },
   {
    "attrs": {},
-   "page": 73
+   "page": 20
   },
   {
    "attrs": {},
-   "page": 76
+   "page": 24
   },
   {
    "attrs": {
-    "temp_txt.txt": [
-     "\"(250/250℃)\""
+    "nozzle_set.txt": [
+     "\"/ 250\""
+    ],
+    "nozzle_temp.txt": [
+     "\"250\""
     ]
    },
-   "page": 36
+   "page": 25
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "70"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "71"
+    "nozzle_icon.pic": [
+     "404"
     ],
-    "nozzle_set.val": [
-     "250"
+    "nozzle_set.txt": [
+     "\"/ 250\""
     ],
     "nozzle_temp.pco": [
-     "63488"
+     "64459"
     ],
     "nozzle_temp.txt": [
      "\"250\""
     ],
-    "nozzle_toggle.pic": [
-     "58"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "59"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
   }
  ],
  "shell": [],

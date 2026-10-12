@@ -26,6 +26,10 @@ from xindi.util.cpp import (c_int,
 log = logging.getLogger(__name__)
 
 
+def file_name_of(path):
+    return path[path.rfind("/") + 1:]
+
+
 def parse_file_estimated_time(response):
     result = jget(response, "result")
     read_fields(g.files, result, [("meta_estimated_time", "estimated_time", lambda v: c_int(jfloat(v))),
@@ -52,6 +56,22 @@ def parse_file_estimated_time(response):
     g.files.meta_parse_finished = True
 
 
+def last_printed_file():
+    """The file that was printed last, from the print history of Moonraker: its path under gcodes/ (``dir/name.gcode``), or "" when there is none (the
+    newest job whose file still exists; a cancelled or a failed print counts as well)."""
+    import json
+    response = send_request("localhost", "7125", "server/history/list?limit=20&order=desc", "GET")
+    try:
+        jobs = json.loads(response)["result"]["jobs"]
+    except (ValueError, KeyError, TypeError):
+        return ""
+    for job in jobs:
+        name = job.get("filename") or ""
+        if job.get("exists") and name.endswith(".gcode") and not name.startswith("."):
+            return name
+    return ""
+
+
 def get_page_files_filelist(current_dir):
     """Fetch the file list information"""
     if g.files.list_last_printing_files_dir == current_dir:
@@ -61,24 +81,13 @@ def get_page_files_filelist(current_dir):
     g.files.list_dirname_list.clear()
     g.files.list_filename_list.clear()
     g.files.list_dirname_filename_list.clear()
+    g.files.list_modified = {}
     json_temp = None
     result = None
-    # 4.4.2 CLL show the last printed file as the first entry of the first page
-    temp_dirname = ""
-    temp_filename = ""
-    json_files_directory = send_request("localhost", "7125", "server/files/directory?path=gcodes//.cache", "GET")
-    if json_files_directory != "" and g.files.list_folder_layers == 0:
-        json_temp = json_parse(json_files_directory)
-        result = jget(json_temp, "result")
-        if 0 < jsize(jget(result, "files")):
-            log.debug("%s", json_dump(jpath(result, "files", 0, "filename")))
-            temp_filename = jstr(jpath(result, "files", 0, "filename"))
-            if temp_filename.find(".gcode") != -1:
-                if temp_filename.find(".") != 0:
-                    g.files.list_filename_list.add(temp_filename)
-                    first = min(g.files.list_filename_list)
-                    g.files.list_dirname_filename_list.add("[c] " + first)
-                    g.files.list_filename_list.clear()
+    # the last printed file (from the history of Moonraker) is the first entry of the first page
+    g.files.list_last_printed = last_printed_file() if g.files.list_folder_layers == 0 else g.files.list_last_printed
+    if g.files.list_folder_layers == 0 and g.files.list_last_printed:
+        g.files.list_dirname_filename_list.add("[c] " + file_name_of(g.files.list_last_printed))
     json_files_directory = send_request("localhost", "7125", "server/files/directory?path=" + current_dir, "GET")
     if json_files_directory != "":
         json_temp = json_parse(json_files_directory)
@@ -95,6 +104,7 @@ def get_page_files_filelist(current_dir):
         if temp_filename.find(".gcode") != -1:
             if temp_filename.find(".") != 0:
                 g.files.list_filename_list.add(temp_filename)
+                g.files.list_modified[temp_filename] = jfloat(jpath(result, "files", j, "modified"))
 
     for name in sorted_std(g.files.list_dirname_list):
         g.files.list_dirname_filename_list.add("[d] " + name)
@@ -117,13 +127,23 @@ def sorted_std(strings):
     return sorted(strings, key=s2b)
 
 
+def entry_order(entry):
+    """The order of the list: the last printed file, then the folders A-Z, then the files, the newest first (the time they were added)."""
+    kind, name = substr(entry, 0, 3), substr(entry, 4)
+    if kind == "[c]":
+        return (0, 0.0, "")
+    if kind == "[d]":
+        return (1, 0.0, name.casefold(), name)
+    return (2, -g.files.list_modified.get(name, 0.0), name.casefold(), name)
+
+
 def set_page_files_show_list(pages):
     g.files.list_list_name[0] = ""
     g.files.list_list_name[1] = ""
     g.files.list_list_name[2] = ""
     g.files.list_list_name[3] = ""
 
-    entries = sorted_std(g.files.list_dirname_filename_list)
+    entries = sorted(g.files.list_dirname_filename_list, key=entry_order)
     it = 0
 
     for i in range(pages * 4):
@@ -155,7 +175,7 @@ def get_sub_dir_files_list(button):
         g.screen.show_preview_complete = False
         g.screen.cache_clicked = True
         g.files.list_path_stack.append(g.files.list_path)
-        g.files.list_print_files_path = g.files.list_path + "/.cache/" + g.files.list_list_show_name[button]
+        g.files.list_print_files_path = "/" + g.files.list_last_printed
         g.files.list_folder_layers += 1
         file_list.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
         navigation.page_to(ids.PREVIEW)

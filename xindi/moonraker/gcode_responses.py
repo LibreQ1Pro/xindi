@@ -135,9 +135,6 @@ def _level_step(page_steps):
 
 
 def _bed_mesh_complete(line):
-    if _on_page(ids.OPEN_CALIBRATE):
-        g.levelling.step_2 = True
-        g.klippy.webhooks_state = "shutdown"
     if _on_page(ids.AUTO_MOVING):
         g.levelling.step_4 = True
 
@@ -175,10 +172,10 @@ RULES = [
     (_starts("// metadata="), None),     # 4.1.7 CLL web print information subscription (deprecated)
     # CLL messages prefixed with "echo:" are custom responses
     (_contains("echo: Position init complete"),
-     _level_step([((ids.OPEN_CALIBRATE, ids.AUTO_MOVING), "step_1")])),
+     _level_step([((ids.AUTO_MOVING,), "step_1")])),
     (_contains("echo: Bed mesh calibrate complete"), _bed_mesh_complete),
     (_contains("echo: Input shaping complete"),
-     _level_step([((ids.OPEN_CALIBRATE,), "step_3"), ((ids.SYNTONY_MOVE,), "step_1")])),
+     _level_step([((ids.SYNTONY_MOVE,), "step_1")])),
     (_contains("echo: Nozzle cleared"), _level_step([((ids.AUTO_MOVING,), "step_2")])),
     (_contains("echo: Nozzle cooled"), _level_step([((ids.AUTO_MOVING,), "step_3")])),
     (_contains("echo: Heat up complete"),

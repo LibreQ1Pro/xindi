@@ -27,9 +27,7 @@ def go_to_reset():
     if g.klippy.webhooks_state == "shutdown":
         page_to(ids.RESET)
     else:
-        # 4.4.22: fixed name (was read from /dev_info.txt)
         page_to(ids.SYS_OK)
-        g.port.txt("info_txt", "Q1 Pro")
 
 
 def send_gcode(command):

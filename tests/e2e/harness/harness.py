@@ -482,6 +482,9 @@ class Moonraker(object):
                 return web.Response(status=206, body=data[first:last + 1],
                                     headers={"Content-Range": "bytes %d-%d/%d" % (first, last, len(data))})
             return web.Response(body=data)
+        if path == "/server/history/list":
+            jobs = self.fixture.history_jobs()
+            return web.json_response({"result": {"count": len(jobs), "jobs": jobs}})
         if path == "/server/files/metadata":
             name = request.query.get("filename", "")
             meta = self.metadata.get(name)

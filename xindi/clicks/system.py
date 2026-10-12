@@ -42,7 +42,11 @@ def wifi_list(page_id, widget_id):
         index = widget_id - ids.WIFI_LIST_SSID_1
         if g.screen.wifi_ssid_button_enabled[index]:
             wifi.get_wifi_list_ssid(index)
-            connections.open_keyboard(connections.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
+            saved = connections.saved_by_ssid(g.net.get_wifi_name)
+            if saved is not None:           # a known network: connect / change the password / forget, not the password again
+                connections.open_detail(saved, "list")
+            else:
+                connections.open_keyboard(connections.KB_PSK_SCANNED, 8, g.net.get_wifi_name)
     elif widget_id == ids.WIFI_LIST_SAVED:
         connections.open_saved()
     elif widget_id == ids.WIFI_LIST_HIDDEN:
@@ -68,7 +72,7 @@ def wifi_list(page_id, widget_id):
     elif widget_id == ids.WIFI_LIST_TO_WIFI:
         pass
     elif widget_id == ids.WIFI_LIST_TO_SETTING:
-        wifi.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+        connections.open_info()               # the network settings start with the network info
 
 
 # 4.4.24: the timer of the page reports a connection that takes too long
@@ -113,7 +117,7 @@ def common_setting(page_id, widget_id):
     elif widget_id == ids.COMMON_SETTING_LANGUAGE:
         page_to(ids.LANGUAGE)
     elif widget_id == ids.COMMON_SETTING_WIFI:
-        wifi.refresh_ip_address()             # 4.4.22: the network page (was the QR code page)
+        connections.open_info()               # the network settings start with the network info (4.4.22 had the QR code page here)
     elif widget_id == ids.COMMON_SETTING_SYSTEM:
         klipper.go_to_reset()
     elif widget_id == ids.COMMON_SETTING_SCREEN_SLEEP:
@@ -153,7 +157,7 @@ def update_success(page_id, widget_id):
 
 def detect_error(page_id, widget_id):
     if widget_id == ids.DETECT_ERROR_YES:
-        if g.screen.previous_page == ids.AUTO_MOVING or g.screen.previous_page == ids.OPEN_CALIBRATE:
+        if g.screen.previous_page == ids.AUTO_MOVING:
             klipper.reset_klipper()
         page_to(ids.MAIN)
         job.clear_previous_data()
@@ -188,25 +192,6 @@ def memory_warning(page_id, widget_id):
         page_to(ids.MAIN)
 
 
-# 4.4.24 network page (4.4.22 binary); the QIDI Link buttons are not implemented
-def internet_page(page_id, widget_id):
-    if nav_guarded(widget_id):
-        pass
-    elif widget_id == ids.INTERNET_PAGE_BACK:
-        page_to(ids.COMMON_SETTING)
-    elif widget_id == ids.INTERNET_PAGE_ETHERNET:
-        # 1: ethernet, 0: wifi (the page shows the address on the next refresh)
-        settings.set_ethernet(0 if g.config.ethernet == 1 else 1)
-    elif widget_id == ids.INTERNET_PAGE_WIFI:
-        wifi.go_to_network()
-    elif widget_id == ids.INTERNET_PAGE_INFO:
-        connections.open_info()
-    elif widget_id == ids.INTERNET_PAGE_SAVED:
-        connections.open_saved()
-    elif widget_id == ids.INTERNET_PAGE_HIDDEN:
-        connections.open_hidden()
-
-
 HANDLERS = {
     ids.INTERNET: internet,
     ids.WIFI_LIST: wifi_list,
@@ -229,5 +214,4 @@ HANDLERS = {
     ids.SCREEN_SLEEP: screen_sleep,
     ids.RESTORE_CONFIG: restore_config,
     ids.MEMORY_WARNING: memory_warning,
-    ids.INTERNET_PAGE: internet_page,
 }

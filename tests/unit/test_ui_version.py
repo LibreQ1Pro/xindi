@@ -1,6 +1,6 @@
 import unittest
 
-from xindi import ui
+from xindi.screen import navigation as ui
 
 
 class UiVersionTest(unittest.TestCase):
@@ -15,13 +15,13 @@ class UiVersionTest(unittest.TestCase):
                 ui.version_number(version)
 
     def test_screen_expects_the_same_number(self):
-        """display_firmware/pages/main.json compares logo.version with the number of ui.VERSION."""
+        """display_firmware/pages/home.json compares boot_logo.version with the number of ui.VERSION."""
         import json
         import os
-        path = os.path.join(os.path.dirname(__file__), "..", "..", "display_firmware", "pages", "main.json")
+        path = os.path.join(os.path.dirname(__file__), "..", "..", "display_firmware", "pages", "home.json")
         with open(path, encoding="utf-8") as f:
             load = json.load(f)["root"]["events"]["codesload"]
-        self.assertIn("if(logo.version.val==%s)" % ui.UI_VERSION, load)
+        self.assertIn("if(boot_logo.version.val==%s)" % ui.UI_VERSION, load)
 
 
 if __name__ == "__main__":

@@ -1,20 +1,20 @@
 {
  "alive": true,
  "files": {
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.cache/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
-  "/home/mks/gcode_files/.cache/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/.hidden.gcode": "sha1:e9c4f663cb3921c3:26",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-112x112_QD.jpg": "sha1:2d5b7d600246d2e9:3974",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-160x160.png": "sha1:0d7d2df0e6db2713:1710",
   "/home/mks/gcode_files/.thumbs/cube-112x112_QD.jpg": "sha1:8c4d6554d025b74f:3925",
   "/home/mks/gcode_files/.thumbs/cube-160x160.png": "sha1:3904430b9e84afa5:1656",
+  "/home/mks/gcode_files/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
+  "/home/mks/gcode_files/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.thumbs/part_abs-112x112_QD.jpg": "sha1:15013ab210f2794e:4047",
   "/home/mks/gcode_files/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
   "/home/mks/gcode_files/Benchy PLA.gcode": "sha1:6ea7950f47676656:4311",
   "/home/mks/gcode_files/big_petg.gcode": "sha1:fb0996f14638abd8:27",
   "/home/mks/gcode_files/cube.gcode": "sha1:2e15189a714756be:4269",
+  "/home/mks/gcode_files/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/models/deep/deeper.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/models/inner.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
@@ -33,31 +33,31 @@
  },
  "http": [
   "GET /server/files/roots",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode"
+  "GET /server/files/gcodes/last_print.gcode"
  ],
  "pages": [
-  15,
-  70,
-  30,
-  32,
-  30,
-  32,
-  30,
+  17,
+  19,
+  29,
   31,
+  29,
+  31,
+  29,
   30,
-  35,
-  70,
-  30,
-  70,
-  15,
-  70
+  29,
+  22,
+  19,
+  29,
+  19,
+  17,
+  19
  ],
  "screen": [
   {
    "attrs": {
-    "logo.version.val": [
+    "boot_logo.version.val": [
      "100"
     ],
     "prints 0xa0": [
@@ -78,41 +78,41 @@
      "921600",
      "115200"
     ],
-    "bed_btn.pic": [
-     "112"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_btn.pic2": [
-     "113"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "bed_temp.val": [
-     "25"
+    "bed_temp.txt": [
+     "\"25\""
     ],
     "beep_btn.pic": [
-     "124"
+     "385"
     ],
     "beep_btn.pic2": [
-     "125"
+     "386"
     ],
-    "chamber_btn.pic": [
-     "116"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "chamber_btn.pic2": [
-     "117"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "chamber_temp.val": [
-     "26"
+    "chamber_temp.txt": [
+     "\"26\""
     ],
     "last_file_btn.pic": [
-     "128"
+     "375"
     ],
     "last_file_btn.pic2": [
-     "129"
+     "376"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -121,169 +121,140 @@
      ""
     ],
     "last_file_pic.write": [
-     "fcaf136f9c97b20a:2048",
-     "96a7f7344f6aa623:2048",
-     "cdc4307d5b046e43:2048",
-     "a3012462ca595441:2048",
-     "2e1dc1e0374d66d4:2048",
-     "b3d19a6c7b9021ef:2048",
-     "cf8288d0ca407a6d:2048",
-     "7de2e0119283074b:128"
+     "5bcf493026f266e6:2048",
+     "b6a2fc9764b6f4a2:2048",
+     "0727265b7d182a1a:2048",
+     "dbe11c424badbc40:2048",
+     "9ecb34fe6d285f55:2048",
+     "9536bba6491cd037:2048",
+     "17869ae82d94ea25:2048",
+     "097dde0fe53537b4:2048",
+     "3699e83bae42cd24:2048",
+     "f14602d4580845a1:2048",
+     "ab885034953d8a08:2048",
+     "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "120"
+     "381"
     ],
     "light_btn.pic2": [
-     "121"
+     "382"
     ],
-    "nozzle_btn.pic": [
-     "108"
+    "nozzle_icon.pic": [
+     "169"
     ],
-    "nozzle_btn.pic2": [
-     "109"
-    ],
-    "nozzle_temp.pco": [
-     "65535"
-    ],
-    "nozzle_temp.val": [
-     "25"
-    ],
-    "usb_icon.pic": [
-     "130"
-    ],
-    "vis last_file_pic": [
-     "last_file_pic,1"
-    ],
-    "wifi_icon.pic": [
-     "132"
-    ]
-   },
-   "page": 15
-  },
-  {
-   "attrs": {
-    "bed_row.pic": [
-     "72"
-    ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
-    ],
-    "bed_temp.pco": [
-     "65535"
-    ],
-    "bed_temp.txt": [
-     "\"25\""
-    ],
-    "bed_toggle.pic": [
-     "64"
-    ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
-    ],
-    "chamber_temp.pco": [
-     "65535"
-    ],
-    "chamber_temp.txt": [
-     "\"26\""
-    ],
-    "chamber_toggle.pic": [
-     "68"
-    ],
-    "chamber_toggle.pic2": [
-     "69"
-    ],
-    "nozzle_row.pic": [
-     "72"
-    ],
-    "nozzle_row.pic2": [
-     "73"
-    ],
-    "nozzle_set.val": [
-     "0"
+    "nozzle_set.txt": [
+     "\"/ 0\""
     ],
     "nozzle_temp.pco": [
-     "65535"
+     "63422"
     ],
     "nozzle_temp.txt": [
      "\"25\""
     ],
-    "nozzle_toggle.pic": [
-     "60"
+    "usb_icon.pic": [
+     "371"
     ],
-    "nozzle_toggle.pic2": [
-     "61"
+    "vis last_file_pic": [
+     "last_file_pic,0",
+     "last_file_pic,1"
     ],
-    "step_10.pic": [
-     "76"
-    ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "wifi_icon.pic": [
+     "373"
     ]
    },
-   "page": 70
+   "page": 17
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "154"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
+    ],
+    "bed_temp.pco": [
+     "63422"
+    ],
+    "bed_temp.txt": [
+     "\"25\""
+    ],
+    "chamber_icon.pic": [
+     "172"
+    ],
+    "chamber_set.txt": [
+     "\"/ 0\""
+    ],
+    "chamber_temp.pco": [
+     "63422"
+    ],
+    "chamber_temp.txt": [
+     "\"26\""
+    ],
+    "fan1_val.txt": [
+     "\"0\""
+    ],
+    "fan2_val.txt": [
+     "\"0\""
+    ],
+    "fan3_val.txt": [
+     "\"0\""
+    ],
+    "nozzle_icon.pic": [
+     "169"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\""
+    ],
+    "nozzle_temp.pco": [
+     "63422"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\""
+    ],
+    "step_100_lbl.pco": [
+     "42294"
+    ],
+    "step_10_lbl.pco": [
+     "42294"
+    ],
+    "step_50_lbl.pco": [
+     "65535"
+    ],
+    "step_seg.pic": [
+     "176"
+    ]
+   },
+   "page": 19
   },
   {
    "attrs": {
     "#mark": [
      "unhomed"
     ],
-    "dist_01.pic": [
-     "205",
-     "203",
-     "205",
-     "203"
+    "dist_01_lbl.pco": [
+     "42294",
+     "65535",
+     "42294",
+     "65535"
     ],
-    "dist_01.pic2": [
-     "206",
-     "204",
-     "206",
-     "204"
+    "dist_10_lbl.pco": [
+     "65535",
+     "42294",
+     "65535",
+     "42294"
     ],
-    "dist_1.pic": [
-     "209",
-     "207",
-     "209"
+    "dist_1_lbl.pco": [
+     "42294",
+     "65535",
+     "42294"
     ],
-    "dist_1.pic2": [
-     "210",
-     "208",
-     "210"
-    ],
-    "dist_10.pic": [
-     "211",
-     "213",
-     "211",
-     "213"
-    ],
-    "dist_10.pic2": [
-     "212",
-     "214",
-     "212",
-     "214"
+    "dist_seg.pic": [
+     "177",
+     "175",
+     "176",
+     "177",
+     "175"
     ],
     "x_pos.txt": [
      "\"125.0\"",
@@ -301,79 +272,7 @@
      "\"250.0\""
     ]
    },
-   "page": 30
-  },
-  {
-   "attrs": {},
-   "page": 32
-  },
-  {
-   "attrs": {
-    "dist_01.pic": [
-     "203"
-    ],
-    "dist_01.pic2": [
-     "204"
-    ],
-    "dist_1.pic": [
-     "209"
-    ],
-    "dist_1.pic2": [
-     "210"
-    ],
-    "dist_10.pic": [
-     "213"
-    ],
-    "dist_10.pic2": [
-     "214"
-    ],
-    "x_pos.txt": [
-     "\"-1.3\""
-    ],
-    "y_pos.txt": [
-     "\"0.1\""
-    ],
-    "z_pos.txt": [
-     "\"250.0\""
-    ]
-   },
-   "page": 30
-  },
-  {
-   "attrs": {},
-   "page": 32
-  },
-  {
-   "attrs": {
-    "dist_01.pic": [
-     "203"
-    ],
-    "dist_01.pic2": [
-     "204"
-    ],
-    "dist_1.pic": [
-     "209"
-    ],
-    "dist_1.pic2": [
-     "210"
-    ],
-    "dist_10.pic": [
-     "213"
-    ],
-    "dist_10.pic2": [
-     "214"
-    ],
-    "x_pos.txt": [
-     "\"-1.3\""
-    ],
-    "y_pos.txt": [
-     "\"0.1\""
-    ],
-    "z_pos.txt": [
-     "\"250.0\""
-    ]
-   },
-   "page": 30
+   "page": 29
   },
   {
    "attrs": {},
@@ -381,23 +280,17 @@
   },
   {
    "attrs": {
-    "dist_01.pic": [
-     "203"
+    "dist_01_lbl.pco": [
+     "65535"
     ],
-    "dist_01.pic2": [
-     "204"
+    "dist_10_lbl.pco": [
+     "42294"
     ],
-    "dist_1.pic": [
-     "209"
+    "dist_1_lbl.pco": [
+     "42294"
     ],
-    "dist_1.pic2": [
-     "210"
-    ],
-    "dist_10.pic": [
-     "213"
-    ],
-    "dist_10.pic2": [
-     "214"
+    "dist_seg.pic": [
+     "175"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -409,117 +302,25 @@
      "\"250.0\""
     ]
    },
-   "page": 30
+   "page": 29
   },
   {
    "attrs": {},
-   "page": 35
+   "page": 31
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
-    ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
-    ],
-    "bed_temp.pco": [
+    "dist_01_lbl.pco": [
      "65535"
     ],
-    "bed_temp.txt": [
-     "\"25\""
+    "dist_10_lbl.pco": [
+     "42294"
     ],
-    "bed_toggle.pic": [
-     "64"
+    "dist_1_lbl.pco": [
+     "42294"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
-    ],
-    "chamber_temp.pco": [
-     "65535"
-    ],
-    "chamber_temp.txt": [
-     "\"26\""
-    ],
-    "chamber_toggle.pic": [
-     "68"
-    ],
-    "chamber_toggle.pic2": [
-     "69"
-    ],
-    "nozzle_row.pic": [
-     "72"
-    ],
-    "nozzle_row.pic2": [
-     "73"
-    ],
-    "nozzle_set.val": [
-     "0"
-    ],
-    "nozzle_temp.pco": [
-     "65535"
-    ],
-    "nozzle_temp.txt": [
-     "\"25\""
-    ],
-    "nozzle_toggle.pic": [
-     "60"
-    ],
-    "nozzle_toggle.pic2": [
-     "61"
-    ],
-    "step_10.pic": [
-     "76"
-    ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
-    ]
-   },
-   "page": 70
-  },
-  {
-   "attrs": {
-    "dist_01.pic": [
-     "203"
-    ],
-    "dist_01.pic2": [
-     "204"
-    ],
-    "dist_1.pic": [
-     "209"
-    ],
-    "dist_1.pic2": [
-     "210"
-    ],
-    "dist_10.pic": [
-     "213"
-    ],
-    "dist_10.pic2": [
-     "214"
+    "dist_seg.pic": [
+     "175"
     ],
     "x_pos.txt": [
      "\"-1.3\""
@@ -531,241 +332,318 @@
      "\"250.0\""
     ]
    },
+   "page": 29
+  },
+  {
+   "attrs": {},
    "page": 30
   },
   {
    "attrs": {
-    "bed_row.pic": [
-     "72"
+    "dist_01_lbl.pco": [
+     "65535"
     ],
-    "bed_row.pic2": [
-     "73"
+    "dist_10_lbl.pco": [
+     "42294"
     ],
-    "bed_set.val": [
-     "0"
+    "dist_1_lbl.pco": [
+     "42294"
+    ],
+    "dist_seg.pic": [
+     "175"
+    ],
+    "x_pos.txt": [
+     "\"-1.3\""
+    ],
+    "y_pos.txt": [
+     "\"0.1\""
+    ],
+    "z_pos.txt": [
+     "\"250.0\""
+    ]
+   },
+   "page": 29
+  },
+  {
+   "attrs": {},
+   "page": 22
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "154"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
     "bed_temp.txt": [
      "\"25\""
     ],
-    "bed_toggle.pic": [
-     "64"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "logo.version.val": [
+    "fan3_val.txt": [
+     "\"0\""
+    ],
+    "nozzle_icon.pic": [
+     "169"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\""
+    ],
+    "nozzle_temp.pco": [
+     "63422"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\""
+    ],
+    "step_100_lbl.pco": [
+     "42294"
+    ],
+    "step_10_lbl.pco": [
+     "42294"
+    ],
+    "step_50_lbl.pco": [
+     "65535"
+    ],
+    "step_seg.pic": [
+     "176"
+    ]
+   },
+   "page": 19
+  },
+  {
+   "attrs": {
+    "dist_01_lbl.pco": [
+     "65535"
+    ],
+    "dist_10_lbl.pco": [
+     "42294"
+    ],
+    "dist_1_lbl.pco": [
+     "42294"
+    ],
+    "dist_seg.pic": [
+     "175"
+    ],
+    "x_pos.txt": [
+     "\"-1.3\""
+    ],
+    "y_pos.txt": [
+     "\"0.1\""
+    ],
+    "z_pos.txt": [
+     "\"250.0\""
+    ]
+   },
+   "page": 29
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "154"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
+    ],
+    "bed_temp.pco": [
+     "63422"
+    ],
+    "bed_temp.txt": [
+     "\"25\""
+    ],
+    "boot_logo.version.val": [
      "100"
     ],
-    "nozzle_row.pic": [
-     "72"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "nozzle_row.pic2": [
-     "73"
-    ],
-    "nozzle_set.val": [
-     "0"
-    ],
-    "nozzle_temp.pco": [
-     "65535"
-    ],
-    "nozzle_temp.txt": [
-     "\"25\""
-    ],
-    "nozzle_toggle.pic": [
-     "60"
-    ],
-    "nozzle_toggle.pic2": [
-     "61"
-    ],
-    "step_10.pic": [
-     "76"
-    ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
-    ]
-   },
-   "page": 70
-  },
-  {
-   "attrs": {
-    "bed_btn.pic": [
-     "112"
-    ],
-    "bed_btn.pic2": [
-     "113"
-    ],
-    "bed_temp.pco": [
-     "65535"
-    ],
-    "bed_temp.val": [
-     "25"
-    ],
-    "beep_btn.pic": [
-     "124"
-    ],
-    "beep_btn.pic2": [
-     "125"
-    ],
-    "chamber_btn.pic": [
-     "116"
-    ],
-    "chamber_btn.pic2": [
-     "117"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
-    ],
-    "chamber_temp.val": [
-     "26"
-    ],
-    "light_btn.pic": [
-     "120"
-    ],
-    "light_btn.pic2": [
-     "121"
-    ],
-    "nozzle_btn.pic": [
-     "108"
-    ],
-    "nozzle_btn.pic2": [
-     "109"
-    ],
-    "nozzle_temp.pco": [
-     "65535"
-    ],
-    "nozzle_temp.val": [
-     "25"
-    ],
-    "usb_icon.pic": [
-     "130"
-    ],
-    "wifi_icon.pic": [
-     "132"
-    ]
-   },
-   "page": 15
-  },
-  {
-   "attrs": {
-    "bed_row.pic": [
-     "72"
-    ],
-    "bed_row.pic2": [
-     "73"
-    ],
-    "bed_set.val": [
-     "0"
-    ],
-    "bed_temp.pco": [
-     "65535"
-    ],
-    "bed_temp.txt": [
-     "\"25\""
-    ],
-    "bed_toggle.pic": [
-     "64"
-    ],
-    "bed_toggle.pic2": [
-     "65"
-    ],
-    "chamber_row.pic": [
-     "72"
-    ],
-    "chamber_row.pic2": [
-     "73"
-    ],
-    "chamber_set.val": [
-     "0"
-    ],
-    "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
     "chamber_temp.txt": [
      "\"26\""
     ],
-    "chamber_toggle.pic": [
-     "68"
+    "fan1_val.txt": [
+     "\"0\""
     ],
-    "chamber_toggle.pic2": [
-     "69"
+    "fan2_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic": [
-     "72"
+    "fan3_val.txt": [
+     "\"0\""
     ],
-    "nozzle_row.pic2": [
-     "73"
+    "nozzle_icon.pic": [
+     "169"
     ],
-    "nozzle_set.val": [
-     "0"
+    "nozzle_set.txt": [
+     "\"/ 0\""
     ],
     "nozzle_temp.pco": [
-     "65535"
+     "63422"
     ],
     "nozzle_temp.txt": [
      "\"25\""
     ],
-    "nozzle_toggle.pic": [
-     "60"
+    "step_100_lbl.pco": [
+     "42294"
     ],
-    "nozzle_toggle.pic2": [
-     "61"
+    "step_10_lbl.pco": [
+     "42294"
     ],
-    "step_10.pic": [
-     "76"
+    "step_50_lbl.pco": [
+     "65535"
     ],
-    "step_10.pic2": [
-     "77"
-    ],
-    "step_100.pic": [
-     "84"
-    ],
-    "step_100.pic2": [
-     "85"
-    ],
-    "step_50.pic": [
-     "78"
-    ],
-    "step_50.pic2": [
-     "79"
+    "step_seg.pic": [
+     "176"
     ]
    },
-   "page": 70
+   "page": 19
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "154"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
+    ],
+    "bed_temp.pco": [
+     "63422"
+    ],
+    "bed_temp.txt": [
+     "\"25\""
+    ],
+    "beep_btn.pic": [
+     "385"
+    ],
+    "beep_btn.pic2": [
+     "386"
+    ],
+    "chamber_icon.pic": [
+     "172"
+    ],
+    "chamber_set.txt": [
+     "\"/ 0\""
+    ],
+    "chamber_temp.pco": [
+     "63422"
+    ],
+    "chamber_temp.txt": [
+     "\"26\""
+    ],
+    "light_btn.pic": [
+     "381"
+    ],
+    "light_btn.pic2": [
+     "382"
+    ],
+    "nozzle_icon.pic": [
+     "169"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\""
+    ],
+    "nozzle_temp.pco": [
+     "63422"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\""
+    ],
+    "usb_icon.pic": [
+     "371"
+    ],
+    "vis last_file_pic": [
+     "last_file_pic,1"
+    ],
+    "wifi_icon.pic": [
+     "373"
+    ]
+   },
+   "page": 17
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "154"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
+    ],
+    "bed_temp.pco": [
+     "63422"
+    ],
+    "bed_temp.txt": [
+     "\"25\""
+    ],
+    "chamber_icon.pic": [
+     "172"
+    ],
+    "chamber_set.txt": [
+     "\"/ 0\""
+    ],
+    "chamber_temp.pco": [
+     "63422"
+    ],
+    "chamber_temp.txt": [
+     "\"26\""
+    ],
+    "fan1_val.txt": [
+     "\"0\""
+    ],
+    "fan2_val.txt": [
+     "\"0\""
+    ],
+    "fan3_val.txt": [
+     "\"0\""
+    ],
+    "nozzle_icon.pic": [
+     "169"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\""
+    ],
+    "nozzle_temp.pco": [
+     "63422"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\""
+    ],
+    "step_100_lbl.pco": [
+     "42294"
+    ],
+    "step_10_lbl.pco": [
+     "42294"
+    ],
+    "step_50_lbl.pco": [
+     "65535"
+    ],
+    "step_seg.pic": [
+     "176"
+    ]
+   },
+   "page": 19
   }
  ],
  "shell": [],

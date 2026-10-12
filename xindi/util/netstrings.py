@@ -13,6 +13,8 @@ TEXT = {
                        "الشبكات المحفوظة", "Kayıtlı ağlar", "רשתות שמורות"),
     "network": ("网络", "Сеть", "Network", "ネットワーク", "Réseau", "Netzwerk", "Rete", "Red", "네트워크", "Rede",
                 "الشبكة", "Ağ", "רשת"),
+    "wifi_networks": ("Wi-Fi 网络", "Сети Wi-Fi", "Wi-Fi Networks", "Wi-Fi ネットワーク", "Réseaux Wi-Fi", "WLAN-Netzwerke", "Reti Wi-Fi",
+                      "Redes Wi-Fi", "Wi-Fi 네트워크", "Redes Wi-Fi", "شبكات Wi-Fi", "Wi-Fi ağları", "רשתות Wi-Fi"),
     "change_password": ("修改密码", "Изменить пароль", "Change Password", "パスワード変更", "Changer le mot de passe",
                         "Passwort ändern", "Cambia password", "Cambiar contraseña", "비밀번호 변경", "Alterar senha",
                         "تغيير كلمة المرور", "Parolayı değiştir", "שינוי סיסמה"),

@@ -168,6 +168,14 @@ def choose(thumbs, size, prefer_fmt):
     return max(thumbs, key=lambda t: t.width * t.height)
 
 
+def choose_sharpest(thumbs):
+    """The thumbnail to scale down: the biggest one (a PNG before a JPEG of the same size): scaling a big picture down is sharper than scaling a small one."""
+    thumbs = [t for t in thumbs if _readable(t)]
+    if not thumbs:
+        return None
+    return max(thumbs, key=lambda t: (t.width * t.height, t.fmt == "PNG"))
+
+
 def find(path, size, prefer_fmt):
     """The thumbnail of the gcode file to show at ``size`` pixels, or None."""
     return choose(get_thumbnails(path), size, prefer_fmt)
@@ -199,29 +207,47 @@ def _flatten(image):
     return image.convert("RGB")
 
 
-def colpic(path, size):
-    """ColPic text (the content of /home/mks/tjc in the original) of the
-    preview picture of a gcode file; raises like colpic.py when it fails."""
+def prepare_picture(image, size, matte, radius=0, background=None):
+    """A square thumbnail with its alpha and rounded corners already composited for ColPic."""
+    from PIL import Image, ImageDraw, ImageOps
+    if size <= 0 or radius < 0 or radius > size / 2:
+        raise ValueError("invalid thumbnail geometry")
+    fill = tuple(matte if background is None else background)
+    content = ImageOps.contain(image.convert("RGBA"), (size, size), Image.Resampling.LANCZOS)
+    square = Image.new("RGB", (size, size), fill)
+    square.paste(content, ((size - content.width) // 2, (size - content.height) // 2), content)
+    if radius:
+        mask = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(mask).rounded_rectangle((0, 0, size * 4 - 1, size * 4 - 1), radius=radius * 4, fill=255)
+        mask = mask.resize((size, size), Image.Resampling.LANCZOS)
+        rounded = Image.new("RGB", (size, size), tuple(matte))
+        rounded.paste(square, (0, 0), mask)
+        return rounded
+    return square
+
+
+def colpic(path, size, matte=None, radius=0, background=None):
+    """ColPic of a gcode thumbnail. New pages can request an exact size, matte and rounded corners."""
     from xindi.screen import colpic as screen_colpic
     thumb = find(path, size, "PNG")
     if thumb is None:
         raise IOError("no thumbnail in %s" % path)
-    return screen_colpic.encode_picture(_flatten(_screen_image(thumb, False)), size)
+    image = _screen_image(thumb, False)
+    image = _flatten(image) if matte is None else prepare_picture(image, size, matte, radius, background)
+    return screen_colpic.encode_picture(image, size)
 
 
-def jpeg(path, size):
-    """A size×size baseline JPEG of the file's thumbnail for the screen's
-    picture memory (the ``-112x112_QD.jpg`` of the original, turned like it);
-    None if the file has no thumbnail."""
-    thumb = find(path, size, "JPEG")
+def jpeg(path, size, matte=(41, 40, 41), radius=12, background=(49, 48, 57)):
+    """A size x size baseline JPEG of the file's thumbnail for the screen's picture memory (turned like the ``-112x112_QD.jpg`` of the original);
+    the card colour and the round corners are in the pixels (JPEG has no alpha); None if the file has no thumbnail."""
+    thumb = choose_sharpest(get_thumbnails(path))
     if thumb is None:
         return None
-    from xindi.screen import colpic as screen_colpic
     try:
-        image = _flatten(_screen_image(thumb))
-        image = screen_colpic.resize_to_square(image, size).convert("RGB")
+        image = prepare_picture(_screen_image(thumb), size, matte, radius, background)
         out = io.BytesIO()
-        image.save(out, "JPEG", quality=90, progressive=False, optimize=False)
+        # 4:4:4 (no chroma subsampling): the blocks are 8 x 8, so the 104 pixels of the slot are a whole number of them, and the colour edges stay sharp
+        image.save(out, "JPEG", quality=95, subsampling=0, progressive=False, optimize=False)
         return out.getvalue()
     except Exception as e:
         _log("%s: %s" % (path, e))

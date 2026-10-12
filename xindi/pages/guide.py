@@ -3,21 +3,19 @@
 from xindi import state as g
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
+from xindi.pages.widgets import heater_row
 from xindi.util.cpp import to_string
 
 
 def open_filament_video_2():
-    if g.klippy.extruder_target == 0:
-        g.port.pco("temp_now", "65535")
-        g.port.pco("temp_target", "65535")
-        g.port.face("heat_toggle", "guide_off")
-    else:
-        g.port.pco("temp_now", "63488")
-        g.port.pco("temp_target", "63488")
-        g.port.face("heat_toggle", "guide_on")
-
-    g.port.txt("temp_now", to_string(g.klippy.extruder_temperature) + "/")
-    g.port.val("temp_target", to_string(g.klippy.extruder_target))
+    """"Load filament: heat": the readout, and the next button that waits until the nozzle has reached the target."""
+    current, target = g.klippy.extruder_temperature, g.klippy.extruder_target
+    heater_row("heat", current, target, icon="nozzle")
+    g.port.val("cur_val", to_string(round(current)))        # the screen checks the same condition when the button is tapped
+    g.port.val("tar_val", to_string(round(target)))
+    hot = target > 0 and current + 10 >= target and current + 10 >= 185
+    g.port.face("next", "ready" if hot else "wait")
+    g.port.tsw("next", "1" if hot else "0")
 
 
 def open_moving():

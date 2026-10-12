@@ -1,7 +1,7 @@
 """The move page and its pop-ups."""
 
 from xindi import state as g
-from xindi.pages.widgets import cut_after_point, face_group
+from xindi.pages.widgets import cut_after_point, segmented
 from xindi.printer import job
 from xindi.screen import pageids as ids
 from xindi.util.cpp import f32, to_string
@@ -17,9 +17,9 @@ def move_page():
     g.port.txt("z_pos", z_pos)
 
     # CLL highlight the selected distance
-    for dist, names in ((0.1, 0), (1.0, 1), (10, 2)):
+    for dist, look in ((0.1, "d01"), (1.0, "d1"), (10, "d10")):
         if g.klippy.move_dist == f32(dist):
-            face_group(("dist_01", "dist_1", "dist_10"), names)
+            segmented("dist_seg", (("d01", "dist_01_lbl"), ("d1", "dist_1_lbl"), ("d10", "dist_10_lbl")), look)
 
 
 def move_home_tips():

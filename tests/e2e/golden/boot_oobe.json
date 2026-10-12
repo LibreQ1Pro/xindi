@@ -1,20 +1,20 @@
 {
  "alive": true,
  "files": {
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
-  "/home/mks/gcode_files/.cache/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.cache/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
-  "/home/mks/gcode_files/.cache/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/.hidden.gcode": "sha1:e9c4f663cb3921c3:26",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-112x112_QD.jpg": "sha1:2d5b7d600246d2e9:3974",
   "/home/mks/gcode_files/.thumbs/Benchy PLA-160x160.png": "sha1:0d7d2df0e6db2713:1710",
   "/home/mks/gcode_files/.thumbs/cube-112x112_QD.jpg": "sha1:8c4d6554d025b74f:3925",
   "/home/mks/gcode_files/.thumbs/cube-160x160.png": "sha1:3904430b9e84afa5:1656",
+  "/home/mks/gcode_files/.thumbs/last_print-112x112_QD.jpg": "sha1:74fb0556bbf81832:3966",
+  "/home/mks/gcode_files/.thumbs/last_print-160x160.png": "sha1:5a0b3b99b5febe9f:1683",
   "/home/mks/gcode_files/.thumbs/part_abs-112x112_QD.jpg": "sha1:15013ab210f2794e:4047",
   "/home/mks/gcode_files/.thumbs/part_abs-160x160.jpg": "sha1:bc1e24b92b24bce1:5249",
   "/home/mks/gcode_files/Benchy PLA.gcode": "sha1:6ea7950f47676656:4311",
   "/home/mks/gcode_files/big_petg.gcode": "sha1:fb0996f14638abd8:27",
   "/home/mks/gcode_files/cube.gcode": "sha1:2e15189a714756be:4269",
+  "/home/mks/gcode_files/last_print.gcode": "sha1:fde4111ecf9f64e5:4317",
   "/home/mks/gcode_files/models/deep/deeper.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/models/inner.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
@@ -33,31 +33,30 @@
  },
  "http": [
   "GET /server/files/roots",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/gcodes/.cache/last_print.gcode"
+  "GET /server/files/gcodes/last_print.gcode"
  ],
  "pages": [
-  3,
-  4,
-  3,
   5,
-  6,
   7,
-  83,
-  12,
+  5,
+  8,
+  10,
+  9,
+  15,
   13,
-  11,
-  11,
+  14,
   12,
   13,
   14,
-  15
+  16,
+  17
  ],
  "screen": [
   {
    "attrs": {
-    "logo.version.val": [
+    "boot_logo.version.val": [
      "100"
     ],
     "prints 0xa0": [
@@ -74,23 +73,7 @@
   },
   {
    "attrs": {},
-   "page": 3
-  },
-  {
-   "attrs": {},
-   "page": 4
-  },
-  {
-   "attrs": {},
-   "page": 3
-  },
-  {
-   "attrs": {},
    "page": 5
-  },
-  {
-   "attrs": {},
-   "page": 6
   },
   {
    "attrs": {},
@@ -98,88 +81,117 @@
   },
   {
    "attrs": {},
-   "page": 83
+   "page": 5
+  },
+  {
+   "attrs": {},
+   "page": 8
+  },
+  {
+   "attrs": {},
+   "page": 10
+  },
+  {
+   "attrs": {},
+   "page": 9
+  },
+  {
+   "attrs": {},
+   "page": 15
   },
   {
    "attrs": {
-    "heat_toggle.pic": [
-     "201",
-     "199",
-     "201"
+    "cur_val.val": [
+     "25",
+     "80"
     ],
-    "heat_toggle.pic2": [
-     "202",
-     "200",
-     "202"
+    "heat_set.txt": [
+     "\"/ 0\"",
+     "\"/ 223\"",
+     "\"/ 0\""
     ],
-    "temp_now.pco": [
-     "65535",
-     "63488",
-     "65535"
+    "heat_temp.pco": [
+     "63422",
+     "64459",
+     "63422"
     ],
-    "temp_now.txt": [
-     "\"25/\"",
-     "\"80/\""
+    "heat_temp.txt": [
+     "\"25\"",
+     "\"80\""
     ],
-    "temp_target.pco": [
-     "65535",
-     "63488",
-     "65535"
+    "next.pic": [
+     "211"
     ],
-    "temp_target.val": [
+    "next.pic2": [
+     "212"
+    ],
+    "nozzle_icon.pic": [
+     "169",
+     "404",
+     "169"
+    ],
+    "tar_val.val": [
      "0",
      "223",
      "0"
+    ],
+    "tsw next": [
+     "next,0"
     ]
    },
-   "page": 12
-  },
-  {
-   "attrs": {},
    "page": 13
   },
   {
    "attrs": {},
-   "page": 11
+   "page": 14
   },
   {
    "attrs": {},
-   "page": 11
+   "page": 12
   },
   {
    "attrs": {
-    "heat_toggle.pic": [
-     "201"
+    "cur_val.val": [
+     "80"
     ],
-    "heat_toggle.pic2": [
-     "202"
+    "heat_set.txt": [
+     "\"/ 0\""
     ],
-    "temp_now.pco": [
-     "65535"
+    "heat_temp.pco": [
+     "63422"
     ],
-    "temp_now.txt": [
-     "\"80/\""
+    "heat_temp.txt": [
+     "\"80\""
     ],
-    "temp_target.pco": [
-     "65535"
+    "next.pic": [
+     "211"
     ],
-    "temp_target.val": [
+    "next.pic2": [
+     "212"
+    ],
+    "nozzle_icon.pic": [
+     "169"
+    ],
+    "tar_val.val": [
      "0"
+    ],
+    "tsw next": [
+     "next,0"
     ]
    },
-   "page": 12
-  },
-  {
-   "attrs": {},
    "page": 13
   },
   {
+   "attrs": {},
+   "page": 14
+  },
+  {
    "attrs": {
-    "logo.version.val": [
+    "boot_logo.version.val": [
      "100"
     ]
    },
-   "page": 14
+   "page": 16
   },
   {
    "attrs": {
@@ -187,41 +199,41 @@
      "921600",
      "115200"
     ],
-    "bed_btn.pic": [
-     "112"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_btn.pic2": [
-     "113"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "bed_temp.val": [
-     "25"
+    "bed_temp.txt": [
+     "\"25\""
     ],
     "beep_btn.pic": [
-     "124"
+     "385"
     ],
     "beep_btn.pic2": [
-     "125"
+     "386"
     ],
-    "chamber_btn.pic": [
-     "116"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "chamber_btn.pic2": [
-     "117"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "chamber_temp.val": [
-     "26"
+    "chamber_temp.txt": [
+     "\"26\""
     ],
     "last_file_btn.pic": [
-     "128"
+     "375"
     ],
     "last_file_btn.pic2": [
-     "129"
+     "376"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -230,44 +242,49 @@
      ""
     ],
     "last_file_pic.write": [
-     "fcaf136f9c97b20a:2048",
-     "96a7f7344f6aa623:2048",
-     "cdc4307d5b046e43:2048",
-     "a3012462ca595441:2048",
-     "2e1dc1e0374d66d4:2048",
-     "b3d19a6c7b9021ef:2048",
-     "cf8288d0ca407a6d:2048",
-     "7de2e0119283074b:128"
+     "5bcf493026f266e6:2048",
+     "b6a2fc9764b6f4a2:2048",
+     "0727265b7d182a1a:2048",
+     "dbe11c424badbc40:2048",
+     "9ecb34fe6d285f55:2048",
+     "9536bba6491cd037:2048",
+     "17869ae82d94ea25:2048",
+     "097dde0fe53537b4:2048",
+     "3699e83bae42cd24:2048",
+     "f14602d4580845a1:2048",
+     "ab885034953d8a08:2048",
+     "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "120"
+     "381"
     ],
     "light_btn.pic2": [
-     "121"
+     "382"
     ],
-    "nozzle_btn.pic": [
-     "108"
+    "nozzle_icon.pic": [
+     "169"
     ],
-    "nozzle_btn.pic2": [
-     "109"
+    "nozzle_set.txt": [
+     "\"/ 0\""
     ],
     "nozzle_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "nozzle_temp.val": [
-     "80"
+    "nozzle_temp.txt": [
+     "\"80\""
     ],
     "usb_icon.pic": [
-     "130"
+     "371"
     ],
     "vis last_file_pic": [
+     "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "132"
+     "373"
     ]
    },
-   "page": 15
+   "page": 17
   }
  ],
  "shell": [
@@ -288,8 +305,6 @@
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=extruder target=223\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=extruder target=0\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"M83\\nG1 E20 F300\\n\"}}",
-  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G91\\nG1 Z-10.000000 F600\\nG90\"}}",
-  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G91\\nG1 Z+10.000000 F600\\nG90\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"SET_HEATER_TEMPERATURE heater=extruder target=0\"}}",
   "{\"id\":4654,\"jsonrpc\":\"2.0\",\"method\":\"printer.objects.query\",\"params\":{\"objects\":{\"bed_mesh\":null,\"display_status\":[\"progress\",\"message\"],\"extruder\":null,\"fan\":[\"speed\"],\"fan_generic auxiliary_cooling_fan\":[\"speed\",\"rpm\"],\"fan_generic chamber_circulation_fan\":[\"speed\",\"rpm\"],\"fan_generic cooling_fan\":[\"speed\",\"rpm\"],\"filament_switch_sensor fila\":[\"filament_detected\",\"enabled\"],\"firmware_retraction\":[\"retract_length\",\"retract_speed\",\"unretract_extra_length\",\"unretract_speed\"],\"gcode_move\":null,\"heater_bed\":null,\"heater_fan fan1\":[\"speed\"],\"heater_fan my_nozzle_fan1\":null,\"heater_generic chamber\":null,\"idle_timeout\":[\"state\"],\"output_pin caselight\":null,\"output_pin sound\":null,\"pause_resume\":[\"is_paused\"],\"print_stats\":[\"print_duration\",\"total_duration\",\"filament_used\",\"filename\",\"state\",\"message\"],\"probe\":null,\"toolhead\":null,\"webhooks\":[\"state\",\"state_message\"]}}}"
  ]

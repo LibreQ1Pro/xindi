@@ -3,13 +3,12 @@
 import logging
 
 from xindi import state as g
+from xindi.pages import widgets
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.system import network
 from xindi.system.network import (detected_wlan0,
-                                  get_eth0_ip,
                                   get_ssid_list_pages,
-                                  get_wlan0_ip,
                                   get_wlan0_status,
                                   set_page_wifi_ssid_list)
 from xindi.util.cpp import b2s, to_string
@@ -62,13 +61,13 @@ def refresh_wifi_list():
         log.debug("Refreshed wifi: %s", g.net.wifi_ssid_list[i])
         g.port.txt("row" + to_string(i + 1) + "_txt", g.net.wifi_ssid_list[i])
         if g.net.status_result.wpa_state == "COMPLETED" and g.net.wifi_current_pages == 0 and i == 0:
-            g.port.face("row1", "check")
-            g.screen.wifi_ssid_button_enabled[i] = False
+            widgets.list_row("row1", "check")
+            g.screen.wifi_ssid_button_enabled[i] = True        # the connected network is a saved one: its page opens
         elif g.net.wifi_ssid_list[i] != "":
-            g.port.face("row" + to_string(i + 1), "item")
+            widgets.list_row("row" + to_string(i + 1), "item")
             g.screen.wifi_ssid_button_enabled[i] = True
         else:
-            g.port.face("row" + to_string(i + 1), "blank")
+            widgets.list_row("row" + to_string(i + 1), "blank")
             g.screen.wifi_ssid_button_enabled[i] = False
 
     if g.net.wifi_ssid_list_pages == 0:
@@ -90,25 +89,3 @@ def print_ssid_psk(psk):
     network.mks_start_connect(g.net.get_wifi_name, b2s(psk))
 
 
-def refresh_ip_address():
-    """4.4.22: show the network page with the address of wlan0."""
-    page_to(ids.INTERNET_PAGE)
-    ip_address = get_wlan0_ip()
-    if ip_address != "":
-        log.info("ip_address updated")
-        g.port.txt("ip_txt", ip_address)
-
-
-def refresh_show_ip():
-    """4.4.22 refresh of the network page."""
-    if g.config.ethernet == 1:
-        ip_address = get_eth0_ip()
-        ip_address = ip_address if ip_address.find(":") == -1 else ""
-        switch = "wired"
-    else:
-        ip_address = g.net.status_result.ip_address
-        switch = "wifi"
-    if g.shown.changed("ip_txt", ip_address):
-        g.port.txt("ip_txt", ip_address)
-    if g.shown.changed("source_switch", switch):
-        g.port.face("source_switch", switch)

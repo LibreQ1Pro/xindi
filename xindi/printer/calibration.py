@@ -48,15 +48,6 @@ def open_more_level_finish():
     page_to(ids.MAIN)
 
 
-def open_calibrate_start():
-    g.levelling.step_1 = False    # CLL True: platform and nozzle position initialised
-    g.levelling.step_2 = False    # CLL True: compensation values collected
-    g.levelling.step_3 = False    # CLL True: input shaping done
-    g.klippy.idle_timeout_state = "Printing"
-    page_to(ids.OPEN_CALIBRATE)
-    g.ep.run_gcode("M4028")   # custom gcode "M4028" in printer.cfg
-
-
 def open_heater_bed_up():
     # 4.4.22: the caller shows the "moving" page, which waits until Klipper is idle
     # again (refresh_page_open_moving()); the bed is homed and moved up and down

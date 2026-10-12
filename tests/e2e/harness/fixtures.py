@@ -234,15 +234,15 @@ class Fixture(object):
         # from the web UI (the port reads the gcode file itself)
         _image(os.path.join(GCODES, ".cache/.thumbs/part_abs-160x160.jpg"), (200, 120), 5, "JPEG", "RGB")
         if self.o["cache_file"]:
-            _write(os.path.join(GCODES, ".cache/last_print.gcode"), "G28\n")
-            _image(os.path.join(GCODES, ".cache/.thumbs/last_print-160x160.png"), (160, 160), 6, "PNG", "RGB")
+            _write(os.path.join(GCODES, "last_print.gcode"), "G28\n")
+            _image(os.path.join(GCODES, ".thumbs/last_print-160x160.png"), (160, 160), 6, "PNG", "RGB")
         # The Python port reads the thumbnails from the gcode files themselves:
         # the same pictures are embedded there as slicers do it.
         _embed_thumbnails(os.path.join(GCODES, "cube.gcode"), [".thumbs/cube-160x160.png"], 2)
         _embed_thumbnails(os.path.join(GCODES, "Benchy PLA.gcode"), [".thumbs/Benchy PLA-160x160.png"], 4)
         _embed_thumbnails(os.path.join(GCODES, "part_abs.gcode"), [".thumbs/part_abs-160x160.jpg"], 8)
         if self.o["cache_file"]:
-            _embed_thumbnails(os.path.join(GCODES, ".cache/last_print.gcode"), [".thumbs/last_print-160x160.png"], 7)
+            _embed_thumbnails(os.path.join(GCODES, "last_print.gcode"), [".thumbs/last_print-160x160.png"], 7)
 
         if o["usb"]:
             _write("/dev/sda", b"")
@@ -331,12 +331,19 @@ class Fixture(object):
             "part_abs.gcode": meta("part_abs.gcode", 0, 15000.0, None, "ABS", [thumb(300, ".thumbs/part_abs-300x300.png")]),
             "big_petg.gcode": meta("big_petg.gcode", 360000, 99999.9, 123.456, "PETG", []),
             "z_last.gcode": meta("z_last.gcode", 120, 10.0, 0.5, "TPU", [thumb(168, ".thumbs/z_last-168x168.png")]),
-            ".cache/last_print.gcode": meta(".cache/last_print.gcode", 7322, 2500.0, 7.25, "PETG",
+            "last_print.gcode": meta("last_print.gcode", 7322, 2500.0, 7.25, "PETG",
                                             [thumb(160, ".thumbs/last_print-160x160.png")]),
             "models/inner.gcode": meta("models/inner.gcode", 100, 50.0, 0.2, "PLA",
                                        [thumb(300, ".thumbs/inner-300x300.png")]),
             "sda1/usb_one.gcode": meta("sda1/usb_one.gcode", 1000, 500.0, 1.5, "ASA", []),
         }
+
+    def history_jobs(self):
+        """Moonraker server/history/list: the file printed last (the "cache_file" option) and one that is gone."""
+        jobs = [{"filename": "deleted.gcode", "exists": False, "status": "completed"}]
+        if self.o["cache_file"]:
+            jobs.insert(0, {"filename": "last_print.gcode", "exists": True, "status": "completed"})
+        return jobs
 
     def directory(self, path):
         """Moonraker server/files/directory result for a "gcodes/..." path."""

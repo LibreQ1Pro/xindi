@@ -4,20 +4,32 @@ import logging
 import time
 
 from xindi import state as g
-from xindi.moonraker.gcode_files import output_imgdata
 from xindi.pages import file_list
 from xindi.pages.widgets import cut_after_point, fast_screen_link, send_chunks_cp, send_chunks_txt, two_state_button
 from xindi.printer import calibration, job
 from xindi.screen import pageids as ids, thumbnail
+from xindi.screen.text import fit_name
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import f32, substr, to_string
 
 log = logging.getLogger(__name__)
 
 
+PREVIEW_PICTURE = 152       # the pictures the host makes for the widgets: exactly their size, with the card colour and the round corners in the pixels
+PRINT_PICTURE = 132         # the print pages (cp_data)
+KEYBOARD_PICTURE = 72       # the number keyboard of the print pages (cp_data_s)
+PAGE_COLOUR = (24, 24, 24)
+CARD_COLOUR = (49, 48, 57)
+
+
+def picture_data(path, size):
+    """The ColPic text of the thumbnail of ``path`` for a widget of ``size``; raises OSError / ValueError when there is no usable thumbnail."""
+    return thumbnail.colpic(path, size, matte=PAGE_COLOUR, radius=12, background=CARD_COLOUR)
+
+
 def preview_details():
-    # 4.4.2 CLL only the file name is shown on the preview page
-    g.port.txt("err_msg", file_list.file_name_only(g.files.meta_filename))
+    # 4.4.2 CLL only the file name is shown on the preview page (cut to a line of the slot)
+    g.port.txt("file_name", fit_name(file_list.file_name_only(g.files.meta_filename), 248, lines=1))
     if g.files.meta_estimated_time:
         g.port.txt("est_time", job.show_time(g.files.meta_estimated_time))
     else:
@@ -25,13 +37,13 @@ def preview_details():
 
     if g.files.meta_filament_weight_total:
         temp = to_string(g.files.meta_filament_weight_total)
-        g.port.txt("fil_weight", cut_after_point(temp, 2) + "g")
+        g.port.txt("fil_weight", cut_after_point(temp, 2) + " g")
     else:
         g.port.txt("fil_weight", "-")
 
     if g.files.meta_filament_total:
         temp = to_string(f32(g.files.meta_filament_total / 1000))
-        g.port.txt("fil_length", cut_after_point(temp, 2) + "m")
+        g.port.txt("fil_length", cut_after_point(temp, 2) + " m")
     else:
         g.port.txt("fil_length", "-")
 
@@ -54,7 +66,7 @@ def preview_picture_ref():
         candidates = ["/.cache/" + file_list.name_of(g.klippy.print_stats_filename),
                       "/" + g.klippy.print_stats_filename]
     elif g.screen.cache_clicked:
-        candidates = [job.stack_top(g.files.list_path_stack) + "/.cache/" + file_list.name_of(g.files.meta_filename)]
+        candidates = ["/" + g.files.meta_filename]            # the last printed file: the path Moonraker gave
         g.screen.cache_clicked = False
     else:
         candidates = [job.stack_top(g.files.list_path_stack) + "/" + file_list.name_of(g.files.meta_filename)]
@@ -67,33 +79,29 @@ def preview_picture_ref():
 
 
 def send_preview_pictures(picture_path):
-    """Send the small and the big picture to the screen; False when the picture could not be converted."""
-    # small picture
-    output_imgdata(picture_path, 160)
-    data = g.pictures.tjc_data
-    if data is None:
-        log.error("No converted picture (/home/mks/tjc)")
+    """Send the pictures to the screen: the two small ones (the print pages and their keyboard) and the big one of this page;
+    False when the picture could not be converted."""
+    try:
+        small = {target: picture_data(picture_path, size) for target, size in (("cp_data", PRINT_PICTURE), ("cp_data_s", KEYBOARD_PICTURE))}
+        big = None if g.screen.jump_print else picture_data(picture_path, PREVIEW_PICTURE)
+    except (OSError, ValueError) as error:
+        log.error("No converted picture: %s", error)
         return False
-    g.files.meta_simage = data
-    g.port.txt("preview.cp_data", "")
-    g.port.txt("preview.cp_pad", "")
-    if g.files.meta_simage != "":
+    g.files.meta_simage = small["cp_data"]
+    g.port.txt("file_preview.cp_pad", "")
+    for target, data in small.items():
+        g.port.txt("file_preview." + target, "")
         with fast_screen_link():
-            log.debug("Sending the small picture")
-            send_chunks_txt(g.files.meta_simage)
+            log.debug("Sending the small picture %s", target)
+            send_chunks_txt(data, target)
 
     # big picture
-    if not g.screen.jump_print:
-        data = g.pictures.tjc_data
-        if data is None:
-            log.error("No converted picture (/home/mks/tjc)")
-            return False
-        g.files.meta_gimage = data
+    if big is not None:
+        g.files.meta_gimage = big
         with fast_screen_link():
-            g.port.cp_close("preview.preview_pic")
-            if g.files.meta_gimage != "":
-                log.debug("Sending the big picture")
-                send_chunks_cp("preview_pic", g.files.meta_gimage)
+            g.port.cp_close("file_preview.preview_pic")
+            log.debug("Sending the big picture")
+            send_chunks_cp("preview_pic", big)
         calibration.bed_leveling_switch(True)
     return True
 

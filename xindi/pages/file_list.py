@@ -11,6 +11,7 @@ from xindi.moonraker.rpc_requests import json_get_gcode_metadata
 from xindi.pages import widgets
 from xindi.printer import klipper
 from xindi.screen import pageids as ids, thumbnail
+from xindi.screen.text import fit_name
 from xindi.screen.navigation import page_to
 from xindi.screen.transfer import delete_small_jpg
 from xindi.util import paths
@@ -20,6 +21,8 @@ log = logging.getLogger(__name__)
 
 
 DEFAULT_DIR = "gcodes/"
+NAME_WIDTH = 108            # the width of the name of a file slot of the screen, in pixels of the wide font
+LIST_PICTURE = 104          # the thumbnails of the slots are 104 x 104 (the card colour and the round corners are in the picture)
 
 
 def file_name_only(path):
@@ -57,12 +60,12 @@ def queue_list_pictures():
             # by QIDI's slicer / Moonraker) to the screen; the port takes the
             # thumbnail from the gcode file itself (see thumbnail.py).
             if t == "[c]":
-                picture_path = g.files.list_path + "/.cache/" + name
+                picture_path = "/" + g.files.list_last_printed
             else:
                 picture_path = g.files.list_path + "/" + name
             picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
             log.info("Picture path:%s", picture_path)
-            if thumbnail.find(picture_path, 112, "JPEG") is not None:
+            if thumbnail.find(picture_path, LIST_PICTURE, "JPEG") is not None:
                 g.pictures.have_64_jpg[i] = True
                 g.pictures.have_64_png_path[i] = picture_path
         # the picture thread also enables the touch again when there is no picture
@@ -74,29 +77,28 @@ def refresh_files_list():
     # (file_list_refreshed), the folder and page are kept meanwhile
     if not g.screen.file_list_refreshed:
         delete_small_jpg()
-    if detect_disk_2() == 1 and g.screen.file_mode == "USB":
-        g.port.txt("empty_msg", "")
-    elif detect_disk_2() == 0 and g.screen.file_mode == "USB":
-        g.port.txt("empty_msg", "\u7a7a")     # "empty"
     g.port.vis("file1_mark", "0")
     for i in range(4):
         row = "file" + to_string(i + 1)
-        g.port.txt(row + "_name", g.files.list_list_show_name[i])
+        g.port.txt(row + "_name", fit_name(g.files.list_list_show_name[i], NAME_WIDTH, lines=2))
         t = g.files.list_list_show_type[i]
         if t in ROW_LOOKS:
             g.port.face(row, ROW_LOOKS[t])
+        shown = "1" if t in ("[c]", "[f]") else "0"          # the placeholder and the thumbnail belong to a file only
+        g.port.vis(row + "_pic_bg", shown)
+        g.port.vis(row + "_pic", shown)
+        g.port.vis(row + "_name", "1" if t != "[n]" else "0")      # the box of a name is the colour of the card: nothing to show without a slot
         if t == "[c]":
             g.port.vis("file1_mark", "1")
 
     # 4.4.2 CLL local / USB buttons on the file list page
-    if g.screen.file_mode == "Local":
-        for tab in ("local_tab", "usb_tab"):
-            g.port.face(tab, "local")
-    elif g.screen.file_mode == "USB":
-        for tab in ("local_tab", "usb_tab"):
-            g.port.face(tab, "usb")
-        if detect_disk() == -1:
-            g.port.vis("empty_msg", "1")
+    mode = "local" if g.screen.file_mode == "Local" else "usb"
+    widgets.segmented("tabs_seg", (("local", "local_tab_lbl"), ("usb", "usb_tab_lbl")), mode)
+    # "Empty" (the text is set by the screen in its language) when there is nothing to show: no drive, or an empty folder
+    empty = all(t == "[n]" for t in g.files.list_list_show_type[:4])
+    if g.screen.file_mode == "USB" and (detect_disk_2() != 1 or detect_disk() == -1):
+        empty = True
+    g.port.vis("empty_msg", "1" if empty else "0")
     nav_button("prev", g.files.list_current_pages == 0)
     nav_button("next", g.files.list_current_pages == g.files.list_pages)
     nav_button("up_dir", g.files.list_folder_layers == 0
@@ -118,9 +120,10 @@ def get_file_estimated_time(filename):
 
 
 def clear_cp0_image():
-    g.port.cp_close("preview.preview_pic")
-    g.port.txt("preview.cp_data", "")
-    g.port.txt("preview.cp_pad", "")
+    g.port.cp_close("file_preview.preview_pic")
+    g.port.txt("file_preview.cp_data", "")
+    g.port.txt("file_preview.cp_data_s", "")
+    g.port.txt("file_preview.cp_pad", "")
     g.screen.show_preview_gimage_completed = False
     g.files.meta_parse_finished = False
     g.files.meta_simage = ""
@@ -199,27 +202,36 @@ def print_log():
         page_to(ids.PRINT_LOG_S)
 
 
-def send_file_picture(path, pixel, obj):
-    """Sends the picture of ``path`` into the picture widget ``obj`` of the current page (the main page
-    calls it last_file_pic; the screen answers "invalid variable name" to a widget the page lacks)."""
+def send_file_picture(path, pixel, obj, matte=None, radius=0, background=None):
+    """Send a ColPic into the current page. New pages prepare its size and matte on the host."""
     g.files.meta_simage = ""
     g.files.meta_gimage = ""
     g.files.meta_parse_finished = False
-    output_imgdata(path, pixel)
-    data = g.pictures.tjc_data
+    if matte is None:
+        output_imgdata(path, pixel)
+        data = g.pictures.tjc_data
+    else:
+        try:
+            data = thumbnail.colpic(path, pixel, matte=matte, radius=radius, background=background)
+        except (OSError, ValueError) as error:
+            log.error("Could not prepare thumbnail: %s", error)
+            data = None
     if data is None:
-        log.error("No converted picture (/home/mks/tjc)")
+        log.error("No converted picture")
         g.screen.show_preview_complete = True
-        return
+        return False
     g.files.meta_gimage = data
     g.port.baud(921600)
     time.sleep(0.01)
     g.port.set_baud(921600)
-    g.port.cp_close(obj)
-    if g.files.meta_gimage != "":
-        log.debug("Sending the file picture")
-        widgets.send_chunks_cp(obj, g.files.meta_gimage)
-    g.port.baud(115200)
-    time.sleep(0.01)
-    g.port.set_baud(115200)
+    try:
+        g.port.cp_close(obj)
+        if g.files.meta_gimage != "":
+            log.debug("Sending the file picture")
+            widgets.send_chunks_cp(obj, g.files.meta_gimage)
+    finally:
+        g.port.baud(115200)
+        time.sleep(0.01)
+        g.port.set_baud(115200)
     g.port.vis(obj, "1")
+    return True

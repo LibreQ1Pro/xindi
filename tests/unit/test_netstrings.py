@@ -2,7 +2,7 @@ import json
 import os
 import unittest
 
-from xindi import netstrings
+from xindi.util import netstrings
 
 PAGES = os.path.join(os.path.dirname(__file__), "..", "..", "display_firmware", "pages")
 
@@ -28,9 +28,9 @@ class NetStringsTest(unittest.TestCase):
 
     def test_pages_of_the_screen_use_the_table(self):
         """tools/net_i18n.py has been run: the pages carry the texts of the table."""
-        with open(os.path.join(PAGES, "net_info.json"), encoding="utf-8") as f:
+        with open(os.path.join(PAGES, "network_info.json"), encoding="utf-8") as f:
             code = "\n".join(json.load(f)["root"]["events"]["codesload"])
-        for text in netstrings.TEXT["network_info"]:
+        for text in netstrings.TEXT["network"]:
             self.assertIn('title.txt="%s"' % text, code)
 
 

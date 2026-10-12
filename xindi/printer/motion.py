@@ -1,7 +1,6 @@
 """Moving the toolhead, homing, the z offset and the extruder."""
 
 import logging
-import time
 
 from xindi import state as g
 from xindi.config import settings
@@ -76,20 +75,17 @@ def start_extrude():
 
 
 def motors_off():
+    """The emergency stop. The firmware is not restarted here: Klipper stays shut down and the screen shows its error page, where the user restarts it."""
     g.ep.send(json_emergency_stop())
-    time.sleep(1)
-    g.ep.run_gcode("FIRMWARE_RESTART\n")     # "motors off" was turned into an emergency stop
 
 
 def filament_load():
-    g.port.vis("next_btn", "0")
-    g.port.vis("temp_txt", "1")
-    g.port.vis("back_btn", "0")
+    for name in ("next_btn", "back_btn"):
+        g.port.vis(name, "0")
+    widgets.show_readout("nozzle", True)
     g.port.face("steps_bar", "load_1")
     g.port.pco("step1_txt", "65535")
-    g.port.pco("hint", "38066")
-    g.port.vis("spin1", "0")
-    g.port.vis("spin2", "1")
+    g.port.pco("hint", "42294")
     g.klippy.idle_timeout_state = "Printing"
     g.ep.run_gcode("M109 S" + to_string(g.screen.load_target) + "\n")
     g.ep.run_gcode("M604\n")
@@ -112,7 +108,7 @@ def open_start_extrude():
 def save_current_zoffset():
     z_offset = to_string(g.klippy.gcode_move_homing_origin[2])
     z_offset = widgets.cut_after_point(z_offset, 4)
-    if g.screen.page in (ids.AUTO_MOVING, ids.OPEN_CALIBRATE):
+    if g.screen.page == ids.AUTO_MOVING:
         g.klippy.idle_timeout_state = "Printing"
         settings.get_babystep()
         z = f32(stof(g.config.babystep_value) + stof(g.config.adxl_offset))

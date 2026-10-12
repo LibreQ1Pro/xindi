@@ -79,7 +79,7 @@ def detect_error():
                              ids.PRINTING_2, ids.GCODE_ERROR, ids.LEVEL_ERROR,
                              ids.DETECT_ERROR):
         pass
-    elif g.screen.page in (ids.OPEN_CALIBRATE, ids.AUTO_MOVING):
+    elif g.screen.page == ids.AUTO_MOVING:
         g.ep.run_gcode("RESTART")
         g.screen.jump_level_error = True
     else:

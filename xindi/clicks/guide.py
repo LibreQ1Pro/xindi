@@ -47,29 +47,6 @@ def open_moving(page_id, widget_id):
         page_to(ids.OPEN_FILAMENTVIDEO_0)
 
 
-# fifth page of the guide
-def open_video_3(page_id, widget_id):
-    if widget_id == ids.OPEN_VIDEO_3_NEXT:
-        page_to(ids.OPEN_FILAMENTVIDEO_1)     # CLL levelling and input shaping removed from the guide
-    elif widget_id == ids.OPEN_VIDEO_3_UP:
-        motion.set_move_dist(10.0)
-        motion.move_z_decrease()
-    elif widget_id == ids.OPEN_VIDEO_3_DOWN:
-        motion.set_move_dist(10.0)
-        motion.move_z_increase()
-
-
-def open_heaterbed(page_id, widget_id):
-    if widget_id == ids.OPEN_HEATERBED_DOWN:
-        heating.set_auto_level_heater_bed_target(False)
-    elif widget_id == ids.OPEN_HEATERBED_UP:
-        heating.set_auto_level_heater_bed_target(True)
-    elif widget_id == ids.OPEN_HEATERBED_ON_OFF:
-        heating.filament_heater_bed_target()
-    elif widget_id == ids.OPEN_HEATERBED_NEXT:
-        calibration.open_calibrate_start()
-
-
 def open_filamentvideo(page_id, widget_id):
     if page_id == ids.OPEN_FILAMENTVIDEO_0:
         if widget_id == ids.OPEN_FILAMENTVIDEO_0_NEXT:
@@ -110,8 +87,6 @@ HANDLERS = {
     ids.OPEN_VIDEO_2: open_video_2,
     ids.OPEN_WARNING: open_warning,
     ids.OPEN_MOVING: open_moving,
-    ids.OPEN_VIDEO_3: open_video_3,
-    ids.OPEN_HEATERBED: open_heaterbed,
     ids.OPEN_FILAMENTVIDEO_0: open_filamentvideo,
     ids.OPEN_FILAMENTVIDEO_1: open_filamentvideo,
     ids.OPEN_FILAMENTVIDEO_2: open_filamentvideo_2,

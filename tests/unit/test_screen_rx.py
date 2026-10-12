@@ -4,7 +4,7 @@
 import queue
 import unittest
 
-from xindi.screen_rx import END, FrameParser, next_frame
+from xindi.screen.rx import END, FrameParser, next_frame
 
 
 class Clock:

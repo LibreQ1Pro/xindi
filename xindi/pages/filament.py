@@ -1,7 +1,7 @@
 """The filament page, its pop-ups and the unload page."""
 
 from xindi import state as g
-from xindi.pages.widgets import face_group
+from xindi.pages.widgets import fan_values, heat_readout, heater_row, segmented
 from xindi.screen import pageids as ids
 from xindi.util.cpp import c_int, f32, to_string
 
@@ -16,77 +16,44 @@ def filament_tips():
 
 
 def filament_pop():
-    g.port.txt("temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
-                 to_string(g.klippy.extruder_target) + "℃)")
+    heat_readout("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
     if g.levelling.step_1:
         g.levelling.step_1 = False
         g.port.face("steps_bar", "load_2")
         g.port.pco("step2_txt", "65535")
-        g.port.pco("step1_txt", "38066")
-        g.port.pco("temp_txt", "38066")
-        g.port.vis("spin2", "0")
-        g.port.vis("spin3", "1")
+        g.port.pco("step1_txt", "42294")
+        g.port.pco("nozzle_temp", "42294")
     if g.levelling.step_2 and g.klippy.idle_timeout_state == "Ready":
         g.levelling.step_2 = False
         g.port.face("steps_bar", "load_3")
         g.port.pco("step3_txt", "65535")
-        g.port.pco("step2_txt", "38066")
-        g.port.vis("done_btn", "1")
-        g.port.vis("alt_btn", "1")
-        g.port.vis("spin3", "0")
-
-
-def filament_set_fan():
-    if not g.screen.move_fan_setting:     # CLL refresh only while the slider is not being dragged
-        fan0 = to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100)))
-        fan2 = to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100)))
-        fan3 = to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100)))
-        g.port.val("fan1_slider", fan0)
-        g.port.val("fan1_val", fan0)
-        g.port.val("fan2_slider", fan2)
-        g.port.val("fan2_val", fan2)
-        g.port.val("fan3_slider", fan3)
-        g.port.val("fan3_val", fan3)
-        for name, value in (("fan1_toggle", g.klippy.out_pin_fan0_value), ("fan2_toggle", g.klippy.out_pin_fan2_value),
-                            ("fan3_toggle", g.klippy.out_pin_fan3_value)):
-            g.port.face(name, "off" if value == 0 else "on")
+        g.port.pco("step2_txt", "42294")
+        for name in ("done_btn", "alt_btn"):
+            g.port.vis(name, "1")
 
 
 def filament():
-    g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
-    g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
-    g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
-    g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
-    g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
-    g.port.val("chamber_set", to_string(g.klippy.hot_target))
-    # CLL the buttons of a heater and its number show whether the heater is on
-    for heater, target in (("nozzle", g.klippy.extruder_target), ("bed", g.klippy.heater_bed_target),
-                           ("chamber", g.klippy.hot_target)):
-        state = "on" if target > 0 else "off"
-        g.port.face(heater + "_toggle", state)
-        g.port.face(heater + "_row", state)
-        g.port.pco(heater + "_temp", "63488" if target > 0 else "65535")
-
-    sel = {10: 0, 50: 1, 100: 2}.get(g.klippy.filament_extruder_dist)
-    if sel is not None:
-        face_group(("step_10", "step_50", "step_100"), sel)
+    for heater, current, target in (("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target),
+                                    ("bed", g.klippy.heater_bed_temperature, g.klippy.heater_bed_target),
+                                    ("chamber", g.klippy.hot_temperature, g.klippy.hot_target)):
+        heater_row(heater, current, target)
+    fan_values()
+    look = {10: "s10", 50: "s50", 100: "s100"}.get(g.klippy.filament_extruder_dist)
+    if look is not None:
+        segmented("step_seg", (("s10", "step_10_lbl"), ("s50", "step_50_lbl"), ("s100", "step_100_lbl")), look)
 
 
 def auto_unload():
-    g.port.txt("temp_txt", "(" + to_string(g.klippy.extruder_temperature) + "/" +
-                 to_string(g.klippy.extruder_target) + "℃)")
+    heat_readout("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
     if g.levelling.step_1:
         g.levelling.step_1 = False
-        g.port.vis("spin1", "0")
-        g.port.vis("spin2", "1")
         g.port.face("steps_bar", "unload_1")
         g.port.pco("step2_txt", "65535")
-        g.port.pco("step1_txt", "38066")
+        g.port.pco("step1_txt", "42294")
     if g.levelling.step_2:
         g.levelling.step_2 = False
-        g.port.vis("spin2", "0")
         g.port.face("steps_bar", "unload_2")
         g.port.pco("step3_txt", "65535")
-        g.port.pco("step2_txt", "38066")
-        g.port.vis("load_btn", "1")
-        g.port.vis("ok", "1")
+        g.port.pco("step2_txt", "42294")
+        for name in ("load_btn", "ok"):
+            g.port.vis(name, "1")

@@ -29,8 +29,11 @@ def main(page_id, widget_id):
     elif widget_id == ids.MAIN_STOP:
         motion.motors_off()
     elif widget_id in (ids.MAIN_SET_TEMP, ids.MAIN_SET_TEMP_2, ids.MAIN_SET_TEMP_3):
+        # the heater tiles open the temperature keyboard (its mode is sys1: 0 nozzle, 1 bed, 2 chamber); it returns to Home
         g.screen.adjust_mode = "Filament"
-        page_to(ids.FILAMENT)
+        g.screen.temperature_from_main = True
+        g.port.raw("sys1=%d" % (widget_id - ids.MAIN_SET_TEMP))
+        page_to(ids.FILAMENT_KB)
     elif widget_id == ids.MAIN_CACHE:
         g.files.list_pages = 0
         g.files.list_current_pages = 0
@@ -282,7 +285,7 @@ def print_filament(page_id, widget_id):
 def printing_2(page_id, widget_id):
     if widget_id == ids.PRINTING_2_BACK:
         page_to(ids.PRINTING)
-    elif widget_id in (ids.PRINTING_2_SPEED, ids.PRINTING_2_FLOW):
+    elif widget_id in (ids.PRINTING_2_SPEED, ids.PRINTING_2_FLOW, ids.PRINTING_2_FAN_1, ids.PRINTING_2_FAN_2, ids.PRINTING_2_FAN_3):
         g.screen.printing_keyboard_enabled = True
         pages_printing.clear_printing_arg()
     elif widget_id == ids.PRINTING_2_ZOFFSET:

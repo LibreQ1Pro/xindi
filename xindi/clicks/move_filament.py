@@ -61,23 +61,12 @@ def move_pop_2(page_id, widget_id):
         page_to(ids.MOVE)
 
 
-def filament_set_fan(page_id, widget_id):
-    if widget_id == ids.ALL_TO_MAIN:
-        page_to(ids.MAIN)
-    elif widget_id == ids.ALL_TO_FILE_LIST:
-        file_list.go_to_file_list()
-    elif widget_id == ids.ALL_TO_ADJUST:
-        pass
-    elif widget_id == ids.ALL_TO_SETTING:
-        navigation.go_to_setting()
-    elif widget_id == ids.FILAMENT_SET_FAN_BACK:
-        page_to(ids.FILAMENT)
-    elif widget_id == ids.FILAMENT_SET_FAN_SETTING:
-        g.screen.move_fan_setting = True      # the slider is being dragged
-
-
 def filament_kb(page_id, widget_id):
-    if widget_id == ids.ALL_TO_MAIN:
+    from_main = g.screen.temperature_from_main
+    g.screen.temperature_from_main = False
+    if widget_id == ids.FILAMENT_KB_BACK and from_main:
+        page_to(ids.MAIN)
+    elif widget_id == ids.ALL_TO_MAIN:
         page_to(ids.MAIN)
     elif widget_id == ids.ALL_TO_FILE_LIST:
         file_list.go_to_file_list()
@@ -98,7 +87,8 @@ def filament(page_id, widget_id):
         pass
     elif widget_id == ids.ALL_TO_SETTING:
         navigation.go_to_setting()
-    elif widget_id in (ids.FILAMENT_SET_EXTRUDER, ids.FILAMENT_SET_HEATERBED, ids.FILAMENT_SET_HOT):
+    elif widget_id in (ids.FILAMENT_SET_EXTRUDER, ids.FILAMENT_SET_HEATERBED, ids.FILAMENT_SET_HOT,
+                       ids.FILAMENT_OPEN_FAN_1, ids.FILAMENT_OPEN_FAN_2, ids.FILAMENT_OPEN_FAN_3):
         page_to(ids.FILAMENT_KB)
     elif widget_id == ids.FILAMENT_EXTRUDER_UP:
         g.klippy.idle_timeout_state = "Printing"
@@ -114,8 +104,6 @@ def filament(page_id, widget_id):
         heating.filament_heater_bed_target()
     elif widget_id == ids.FILAMENT_HOT_ON_OFF:
         heating.filament_hot_target()
-    elif widget_id == ids.FILAMENT_TO_FAN:
-        page_to(ids.FILAMENT_SET_FAN)
     elif widget_id == ids.FILAMENT_LOAD:
         g.screen.load_mode = True
         page_to(ids.PRE_HEAT)
@@ -218,7 +206,6 @@ HANDLERS = {
     ids.MOVE: move,
     ids.MOVE_POP_1: move_pop_1,
     ids.MOVE_POP_2: move_pop_2,
-    ids.FILAMENT_SET_FAN: filament_set_fan,
     ids.FILAMENT_KB: filament_kb,
     ids.FILAMENT: filament,
     ids.FILAMENT_POP_1: filament_pop_1,

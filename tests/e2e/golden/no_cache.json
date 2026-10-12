@@ -30,24 +30,24 @@
  },
  "http": [
   "GET /server/files/roots",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
-  "GET /server/files/directory?path=gcodes//.cache",
+  "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/gcodes/Benchy%20PLA.gcode",
   "GET /server/files/gcodes/big_petg.gcode",
   "GET /server/files/gcodes/cube.gcode"
  ],
  "pages": [
-  15,
-  16
+  17,
+  32
  ],
  "screen": [
   {
    "attrs": {
-    "logo.version.val": [
+    "boot_logo.version.val": [
      "100"
     ],
     "prints 0xa0": [
@@ -64,74 +64,77 @@
   },
   {
    "attrs": {
-    "bed_btn.pic": [
-     "112"
+    "bed_icon.pic": [
+     "154"
     ],
-    "bed_btn.pic2": [
-     "113"
+    "bed_set.txt": [
+     "\"/ 0\""
     ],
     "bed_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "bed_temp.val": [
-     "25"
+    "bed_temp.txt": [
+     "\"25\""
     ],
     "beep_btn.pic": [
-     "124"
+     "385"
     ],
     "beep_btn.pic2": [
-     "125"
+     "386"
     ],
-    "chamber_btn.pic": [
-     "116"
+    "chamber_icon.pic": [
+     "172"
     ],
-    "chamber_btn.pic2": [
-     "117"
+    "chamber_set.txt": [
+     "\"/ 0\""
     ],
     "chamber_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "chamber_temp.val": [
-     "26"
+    "chamber_temp.txt": [
+     "\"26\""
     ],
     "last_file_btn.pic": [
-     "126"
+     "375"
     ],
     "last_file_btn.pic2": [
-     "127"
+     "376"
     ],
     "last_file_name.txt": [
      "\"\""
     ],
+    "last_file_pic.close()": [
+     ""
+    ],
     "light_btn.pic": [
-     "120"
+     "381"
     ],
     "light_btn.pic2": [
-     "121"
+     "382"
     ],
-    "nozzle_btn.pic": [
-     "108"
+    "nozzle_icon.pic": [
+     "169"
     ],
-    "nozzle_btn.pic2": [
-     "109"
+    "nozzle_set.txt": [
+     "\"/ 0\""
     ],
     "nozzle_temp.pco": [
-     "65535"
+     "63422"
     ],
-    "nozzle_temp.val": [
-     "25"
+    "nozzle_temp.txt": [
+     "\"25\""
     ],
     "usb_icon.pic": [
-     "130"
+     "371"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.pic": [
-     "132"
+     "373"
     ]
    },
-   "page": 15
+   "page": 17
   },
   {
    "attrs": {
@@ -148,89 +151,125 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "238"
+     "323"
     ],
     "file1.pic2": [
-     "239"
+     "324"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "236"
+     "321"
     ],
     "file2.pic2": [
-     "237"
+     "322"
     ],
     "file2_name.txt": [
-     "\"Benchy PLA.gcode\""
+     "\"Benchy PLA\\r.gcode\""
     ],
     "file3.pic": [
-     "241"
+     "321"
     ],
     "file3.pic2": [
-     "242"
+     "322"
     ],
     "file3_name.txt": [
-     "\"big_petg.gcode\""
+     "\"big_petg\\r.gcode\""
     ],
     "file4.pic": [
-     "241"
+     "321"
     ],
     "file4.pic2": [
-     "242"
+     "322"
     ],
     "file4_name.txt": [
      "\"cube.gcode\""
     ],
-    "local_tab.pic": [
-     "245"
-    ],
-    "local_tab.pic2": [
-     "246"
+    "local_tab_lbl.pco": [
+     "65535"
     ],
     "next.pic": [
-     "259"
+     "330"
     ],
     "next.pic2": [
-     "260"
+     "331"
     ],
     "prev.pic": [
-     "253"
+     "326"
     ],
     "prev.pic2": [
-     "254"
+     "327"
+    ],
+    "tabs_seg.pic": [
+     "65"
     ],
     "tsw 255": [
      "255,1"
     ],
     "twfile": [
-     "\"ram/file1.jpg\",3974",
-     "\"ram/file3.jpg\",3925"
+     "\"ram/file1.jpg\",9903",
+     "\"ram/file3.jpg\",9714"
     ],
     "twfile-data:ram/file1.jpg": [
-     "2d5b7d600246d2e9:3974:2"
+     "a81eb5857fdabd15:9903:3"
     ],
     "twfile-data:ram/file3.jpg": [
-     "8c4d6554d025b74f:3925:2"
+     "91b81009a58c62d5:9714:3"
     ],
     "up_dir.pic": [
-     "261"
+     "336"
     ],
     "up_dir.pic2": [
-     "262"
+     "337"
     ],
-    "usb_tab.pic": [
-     "249"
+    "usb_tab_lbl.pco": [
+     "42294"
     ],
-    "usb_tab.pic2": [
-     "250"
+    "vis empty_msg": [
+     "empty_msg,0"
     ],
     "vis file1_mark": [
      "file1_mark,0"
+    ],
+    "vis file1_name": [
+     "file1_name,1"
+    ],
+    "vis file1_pic": [
+     "file1_pic,0"
+    ],
+    "vis file1_pic_bg": [
+     "file1_pic_bg,0"
+    ],
+    "vis file2_name": [
+     "file2_name,1"
+    ],
+    "vis file2_pic": [
+     "file2_pic,1"
+    ],
+    "vis file2_pic_bg": [
+     "file2_pic_bg,1"
+    ],
+    "vis file3_name": [
+     "file3_name,1"
+    ],
+    "vis file3_pic": [
+     "file3_pic,1"
+    ],
+    "vis file3_pic_bg": [
+     "file3_pic_bg,1"
+    ],
+    "vis file4_name": [
+     "file4_name,1"
+    ],
+    "vis file4_pic": [
+     "file4_pic,1"
+    ],
+    "vis file4_pic_bg": [
+     "file4_pic_bg,1"
     ]
    },
-   "page": 16
+   "page": 32
   }
  ],
  "shell": [],

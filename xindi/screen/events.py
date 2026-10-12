@@ -78,30 +78,29 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         g.update.get_0x06 = True
 
 
-def _printing_target(action, widget, limit, store=None):
-    """Value of a printing page widget: clamp, apply, echo it back to the widget and store it."""
+def _printing_target(action, widget, limit, store=None, prefix=""):
+    """Value of a printing page widget: clamp, apply, echo it back to the widget (``prefix`` is the "/ " of a target) and store it."""
     def handle(number):
         g.screen.printing_keyboard_enabled = False
         number = min(number, limit)
         action(number)
         if widget:
-            g.port.val(widget, to_string(number))
+            g.port.txt(widget, prefix + to_string(number))
         if store:
             store(number)
     return handle
 
 
-def _filament_target(action, limit, store=None, reopen=True, slider=False):
-    """Value of a filament page widget: clamp and apply, then redraw the page (or end the slider drag)."""
+def _filament_target(action, limit, store=None, reopen=True):
+    """Value of a filament page widget: clamp and apply, then redraw the page."""
     def handle(number):
         number = min(number, limit)
         action(number)
         if store:
             store(number)
-        if slider:
-            g.screen.move_fan_setting = False     # the slider was released
         if reopen:
-            page_to(ids.FILAMENT)
+            page_to(ids.MAIN if g.screen.temperature_from_main else ids.FILAMENT)
+        g.screen.temperature_from_main = False
     return handle
 
 
@@ -109,9 +108,9 @@ def _filament_target(action, limit, store=None, reopen=True, slider=False):
 # values, they live on the second printing page (printing_2.n2 / n3)
 SETTED = {
     (ids.PRINTING, ids.PRINTING_EXTRUDER): _printing_target(
-        lambda n: heating.set_extruder_target(n), "nozzle_set", 350, lambda n: settings.set_extruder_target(n)),
+        lambda n: heating.set_extruder_target(n), "nozzle_set", 350, lambda n: settings.set_extruder_target(n), "/ "),
     (ids.PRINTING, ids.PRINTING_HEATER_BED): _printing_target(
-        lambda n: heating.set_heater_bed_target(n), "bed_set", 120, lambda n: settings.set_heater_bed_target(n)),
+        lambda n: heating.set_heater_bed_target(n), "bed_set", 120, lambda n: settings.set_heater_bed_target(n), "/ "),
     (ids.PRINTING, ids.PRINTING_FAN_1): _printing_target(lambda n: heating.set_fan0(n), None, 100),
     (ids.PRINTING, ids.PRINTING_FAN_2): _printing_target(lambda n: heating.set_fan2(n), None, 100),      # 4.4.2 CLL fan2 added
     (ids.PRINTING, ids.PRINTING_FAN_3): _printing_target(lambda n: heating.set_fan3(n), None, 100),
@@ -123,9 +122,9 @@ SETTED = {
         lambda n: heating.set_extruder_target(n), 350, lambda n: settings.set_extruder_target(n)),
     (ids.FILAMENT, ids.FILAMENT_SET_HEATERBED): _filament_target(
         lambda n: heating.set_heater_bed_target(n), 120, lambda n: settings.set_heater_bed_target(n)),
-    (ids.FILAMENT, ids.FILAMENT_SET_FAN_1): _filament_target(lambda n: heating.set_fan0(n), 100, reopen=False, slider=True),
-    (ids.FILAMENT, ids.FILAMENT_SET_FAN_2): _filament_target(lambda n: heating.set_fan2(n), 100, reopen=False, slider=True),
-    (ids.FILAMENT, ids.FILAMENT_SET_FAN_3): _filament_target(lambda n: heating.set_fan3(n), 100, reopen=False, slider=True),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_1): _filament_target(lambda n: heating.set_fan0(n), 100),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_2): _filament_target(lambda n: heating.set_fan2(n), 100),
+    (ids.FILAMENT, ids.FILAMENT_SET_FAN_3): _filament_target(lambda n: heating.set_fan3(n), 100),
     (ids.FILAMENT, ids.FILAMENT_SET_HOT): _filament_target(
         lambda n: heating.set_hot_target(n), 60, lambda n: settings.set_hot_target(n)),
 }

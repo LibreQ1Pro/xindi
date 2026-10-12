@@ -5,7 +5,7 @@ import time
 
 from xindi import state as g
 from xindi.config import settings
-from xindi.pages.widgets import cut_after_point, face_group
+from xindi.pages.widgets import cut_after_point, face_group, heat_readout, heater_row
 from xindi.printer import heating, klipper
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
@@ -38,7 +38,7 @@ def syntony_finish():
 def auto_level():
     for number, dist in enumerate((0.01, 0.05, 0.1, 0.5)):
         if g.levelling.auto_level_dist == f32(dist):
-            face_group(["step_001", "step_005", "step_01", "step_05"], number)
+            face_group(["cstep_001", "cstep_005", "cstep_01", "cstep_05"], number)
             break
 
 
@@ -60,28 +60,21 @@ def auto_finish():
 
 
 def auto_moving():
-    g.port.txt("bed_temp", "(" + to_string(g.klippy.heater_bed_temperature) + "/" +
-                 to_string(g.klippy.heater_bed_target) + ")")
+    heat_readout("bed", g.klippy.heater_bed_temperature, g.klippy.heater_bed_target)
     if g.levelling.step_1:
         g.port.face("steps_bar", "level_1")
         g.port.pco("step2_txt", "65535")
-        g.port.pco("step1_txt", "38066")
-        g.port.vis("spin1", "0")
-        g.port.vis("spin2", "1")
+        g.port.pco("step1_txt", "42294")
         g.levelling.step_1 = False
     if g.levelling.step_2:
         g.port.face("steps_bar", "level_2")
         g.port.pco("step3_txt", "65535")
-        g.port.pco("step2_txt", "38066")
-        g.port.vis("spin2", "0")
-        g.port.vis("spin3", "1")
+        g.port.pco("step2_txt", "42294")
         g.levelling.step_2 = False
     if g.levelling.step_3:
         g.port.face("steps_bar", "level_3")
         g.port.pco("step4_txt", "65535")
-        g.port.pco("step3_txt", "38066")
-        g.port.vis("spin3", "0")
-        g.port.vis("spin4", "1")
+        g.port.pco("step3_txt", "42294")
         g.levelling.step_3 = False
         g.klippy.idle_timeout_state = "Printing"
         settings.get_heater_bed_target()
@@ -112,27 +105,7 @@ def zoffset():
 
 
 def auto_heaterbed():
-    g.port.txt("temp_now", to_string(g.klippy.heater_bed_temperature) + "/")
-    g.port.val("temp_target", to_string(g.klippy.heater_bed_target))
-    if g.klippy.heater_bed_target > 0:
-        g.port.face("heat_toggle", "bed_on")
-        g.port.pco("temp_now", "63488")
-        g.port.pco("temp_target", "63488")
-    else:
-        g.port.face("heat_toggle", "bed_off")
-        g.port.pco("temp_now", "65535")
-        g.port.pco("temp_target", "65535")
-
-
-def open_heaterbed():
-    g.port.txt("t0", to_string(g.klippy.heater_bed_temperature) + "/")
-    g.port.val("n0", to_string(g.klippy.heater_bed_target))
-    if g.klippy.heater_bed_target > 0:
-        g.port.pco("t0", "63488")
-        g.port.pco("n0", "63488")
-    else:
-        g.port.pco("t0", "65535")
-        g.port.pco("n0", "65535")
+    heater_row("heat", g.klippy.heater_bed_temperature, g.klippy.heater_bed_target, icon="bed")
 
 
 def bed_moving():
@@ -143,24 +116,3 @@ def bed_moving():
             page_to(ids.BED_FINISH)
         else:
             page_to(ids.BED_CALIBRATION)
-
-
-def open_calibrate():
-    if g.levelling.step_3:
-        g.levelling.step_3 = False
-        system("sync")      # CLL save the system information, then go to the filament loading page
-        time.sleep(10)
-        klipper.get_object_status()
-        klipper.sub_object_status()
-        page_to(ids.OPEN_FILAMENTVIDEO_0)
-    if g.levelling.step_2 and g.klippy.webhooks_state == "ready":
-        g.levelling.step_2 = False
-        time.sleep(5)
-        g.ep.run_gcode("M901")    # CLL input shaping after the bed levelling
-    if g.levelling.step_1 and g.klippy.idle_timeout_state == "Ready":
-        g.levelling.step_1 = False
-        settings.get_heater_bed_target()
-        heating.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.run_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n")
-        time.sleep(5)
-        g.ep.run_gcode("M4027")   # CLL levelling after the platform / nozzle initialisation

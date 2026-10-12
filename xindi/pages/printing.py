@@ -7,7 +7,7 @@ from xindi import state as g
 from xindi.config import settings
 from xindi.moonraker.printer_status import get_cal_printing_time
 from xindi.pages import file_list
-from xindi.pages.widgets import cut_after_point, face_group, heating_widget
+from xindi.pages.widgets import cut_after_point, face_group, fan_values, heater_row, temperature
 from xindi.printer import job, motion
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
@@ -28,18 +28,10 @@ def stopping():
 
 def print_filament():
     g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
-
-    if g.klippy.extruder_target == 0:
-        g.port.pco("temp_now", "65535")
-        g.port.face("heat_btn", "off")
-    else:
-        g.port.pco("temp_now", "63488")
-        g.port.face("heat_btn", "on")
+    heater_row("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
 
     g.port.val("progress", to_string(g.klippy.display_status_progress))
-    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
-    g.port.txt("temp_now", to_string(g.klippy.extruder_temperature))
-    g.port.txt("temp_set", to_string(g.klippy.extruder_target))
+    g.port.txt("progress_pct", to_string(g.klippy.display_status_progress))
     g.port.txt("time_elapsed", job.show_time(c_int(g.klippy.print_stats_print_duration)))
     g.port.txt("time_left", job.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
@@ -100,7 +92,7 @@ def printing_zoffset():
     g.port.txt("gcode_z", show_gcode_z)
     g.port.txt("z_offset", z_offset)
     g.port.txt("time_elapsed", job.show_time(c_int(g.klippy.print_stats_print_duration)))
-    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
+    g.port.txt("progress_pct", to_string(g.klippy.display_status_progress))
     g.port.txt("time_left", job.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
@@ -154,24 +146,10 @@ def printing_keyboard_mute_button():
 
 
 def printing_first_page():
-    # CLL fan speeds
-    g.port.val("fan1_val", to_string(c_int(f32(g.klippy.out_pin_fan0_value * 100))))
-    g.port.val("fan2_val", to_string(c_int(f32(g.klippy.out_pin_fan2_value * 100))))
-    g.port.val("fan3_val", to_string(c_int(f32(g.klippy.out_pin_fan3_value * 100))))
-
-    g.port.txt("nozzle_temp", to_string(g.klippy.extruder_temperature))
-    g.port.val("nozzle_set", to_string(g.klippy.extruder_target))
-    heating_widget("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
-
-    g.port.txt("bed_temp", to_string(g.klippy.heater_bed_temperature))
-    g.port.val("bed_set", to_string(g.klippy.heater_bed_target))
-    heating_widget("bed_temp", "bed_btn", g.klippy.heater_bed_target)
-
-    # 4.4.22: the LED button moved to the second printing page
-
-    g.port.val("chamber_set", to_string(g.klippy.hot_target))      # CLL chamber temperature
-    g.port.txt("chamber_temp", to_string(g.klippy.hot_temperature))
-    heating_widget("chamber_temp", "chamber_btn", g.klippy.hot_target)
+    fan_values()
+    heater_row("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
+    heater_row("bed", g.klippy.heater_bed_temperature, g.klippy.heater_bed_target)
+    heater_row("chamber", g.klippy.hot_temperature, g.klippy.hot_target)     # CLL chamber temperature
 
     shown = "1" if g.screen.show_preview_gimage_completed else "0"
     g.port.vis("thumb", shown)
@@ -181,13 +159,14 @@ def printing_first_page():
 def printing_second_page():
     if g.shown.speed_factor != g.klippy.gcode_move_speed_factor:     # CLL speed factor
         g.shown.speed_factor = g.klippy.gcode_move_speed_factor
-        g.port.val("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
+        g.port.txt("speed_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_speed_factor * 100)))))
 
     if g.shown.extruder_factor != g.klippy.gcode_move_extrude_factor:    # CLL extrusion factor
         g.shown.extruder_factor = g.klippy.gcode_move_extrude_factor
-        g.port.val("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
+        g.port.txt("flow_val", to_string(c_int(c_round(f32(g.klippy.gcode_move_extrude_factor * 100)))))
 
-    g.port.face("light_btn", "lamp_off" if g.klippy.caselight_value == 0 else "lamp_on")      # 4.4.22 LED state
+    g.port.face("light2_btn", "off" if g.klippy.caselight_value == 0 else "on")      # 4.4.22 LED state
+    fan_values()
 
 
 def printing_state_changes():
@@ -234,7 +213,7 @@ def printing():
     z_offset = cut_after_point(z_offset, 4)
 
     g.port.val("progress", to_string(g.klippy.display_status_progress))
-    g.port.val("progress_pct", to_string(g.klippy.display_status_progress))
+    g.port.txt("progress_pct", to_string(g.klippy.display_status_progress))
     g.port.txt("time_elapsed", job.show_time(c_int(g.klippy.print_stats_print_duration)))
     g.port.txt("time_left", job.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,

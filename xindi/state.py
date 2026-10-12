@@ -51,6 +51,7 @@ class Screen(object):
         # (out of bounds writes in C++).  Five entries are used here.
         self.wifi_ssid_button_enabled = [False, False, False, False, False]
         self.filament_extrude_button = False
+        self.temperature_from_main = False        # the temperature keyboard was opened from Home: it returns there
         self.bed_leveling = True
         # 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
         self.preview_pop_1_on = True
@@ -62,7 +63,6 @@ class Screen(object):
         self.manual_count = 0
         self.adjust_mode = "Filament"  # decides which page the "adjust" button opens
         self.set_mode = "Level_mode"  # decides which page the "settings" button opens
-        self.move_fan_setting = False  # True while the fan slider is being dragged
         self.load_target = 0
         self.load_mode = False  # True: loading filament, False: unloading
         # 4.4.22 (from the binary)
@@ -250,6 +250,8 @@ class Files(object):
         self.list_dirname_list = set()
         self.list_filename_list = set()
         self.list_dirname_filename_list = set()
+        self.list_modified = {}            # file name -> the time it was added (modified), for the order of the list
+        self.list_last_printed = ""        # the file printed last (path under gcodes/), from the history of Moonraker
         self.list_last_printing_files_dir = ""
         self.list_is_last_print_files_dir = False
         # file list page

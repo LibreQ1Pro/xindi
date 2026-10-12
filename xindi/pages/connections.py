@@ -6,7 +6,9 @@ import logging
 import time
 
 from xindi import state as g
+from xindi.pages import widgets
 from xindi.screen import navigation, pageids as ids
+from xindi.screen.text import fit_name
 from xindi.system import network
 from xindi.util import netstrings
 from xindi.util.cpp import pthread_create
@@ -27,6 +29,7 @@ class S:
     page = 0
     enabled = [False] * ROWS
     sel = None          # the connection of the detail page
+    origin = "saved"    # where the detail page was opened from: "saved" (the list of saved networks) or "list" (the scan list)
     hidden_ssid = ""
     kbmode = KB_PSK_SCANNED
 
@@ -69,7 +72,7 @@ def show_saved():
         item = S.saved[index] if index < len(S.saved) else None
         row = "row" + str(i + 1)
         _txt(row + "_txt", _clip(item["ssid"], 24) if item else "")
-        g.port.face(row, "check" if item and item["active"] else "item" if item else "blank")
+        widgets.list_row(row, "check" if item and item["active"] else "item" if item else "blank")
         S.enabled[i] = item is not None
     first = pages <= 1 or S.page == 0
     last = pages <= 1 or S.page == pages - 1
@@ -81,7 +84,7 @@ def saved_clicked(widget_id):
     if widget_id < ROWS:
         index = S.page * ROWS + widget_id
         if S.enabled[widget_id] and index < len(S.saved):
-            open_detail(S.saved[index])
+            open_detail(S.saved[index], "saved")
     elif widget_id == 5 and S.page > 0:         # previous
         S.page -= 1
         show_saved()
@@ -94,8 +97,27 @@ def saved_clicked(widget_id):
 
 
 # ---------------------------------------------------------------------------------------------- one network
-def open_detail(item):
+def saved_by_ssid(ssid):
+    """The saved connection of a network of the scan list, or None."""
+    for item in network.saved_wifi():
+        if item["ssid"] == ssid:
+            return item
+    return None
+
+
+def _leave_detail():
+    """Back from the detail page (or after the network was forgotten): to the list it was opened from."""
+    if S.origin == "list":
+        from xindi.pages import wifi
+        wifi.go_to_network()
+    else:
+        open_saved()
+
+
+def open_detail(item, origin=None):
     S.sel = item
+    if origin is not None:
+        S.origin = origin
     navigation.page_to(ids.NET_DETAIL)
     show_detail()
 
@@ -141,18 +163,18 @@ def detail_clicked(widget_id):
         _txt("msg", _lines(tr("forget"), "'" + _clip(item["ssid"], 22) + "'?",
                             tr("saved_password"), tr("will_be_deleted")))
     elif widget_id == 23:
-        open_saved()
+        _leave_detail()
 
 
 def confirm_clicked(widget_id):
     if widget_id == 1:
         network.forget(S.sel["uuid"])
-        open_saved()
+        _leave_detail()
     elif widget_id in (0, 23):
         if _reload_selected():
             open_detail(S.sel)
         else:
-            open_saved()
+            _leave_detail()
 
 
 # ---------------------------------------------------------------------------------------------- interfaces
@@ -161,29 +183,24 @@ def open_info():
     show_info()
 
 
-def _state_word(report, radio=True):
-    if report["name"] is None:
-        return tr("no_adapter")
-    if not radio:
-        return tr("off_state")
-    return {"connected": tr("connected"),
-            "unavailable": tr("unavailable")}.get(report["state"], tr("disconnected"))
+def _slot(value, width=166):
+    """The value of a line of the page: the name of an interface, an SSID, an address (``---`` when it is not known)."""
+    return fit_name(value, width, lines=1, extension=False) if value else "---"
 
 
 def show_info():
     wifi = network.device_report("wifi")
     radio = network.wifi_radio()
     lan = network.device_report("ethernet")
-    gw = tr("gateway")
-    wifi_lines = ["Wi-Fi  " + (wifi["name"] or "-"), _state_word(wifi, radio)]
-    if wifi["state"] == "connected":
-        wifi_lines += ["SSID  " + _clip(wifi["ssid"], 18), "IP  " + wifi["ip"], gw + "  " + wifi["gateway"]]
-    lan_lines = ["LAN  " + (lan["name"] or "-"), _state_word(lan)]
-    if lan["state"] == "connected":
-        lan_lines += ["IP  " + lan["ip"], gw + "  " + lan["gateway"], "MAC  " + lan["mac"]]
-    _txt("wifi_txt", _lines(*[_clip(line, 28) for line in wifi_lines]))
-    _txt("lan_txt", _lines(*[_clip(line, 28) for line in lan_lines]))
-    _txt("radio_btn", "Wi-Fi: " + (tr("on") if radio else tr("off")))
+    up = wifi["state"] == "connected" and radio
+    _txt("wifi_if", _slot(wifi["name"], 140))
+    _txt("wifi_ssid", _slot(wifi["ssid"] if up else ""))
+    _txt("wifi_ip", _slot(wifi["ip"] if up else ""))
+    _txt("wifi_gw", _slot(wifi["gateway"] if up else ""))
+    _txt("lan_if", _slot(lan["name"], 140))
+    _txt("lan_ip", _slot(lan["ip"] if lan["state"] == "connected" else ""))
+    _txt("lan_gw", _slot(lan["gateway"] if lan["state"] == "connected" else ""))
+    g.port.face("radio_btn", "on" if radio else "off")
 
 
 def _toggle_thread(arg):
@@ -194,11 +211,13 @@ def _toggle_thread(arg):
 
 
 def info_clicked(widget_id):
-    if widget_id == 1:          # the wired link is never switched: LAN and Wi-Fi are used together
+    if widget_id == ids.NET_INFO_RADIO:          # the wired link is never switched: LAN and Wi-Fi are used together
         pthread_create(_toggle_thread, None)
-    elif widget_id == 23:
+    elif widget_id == ids.NET_INFO_WIFI:        # the list of Wi-Fi networks
         from xindi.pages import wifi
-        wifi.refresh_ip_address()
+        wifi.go_to_network()
+    elif widget_id == ids.NET_INFO_BACK:
+        navigation.page_to(ids.COMMON_SETTING)
 
 
 # ---------------------------------------------------------------------------------------------- keyboard

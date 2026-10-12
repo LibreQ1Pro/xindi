@@ -9,62 +9,86 @@ Page / widget ids are the ones from include/ui.h.
 """
 
 import json
+import os
+import sys
 
-# pages
-LOGO = 0
-OPEN_LANGUAGE, OPEN_POP, OPEN_VIDEO_1, OPEN_VIDEO_2, OPEN_WARNING = 3, 4, 5, 6, 7
-OPEN_FILAMENTVIDEO_1, OPEN_FILAMENTVIDEO_2, OPEN_FILAMENTVIDEO_3, OPEN_FINISH = 11, 12, 13, 14
-OPEN_FILAMENTVIDEO_0 = 67
-MAIN = 15
-FILE_LIST = 16
-PREVIEW = 17
-PREVIEW_POP_1, PREVIEW_POP_2 = 18, 19
-PRINTING = 20
-PRINT_ZOFFSET = 22
-PRINT_FILAMENT = 23
-PRINTING_2 = 24
-PRINT_FINISH = 25
-PRINT_STOP = 26
-PRINT_STOPPING = 27
-PRINT_NO_FILAMENT = 28
-PRINT_LOW_TEMP = 29
-MOVE = 30
-MOVE_POP_1, MOVE_POP_2 = 31, 32
-FILAMENT_SET_FAN = 33
-FILAMENT_KB = 34
-FILAMENT_POP_1, FILAMENT_POP_2, FILAMENT_POP_3 = 35, 36, 37
-LEVEL_MODE = 39
-ZOFFSET = 40
-AUTO_HEATERBED = 41
-AUTO_MOVING = 42
-AUTO_FINISH = 43
-PRE_BED_CALIBRATION = 44
-BED_MOVING = 45
-BED_CALIBRATION = 46
-BED_FINISH = 47
-SYNTONY_MOVE, SYNTONY_FINISH = 48, 49
-INTERNET = 50
-INTERNET_PAGE, NET_SAVED = 75, 85
-WIFI_LIST = 51
-WIFI_CONNECT, WIFI_SUCCESS, WIFI_FAILED, WIFI_KB = 52, 53, 54, 55
-COMMON_SETTING = 56
-LANGUAGE, SYS_OK, RESET, SLEEP_MODE = 57, 58, 59, 60
-UPDATE_SUCCESS = 61
-RESTORE_CONFIG = 62
-PRINT_LOG_S, PRINT_LOG_F = 63, 64
-DETECT_ERROR, GCODE_ERROR = 65, 66
-SCREEN_SLEEP = 68
-LEVEL_ERROR = 69
-FILAMENT = 70
-PRINT_NO_FILAMENT_2 = 71
-MEMORY_WARNING = 72
-PRE_HEAT = 73
-RESUME_PRINT = 74
-SHOW_QR = 75
-UNLOAD_MODE = 76
-AUTO_UNLOAD = 77
-AUTO_WARNING = 80
-CALIBRATE_WARNING = 81
+sys.path.insert(0, os.environ.get("XINDI_SRC_DIR", "/opt/src_py"))
+from xindi.screen import pageids as _ids        # noqa: E402
+
+# pages (the numbers are the ones of xindi/screen/pageids.py, so they follow the screen project)
+LOGO = _ids.LOGO
+OPEN_LANGUAGE = _ids.OPEN_LANGUAGE
+OPEN_POP = _ids.OPEN_POP
+OPEN_VIDEO_1 = _ids.OPEN_VIDEO_1
+OPEN_VIDEO_2 = _ids.OPEN_VIDEO_2
+OPEN_WARNING = _ids.OPEN_WARNING
+OPEN_FILAMENTVIDEO_1 = _ids.OPEN_FILAMENTVIDEO_1
+OPEN_FILAMENTVIDEO_2 = _ids.OPEN_FILAMENTVIDEO_2
+OPEN_FILAMENTVIDEO_3 = _ids.OPEN_FILAMENTVIDEO_3
+OPEN_FINISH = _ids.OPEN_FINISH
+OPEN_FILAMENTVIDEO_0 = _ids.OPEN_FILAMENTVIDEO_0
+MAIN = _ids.MAIN
+FILE_LIST = _ids.FILE_LIST
+PREVIEW = _ids.PREVIEW
+PREVIEW_POP_1 = _ids.PREVIEW_POP_1
+PREVIEW_POP_2 = _ids.PREVIEW_POP_2
+PRINTING = _ids.PRINTING
+PRINT_ZOFFSET = _ids.PRINT_ZOFFSET
+PRINT_FILAMENT = _ids.PRINT_FILAMENT
+PRINTING_2 = _ids.PRINTING_2
+PRINT_FINISH = _ids.PRINT_FINISH
+PRINT_STOP = _ids.PRINT_STOP
+PRINT_STOPPING = _ids.PRINT_STOPPING
+PRINT_NO_FILAMENT = _ids.PRINT_NO_FILAMENT
+PRINT_LOW_TEMP = _ids.PRINT_LOW_TEMP
+MOVE = _ids.MOVE
+MOVE_POP_1 = _ids.MOVE_POP_1
+MOVE_POP_2 = _ids.MOVE_POP_2
+FILAMENT_KB = _ids.FILAMENT_KB
+FILAMENT_POP_1 = _ids.FILAMENT_POP_1
+FILAMENT_POP_2 = _ids.FILAMENT_POP_2
+FILAMENT_POP_3 = _ids.FILAMENT_POP_3
+LEVEL_MODE = _ids.LEVEL_MODE
+ZOFFSET = _ids.ZOFFSET
+AUTO_HEATERBED = _ids.AUTO_HEATERBED
+AUTO_MOVING = _ids.AUTO_MOVING
+AUTO_FINISH = _ids.AUTO_FINISH
+PRE_BED_CALIBRATION = _ids.PRE_BED_CALIBRATION
+BED_MOVING = _ids.BED_MOVING
+BED_CALIBRATION = _ids.BED_CALIBRATION
+BED_FINISH = _ids.BED_FINISH
+SYNTONY_MOVE = _ids.SYNTONY_MOVE
+SYNTONY_FINISH = _ids.SYNTONY_FINISH
+INTERNET = _ids.INTERNET
+NET_INFO = _ids.NET_INFO
+NET_SAVED = _ids.NET_SAVED
+WIFI_LIST = _ids.WIFI_LIST
+WIFI_CONNECT = _ids.WIFI_CONNECT
+WIFI_SUCCESS = _ids.WIFI_SUCCESS
+WIFI_FAILED = _ids.WIFI_FAILED
+WIFI_KB = _ids.WIFI_KB
+COMMON_SETTING = _ids.COMMON_SETTING
+LANGUAGE = _ids.LANGUAGE
+SYS_OK = _ids.SYS_OK
+RESET = _ids.RESET
+SLEEP_MODE = _ids.SLEEP_MODE
+UPDATE_SUCCESS = _ids.UPDATE_SUCCESS
+RESTORE_CONFIG = _ids.RESTORE_CONFIG
+PRINT_LOG_S = _ids.PRINT_LOG_S
+PRINT_LOG_F = _ids.PRINT_LOG_F
+DETECT_ERROR = _ids.DETECT_ERROR
+GCODE_ERROR = _ids.GCODE_ERROR
+SCREEN_SLEEP = _ids.SCREEN_SLEEP
+LEVEL_ERROR = _ids.LEVEL_ERROR
+FILAMENT = _ids.FILAMENT
+PRINT_NO_FILAMENT_2 = _ids.PRINT_NO_FILAMENT_2
+MEMORY_WARNING = _ids.MEMORY_WARNING
+PRE_HEAT = _ids.PRE_HEAT
+RESUME_PRINT = _ids.RESUME_PRINT
+UNLOAD_MODE = _ids.UNLOAD_MODE
+AUTO_UNLOAD = _ids.AUTO_UNLOAD
+AUTO_WARNING = _ids.AUTO_WARNING
+CALIBRATE_WARNING = _ids.CALIBRATE_WARNING
 
 # navigation buttons present on every page
 ALL_TO_MAIN, ALL_TO_ADJUST, ALL_TO_FILE_LIST, ALL_TO_SETTING = 0x1e, 0x1f, 0x20, 0x21
@@ -145,10 +169,7 @@ def scenario_boot_oobe(h):
     h.touch(OPEN_FILAMENTVIDEO_2, 0x02, settle=1.0)
     h.wait_page(OPEN_FILAMENTVIDEO_3)
     h.touch(OPEN_FILAMENTVIDEO_3, 0x01, settle=1.0)     # extrude
-    # the video page 3 buttons and the page 0 -> 1 fall-through
-    h.touch(8, 0x01, settle=1.0)
-    h.touch(8, 0x02, settle=1.0)
-    h.touch(8, 0x00, settle=1.0)
+    # the page 0 -> 1 fall-through
     h.touch(OPEN_FILAMENTVIDEO_0, 0x00, settle=1.0)     # no break in the C++ switch: 72 -> 11 -> 12
     h.touch(OPEN_FILAMENTVIDEO_2, 0x02, settle=1.0)
     h.touch(OPEN_FILAMENTVIDEO_3, 0x00, settle=1.0)     # next -> finish
@@ -156,31 +177,6 @@ def scenario_boot_oobe(h):
     h.touch(OPEN_FINISH, 0x00, settle=2.0)              # open_more_level_finish()
     h.wait_page(MAIN)
     h.settle(3.0)
-
-
-def scenario_oobe_calibrate(h):
-    """Heater bed page of the guide and the automatic calibration sequence."""
-    boot(h, OPEN_LANGUAGE)
-    h.touch(9, 0x01, settle=1.0)        # OPEN_HEATERBED up
-    h.touch(9, 0x02, settle=1.0)        # down
-    h.touch(9, 0x00, settle=1.0)        # on / off
-    h.mr.push_status({"heater_bed": {"target": 60.0, "temperature": 30.0}})
-    h.settle(1.0)
-    h.touch(9, 0x03, settle=1.5)        # next -> open_calibrate_start()
-    h.wait_page(10)
-    h.mr.push_status({"idle_timeout": {"state": "Ready"}})
-    h.settle(1.0)
-    h.mr.push_gcode("echo: Position init complete")
-    h.settle(4.0)
-    h.mr.push_gcode("echo: Bed mesh calibrate complete")
-    h.settle(2.0)
-    h.mr.push_status({"webhooks": {"state": "ready", "state_message": "Printer is ready"}})
-    h.settle(4.0)
-    h.mr.push_gcode("echo: Input shaping complete")
-    h.settle(6.0)
-    h.wait_page(OPEN_FILAMENTVIDEO_0)
-    h.touch(OPEN_FILAMENTVIDEO_0, 0x00, settle=1.5)
-    h.settle(1.0)
 
 
 def scenario_boot_tft_update(h):
@@ -442,19 +438,16 @@ def scenario_temperatures(h):
         h.touch(FILAMENT, w, settle=1.0)
     h.touch(FILAMENT, 0x07, settle=1.0)     # retract
     h.touch(FILAMENT, 0x08, settle=1.0)     # extrude
-    h.touch(FILAMENT, 0x04, settle=1.5)     # fans
-    h.wait_page(FILAMENT_SET_FAN)
     h.mr.push_status({"fan_generic cooling_fan": {"speed": 0.3}, "fan_generic auxiliary_cooling_fan": {"speed": 0.555},
                       "fan_generic chamber_circulation_fan": {"speed": 1.0}})
     h.settle(1.5)
-    h.touch(FILAMENT_SET_FAN, 0x01, settle=1.0)     # slider pressed
-    h.set_number(FILAMENT, 0x0c, 80, settle=1.0)
-    h.set_number(FILAMENT, 0x0d, 255, settle=1.0)
-    h.set_number(FILAMENT, 0x0e, 33, settle=1.0)
+    for tile, fan, value in ((0x11, 0x0c, 80), (0x12, 0x0d, 255), (0x13, 0x0e, 33)):    # the fan tiles open the number keyboard
+        h.touch(FILAMENT, tile, settle=1.0)
+        h.wait_page(FILAMENT_KB)
+        h.set_number(FILAMENT, fan, value, settle=1.0)
+        h.wait_page(FILAMENT)
     h.mr.push_status({"fan_generic cooling_fan": {"speed": 0.8}})
     h.settle(1.5)
-    h.touch(FILAMENT_SET_FAN, 0x00, settle=1.5)
-    h.wait_page(FILAMENT)
     h.mark("printing keyboard")
     with h.other_page_events():             # the virtual screen shows the filament page here
         for w, v in ((0x00, 400), (0x01, 70), (0x04, 120), (0x05, 50), (0x06, 7), (0x02, 200), (0x03, 99), (0x07, 61)):
@@ -650,16 +643,23 @@ def scenario_language(h):
     boot(h)
     h.mark("russian")
     goto_common_setting(h)
-    h.touch(COMMON_SETTING, 0x01, settle=1.5)   # network
-    h.wait_page(INTERNET_PAGE)
-    h.touch(INTERNET_PAGE, 0x06, settle=1.5)    # saved networks
+    h.touch(COMMON_SETTING, 0x01, settle=1.5)   # network: the network info is the first page
+    h.wait_page(NET_INFO)
+    h.touch(NET_INFO, 0x02, settle=1.5)         # the list of Wi-Fi networks
+    h.wait_page(WIFI_LIST)
+    h.touch(WIFI_LIST, 0x08, settle=1.5)        # saved networks
     h.wait_page(NET_SAVED)
     h.mark("japanese")
     h.screen.set_language(3)                    # picked on the language page
     h.settle(1.0)
-    h.touch(NET_SAVED, 23, settle=1.5)          # back
+    h.touch(NET_SAVED, 23, settle=1.5)          # back to the list
+    h.wait_page(WIFI_LIST)
+    h.touch(WIFI_LIST, 0x17, settle=1.5)        # back to the network info
+    h.wait_page(NET_INFO)
+    h.touch(NET_INFO, 23, settle=1.5)           # back to the settings
     h.touch(COMMON_SETTING, 0x01, settle=1.5)
-    h.touch(INTERNET_PAGE, 0x06, settle=1.5)
+    h.touch(NET_INFO, 0x02, settle=1.5)
+    h.touch(WIFI_LIST, 0x08, settle=1.5)
     h.wait_page(NET_SAVED)
     h.settle(1.0)
 

@@ -24,7 +24,7 @@ UI_VERSION = str(version_number(VERSION))
 
 
 def send_ui_version():
-    g.port.val("logo.version", UI_VERSION)
+    g.port.val("boot_logo.version", UI_VERSION)
 
 
 LANGUAGE_FRAME = 0xa0

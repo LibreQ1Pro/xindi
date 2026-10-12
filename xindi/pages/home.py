@@ -1,25 +1,36 @@
-"""The main page."""
+"""The Home page of the new screen design."""
 
 import logging
+import math
 
 from xindi import state as g
 from xindi.pages import file_list
-from xindi.pages.widgets import two_state_button
+from xindi.pages.widgets import temperature, two_state_button
 from xindi.printer import job
 from xindi.screen import thumbnail
-from xindi.util.cpp import substr, to_string
+from xindi.screen.text import fit_name
+from xindi.util.cpp import substr
 
 log = logging.getLogger(__name__)
 
+TEXT = "63422"       # #f4f4f7 in RGB565
+HOT = "64459"        # #ff7a59 in RGB565
+THUMB_SIZE = 140
+THUMB_MATTE = (41, 40, 41)
+THUMB_BACKGROUND = (49, 48, 57)
 
-def main_heater(temp_widget, button, target):
-    """CLL heating state on the main page: the colour of the number and the button of a heater."""
-    g.port.pco(temp_widget, "65535" if target == 0 else "63488")
-    two_state_button(button, target != 0)
+
+def main_heater(heater, current, target):
+    active = temperature(target) not in ("---", "0")
+    g.port.txt(heater + "_temp", temperature(current))
+    g.port.txt(heater + "_set", "/ " + temperature(target))
+    g.port.pco(heater + "_temp", HOT if active else TEXT)
+    # Change only the icon: replacing the whole card would erase the overlaid text on the real TJC.
+    g.port.face(heater + "_icon", "on" if active else "off")
 
 
 def main_last_file_picture():
-    """CLL the picture and the name of the last printed file (the first entry of the file list)."""
+    """The first entry of the file list is the last printed file, if there is one."""
     g.files.list_pages = 0
     g.files.list_current_pages = 0
     g.files.list_folder_layers = 0
@@ -27,53 +38,42 @@ def main_last_file_picture():
     g.files.list_root_path = file_list.DEFAULT_DIR
     g.files.list_path = ""
     file_list.refresh_page_files(g.files.list_current_pages)
+    g.port.vis("last_file_pic", "0")
+    g.port.cp_close("last_file_pic")
+    g.screen.main_picture_detected = False
     if g.files.list_list_show_type[0] != "[c]":
         g.port.face("last_file_btn", "noimg")
         g.port.txt("last_file_name", "")
-        g.port.vis("last_file_pic", "0")
         return
 
-    g.port.txt("last_file_name", g.files.list_list_show_name[0])
-    name0 = g.files.list_list_show_name[0]
-    # NOTE: thumbnail from the gcode file instead of .cache/.thumbs/<name>-160x160.png / .jpg
-    picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/.cache/" + name0, 1))
+    name = g.files.list_list_show_name[0]
+    picture_path = thumbnail.GcodeRef(g.files.list_last_printed)
     log.info("Picture path:%s", picture_path)
-    thumb = thumbnail.find(picture_path, 160, "PNG")
+    thumb = thumbnail.find(picture_path, THUMB_SIZE, "PNG")
+    g.port.face("last_file_btn", "noimg" if thumb is None else "photo")
+    g.port.txt("last_file_name", fit_name(name, 224, lines=2))
     if thumb is None:
-        g.port.face("last_file_btn", "noimg")
-        g.port.vis("last_file_pic", "0")
         return
-
-    log.info("Found png picture" if thumb.fmt == "PNG" else "Found jpg picture")
-    g.port.face("last_file_btn", "photo")
-    if thumb.fmt == "PNG":
-        g.port.vis("last_file_pic", "1")
-    file_list.send_file_picture(picture_path, 160, "last_file_pic")
-    g.screen.main_picture_detected = True
+    g.screen.main_picture_detected = file_list.send_file_picture(
+        picture_path, THUMB_SIZE, "last_file_pic", matte=THUMB_MATTE,
+        background=THUMB_BACKGROUND, radius=12)
 
 
 def main():
-    g.port.val("nozzle_temp", to_string(g.klippy.extruder_temperature))
-    g.port.val("bed_temp", to_string(g.klippy.heater_bed_temperature))
-    g.port.val("chamber_temp", to_string(g.klippy.hot_temperature))
+    main_heater("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
+    main_heater("bed", g.klippy.heater_bed_temperature, g.klippy.heater_bed_target)
+    main_heater("chamber", g.klippy.hot_temperature, g.klippy.hot_target)
 
-    g.port.face("usb_icon", "off" if file_list.detect_disk() == 0 else "on")    # CLL USB drive inserted?
-    g.port.face("wifi_icon", "off" if g.net.status_result.wpa_state == "COMPLETED" else "on")
-
-    # LED logo, beeper
+    g.port.face("usb_icon", "on" if file_list.detect_disk() == 0 else "off")
+    g.port.face("wifi_icon", "on" if g.net.status_result.wpa_state == "COMPLETED" or g.config.ethernet == 1 else "off")
     two_state_button("light_btn", g.klippy.caselight_value != 0)
     two_state_button("beep_btn", g.klippy.out_pin_beep_value != 0)
 
-    main_heater("nozzle_temp", "nozzle_btn", g.klippy.extruder_target)
-    main_heater("bed_temp", "bed_btn", g.klippy.heater_bed_target)
-    main_heater("chamber_temp", "chamber_btn", g.klippy.hot_target)
-
-    # CLL refresh the picture after every boot or print
     if not g.screen.main_picture_refreshed:
         main_last_file_picture()
         g.screen.main_picture_refreshed = True
+    g.port.vis("last_file_pic", "1" if g.screen.main_picture_detected else "0")
 
-    # CLL ask for the power loss recovery once after boot
     if not g.screen.open_reprint_asked:
         job.check_print_interrupted()
         g.screen.open_reprint_asked = True

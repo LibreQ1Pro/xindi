@@ -5,7 +5,7 @@ import time
 
 from xindi import state as g
 from xindi.pages import file_list, wifi
-from xindi.pages.filament import auto_unload, filament, filament_pop, filament_set_fan
+from xindi.pages.filament import auto_unload, filament, filament_pop
 from xindi.pages.guide import open_filament_video_2, open_moving
 from xindi.pages.home import main
 from xindi.pages.leveling import (auto_finish,
@@ -13,8 +13,6 @@ from xindi.pages.leveling import (auto_finish,
                                   auto_level,
                                   auto_moving,
                                   bed_moving,
-                                  open_calibrate,
-                                  open_heaterbed,
                                   syntony_move,
                                   zoffset)
 from xindi.pages.move import move_page
@@ -46,7 +44,7 @@ NO_RESET_JUMP_PAGES = frozenset((
     ids.GCODE_ERROR, ids.DETECT_ERROR, ids.LEVEL_ERROR, ids.SHUTDOWN, ids.LANGUAGE,
     ids.COMMON_SETTING, ids.SLEEP_MODE, ids.INTERNET, ids.WIFI_LIST, ids.WIFI_KB, ids.WIFI_CONNECT,
     ids.WIFI_FAILED, ids.WIFI_SUCCESS, ids.NET_SAVED, ids.NET_DETAIL, ids.NET_CONFIRM,
-    ids.NET_INFO, ids.RESTORE_CONFIG, ids.INTERNET_PAGE))
+    ids.NET_INFO, ids.RESTORE_CONFIG))
 
 # moves of the "move without homing" pop-up, by the button that started it
 UNHOMED_HOMING = "SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n"
@@ -136,7 +134,7 @@ def open_reset_page_on_failure():
         if state == "ready":
             page_to(ids.SYS_OK)
     elif g.screen.page not in NO_RESET_JUMP_PAGES and state in ("shutdown", "error"):
-        if state == "shutdown" and g.screen.page in (ids.AUTO_MOVING, ids.OPEN_CALIBRATE):
+        if state == "shutdown" and g.screen.page == ids.AUTO_MOVING:
             return
         page_to(ids.RESET)
         log.debug("Restart page")
@@ -174,18 +172,14 @@ REFRESH = {
     ids.OPEN_FILAMENTVIDEO_2: open_filament_video_2,
     ids.ZOFFSET: zoffset,
     ids.AUTO_HEATERBED: auto_heaterbed,
-    ids.OPEN_HEATERBED: open_heaterbed,
     ids.FILAMENT_POP_2: filament_pop,
     ids.FILAMENT_POP_3: filament_pop,
     ids.PREVIEW_POP_1: preview_pop,
     ids.PREVIEW_POP_2: preview_pop,
     ids.BED_MOVING: bed_moving,
-    ids.OPEN_CALIBRATE: open_calibrate,
     ids.COMMON_SETTING: common_setting,
-    ids.FILAMENT_SET_FAN: filament_set_fan,
     ids.WIFI_KB: wifi.refresh_wifi_keyboard,
     ids.FILAMENT: filament,
-    ids.INTERNET_PAGE: wifi.refresh_show_ip,
     ids.AUTO_UNLOAD: auto_unload,
     ids.OPEN_MOVING: open_moving,
 }
