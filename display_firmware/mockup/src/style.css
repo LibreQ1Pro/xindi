@@ -142,3 +142,11 @@ body.nobtn .btn, body.nobtn .key, body.nobtn .rowhit, body.nobtn .nav .it { visi
 
 /* the static layer is the pixels of the screen: no rounded corners and no frame (they would be baked into the corners of the pictures) */
 body.static .scr{border-radius:0;box-shadow:none}
+
+/* the layer of the buttons (?bare=ID&static=1&onlybtn=1): only what belongs to a button, on a transparent background; the anti-aliased edge of the corners is the browser's own,
+   so the alpha of the tiles of the screen is the alpha of the HTML (tools/gen_project.py ``screenshot(..., layer=True)``) */
+body.onlybtn .scr{background:transparent !important;box-shadow:none}
+body.onlybtn .scr *{visibility:hidden !important}
+body.onlybtn .scr .btn, body.onlybtn .scr .btn *, body.onlybtn .scr .key, body.onlybtn .scr .key *, body.onlybtn .scr .rowhit, body.onlybtn .scr .rowhit *,
+body.onlybtn .scr .nav .it, body.onlybtn .scr .nav .it *, body.onlybtn .scr .lyr, body.onlybtn .scr .lyr *{visibility:visible !important}
+body.onlybtn.static .scr .t, body.onlybtn.static .scr .btn > span:not(.ico), body.onlybtn.static .scr .rowhit .t, body.onlybtn.static .scr .lyr .t{visibility:hidden !important}

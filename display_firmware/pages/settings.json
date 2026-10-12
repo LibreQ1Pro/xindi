@@ -200,7 +200,7 @@
    },
    "events": {
     "codestimer": [
-     "if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_8c232eb52717})",
+     "if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_50f3f8b07493})",
      "{",
      "  reset_lbl.txt=guide_txt.txt",
      "  reset_lbl.pco=63422",
@@ -471,12 +471,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_lang_btn_248x52_1efce77f7464"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_lang_btn_press_248x52_40f8b59b1d75"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -583,12 +583,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_lang_btn_248x52_1efce77f7464"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_lang_btn_press_248x52_40f8b59b1d75"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -695,12 +695,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -807,12 +807,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -919,12 +919,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1024,12 +1024,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_reset_btn_oobe_off_248x52_7d0a565e9d36"
+     "$ref": "picture:new_reset_btn_oobe_off_248x52_cff4c6ffb2f5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_reset_btn_oobe_off_press_248x52_c11c35ba3518"
+     "$ref": "picture:new_reset_btn_oobe_off_press_248x52_d63c20a90b95"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1047,7 +1047,7 @@
    "events": {
     "codesdown": [],
     "codesup": [
-     "if(reset_btn.pic==${picture:new_reset_btn_oobe_off_248x52_7d0a565e9d36})",
+     "if(reset_btn.pic==${picture:new_reset_btn_oobe_off_248x52_cff4c6ffb2f5})",
      "{",
      "  prints 0x65,1",
      "  prints dp,1",
@@ -1055,7 +1055,7 @@
      "  prints 0xff,1",
      "  prints 0xff,1",
      "  prints 0xff,1",
-     "}else if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_8c232eb52717})",
+     "}else if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_50f3f8b07493})",
      "{",
      "  prints 0x65,1",
      "  prints dp,1",

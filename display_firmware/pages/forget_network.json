@@ -507,12 +507,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_forget_btn_120x46_ee66d14500fc"
+     "$ref": "picture:new_forget_btn_120x46_008aede54768"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_forget_btn_press_120x46_94ba1fc147d8"
+     "$ref": "picture:new_forget_btn_press_120x46_28630a618e84"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -568,12 +568,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_skip_120x46_34433c73d5a7"
+     "$ref": "picture:new_skip_120x46_e70d197b3d4c"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_skip_press_120x46_ac87036a305a"
+     "$ref": "picture:new_skip_press_120x46_90c46a934b11"
     },
     "picc2": 65535,
     "bco2": 1024,

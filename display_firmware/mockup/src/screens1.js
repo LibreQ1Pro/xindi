@@ -49,24 +49,24 @@ S('file_list','Home and files','File list',()=>{
   CUR='filelist';
   const v = VARIANT || 'mixed';
   let s = tabs(v==='tab_usb'?'r':'l','r',v==='tab_usb'?'r':'l',['local_tab','usb_tab']);
-  const entries = [[12,56,'Benchy_PLA.gcode'],[140,56,'models'],[12,214,'calibration_cube.gcode'],[140,214,'part_with_a_very_long_name.gcode']];
+  const entries = [[12,56,'Benchy_PLA.gcode'],[140,56,'models'],[12,212,'calibration_cube.gcode'],[140,212,'part_with_a_very_long_name.gcode']];
   entries.forEach((e,i)=>{
     const [x,y,name] = e;
     const kind = v === 'dirs' ? 'dir' : 'file';
     const id = 'file'+(i+1);
-    if (v === 'none') { s += box(x,y,120,150,'','',id) + box(x+12,y+8,96,96,'thumb','',id+'_pic','background:transparent') + box(x+6,y+108,108,40,'t','',id+'_name'); return; }
-    s += box(x,y,120,150,'card hi','',id);
-    // the thumbnail is 96 x 96 (a multiple of 16: the screen's JPEG decoder shears a picture whose width is not) so that the name has two lines of the wide font (16, a line is 20 high) under it
-    if(kind==='dir') s += box(x+12,y+8,96,96,'thumb','',id+'_pic','background:transparent') + `<div style="${st(x+28,y+24,64,64)}color:var(--text2)">${ico('folder',64,'var(--text2)',1.5)}</div>`;
-    else s += thumb(x+12,y+8,96,96,id+'_pic');
-    // the name comes from the host: two lines of the slot, the extension stays at the end
-    s += nameBox(x+6,y+108,108,40,name,DYNAMIC_ROLE,2,{a:'c',css:'color:var(--text)'},id+'_name');
+    if (v === 'none') { s += box(x,y,120,148,'','',id) + box(x+4,y+4,112,112,'thumb','',id+'_pic','background:transparent') + box(x+4,y+120,112,24,'t','',id+'_name'); return; }
+    s += box(x,y,120,148,'card hi','',id);
+    // the thumbnail is 112 x 112 (a multiple of 16: the screen's JPEG decoder shears a picture whose width is not), the name is one line of the wide font (16, a line is 20 high) under it
+    if(kind==='dir') s += box(x+4,y+4,112,112,'thumb','',id+'_pic','background:transparent') + `<div style="${st(x+28,y+28,64,64)}color:var(--text2)">${ico('folder',64,'var(--text2)',1.5)}</div>`;
+    else s += thumb(x+4,y+4,112,112,id+'_pic');
+    // the name comes from the host: one line of the slot, the extension stays at the end
+    s += nameBox(x+4,y+120,112,24,name,DYNAMIC_ROLE,1,{a:'c',css:'color:var(--text)'},id+'_name');
   });
   const off = v === 'nav_off';
   s += btn(12,372,77,40,'',{icon:'chevron-left',is:24,v:(off||v==='mixed'||v==='files'||v==='dirs'||v==='none'||v==='tab_usb')?'dim':''},'prev')+btn(97,372,78,40,'',{icon:'chevron-right',is:24,v:off?'dim':''},'next')+btn(183,372,77,40,'',{icon:'undo-2',is:22,v:off?'dim':''},'up_dir');
   s += nav('files');
   return screen('filelist', s);
-}, 'A name is cut by the host to two lines of its slot (108 x 40, the wide font 16) and keeps its extension; the thumbnails are 96 x 96: "part_with_a_very_…e.gcode".',
+}, 'A name is cut by the host to one line of its slot (112 x 24, the wide font 16) and keeps its extension; the thumbnails are 112 x 112: "part_with_…e.gcode".',
  {variants:[{id:'mixed',label:'Files'},{id:'dirs',label:'Every slot a folder'},{id:'none',label:'No slots'},{id:'tab_usb',label:'USB tab'},{id:'nav_on',label:'Buttons usable'},{id:'nav_off',label:'Buttons dim'}]});
 
 S('file_preview','Home and files','File preview',()=>{

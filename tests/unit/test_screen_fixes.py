@@ -19,7 +19,7 @@ class ScreenFixesTest(PortRecorder):
     def test_nothing_is_homed_yet(self):
         g.klippy.homed_axes = ""
         move.move_page()
-        self.assertEqual([c for c in self.sent() if c.endswith('_pos.txt="%s"' % move.UNKNOWN_POSITION)], ['x_pos.txt="---.--"', 'y_pos.txt="---.--"', 'z_pos.txt="---.--"'])
+        self.assertEqual([c for c in self.sent() if c.endswith('_pos.txt="%s"' % move.UNKNOWN_POSITION)], ['x_pos.txt="---.-"', 'y_pos.txt="---.-"', 'z_pos.txt="---.-"'])
 
     def test_speed_and_flow_are_written_again_on_a_page_that_is_shown_anew(self):
         g.klippy.gcode_move_speed_factor, g.klippy.gcode_move_extrude_factor = 1.0, 0.95
@@ -60,7 +60,7 @@ class ListPictureTest(PortRecorder):
         self.assertEqual(image.size, (thumbnail.LIST_SIZE, thumbnail.LIST_SIZE))
         self.assertEqual(thumbnail.LIST_SIZE % 16, 0)
         from PIL import JpegImagePlugin
-        self.assertEqual(JpegImagePlugin.get_sampling(image), 2)        # 4:2:0
+        self.assertEqual(JpegImagePlugin.get_sampling(image), 0)        # 4:4:4
 
 
 if __name__ == "__main__":

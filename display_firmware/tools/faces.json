@@ -11,12 +11,12 @@
  },
  "beep_btn": {
   "off": [
-   "new_beep_btn_72x52_3967274e0965",
-   "new_beep_btn_press_72x52_6f25c4ed425b"
+   "new_beep_btn_72x52_720d45429af5",
+   "new_beep_btn_press_72x52_e02516c40b50"
   ],
   "on": [
-   "new_beep_btn_on_72x52_40d008a7bd9c",
-   "new_beep_btn_on_press_72x52_f905b2126f04"
+   "new_beep_btn_on_72x52_55d64ed5a53f",
+   "new_beep_btn_on_press_72x52_1a3004c5ea98"
   ]
  },
  "chamber_icon": {
@@ -31,42 +31,42 @@
  },
  "cstep_001": {
   "off": [
-   "new_cstep_001_56x46_bdaafb084020",
-   "new_cstep_001_press_56x46_e07fa9aa8b72"
+   "new_cstep_001_56x46_83e948a681b9",
+   "new_cstep_001_press_56x46_eb7e44b74430"
   ],
   "on": [
-   "new_cstep_001_on_56x46_2ea2988f944d",
-   "new_cstep_001_on_press_56x46_ec2eaa112c46"
+   "new_cstep_001_on_56x46_0789713f027a",
+   "new_cstep_001_on_press_56x46_d5592013357b"
   ]
  },
  "cstep_005": {
   "off": [
-   "new_cstep_005_56x46_f2c8bad57b24",
-   "new_cstep_005_press_56x46_53ed065f6e7c"
+   "new_cstep_005_56x46_23a13750e4a2",
+   "new_cstep_005_press_56x46_e1454adda963"
   ],
   "on": [
-   "new_cstep_005_on_56x46_22d4c1c05185",
-   "new_cstep_005_on_press_56x46_45b9d4cbc7d0"
+   "new_cstep_005_on_56x46_0cca6744b93a",
+   "new_cstep_005_on_press_56x46_d3bdc5e2cd35"
   ]
  },
  "cstep_01": {
   "off": [
-   "new_cstep_01_56x46_96a01169838e",
-   "new_cstep_01_press_56x46_7ed0caf53b4e"
+   "new_cstep_01_56x46_7e9605143ea2",
+   "new_cstep_01_press_56x46_76eba2a24785"
   ],
   "on": [
-   "new_cstep_01_on_56x46_29639fbdef5e",
-   "new_cstep_01_on_press_56x46_ba40f8b54d23"
+   "new_cstep_01_on_56x46_386ef3621908",
+   "new_cstep_01_on_press_56x46_1e9727391dc1"
   ]
  },
  "cstep_05": {
   "off": [
-   "new_cstep_05_56x46_c137a2def72d",
-   "new_cstep_05_press_56x46_a447d74ff3ee"
+   "new_cstep_05_56x46_584599f75497",
+   "new_cstep_05_press_56x46_d71e181b8ecd"
   ],
   "on": [
-   "new_cstep_05_on_56x46_724545c4aeb4",
-   "new_cstep_05_on_press_56x46_d4b73161650e"
+   "new_cstep_05_on_56x46_586edf779788",
+   "new_cstep_05_on_press_56x46_54104f0014be"
   ]
  },
  "dist_seg": {
@@ -85,260 +85,260 @@
  },
  "file1": {
   "dir": [
-   "new_file1_dir_120x150_5b8aa5763b22",
-   "new_file1_dir_press_120x150_3808751e4707"
+   "new_file1_dir_120x148_d0bce6120551",
+   "new_file1_dir_press_120x148_c97d2a864b3a"
   ],
   "file": [
-   "new_file1_file_120x150_ad3f61d62682",
-   "new_file1_file_press_120x150_ed8df617ad97"
+   "new_file1_file_120x148_537f773ef293",
+   "new_file1_file_press_120x148_61ef1d5f2797"
   ],
   "none": [
-   "new_file1_none_120x150_c2e8384513b2",
-   "new_file1_none_press_120x150_95700a18f72f"
+   "new_file1_none_120x148_e433471d15d5",
+   "new_file1_none_press_120x148_5eb0de88c020"
   ]
  },
  "file2": {
   "dir": [
-   "new_file1_dir_120x150_5b8aa5763b22",
-   "new_file1_dir_press_120x150_3808751e4707"
+   "new_file1_dir_120x148_d0bce6120551",
+   "new_file1_dir_press_120x148_c97d2a864b3a"
   ],
   "file": [
-   "new_file1_file_120x150_ad3f61d62682",
-   "new_file1_file_press_120x150_ed8df617ad97"
+   "new_file1_file_120x148_537f773ef293",
+   "new_file1_file_press_120x148_61ef1d5f2797"
   ],
   "none": [
-   "new_file1_none_120x150_c2e8384513b2",
-   "new_file1_none_press_120x150_95700a18f72f"
+   "new_file1_none_120x148_e433471d15d5",
+   "new_file1_none_press_120x148_5eb0de88c020"
   ]
  },
  "file3": {
   "dir": [
-   "new_file1_dir_120x150_5b8aa5763b22",
-   "new_file1_dir_press_120x150_3808751e4707"
+   "new_file1_dir_120x148_d0bce6120551",
+   "new_file1_dir_press_120x148_c97d2a864b3a"
   ],
   "file": [
-   "new_file1_file_120x150_ad3f61d62682",
-   "new_file1_file_press_120x150_ed8df617ad97"
+   "new_file1_file_120x148_537f773ef293",
+   "new_file1_file_press_120x148_61ef1d5f2797"
   ],
   "none": [
-   "new_file1_none_120x150_c2e8384513b2",
-   "new_file1_none_press_120x150_95700a18f72f"
+   "new_file1_none_120x148_e433471d15d5",
+   "new_file1_none_press_120x148_5eb0de88c020"
   ]
  },
  "file4": {
   "dir": [
-   "new_file1_dir_120x150_5b8aa5763b22",
-   "new_file1_dir_press_120x150_3808751e4707"
+   "new_file1_dir_120x148_d0bce6120551",
+   "new_file1_dir_press_120x148_c97d2a864b3a"
   ],
   "file": [
-   "new_file1_file_120x150_ad3f61d62682",
-   "new_file1_file_press_120x150_ed8df617ad97"
+   "new_file1_file_120x148_537f773ef293",
+   "new_file1_file_press_120x148_61ef1d5f2797"
   ],
   "none": [
-   "new_file1_none_120x150_c2e8384513b2",
-   "new_file1_none_press_120x150_95700a18f72f"
+   "new_file1_none_120x148_e433471d15d5",
+   "new_file1_none_press_120x148_5eb0de88c020"
   ]
  },
  "key_0": {
   "off": [
-   "new_key_2_78x44_5cee76da708e",
-   "new_key_2_press_78x44_f6f13f672629"
+   "new_key_2_78x44_0040aa0ac1b4",
+   "new_key_2_press_78x44_b2b09b88a4bb"
   ],
   "on": [
-   "new_key_2_on_78x44_d92d271973b9",
-   "new_key_2_on_press_78x44_0021a7757841"
+   "new_key_2_on_78x44_3bd45a877551",
+   "new_key_2_on_press_78x44_d33eaedb1304"
   ]
  },
  "key_1": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_2": {
   "off": [
-   "new_key_2_78x44_5cee76da708e",
-   "new_key_2_press_78x44_f6f13f672629"
+   "new_key_2_78x44_0040aa0ac1b4",
+   "new_key_2_press_78x44_b2b09b88a4bb"
   ],
   "on": [
-   "new_key_2_on_78x44_d92d271973b9",
-   "new_key_2_on_press_78x44_0021a7757841"
+   "new_key_2_on_78x44_3bd45a877551",
+   "new_key_2_on_press_78x44_d33eaedb1304"
   ]
  },
  "key_3": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_4": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_5": {
   "off": [
-   "new_key_2_78x44_5cee76da708e",
-   "new_key_2_press_78x44_f6f13f672629"
+   "new_key_2_78x44_0040aa0ac1b4",
+   "new_key_2_press_78x44_b2b09b88a4bb"
   ],
   "on": [
-   "new_key_2_on_78x44_d92d271973b9",
-   "new_key_2_on_press_78x44_0021a7757841"
+   "new_key_2_on_78x44_3bd45a877551",
+   "new_key_2_on_press_78x44_d33eaedb1304"
   ]
  },
  "key_6": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_7": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_8": {
   "off": [
-   "new_key_2_78x44_5cee76da708e",
-   "new_key_2_press_78x44_f6f13f672629"
+   "new_key_2_78x44_0040aa0ac1b4",
+   "new_key_2_press_78x44_b2b09b88a4bb"
   ],
   "on": [
-   "new_key_2_on_78x44_d92d271973b9",
-   "new_key_2_on_press_78x44_0021a7757841"
+   "new_key_2_on_78x44_3bd45a877551",
+   "new_key_2_on_press_78x44_d33eaedb1304"
   ]
  },
  "key_9": {
   "off": [
-   "new_key_1_77x44_6e11d383a025",
-   "new_key_1_press_77x44_a2258b64e745"
+   "new_key_1_77x44_4852acd456d5",
+   "new_key_1_press_77x44_1837df4c9629"
   ],
   "on": [
-   "new_key_1_on_77x44_61259d4e6c97",
-   "new_key_1_on_press_77x44_516be512f638"
+   "new_key_1_on_77x44_a428e1f8794f",
+   "new_key_1_on_press_77x44_22845f472556"
   ]
  },
  "key_del": {
   "off": [
-   "new_key_del_77x44_1f3de5931901",
-   "new_key_del_press_77x44_1c503b641712"
+   "new_key_del_77x44_8316140969cc",
+   "new_key_del_press_77x44_9daa6dd5c67b"
   ],
   "on": [
-   "new_key_del_on_77x44_ca7a77af2977",
-   "new_key_del_on_press_77x44_1f22cab1f561"
+   "new_key_del_on_77x44_0b4b0db93bd5",
+   "new_key_del_on_press_77x44_020f1c1b4ab4"
   ]
  },
  "key_ok": {
   "off": [
-   "new_key_ok_77x44_e7379a53f5c6",
-   "new_key_ok_press_77x44_37bb825e1658"
+   "new_key_ok_77x44_b1559b666a65",
+   "new_key_ok_press_77x44_ab8c4f8a5db5"
   ],
   "on": [
-   "new_key_ok_on_40x88_ea2e6bdc81bc",
-   "new_key_ok_on_press_40x88_81a7d328981f"
+   "new_key_ok_on_40x88_d852fb47acc1",
+   "new_key_ok_on_press_40x88_82e278f145bc"
   ],
   "dim": [
-   "new_key_ok_dim_40x88_8c866ae6296c",
-   "new_key_ok_dim_press_40x88_458799579e8e"
+   "new_key_ok_dim_40x88_1b2329eec9e0",
+   "new_key_ok_dim_press_40x88_f95ddc90396a"
   ]
  },
  "last_file_btn": {
   "photo": [
-   "new_last_file_btn_248x198_eb97f168bed2",
-   "new_last_file_btn_press_248x198_4bea1fab2e5d"
+   "new_last_file_btn_248x198_d929f0d8875b",
+   "new_last_file_btn_press_248x198_5a177bbe0042"
   ],
   "noimg": [
-   "new_last_file_btn_248x198_eb97f168bed2",
-   "new_last_file_btn_press_248x198_4bea1fab2e5d"
+   "new_last_file_btn_248x198_d929f0d8875b",
+   "new_last_file_btn_press_248x198_5a177bbe0042"
   ]
  },
  "level_btn": {
   "off": [
-   "new_level_btn_248x46_644f9d7d3d31",
-   "new_level_btn_press_248x46_4136a2b0ea88"
+   "new_auto_btn_248x46_2f5e432d7bca",
+   "new_auto_btn_press_248x46_4c0b61b8c3c1"
   ],
   "on": [
-   "new_auto_btn_248x46_a4f58387d3ce",
-   "new_level_btn_on_press_248x46_753f6e79c2d3"
+   "new_auto_btn_on_248x46_71cb1c3d2910",
+   "new_auto_btn_on_press_248x46_95c62039bb74"
   ]
  },
  "light2_btn": {
   "off": [
-   "new_light2_btn_120x48_666236ae6ada",
-   "new_light2_btn_press_120x48_4f2bc6e6d786"
+   "new_light2_btn_120x48_569e657fa86d",
+   "new_light2_btn_press_120x48_cb4df56b2e10"
   ],
   "on": [
-   "new_light2_btn_on_120x48_985c92d34a27",
-   "new_light2_btn_on_press_120x48_a4690cab9e56"
+   "new_light2_btn_on_120x48_360e7b91e02f",
+   "new_light2_btn_on_press_120x48_75ffb379e16c"
   ]
  },
  "light_btn": {
   "off": [
-   "new_light_btn_72x52_6275a4454071",
-   "new_light_btn_press_72x52_c421e561a7d0"
+   "new_light_btn_72x52_a8be5430b324",
+   "new_light_btn_press_72x52_1887e50f9b4e"
   ],
   "on": [
-   "new_light_btn_on_72x52_51cc5ec24bdf",
-   "new_light_btn_on_press_72x52_8361c1bb2ce5"
+   "new_light_btn_on_72x52_b602606664b6",
+   "new_light_btn_on_press_72x52_f74fdfc3d055"
   ]
  },
  "mute_btn": {
   "off": [
-   "new_mute_btn_40x40_7404db17e2b0",
-   "new_mute_btn_press_40x40_9ba0623f1151"
+   "new_mute_btn_40x40_7cc8dc645dfe",
+   "new_mute_btn_press_40x40_17dea3a9df52"
   ],
   "on": [
-   "new_mute_btn_on_40x40_a342a0acb808",
-   "new_mute_btn_on_press_40x40_4af85dec78a3"
+   "new_mute_btn_on_40x40_064b6a5c0e9c",
+   "new_mute_btn_on_press_40x40_3a0eb49ad355"
   ]
  },
  "next": {
   "off": [
-   "new_next_78x40_8069ce373de2",
-   "new_next_press_78x40_b8073e1b969c"
+   "new_next_78x40_a269d68d9065",
+   "new_next_press_78x40_fc225aa98728"
   ],
   "on": [
-   "new_next_on_78x40_7fbcfe8bc32f",
-   "new_next_on_press_78x40_67e288fadf43"
+   "new_next_on_78x40_1fab90994d57",
+   "new_next_on_press_78x40_3488db16e5c3"
   ],
   "ready": [
-   "new_next_64x64_5c49f5408213",
-   "new_next_press_64x64_e98888eb1a95"
+   "new_next_64x64_e28b5198df2e",
+   "new_next_press_64x64_e9b514a637ed"
   ],
   "wait": [
-   "new_next_wait_64x64_f596bc315f56",
-   "new_next_wait_press_64x64_9ddeb8b5dd3b"
+   "new_next_wait_64x64_407c8cdfec60",
+   "new_next_wait_press_64x64_5d506fea87c0"
   ]
  },
  "next_btn": {
   "edge": [
-   "new_next_btn_edge_120x40_da19b23e3810",
-   "new_next_btn_edge_press_120x40_2636029c061d"
+   "new_next_btn_edge_120x40_f7f9ffe2bd77",
+   "new_next_btn_edge_press_120x40_b4aad63f8fbc"
   ],
   "more": [
-   "new_next_btn_more_120x40_bfcf81088b0f",
-   "new_next_btn_more_press_120x40_e34ebf6e914f"
+   "new_next_btn_more_120x40_3e350b70236c",
+   "new_next_btn_more_press_120x40_eaa095103fbd"
   ]
  },
  "nozzle_icon": {
@@ -353,142 +353,142 @@
  },
  "prev": {
   "off": [
-   "new_prev_77x40_57a7d802b437",
-   "new_prev_press_77x40_a9794793b8eb"
+   "new_prev_77x40_5bbee4361e33",
+   "new_prev_press_77x40_18f5a942ecdb"
   ],
   "on": [
-   "new_prev_on_77x40_534a35753137",
-   "new_prev_on_press_77x40_47319d426abb"
+   "new_prev_on_77x40_3e28a604acb5",
+   "new_prev_on_press_77x40_530453c82711"
   ]
  },
  "prev_btn": {
   "edge": [
-   "new_prev_btn_edge_120x40_7a286a698c88",
-   "new_prev_btn_edge_press_120x40_403529328d56"
+   "new_prev_btn_edge_120x40_4e71706e2d5a",
+   "new_prev_btn_edge_press_120x40_ef7bd72c0226"
   ],
   "more": [
-   "new_prev_btn_more_120x40_df62bf5b894c",
-   "new_prev_btn_more_press_120x40_0dc52aa858ff"
+   "new_prev_btn_more_120x40_1a8c85ef197c",
+   "new_prev_btn_more_press_120x40_ef5e5ecb6b42"
   ]
  },
  "reset_btn": {
   "oobe_off": [
-   "new_reset_btn_oobe_off_248x52_7d0a565e9d36",
-   "new_reset_btn_oobe_off_press_248x52_c11c35ba3518"
+   "new_reset_btn_oobe_off_248x52_cff4c6ffb2f5",
+   "new_reset_btn_oobe_off_press_248x52_d63c20a90b95"
   ],
   "oobe_on": [
-   "new_reset_btn_oobe_on_248x52_8c232eb52717",
-   "new_reset_btn_oobe_on_press_248x52_48c7694baa96"
+   "new_reset_btn_oobe_on_248x52_50f3f8b07493",
+   "new_reset_btn_oobe_on_press_248x52_be67e8f1b9eb"
   ]
  },
  "row1": {
   "blank": [
-   "new_row1_blank_248x44_d27be943e8f7",
-   "new_row1_blank_press_248x44_8a47155fa1bb"
+   "new_row1_blank_248x44_57e150e2684d",
+   "new_row1_blank_press_248x44_8819798cd81b"
   ],
   "check": [
-   "new_row1_check_248x44_5eddda8ba354",
-   "new_row1_check_press_248x44_20c843c7f5fc"
+   "new_row1_check_248x44_d45f2ddb205b",
+   "new_row1_check_press_248x44_3c8751c02ca0"
   ],
   "item": [
-   "new_row1_item_248x44_dece58b2706b",
-   "new_row1_item_press_248x44_f0f740370466"
+   "new_row1_item_248x44_223a886b2965",
+   "new_row1_item_press_248x44_fd6a9b73b928"
   ]
  },
  "row2": {
   "blank": [
-   "new_row1_blank_248x44_d27be943e8f7",
-   "new_row1_blank_press_248x44_8a47155fa1bb"
+   "new_row1_blank_248x44_57e150e2684d",
+   "new_row1_blank_press_248x44_8819798cd81b"
   ],
   "check": [
-   "new_row1_check_248x44_5eddda8ba354",
-   "new_row1_check_press_248x44_20c843c7f5fc"
+   "new_row1_check_248x44_d45f2ddb205b",
+   "new_row1_check_press_248x44_3c8751c02ca0"
   ],
   "item": [
-   "new_row1_item_248x44_dece58b2706b",
-   "new_row1_item_press_248x44_f0f740370466"
+   "new_row1_item_248x44_223a886b2965",
+   "new_row1_item_press_248x44_fd6a9b73b928"
   ]
  },
  "row3": {
   "blank": [
-   "new_row1_blank_248x44_d27be943e8f7",
-   "new_row1_blank_press_248x44_8a47155fa1bb"
+   "new_row1_blank_248x44_57e150e2684d",
+   "new_row1_blank_press_248x44_8819798cd81b"
   ],
   "check": [
-   "new_row1_check_248x44_5eddda8ba354",
-   "new_row1_check_press_248x44_20c843c7f5fc"
+   "new_row1_check_248x44_d45f2ddb205b",
+   "new_row1_check_press_248x44_3c8751c02ca0"
   ],
   "item": [
-   "new_row1_item_248x44_dece58b2706b",
-   "new_row1_item_press_248x44_f0f740370466"
+   "new_row1_item_248x44_223a886b2965",
+   "new_row1_item_press_248x44_fd6a9b73b928"
   ]
  },
  "row4": {
   "blank": [
-   "new_row1_blank_248x44_d27be943e8f7",
-   "new_row1_blank_press_248x44_8a47155fa1bb"
+   "new_row1_blank_248x44_57e150e2684d",
+   "new_row1_blank_press_248x44_8819798cd81b"
   ],
   "check": [
-   "new_row1_check_248x44_5eddda8ba354",
-   "new_row1_check_press_248x44_20c843c7f5fc"
+   "new_row1_check_248x44_d45f2ddb205b",
+   "new_row1_check_press_248x44_3c8751c02ca0"
   ],
   "item": [
-   "new_row1_item_248x44_dece58b2706b",
-   "new_row1_item_press_248x44_f0f740370466"
+   "new_row1_item_248x44_223a886b2965",
+   "new_row1_item_press_248x44_fd6a9b73b928"
   ]
  },
  "row5": {
   "blank": [
-   "new_row1_blank_248x44_d27be943e8f7",
-   "new_row1_blank_press_248x44_8a47155fa1bb"
+   "new_row1_blank_248x44_57e150e2684d",
+   "new_row1_blank_press_248x44_8819798cd81b"
   ],
   "check": [
-   "new_row1_check_248x44_5eddda8ba354",
-   "new_row1_check_press_248x44_20c843c7f5fc"
+   "new_row1_check_248x44_d45f2ddb205b",
+   "new_row1_check_press_248x44_3c8751c02ca0"
   ],
   "item": [
-   "new_row1_item_248x44_dece58b2706b",
-   "new_row1_item_press_248x44_f0f740370466"
+   "new_row1_item_248x44_223a886b2965",
+   "new_row1_item_press_248x44_fd6a9b73b928"
   ]
  },
  "step_001": {
   "z_off": [
-   "new_step_001_z_off_56x40_8ae68c3f06a0",
-   "new_step_001_z_off_press_56x40_b7c815b34200"
+   "new_step_001_z_off_56x40_051c6edf2d7d",
+   "new_step_001_z_off_press_56x40_44580c8d36e5"
   ],
   "z_on": [
-   "new_step_001_z_on_56x40_a7f6e97cc8f7",
-   "new_step_001_z_on_press_56x40_65105ba8e68a"
+   "new_step_001_z_on_56x40_a597f0312127",
+   "new_step_001_z_on_press_56x40_4d58c7f489ec"
   ]
  },
  "step_005": {
   "z_off": [
-   "new_step_005_z_off_56x40_acafaf540af1",
-   "new_step_005_z_off_press_56x40_fcaeefc7c1b8"
+   "new_step_005_z_off_56x40_48bfb7fca0bb",
+   "new_step_005_z_off_press_56x40_e1558df37728"
   ],
   "z_on": [
-   "new_step_005_z_on_56x40_b352520f7601",
-   "new_step_005_z_on_press_56x40_b9b2af454eb4"
+   "new_step_005_z_on_56x40_3c95b1b6b26e",
+   "new_step_005_z_on_press_56x40_1e120facebeb"
   ]
  },
  "step_01": {
   "z_off": [
-   "new_step_01_z_off_56x40_39bc2343b745",
-   "new_step_01_z_off_press_56x40_4b8ce0ff1c27"
+   "new_step_01_z_off_56x40_328cf1958a5c",
+   "new_step_01_z_off_press_56x40_5493c3f6e0fc"
   ],
   "z_on": [
-   "new_step_01_z_on_56x40_a11ec7e8d3ff",
-   "new_step_01_z_on_press_56x40_e4a38d1093f1"
+   "new_step_01_z_on_56x40_347635ba0279",
+   "new_step_01_z_on_press_56x40_497400926112"
   ]
  },
  "step_05": {
   "z_off": [
-   "new_step_05_z_off_56x40_04d75dd7b68f",
-   "new_step_05_z_off_press_56x40_7f9003b47348"
+   "new_step_05_z_off_56x40_35b55f2e88f3",
+   "new_step_05_z_off_press_56x40_a5d13681fff8"
   ],
   "z_on": [
-   "new_step_05_z_on_56x40_f6b873141a70",
-   "new_step_05_z_on_press_56x40_6b35915e0d8b"
+   "new_step_05_z_on_56x40_5d623bdcb5b0",
+   "new_step_05_z_on_press_56x40_563c798adc56"
   ]
  },
  "step_seg": {
@@ -553,52 +553,52 @@
  },
  "temp_opt1": {
   "off": [
-   "new_temp_opt1_216x44_b787fc538c37",
-   "new_temp_opt1_press_216x44_ec4d8913cff8"
+   "new_temp_opt1_216x44_66ace7c9fca9",
+   "new_temp_opt1_press_216x44_86c6c1ab4433"
   ],
   "on": [
-   "new_temp_opt1_on_216x44_f629f66d9e68",
-   "new_temp_opt1_on_press_216x44_fe4ae4903b38"
+   "new_temp_opt1_on_216x44_a71998840af0",
+   "new_temp_opt1_on_press_216x44_9b8ef42f6171"
   ]
  },
  "temp_opt2": {
   "off": [
-   "new_temp_opt1_216x44_b787fc538c37",
-   "new_temp_opt1_press_216x44_ec4d8913cff8"
+   "new_temp_opt1_216x44_66ace7c9fca9",
+   "new_temp_opt1_press_216x44_86c6c1ab4433"
   ],
   "on": [
-   "new_temp_opt1_on_216x44_f629f66d9e68",
-   "new_temp_opt1_on_press_216x44_fe4ae4903b38"
+   "new_temp_opt1_on_216x44_a71998840af0",
+   "new_temp_opt1_on_press_216x44_9b8ef42f6171"
   ]
  },
  "temp_opt3": {
   "off": [
-   "new_temp_opt1_216x44_b787fc538c37",
-   "new_temp_opt1_press_216x44_ec4d8913cff8"
+   "new_temp_opt1_216x44_66ace7c9fca9",
+   "new_temp_opt1_press_216x44_86c6c1ab4433"
   ],
   "on": [
-   "new_temp_opt1_on_216x44_f629f66d9e68",
-   "new_temp_opt1_on_press_216x44_fe4ae4903b38"
+   "new_temp_opt1_on_216x44_a71998840af0",
+   "new_temp_opt1_on_press_216x44_9b8ef42f6171"
   ]
  },
  "timelapse_btn": {
   "off": [
-   "new_level_btn_248x46_644f9d7d3d31",
-   "new_level_btn_press_248x46_4136a2b0ea88"
+   "new_auto_btn_248x46_2f5e432d7bca",
+   "new_auto_btn_press_248x46_4c0b61b8c3c1"
   ],
   "on": [
-   "new_auto_btn_248x46_a4f58387d3ce",
-   "new_level_btn_on_press_248x46_753f6e79c2d3"
+   "new_auto_btn_on_248x46_71cb1c3d2910",
+   "new_auto_btn_on_press_248x46_95c62039bb74"
   ]
  },
  "up_dir": {
   "off": [
-   "new_up_dir_77x40_463d04a32658",
-   "new_up_dir_press_77x40_6176705ea912"
+   "new_up_dir_77x40_44b90cd08713",
+   "new_up_dir_press_77x40_7dc4f7302585"
   ],
   "on": [
-   "new_up_dir_on_77x40_c9d9af69c34c",
-   "new_up_dir_on_press_77x40_55fd091f5b59"
+   "new_up_dir_on_77x40_4b90efa5c9cd",
+   "new_up_dir_on_press_77x40_cbb3829100ff"
   ]
  },
  "usb_icon": {
@@ -633,206 +633,206 @@
  },
  "key_shift": {
   "lower": [
-   "new_key_shift_lower_40x88_7996542ece95",
-   "new_key_shift_lower_press_40x88_a2b4397020c6"
+   "new_key_shift_lower_40x88_8fa833ef496f",
+   "new_key_shift_lower_press_40x88_8d1afd0846cf"
   ],
   "upper": [
-   "new_key_shift_upper_40x88_b6cfbc19b864",
-   "new_key_shift_upper_press_40x88_24da52bdbc67"
+   "new_key_shift_upper_40x88_80124c2f662e",
+   "new_key_shift_upper_press_40x88_bb2d3f9d94e6"
   ],
   "sym": [
-   "new_key_shift_sym_40x88_2faa76c667b5",
-   "new_key_shift_sym_press_40x88_49c205a0b828"
+   "new_key_shift_sym_40x88_1dc6543a6ec0",
+   "new_key_shift_sym_press_40x88_d0ed03c4b5d2"
   ]
  },
  "lang_cn": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_ru": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_en": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_jp": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_fr": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_de": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_it": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_es": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_kr": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_pt": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_ar": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_tr": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "lang_he": {
   "off": [
-   "new_lang_cn_120x60_b7721fe44ce6",
-   "new_lang_cn_press_120x60_4e68fb883cff"
+   "new_lang_cn_120x60_cf9975fb4e53",
+   "new_lang_cn_press_120x60_3bb15d0b11b6"
   ],
   "on": [
-   "new_lang_cn_on_120x60_d68da2bf795e",
-   "new_lang_cn_on_press_120x60_942dc75816e7"
+   "new_lang_cn_on_120x60_c1f64ff388e2",
+   "new_lang_cn_on_press_120x60_4c50e2f83ae6"
   ]
  },
  "opt_5min": {
   "off": [
-   "new_opt_5min_248x48_d60cc33a604f",
-   "new_opt_5min_press_248x48_884c57653a0f"
+   "new_opt_5min_248x48_c7cd00868713",
+   "new_opt_5min_press_248x48_0ca1e2256a5f"
   ],
   "on": [
-   "new_opt_5min_on_248x48_b6bcc81a2596",
-   "new_opt_5min_on_press_248x48_b64a93257e1b"
+   "new_opt_5min_on_248x48_ee51525ad277",
+   "new_opt_5min_on_press_248x48_d90c6981856d"
   ]
  },
  "opt_15min": {
   "off": [
-   "new_opt_5min_248x48_d60cc33a604f",
-   "new_opt_5min_press_248x48_884c57653a0f"
+   "new_opt_5min_248x48_c7cd00868713",
+   "new_opt_5min_press_248x48_0ca1e2256a5f"
   ],
   "on": [
-   "new_opt_5min_on_248x48_b6bcc81a2596",
-   "new_opt_5min_on_press_248x48_b64a93257e1b"
+   "new_opt_5min_on_248x48_ee51525ad277",
+   "new_opt_5min_on_press_248x48_d90c6981856d"
   ]
  },
  "opt_30min": {
   "off": [
-   "new_opt_5min_248x48_d60cc33a604f",
-   "new_opt_5min_press_248x48_884c57653a0f"
+   "new_opt_5min_248x48_c7cd00868713",
+   "new_opt_5min_press_248x48_0ca1e2256a5f"
   ],
   "on": [
-   "new_opt_5min_on_248x48_b6bcc81a2596",
-   "new_opt_5min_on_press_248x48_b64a93257e1b"
+   "new_opt_5min_on_248x48_ee51525ad277",
+   "new_opt_5min_on_press_248x48_d90c6981856d"
   ]
  },
  "opt_never": {
   "off": [
-   "new_opt_5min_248x48_d60cc33a604f",
-   "new_opt_5min_press_248x48_884c57653a0f"
+   "new_opt_5min_248x48_c7cd00868713",
+   "new_opt_5min_press_248x48_0ca1e2256a5f"
   ],
   "on": [
-   "new_opt_5min_on_248x48_b6bcc81a2596",
-   "new_opt_5min_on_press_248x48_b64a93257e1b"
+   "new_opt_5min_on_248x48_ee51525ad277",
+   "new_opt_5min_on_press_248x48_d90c6981856d"
   ]
  },
  "radio_btn": {
   "off": [
-   "new_radio_btn_248x50_0b4c99c15aec",
-   "new_radio_btn_press_248x50_12f6f35c2b42"
+   "new_radio_btn_248x50_5fd91037c558",
+   "new_radio_btn_press_248x50_373d7fa81fb1"
   ],
   "on": [
-   "new_radio_btn_on_248x50_afe96a18b555",
-   "new_radio_btn_on_press_248x50_68a6e33c1c8c"
+   "new_radio_btn_on_248x50_a4fd2570c504",
+   "new_radio_btn_on_press_248x50_7cad2c6a6f46"
   ]
  },
  "auto_btn": {
   "off": [
-   "new_level_btn_248x46_644f9d7d3d31",
-   "new_level_btn_press_248x46_4136a2b0ea88"
+   "new_auto_btn_248x46_2f5e432d7bca",
+   "new_auto_btn_press_248x46_4c0b61b8c3c1"
   ],
   "on": [
-   "new_auto_btn_248x46_a4f58387d3ce",
-   "new_level_btn_on_press_248x46_753f6e79c2d3"
+   "new_auto_btn_on_248x46_71cb1c3d2910",
+   "new_auto_btn_on_press_248x46_95c62039bb74"
   ]
  }
 }

@@ -221,12 +221,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_manual_btn_248x52_d9cf8cd6ca22"
+     "$ref": "picture:new_manual_btn_248x52_70def17951d4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_manual_btn_press_248x52_8e020b2eec22"
+     "$ref": "picture:new_manual_btn_press_248x52_9656423fe8f2"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -329,12 +329,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_manual_btn_248x52_d9cf8cd6ca22"
+     "$ref": "picture:new_manual_btn_248x52_70def17951d4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_manual_btn_press_248x52_8e020b2eec22"
+     "$ref": "picture:new_manual_btn_press_248x52_9656423fe8f2"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -437,12 +437,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_248x46_3824907fb7c6"
+     "$ref": "picture:new_back_btn_248x46_5e3d73807455"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_248x46_b874fc4a2f81"
+     "$ref": "picture:new_back_btn_press_248x46_9383f6ea26ee"
     },
     "picc2": 65535,
     "bco2": 1024,

@@ -15,7 +15,7 @@ from PIL import Image
 
 import gen_faces
 import page_names
-from gen_project import (ROOT, Tiles, add_fonts, component, load, pic_ref, quantize, record, to_alpha,
+from gen_project import (ROOT, Tiles, add_fonts, component, load, pic_ref, quantize, record, round_tile, to_alpha,
                          rgb565, save, screenshot, source_page, templates, text_component, unbreak)
 
 TEXT = (247, 247, 247)
@@ -83,9 +83,21 @@ def main():
         objects.append(obj)
         return obj
 
+    layer = screenshot("home", "no_values", layer=True, names=[w["name"] for w in normal["widgets"] if w["name"]])
+
+    def mask_of(name):
+        """The alpha of a button as the browser draws it (the layer of the buttons of the mockup), None for a button without a fill of its own."""
+        fill = next((p for p in normal["prims"] if p["prim"] == "fill" and (p.get("name") == name or p.get("owner") == name)), None)
+        if fill is None:
+            return None
+        rect = {k: fill[k] for k in ("x", "y", "w", "h")}
+        mask = layer.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])).getchannel("A")
+        return mask if mask.getpixel((rect["w"] // 2, rect["h"] // 2)) == 255 else None
+
     def button(name, rect, released, pressed):
-        key = tiles.add(name, released)
-        key2 = tiles.add(name + "_press", pressed)
+        mask = mask_of(name)                           # the tiles have transparent rounded corners (alpha), like the buttons of the other pages
+        key = tiles.add(name, round_tile(released, mask))
+        key2 = tiles.add(name + "_press", round_tile(pressed, mask))
         obj = component("button", name, rect["x"], rect["y"], rect["w"], rect["h"], sta=2, style=0, borderw=0,
                         font={"$ref": "font:font_t16"}, pic=pic_ref(key), pic2=pic_ref(key2), picc=65535, picc2=65535,
                         txt="", txt_maxl=1, pco=rgb565(TEXT), pco2=rgb565(TEXT))
@@ -162,7 +174,8 @@ def main():
             button(name, rect, image, image.point(lambda c: round(c * 0.82)))
             continue
         pair_off = button(name, rect, off, off.point(lambda c: round(c * 0.82)))
-        pair_on = [tiles.add(name + "_on", on), tiles.add(name + "_on_press", on.point(lambda c: round(c * 0.82)))]
+        mask = mask_of(name)
+        pair_on = [tiles.add(name + "_on", round_tile(on, mask)), tiles.add(name + "_on_press", round_tile(on.point(lambda c: round(c * 0.82)), mask))]
         faces[name]["off"], faces[name]["on"] = list(pair_off), pair_on
 
     nav = next(p for p in normal["prims"] if p.get("cls") == "nav")

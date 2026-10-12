@@ -174,28 +174,15 @@ def contains(outer, inner):
             outer["x"] + outer["w"] >= inner["x"] + inner["w"] and outer["y"] + outer["h"] >= inner["y"] + inner["h"])
 
 
-def darkened(image, rect, radius, factor=0.82):
-    """The pressed look: the released tile darkened inside its rounded shape (the corners keep the matte)."""
-    w, h = image.size
-    big = Image.new("L", (w * SS, h * SS), 0)
-    ImageDraw.Draw(big).rounded_rectangle((0, 0, w * SS - 1, h * SS - 1), radius=min(radius, w // 2, h // 2) * SS, fill=255)
-    mask = big.resize((w, h), Image.LANCZOS)
-    dark = image.point(lambda v: round(v * factor))
-    out = image.copy()
-    out.paste(dark, (0, 0), mask)
-    return gp.quantize(out)
+def darkened(image, factor=0.82):
+    """The pressed look: the released tile darker (the alpha of the corners stays the one of the released tile)."""
+    return gp.quantize(image.point(lambda v: round(v * factor)))
 
 
-def rounded(image, radius):
-    """The tile of a button with transparent corners (a PNG with alpha): what lies under the corners on the page shows through, also when the button is pressed."""
-    if not radius:
-        return image
-    w, h = image.size
-    big = Image.new("L", (w * SS, h * SS), 0)
-    ImageDraw.Draw(big).rounded_rectangle((0, 0, w * SS - 1, h * SS - 1), radius=min(radius, w // 2, h // 2) * SS, fill=255)
-    out = image.convert("RGBA")
-    out.putalpha(big.resize((w, h), Image.LANCZOS))
-    return out
+def rounded(image, mask):
+    """The tile of a button with transparent corners (a PNG with alpha): what lies under the corners on the page shows through, also when the button is pressed.
+    ``mask`` is the alpha that the browser draws for the button (the layer of the buttons of the mockup)."""
+    return gp.round_tile(image, mask)
 
 
 def lightened(image):
@@ -259,6 +246,7 @@ class Migration:
         self.hidden = []                         # components of other variants of the screen: hidden until the screen / host shows them
         self.looks = {}                          # selectable widget -> {"on"/"off": (released, pressed)}
         self.shot = gp.screenshot(self.base["id"], self.base["variant"], 2)
+        self.layer_names = [w["name"] for w in self.base["widgets"] if w["name"]]          # the widgets whose shape the layer of the buttons holds (the cards that are buttons too)
         self.decor_shot = gp.screenshot(self.base["id"], self.base["variant"], 2, nobtn=True)       # without the buttons: decor holds what lies under them
         self.chain = {}
         for line in self.stock["root"]["events"].get("codesload", []):
@@ -290,24 +278,35 @@ class Migration:
         """(released, pressed) tiles of an interactive widget. A widget the screen / host selects has an ``off`` and an ``on`` look
         (rules ``selectable``: the variant or the language of the mockup that shows it unselected / selected); the default is ``off``."""
         rect = {k: widget[k] for k in ("x", "y", "w", "h")}
-        radius = fill["radius"] if fill else 0
+        box = (rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])
+
+        def alpha(variant, lang=2):
+            """The alpha of the button as the browser draws it (only a button that has a fill of its own has rounded corners; the others stay opaque)."""
+            if not fill:
+                return None
+            mask = gp.screenshot(self.base["id"], variant, lang, layer=True, names=self.layer_names).crop(box).getchannel("A")
+            # the fill is not a button of the HTML (nothing of it is in the layer): the tile stays opaque
+            return mask if mask.getpixel((rect["w"] // 2, rect["h"] // 2)) == 255 else None
+
         selectable = self.rules.get("selectable", {}).get(widget["name"])
         if selectable:
             looks = {}
             for state, source in selectable.items():
+                variant, lang = source.get("variant", self.base["variant"]), source.get("lang", 2)
                 if source.get("blank"):
                     image = Image.new("RGB", (rect["w"], rect["h"]), tuple(source["blank"]))
                 else:
-                    shot = gp.screenshot(self.base["id"], source.get("variant", self.base["variant"]), source.get("lang", 2))
-                    image = shot.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
+                    image = gp.screenshot(self.base["id"], variant, lang).crop(box)
+                mask = alpha(variant, lang)
                 suffix = "" if state == "off" else "_" + state
-                looks[state] = (self.tiles.add(widget["name"] + suffix, rounded(image, radius)),
-                                self.tiles.add(widget["name"] + suffix + "_press", rounded(darkened(image, rect, radius), radius)))
+                looks[state] = (self.tiles.add(widget["name"] + suffix, rounded(image, mask)),
+                                self.tiles.add(widget["name"] + suffix + "_press", rounded(darkened(image), mask)))
             self.looks[widget["name"]] = looks
             return looks["off" if "off" in looks else next(iter(looks))]
-        image = self.shot_of(widget).crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
-        released = self.tiles.add(widget["name"], rounded(image, radius))
-        pressed = self.tiles.add(widget["name"] + "_press", rounded(darkened(image, rect, radius), radius) if fill else lightened(image))
+        image = self.shot_of(widget).crop(box)
+        mask = alpha(widget.get("src_variant") or self.base["variant"])
+        released = self.tiles.add(widget["name"], rounded(image, mask))
+        pressed = self.tiles.add(widget["name"] + "_press", rounded(darkened(image), mask) if fill else lightened(image))
         return released, pressed
 
     def text_for(self, widget, label=None):
@@ -471,7 +470,10 @@ class Migration:
         if self.original.get(name, {}).get("type") in INVISIBLE:
             return                                  # the page's own timer / variable / touch capture of that name (the mockup draws its area)
         stock = self.stock_of(name)
-        fill = next((p for p in w.get("src_prims", self.base["prims"]) if p["prim"] == "fill" and p.get("name") == name), None)
+        prims = w.get("src_prims", self.base["prims"])
+        fill = next((p for p in prims if p["prim"] == "fill" and p.get("name") == name), None)
+        if fill is None:         # a button without a name of its own fill: the fill that belongs to it (``owner``) and has its rectangle, with the radius of the HTML
+            fill = next((p for p in prims if p["prim"] == "fill" and p.get("owner") == name and all(p[k] == w[k] for k in ("x", "y", "w", "h"))), None)
         if kind == "t":
             if stock is None:
                 mode, text = self.classify(name, w)

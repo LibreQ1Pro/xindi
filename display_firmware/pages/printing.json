@@ -190,12 +190,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_pause_btn_108x62_007efb706613"
+     "$ref": "picture:new_pause_btn_108x62_4e109d7fc7ad"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_pause_btn_press_108x62_d3a9cef2af15"
+     "$ref": "picture:new_pause_btn_press_108x62_882fd8feda86"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -251,12 +251,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_stop_btn_108x62_791257a103d2"
+     "$ref": "picture:new_stop_btn_108x62_763def40c727"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_stop_btn_press_108x62_d448e01c39c2"
+     "$ref": "picture:new_stop_btn_press_108x62_95163925fc96"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -612,12 +612,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_nozzle_btn_160x58_dcfffa87a7ab"
+     "$ref": "picture:new_nozzle_btn_160x58_55d024dc9e19"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_nozzle_btn_press_160x58_1fa7e01b562b"
+     "$ref": "picture:new_nozzle_btn_press_160x58_7f78c3c81a37"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -853,12 +853,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_bed_btn_160x58_aa798a2a8e35"
+     "$ref": "picture:new_bed_btn_160x58_5f9b17153c0a"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_bed_btn_press_160x58_a72561b709a8"
+     "$ref": "picture:new_bed_btn_press_160x58_36a5ef07d0b5"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1094,12 +1094,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_chamber_btn_160x58_09c3146ea896"
+     "$ref": "picture:new_chamber_btn_160x58_1d32f30a64a5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_chamber_btn_press_160x58_5b3194d1d129"
+     "$ref": "picture:new_chamber_btn_press_160x58_77bd32f8814e"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1335,12 +1335,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x58_7062275c7ff3"
+     "$ref": "picture:new_fan1_btn_80x58_6793a62bd2ef"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x58_c793c0993d0d"
+     "$ref": "picture:new_fan1_btn_press_80x58_a32c9acd4c18"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1495,12 +1495,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x58_7062275c7ff3"
+     "$ref": "picture:new_fan1_btn_80x58_6793a62bd2ef"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x58_c793c0993d0d"
+     "$ref": "picture:new_fan1_btn_press_80x58_a32c9acd4c18"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1655,12 +1655,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x58_7062275c7ff3"
+     "$ref": "picture:new_fan1_btn_80x58_6793a62bd2ef"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x58_c793c0993d0d"
+     "$ref": "picture:new_fan1_btn_press_80x58_a32c9acd4c18"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1815,12 +1815,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_speed_btn_120x48_ebe39e233563"
+     "$ref": "picture:new_speed_btn_120x48_047800aabf25"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_speed_btn_press_120x48_0979537c34a3"
+     "$ref": "picture:new_speed_btn_press_120x48_417b89113249"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1876,12 +1876,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_flow_btn_120x48_6a3984737d28"
+     "$ref": "picture:new_flow_btn_120x48_8e68b9c72c09"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_flow_btn_press_120x48_ad1c035c0e7e"
+     "$ref": "picture:new_flow_btn_press_120x48_5f9718c7c8d2"
     },
     "picc2": 65535,
     "bco2": 1024,

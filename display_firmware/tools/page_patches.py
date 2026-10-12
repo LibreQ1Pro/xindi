@@ -87,7 +87,7 @@ def patch_keybdB(m):
 
 
 def patch_filelist(m):
-    """The thumbnail of a slot is exactly the size of its placeholder (96 x 96, a multiple of 16: the JPEG decoder of the screen shears a picture whose width is not; 4:2:0 like the stock thumbnails); the card colour
+    """The thumbnail of a slot is exactly the size of its placeholder (112 x 112, a multiple of 16: the JPEG decoder of the screen shears a picture whose width is not; 4:4:4, the screen shows 4:2:0 in blocks); the card colour
     and the round corners are in the pixels (xindi/screen/thumbnail.py ``jpeg``)."""
     # until the host says what the slots hold they show nothing (a slot without an entry has no card, the boxes of its name and picture are not drawn)
     hidden = ["vis file%d_%s,0" % (number, part) for number in (1, 2, 3, 4) for part in ("pic_bg", "pic", "name")]
@@ -155,9 +155,9 @@ def patch_wifi_kb(m):
 
 
 def patch_move(m):
-    """Until the host says where the axes are (or while an axis is not homed), the positions show ``---.--``."""
+    """Until the host says where the axes are (or while an axis is not homed), the positions show ``---.-``."""
     for name in ("x_pos", "y_pos", "z_pos"):
-        object_named(m, name)["attributes"]["txt"] = "---.--"
+        object_named(m, name)["attributes"]["txt"] = "---.-"
 
 
 def patch_sleep_mode(m):

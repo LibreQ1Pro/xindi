@@ -307,8 +307,9 @@ function init(){
   if (q.has('bare')){      // one screen at 0,0, nothing around it (the static layer: ?static=1 hides what the screen draws at run time)
     side.style.display='none';
     const sc = findScreen(q.get('bare')); if (q.has('variant') && sc.variants) VSTATE[sc.id] = q.get('variant');
-    const run = () => { document.body.style.cssText='margin:0;background:#181818'; document.body.classList.toggle('static', q.has('static')); document.body.classList.toggle('nobtn', q.has('nobtn'));
-      const m = document.getElementById('main'); m.style.cssText='padding:0;margin:0;position:absolute;left:0;top:0'; m.innerHTML = renderScreen(sc); };
+    const run = () => { document.body.style.cssText='margin:0;background:'+(q.has('onlybtn')?'transparent':'#181818'); document.documentElement.style.background=q.has('onlybtn')?'transparent':''; document.body.classList.toggle('static', q.has('static')); document.body.classList.toggle('nobtn', q.has('nobtn')); document.body.classList.toggle('onlybtn', q.has('onlybtn'));
+      const m = document.getElementById('main'); m.style.cssText='padding:0;margin:0;position:absolute;left:0;top:0'; m.innerHTML = renderScreen(sc);
+      if (q.has('lyr')) { const names = new Set(q.get('lyr').split(',')); m.querySelectorAll('[data-w]').forEach(e => { if (names.has(e.dataset.w.split('.').pop())) e.classList.add('lyr'); }); } };
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();
     return;
   }

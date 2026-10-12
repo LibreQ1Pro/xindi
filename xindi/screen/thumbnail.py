@@ -219,7 +219,7 @@ def prepare_picture(image, size, matte, radius=0, background=None):
     if radius:
         mask = Image.new("L", (size * 4, size * 4), 0)
         ImageDraw.Draw(mask).rounded_rectangle((0, 0, size * 4 - 1, size * 4 - 1), radius=radius * 4, fill=255)
-        mask = mask.resize((size, size), Image.Resampling.LANCZOS)
+        mask = mask.resize((size, size), Image.Resampling.BOX)       # BOX: LANCZOS rings at the edge of the mask
         rounded = Image.new("RGB", (size, size), tuple(matte))
         rounded.paste(square, (0, 0), mask)
         return rounded
@@ -237,10 +237,10 @@ def colpic(path, size, matte=None, radius=0, background=None):
     return screen_colpic.encode_picture(image, size)
 
 
-LIST_SIZE = 96           # the thumbnails of the slots of the file list: a multiple of 16 (the MCU of a 4:2:0 JPEG)
+LIST_SIZE = 112          # the thumbnails of the slots of the file list (112 x 112 like the -112x112_QD.jpg of the original): a multiple of 16 (the MCU of a 4:2:0 JPEG)
 
 
-def jpeg(path, size, matte=(41, 40, 41), radius=12, background=(49, 48, 57)):
+def jpeg(path, size, matte=(41, 40, 41), radius=8, background=(49, 48, 57)):
     """A size x size baseline JPEG of the file's thumbnail for the screen's picture memory (turned like the ``-112x112_QD.jpg`` of the original);
     the card colour and the round corners are in the pixels (JPEG has no alpha); None if the file has no thumbnail."""
     thumb = choose_sharpest(get_thumbnails(path))
@@ -249,8 +249,9 @@ def jpeg(path, size, matte=(41, 40, 41), radius=12, background=(49, 48, 57)):
     try:
         image = prepare_picture(_screen_image(thumb), size, matte, radius, background)
         out = io.BytesIO()
-        # 4:2:0 like the thumbnails of the original; the size is a multiple of 16 (LIST_SIZE), else the screen draws the rows sheared ("a staircase")
-        image.save(out, "JPEG", quality=95, subsampling=2, progressive=False, optimize=False)
+        # 4:4:4: the screen draws the colour of 4:2:0 in blocks of 2 x 2 pixels (the thin lines of a model get coloured edges); the size stays a multiple of 16
+        # (LIST_SIZE), else the screen draws the rows sheared ("a staircase")
+        image.save(out, "JPEG", quality=95, subsampling=0, progressive=False, optimize=False)
         return out.getvalue()
     except Exception as e:
         _log("%s: %s" % (path, e))

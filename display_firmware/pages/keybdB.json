@@ -564,32 +564,32 @@
     "codestimer": [
      "if(sys0==2)",
      "{",
-     "  if(mute_btn.pic==${picture:new_mute_btn_on_40x40_a342a0acb808})",
+     "  if(mute_btn.pic==${picture:new_mute_btn_on_40x40_064b6a5c0e9c})",
      "  {",
-     "    key_1.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_1.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_2.pic=${picture:new_key_2_78x44_5cee76da708e}",
-     "    key_2.pic2=${picture:new_key_2_press_78x44_f6f13f672629}",
-     "    key_3.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_3.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_4.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_4.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_5.pic=${picture:new_key_2_78x44_5cee76da708e}",
-     "    key_5.pic2=${picture:new_key_2_press_78x44_f6f13f672629}",
-     "    key_6.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_6.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_7.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_7.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_8.pic=${picture:new_key_2_78x44_5cee76da708e}",
-     "    key_8.pic2=${picture:new_key_2_press_78x44_f6f13f672629}",
-     "    key_9.pic=${picture:new_key_1_77x44_6e11d383a025}",
-     "    key_9.pic2=${picture:new_key_1_press_77x44_a2258b64e745}",
-     "    key_0.pic=${picture:new_key_2_78x44_5cee76da708e}",
-     "    key_0.pic2=${picture:new_key_2_press_78x44_f6f13f672629}",
-     "    key_del.pic=${picture:new_key_del_77x44_1f3de5931901}",
-     "    key_del.pic2=${picture:new_key_del_press_77x44_1c503b641712}",
-     "    key_ok.pic=${picture:new_key_ok_77x44_e7379a53f5c6}",
-     "    key_ok.pic2=${picture:new_key_ok_press_77x44_37bb825e1658}",
+     "    key_1.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_1.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_2.pic=${picture:new_key_2_78x44_0040aa0ac1b4}",
+     "    key_2.pic2=${picture:new_key_2_press_78x44_b2b09b88a4bb}",
+     "    key_3.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_3.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_4.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_4.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_5.pic=${picture:new_key_2_78x44_0040aa0ac1b4}",
+     "    key_5.pic2=${picture:new_key_2_press_78x44_b2b09b88a4bb}",
+     "    key_6.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_6.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_7.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_7.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_8.pic=${picture:new_key_2_78x44_0040aa0ac1b4}",
+     "    key_8.pic2=${picture:new_key_2_press_78x44_b2b09b88a4bb}",
+     "    key_9.pic=${picture:new_key_1_77x44_4852acd456d5}",
+     "    key_9.pic2=${picture:new_key_1_press_77x44_1837df4c9629}",
+     "    key_0.pic=${picture:new_key_2_78x44_0040aa0ac1b4}",
+     "    key_0.pic2=${picture:new_key_2_press_78x44_b2b09b88a4bb}",
+     "    key_del.pic=${picture:new_key_del_77x44_8316140969cc}",
+     "    key_del.pic2=${picture:new_key_del_press_77x44_9daa6dd5c67b}",
+     "    key_ok.pic=${picture:new_key_ok_77x44_b1559b666a65}",
+     "    key_ok.pic2=${picture:new_key_ok_press_77x44_ab8c4f8a5db5}",
      "    tsw key_1,0",
      "    tsw key_2,0",
      "    tsw key_3,0",
@@ -604,30 +604,30 @@
      "    tsw key_ok,0",
      "  }else",
      "  {",
-     "    key_1.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_1.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_2.pic=${picture:new_key_2_on_78x44_d92d271973b9}",
-     "    key_2.pic2=${picture:new_key_2_on_press_78x44_0021a7757841}",
-     "    key_3.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_3.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_4.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_4.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_5.pic=${picture:new_key_2_on_78x44_d92d271973b9}",
-     "    key_5.pic2=${picture:new_key_2_on_press_78x44_0021a7757841}",
-     "    key_6.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_6.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_7.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_7.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_8.pic=${picture:new_key_2_on_78x44_d92d271973b9}",
-     "    key_8.pic2=${picture:new_key_2_on_press_78x44_0021a7757841}",
-     "    key_9.pic=${picture:new_key_1_on_77x44_61259d4e6c97}",
-     "    key_9.pic2=${picture:new_key_1_on_press_77x44_516be512f638}",
-     "    key_0.pic=${picture:new_key_2_on_78x44_d92d271973b9}",
-     "    key_0.pic2=${picture:new_key_2_on_press_78x44_0021a7757841}",
-     "    key_del.pic=${picture:new_key_del_on_77x44_ca7a77af2977}",
-     "    key_del.pic2=${picture:new_key_del_on_press_77x44_1f22cab1f561}",
-     "    key_ok.pic=${picture:new_key_ok_on_77x44_a20e68bb6bfb}",
-     "    key_ok.pic2=${picture:new_key_ok_on_press_77x44_1d72b0709bcb}",
+     "    key_1.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_1.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_2.pic=${picture:new_key_2_on_78x44_3bd45a877551}",
+     "    key_2.pic2=${picture:new_key_2_on_press_78x44_d33eaedb1304}",
+     "    key_3.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_3.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_4.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_4.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_5.pic=${picture:new_key_2_on_78x44_3bd45a877551}",
+     "    key_5.pic2=${picture:new_key_2_on_press_78x44_d33eaedb1304}",
+     "    key_6.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_6.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_7.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_7.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_8.pic=${picture:new_key_2_on_78x44_3bd45a877551}",
+     "    key_8.pic2=${picture:new_key_2_on_press_78x44_d33eaedb1304}",
+     "    key_9.pic=${picture:new_key_1_on_77x44_a428e1f8794f}",
+     "    key_9.pic2=${picture:new_key_1_on_press_77x44_22845f472556}",
+     "    key_0.pic=${picture:new_key_2_on_78x44_3bd45a877551}",
+     "    key_0.pic2=${picture:new_key_2_on_press_78x44_d33eaedb1304}",
+     "    key_del.pic=${picture:new_key_del_on_77x44_0b4b0db93bd5}",
+     "    key_del.pic2=${picture:new_key_del_on_press_77x44_020f1c1b4ab4}",
+     "    key_ok.pic=${picture:new_key_ok_on_77x44_f6323ed5a3c5}",
+     "    key_ok.pic2=${picture:new_key_ok_on_press_77x44_f10a9de244c2}",
      "    tsw key_1,1",
      "    tsw key_2,1",
      "    tsw key_3,1",
@@ -765,12 +765,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_pause_btn_80x72_27e201f383c0"
+     "$ref": "picture:new_pause_btn_80x72_c7b1c9c258ce"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_pause_btn_press_80x72_5695ba85b28a"
+     "$ref": "picture:new_pause_btn_press_80x72_38b24d775535"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -826,12 +826,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_stop_btn_80x72_cc549bc3e36c"
+     "$ref": "picture:new_stop_btn_80x72_b56230323b57"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_stop_btn_press_80x72_ed120e3d14c8"
+     "$ref": "picture:new_stop_btn_press_80x72_aebcacc58b02"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1330,12 +1330,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_mute_btn_40x40_7404db17e2b0"
+     "$ref": "picture:new_mute_btn_40x40_7cc8dc645dfe"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_mute_btn_press_40x40_9ba0623f1151"
+     "$ref": "picture:new_mute_btn_press_40x40_17dea3a9df52"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1515,12 +1515,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1576,12 +1576,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_2_78x44_5cee76da708e"
+     "$ref": "picture:new_key_2_78x44_0040aa0ac1b4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_2_press_78x44_f6f13f672629"
+     "$ref": "picture:new_key_2_press_78x44_b2b09b88a4bb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1637,12 +1637,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1698,12 +1698,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1759,12 +1759,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_2_78x44_5cee76da708e"
+     "$ref": "picture:new_key_2_78x44_0040aa0ac1b4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_2_press_78x44_f6f13f672629"
+     "$ref": "picture:new_key_2_press_78x44_b2b09b88a4bb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1820,12 +1820,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1881,12 +1881,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1942,12 +1942,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_2_78x44_5cee76da708e"
+     "$ref": "picture:new_key_2_78x44_0040aa0ac1b4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_2_press_78x44_f6f13f672629"
+     "$ref": "picture:new_key_2_press_78x44_b2b09b88a4bb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2003,12 +2003,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_1_77x44_6e11d383a025"
+     "$ref": "picture:new_key_1_77x44_4852acd456d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_1_press_77x44_a2258b64e745"
+     "$ref": "picture:new_key_1_press_77x44_1837df4c9629"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2064,12 +2064,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_key_del_77x44_1f3de5931901"
+     "$ref": "picture:new_key_del_77x44_8316140969cc"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_del_press_77x44_1c503b641712"
+     "$ref": "picture:new_key_del_press_77x44_9daa6dd5c67b"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2121,12 +2121,12 @@
      "$ref": "font:font_d28"
     },
     "pic": {
-     "$ref": "picture:new_key_2_78x44_5cee76da708e"
+     "$ref": "picture:new_key_2_78x44_0040aa0ac1b4"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_2_press_78x44_f6f13f672629"
+     "$ref": "picture:new_key_2_press_78x44_b2b09b88a4bb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2182,12 +2182,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_key_ok_77x44_e7379a53f5c6"
+     "$ref": "picture:new_key_ok_77x44_b1559b666a65"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_key_ok_press_77x44_37bb825e1658"
+     "$ref": "picture:new_key_ok_press_77x44_ab8c4f8a5db5"
     },
     "picc2": 65535,
     "bco2": 1024,

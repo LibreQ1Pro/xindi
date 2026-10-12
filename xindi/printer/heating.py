@@ -51,6 +51,7 @@ def set_printer_flow(rate):
 def set_filament_extruder_target(positive):
     settings.get_extruder_target()
     g.klippy.filament_extruder_target = g.config.extruder_target
+    log.debug("filament target %s: saved %s, set now %s", "+3" if positive else "-3", g.config.extruder_target, g.klippy.extruder_target)
     if positive:
         g.klippy.filament_extruder_target += 3
     else:

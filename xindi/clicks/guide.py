@@ -48,11 +48,12 @@ def open_moving(page_id, widget_id):
 
 
 def open_filamentvideo(page_id, widget_id):
+    # the original has no "break" after the first case and falls through into the second one: both buttons have the id 0, so the
+    # "insert the filament" page was skipped at once (Python only: each page goes to the next one)
     if page_id == ids.OPEN_FILAMENTVIDEO_0:
         if widget_id == ids.OPEN_FILAMENTVIDEO_0_NEXT:
             page_to(ids.OPEN_FILAMENTVIDEO_1)
-        # NOTE: no "break" in the original - falls through into the next case
-    if widget_id == ids.OPEN_FILAMENTVIDEO_1_NEXT:
+    elif widget_id == ids.OPEN_FILAMENTVIDEO_1_NEXT:
         page_to(ids.OPEN_FILAMENTVIDEO_2)
 
 

@@ -1383,12 +1383,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
+     "$ref": "picture:new_fan1_btn_80x50_aa9138d6a42e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
+     "$ref": "picture:new_fan1_btn_press_80x50_0be57b60d7d4"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1543,12 +1543,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
+     "$ref": "picture:new_fan1_btn_80x50_aa9138d6a42e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
+     "$ref": "picture:new_fan1_btn_press_80x50_0be57b60d7d4"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1703,12 +1703,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_fan1_btn_80x50_5afd2a8dae2c"
+     "$ref": "picture:new_fan1_btn_80x50_aa9138d6a42e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_fan1_btn_press_80x50_09713a0c41ac"
+     "$ref": "picture:new_fan1_btn_press_80x50_0be57b60d7d4"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1863,12 +1863,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_skip_120x46_34433c73d5a7"
+     "$ref": "picture:new_load_btn_120x46_142003aa8f0d"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_skip_press_120x46_ac87036a305a"
+     "$ref": "picture:new_load_btn_press_120x46_4bb5113b4bae"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1925,12 +1925,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_skip_120x46_34433c73d5a7"
+     "$ref": "picture:new_load_btn_120x46_142003aa8f0d"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_skip_press_120x46_ac87036a305a"
+     "$ref": "picture:new_load_btn_press_120x46_4bb5113b4bae"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2272,12 +2272,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_extr_up_120x64_c37408a87217"
+     "$ref": "picture:new_extr_up_120x64_83a7ecba6a31"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_extr_up_press_120x64_06c02dfd2e6b"
+     "$ref": "picture:new_extr_up_press_120x64_06c2feb00683"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -2384,12 +2384,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_extr_down_120x64_99787041e443"
+     "$ref": "picture:new_extr_down_120x64_dd7b6e8a6f8d"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_extr_down_press_120x64_7058f29d3297"
+     "$ref": "picture:new_extr_down_press_120x64_75fa133fcc13"
     },
     "picc2": 65535,
     "bco2": 1024,

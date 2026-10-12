@@ -65,7 +65,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "61"
+     "38"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -77,13 +77,13 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "129"
+     "401"
     ],
     "beep_btn.pic2": [
-     "130"
+     "402"
     ],
     "chamber_icon.pic": [
-     "75"
+     "52"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -95,10 +95,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "119"
+     "399"
     ],
     "last_file_btn.pic2": [
-     "120"
+     "400"
     ],
     "last_file_name.txt": [
      "\"\""
@@ -107,13 +107,13 @@
      ""
     ],
     "light_btn.pic": [
-     "125"
+     "357"
     ],
     "light_btn.pic2": [
-     "126"
+     "358"
     ],
     "nozzle_icon.pic": [
-     "72"
+     "49"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -125,13 +125,13 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "115"
+     "85"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.pic": [
-     "117"
+     "87"
     ]
    },
    "page": 17
@@ -151,37 +151,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "360"
+     "397"
     ],
     "file1.pic2": [
-     "361"
+     "398"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "358"
+     "395"
     ],
     "file2.pic2": [
-     "359"
+     "396"
     ],
     "file2_name.txt": [
-     "\"Benchy PLA\\r.gcode\""
+     "\"Bench….gcode\""
     ],
     "file3.pic": [
-     "358"
+     "395"
     ],
     "file3.pic2": [
-     "359"
+     "396"
     ],
     "file3_name.txt": [
-     "\"big_petg\\r.gcode\""
+     "\"big_p….gcode\""
     ],
     "file4.pic": [
-     "358"
+     "395"
     ],
     "file4.pic2": [
-     "359"
+     "396"
     ],
     "file4_name.txt": [
      "\"cube.gcode\""
@@ -190,16 +190,16 @@
      "65535"
     ],
     "next.pic": [
-     "366"
+     "327"
     ],
     "next.pic2": [
-     "367"
+     "328"
     ],
     "prev.pic": [
-     "362"
+     "323"
     ],
     "prev.pic2": [
-     "363"
+     "324"
     ],
     "tabs_seg.pic": [
      "23"
@@ -208,20 +208,20 @@
      "255,1"
     ],
     "twfile": [
-     "\"ram/file1.jpg\",5575",
-     "\"ram/file3.jpg\",5386"
+     "\"ram/file1.jpg\",11130",
+     "\"ram/file3.jpg\",10590"
     ],
     "twfile-data:ram/file1.jpg": [
-     "67a3b956df887385:5575:2"
+     "165ea06f164c81df:11130:3"
     ],
     "twfile-data:ram/file3.jpg": [
-     "9c9d20e5bd8660e3:5386:2"
+     "c6ff27a57d22b7c6:10590:3"
     ],
     "up_dir.pic": [
-     "372"
+     "333"
     ],
     "up_dir.pic2": [
-     "373"
+     "334"
     ],
     "usb_tab_lbl.pco": [
      "42294"

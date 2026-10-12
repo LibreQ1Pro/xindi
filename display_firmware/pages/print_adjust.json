@@ -250,12 +250,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_pause_btn_108x62_007efb706613"
+     "$ref": "picture:new_pause_btn_108x62_4e109d7fc7ad"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_pause_btn_press_108x62_d3a9cef2af15"
+     "$ref": "picture:new_pause_btn_press_108x62_882fd8feda86"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -311,12 +311,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_stop_btn_108x62_791257a103d2"
+     "$ref": "picture:new_stop_btn_108x62_763def40c727"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_stop_btn_press_108x62_d448e01c39c2"
+     "$ref": "picture:new_stop_btn_press_108x62_95163925fc96"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -672,12 +672,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_speed_btn_160x58_4695ec4c0ee4"
+     "$ref": "picture:new_speed_btn_160x58_c054c36feae1"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_speed_btn_press_160x58_f71bad3cd705"
+     "$ref": "picture:new_speed_btn_press_160x58_fb87020895cb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -882,12 +882,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_flow_btn_160x58_3064814e922b"
+     "$ref": "picture:new_flow_btn_160x58_96560634bf46"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_flow_btn_press_160x58_4c6261dcce2c"
+     "$ref": "picture:new_flow_btn_press_160x58_e583801f37f2"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1089,12 +1089,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_zoffset_btn_160x58_f7794da70f1e"
+     "$ref": "picture:new_zoffset_btn_160x58_c78b70a2a190"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_zoffset_btn_press_160x58_57b7369dd452"
+     "$ref": "picture:new_zoffset_btn_press_160x58_240d13f24d64"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1793,12 +1793,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_light2_btn_120x48_666236ae6ada"
+     "$ref": "picture:new_light2_btn_120x48_569e657fa86d"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_light2_btn_press_120x48_4f2bc6e6d786"
+     "$ref": "picture:new_light2_btn_press_120x48_cb4df56b2e10"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1854,12 +1854,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_back_btn_120x48_761863939d7f"
+     "$ref": "picture:new_back_btn_120x48_8d2a3d459747"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_back_btn_press_120x48_a8f9fe4d68bd"
+     "$ref": "picture:new_back_btn_press_120x48_83a05298e751"
     },
     "picc2": 65535,
     "bco2": 1024,

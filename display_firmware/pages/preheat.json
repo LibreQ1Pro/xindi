@@ -33,8 +33,8 @@
   "events": {
    "codesload": [
     "sys0=0",
-    "temp_opt1.pic=${picture:new_temp_opt1_on_216x44_f629f66d9e68}",
-    "temp_opt1.pic2=${picture:new_temp_opt1_on_press_216x44_fe4ae4903b38}",
+    "temp_opt1.pic=${picture:new_temp_opt1_on_216x44_a71998840af0}",
+    "temp_opt1.pic2=${picture:new_temp_opt1_on_press_216x44_9b8ef42f6171}",
     "if(lang==0)",
     "{",
     "  msg.txt=\"请选择喷头温度。\"",
@@ -215,12 +215,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_temp_opt1_216x44_b787fc538c37"
+     "$ref": "picture:new_temp_opt1_216x44_66ace7c9fca9"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_temp_opt1_press_216x44_ec4d8913cff8"
+     "$ref": "picture:new_temp_opt1_press_216x44_86c6c1ab4433"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -239,12 +239,12 @@
     "codesdown": [],
     "codesup": [
      "sys0=0",
-     "temp_opt1.pic=${picture:new_temp_opt1_on_216x44_f629f66d9e68}",
-     "temp_opt1.pic2=${picture:new_temp_opt1_on_press_216x44_fe4ae4903b38}",
-     "temp_opt2.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt2.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}",
-     "temp_opt3.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt3.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}"
+     "temp_opt1.pic=${picture:new_temp_opt1_on_216x44_a71998840af0}",
+     "temp_opt1.pic2=${picture:new_temp_opt1_on_press_216x44_9b8ef42f6171}",
+     "temp_opt2.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt2.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}",
+     "temp_opt3.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt3.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}"
     ]
    }
   },
@@ -371,12 +371,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_temp_opt1_216x44_b787fc538c37"
+     "$ref": "picture:new_temp_opt1_216x44_66ace7c9fca9"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_temp_opt1_press_216x44_ec4d8913cff8"
+     "$ref": "picture:new_temp_opt1_press_216x44_86c6c1ab4433"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -395,12 +395,12 @@
     "codesdown": [],
     "codesup": [
      "sys0=1",
-     "temp_opt1.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt1.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}",
-     "temp_opt2.pic=${picture:new_temp_opt1_on_216x44_f629f66d9e68}",
-     "temp_opt2.pic2=${picture:new_temp_opt1_on_press_216x44_fe4ae4903b38}",
-     "temp_opt3.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt3.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}"
+     "temp_opt1.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt1.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}",
+     "temp_opt2.pic=${picture:new_temp_opt1_on_216x44_a71998840af0}",
+     "temp_opt2.pic2=${picture:new_temp_opt1_on_press_216x44_9b8ef42f6171}",
+     "temp_opt3.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt3.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}"
     ]
    }
   },
@@ -527,12 +527,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_temp_opt1_216x44_b787fc538c37"
+     "$ref": "picture:new_temp_opt1_216x44_66ace7c9fca9"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_temp_opt1_press_216x44_ec4d8913cff8"
+     "$ref": "picture:new_temp_opt1_press_216x44_86c6c1ab4433"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -551,12 +551,12 @@
     "codesdown": [],
     "codesup": [
      "sys0=2",
-     "temp_opt1.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt1.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}",
-     "temp_opt2.pic=${picture:new_temp_opt1_216x44_b787fc538c37}",
-     "temp_opt2.pic2=${picture:new_temp_opt1_press_216x44_ec4d8913cff8}",
-     "temp_opt3.pic=${picture:new_temp_opt1_on_216x44_f629f66d9e68}",
-     "temp_opt3.pic2=${picture:new_temp_opt1_on_press_216x44_fe4ae4903b38}"
+     "temp_opt1.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt1.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}",
+     "temp_opt2.pic=${picture:new_temp_opt1_216x44_66ace7c9fca9}",
+     "temp_opt2.pic2=${picture:new_temp_opt1_press_216x44_86c6c1ab4433}",
+     "temp_opt3.pic=${picture:new_temp_opt1_on_216x44_a71998840af0}",
+     "temp_opt3.pic2=${picture:new_temp_opt1_on_press_216x44_9b8ef42f6171}"
     ]
    }
   },
@@ -683,12 +683,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_cancel_104x48_921aa4c1ca89"
+     "$ref": "picture:new_cancel_104x48_9129e9271095"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_cancel_press_104x48_b6043eb9391d"
+     "$ref": "picture:new_cancel_press_104x48_ce64025128ee"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -744,12 +744,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_ok_104x48_7d9d9ec80184"
+     "$ref": "picture:new_ok_104x48_4124bc28cc6e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_ok_press_104x48_8cf8c48c3088"
+     "$ref": "picture:new_ok_press_104x48_893e14b3f347"
     },
     "picc2": 65535,
     "bco2": 1024,

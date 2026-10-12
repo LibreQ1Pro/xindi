@@ -297,12 +297,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_row1_item_248x44_dece58b2706b"
+     "$ref": "picture:new_row1_item_248x44_223a886b2965"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_row1_item_press_248x44_f0f740370466"
+     "$ref": "picture:new_row1_item_press_248x44_fd6a9b73b928"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -410,12 +410,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_row1_item_248x44_dece58b2706b"
+     "$ref": "picture:new_row1_item_248x44_223a886b2965"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_row1_item_press_248x44_f0f740370466"
+     "$ref": "picture:new_row1_item_press_248x44_fd6a9b73b928"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -523,12 +523,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_row1_item_248x44_dece58b2706b"
+     "$ref": "picture:new_row1_item_248x44_223a886b2965"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_row1_item_press_248x44_f0f740370466"
+     "$ref": "picture:new_row1_item_press_248x44_fd6a9b73b928"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -636,12 +636,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_row1_item_248x44_dece58b2706b"
+     "$ref": "picture:new_row1_item_248x44_223a886b2965"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_row1_item_press_248x44_f0f740370466"
+     "$ref": "picture:new_row1_item_press_248x44_fd6a9b73b928"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -749,12 +749,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_row1_item_248x44_dece58b2706b"
+     "$ref": "picture:new_row1_item_248x44_223a886b2965"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_row1_item_press_248x44_f0f740370466"
+     "$ref": "picture:new_row1_item_press_248x44_fd6a9b73b928"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -862,12 +862,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_prev_btn_edge_120x40_7a286a698c88"
+     "$ref": "picture:new_prev_btn_edge_120x40_4e71706e2d5a"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_prev_btn_edge_press_120x40_403529328d56"
+     "$ref": "picture:new_prev_btn_edge_press_120x40_ef7bd72c0226"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -923,12 +923,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_btn_more_120x40_bfcf81088b0f"
+     "$ref": "picture:new_next_btn_more_120x40_3e350b70236c"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_btn_more_press_120x40_e34ebf6e914f"
+     "$ref": "picture:new_next_btn_more_press_120x40_eaa095103fbd"
     },
     "picc2": 65535,
     "bco2": 1024,

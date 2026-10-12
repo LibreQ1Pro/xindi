@@ -112,15 +112,15 @@
     "  empty_msg.txt=\"ריק\"",
     "}",
     "file1_name.txt=\"\"",
-    "file1.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
+    "file1.pic=${picture:new_file1_none_120x148_e433471d15d5}",
     "file2_name.txt=\"\"",
-    "file2.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
+    "file2.pic=${picture:new_file1_none_120x148_e433471d15d5}",
     "file3_name.txt=\"\"",
-    "file3.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
+    "file3.pic=${picture:new_file1_none_120x148_e433471d15d5}",
     "file3_name.txt=\"\"",
-    "file3.pic=${picture:new_file1_none_120x150_c2e8384513b2}",
+    "file3.pic=${picture:new_file1_none_120x148_e433471d15d5}",
     "file4_name.txt=\"\"",
-    "file4.pic=${picture:new_file1_none_120x150_c2e8384513b2}"
+    "file4.pic=${picture:new_file1_none_120x148_e433471d15d5}"
    ],
    "codesloadend": [],
    "codesdown": [],
@@ -407,7 +407,7 @@
     "x": 12,
     "y": 56,
     "w": 120,
-    "h": 150,
+    "h": 148,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -422,12 +422,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
+     "$ref": "picture:new_file1_none_120x148_e433471d15d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
+     "$ref": "picture:new_file1_none_press_120x148_5eb0de88c020"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -465,10 +465,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 24,
-    "y": 64,
-    "w": 96,
-    "h": 96,
+    "x": 16,
+    "y": 60,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -476,7 +476,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
+     "$ref": "picture:new_thumb_bg_112x112_68f7fb8e826f"
     }
    },
    "events": {
@@ -495,10 +495,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 24,
-    "y": 64,
-    "w": 96,
-    "h": 96,
+    "x": 16,
+    "y": 60,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -528,10 +528,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 18,
-    "y": 164,
-    "w": 108,
-    "h": 40,
+    "x": 16,
+    "y": 176,
+    "w": 112,
+    "h": 24,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -555,7 +555,7 @@
     "pw": 0,
     "txt": "",
     "txt_maxl": 1024,
-    "isbr": 1,
+    "isbr": 0,
     "spax": 0,
     "spay": 0
    },
@@ -582,7 +582,7 @@
     "x": 140,
     "y": 56,
     "w": 120,
-    "h": 150,
+    "h": 148,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -597,12 +597,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
+     "$ref": "picture:new_file1_none_120x148_e433471d15d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
+     "$ref": "picture:new_file1_none_press_120x148_5eb0de88c020"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -640,10 +640,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 152,
-    "y": 64,
-    "w": 96,
-    "h": 96,
+    "x": 144,
+    "y": 60,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -651,7 +651,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
+     "$ref": "picture:new_thumb_bg_112x112_68f7fb8e826f"
     }
    },
    "events": {
@@ -670,10 +670,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 152,
-    "y": 64,
-    "w": 96,
-    "h": 96,
+    "x": 144,
+    "y": 60,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -703,10 +703,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 146,
-    "y": 164,
-    "w": 108,
-    "h": 40,
+    "x": 144,
+    "y": 176,
+    "w": 112,
+    "h": 24,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -730,7 +730,7 @@
     "pw": 0,
     "txt": "",
     "txt_maxl": 1024,
-    "isbr": 1,
+    "isbr": 0,
     "spax": 0,
     "spay": 0
    },
@@ -755,9 +755,9 @@
     "movex": 0,
     "movey": 0,
     "x": 12,
-    "y": 214,
+    "y": 212,
     "w": 120,
-    "h": 150,
+    "h": 148,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -772,12 +772,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
+     "$ref": "picture:new_file1_none_120x148_e433471d15d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
+     "$ref": "picture:new_file1_none_press_120x148_5eb0de88c020"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -815,10 +815,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 24,
-    "y": 222,
-    "w": 96,
-    "h": 96,
+    "x": 16,
+    "y": 216,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -826,7 +826,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
+     "$ref": "picture:new_thumb_bg_112x112_68f7fb8e826f"
     }
    },
    "events": {
@@ -845,10 +845,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 24,
-    "y": 222,
-    "w": 96,
-    "h": 96,
+    "x": 16,
+    "y": 216,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -878,10 +878,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 18,
-    "y": 322,
-    "w": 108,
-    "h": 40,
+    "x": 16,
+    "y": 332,
+    "w": 112,
+    "h": 24,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -905,7 +905,7 @@
     "pw": 0,
     "txt": "",
     "txt_maxl": 1024,
-    "isbr": 1,
+    "isbr": 0,
     "spax": 0,
     "spay": 0
    },
@@ -930,9 +930,9 @@
     "movex": 0,
     "movey": 0,
     "x": 140,
-    "y": 214,
+    "y": 212,
     "w": 120,
-    "h": 150,
+    "h": 148,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -947,12 +947,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_file1_none_120x150_c2e8384513b2"
+     "$ref": "picture:new_file1_none_120x148_e433471d15d5"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_file1_none_press_120x150_95700a18f72f"
+     "$ref": "picture:new_file1_none_press_120x148_5eb0de88c020"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -990,10 +990,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 152,
-    "y": 222,
-    "w": 96,
-    "h": 96,
+    "x": 144,
+    "y": 216,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1001,7 +1001,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
+     "$ref": "picture:new_thumb_bg_112x112_68f7fb8e826f"
     }
    },
    "events": {
@@ -1020,10 +1020,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 152,
-    "y": 222,
-    "w": 96,
-    "h": 96,
+    "x": 144,
+    "y": 216,
+    "w": 112,
+    "h": 112,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1053,10 +1053,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 146,
-    "y": 322,
-    "w": 108,
-    "h": 40,
+    "x": 144,
+    "y": 332,
+    "w": 112,
+    "h": 24,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1080,7 +1080,7 @@
     "pw": 0,
     "txt": "",
     "txt_maxl": 1024,
-    "isbr": 1,
+    "isbr": 0,
     "spax": 0,
     "spay": 0
    },
@@ -1122,12 +1122,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_prev_77x40_57a7d802b437"
+     "$ref": "picture:new_prev_77x40_5bbee4361e33"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_prev_press_77x40_a9794793b8eb"
+     "$ref": "picture:new_prev_press_77x40_18f5a942ecdb"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1183,12 +1183,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_78x40_8069ce373de2"
+     "$ref": "picture:new_next_78x40_a269d68d9065"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_press_78x40_b8073e1b969c"
+     "$ref": "picture:new_next_press_78x40_fc225aa98728"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1244,12 +1244,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_up_dir_77x40_463d04a32658"
+     "$ref": "picture:new_up_dir_77x40_44b90cd08713"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_up_dir_press_77x40_6176705ea912"
+     "$ref": "picture:new_up_dir_press_77x40_7dc4f7302585"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1277,10 +1277,10 @@
    }
   },
   {
-   "key": "bg57",
+   "key": "bg54",
    "type": "picture",
    "attributes": {
-    "objname": "bg57",
+    "objname": "bg54",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,

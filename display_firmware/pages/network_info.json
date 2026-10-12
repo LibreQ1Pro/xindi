@@ -1041,12 +1041,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_radio_btn_248x50_0b4c99c15aec"
+     "$ref": "picture:new_radio_btn_248x50_5fd91037c558"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_radio_btn_press_248x50_12f6f35c2b42"
+     "$ref": "picture:new_radio_btn_press_248x50_373d7fa81fb1"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1153,12 +1153,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_wifi_btn_248x52_9ca562ba78bb"
+     "$ref": "picture:new_lang_btn_248x52_1efce77f7464"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_wifi_btn_press_248x52_07bf50a97592"
+     "$ref": "picture:new_lang_btn_press_248x52_40f8b59b1d75"
     },
     "picc2": 65535,
     "bco2": 1024,

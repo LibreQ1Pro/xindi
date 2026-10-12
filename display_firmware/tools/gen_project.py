@@ -42,6 +42,30 @@ def quantize(image):
     return Image.merge("RGB", (r, g, b))
 
 
+def round_tile(image, mask):
+    """A tile with the transparent corners of the HTML (RGBA): ``mask`` is the alpha of the button as the browser draws it (``screenshot(..., layer=True)``). What lies under
+    the corners on the page shows through. The pixels of the edge hold the colour of the tile (taken from the nearest solid pixel), not the colour under the corner
+    of the mockup: the screen blends them with what is on the page, so a mixed colour would be mixed twice."""
+    if mask is None:
+        return image
+    out = image.convert("RGBA")
+    w, h = out.size
+    px, mp = out.load(), mask.load()
+    cx, cy = (w - 1) / 2, (h - 1) / 2
+    for y in range(h):
+        for x in range(w):
+            if mp[x, y] < 255:
+                sx, sy = (1 if x < cx else -1), (1 if y < cy else -1)
+                u, v = x, y
+                for _ in range(32):
+                    if mp[u, v] == 255 or not (0 <= u + sx < w and 0 <= v + sy < h):
+                        break
+                    u, v = u + sx, v + sy
+                px[x, y] = px[u, v][:3] + (0,)
+    out.putalpha(mask)
+    return out
+
+
 def to_alpha(image, mode="ink"):
     """An icon cut out of its card as a PNG with alpha: ``ink`` = one colour on a flat background (the ink is the colour farthest from the background, the alpha is
     how far each pixel is on the way to it); ``disc`` = a round badge (the pixels keep their colour, the alpha is the disc, anti-aliased)."""
@@ -53,7 +77,7 @@ def to_alpha(image, mode="ink"):
         big = Image.new("L", (w * scale, h * scale), 0)
         ImageDraw.Draw(big).ellipse((0, 0, w * scale - 1, h * scale - 1), fill=255)
         out = quantize(rgb).convert("RGBA")
-        out.putalpha(big.resize((w, h), Image.LANCZOS))
+        out.putalpha(big.resize((w, h), Image.BOX))
         return out
     pixels = list(rgb.get_flattened_data() if hasattr(rgb, "get_flattened_data") else rgb.getdata())
     background = Counter(pixels).most_common(1)[0][0]
@@ -151,25 +175,32 @@ class Tiles:
         return self.add(name, image.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])))
 
 
-def screenshot(sid, variant="", lang=2, static=True, nobtn=False):
+def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, names=()):
+    """The static rendering of a screen of the mockup (RGB, quantized to RGB565). ``layer=True``: only the buttons, on a transparent background (RGBA, as the browser
+    draws it): the alpha of the anti-aliased corners comes from the HTML itself; ``names`` = widgets of the page that belong to the layer besides the buttons."""
     directory = ROOT / "out/static"
     directory.mkdir(parents=True, exist_ok=True)
-    out = directory / ("gen_%s_%s_%d%s.png" % (sid, variant, lang, "_nobtn" if nobtn else ""))
+    tag = "_layer" + (("_" + hashlib.sha1(",".join(sorted(names)).encode()).hexdigest()[:8]) if names else "") if layer else ""
+    out = directory / ("gen_%s_%s_%d%s%s.png" % (sid, variant, lang, "_nobtn" if nobtn else "", tag))
     query = "bare=%s&lang=%d" % (sid, lang)
     if static:
         query += "&static=1"
     if nobtn:
         query += "&nobtn=1"
+    if layer:
+        query += "&onlybtn=1"
+        if names:
+            query += "&lyr=" + ",".join(sorted(names))
     if variant:
         query += "&variant=" + variant
-    subprocess.run(["google-chrome", "--headless=new", "--disable-gpu", "--hide-scrollbars",
+    subprocess.run(["google-chrome", "--headless=new", "--disable-gpu", "--hide-scrollbars", "--default-background-color=00000000",
                     "--force-device-scale-factor=1", "--window-size=272,480", "--virtual-time-budget=3000",
                     "--screenshot=" + str(out), (MOCK / "index.html").as_uri() + "?" + query],
                    capture_output=True, timeout=120, check=True)
     with Image.open(out) as image:
         if image.size != (272, 480):
             raise ValueError("unexpected screenshot size: %s" % (image.size,))
-        return quantize(image)
+        return image.convert("RGBA") if layer else quantize(image)
 
 
 def templates():

@@ -288,12 +288,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_next_64x64_5c49f5408213"
+     "$ref": "picture:new_next_64x64_e28b5198df2e"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_next_press_64x64_e98888eb1a95"
+     "$ref": "picture:new_next_press_64x64_e9b514a637ed"
     },
     "picc2": 65535,
     "bco2": 1024,
