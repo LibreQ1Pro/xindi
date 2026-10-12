@@ -14,7 +14,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPECTED = {"keypad": "filament", "print_keypad": "printing"}
+EXPECTED = {"keypad": "filament", "keybdB": "printing"}
 
 
 def blocks(o):

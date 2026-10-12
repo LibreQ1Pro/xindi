@@ -184,6 +184,7 @@
   "memory_full"
  ],
  "short": {
+  "print_keypad": "keybdB",
   "setup_language_2": "setup_lang_2",
   "setup_skip_confirm": "setup_skip",
   "setup_unbox_warning": "setup_warning",
