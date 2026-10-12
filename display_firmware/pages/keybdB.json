@@ -260,7 +260,7 @@
     "    title.txt=\"Ventola ausiliaria\"",
     "  }else if(sys0==6)",
     "  {",
-    "    title.txt=\"Ventola di circolazione della\\r camera\"",
+    "    title.txt=\"Ventola di circolazione della\\rcamera\"",
     "  }else if(sys0==7)",
     "  {",
     "    title.txt=\"Temp. camera\"",

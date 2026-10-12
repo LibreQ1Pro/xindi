@@ -45,8 +45,8 @@ def fit_name(value, pixels, lines=2, extension=True):
             if rest[split - 1] in "_- " or (split < len(rest) and rest[split] == "."):
                 count = split
                 break
-        result.append(rest[:count])
-        rest = rest[count:]
+        result.append(rest[:count].rstrip(" "))         # a space at the end of a line would push the centred line to one side
+        rest = rest[count:].lstrip(" ")
     if width(rest) > pixels:
         dot = name.rfind(".")
         ext = name[dot:] if extension and dot > 0 and len(name) - dot <= 9 else ""

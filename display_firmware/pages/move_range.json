@@ -159,7 +159,7 @@
     "xcen": 1,
     "ycen": 1,
     "pw": 0,
-    "txt": "The movement is out of\\r range.",
+    "txt": "The movement is out of\\rrange.",
     "txt_maxl": 512,
     "isbr": 1,
     "spax": 0,

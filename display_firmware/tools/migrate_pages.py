@@ -94,6 +94,8 @@ class Metrics:
         """The lines of a text broken at the spaces for a box of ``width`` pixels (the screen itself breaks a line at the last letter that fits)."""
         out = []
         for paragraph in text.replace("\\r\\n", "\r").replace("\\r", "\r").replace("\r\n", "\r").replace("\n", "\r").split("\r"):
+            # a line never starts or ends with a space: it would push a centred line to one side (the stock texts broke a line as "\r" + " ")
+            paragraph = re.sub(" +", " ", paragraph.strip(" "))          # the stock breaks were "\r" + " ": joined, they left double spaces
             current, used, last_space = "", 0, -1
             for ch in paragraph:
                 adv = self.advance(role, ch)
@@ -106,6 +108,8 @@ class Metrics:
                         current = ""
                     used = sum(self.advance(role, c) for c in current)
                     last_space = -1
+                    if ch == " ":
+                        continue            # the space that did not fit is the break: the next line does not start with it
                 if ch == " ":
                     last_space = len(current)
                 current += ch
