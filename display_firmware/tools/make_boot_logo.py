@@ -28,7 +28,11 @@ def main():
     svg = ROOT / "mockup" / "art" / "LibreQ1Pro.svg"
     with tempfile.TemporaryDirectory() as tmp:
         html = Path(tmp) / "logo.html"
-        html.write_text('<body style="margin:0;background:transparent"><img src="%s" width="%d" height="%d" style="display:block"></body>' % (svg.as_uri(), SIZE, SIZE))
+        # the svg has a rounded square in the colour of the page behind the mark: left out, its anti-aliased edge (23, 25, 26, 27 instead of 24) shows as faint arcs
+        # at the four corners of the mark (the screen blends it with the page again)
+        plain = Path(tmp) / "mark.svg"
+        plain.write_text(re.sub(r"\s*<rect [^>]*/>", "", svg.read_text(encoding="utf-8")), encoding="utf-8")
+        html.write_text('<body style="margin:0;background:transparent"><img src="%s" width="%d" height="%d" style="display:block"></body>' % (plain.as_uri(), SIZE, SIZE))
         shot = Path(tmp) / "logo.png"
         subprocess.run(["google-chrome", "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1", "--default-background-color=00000000",
                         "--window-size=%d,%d" % (SIZE, SIZE), "--screenshot=" + str(shot), html.as_uri()], capture_output=True, timeout=120, check=True)
