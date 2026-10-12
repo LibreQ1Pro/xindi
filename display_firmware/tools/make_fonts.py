@@ -156,7 +156,11 @@ def make(role, static, hf):
             skipped.append(ord(ch))
             continue
         glyphs[ord(ch)] = rasterize(ch, font, cell)
-    data = hf.encode_font(glyphs, cell, "xindi_" + role, "ascii" if digits else "bmp", 3)
+    if not digits:
+        # The line break of a text is the control character CR (the "\\r" of the instructions). The device asks the font for its width when it measures a line
+        # to centre it: a font without the glyph made every line that ends in a break look pushed to one side. The stock fonts have it (an empty glyph, 1 px).
+        glyphs[0x0D] = {"width": 1, "left": 0, "right": 0, "alpha": [0] * cell}
+    data = hf.encode_font(glyphs, cell, "xindi_" + role, "ascii" if digits else "bmp", 3, _allow_controls=not digits)
     hf.validate_font(data)
     return data, glyphs, cell, skipped
 
