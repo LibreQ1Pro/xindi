@@ -65,6 +65,7 @@
    "chamber_set",
    "chamber_toggle",
    "chamber_unit",
+   "lan_icon",
    "nozzle_card",
    "nozzle_icon",
    "nozzle_set",
@@ -74,7 +75,7 @@
    "ui_ver",
    "ver_panel"
   ],
-  "sha256": "b8f136d634012b2bfa71d5cfe1ab311f6a58c145823042fb945c3b5d745e6026"
+  "sha256": "e6824f966bb0c2a4a127888de7c8ac9d7c87cd22f54fae5c87f5c086ce0484d9"
  },
  "open_pop": {
   "design": "setup_skip_confirm",

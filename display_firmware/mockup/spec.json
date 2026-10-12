@@ -15,7 +15,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "name": "last_file_btn",
     "kind": "card",
     "bg": [
@@ -31,7 +31,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "name": "last_file_pic",
     "kind": "thumb",
     "bg": [
@@ -47,7 +47,7 @@
     "y": 190,
     "w": 224,
     "h": 40,
-    "z": 30,
+    "z": 38,
     "name": "last_file_name",
     "kind": "t",
     "bg": null,
@@ -76,7 +76,7 @@
       "scroll": false,
       "used": 22,
       "text": "Benchy_PLA_0.2mm.gcode",
-      "z": 31,
+      "z": 39,
       "centered": true
      }
     ],
@@ -104,7 +104,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "name": "nozzle_btn",
     "kind": "card",
     "bg": [
@@ -120,7 +120,7 @@
     "y": 250,
     "w": 52,
     "h": 40,
-    "z": 38,
+    "z": 46,
     "name": "nozzle_temp",
     "kind": "t",
     "bg": null,
@@ -149,7 +149,7 @@
       "scroll": false,
       "used": 38,
       "text": "220",
-      "z": 39,
+      "z": 47,
       "centered": true
      }
     ],
@@ -177,7 +177,7 @@
     "y": 266,
     "w": 34,
     "h": 20,
-    "z": 40,
+    "z": 48,
     "name": "nozzle_set",
     "kind": "t",
     "bg": null,
@@ -206,7 +206,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 220",
-      "z": 41,
+      "z": 49,
       "centered": true
      }
     ],
@@ -234,7 +234,7 @@
     "y": 266,
     "w": 18,
     "h": 20,
-    "z": 42,
+    "z": 50,
     "name": "nozzle_unit",
     "kind": "t",
     "bg": null,
@@ -263,7 +263,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 43,
+      "z": 51,
       "centered": true
      }
     ],
@@ -291,7 +291,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "name": "bed_btn",
     "kind": "card",
     "bg": [
@@ -307,7 +307,7 @@
     "y": 310,
     "w": 52,
     "h": 40,
-    "z": 51,
+    "z": 59,
     "name": "bed_temp",
     "kind": "t",
     "bg": null,
@@ -336,7 +336,7 @@
       "scroll": false,
       "used": 38,
       "text": "60",
-      "z": 52,
+      "z": 60,
       "centered": true
      }
     ],
@@ -364,7 +364,7 @@
     "y": 326,
     "w": 34,
     "h": 20,
-    "z": 53,
+    "z": 61,
     "name": "bed_set",
     "kind": "t",
     "bg": null,
@@ -393,7 +393,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 60",
-      "z": 54,
+      "z": 62,
       "centered": true
      }
     ],
@@ -421,7 +421,7 @@
     "y": 326,
     "w": 18,
     "h": 20,
-    "z": 55,
+    "z": 63,
     "name": "bed_unit",
     "kind": "t",
     "bg": null,
@@ -450,7 +450,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 56,
+      "z": 64,
       "centered": true
      }
     ],
@@ -478,7 +478,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "name": "chamber_btn",
     "kind": "card",
     "bg": [
@@ -494,7 +494,7 @@
     "y": 370,
     "w": 52,
     "h": 40,
-    "z": 64,
+    "z": 72,
     "name": "chamber_temp",
     "kind": "t",
     "bg": null,
@@ -523,7 +523,7 @@
       "scroll": false,
       "used": 38,
       "text": "35",
-      "z": 65,
+      "z": 73,
       "centered": true
      }
     ],
@@ -551,7 +551,7 @@
     "y": 386,
     "w": 34,
     "h": 20,
-    "z": 66,
+    "z": 74,
     "name": "chamber_set",
     "kind": "t",
     "bg": null,
@@ -580,7 +580,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 0",
-      "z": 67,
+      "z": 75,
       "centered": true
      }
     ],
@@ -608,7 +608,7 @@
     "y": 386,
     "w": 18,
     "h": 20,
-    "z": 68,
+    "z": 76,
     "name": "chamber_unit",
     "kind": "t",
     "bg": null,
@@ -637,7 +637,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 69,
+      "z": 77,
       "centered": true
      }
     ],
@@ -665,7 +665,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "name": "light_btn",
     "kind": "btn",
     "bg": [
@@ -681,7 +681,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "name": "beep_btn",
     "kind": "btn",
     "bg": [
@@ -697,7 +697,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "name": "stop_btn",
     "kind": "btn",
     "bg": [
@@ -713,7 +713,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 89,
+    "z": 97,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -725,7 +725,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 95,
+    "z": 103,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -737,7 +737,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 108,
+    "z": 116,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -749,7 +749,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 113,
+    "z": 121,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -759,11 +759,31 @@
   ],
   "prims": [
    {
-    "x": 204,
+    "x": 176,
     "y": 10,
     "w": 20,
     "h": 20,
     "z": 1,
+    "prim": "icon",
+    "icon": "ethernet-port",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "owner": null
+   },
+   {
+    "x": 204,
+    "y": 10,
+    "w": 20,
+    "h": 20,
+    "z": 9,
     "prim": "icon",
     "icon": "usb",
     "color": [
@@ -783,7 +803,7 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 11,
+    "z": 19,
     "prim": "icon",
     "icon": "wifi",
     "color": [
@@ -803,7 +823,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "prim": "fill",
     "name": "last_file_btn",
     "bg": [
@@ -820,7 +840,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "prim": "fill",
     "name": "last_file_pic",
     "bg": [
@@ -837,7 +857,7 @@
     "y": 91,
     "w": 53,
     "h": 53,
-    "z": 19,
+    "z": 27,
     "prim": "icon",
     "icon": "image",
     "color": [
@@ -857,7 +877,7 @@
     "y": 48,
     "w": 26,
     "h": 26,
-    "z": 24,
+    "z": 32,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -874,7 +894,7 @@
     "y": 52,
     "w": 18,
     "h": 18,
-    "z": 26,
+    "z": 34,
     "prim": "icon",
     "icon": "clock",
     "color": [
@@ -894,7 +914,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "prim": "fill",
     "name": "nozzle_btn",
     "bg": [
@@ -911,7 +931,7 @@
     "y": 257,
     "w": 26,
     "h": 26,
-    "z": 34,
+    "z": 42,
     "prim": "icon",
     "icon": "heat-nozzle",
     "color": [
@@ -931,7 +951,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "prim": "fill",
     "name": "bed_btn",
     "bg": [
@@ -948,7 +968,7 @@
     "y": 317,
     "w": 26,
     "h": 26,
-    "z": 46,
+    "z": 54,
     "prim": "icon",
     "icon": "heat-bed",
     "color": [
@@ -968,7 +988,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "prim": "fill",
     "name": "chamber_btn",
     "bg": [
@@ -985,7 +1005,7 @@
     "y": 377,
     "w": 26,
     "h": 26,
-    "z": 59,
+    "z": 67,
     "prim": "icon",
     "icon": "heat-chamber",
     "color": [
@@ -1005,7 +1025,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "prim": "fill",
     "name": "light_btn",
     "bg": [
@@ -1022,7 +1042,7 @@
     "y": 258,
     "w": 24,
     "h": 24,
-    "z": 71,
+    "z": 79,
     "prim": "icon",
     "icon": "lightbulb",
     "color": [
@@ -1042,7 +1062,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "prim": "fill",
     "name": "beep_btn",
     "bg": [
@@ -1059,7 +1079,7 @@
     "y": 318,
     "w": 24,
     "h": 24,
-    "z": 77,
+    "z": 85,
     "prim": "icon",
     "icon": "volume-2",
     "color": [
@@ -1079,7 +1099,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "prim": "fill",
     "name": "stop_btn",
     "bg": [
@@ -1096,7 +1116,7 @@
     "y": 378,
     "w": 24,
     "h": 24,
-    "z": 83,
+    "z": 91,
     "prim": "icon",
     "icon": "octagon-x",
     "color": [
@@ -1116,7 +1136,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 88,
+    "z": 96,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -1133,7 +1153,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 90,
+    "z": 98,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -1150,7 +1170,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 91,
+    "z": 99,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -1170,7 +1190,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 97,
+    "z": 105,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -1190,7 +1210,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 110,
+    "z": 118,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -1210,7 +1230,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 115,
+    "z": 123,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -1265,7 +1285,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -1303,7 +1323,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -1337,7 +1357,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -1371,7 +1391,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -1409,7 +1429,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -1443,7 +1463,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -1477,7 +1497,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -1515,7 +1535,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -1549,7 +1569,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -1583,7 +1603,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -1658,7 +1678,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -1696,7 +1716,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -1730,7 +1750,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -1764,7 +1784,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -1802,7 +1822,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -1836,7 +1856,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -1870,7 +1890,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -1908,7 +1928,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -1942,7 +1962,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -1976,7 +1996,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -2051,7 +2071,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -2089,7 +2109,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -2123,7 +2143,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -2157,7 +2177,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -2195,7 +2215,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -2229,7 +2249,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -2263,7 +2283,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -2301,7 +2321,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -2335,7 +2355,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -2369,7 +2389,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -2444,7 +2464,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -2482,7 +2502,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -2516,7 +2536,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -2550,7 +2570,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -2588,7 +2608,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -2622,7 +2642,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -2656,7 +2676,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -2694,7 +2714,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -2728,7 +2748,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -2762,7 +2782,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -2837,7 +2857,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -2875,7 +2895,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -2909,7 +2929,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -2943,7 +2963,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -2981,7 +3001,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -3015,7 +3035,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -3049,7 +3069,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -3087,7 +3107,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -3121,7 +3141,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -3155,7 +3175,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -3230,7 +3250,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -3268,7 +3288,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -3302,7 +3322,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -3336,7 +3356,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -3374,7 +3394,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -3408,7 +3428,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -3442,7 +3462,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -3480,7 +3500,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -3514,7 +3534,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -3548,7 +3568,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -3623,7 +3643,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -3661,7 +3681,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -3695,7 +3715,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -3729,7 +3749,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -3767,7 +3787,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -3801,7 +3821,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -3835,7 +3855,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -3873,7 +3893,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -3907,7 +3927,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -3941,7 +3961,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -4016,7 +4036,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -4054,7 +4074,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -4088,7 +4108,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -4122,7 +4142,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -4160,7 +4180,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -4194,7 +4214,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -4228,7 +4248,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -4266,7 +4286,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -4300,7 +4320,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -4334,7 +4354,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -4409,7 +4429,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -4447,7 +4467,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -4481,7 +4501,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -4515,7 +4535,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -4553,7 +4573,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -4587,7 +4607,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -4621,7 +4641,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -4659,7 +4679,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -4693,7 +4713,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -4727,7 +4747,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -4802,7 +4822,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -4840,7 +4860,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -4874,7 +4894,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -4908,7 +4928,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -4946,7 +4966,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -4980,7 +5000,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -5014,7 +5034,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -5052,7 +5072,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -5086,7 +5106,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -5120,7 +5140,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -5195,7 +5215,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -5233,7 +5253,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -5267,7 +5287,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -5301,7 +5321,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -5339,7 +5359,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -5373,7 +5393,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -5407,7 +5427,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -5445,7 +5465,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -5479,7 +5499,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -5513,7 +5533,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -5588,7 +5608,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -5626,7 +5646,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -5660,7 +5680,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -5694,7 +5714,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -5732,7 +5752,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -5766,7 +5786,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -5800,7 +5820,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -5838,7 +5858,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -5872,7 +5892,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -5906,7 +5926,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -5981,7 +6001,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -6019,7 +6039,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -6053,7 +6073,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -6087,7 +6107,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -6125,7 +6145,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -6159,7 +6179,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -6193,7 +6213,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -6231,7 +6251,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -6265,7 +6285,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -6299,7 +6319,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -6355,7 +6375,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "name": "last_file_btn",
     "kind": "card",
     "bg": [
@@ -6371,7 +6391,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "name": "last_file_pic",
     "kind": "thumb",
     "bg": [
@@ -6387,7 +6407,7 @@
     "y": 190,
     "w": 224,
     "h": 40,
-    "z": 30,
+    "z": 38,
     "name": "last_file_name",
     "kind": "t",
     "bg": null,
@@ -6416,7 +6436,7 @@
       "scroll": false,
       "used": 22,
       "text": "Benchy_PLA_0.2mm.gcode",
-      "z": 31,
+      "z": 39,
       "centered": true
      }
     ],
@@ -6444,7 +6464,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "name": "nozzle_btn",
     "kind": "card",
     "bg": [
@@ -6460,7 +6480,7 @@
     "y": 250,
     "w": 52,
     "h": 40,
-    "z": 38,
+    "z": 46,
     "name": "nozzle_temp",
     "kind": "t",
     "bg": null,
@@ -6489,7 +6509,7 @@
       "scroll": false,
       "used": 38,
       "text": "---",
-      "z": 39,
+      "z": 47,
       "centered": true
      }
     ],
@@ -6517,7 +6537,7 @@
     "y": 266,
     "w": 34,
     "h": 20,
-    "z": 40,
+    "z": 48,
     "name": "nozzle_set",
     "kind": "t",
     "bg": null,
@@ -6546,7 +6566,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ ---",
-      "z": 41,
+      "z": 49,
       "centered": true
      }
     ],
@@ -6574,7 +6594,7 @@
     "y": 266,
     "w": 18,
     "h": 20,
-    "z": 42,
+    "z": 50,
     "name": "nozzle_unit",
     "kind": "t",
     "bg": null,
@@ -6603,7 +6623,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 43,
+      "z": 51,
       "centered": true
      }
     ],
@@ -6631,7 +6651,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "name": "bed_btn",
     "kind": "card",
     "bg": [
@@ -6647,7 +6667,7 @@
     "y": 310,
     "w": 52,
     "h": 40,
-    "z": 51,
+    "z": 59,
     "name": "bed_temp",
     "kind": "t",
     "bg": null,
@@ -6676,7 +6696,7 @@
       "scroll": false,
       "used": 38,
       "text": "---",
-      "z": 52,
+      "z": 60,
       "centered": true
      }
     ],
@@ -6704,7 +6724,7 @@
     "y": 326,
     "w": 34,
     "h": 20,
-    "z": 53,
+    "z": 61,
     "name": "bed_set",
     "kind": "t",
     "bg": null,
@@ -6733,7 +6753,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ ---",
-      "z": 54,
+      "z": 62,
       "centered": true
      }
     ],
@@ -6761,7 +6781,7 @@
     "y": 326,
     "w": 18,
     "h": 20,
-    "z": 55,
+    "z": 63,
     "name": "bed_unit",
     "kind": "t",
     "bg": null,
@@ -6790,7 +6810,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 56,
+      "z": 64,
       "centered": true
      }
     ],
@@ -6818,7 +6838,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "name": "chamber_btn",
     "kind": "card",
     "bg": [
@@ -6834,7 +6854,7 @@
     "y": 370,
     "w": 52,
     "h": 40,
-    "z": 64,
+    "z": 72,
     "name": "chamber_temp",
     "kind": "t",
     "bg": null,
@@ -6863,7 +6883,7 @@
       "scroll": false,
       "used": 38,
       "text": "---",
-      "z": 65,
+      "z": 73,
       "centered": true
      }
     ],
@@ -6891,7 +6911,7 @@
     "y": 386,
     "w": 34,
     "h": 20,
-    "z": 66,
+    "z": 74,
     "name": "chamber_set",
     "kind": "t",
     "bg": null,
@@ -6920,7 +6940,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ ---",
-      "z": 67,
+      "z": 75,
       "centered": true
      }
     ],
@@ -6948,7 +6968,7 @@
     "y": 386,
     "w": 18,
     "h": 20,
-    "z": 68,
+    "z": 76,
     "name": "chamber_unit",
     "kind": "t",
     "bg": null,
@@ -6977,7 +6997,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 69,
+      "z": 77,
       "centered": true
      }
     ],
@@ -7005,7 +7025,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "name": "light_btn",
     "kind": "btn",
     "bg": [
@@ -7021,7 +7041,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "name": "beep_btn",
     "kind": "btn",
     "bg": [
@@ -7037,7 +7057,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "name": "stop_btn",
     "kind": "btn",
     "bg": [
@@ -7053,7 +7073,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 89,
+    "z": 97,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -7065,7 +7085,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 95,
+    "z": 103,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -7077,7 +7097,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 108,
+    "z": 116,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -7089,7 +7109,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 113,
+    "z": 121,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -7099,11 +7119,31 @@
   ],
   "prims": [
    {
-    "x": 204,
+    "x": 176,
     "y": 10,
     "w": 20,
     "h": 20,
     "z": 1,
+    "prim": "icon",
+    "icon": "ethernet-port",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "owner": null
+   },
+   {
+    "x": 204,
+    "y": 10,
+    "w": 20,
+    "h": 20,
+    "z": 9,
     "prim": "icon",
     "icon": "usb",
     "color": [
@@ -7123,7 +7163,7 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 11,
+    "z": 19,
     "prim": "icon",
     "icon": "wifi",
     "color": [
@@ -7143,7 +7183,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "prim": "fill",
     "name": "last_file_btn",
     "bg": [
@@ -7160,7 +7200,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "prim": "fill",
     "name": "last_file_pic",
     "bg": [
@@ -7177,7 +7217,7 @@
     "y": 91,
     "w": 53,
     "h": 53,
-    "z": 19,
+    "z": 27,
     "prim": "icon",
     "icon": "image",
     "color": [
@@ -7197,7 +7237,7 @@
     "y": 48,
     "w": 26,
     "h": 26,
-    "z": 24,
+    "z": 32,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -7214,7 +7254,7 @@
     "y": 52,
     "w": 18,
     "h": 18,
-    "z": 26,
+    "z": 34,
     "prim": "icon",
     "icon": "clock",
     "color": [
@@ -7234,7 +7274,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "prim": "fill",
     "name": "nozzle_btn",
     "bg": [
@@ -7251,7 +7291,7 @@
     "y": 257,
     "w": 26,
     "h": 26,
-    "z": 34,
+    "z": 42,
     "prim": "icon",
     "icon": "heat-nozzle",
     "color": [
@@ -7271,7 +7311,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "prim": "fill",
     "name": "bed_btn",
     "bg": [
@@ -7288,7 +7328,7 @@
     "y": 317,
     "w": 26,
     "h": 26,
-    "z": 46,
+    "z": 54,
     "prim": "icon",
     "icon": "heat-bed",
     "color": [
@@ -7308,7 +7348,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "prim": "fill",
     "name": "chamber_btn",
     "bg": [
@@ -7325,7 +7365,7 @@
     "y": 377,
     "w": 26,
     "h": 26,
-    "z": 59,
+    "z": 67,
     "prim": "icon",
     "icon": "heat-chamber",
     "color": [
@@ -7345,7 +7385,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "prim": "fill",
     "name": "light_btn",
     "bg": [
@@ -7362,7 +7402,7 @@
     "y": 258,
     "w": 24,
     "h": 24,
-    "z": 71,
+    "z": 79,
     "prim": "icon",
     "icon": "lightbulb",
     "color": [
@@ -7382,7 +7422,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "prim": "fill",
     "name": "beep_btn",
     "bg": [
@@ -7399,7 +7439,7 @@
     "y": 318,
     "w": 24,
     "h": 24,
-    "z": 77,
+    "z": 85,
     "prim": "icon",
     "icon": "volume-2",
     "color": [
@@ -7419,7 +7459,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "prim": "fill",
     "name": "stop_btn",
     "bg": [
@@ -7436,7 +7476,7 @@
     "y": 378,
     "w": 24,
     "h": 24,
-    "z": 83,
+    "z": 91,
     "prim": "icon",
     "icon": "octagon-x",
     "color": [
@@ -7456,7 +7496,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 88,
+    "z": 96,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -7473,7 +7513,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 90,
+    "z": 98,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -7490,7 +7530,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 91,
+    "z": 99,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -7510,7 +7550,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 97,
+    "z": 105,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -7530,7 +7570,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 110,
+    "z": 118,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -7550,7 +7590,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 115,
+    "z": 123,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -7605,7 +7645,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -7643,7 +7683,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -7677,7 +7717,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -7711,7 +7751,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -7749,7 +7789,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -7783,7 +7823,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -7817,7 +7857,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -7855,7 +7895,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -7889,7 +7929,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -7923,7 +7963,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -7998,7 +8038,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -8036,7 +8076,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -8070,7 +8110,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -8104,7 +8144,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -8142,7 +8182,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -8176,7 +8216,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -8210,7 +8250,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -8248,7 +8288,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -8282,7 +8322,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -8316,7 +8356,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -8391,7 +8431,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -8429,7 +8469,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -8463,7 +8503,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -8497,7 +8537,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -8535,7 +8575,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -8569,7 +8609,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -8603,7 +8643,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -8641,7 +8681,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -8675,7 +8715,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -8709,7 +8749,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -8784,7 +8824,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -8822,7 +8862,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -8856,7 +8896,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -8890,7 +8930,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -8928,7 +8968,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -8962,7 +9002,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -8996,7 +9036,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -9034,7 +9074,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -9068,7 +9108,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -9102,7 +9142,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -9177,7 +9217,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -9215,7 +9255,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -9249,7 +9289,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -9283,7 +9323,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -9321,7 +9361,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -9355,7 +9395,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -9389,7 +9429,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -9427,7 +9467,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -9461,7 +9501,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -9495,7 +9535,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -9570,7 +9610,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -9608,7 +9648,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -9642,7 +9682,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -9676,7 +9716,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -9714,7 +9754,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -9748,7 +9788,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -9782,7 +9822,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -9820,7 +9860,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -9854,7 +9894,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -9888,7 +9928,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -9963,7 +10003,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -10001,7 +10041,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -10035,7 +10075,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -10069,7 +10109,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -10107,7 +10147,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -10141,7 +10181,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -10175,7 +10215,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -10213,7 +10253,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -10247,7 +10287,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -10281,7 +10321,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -10356,7 +10396,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -10394,7 +10434,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -10428,7 +10468,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -10462,7 +10502,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -10500,7 +10540,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -10534,7 +10574,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -10568,7 +10608,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -10606,7 +10646,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -10640,7 +10680,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -10674,7 +10714,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -10749,7 +10789,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -10787,7 +10827,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -10821,7 +10861,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -10855,7 +10895,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -10893,7 +10933,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -10927,7 +10967,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -10961,7 +11001,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -10999,7 +11039,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -11033,7 +11073,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -11067,7 +11107,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -11142,7 +11182,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -11180,7 +11220,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -11214,7 +11254,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -11248,7 +11288,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -11286,7 +11326,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -11320,7 +11360,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -11354,7 +11394,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -11392,7 +11432,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -11426,7 +11466,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -11460,7 +11500,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -11535,7 +11575,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -11573,7 +11613,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -11607,7 +11647,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -11641,7 +11681,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -11679,7 +11719,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -11713,7 +11753,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -11747,7 +11787,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -11785,7 +11825,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -11819,7 +11859,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -11853,7 +11893,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -11928,7 +11968,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -11966,7 +12006,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -12000,7 +12040,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -12034,7 +12074,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -12072,7 +12112,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -12106,7 +12146,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -12140,7 +12180,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -12178,7 +12218,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -12212,7 +12252,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -12246,7 +12286,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -12321,7 +12361,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -12359,7 +12399,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -12393,7 +12433,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -12427,7 +12467,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -12465,7 +12505,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -12499,7 +12539,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -12533,7 +12573,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -12571,7 +12611,7 @@
         "scroll": false,
         "used": 38,
         "text": "---",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -12605,7 +12645,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ ---",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -12639,7 +12679,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -12695,7 +12735,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "name": "last_file_btn",
     "kind": "card",
     "bg": [
@@ -12711,7 +12751,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "name": "last_file_pic",
     "kind": "thumb",
     "bg": [
@@ -12727,7 +12767,7 @@
     "y": 190,
     "w": 224,
     "h": 40,
-    "z": 30,
+    "z": 38,
     "name": "last_file_name",
     "kind": "t",
     "bg": null,
@@ -12756,7 +12796,7 @@
       "scroll": false,
       "used": 22,
       "text": "Benchy_PLA_0.2mm.gcode",
-      "z": 31,
+      "z": 39,
       "centered": true
      }
     ],
@@ -12784,7 +12824,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "name": "nozzle_btn",
     "kind": "card",
     "bg": [
@@ -12800,7 +12840,7 @@
     "y": 250,
     "w": 52,
     "h": 40,
-    "z": 38,
+    "z": 46,
     "name": "nozzle_temp",
     "kind": "t",
     "bg": null,
@@ -12829,7 +12869,7 @@
       "scroll": false,
       "used": 38,
       "text": "220",
-      "z": 39,
+      "z": 47,
       "centered": true
      }
     ],
@@ -12857,7 +12897,7 @@
     "y": 266,
     "w": 34,
     "h": 20,
-    "z": 40,
+    "z": 48,
     "name": "nozzle_set",
     "kind": "t",
     "bg": null,
@@ -12886,7 +12926,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 220",
-      "z": 41,
+      "z": 49,
       "centered": true
      }
     ],
@@ -12914,7 +12954,7 @@
     "y": 266,
     "w": 18,
     "h": 20,
-    "z": 42,
+    "z": 50,
     "name": "nozzle_unit",
     "kind": "t",
     "bg": null,
@@ -12943,7 +12983,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 43,
+      "z": 51,
       "centered": true
      }
     ],
@@ -12971,7 +13011,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "name": "bed_btn",
     "kind": "card",
     "bg": [
@@ -12987,7 +13027,7 @@
     "y": 310,
     "w": 52,
     "h": 40,
-    "z": 51,
+    "z": 59,
     "name": "bed_temp",
     "kind": "t",
     "bg": null,
@@ -13016,7 +13056,7 @@
       "scroll": false,
       "used": 38,
       "text": "60",
-      "z": 52,
+      "z": 60,
       "centered": true
      }
     ],
@@ -13044,7 +13084,7 @@
     "y": 326,
     "w": 34,
     "h": 20,
-    "z": 53,
+    "z": 61,
     "name": "bed_set",
     "kind": "t",
     "bg": null,
@@ -13073,7 +13113,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 60",
-      "z": 54,
+      "z": 62,
       "centered": true
      }
     ],
@@ -13101,7 +13141,7 @@
     "y": 326,
     "w": 18,
     "h": 20,
-    "z": 55,
+    "z": 63,
     "name": "bed_unit",
     "kind": "t",
     "bg": null,
@@ -13130,7 +13170,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 56,
+      "z": 64,
       "centered": true
      }
     ],
@@ -13158,7 +13198,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "name": "chamber_btn",
     "kind": "card",
     "bg": [
@@ -13174,7 +13214,7 @@
     "y": 370,
     "w": 52,
     "h": 40,
-    "z": 64,
+    "z": 72,
     "name": "chamber_temp",
     "kind": "t",
     "bg": null,
@@ -13203,7 +13243,7 @@
       "scroll": false,
       "used": 38,
       "text": "35",
-      "z": 65,
+      "z": 73,
       "centered": true
      }
     ],
@@ -13231,7 +13271,7 @@
     "y": 386,
     "w": 34,
     "h": 20,
-    "z": 66,
+    "z": 74,
     "name": "chamber_set",
     "kind": "t",
     "bg": null,
@@ -13260,7 +13300,7 @@
       "scroll": false,
       "used": 18,
       "text": "/ 0",
-      "z": 67,
+      "z": 75,
       "centered": true
      }
     ],
@@ -13288,7 +13328,7 @@
     "y": 386,
     "w": 18,
     "h": 20,
-    "z": 68,
+    "z": 76,
     "name": "chamber_unit",
     "kind": "t",
     "bg": null,
@@ -13317,7 +13357,7 @@
       "scroll": false,
       "used": 18,
       "text": "°C",
-      "z": 69,
+      "z": 77,
       "centered": true
      }
     ],
@@ -13345,7 +13385,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "name": "light_btn",
     "kind": "btn",
     "bg": [
@@ -13361,7 +13401,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "name": "beep_btn",
     "kind": "btn",
     "bg": [
@@ -13377,7 +13417,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "name": "stop_btn",
     "kind": "btn",
     "bg": [
@@ -13393,7 +13433,7 @@
     "y": 130,
     "w": 232,
     "h": 150,
-    "z": 89,
+    "z": 97,
     "name": "ver_warning",
     "kind": "t",
     "bg": null,
@@ -13422,7 +13462,7 @@
       "scroll": false,
       "used": 80,
       "text": "The UI version does not match the firmware. Please check for updates or contact support!",
-      "z": 90,
+      "z": 98,
       "centered": true
      }
     ],
@@ -13450,7 +13490,7 @@
     "y": 302,
     "w": 24,
     "h": 20,
-    "z": 91,
+    "z": 99,
     "name": "ui_ver_lbl",
     "kind": "t",
     "bg": null,
@@ -13479,7 +13519,7 @@
       "scroll": false,
       "used": 18,
       "text": "UI:",
-      "z": 92,
+      "z": 100,
       "centered": true
      }
     ],
@@ -13507,7 +13547,7 @@
     "y": 302,
     "w": 36,
     "h": 20,
-    "z": 93,
+    "z": 101,
     "name": "ui_ver",
     "kind": "t",
     "bg": null,
@@ -13536,7 +13576,7 @@
       "scroll": false,
       "used": 18,
       "text": "100",
-      "z": 94,
+      "z": 102,
       "centered": true
      }
     ],
@@ -13564,7 +13604,7 @@
     "y": 326,
     "w": 34,
     "h": 20,
-    "z": 95,
+    "z": 103,
     "name": "soc_ver_lbl",
     "kind": "t",
     "bg": null,
@@ -13593,7 +13633,7 @@
       "scroll": false,
       "used": 18,
       "text": "SOC:",
-      "z": 96,
+      "z": 104,
       "centered": true
      }
     ],
@@ -13621,7 +13661,7 @@
     "y": 326,
     "w": 36,
     "h": 20,
-    "z": 97,
+    "z": 105,
     "name": "soc_ver",
     "kind": "t",
     "bg": null,
@@ -13650,7 +13690,7 @@
       "scroll": false,
       "used": 18,
       "text": "99",
-      "z": 98,
+      "z": 106,
       "centered": true
      }
     ],
@@ -13678,7 +13718,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 100,
+    "z": 108,
     "name": "nav_main",
     "kind": "box",
     "bg": null,
@@ -13690,7 +13730,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 106,
+    "z": 114,
     "name": "nav_adjust",
     "kind": "box",
     "bg": null,
@@ -13702,7 +13742,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 119,
+    "z": 127,
     "name": "nav_files",
     "kind": "box",
     "bg": null,
@@ -13714,7 +13754,7 @@
     "y": 425,
     "w": 68,
     "h": 55,
-    "z": 124,
+    "z": 132,
     "name": "nav_settings",
     "kind": "box",
     "bg": null,
@@ -13724,11 +13764,31 @@
   ],
   "prims": [
    {
-    "x": 204,
+    "x": 176,
     "y": 10,
     "w": 20,
     "h": 20,
     "z": 1,
+    "prim": "icon",
+    "icon": "ethernet-port",
+    "color": [
+     165,
+     166,
+     181
+    ],
+    "matte": [
+     23,
+     23,
+     26
+    ],
+    "owner": null
+   },
+   {
+    "x": 204,
+    "y": 10,
+    "w": 20,
+    "h": 20,
+    "z": 9,
     "prim": "icon",
     "icon": "usb",
     "color": [
@@ -13748,7 +13808,7 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 11,
+    "z": 19,
     "prim": "icon",
     "icon": "wifi",
     "color": [
@@ -13768,7 +13828,7 @@
     "y": 38,
     "w": 248,
     "h": 198,
-    "z": 17,
+    "z": 25,
     "prim": "fill",
     "name": "last_file_btn",
     "bg": [
@@ -13785,7 +13845,7 @@
     "y": 48,
     "w": 140,
     "h": 140,
-    "z": 18,
+    "z": 26,
     "prim": "fill",
     "name": "last_file_pic",
     "bg": [
@@ -13802,7 +13862,7 @@
     "y": 91,
     "w": 53,
     "h": 53,
-    "z": 19,
+    "z": 27,
     "prim": "icon",
     "icon": "image",
     "color": [
@@ -13822,7 +13882,7 @@
     "y": 48,
     "w": 26,
     "h": 26,
-    "z": 24,
+    "z": 32,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -13839,7 +13899,7 @@
     "y": 52,
     "w": 18,
     "h": 18,
-    "z": 26,
+    "z": 34,
     "prim": "icon",
     "icon": "clock",
     "color": [
@@ -13859,7 +13919,7 @@
     "y": 244,
     "w": 168,
     "h": 52,
-    "z": 32,
+    "z": 40,
     "prim": "fill",
     "name": "nozzle_btn",
     "bg": [
@@ -13876,7 +13936,7 @@
     "y": 257,
     "w": 26,
     "h": 26,
-    "z": 34,
+    "z": 42,
     "prim": "icon",
     "icon": "heat-nozzle",
     "color": [
@@ -13896,7 +13956,7 @@
     "y": 304,
     "w": 168,
     "h": 52,
-    "z": 44,
+    "z": 52,
     "prim": "fill",
     "name": "bed_btn",
     "bg": [
@@ -13913,7 +13973,7 @@
     "y": 317,
     "w": 26,
     "h": 26,
-    "z": 46,
+    "z": 54,
     "prim": "icon",
     "icon": "heat-bed",
     "color": [
@@ -13933,7 +13993,7 @@
     "y": 364,
     "w": 168,
     "h": 52,
-    "z": 57,
+    "z": 65,
     "prim": "fill",
     "name": "chamber_btn",
     "bg": [
@@ -13950,7 +14010,7 @@
     "y": 377,
     "w": 26,
     "h": 26,
-    "z": 59,
+    "z": 67,
     "prim": "icon",
     "icon": "heat-chamber",
     "color": [
@@ -13970,7 +14030,7 @@
     "y": 244,
     "w": 72,
     "h": 52,
-    "z": 70,
+    "z": 78,
     "prim": "fill",
     "name": "light_btn",
     "bg": [
@@ -13987,7 +14047,7 @@
     "y": 258,
     "w": 24,
     "h": 24,
-    "z": 71,
+    "z": 79,
     "prim": "icon",
     "icon": "lightbulb",
     "color": [
@@ -14007,7 +14067,7 @@
     "y": 304,
     "w": 72,
     "h": 52,
-    "z": 76,
+    "z": 84,
     "prim": "fill",
     "name": "beep_btn",
     "bg": [
@@ -14024,7 +14084,7 @@
     "y": 318,
     "w": 24,
     "h": 24,
-    "z": 77,
+    "z": 85,
     "prim": "icon",
     "icon": "volume-2",
     "color": [
@@ -14044,7 +14104,7 @@
     "y": 364,
     "w": 72,
     "h": 52,
-    "z": 82,
+    "z": 90,
     "prim": "fill",
     "name": "stop_btn",
     "bg": [
@@ -14061,7 +14121,7 @@
     "y": 378,
     "w": 24,
     "h": 24,
-    "z": 83,
+    "z": 91,
     "prim": "icon",
     "icon": "octagon-x",
     "color": [
@@ -14081,7 +14141,7 @@
     "y": 118,
     "w": 256,
     "h": 244,
-    "z": 88,
+    "z": 96,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -14098,7 +14158,7 @@
     "y": 424,
     "w": 272,
     "h": 56,
-    "z": 99,
+    "z": 107,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -14115,7 +14175,7 @@
     "y": 437,
     "w": 48,
     "h": 32,
-    "z": 101,
+    "z": 109,
     "prim": "fill",
     "name": null,
     "bg": [
@@ -14132,7 +14192,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 102,
+    "z": 110,
     "prim": "icon",
     "icon": "house",
     "color": [
@@ -14152,7 +14212,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 108,
+    "z": 116,
     "prim": "icon",
     "icon": "sliders-horizontal",
     "color": [
@@ -14172,7 +14232,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 121,
+    "z": 129,
     "prim": "icon",
     "icon": "folder-open",
     "color": [
@@ -14192,7 +14252,7 @@
     "y": 442,
     "w": 22,
     "h": 22,
-    "z": 126,
+    "z": 134,
     "prim": "icon",
     "icon": "settings",
     "color": [
@@ -14247,7 +14307,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -14285,7 +14345,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -14319,7 +14379,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -14353,7 +14413,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -14391,7 +14451,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -14425,7 +14485,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -14459,7 +14519,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -14497,7 +14557,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -14531,7 +14591,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -14565,7 +14625,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -14611,7 +14671,7 @@
         "scroll": false,
         "used": 42,
         "text": "UI版本与固件不符合，请检查更新或联系售后！",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -14645,7 +14705,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -14679,7 +14739,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -14713,7 +14773,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -14747,7 +14807,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -14810,7 +14870,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -14848,7 +14908,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -14882,7 +14942,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -14916,7 +14976,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -14954,7 +15014,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -14988,7 +15048,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -15022,7 +15082,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -15060,7 +15120,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -15094,7 +15154,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -15128,7 +15188,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -15174,7 +15234,7 @@
         "scroll": false,
         "used": 80,
         "text": "Версия интерфейса не соответствует прошивке. Проверьте обновления или обратитесь в поддержку!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -15208,7 +15268,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -15242,7 +15302,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -15276,7 +15336,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -15310,7 +15370,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -15373,7 +15433,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -15411,7 +15471,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -15445,7 +15505,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -15479,7 +15539,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -15517,7 +15577,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -15551,7 +15611,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -15585,7 +15645,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -15623,7 +15683,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -15657,7 +15717,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -15691,7 +15751,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -15737,7 +15797,7 @@
         "scroll": false,
         "used": 80,
         "text": "The UI version does not match the firmware. Please check for updates or contact support!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -15771,7 +15831,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -15805,7 +15865,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -15839,7 +15899,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -15873,7 +15933,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -15936,7 +15996,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -15974,7 +16034,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -16008,7 +16068,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -16042,7 +16102,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -16080,7 +16140,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -16114,7 +16174,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -16148,7 +16208,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -16186,7 +16246,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -16220,7 +16280,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -16254,7 +16314,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -16300,7 +16360,7 @@
         "scroll": false,
         "used": 80,
         "text": "UIのバージョンがファームウェアと一致しません。アップデートを確認するか、サポートにお問い合わせください。",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -16334,7 +16394,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -16368,7 +16428,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -16402,7 +16462,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -16436,7 +16496,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -16499,7 +16559,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -16537,7 +16597,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -16571,7 +16631,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -16605,7 +16665,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -16643,7 +16703,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -16677,7 +16737,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -16711,7 +16771,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -16749,7 +16809,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -16783,7 +16843,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -16817,7 +16877,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -16863,7 +16923,7 @@
         "scroll": false,
         "used": 99,
         "text": "La version de l'interface ne correspond pas au micrologiciel. Vérifiez les mises à jour ou contactez l'assistance !",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -16897,7 +16957,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -16931,7 +16991,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -16965,7 +17025,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -16999,7 +17059,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -17062,7 +17122,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -17100,7 +17160,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -17134,7 +17194,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -17168,7 +17228,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -17206,7 +17266,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -17240,7 +17300,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -17274,7 +17334,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -17312,7 +17372,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -17346,7 +17406,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -17380,7 +17440,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -17426,7 +17486,7 @@
         "scroll": false,
         "used": 80,
         "text": "Die UI-Version passt nicht zur Firmware. Bitte suchen Sie nach Updates oder wenden Sie sich an den Support!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -17460,7 +17520,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -17494,7 +17554,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -17528,7 +17588,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -17562,7 +17622,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -17625,7 +17685,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -17663,7 +17723,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -17697,7 +17757,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -17731,7 +17791,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -17769,7 +17829,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -17803,7 +17863,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -17837,7 +17897,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -17875,7 +17935,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -17909,7 +17969,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -17943,7 +18003,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -17989,7 +18049,7 @@
         "scroll": false,
         "used": 80,
         "text": "La versione dell'interfaccia non corrisponde al firmware. Controlla gli aggiornamenti o contatta l'assistenza!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -18023,7 +18083,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -18057,7 +18117,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -18091,7 +18151,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -18125,7 +18185,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -18188,7 +18248,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -18226,7 +18286,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -18260,7 +18320,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -18294,7 +18354,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -18332,7 +18392,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -18366,7 +18426,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -18400,7 +18460,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -18438,7 +18498,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -18472,7 +18532,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -18506,7 +18566,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -18552,7 +18612,7 @@
         "scroll": false,
         "used": 80,
         "text": "La versión de la interfaz no coincide con el firmware. Busque actualizaciones o contacte con soporte.",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -18586,7 +18646,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -18620,7 +18680,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -18654,7 +18714,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -18688,7 +18748,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -18751,7 +18811,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -18789,7 +18849,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -18823,7 +18883,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -18857,7 +18917,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -18895,7 +18955,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -18929,7 +18989,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -18963,7 +19023,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -19001,7 +19061,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -19035,7 +19095,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -19069,7 +19129,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -19115,7 +19175,7 @@
         "scroll": false,
         "used": 61,
         "text": "UI 버전이 펌웨어와 일치하지 않습니다. 업데이트를 확인하거나 지원팀에 문의하세요.",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -19149,7 +19209,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -19183,7 +19243,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -19217,7 +19277,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -19251,7 +19311,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -19314,7 +19374,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -19352,7 +19412,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -19386,7 +19446,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -19420,7 +19480,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -19458,7 +19518,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -19492,7 +19552,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -19526,7 +19586,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -19564,7 +19624,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -19598,7 +19658,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -19632,7 +19692,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -19678,7 +19738,7 @@
         "scroll": false,
         "used": 80,
         "text": "A versão da interface não corresponde ao firmware. Verifique as atualizações ou contate o suporte!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -19712,7 +19772,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -19746,7 +19806,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -19780,7 +19840,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -19814,7 +19874,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -19877,7 +19937,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -19915,7 +19975,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -19949,7 +20009,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -19983,7 +20043,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -20021,7 +20081,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -20055,7 +20115,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -20089,7 +20149,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -20127,7 +20187,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -20161,7 +20221,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -20195,7 +20255,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -20241,7 +20301,7 @@
         "scroll": false,
         "used": 61,
         "text": "إصدار الواجهة لا يطابق البرنامج الثابت. يرجى التحقق من التحديثات أو التواصل مع الدعم!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -20275,7 +20335,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -20309,7 +20369,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -20343,7 +20403,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -20377,7 +20437,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -20440,7 +20500,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -20478,7 +20538,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -20512,7 +20572,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -20546,7 +20606,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -20584,7 +20644,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -20618,7 +20678,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -20652,7 +20712,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -20690,7 +20750,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -20724,7 +20784,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -20758,7 +20818,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -20804,7 +20864,7 @@
         "scroll": false,
         "used": 80,
         "text": "Arayüz sürümü donanım yazılımıyla eşleşmiyor. Lütfen güncellemeleri denetleyin veya destekle iletişime geçin!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -20838,7 +20898,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -20872,7 +20932,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -20906,7 +20966,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -20940,7 +21000,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],
@@ -21003,7 +21063,7 @@
         "scroll": false,
         "used": 22,
         "text": "Benchy_PLA_0.2mm.gcode",
-        "z": 31,
+        "z": 39,
         "centered": true
        }
       ],
@@ -21041,7 +21101,7 @@
         "scroll": false,
         "used": 38,
         "text": "220",
-        "z": 39,
+        "z": 47,
         "centered": true
        }
       ],
@@ -21075,7 +21135,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 220",
-        "z": 41,
+        "z": 49,
         "centered": true
        }
       ],
@@ -21109,7 +21169,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 43,
+        "z": 51,
         "centered": true
        }
       ],
@@ -21147,7 +21207,7 @@
         "scroll": false,
         "used": 38,
         "text": "60",
-        "z": 52,
+        "z": 60,
         "centered": true
        }
       ],
@@ -21181,7 +21241,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 60",
-        "z": 54,
+        "z": 62,
         "centered": true
        }
       ],
@@ -21215,7 +21275,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 56,
+        "z": 64,
         "centered": true
        }
       ],
@@ -21253,7 +21313,7 @@
         "scroll": false,
         "used": 38,
         "text": "35",
-        "z": 65,
+        "z": 73,
         "centered": true
        }
       ],
@@ -21287,7 +21347,7 @@
         "scroll": false,
         "used": 18,
         "text": "/ 0",
-        "z": 67,
+        "z": 75,
         "centered": true
        }
       ],
@@ -21321,7 +21381,7 @@
         "scroll": false,
         "used": 18,
         "text": "°C",
-        "z": 69,
+        "z": 77,
         "centered": true
        }
       ],
@@ -21367,7 +21427,7 @@
         "scroll": false,
         "used": 61,
         "text": "גרסת הממשק אינה תואמת לקושחה. בדוק אם יש עדכונים או פנה לתמיכה!",
-        "z": 90,
+        "z": 98,
         "centered": true
        }
       ],
@@ -21401,7 +21461,7 @@
         "scroll": false,
         "used": 18,
         "text": "UI:",
-        "z": 92,
+        "z": 100,
         "centered": true
        }
       ],
@@ -21435,7 +21495,7 @@
         "scroll": false,
         "used": 18,
         "text": "100",
-        "z": 94,
+        "z": 102,
         "centered": true
        }
       ],
@@ -21469,7 +21529,7 @@
         "scroll": false,
         "used": 18,
         "text": "SOC:",
-        "z": 96,
+        "z": 104,
         "centered": true
        }
       ],
@@ -21503,7 +21563,7 @@
         "scroll": false,
         "used": 18,
         "text": "99",
-        "z": 98,
+        "z": 106,
         "centered": true
        }
       ],

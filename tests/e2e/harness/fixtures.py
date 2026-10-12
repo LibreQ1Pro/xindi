@@ -28,15 +28,10 @@ hot                            = 55
 
 [babystep]
 value                          = 0.000
-adxl_offset                    = 0.15
 
 
 [oobe]
 enable                         = %(oobe)d
-
-
-[ethernet]
-enable                         = 0
 
 """
 

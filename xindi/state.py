@@ -290,6 +290,7 @@ class Net(object):
         # wifi
         self.current_connected_ssid_name = ""
         self.wlan_state_str = ""
+        self.lan_connected = False       # the wired interface has a connection (NetworkManager)
         self.status_result = mks_wifi_status_result_t()
         self.ssid_list = []
         self.wifi_ssid_list = ["", "", "", "", ""]
@@ -299,14 +300,13 @@ class Net(object):
 
 
 class Config(object):
-    """Saved settings (settings.ini), versions and the files read from the printer configuration."""
+    """Saved settings (settings.ini) and the files read from the printer configuration."""
 
     def __init__(self):
         # 800 hours
         self.total_printed_minutes = 0
         # out-of-box experience (first start guide)
         self.oobe_enabled = False
-        self.ethernet = 0
         # mks ini data
         self.led_status = False
         self.beep_status = False
@@ -316,7 +316,6 @@ class Config(object):
         self.heater_bed_target = 0
         self.hot_target = 0
         self.babystep_value = ""
-        self.adxl_offset = ""
         self.serial_by_id = ""
 
 

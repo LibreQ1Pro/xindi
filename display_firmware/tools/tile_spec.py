@@ -34,7 +34,7 @@ SPEC = [
      {"on": ("main_on", "main_on_press"), "off": ("main_off", "nav_btn_press")}),
     ("main", "last_file", ["last_file_btn"],
      {"noimg": ("main_bg_noimg", "main_on_press"), "photo": ("main_bg_photo", "nav_btn_press")}),
-    ("main", "icon", ["usb_icon", "wifi_icon"], {"on": ("main_on", None), "off": ("main_off", None)}),
+    ("main", "icon", ["lan_icon", "usb_icon", "wifi_icon"], {"on": ("main_on", None), "off": ("main_off", None)}),
 
     # printing
     ("printing", "heater", ["nozzle_btn", "bed_btn", "chamber_btn"],

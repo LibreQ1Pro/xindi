@@ -111,11 +111,6 @@ def save_current_zoffset():
     if g.screen.page == ids.AUTO_MOVING:
         g.klippy.idle_timeout_state = "Printing"
         settings.get_babystep()
-        z = f32(stof(g.config.babystep_value) + stof(g.config.adxl_offset))
-        if z > -5 and z < 5:    # CLL only z-offsets between -5 and 5 are saved
-            g.config.babystep_value = to_string(z)
-            settings.set_babystep(g.config.babystep_value)
-            log.info("Current z-offset saved as %s", g.config.babystep_value)
     else:
         if z_offset != g.config.babystep_value and z_offset.find("0.000") != -1:
             if stof(z_offset) > -5 and stof(z_offset) < 5:

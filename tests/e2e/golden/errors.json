@@ -22,7 +22,7 @@
   "/home/mks/gcode_files/z_last.gcode": "sha1:57539c0d633d7184:25",
   "/home/mks/klipper_config/saved_variables.cfg": "[Variables]\nbed_temp = 80.0\nfilepath = ''\nhot_temp = 0.0\nlast_file = ''\npower_resume_z = 0.8\nprint_temp = 245.0\nprofile_name = 'kamp'\nwas_interrupted = False\nz_offset = 0.0\n",
   "/tmp/screen.tft": null,
-  "/var/lib/xindi/settings.ini": "\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[ethernet]\nenable                         = 0\n\n"
+  "/var/lib/xindi/settings.ini": "\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\n\n\n[oobe]\nenable                         = 0\n\n"
  },
  "http": [
   "GET /server/history/list?limit=20&order=desc",
@@ -99,6 +99,9 @@
     ],
     "chamber_temp.txt": [
      "\"26\""
+    ],
+    "lan_icon.pic": [
+     "409"
     ],
     "last_file_btn.pic": [
      "383"
@@ -228,6 +231,9 @@
     "chamber_temp.txt": [
      "\"26\""
     ],
+    "lan_icon.pic": [
+     "409"
+    ],
     "light_btn.pic": [
      "341"
     ],
@@ -313,6 +319,9 @@
     "file_preview.preview_pic.close()": [
      ""
     ],
+    "lan_icon.pic": [
+     "409"
+    ],
     "light_btn.pic": [
      "341"
     ],
@@ -382,6 +391,9 @@
     ],
     "chamber_temp.txt": [
      "\"26\""
+    ],
+    "lan_icon.pic": [
+     "409"
     ],
     "light_btn.pic": [
      "341"
@@ -487,6 +499,9 @@
     ],
     "chamber_temp.txt": [
      "\"26\""
+    ],
+    "lan_icon.pic": [
+     "409"
     ],
     "light_btn.pic": [
      "341"

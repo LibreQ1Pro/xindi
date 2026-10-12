@@ -63,7 +63,8 @@ def main():
     main_heater("chamber", g.klippy.hot_temperature, g.klippy.hot_target)
 
     g.port.face("usb_icon", "on" if file_list.detect_disk() == 0 else "off")
-    g.port.face("wifi_icon", "on" if g.net.status_result.wpa_state == "COMPLETED" or g.config.ethernet == 1 else "off")
+    g.port.face("lan_icon", "on" if g.net.lan_connected else "off")
+    g.port.face("wifi_icon", "on" if g.net.status_result.wpa_state == "COMPLETED" else "off")
     two_state_button("light_btn", g.klippy.caselight_value != 0)
     two_state_button("beep_btn", g.klippy.out_pin_beep_value != 0)
 

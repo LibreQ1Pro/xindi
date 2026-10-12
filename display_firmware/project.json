@@ -4734,6 +4734,18 @@
       "source": {
         "png": "pictures/filament_decor.png"
       }
+    },
+    {
+      "key": "home_lan_icon",
+      "source": {
+        "png": "pictures/home_lan_icon.png"
+      }
+    },
+    {
+      "key": "home_lan_icon_on",
+      "source": {
+        "png": "pictures/home_lan_icon_on.png"
+      }
     }
   ],
   "fonts": [

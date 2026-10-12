@@ -303,6 +303,7 @@ def mks_wifi_hdlevent_thread(arg=None):
                     pass
                 mks_wifi_run_cmd_status(g.net.status_result)
                 g.net.wlan_state_str = "connected" if g.net.status_result.wpa_state == "COMPLETED" else "disconnected"
+                g.net.lan_connected = device_report("ethernet")["state"] == "connected"
         finally:
             proc.kill()
             proc.wait()

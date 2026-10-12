@@ -834,5 +834,15 @@
    "file_preview_auto_btn_on",
    "file_preview_auto_btn_on_press"
   ]
+ },
+ "lan_icon": {
+  "off": [
+   "home_lan_icon",
+   null
+  ],
+  "on": [
+   "home_lan_icon_on",
+   null
+  ]
  }
 }

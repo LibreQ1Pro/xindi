@@ -138,6 +138,36 @@
    }
   },
   {
+   "key": "lan_icon",
+   "type": "picture",
+   "attributes": {
+    "objname": "lan_icon",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 176,
+    "y": 10,
+    "w": 20,
+    "h": 20,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0,
+    "pic": {
+     "$ref": "picture:home_lan_icon"
+    }
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": []
+   }
+  },
+  {
    "key": "usb_icon",
    "type": "picture",
    "attributes": {
@@ -1163,10 +1193,10 @@
     "font": {
      "$ref": "font:font_t16"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
-    "pco": 63390,
+    "pco": 63422,
     "xcen": 1,
     "ycen": 1,
     "pw": 0,
@@ -1214,7 +1244,7 @@
     "font": {
      "$ref": "font:font_d28"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 63422,
@@ -1265,10 +1295,10 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
-    "pco": 29583,
+    "pco": 27503,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,
@@ -1312,7 +1342,7 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 42294,
@@ -1359,7 +1389,7 @@
     "font": {
      "$ref": "font:font_d28"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 63422,
@@ -1410,10 +1440,10 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
-    "pco": 29583,
+    "pco": 27503,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,
@@ -1457,7 +1487,7 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 42294,
@@ -1504,7 +1534,7 @@
     "font": {
      "$ref": "font:font_d28"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 63422,
@@ -1555,10 +1585,10 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
-    "pco": 29583,
+    "pco": 27503,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,
@@ -1602,7 +1632,7 @@
     "font": {
      "$ref": "font:font_t13"
     },
-    "bco": 10566,
+    "bco": 10565,
     "picc": 65535,
     "pic": 65535,
     "pco": 42294,
@@ -1776,7 +1806,7 @@
     "bco": 2146,
     "picc": 65535,
     "pic": 65535,
-    "pco": 63390,
+    "pco": 63422,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,
@@ -1870,7 +1900,7 @@
     "bco": 2146,
     "picc": 65535,
     "pic": 65535,
-    "pco": 63390,
+    "pco": 63422,
     "xcen": 0,
     "ycen": 1,
     "pw": 0,

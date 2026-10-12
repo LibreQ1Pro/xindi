@@ -108,7 +108,7 @@ def main():
         return key, key2
 
     # Network/USB indicators are not touch targets, and their state does not affect any other widget.
-    for glyph, name in (("usb", "usb_icon"), ("wifi", "wifi_icon")):
+    for glyph, name in (("ethernet-port", "lan_icon"), ("usb", "usb_icon"), ("wifi", "wifi_icon")):
         prim = next(p for p in normal["prims"] if p.get("icon") == glyph)
         image = crop(shot, prim)
         off = tiles.add(name, slashed(image, MUTED, normal["bg"]))

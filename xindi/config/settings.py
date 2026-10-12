@@ -8,7 +8,6 @@ from xindi.moonraker import rest
 from xindi.moonraker.rpc_requests import json_get_job_totals
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
-from xindi.util import paths
 from xindi.util.cpp import to_string
 
 log = logging.getLogger(__name__)
@@ -60,13 +59,11 @@ def set_babystep(value):
 def get_babystep():
     ini = open_settings()
     g.config.babystep_value = ini.get_string("babystep", "value", "0.000")
-    g.config.adxl_offset = ini.get_string("babystep", "adxl_offset", "0.000")
 
 
 def init():
     """4.4.22 start-up settings (the QIDI Link part is not implemented)."""
     get_babystep()
-    get_ethernet()
 
 
 def get_total_time():
@@ -90,9 +87,3 @@ def restore_config():
     reset_settings()
     g.ep.run_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0")
     page_to(ids.MAIN)
-
-
-def get_ethernet():
-    ini = open_settings()
-    g.config.ethernet = int(ini.get_bool("ethernet", "enable", 0))
-    return g.config.ethernet
