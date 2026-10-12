@@ -7,7 +7,7 @@ from xindi import state as g
 from xindi.config import settings
 from xindi.moonraker.printer_status import get_cal_printing_time
 from xindi.pages import file_list
-from xindi.pages.widgets import cut_after_point, face_group, fan_values, heater_row, temperature
+from xindi.pages.widgets import cut_after_point, face_group, fan_values, heater_row
 from xindi.printer import job, motion
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 def stopping():
     log.debug("Printer ide_timeout state: %s", g.klippy.idle_timeout_state)
     log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
-    if g.klippy.idle_timeout_state == "Ready":
+    if g.klippy.idle_timeout_state in ("Ready", "Idle"):         # Idle too: the page has no buttons, it must not wait for a state that came and went
         job.clear_previous_data()
         time.sleep(5)
         motion.save_current_zoffset()

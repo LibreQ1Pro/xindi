@@ -13,6 +13,7 @@ import time
 from xindi import state as g
 from xindi.screen import thumbnail
 from xindi.util import paths
+from xindi.util.guard import run_guarded
 from xindi.util.cpp import to_string
 
 log = logging.getLogger(__name__)
@@ -40,35 +41,38 @@ def time_differ_ms(duration, start_time):
         return 0
 
 
+def _send_list_pictures():
+    """Sends the small pictures of the file list that the page asked for. The page is not refreshed meanwhile (4.4.22: refresh_page_show() waits while
+    the pictures are sent); the touch (disabled by the page buttons of the file list) is enabled once at the end instead of around every picture."""
+    g.pictures.begin_show_64_jpg = False
+    g.pictures.send_jpg_status = True
+    try:
+        for i in range(6):
+            if g.pictures.have_64_jpg[i]:
+                time.sleep((50500 + i * 500) / 1e6)
+                ram_path = "ram/file%d.jpg" % i
+                if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
+                    # Python only: jpg made from the thumbnail inside the gcode file
+                    log.debug("%s", g.pictures.have_64_png_path[i])
+                    jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], 104)
+                    if jpg_data is not None:
+                        sent_jpg_to_tjc(ram_path, jpg_data)
+                else:
+                    jpg_path = paths.gcode_files() + "/" + g.pictures.have_64_png_path[i]
+                    log.debug("%s", jpg_path)
+                    sent_jpg_to_tjc(ram_path, jpg_path)
+                g.pictures.have_64_jpg[i] = False
+    finally:
+        g.pictures.send_jpg_status = False         # whatever happened: the page has to be refreshed again
+        g.port.tsw("255", "1")      # enable touch
+        log.debug("Touch enabled")
+
+
 def sent_jpg_thread_handle(arg=None):
     """Preview picture thread."""
     while True:
-        # refresh the small preview pictures
         if g.pictures.begin_show_64_jpg:
-            g.pictures.begin_show_64_jpg = False
-            # 4.4.22: refresh_page_show() waits while the pictures are sent; the
-            # touch (disabled by the page buttons of the file list) is enabled
-            # once at the end instead of around every picture
-            g.pictures.send_jpg_status = True
-            for i in range(6):
-                if g.pictures.have_64_jpg[i]:
-                    time.sleep((50500 + i * 500) / 1e6)
-                    ram_path = "ram/file%d.jpg" % i
-                    if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
-                        # Python only: jpg made from the thumbnail inside the gcode file
-                        log.debug("%s", g.pictures.have_64_png_path[i])
-                        jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], 104)
-                        if jpg_data is not None:
-                            sent_jpg_to_tjc(ram_path, jpg_data)
-                    else:
-                        jpg_path = paths.gcode_files() + "/" + g.pictures.have_64_png_path[i]
-                        log.debug("%s", jpg_path)
-                        sent_jpg_to_tjc(ram_path, jpg_path)
-                    g.pictures.have_64_jpg[i] = False
-            g.pictures.send_jpg_status = False
-            g.port.tsw("255", "1")      # enable touch
-            log.debug("Touch enabled")
-
+            run_guarded(_send_list_pictures)
         time.sleep(0.06)
 
 

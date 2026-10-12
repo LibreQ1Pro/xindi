@@ -3,7 +3,6 @@
 from xindi import state as g
 from xindi.pages.widgets import fan_values, heat_readout, heater_row, segmented
 from xindi.screen import pageids as ids
-from xindi.util.cpp import c_int, f32, to_string
 
 
 def filament_tips():

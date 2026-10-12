@@ -26,6 +26,24 @@ with the distinct values of every widget attribute, every websocket message and 
 command, the touched files, and whether the port was still alive. Repetitions caused by the refresh loops
 are collapsed, so timing does not matter, but order and content do.
 
+## Monkey test
+
+The golden traces check a few flows in a fixed order. `monkey.py` checks what they cannot: a virtual screen that touches whatever it finds, in a random
+order and with random pauses (bursts of taps, values and keyboard text, noise on the serial line, a screen that does not always carry out `page n`),
+while the fake Moonraker changes the state of the printer all the time (the temperatures, the state of the print, Klipper shutting down and coming
+back, files, notifications, the websocket dropping, junk messages). A run is correct when the service is alive, has printed no traceback, logged only
+known errors, and, once the printer is calm again, the screen can be brought back to the main page. The choices come from a seed, so a failure is repeated
+with the same actions; when it fails the report has the last actions and what every thread of the service is doing (`kill -USR1`) and what it believes
+(`kill -USR2`).
+
+```sh
+tests/e2e/monkey.py --seeds 16 -j 8                    # seeds 1..16, 150 steps each
+tests/e2e/monkey.py --seed 5 --steps 300 --keep        # one seed; the log and the actions stay in ./monkey_out/
+tests/e2e/monkey.py --seeds 8 --first 100 --hostile    # also what Moonraker never sends (wrong types)
+```
+
+`--hostile` runs are fuzzing: they show where the parsing of Moonraker's answers would fail on a type that a real Moonraker does not send.
+
 ## Running
 
 ```sh
@@ -114,3 +132,8 @@ the other system tools are stubs; the sleeps are the real ones.
 | notifications | all Moonraker notifications, error responses, and an invalid message (ignored) |
 | screen_sleep | screen sleep with the LED and wake-up |
 | filament | filament load / unload, automatic and manual |
+
+## Unit tests
+
+`tests/run_unit.py` runs them in docker; `--shuffle [SEED] [--repeat N]` runs them in random orders: every test starts from a clean state of the service
+(`tests/unit/support.py`), so a test that depends on the one before it fails there.

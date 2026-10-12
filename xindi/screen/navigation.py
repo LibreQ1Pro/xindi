@@ -1,8 +1,13 @@
 """Switching the page of the screen and the version the screen compares."""
 
+import logging
+import time
+
 from xindi import state as g
 from xindi.screen import pageids as ids
 from xindi.util.cpp import to_string
+
+log = logging.getLogger(__name__)
 
 
 # The version of the port as semver. The screen cannot compare semver, so it gets major * 10000 + minor * 100 + patch
@@ -39,10 +44,41 @@ def request_language():
         g.port.raw("prints 0xff,1")
 
 
+PAGE_CHECK_INTERVAL = 2.0       # seconds between two questions "which page do you show?"
+PAGE_SETTLE = 1.5               # a switch takes a moment: what the screen says earlier is about the page before
+
+
 def page_to(page_id):
     if page_id == ids.MAIN:
         send_ui_version()
     g.screen.previous_page = g.screen.page
     g.screen.page = page_id
+    g.screen.page_switched_at = time.monotonic()
+    g.screen.page_mismatch = 0
     g.shown.page_values.clear()         # the page starts from its stored values
     g.port.page(to_string(page_id))
+
+
+def ask_page():
+    g.port.sendme()
+
+
+def page_reported(page_id):
+    """The screen says which page it shows (the answer to ``sendme``). When it is not the page the host works for (a switch that did not happen, a page
+    that was left by itself), it has to be switched again: the host would otherwise refresh and answer clicks for a page nobody sees.
+    Two answers in a row are needed (one may be a switch in progress). Returns True when the page was switched again."""
+    if page_id == g.screen.page:
+        g.screen.page_mismatch = 0
+        return False
+    if time.monotonic() - g.screen.page_switched_at < PAGE_SETTLE:
+        return False
+    g.screen.page_mismatch += 1
+    if g.screen.page_mismatch < 2:
+        ask_page()
+        return False
+    log.warning("The screen shows the page %d, the page %d is expected: switching again", page_id, g.screen.page)
+    g.screen.page_mismatch = 0
+    g.screen.page_switched_at = time.monotonic()
+    g.shown.page_values.clear()
+    g.port.page(to_string(g.screen.page))
+    return True

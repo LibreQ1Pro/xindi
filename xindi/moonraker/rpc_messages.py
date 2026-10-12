@@ -15,6 +15,7 @@ from xindi.moonraker.printer_status import (parse_printer_info,
 from xindi.moonraker.rpc_requests import string2json
 from xindi.screen import pageids as ids
 from xindi.util.cpp import jeq, jget, jint, jpath, json_dump, jstr
+from xindi.util.guard import run_guarded
 
 log = logging.getLogger(__name__)
 
@@ -128,10 +129,14 @@ NOTIFICATIONS = {
 
 def handle_message(message):
     """Act on one message of Moonraker: a response to a request or a notification."""
+    log.debug("Message of Moonraker: %.300s", message)
     try:
         response = string2json(message)
     except Exception as e:
         log.error("%s", str(e))
+        return
+    if not isinstance(response, dict):          # Moonraker sends objects; anything else is noise
+        log.error("The message of Moonraker is not a JSON object: %.80s", message)
         return
     if jget(response, "id") is not None:
         log.debug("%s", json_dump(jget(response, "id")))
@@ -151,7 +156,7 @@ def handle_message(message):
 def json_parse(arg=None):
     """Thread: handles the messages the websocket thread queues, in order (see state.message_queue)."""
     while True:
-        handle_message(g.rpc.message_queue.get())
+        run_guarded(handle_message, g.rpc.message_queue.get())
 
 
 def parse_error(error):

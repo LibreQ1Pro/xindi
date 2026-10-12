@@ -1,7 +1,6 @@
 """The Home page of the new screen design."""
 
 import logging
-import math
 
 from xindi import state as g
 from xindi.pages import file_list
@@ -9,7 +8,6 @@ from xindi.pages.widgets import temperature, two_state_button
 from xindi.printer import job
 from xindi.screen import thumbnail
 from xindi.screen.text import fit_name
-from xindi.util.cpp import substr
 
 log = logging.getLogger(__name__)
 

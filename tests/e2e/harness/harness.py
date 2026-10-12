@@ -23,6 +23,7 @@ import contextlib
 import hashlib
 import json
 import os
+import random
 import socket
 import subprocess
 import sys
@@ -87,6 +88,7 @@ class Screen(threading.Thread):
         self.lang = 2               # the language of the screen (its global ``lang``)
         self.unknown = []           # "page: instruction" for objects the page does not have (invalid variable)
         self.last_instruction = time.time()
+        self.lost_pages = []
         self.stopped = False
         self.page_changed = threading.Condition(self.lock)
 
@@ -166,6 +168,8 @@ class Screen(threading.Thread):
     OBJECT_COMMANDS = ("vis", "tsw", "click", "ref", "picq", "cls")
 
     ignore_unknown = 0      # >0 while a scenario sends events for another page than the one shown
+    page_loss = 0.0         # the probability that a "page" instruction is not carried out
+    lost_pages = ()
 
     def _check_object(self, text):
         if self.ignore_unknown:
@@ -220,6 +224,11 @@ class Screen(threading.Thread):
             text = raw.decode("utf-8")
         except UnicodeDecodeError:
             text = raw.decode("utf-8", "surrogateescape")
+        if text == "sendme":                # which page do you show? (the host asks all the time: not part of the trace)
+            page = self.current["page"]            # (the lock is held: this runs inside the parser)
+            if isinstance(page, int):
+                self.send(bytes([0x66, page]) + END)
+            return
         if text.startswith("prints "):
             self._answer_prints(text)
         if not text.startswith(("page ", "twfile ", "whmi-wri ")) and ".write(\"" not in text:
@@ -229,6 +238,9 @@ class Screen(threading.Thread):
                 page = int(text[5:])
             except ValueError:
                 page = text[5:]
+            if self.page_loss and random.random() < self.page_loss:
+                self.lost_pages.append(page)        # the screen did not switch (the monkey test: a screen that misbehaves)
+                return
             self._new_visit(page)
             return
         if ".write(\"" in text and text.endswith("\")"):
@@ -512,6 +524,14 @@ class Moonraker(object):
             msg["params"] = params
         self._push(msg)
 
+    def drop_connection(self):
+        """The server closes the websocket (the program has to connect again)."""
+        async def close():
+            for ws in list(self.connections):
+                if not ws.closed:
+                    await ws.close()
+        asyncio.run_coroutine_threadsafe(close(), self.loop)
+
     def push_raw(self, text):
         self.loop.call_soon_threadsafe(self.queue.put_nowait, (None, text))
 
@@ -610,6 +630,8 @@ class Harness(object):
         self.proc = None
         self.wpa = None
         self.errors = []
+        self.extra = {}                 # what a scenario wants to be in the result (the actions of the monkey test)
+        self.options = {}               # the arguments of the scenario (seed, steps, ...)
 
     # -- scenario helpers --------------------------------------------------
     def touch(self, page, widget, settle=0.6):
@@ -729,8 +751,12 @@ class Harness(object):
         return cmds
 
     def run(self):
-        import scenarios
-        func = getattr(scenarios, "scenario_" + self.scenario_name)
+        if self.scenario_name == "monkey":
+            import monkey
+            func = monkey.scenario_monkey
+        else:
+            import scenarios
+            func = getattr(scenarios, "scenario_" + self.scenario_name)
         t0 = self.t_start = time.time()
         self.setup()
         self.start_sut()
@@ -758,9 +784,16 @@ class Harness(object):
             "wpa": list(self.wpa.received) if self.wpa else [],
             "unknown_objects": list(self.screen.unknown),
             "files": self.fixture.snapshot(),
+            "extra": self.extra,
         }
-        with open(os.path.join(self.out_dir, "%s_%s.json" % (self.impl, self.scenario_name)), "w") as f:
-            json.dump(result, f, indent=1, ensure_ascii=False)
+        name = self.scenario_name if self.scenario_name != "monkey" else "monkey_%d" % self.options["seed"]
+        with open(os.path.join(self.out_dir, "%s_%s.json" % (self.impl, name)), "w") as f:
+            try:
+                json.dump(result, f, indent=1, ensure_ascii=False)
+            except UnicodeEncodeError:          # the program was sent bytes that are no text (the monkey test does it): the escapes keep them
+                f.seek(0)
+                f.truncate()
+                json.dump(result, f, indent=1, ensure_ascii=True)
         return result
 
 
@@ -769,9 +802,13 @@ def main():
     ap.add_argument("--impl", choices=["py"], default="py")
     ap.add_argument("--scenario", required=True)
     ap.add_argument("--out", default="/out")
+    ap.add_argument("--seed", type=int, default=1, help="monkey: the seed of the random choices")
+    ap.add_argument("--steps", type=int, default=150, help="monkey: the number of random actions")
+    ap.add_argument("--hostile", action="store_true", help="monkey: also send what Moonraker never sends (wrong types)")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
     h = Harness(args.impl, args.scenario, args.out)
+    h.options = {"seed": args.seed, "steps": args.steps, "hostile": args.hostile}
     res = h.run()
     print("%s/%s: %d screen visits, %d ws messages, %d shell commands, errors: %d" % (
         args.impl, args.scenario, len(res["screen_visits"]), len(res["ws_received"]), len(res["shell"]),

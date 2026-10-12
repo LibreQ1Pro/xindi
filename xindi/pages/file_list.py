@@ -135,6 +135,8 @@ def is_mounted(path):
     """4.4.22: 1 if path is a mount point, 0 if not, -1 on errors."""
     try:
         return 1 if os.stat("/").st_dev != os.stat(path).st_dev else 0
+    except FileNotFoundError:
+        return 0            # no drive was ever mounted here: that is no error
     except OSError as e:
         log.error("is_mounted %s: %s", path, str(e))
         return -1

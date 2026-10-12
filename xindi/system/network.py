@@ -77,27 +77,6 @@ def _device_info(dev):
     return info
 
 
-_ip_cache = {}      # kind -> (time, address): the network page asks for the address in every refresh
-
-
-def _ip(kind):
-    """IPv4 address of the interface of the type ``kind`` without the prefix length ("" if it has none),
-    at most 5 seconds old."""
-    now = time.time()
-    if kind not in _ip_cache or now - _ip_cache[kind][0] > 5:
-        dev = _device(kind)
-        _ip_cache[kind] = (now, _device_info(dev).get("IP4.ADDRESS", "").split("/")[0] if dev else "")
-    return _ip_cache[kind][1]
-
-
-def get_wlan0_ip():
-    return _ip("wifi")
-
-
-def get_eth0_ip():
-    return _ip("ethernet")
-
-
 def detected_wlan0():
     """Is there a wifi interface?"""
     return _device("wifi") is not None

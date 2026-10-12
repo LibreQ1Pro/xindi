@@ -10,20 +10,13 @@ from xindi import state as g
 from xindi.pages import home, file_list
 from xindi.screen import thumbnail
 from xindi.screen.text import fit_name, width
-from xindi.screen.tx import ScreenPort, END
+from xindi.screen.tx import END
+from support import PortRecorder
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
-class HomeTest(unittest.TestCase):
-    def setUp(self):
-        self.commands = []
-        self.port = ScreenPort()
-        self.port._send = self.commands.append
-        self.port_patch = patch.object(g, "port", self.port)
-        self.port_patch.start()
-        self.addCleanup(self.port_patch.stop)
-
+class HomeTest(PortRecorder):
     def strings(self):
         return [value[:-len(END)].decode("utf-8") for value in self.commands]
 

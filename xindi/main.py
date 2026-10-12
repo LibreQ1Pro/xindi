@@ -1,9 +1,11 @@
 """Start-up sequence and main loop of the screen backend ("xindi")."""
 
+import faulthandler
 import fcntl
 import logging
 import os
 import queue
+import signal
 import sys
 import time
 
@@ -20,6 +22,7 @@ from xindi.system.network import (get_ssid_list_pages,
                                   mks_wifi_hdlevent_thread,
                                   mks_wpa_scan_scanresults)
 from xindi.util import paths
+from xindi.util.guard import run_guarded
 from xindi.util.cpp import pthread_create, system, terminate
 
 log = logging.getLogger(__name__)
@@ -131,6 +134,36 @@ def connect_moonraker(argv):
         time.sleep(1)
 
 
+def reconnect_moonraker(url, wait=5.0):
+    """The websocket to Moonraker is gone (Moonraker was restarted, the network blinked): connects again and asks for the state of the printer.
+    Returns True when it did; False when the connection is open (nothing to do) or could not be made yet."""
+    status = g.ep.poll_status()
+    if status in ("Open", "Connecting"):
+        return False
+    log.info("The connection to Moonraker is %s, connecting again", status)
+    g.ep.close()
+    g.ep.connect(url)
+    deadline = time.monotonic() + wait
+    while time.monotonic() < deadline:
+        time.sleep(0.2)
+        if g.ep.poll_status() == "Open":
+            log.info("Connected to Moonraker again")
+            klipper.sub_object_status()
+            klipper.get_object_status()
+            return True
+    return False
+
+
+def keep_moonraker_connected(url):
+    """The thread that keeps the connection to Moonraker (the connection is made once at the start and ends with whatever ends Moonraker)."""
+    while True:
+        time.sleep(1)
+        try:
+            reconnect_moonraker(url)
+        except Exception:
+            log.exception("Connecting to Moonraker again failed")
+
+
 def open_screen_port():
     """Open the screen's serial port; returns its file descriptor or -1."""
     if not g.port.open():
@@ -182,13 +215,18 @@ def start_screen(fd, frames):
 
 def main_loop(frames):
     next_refresh = 0.0
+    next_page_check = 0.0
     while True:
         frame = rx.next_frame(frames, max(0.0, next_refresh - time.monotonic()))
         if frame is not None:
-            events.parse_cmd_msg_from_tjc_screen(frame.ljust(4096, b"\0"))
+            run_guarded(events.parse_cmd_msg_from_tjc_screen, frame.ljust(4096, b"\0"))
         if time.monotonic() >= next_refresh:
-            refresh.show()
+            run_guarded(refresh.show)
             next_refresh = time.monotonic() + REFRESH_INTERVAL
+        if time.monotonic() >= next_page_check:
+            if not g.pictures.send_jpg_status:          # not while the pictures of the list are sent
+                navigation.ask_page()
+            next_page_check = time.monotonic() + navigation.PAGE_CHECK_INTERVAL
 
 
 def main(argv):
@@ -201,6 +239,7 @@ def main(argv):
     pthread_create(mks_wifi_hdlevent_thread, None)
     connect_moonraker(argv)
     pthread_create(json_parse, None)
+    pthread_create(lambda _: keep_moonraker_connected(g.ep.url()), None)
     pthread_create(sent_jpg_thread_handle, None)        # preview picture thread
 
     frames = queue.Queue()
@@ -217,12 +256,25 @@ def setup_logging():
                         format="%(levelname).1s %(name)s: %(message)s")
 
 
+def print_state(signum=None, frame=None):
+    """kill -USR2 <pid>: what the service believes (the page, the state of the printer, the flags of the pages), for a service that does not do what it should."""
+    flags = {name: value for name, value in vars(g.screen).items() if isinstance(value, bool) and value}
+    print("STATE page=%s print_stats=%r idle_timeout=%r webhooks=%r moonraker=%s flags=%s" % (
+        g.screen.page, g.klippy.print_stats_state, g.klippy.idle_timeout_state, g.klippy.webhooks_state, g.ep.status if g.ep else None,
+        sorted(flags)), flush=True)
+
+
 def run():
     try:
         sys.stdout.reconfigure(line_buffering=True)
     except Exception:
         pass
     setup_logging()
+    try:
+        faulthandler.register(signal.SIGUSR1, all_threads=True)       # kill -USR1 <pid> prints what every thread is doing (a stuck service)
+        signal.signal(signal.SIGUSR2, print_state)
+    except (AttributeError, ValueError, OSError):
+        pass
     try:
         return main(sys.argv)
     except KeyboardInterrupt:

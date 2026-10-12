@@ -37,6 +37,8 @@ class Screen(object):
 
     def __init__(self):
         self.page = 0  # id of the page currently shown
+        self.page_switched_at = 0.0  # when the host switched to it (monotonic): the screen needs a moment
+        self.page_mismatch = 0  # how many times in a row the screen said it shows another page
         self.previous_page = 0  # id of the previous page
         self.event_id = 0
         self.page_id = 0

@@ -43,8 +43,6 @@ def requests():
                     found += [(path, call.lineno, w, s) for w in names(args[0]) for s in states]
                 elif func == "two_state_button" and args:
                     found += [(path, call.lineno, w, s) for w in names(args[0]) for s in ("on", "off")]
-                elif func == "heating_widget" and len(args) > 1:
-                    found += [(path, call.lineno, w, s) for w in names(args[1]) for s in ("heat_on", "heat_off")]
     return found
 
 

@@ -7,9 +7,7 @@ Scenario specific variations are selected through OPTIONS[scenario].
 """
 
 import hashlib
-import json
 import os
-import shutil
 
 GCODES = "/home/mks/gcode_files"
 

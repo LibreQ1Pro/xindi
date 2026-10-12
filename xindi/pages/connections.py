@@ -144,6 +144,9 @@ def show_detail():
 
 def detail_clicked(widget_id):
     item = S.sel
+    if item is None:             # an event of the page when no network was chosen (a late touch): back to the list
+        _leave_detail()
+        return
     if widget_id == 1:
         if item["active"]:
             network.disconnect_wifi()
@@ -167,6 +170,9 @@ def detail_clicked(widget_id):
 
 
 def confirm_clicked(widget_id):
+    if S.sel is None:
+        _leave_detail()
+        return
     if widget_id == 1:
         network.forget(S.sel["uuid"])
         _leave_detail()
@@ -253,7 +259,7 @@ def keyboard_text(mode, text):
     g.screen.printing_wifi_keyboard_enabled = False
     if mode == KB_PSK_SCANNED:
         navigation.page_to(ids.WIFI_CONNECT)
-        wifi.print_ssid_psk(text.encode("utf-8"))
+        wifi.print_ssid_psk(text)
     elif mode == KB_PSK_SAVED and S.sel is not None:
         navigation.page_to(ids.WIFI_CONNECT)
         network.start_connect_saved(S.sel["uuid"], S.sel["ssid"], text)

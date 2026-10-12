@@ -11,7 +11,7 @@ from xindi.system.network import (detected_wlan0,
                                   get_ssid_list_pages,
                                   get_wlan0_status,
                                   set_page_wifi_ssid_list)
-from xindi.util.cpp import b2s, to_string
+from xindi.util.cpp import to_string
 
 log = logging.getLogger(__name__)
 
@@ -84,8 +84,8 @@ def get_wifi_list_ssid(index):
 
 
 def print_ssid_psk(psk):
-    """psk: bytes received from the screen keyboard"""
+    """psk: the password typed on the screen keyboard (str)"""
     log.info("SSID is %s", g.net.get_wifi_name)
-    network.mks_start_connect(g.net.get_wifi_name, b2s(psk))
+    network.mks_start_connect(g.net.get_wifi_name, psk)
 
 

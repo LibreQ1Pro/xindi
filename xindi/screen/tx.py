@@ -109,6 +109,10 @@ class ScreenPort:
 
     # -- instructions ------------------------------------------------------------------------------------------
 
+    def sendme(self):
+        """Asks the screen which page it shows: it answers ``66 <page> ff ff ff``."""
+        self._send(s2b("sendme") + END)
+
     def page(self, pageid):
         """Switch page"""
         self.forget()
@@ -175,25 +179,6 @@ class ScreenPort:
 
     def txt_plus(self, obj1, obj2, obj3):
         self._send(s2b(obj1 + ".txt=" + obj2 + ".txt+" + obj3 + ".txt") + END)
-
-    def download(self, filesize):
-        self._send(s2b("whmi-wri " + to_string(filesize) + ",115200,0") + END)
-
-    def download_data(self, data):
-        """Sends the screen firmware data in 512 byte pieces (no tcdrain)."""
-        data = s2b(data)
-        num = 512
-        length = len(data)
-        end = num
-        start = 0
-        while start < length:
-            if end > length:
-                self.write(data[start:length])
-                break
-            self.write(data[start:start + num])
-            start = end
-            end = end + num
-            log.debug("Sending download data")
 
     def baud(self, baud):
         self._send(s2b("baud=" + to_string(baud)) + END)

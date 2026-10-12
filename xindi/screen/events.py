@@ -43,9 +43,13 @@ def parse_cmd_msg_from_tjc_screen(cmd):
         g.screen.page_id = cmd[1]
         g.screen.widget_id = cmd[2]
         g.screen.type_id = cmd[3]
+        if cmd[1] != g.screen.page:             # a click of a page that is not the one expected: ask which page the screen shows
+            navigation.ask_page()
         from xindi import clicks
         clicks.handle(g.screen.page_id, g.screen.widget_id, g.screen.type_id)
-    elif event_id in (0x66, 0x67, 0x68):
+    elif event_id == 0x66:
+        navigation.page_reported(cmd[1])        # the answer to sendme: the page the screen shows
+    elif event_id in (0x67, 0x68):
         pass
     elif event_id == 0x70:
         log.info("0x%x", event_id)

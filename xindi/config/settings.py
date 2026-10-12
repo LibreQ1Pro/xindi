@@ -109,9 +109,3 @@ def get_ethernet():
     ini = open_settings()
     g.config.ethernet = int(ini.get_bool("mks_ethernet", "enable", 0))
     return g.config.ethernet
-
-
-def set_ethernet(target):
-    log.debug("Setting ethernet:%s", target)
-    save_setting("mks_ethernet", "enable", to_string(target))
-    g.config.ethernet = target

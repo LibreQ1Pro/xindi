@@ -33,7 +33,7 @@ FNDELAY = os.O_NONBLOCK
 def _init_globals():
     """Static initialisation of the globals of uart.cpp (a fresh process)."""
     global tftfile, tft_buff, tft_start, tft_end, tft_s, tft_data, tft_len, filesize
-    global send_finish, tft_index, tft_buffer, fd
+    global send_finish, fd
     tftfile = None
     tft_buff = 4096
     tft_start = 0
@@ -45,8 +45,6 @@ def _init_globals():
 
     send_finish = True
 
-    tft_index = 0
-    tft_buffer = bytearray(4096)
 
     fd = -1         # serial port descriptor
 
@@ -110,7 +108,6 @@ def main():
                 fd = _open(UART_DEV, os.O_RDWR | os.O_NDELAY | os.O_NOCTTY)
                 if fd < 0:
                     return -1
-                    print("OPEN TTY failed")     # (unreachable, as in the original)
                 set_option(fd, TRANSFER_BAUD, 8, 'N', 1)
 
             print("open file ok")

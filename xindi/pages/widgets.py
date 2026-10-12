@@ -57,12 +57,6 @@ def cut_after_point(text, n):
     return substr(text, 0, text.find(".") + n)
 
 
-def heating_widget(temp_widget, button, target):
-    """The number and the button of a heater show with their colour whether the heater is on."""
-    g.port.pco(temp_widget, "65535" if target == 0 else "63488")
-    g.port.face(button, "heat_off" if target == 0 else "heat_on")
-
-
 def send_chunks_txt(data, target="cp_data"):
     """Sends a picture string in 2048 byte pieces through the "add" text variable into the text ``target`` (of the preview page)."""
     num = 2048

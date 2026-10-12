@@ -9,22 +9,9 @@ from xindi import state as g
 from xindi.pages import file_list, guide, preview, widgets
 from xindi.screen import events, thumbnail
 from xindi.screen.faces import FACES
-from xindi.screen.tx import ScreenPort, END
+from support import IsolatedState, PortRecorder as Recorder
 
 TOOLS = os.path.join(os.path.dirname(__file__), "..", "..", "display_firmware", "tools")
-
-
-class Recorder(unittest.TestCase):
-    def setUp(self):
-        self.commands = []
-        self.port = ScreenPort()
-        self.port._send = self.commands.append
-        patcher = patch.object(g, "port", self.port)
-        patcher.start()
-        self.addCleanup(patcher.stop)
-
-    def sent(self):
-        return [c[:-len(END)].decode("utf-8") for c in self.commands]
 
 
 class ReadoutTest(Recorder):
@@ -255,7 +242,7 @@ class KnownNetworkTest(Recorder):
         saved.assert_not_called()
 
 
-class LastPrintedTest(unittest.TestCase):
+class LastPrintedTest(IsolatedState):
     def last(self, response):
         from xindi.moonraker import gcode_files
         with patch.object(gcode_files, "send_request", return_value=response):
@@ -272,7 +259,7 @@ class LastPrintedTest(unittest.TestCase):
         self.assertEqual(self.last('{"error": {"code": 404}}'), "")
 
 
-class FileOrderTest(unittest.TestCase):
+class FileOrderTest(IsolatedState):
     def order(self, entries, modified):
         from xindi.moonraker import gcode_files
         with patch.object(g.files, "list_modified", modified):
