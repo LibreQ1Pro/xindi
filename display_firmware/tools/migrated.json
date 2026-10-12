@@ -1,0 +1,1824 @@
+{
+ "restart": {
+  "design": "restart_needed",
+  "adapter": "passive",
+  "kept": [
+   "hint",
+   "title"
+  ],
+  "new": [],
+  "sha256": "3b12d90c745b451693fa9602c6bf2b1597d1a6fc8d37479f97bb22be24a09995"
+ },
+ "shutdown": {
+  "design": "shutting_down",
+  "adapter": "passive",
+  "kept": [
+   "msg"
+  ],
+  "new": [],
+  "sha256": "873799a773d4f399808ceb91ab2ddd19feaca1f9e88b75fe3c7429a65abb3082"
+ },
+ "logo": {
+  "design": "boot_logo",
+  "adapter": "passive",
+  "kept": [
+   "boot_msg"
+  ],
+  "new": [],
+  "sha256": "cb85622a45bf9465710bbf60e6412bcd6dda21921a55ef23752a9b2dfc163aba"
+ },
+ "main": {
+  "design": "home",
+  "adapter": "migrate_home.py",
+  "kept": [
+   "bed_btn",
+   "bed_temp",
+   "beep_btn",
+   "chamber_btn",
+   "chamber_temp",
+   "last_file_btn",
+   "last_file_name",
+   "last_file_pic",
+   "light_btn",
+   "nav_adjust",
+   "nav_files",
+   "nav_main",
+   "nav_settings",
+   "nozzle_btn",
+   "nozzle_temp",
+   "soc_ver",
+   "soc_ver_lbl",
+   "stop_btn",
+   "ui_ver_lbl",
+   "usb_icon",
+   "ver_warning",
+   "wifi_icon"
+  ],
+  "new": [
+   "bed_card",
+   "bed_icon",
+   "bed_set",
+   "bed_unit",
+   "chamber_card",
+   "chamber_icon",
+   "chamber_set",
+   "chamber_unit",
+   "nozzle_card",
+   "nozzle_icon",
+   "nozzle_set",
+   "nozzle_unit",
+   "thumb_empty",
+   "ui_ver",
+   "ver_panel"
+  ],
+  "sha256": "e666748dcdf4974e4376df2cf8f3e09e8f1a62ee6673f2e724f500ead977115a"
+ },
+ "open_pop": {
+  "design": "setup_skip_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 4,
+  "sha256": "babbc2c9172975349cf97c919bd5fd058ca7037f99d0fedad26e7d2ce63dd9fa"
+ },
+ "print_finish": {
+  "design": "print_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "time_txt",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "7977b65357d578d570ed73aa5833e1554b107433696d7e855f1ab2f12ad52437"
+ },
+ "print_stop": {
+  "design": "print_stop_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "798083ff7f17738d63063945389b9beb1e26e69f6693bb30254f4adb98df1082"
+ },
+ "stop_confirm": {
+  "design": "emergency_stop_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "ed3c15017170cd74775cba1e4f5f323fbaba99111a403199f927da42cd2dd817"
+ },
+ "resume_print": {
+  "design": "resume_print_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 4,
+  "sha256": "8aa9916b32beacac06547c7982926049e862934b9918b9180ce8bb2ac4562655"
+ },
+ "print_no_fil": {
+  "design": "no_filament",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "0f710fab6f99957320a5ed38940698ce4d541445361f1d6732b6f3da6b9cee59"
+ },
+ "print_no_fil2": {
+  "design": "filament_tangle",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "c60aa25c9b3c649ce22907793e1b037206f09b2703771041c65343886a395343"
+ },
+ "print_lowtemp": {
+  "design": "print_nozzle_cold",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "51d8454f07c808d92f70e3e9b8f81f5461717fae03cb570de2a094c813c5ed61"
+ },
+ "preview_pop_1": {
+  "design": "closed_chamber_warning",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "no_more"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "3c6bc03e060b232802bfcc307ff2dda300a4752a01f00929df6056f8fc9ed2ed"
+ },
+ "preview_pop_2": {
+  "design": "doors_cover_warning",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "no_more"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "e75adc75488cb87cdbb66c5f30aa27375139e5f02ac184d4e88c5beda0867bf3"
+ },
+ "move_pop_1": {
+  "design": "move_out_of_range",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "1e0a743d3aea6d5c83114ace62a537b7f64f51c93949ed91602f95012a1d5030"
+ },
+ "move_pop_2": {
+  "design": "move_home_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "64230d7577de70a94a36e108bc10bfece47c1e5cf3899b58793479b731363225"
+ },
+ "filament_pop_1": {
+  "design": "filament_nozzle_cold",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "02f58e65d2ca0c1ef087d8388e40be4664a2dd3abd1328a9d4ad9bc5269830b7"
+ },
+ "unload_finish": {
+  "design": "unload_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "cbad7c90031376427465cbc844fa4e4b83dcdc93b39ef81f404063b3f6a3b8e3"
+ },
+ "auto_warning": {
+  "design": "set_temperature_warning",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "55d8c561e213402e5b0b6c306bf063b0ddd10330f7501881ac81f60334c0eba5"
+ },
+ "cal_warning": {
+  "design": "before_calibration",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "next_btn",
+   "back_btn"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 4,
+  "sha256": "547e1553e772feea7cd0050feef0548854a8b7388c9001739ba030131f4f1f60"
+ },
+ "level_error": {
+  "design": "leveling_error",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "1e80462a8703792ea0873ce9a22431624282a7454d6228cc987e9b5f8e3c9f60"
+ },
+ "print_stopping": {
+  "design": "print_stopping",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "394281fb5e3daf2d6e6716c5e93e9448d26acee7feb5b18398d5e7fca11d43c8"
+ },
+ "re_printing": {
+  "design": "print_resuming",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "1e4ecb455718b96f7fbbfe48a52897d4d7ee13faf349e88fe31a476662361fc1"
+ },
+ "syntony_move": {
+  "design": "shaping_progress",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "8b25662269aa5ba5f7f6955c130ed59a4b0c8d1d50813a2881ee654f7e777327"
+ },
+ "bed_moving": {
+  "design": "bed_moving",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "326f39f9350b2fe8afc63400bcc26f1b0c2c765bea144353cc63b2b85aa9504d"
+ },
+ "open_moving": {
+  "design": "setup_wait",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "title",
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "2c45c4eea1ba6e77e10cbe985723cff99dd1f4cdb024dfa8dd3e047818ad7194"
+ },
+ "wifi_connect": {
+  "design": "wifi_connecting",
+  "adapter": "migrate_pages",
+  "new": [
+   "spin"
+  ],
+  "kept": [
+   "msg"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "abdc7f4eeef8176b18cc7629705c7aa70603f788217912c339342f2953a605cc"
+ },
+ "detect_error": {
+  "design": "error",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "33d21a60366b0b78277073f4df076698b1f6593853f3c74f9d4a58f5b80165b4"
+ },
+ "gcode_error": {
+  "design": "gcode_error",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "b646e2ed0980e6299235f3c00414e3a8989ee1c2983cd1e8caf0ba65c119d9e7"
+ },
+ "memory_warning": {
+  "design": "memory_full",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "5640db3a0dc072da331747da8353e7d61b6c473e5f75071c832c68baf6a5717a"
+ },
+ "restore_config": {
+  "design": "factory_reset_confirm",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok",
+   "cancel"
+  ],
+  "dropped": [],
+  "baked": 4,
+  "sha256": "8017a30bf1b57b1c10da9ab5400bb734b429fcec05568b3e196d1c03c81d9bff"
+ },
+ "update_success": {
+  "design": "update_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "414c0b2fd249c371d3e4e9ba0af49263af0af841b67742e4b873b4f7db80f382"
+ },
+ "print_log_s": {
+  "design": "logs_exported",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "d60b0a65d71d963d4acbd0e0c7bb55ef4de940a816aa780e02fa83957bc4a6a4"
+ },
+ "print_log_f": {
+  "design": "logs_failed",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "7107f67c38de0161f9994a35a38e766fffefa45f16a64ac55a3f798e7cfe2247"
+ },
+ "wifi_success": {
+  "design": "wifi_connected",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "75a4ae4aff471526aae586c0f437845702835f730a0d03bca38e5497a98decdf"
+ },
+ "wifi_fail": {
+  "design": "wifi_failed",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "popup_bg"
+  ],
+  "baked": 3,
+  "sha256": "02cb652f9b37ae7f8ea49c3eb6e2263d390a40e4bd516c68897681273650869c"
+ },
+ "open_language": {
+  "design": "setup_language",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "lang_cn",
+   "lang_cn_name",
+   "lang_ru",
+   "lang_ru_name",
+   "lang_en",
+   "lang_en_name",
+   "lang_jp",
+   "lang_jp_name",
+   "lang_fr",
+   "lang_fr_name",
+   "lang_de",
+   "lang_de_name",
+   "lang_it",
+   "lang_it_name",
+   "lang_es",
+   "lang_es_name",
+   "prev_page",
+   "next_page",
+   "skip",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 2,
+  "sha256": "494affed6b76de8fa910fa1d995f8758906d8af77a5f852a86dd8724b0648818"
+ },
+ "open_language2": {
+  "design": "setup_language_2",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "lang_kr",
+   "lang_kr_name",
+   "lang_pt",
+   "lang_pt_name",
+   "lang_ar",
+   "lang_ar_name",
+   "lang_tr",
+   "lang_tr_name",
+   "lang_he",
+   "lang_he_name",
+   "prev_page",
+   "next_page",
+   "skip",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 2,
+  "sha256": "14d495caca460c6f58424256fd01d484572f4c7f1b504d28e0f1bae369abec3d"
+ },
+ "open_video_1": {
+  "design": "setup_unbox_1",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "anim",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "4f2d7a30f71bf6c018ffbac02b8bbc202fe0e0fa9c5b30cf55464e4f18de0798"
+ },
+ "open_video_2": {
+  "design": "setup_unbox_2",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "anim",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "a590cbf2bcc7389be83eee90abc81ee5421e595b425c2820c14b38f5b22fe274"
+ },
+ "open_warning": {
+  "design": "setup_unbox_warning",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 2,
+  "sha256": "1b9cba098056d0e0341c8e3371d3ad45df39e214bf06dd0fd14014c332f8769a"
+ },
+ "filamentVideo0": {
+  "design": "setup_spool_holder",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "anim",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "362389f4e081d1394f3177b296f1beebfefac012b246e8e7d0995a274df35ae0"
+ },
+ "filamentVideo1": {
+  "design": "setup_load_insert",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "anim",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "be7c9152b2f92140700c12418439fd17154c02a7df7f589a7d6c6f38480015e2"
+ },
+ "filamentVideo3": {
+  "design": "setup_load_extrude",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "title",
+   "anim",
+   "extrude",
+   "msg",
+   "next"
+  ],
+  "dropped": [],
+  "baked": 2,
+  "sha256": "42c68af2d1dba2b1790ebd4e00f17bcb72ff09f2aad883ed0b74edddcb3d789f"
+ },
+ "open_finish": {
+  "design": "setup_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "msg_level",
+   "finish"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "5e001ba18ff6310e49c983882c021651e296d5c8a2eabdd27fe5bb2ffe883f32"
+ },
+ "unload_mode": {
+  "design": "unload_choose",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "manual_btn",
+   "hint",
+   "auto_btn",
+   "warn",
+   "back_btn"
+  ],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "8f81065f8395200d9a72663618c0b8348e34b9c5ce6b16ac3d75e3c147762c29"
+ },
+ "auto_finish": {
+  "design": "auto_level_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "272cc129ccff1fcee5dc039bdf5141b0003b25c5fe9ce125de07d61f28528e85"
+ },
+ "syntony_finish": {
+  "design": "shaping_done",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "msg",
+   "ok"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "b8147472a59badfdaaa9491aca5cc82eda7cbb53a151aca67ca82c1a1ba7c93b"
+ },
+ "internet": {
+  "design": "wifi_no_network",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "ip_txt",
+   "refresh_btn",
+   "msg",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 7,
+  "sha256": "7daeab17be9983a2fceb4508fb6c51468be994897b7c21cc24556f422180b723"
+ },
+ "screen_sleep": {
+  "design": "screen_asleep",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [],
+  "dropped": [],
+  "baked": 0,
+  "sha256": "2e22f92bb27a343478902898cef1279195f9758171f58e9701fd5c0a4c5d4e0c"
+ },
+ "language": {
+  "design": "language",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "lang_cn",
+   "lang_cn_name",
+   "lang_ru",
+   "lang_ru_name",
+   "lang_en",
+   "lang_en_name",
+   "lang_jp",
+   "lang_jp_name",
+   "lang_fr",
+   "lang_fr_name",
+   "lang_de",
+   "lang_de_name",
+   "lang_it",
+   "lang_it_name",
+   "lang_es",
+   "lang_es_name",
+   "prev_page",
+   "next_page",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 8,
+  "sha256": "927d13f666894d557f902265ad48d7561220c122f20db49114699cd108d78355"
+ },
+ "language2": {
+  "design": "language_2",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "lang_kr",
+   "lang_kr_name",
+   "lang_pt",
+   "lang_pt_name",
+   "lang_ar",
+   "lang_ar_name",
+   "lang_tr",
+   "lang_tr_name",
+   "lang_he",
+   "lang_he_name",
+   "prev_page",
+   "next_page",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 8,
+  "sha256": "4771baea43a9900eff353a15dd013cbbb6a8e7f19919da1e237ebf559ef6b0a5"
+ },
+ "reset": {
+  "design": "klipper_error",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "err_msg",
+   "export_logs",
+   "restart_klip",
+   "restart_fw",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 7,
+  "sha256": "360badd674dec70eb371ec469ddfc8e6ec08ce187f814fb569e47efe2f3fb6a5"
+ },
+ "level_mode": {
+  "design": "calibration_menu",
+  "adapter": "migrate_pages",
+  "new": [
+   "tab_calib_lbl",
+   "tab_set_lbl",
+   "auto_level_lbl",
+   "shaping_lbl",
+   "bed_calib_lbl"
+  ],
+  "kept": [
+   "tab_calib",
+   "tab_settings",
+   "msg",
+   "auto_level",
+   "shaping",
+   "bed_calib",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 14,
+  "sha256": "b215bf2d51940a48168190a15cd43545fdf624c3ce42ec7c0fcbcea60ed99303"
+ },
+ "sys_ok": {
+  "design": "klipper_status",
+  "adapter": "migrate_pages",
+  "new": [
+   "restart_klip",
+   "restart_fw"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "msg",
+   "export_logs",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [
+   "info_txt"
+  ],
+  "baked": 8,
+  "sha256": "b34e410d49c6cc707a347ffc88efbffe16a0668e685b44b666ddd65316e35b01"
+ },
+ "bed_finish": {
+  "design": "nut_choose",
+  "adapter": "migrate_pages",
+  "new": [
+   "panel"
+  ],
+  "kept": [
+   "screw3",
+   "screw1",
+   "screw2",
+   "msg",
+   "ok"
+  ],
+  "dropped": [
+   "z_tilt"
+  ],
+  "baked": 3,
+  "stripped": [
+   "z_tilt.txt=\"倾斜校准\"",
+   "z_tilt.txt=\"Калибровка наклона\"",
+   "z_tilt.txt=\"Tilt Calibration\"",
+   "z_tilt.txt=\"傾き補正\"",
+   "z_tilt.txt=\"Calibrage de l'inclinaison\"",
+   "z_tilt.txt=\"Neigungskalibrierung\"",
+   "z_tilt.txt=\"Calibrazione inclinazione\"",
+   "z_tilt.txt=\"Calibración de inclinación\"",
+   "z_tilt.txt=\"기울기 보정\"",
+   "z_tilt.txt=\"Calibração de inclinação\"",
+   "z_tilt.txt=\"معايرة الميل\"",
+   "z_tilt.txt=\"Eğim kalibrasyonu\"",
+   "z_tilt.txt=\"כיול הטיה\""
+  ],
+  "sha256": "7b69a12c2718cdcafd0c45031a6e421916380cf9cb1e16fbd38cd7d8511a1d0e"
+ },
+ "pre_bed_cal": {
+  "design": "reference_point",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "cstep_001",
+   "cstep_005",
+   "cstep_01",
+   "cstep_05",
+   "z_up",
+   "z_down",
+   "title",
+   "msg",
+   "enter_btn"
+  ],
+  "dropped": [],
+  "baked": 3,
+  "sha256": "9d29a04c0c55003266df8396bbc9ff963459d9a9d885c1293cff793c52694664"
+ },
+ "net_detail": {
+  "design": "network_details",
+  "adapter": "migrate_pages",
+  "new": [
+   "auto_lbl"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "ssid_txt",
+   "status_txt",
+   "connect_btn",
+   "passwd_btn",
+   "auto_btn",
+   "forget_btn",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 8,
+  "sha256": "2d4000d28aa5b3bb584dda1a432625de7ab3c232d7f39b4eaf2338e51cde7701"
+ },
+ "net_confirm": {
+  "design": "forget_network",
+  "adapter": "migrate_pages",
+  "new": [
+   "ssid_msg",
+   "msg2"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "msg",
+   "forget_btn",
+   "cancel",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 7,
+  "sha256": "9bfc3f0e67d9a576ddee00f3e7d8e8a52ce4662077df6b888b2ab5def092b134"
+ },
+ "net_info": {
+  "design": "network_info",
+  "adapter": "migrate_pages",
+  "new": [
+   "lbl15",
+   "wifi_if",
+   "wifi_ssid_l",
+   "wifi_ssid",
+   "wifi_ip_l",
+   "wifi_ip",
+   "wifi_gw_l",
+   "wifi_gw",
+   "lbl40",
+   "lan_if",
+   "lan_ip_l",
+   "lan_ip",
+   "lan_gw_l",
+   "lan_gw",
+   "radio_lbl",
+   "wifi_btn",
+   "wifi_lbl"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "radio_btn",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [
+   "wifi_txt",
+   "lan_txt"
+  ],
+  "baked": 12,
+  "sha256": "101759b1b1c1dfdd7a9d3e5815f38c770bbccb4d8754b8c370b048b155f94690"
+ },
+ "sleep_mode": {
+  "design": "screen",
+  "adapter": "migrate_pages",
+  "new": [
+   "bright_val",
+   "bright_val_u"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "opt_5min",
+   "opt_5min_lbl",
+   "opt_15min",
+   "opt_15min_lbl",
+   "opt_30min",
+   "opt_30min_lbl",
+   "opt_never",
+   "opt_never_lbl",
+   "brightness_lbl",
+   "bright_slider",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 13,
+  "sha256": "6314cc670f1597c3dc1247bd18b624ab8e7878236f047e1b5f759d74a81a20b6"
+ },
+ "filament_pop_2": {
+  "design": "unload_steps",
+  "adapter": "migrate_pages",
+  "new": [
+   "nozzle_temp",
+   "nozzle_set",
+   "nozzle_unit"
+  ],
+  "kept": [
+   "hint",
+   "step1_txt",
+   "step2_txt",
+   "step3_txt",
+   "anim",
+   "back_btn",
+   "next_btn",
+   "alt_btn",
+   "done_btn"
+  ],
+  "dropped": [
+   "temp_txt",
+   "spin1",
+   "spin2",
+   "spin3",
+   "spin4"
+  ],
+  "baked": 0,
+  "stripped": [
+   "vis temp_txt,0",
+   "vis spin2,0",
+   "vis spin3,0",
+   "vis spin4,0"
+  ],
+  "sha256": "9bdc7cf49c8e50bb0876e39d6d3136afcee5a2086dd55927a1f5510435ae733b"
+ },
+ "filament_pop_3": {
+  "design": "load_steps",
+  "adapter": "migrate_pages",
+  "new": [
+   "nozzle_temp",
+   "nozzle_set",
+   "nozzle_unit"
+  ],
+  "kept": [
+   "hint",
+   "step1_txt",
+   "step2_txt",
+   "step3_txt",
+   "anim",
+   "back_btn",
+   "next_btn",
+   "alt_btn",
+   "done_btn"
+  ],
+  "dropped": [
+   "temp_txt",
+   "spin1",
+   "spin2",
+   "spin3",
+   "spin4"
+  ],
+  "baked": 0,
+  "stripped": [
+   "vis temp_txt,0",
+   "vis spin2,0",
+   "vis spin3,0",
+   "vis spin4,0"
+  ],
+  "sha256": "825d01ef14c0cab409027dab9f36ede3705c22983085cd131341ab097845c494"
+ },
+ "auto_unload": {
+  "design": "unload_auto",
+  "adapter": "migrate_pages",
+  "new": [
+   "nozzle_temp",
+   "nozzle_set",
+   "nozzle_unit"
+  ],
+  "kept": [
+   "step1_txt",
+   "step2_txt",
+   "step3_txt",
+   "load_btn",
+   "ok"
+  ],
+  "dropped": [
+   "temp_txt",
+   "spin1",
+   "spin2",
+   "spin3"
+  ],
+  "baked": 0,
+  "stripped": [
+   "vis spin2,0",
+   "vis spin3,0"
+  ],
+  "sha256": "490e7bcc62c2ffcb5d1c86c5aace21082da6c057972d188f990026b336b6ee16"
+ },
+ "auto_moving": {
+  "design": "auto_level_progress",
+  "adapter": "migrate_pages",
+  "new": [
+   "bed_set",
+   "bed_unit"
+  ],
+  "kept": [
+   "step1_txt",
+   "step2_txt",
+   "step3_txt",
+   "step4_txt",
+   "bed_temp"
+  ],
+  "dropped": [
+   "spin1",
+   "spin2",
+   "spin3",
+   "spin4",
+   "bed_lbl"
+  ],
+  "baked": 0,
+  "stripped": [
+   "vis spin2,0",
+   "vis spin3,0",
+   "vis spin4,0",
+   "bed_lbl.txt=\"热床温度:\"",
+   "bed_lbl.txt=\"Стол:\"",
+   "bed_lbl.txt=\"Bed Temp:\"",
+   "bed_lbl.txt=\"ベッド温度：\"",
+   "bed_lbl.txt=\"Temp. plateau :\"",
+   "bed_lbl.txt=\"Betttemp.:\"",
+   "bed_lbl.txt=\"Temp. piano:\"",
+   "bed_lbl.txt=\"Temp. cama:\"",
+   "bed_lbl.txt=\"베드 온도:\"",
+   "bed_lbl.txt=\"Temp. da mesa:\"",
+   "bed_lbl.txt=\"حرارة السرير:\"",
+   "bed_lbl.txt=\"Tabla sıcaklığı:\"",
+   "bed_lbl.txt=\"טמפ' מיטה:\""
+  ],
+  "sha256": "942363482c8765370ff416db373b471bd32412312e00dec0ae10bb987b69aefb"
+ },
+ "wifi_list": {
+  "design": "wifi_list",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "saved_btn",
+   "hidden_btn",
+   "refresh_btn",
+   "row1",
+   "row1_txt",
+   "row2",
+   "row2_txt",
+   "row3",
+   "row3_txt",
+   "row4",
+   "row4_txt",
+   "row5",
+   "row5_txt",
+   "prev_btn",
+   "next_btn",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 15,
+  "sha256": "14dd0268ee4f3cea86ce01a30cdb163931074faa74009f0178bfd5aea8837688"
+ },
+ "net_saved": {
+  "design": "saved_networks",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "row1",
+   "row1_txt",
+   "row2",
+   "row2_txt",
+   "row3",
+   "row3_txt",
+   "row4",
+   "row4_txt",
+   "row5",
+   "row5_txt",
+   "prev_btn",
+   "next_btn",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 14,
+  "sha256": "30b53a34dfa8ddd17cfa8090dec8bac49e773c77efe72559859cc5586f91e5ad"
+ },
+ "common_set": {
+  "design": "settings",
+  "adapter": "migrate_pages",
+  "new": [
+   "tab_calib_lbl",
+   "tab_set_lbl",
+   "about_btn",
+   "about_lbl"
+  ],
+  "kept": [
+   "tab_calib",
+   "tab_settings",
+   "lang_btn",
+   "lang_lbl",
+   "network_btn",
+   "network_lbl",
+   "sysinfo_btn",
+   "sysinfo_lbl",
+   "sleep_btn",
+   "sleep_lbl",
+   "reset_btn",
+   "reset_lbl",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 17,
+  "sha256": "b111f6e185e26164faf041f88ee8dbe6ea2f413988022b1398e25b953afe1dd1"
+ },
+ "auto_heaterbed": {
+  "design": "auto_level_preheat",
+  "adapter": "migrate_pages",
+  "new": [
+   "title",
+   "heat_card",
+   "heat_temp",
+   "heat_set",
+   "heat_unit"
+  ],
+  "kept": [
+   "back_btn",
+   "heat_toggle",
+   "temp_down",
+   "temp_up",
+   "msg",
+   "next_btn"
+  ],
+  "dropped": [
+   "temp_now",
+   "temp_target"
+  ],
+  "baked": 4,
+  "sha256": "1036bc65b9a025c0178407391d141c97f3d86ded345cd2ae83b7725a70619864"
+ },
+ "zoffset": {
+  "design": "z_offset_table",
+  "adapter": "migrate_pages",
+  "new": [
+   "title"
+  ],
+  "kept": [
+   "back_btn",
+   "cell_25",
+   "cell_26",
+   "cell_27",
+   "cell_0",
+   "cell_1",
+   "cell_2",
+   "cell_5",
+   "cell_6",
+   "cell_7",
+   "cell_10",
+   "cell_11",
+   "cell_12",
+   "cell_15",
+   "cell_16",
+   "cell_17",
+   "cell_20",
+   "cell_21",
+   "cell_22",
+   "cell_28",
+   "cell_29",
+   "cell_3",
+   "cell_4",
+   "cell_8",
+   "cell_9",
+   "cell_13",
+   "cell_14",
+   "cell_18",
+   "cell_19",
+   "cell_23",
+   "cell_24"
+  ],
+  "dropped": [],
+  "baked": 1,
+  "sha256": "180325b8317709cb85e77c4353d640b99dae84e454d0d27342d4c13477758c6c"
+ },
+ "filament": {
+  "design": "filament",
+  "adapter": "migrate_pages",
+  "new": [
+   "tab_load_lbl",
+   "tab_manual_lbl",
+   "nozzle_card",
+   "nozzle_unit",
+   "bed_card",
+   "bed_unit",
+   "chamber_card",
+   "chamber_unit",
+   "fan1_btn",
+   "lbl55",
+   "fan1_val",
+   "fan2_btn",
+   "lbl65",
+   "fan2_val",
+   "fan3_btn",
+   "lbl75",
+   "fan3_val",
+   "step_10_lbl",
+   "step_50_lbl",
+   "step_100_lbl",
+   "extr_up_lbl",
+   "extr_down_lbl"
+  ],
+  "kept": [
+   "tab_load",
+   "tab_manual",
+   "nozzle_temp",
+   "nozzle_set",
+   "nozzle_toggle",
+   "nozzle_row",
+   "bed_temp",
+   "bed_set",
+   "bed_toggle",
+   "bed_row",
+   "chamber_temp",
+   "chamber_set",
+   "chamber_toggle",
+   "chamber_row",
+   "load_btn",
+   "replace_btn",
+   "step_10",
+   "step_50",
+   "step_100",
+   "extr_up",
+   "extr_down",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [
+   "fan_btn"
+  ],
+  "baked": 11,
+  "sha256": "8951efc060e14c8637a888fc6d4a8cce361dde313ca0638881f2cfdde918416a"
+ },
+ "move": {
+  "design": "move",
+  "adapter": "migrate_pages",
+  "new": [
+   "tab_load_lbl",
+   "tab_manual_lbl",
+   "lbl6",
+   "lbl10",
+   "lbl14",
+   "dist_01_lbl",
+   "dist_1_lbl",
+   "dist_10_lbl",
+   "motors_off_lbl"
+  ],
+  "kept": [
+   "tab_load",
+   "tab_manual",
+   "x_pos",
+   "y_pos",
+   "z_pos",
+   "dist_01",
+   "dist_1",
+   "dist_10",
+   "y_up",
+   "x_down",
+   "x_up",
+   "y_down",
+   "home_btn",
+   "z_up",
+   "z_down",
+   "motors_off",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 15,
+  "sha256": "c29a1000a3adccaa59d942a46ca5b740305dc61e0eccaf11d440999ab3911c38"
+ },
+ "pre_heat": {
+  "design": "preheat",
+  "adapter": "migrate_pages",
+  "new": [
+   "lbl7",
+   "lbl9",
+   "lbl14",
+   "lbl16",
+   "lbl21",
+   "lbl23"
+  ],
+  "kept": [
+   "msg",
+   "temp_opt1",
+   "temp_opt2",
+   "temp_opt3",
+   "back_btn",
+   "next_btn"
+  ],
+  "dropped": [],
+  "baked": 5,
+  "sha256": "0a83ebdb3767fd279f84d6f4368f9fa009715ccb40ad97d3414e0dd6faeaf2e4"
+ },
+ "bed_calibrate": {
+  "design": "nut_adjust",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "step_txt",
+   "msg",
+   "next_btn"
+  ],
+  "dropped": [
+   "screw_pic"
+  ],
+  "baked": 1,
+  "sha256": "a504cc4c9d9c99e0c232602b6c9840779d077fceda09053563089d0c5fd6a36f"
+ },
+ "filamentVideo2": {
+  "design": "setup_load_heat",
+  "adapter": "migrate_pages",
+  "new": [
+   "heat_card",
+   "heat_temp",
+   "heat_set",
+   "heat_unit"
+  ],
+  "kept": [
+   "title",
+   "heat_toggle",
+   "temp_down",
+   "temp_up",
+   "msg_heat",
+   "msg_wait",
+   "next"
+  ],
+  "dropped": [
+   "temp_target",
+   "temp_now"
+  ],
+  "baked": 5,
+  "stripped": [
+   "spstr temp_now.txt,cur_str.txt,\"/\",0",
+   "if(temp_target.val>0&&cur_val.val>=temp_target.val&&cur_val.val>=185)"
+  ],
+  "sha256": "c58100a0066bcea4072be57e29a8ad6e4c911be321b9a9441a67eae685e6a273"
+ },
+ "filament_kb": {
+  "design": "keypad",
+  "adapter": "migrate_pages",
+  "new": [
+   "input_unit",
+   "input_max"
+  ],
+  "kept": [
+   "back_btn",
+   "title",
+   "input_show",
+   "key_1",
+   "key_2",
+   "key_3",
+   "key_4",
+   "key_5",
+   "key_6",
+   "key_7",
+   "key_8",
+   "key_9",
+   "key_del",
+   "key_0",
+   "key_ok",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [
+   "input_bg"
+  ],
+  "baked": 8,
+  "stripped": [
+   "input_bg.pic=${picture:filament_kb_input_bg_169x53}",
+   "input_bg.pic=${picture:filament_kb_input_bg_he_169x53}",
+   "input_bg.pic=${picture:filament_kb_input_bg_he_2_169x53}"
+  ],
+  "sha256": "9751b858db14b822f0221d74519c5b2cfd535caebc91855b38e0541a7041196a"
+ },
+ "keybdB": {
+  "design": "print_keypad",
+  "adapter": "migrate_pages",
+  "new": [
+   "progress_pct_u",
+   "input_unit"
+  ],
+  "kept": [
+   "thumb",
+   "pause_btn",
+   "stop_btn",
+   "file_name",
+   "time_elapsed",
+   "progress_pct",
+   "time_left",
+   "progress",
+   "back_btn",
+   "title",
+   "mute_btn",
+   "input_show",
+   "key_1",
+   "key_2",
+   "key_3",
+   "key_4",
+   "key_5",
+   "key_6",
+   "key_7",
+   "key_8",
+   "key_9",
+   "key_del",
+   "key_0",
+   "key_ok"
+  ],
+  "dropped": [
+   "pct_sign"
+  ],
+  "baked": 7,
+  "sha256": "32f64fa938cda9bcbf9f46baf7cd758fd64f35176c7f15426cfd6e8703be4089"
+ },
+ "printing": {
+  "design": "printing",
+  "adapter": "migrate_pages",
+  "new": [
+   "progress_pct_u",
+   "nozzle_unit",
+   "bed_unit",
+   "chamber_unit",
+   "lbl71",
+   "lbl81",
+   "lbl91"
+  ],
+  "kept": [
+   "thumb",
+   "pause_btn",
+   "stop_btn",
+   "file_name",
+   "time_elapsed",
+   "progress_pct",
+   "time_left",
+   "progress",
+   "nozzle_btn",
+   "nozzle_temp",
+   "nozzle_set",
+   "bed_btn",
+   "bed_temp",
+   "bed_set",
+   "chamber_btn",
+   "chamber_temp",
+   "chamber_set",
+   "fan1_btn",
+   "fan1_val",
+   "fan2_btn",
+   "fan2_val",
+   "fan3_btn",
+   "fan3_val",
+   "speed_btn",
+   "flow_btn"
+  ],
+  "dropped": [
+   "pct_sign"
+  ],
+  "baked": 9,
+  "sha256": "ef7c33b3b7a41cb02beff455a0fc647087dcb68cb45953c68e1a9d2c16a3a3b3"
+ },
+ "printing_2": {
+  "design": "print_adjust",
+  "adapter": "migrate_pages",
+  "new": [
+   "progress_pct_u",
+   "speed_lbl",
+   "speed_val_u",
+   "flow_lbl",
+   "flow_val_u",
+   "zoffset_lbl",
+   "zoffset_val_u",
+   "fan1_btn",
+   "lbl73",
+   "fan1_val",
+   "fan2_btn",
+   "lbl83",
+   "fan2_val",
+   "fan3_btn",
+   "lbl93",
+   "fan3_val"
+  ],
+  "kept": [
+   "thumb",
+   "pause_btn",
+   "stop_btn",
+   "file_name",
+   "time_elapsed",
+   "progress_pct",
+   "time_left",
+   "progress",
+   "speed_btn",
+   "speed_val",
+   "flow_btn",
+   "flow_val",
+   "zoffset_btn",
+   "zoffset_val",
+   "light2_btn",
+   "back_btn"
+  ],
+  "dropped": [
+   "pct_sign"
+  ],
+  "baked": 12,
+  "sha256": "df0cdca60ec8ff06c635c7c1b00d10b446df2d15a7349c5384b451e768f61c9b"
+ },
+ "print_filament": {
+  "design": "print_filament",
+  "adapter": "migrate_pages",
+  "new": [
+   "progress_pct_u",
+   "nozzle_unit"
+  ],
+  "kept": [
+   "thumb",
+   "pause_btn",
+   "stop_btn",
+   "file_name",
+   "time_elapsed",
+   "progress_pct",
+   "time_left",
+   "progress",
+   "title",
+   "heat_btn",
+   "nozzle_temp",
+   "nozzle_set",
+   "temp_down",
+   "temp_up",
+   "retract_btn",
+   "extrude_btn",
+   "replace_btn"
+  ],
+  "dropped": [
+   "pct_sign"
+  ],
+  "baked": 15,
+  "sha256": "7c3f89b18cbddb67cb6e2d2e85f52064b221a9055f002635fae4e61c6df906cd"
+ },
+ "print_zoffset": {
+  "design": "print_z_offset",
+  "adapter": "migrate_pages",
+  "new": [
+   "progress_pct_u",
+   "gcode_z_lbl",
+   "z_offset_lbl"
+  ],
+  "kept": [
+   "thumb",
+   "pause_btn",
+   "stop_btn",
+   "file_name",
+   "time_elapsed",
+   "progress_pct",
+   "time_left",
+   "progress",
+   "back_btn",
+   "title",
+   "step_001",
+   "step_005",
+   "step_01",
+   "step_05",
+   "z_up",
+   "z_down",
+   "gcode_z",
+   "z_offset"
+  ],
+  "dropped": [
+   "pct_sign"
+  ],
+  "baked": 14,
+  "sha256": "83cc8c39216a6d1b6a5f5b5701b060b769eae01072c90216d2a9aa47892e220d"
+ },
+ "filelist": {
+  "design": "file_list",
+  "adapter": "migrate_pages",
+  "new": [
+   "local_tab_lbl",
+   "usb_tab_lbl"
+  ],
+  "kept": [
+   "local_tab",
+   "usb_tab",
+   "file1",
+   "file1_pic",
+   "file1_name",
+   "file2",
+   "file2_pic",
+   "file2_name",
+   "file3",
+   "file3_pic",
+   "file3_name",
+   "file4",
+   "file4_pic",
+   "file4_name",
+   "prev",
+   "next",
+   "up_dir",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 16,
+  "sha256": "651e8d859fdb3f5279996a8108a926214c65f2be3184c33026bb476843133819"
+ },
+ "preview": {
+  "design": "file_preview",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "preview_pic",
+   "back_btn",
+   "start_btn",
+   "est_time",
+   "fil_length",
+   "fil_type",
+   "fil_weight",
+   "level_btn",
+   "level_lbl",
+   "timelapse_btn",
+   "timelapse_lbl",
+   "file_name",
+   "nav_main",
+   "nav_adjust",
+   "nav_files",
+   "nav_settings"
+  ],
+  "dropped": [],
+  "baked": 16,
+  "sha256": "ae27eb9ab1078844c27fde68cf6be2310098b798abcf3a8e68f81604513ff7fa"
+ },
+ "wifi_kb": {
+  "design": "wifi_keyboard",
+  "adapter": "migrate_pages",
+  "new": [],
+  "kept": [
+   "back_btn",
+   "title",
+   "input_show",
+   "key_a",
+   "key_b",
+   "key_c",
+   "key_d",
+   "key_e",
+   "key_f",
+   "key_g",
+   "key_h",
+   "key_i",
+   "key_j",
+   "key_k",
+   "key_l",
+   "key_m",
+   "key_n",
+   "key_o",
+   "key_p",
+   "key_q",
+   "key_r",
+   "key_s",
+   "key_t",
+   "key_u",
+   "key_v",
+   "key_w",
+   "key_x",
+   "key_y",
+   "key_z",
+   "key_space",
+   "key_del",
+   "key_shift",
+   "key_sym",
+   "key_ok"
+  ],
+  "dropped": [],
+  "baked": 5,
+  "sha256": "b9aa6c55821e2355509de84e44de8f50d1fc102a1834aa33ca289e616ec1b08b"
+ }
+}

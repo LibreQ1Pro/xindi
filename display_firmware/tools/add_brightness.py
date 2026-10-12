@@ -47,11 +47,11 @@ def sleep_mode():
         a.update({"objname": "brightness_lbl", "x": 15, "y": 300, "w": 242, "h": 34, "xcen": 0, "ycen": 1,
                   "txt": TEXT["brightness"][LANGUAGES.index("en")]})
         slider = json.loads(json.dumps(fan))
-        slider["key"] = "brightness_slider"
+        slider["key"] = "bright_slider"
         slider["events"] = {"codesdown": [], "codesup": ["wepo max_dim,%d" % EEPROM_ADDRESS],
-                            "codesslide": ["max_dim=brightness_slider.val", "dim=max_dim"]}
+                            "codesslide": ["max_dim=bright_slider.val", "dim=max_dim"]}
         s = slider["attributes"]
-        s.update({"objname": "brightness_slider", "x": 15, "y": 338, "w": 242, "h": 44, "sta": 1, "bco": 8452,
+        s.update({"objname": "bright_slider", "x": 15, "y": 338, "w": 242, "h": 44, "sta": 1, "bco": 8452,
                   "bco1": 15327, "minval": 10, "maxval": 100, "val": 100})
         for k in ("picc", "picc1", "pic2"):          # solid colours: no pictures
             s[k] = 65535
@@ -76,8 +76,8 @@ def sleep_mode():
         page["root"]["events"]["codesload"] = lines + ["}"]
     # the slider shows the stored value
     code = page["root"]["events"]["codesload"]
-    if "brightness_slider.val=max_dim" not in code:
-        code.append("brightness_slider.val=max_dim")
+    if "bright_slider.val=max_dim" not in code:
+        code.append("bright_slider.val=max_dim")
     save("sleep_mode", page)
 
 

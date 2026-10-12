@@ -168,7 +168,7 @@ COPY = {
     ("level_mode", "auto_level"): "Auto Bed Leveling",
     ("level_mode", "shaping"): "Input Shaping",
     ("level_mode", "bed_calib"): "Platform Calibration",
-    ("level_mode", "msg"): "Please make sure there is no debris on the nozzle.",
+    ("level_mode", "msg"): "Please make sure the nozzle is clean and there are no foreign objects on the bed.",
     ("main", "ver_warning"): "The UI version does not match the firmware. Please check for updates or contact support!",
     ("memory_warning", "msg"): "Memory is full. Please free up some space.",
     ("move", "tab_manual"): "Move",
@@ -324,7 +324,7 @@ COPY_RU = {
     ("level_mode", "auto_level"): "Автовыравнивание стола",
     ("level_mode", "shaping"): "Input Shaping",
     ("level_mode", "bed_calib"): "Калибровка платформы",
-    ("level_mode", "msg"): "Убедитесь, что на сопле нет посторонних предметов.",
+    ("level_mode", "msg"): "Убедитесь, что сопло чистое и на столе нет посторонних предметов.",
     ("main", "ver_warning"): "Версия интерфейса не соответствует прошивке. Проверьте обновления или обратитесь в "
                              "поддержку!",
     ("memory_warning", "msg"): "Память заполнена. Освободите место.",

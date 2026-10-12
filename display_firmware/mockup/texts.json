@@ -2792,19 +2792,19 @@
  },
  "net_info": {
   "title": [
-   "网络信息",
-   "Сведения о сети",
-   "Network Info",
-   "ネットワーク情報",
-   "Infos réseau",
-   "Netzwerkinfo",
-   "Info di rete",
-   "Info de red",
-   "네트워크 정보",
-   "Info da rede",
-   "معلومات الشبكة",
-   "Ağ bilgisi",
-   "מידע על הרשת"
+   "网络",
+   "Сеть",
+   "Network",
+   "ネットワーク",
+   "Réseau",
+   "Netzwerk",
+   "Rete",
+   "Red",
+   "네트워크",
+   "Rede",
+   "الشبكة",
+   "Ağ",
+   "רשת"
   ]
  },
  "net_saved": {
@@ -6038,6 +6038,21 @@
    "الشبكة",
    "Ağ",
    "רשת"
+  ],
+  "wifi_networks": [
+   "Wi-Fi 网络",
+   "Сети Wi-Fi",
+   "Wi-Fi Networks",
+   "Wi-Fi ネットワーク",
+   "Réseaux Wi-Fi",
+   "WLAN-Netzwerke",
+   "Reti Wi-Fi",
+   "Redes Wi-Fi",
+   "Wi-Fi 네트워크",
+   "Redes Wi-Fi",
+   "شبكات Wi-Fi",
+   "Wi-Fi ağları",
+   "רשתות Wi-Fi"
   ],
   "change_password": [
    "修改密码",

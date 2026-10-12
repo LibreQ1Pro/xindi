@@ -21,7 +21,7 @@ PAGES = {
     "net_saved": {"title": "saved_networks"},
     "net_detail": {"title": "network", "passwd_btn": "change_password", "forget_btn": "forget_network"},
     "net_confirm": {"title": "forget_network", "forget_btn": "forget", "cancel": "cancel"},
-    "net_info": {"title": "network_info"},
+    "net_info": {"title": "network"},
     "wifi_list": {"saved_btn": "saved_short", "hidden_btn": "hidden_short"},
     "internet_page": {"title": "network", "info_lbl": "network_info", "saved_lbl": "saved_networks",
                       "hidden_lbl": "hidden_network"},

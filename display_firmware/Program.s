@@ -36,4 +36,4 @@ if(max_dim<10||max_dim>100)
 }
 dim=max_dim
 
-page ${page:logo}
+page ${page:boot_logo}

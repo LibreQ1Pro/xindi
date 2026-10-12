@@ -17,6 +17,8 @@ jobs:
           python display_firmware/tools/lint_program.py
           python display_firmware/tools/lint_frames.py
           python display_firmware/tools/lint_page_ids.py
+          python display_firmware/tools/lint_faces.py
+          python display_firmware/tools/check_host_names.py
       - uses: ponywka/hmi-builder@main
         with:
           project-dir: display_firmware

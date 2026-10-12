@@ -14,7 +14,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPECTED = {"filament_kb": "filament", "fila_set_fan": "filament", "keybdB": "printing"}
+EXPECTED = {"keypad": "filament", "print_keypad": "printing"}
 
 
 def blocks(o):
@@ -39,7 +39,7 @@ def main():
             for i, line in enumerate(lines[:-1]):
                 if line.strip() == "prints 113,1" and lines[i + 1].strip() != "prints %d,1" % want:
                     problems.append("%s: %s, the page '%s' is %d" % (page, lines[i + 1].strip(), target, want))
-    allowed = {keys.index(k) for k in ("screen_sleep", "language", "open_language")}
+    allowed = {keys.index(k) for k in ("screen_asleep", "language", "setup_language")}
     for name in sorted(os.listdir(os.path.join(ROOT, "pages"))):
         data = json.load(open(os.path.join(ROOT, "pages", name), encoding="utf-8"))
         for lines in blocks(data):

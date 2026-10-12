@@ -1692,143 +1692,255 @@
   },
   "pages": [
     {
-      "key": "logo",
+      "key": "boot_logo",
       "content": {
         "mode": "json",
-        "path": "pages/logo.json"
+        "path": "pages/boot_logo.json"
       }
     },
     {
-      "key": "restart",
+      "key": "update_done",
       "content": {
         "mode": "json",
-        "path": "pages/restart.json"
+        "path": "pages/update_done.json"
       }
     },
     {
-      "key": "shutdown",
+      "key": "restart_needed",
       "content": {
         "mode": "json",
-        "path": "pages/shutdown.json"
+        "path": "pages/restart_needed.json"
       }
     },
     {
-      "key": "open_language",
+      "key": "shutting_down",
       "content": {
         "mode": "json",
-        "path": "pages/open_language.json"
+        "path": "pages/shutting_down.json"
       }
     },
     {
-      "key": "open_pop",
+      "key": "screen_asleep",
       "content": {
         "mode": "json",
-        "path": "pages/open_pop.json"
+        "path": "pages/screen_asleep.json"
       }
     },
     {
-      "key": "open_video_1",
+      "key": "setup_language",
       "content": {
         "mode": "json",
-        "path": "pages/open_video_1.json"
+        "path": "pages/setup_language.json"
       }
     },
     {
-      "key": "open_video_2",
+      "key": "setup_lang_2",
       "content": {
         "mode": "json",
-        "path": "pages/open_video_2.json"
+        "path": "pages/setup_lang_2.json"
       }
     },
     {
-      "key": "open_warning",
+      "key": "setup_skip",
       "content": {
         "mode": "json",
-        "path": "pages/open_warning.json"
+        "path": "pages/setup_skip.json"
       }
     },
     {
-      "key": "open_video_3",
+      "key": "setup_unbox_1",
       "content": {
         "mode": "json",
-        "path": "pages/open_video_3.json"
+        "path": "pages/setup_unbox_1.json"
       }
     },
     {
-      "key": "open_heaterbed",
+      "key": "setup_warning",
       "content": {
         "mode": "json",
-        "path": "pages/open_heaterbed.json"
+        "path": "pages/setup_warning.json"
       }
     },
     {
-      "key": "open_calibrate",
+      "key": "setup_unbox_2",
       "content": {
         "mode": "json",
-        "path": "pages/open_calibrate.json"
+        "path": "pages/setup_unbox_2.json"
       }
     },
     {
-      "key": "filamentVideo1",
+      "key": "setup_spool",
       "content": {
         "mode": "json",
-        "path": "pages/filamentVideo1.json"
+        "path": "pages/setup_spool.json"
       }
     },
     {
-      "key": "filamentVideo2",
+      "key": "setup_insert",
       "content": {
         "mode": "json",
-        "path": "pages/filamentVideo2.json"
+        "path": "pages/setup_insert.json"
       }
     },
     {
-      "key": "filamentVideo3",
+      "key": "setup_heat",
       "content": {
         "mode": "json",
-        "path": "pages/filamentVideo3.json"
+        "path": "pages/setup_heat.json"
       }
     },
     {
-      "key": "open_finish",
+      "key": "setup_extrude",
       "content": {
         "mode": "json",
-        "path": "pages/open_finish.json"
+        "path": "pages/setup_extrude.json"
       }
     },
     {
-      "key": "main",
+      "key": "setup_wait",
       "content": {
         "mode": "json",
-        "path": "pages/main.json"
+        "path": "pages/setup_wait.json"
       }
     },
     {
-      "key": "filelist",
+      "key": "setup_done",
       "content": {
         "mode": "json",
-        "path": "pages/filelist.json"
+        "path": "pages/setup_done.json"
       }
     },
     {
-      "key": "preview",
+      "key": "home",
       "content": {
         "mode": "json",
-        "path": "pages/preview.json"
+        "path": "pages/home.json"
       }
     },
     {
-      "key": "preview_pop_1",
+      "key": "emergency_stop",
       "content": {
         "mode": "json",
-        "path": "pages/preview_pop_1.json"
+        "path": "pages/emergency_stop.json"
       }
     },
     {
-      "key": "preview_pop_2",
+      "key": "filament",
       "content": {
         "mode": "json",
-        "path": "pages/preview_pop_2.json"
+        "path": "pages/filament.json"
+      }
+    },
+    {
+      "key": "preheat",
+      "content": {
+        "mode": "json",
+        "path": "pages/preheat.json"
+      }
+    },
+    {
+      "key": "keypad",
+      "content": {
+        "mode": "json",
+        "path": "pages/keypad.json"
+      }
+    },
+    {
+      "key": "filament_cold",
+      "content": {
+        "mode": "json",
+        "path": "pages/filament_cold.json"
+      }
+    },
+    {
+      "key": "set_temp_warn",
+      "content": {
+        "mode": "json",
+        "path": "pages/set_temp_warn.json"
+      }
+    },
+    {
+      "key": "unload_choose",
+      "content": {
+        "mode": "json",
+        "path": "pages/unload_choose.json"
+      }
+    },
+    {
+      "key": "unload_steps",
+      "content": {
+        "mode": "json",
+        "path": "pages/unload_steps.json"
+      }
+    },
+    {
+      "key": "unload_auto",
+      "content": {
+        "mode": "json",
+        "path": "pages/unload_auto.json"
+      }
+    },
+    {
+      "key": "unload_done",
+      "content": {
+        "mode": "json",
+        "path": "pages/unload_done.json"
+      }
+    },
+    {
+      "key": "load_steps",
+      "content": {
+        "mode": "json",
+        "path": "pages/load_steps.json"
+      }
+    },
+    {
+      "key": "move",
+      "content": {
+        "mode": "json",
+        "path": "pages/move.json"
+      }
+    },
+    {
+      "key": "move_range",
+      "content": {
+        "mode": "json",
+        "path": "pages/move_range.json"
+      }
+    },
+    {
+      "key": "move_unhomed",
+      "content": {
+        "mode": "json",
+        "path": "pages/move_unhomed.json"
+      }
+    },
+    {
+      "key": "file_list",
+      "content": {
+        "mode": "json",
+        "path": "pages/file_list.json"
+      }
+    },
+    {
+      "key": "file_preview",
+      "content": {
+        "mode": "json",
+        "path": "pages/file_preview.json"
+      }
+    },
+    {
+      "key": "closed_chamber",
+      "content": {
+        "mode": "json",
+        "path": "pages/closed_chamber.json"
+      }
+    },
+    {
+      "key": "doors_cover",
+      "content": {
+        "mode": "json",
+        "path": "pages/doors_cover.json"
       }
     },
     {
@@ -1839,17 +1951,10 @@
       }
     },
     {
-      "key": "keybdB",
+      "key": "print_adjust",
       "content": {
         "mode": "json",
-        "path": "pages/keybdB.json"
-      }
-    },
-    {
-      "key": "print_zoffset",
-      "content": {
-        "mode": "json",
-        "path": "pages/print_zoffset.json"
+        "path": "pages/print_adjust.json"
       }
     },
     {
@@ -1860,17 +1965,17 @@
       }
     },
     {
-      "key": "printing_2",
+      "key": "print_keypad",
       "content": {
         "mode": "json",
-        "path": "pages/printing_2.json"
+        "path": "pages/print_keypad.json"
       }
     },
     {
-      "key": "print_finish",
+      "key": "print_z_offset",
       "content": {
         "mode": "json",
-        "path": "pages/print_finish.json"
+        "path": "pages/print_z_offset.json"
       }
     },
     {
@@ -1888,122 +1993,108 @@
       }
     },
     {
-      "key": "print_no_fil",
+      "key": "resume_print",
       "content": {
         "mode": "json",
-        "path": "pages/print_no_fil.json"
+        "path": "pages/resume_print.json"
       }
     },
     {
-      "key": "print_lowtemp",
+      "key": "print_resuming",
       "content": {
         "mode": "json",
-        "path": "pages/print_lowtemp.json"
+        "path": "pages/print_resuming.json"
       }
     },
     {
-      "key": "move",
+      "key": "no_filament",
       "content": {
         "mode": "json",
-        "path": "pages/move.json"
+        "path": "pages/no_filament.json"
       }
     },
     {
-      "key": "move_pop_1",
+      "key": "print_tangle",
       "content": {
         "mode": "json",
-        "path": "pages/move_pop_1.json"
+        "path": "pages/print_tangle.json"
       }
     },
     {
-      "key": "move_pop_2",
+      "key": "print_cold",
       "content": {
         "mode": "json",
-        "path": "pages/move_pop_2.json"
+        "path": "pages/print_cold.json"
       }
     },
     {
-      "key": "fila_set_fan",
+      "key": "print_done",
       "content": {
         "mode": "json",
-        "path": "pages/fila_set_fan.json"
+        "path": "pages/print_done.json"
       }
     },
     {
-      "key": "filament_kb",
+      "key": "calibration",
       "content": {
         "mode": "json",
-        "path": "pages/filament_kb.json"
+        "path": "pages/calibration.json"
       }
     },
     {
-      "key": "filament_pop_1",
+      "key": "calib_warning",
       "content": {
         "mode": "json",
-        "path": "pages/filament_pop_1.json"
+        "path": "pages/calib_warning.json"
       }
     },
     {
-      "key": "filament_pop_2",
+      "key": "level_preheat",
       "content": {
         "mode": "json",
-        "path": "pages/filament_pop_2.json"
+        "path": "pages/level_preheat.json"
       }
     },
     {
-      "key": "filament_pop_3",
+      "key": "level_progress",
       "content": {
         "mode": "json",
-        "path": "pages/filament_pop_3.json"
+        "path": "pages/level_progress.json"
       }
     },
     {
-      "key": "unload_finish",
+      "key": "level_done",
       "content": {
         "mode": "json",
-        "path": "pages/unload_finish.json"
+        "path": "pages/level_done.json"
       }
     },
     {
-      "key": "level_mode",
+      "key": "z_offset_table",
       "content": {
         "mode": "json",
-        "path": "pages/level_mode.json"
+        "path": "pages/z_offset_table.json"
       }
     },
     {
-      "key": "zoffset",
+      "key": "ref_point",
       "content": {
         "mode": "json",
-        "path": "pages/zoffset.json"
+        "path": "pages/ref_point.json"
       }
     },
     {
-      "key": "auto_heaterbed",
+      "key": "nut_adjust",
       "content": {
         "mode": "json",
-        "path": "pages/auto_heaterbed.json"
+        "path": "pages/nut_adjust.json"
       }
     },
     {
-      "key": "auto_moving",
+      "key": "nut_choose",
       "content": {
         "mode": "json",
-        "path": "pages/auto_moving.json"
-      }
-    },
-    {
-      "key": "auto_finish",
-      "content": {
-        "mode": "json",
-        "path": "pages/auto_finish.json"
-      }
-    },
-    {
-      "key": "pre_bed_cal",
-      "content": {
-        "mode": "json",
-        "path": "pages/pre_bed_cal.json"
+        "path": "pages/nut_choose.json"
       }
     },
     {
@@ -2014,80 +2105,31 @@
       }
     },
     {
-      "key": "bed_calibrate",
+      "key": "shaping_run",
       "content": {
         "mode": "json",
-        "path": "pages/bed_calibrate.json"
+        "path": "pages/shaping_run.json"
       }
     },
     {
-      "key": "bed_finish",
+      "key": "shaping_done",
       "content": {
         "mode": "json",
-        "path": "pages/bed_finish.json"
+        "path": "pages/shaping_done.json"
       }
     },
     {
-      "key": "syntony_move",
+      "key": "leveling_error",
       "content": {
         "mode": "json",
-        "path": "pages/syntony_move.json"
+        "path": "pages/leveling_error.json"
       }
     },
     {
-      "key": "syntony_finish",
+      "key": "settings",
       "content": {
         "mode": "json",
-        "path": "pages/syntony_finish.json"
-      }
-    },
-    {
-      "key": "internet",
-      "content": {
-        "mode": "json",
-        "path": "pages/internet.json"
-      }
-    },
-    {
-      "key": "wifi_list",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_list.json"
-      }
-    },
-    {
-      "key": "wifi_connect",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_connect.json"
-      }
-    },
-    {
-      "key": "wifi_success",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_success.json"
-      }
-    },
-    {
-      "key": "wifi_fail",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_fail.json"
-      }
-    },
-    {
-      "key": "wifi_kb",
-      "content": {
-        "mode": "json",
-        "path": "pages/wifi_kb.json"
-      }
-    },
-    {
-      "key": "common_set",
-      "content": {
-        "mode": "json",
-        "path": "pages/common_set.json"
+        "path": "pages/settings.json"
       }
     },
     {
@@ -2098,59 +2140,129 @@
       }
     },
     {
-      "key": "sys_ok",
+      "key": "language_2",
       "content": {
         "mode": "json",
-        "path": "pages/sys_ok.json"
+        "path": "pages/language_2.json"
       }
     },
     {
-      "key": "reset",
+      "key": "screen",
       "content": {
         "mode": "json",
-        "path": "pages/reset.json"
+        "path": "pages/screen.json"
       }
     },
     {
-      "key": "sleep_mode",
+      "key": "klipper_status",
       "content": {
         "mode": "json",
-        "path": "pages/sleep_mode.json"
+        "path": "pages/klipper_status.json"
       }
     },
     {
-      "key": "update_success",
+      "key": "klipper_error",
       "content": {
         "mode": "json",
-        "path": "pages/update_success.json"
+        "path": "pages/klipper_error.json"
       }
     },
     {
-      "key": "restore_config",
+      "key": "factory_reset",
       "content": {
         "mode": "json",
-        "path": "pages/restore_config.json"
+        "path": "pages/factory_reset.json"
       }
     },
     {
-      "key": "print_log_s",
+      "key": "logs_exported",
       "content": {
         "mode": "json",
-        "path": "pages/print_log_s.json"
+        "path": "pages/logs_exported.json"
       }
     },
     {
-      "key": "print_log_f",
+      "key": "logs_failed",
       "content": {
         "mode": "json",
-        "path": "pages/print_log_f.json"
+        "path": "pages/logs_failed.json"
       }
     },
     {
-      "key": "detect_error",
+      "key": "network_info",
       "content": {
         "mode": "json",
-        "path": "pages/detect_error.json"
+        "path": "pages/network_info.json"
+      }
+    },
+    {
+      "key": "wifi_list",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_list.json"
+      }
+    },
+    {
+      "key": "wifi_none",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_none.json"
+      }
+    },
+    {
+      "key": "wifi_keyboard",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_keyboard.json"
+      }
+    },
+    {
+      "key": "wifi_connect",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_connect.json"
+      }
+    },
+    {
+      "key": "wifi_connected",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_connected.json"
+      }
+    },
+    {
+      "key": "wifi_failed",
+      "content": {
+        "mode": "json",
+        "path": "pages/wifi_failed.json"
+      }
+    },
+    {
+      "key": "saved_networks",
+      "content": {
+        "mode": "json",
+        "path": "pages/saved_networks.json"
+      }
+    },
+    {
+      "key": "network_detail",
+      "content": {
+        "mode": "json",
+        "path": "pages/network_detail.json"
+      }
+    },
+    {
+      "key": "forget_network",
+      "content": {
+        "mode": "json",
+        "path": "pages/forget_network.json"
+      }
+    },
+    {
+      "key": "error",
+      "content": {
+        "mode": "json",
+        "path": "pages/error.json"
       }
     },
     {
@@ -2161,157 +2273,10 @@
       }
     },
     {
-      "key": "filamentVideo0",
+      "key": "memory_full",
       "content": {
         "mode": "json",
-        "path": "pages/filamentVideo0.json"
-      }
-    },
-    {
-      "key": "screen_sleep",
-      "content": {
-        "mode": "json",
-        "path": "pages/screen_sleep.json"
-      }
-    },
-    {
-      "key": "level_error",
-      "content": {
-        "mode": "json",
-        "path": "pages/level_error.json"
-      }
-    },
-    {
-      "key": "filament",
-      "content": {
-        "mode": "json",
-        "path": "pages/filament.json"
-      }
-    },
-    {
-      "key": "print_no_fil2",
-      "content": {
-        "mode": "json",
-        "path": "pages/print_no_fil2.json"
-      }
-    },
-    {
-      "key": "memory_warning",
-      "content": {
-        "mode": "json",
-        "path": "pages/memory_warning.json"
-      }
-    },
-    {
-      "key": "pre_heat",
-      "content": {
-        "mode": "json",
-        "path": "pages/pre_heat.json"
-      }
-    },
-    {
-      "key": "resume_print",
-      "content": {
-        "mode": "json",
-        "path": "pages/resume_print.json"
-      }
-    },
-    {
-      "key": "internet_page",
-      "content": {
-        "mode": "json",
-        "path": "pages/internet_page.json"
-      }
-    },
-    {
-      "key": "unload_mode",
-      "content": {
-        "mode": "json",
-        "path": "pages/unload_mode.json"
-      }
-    },
-    {
-      "key": "auto_unload",
-      "content": {
-        "mode": "json",
-        "path": "pages/auto_unload.json"
-      }
-    },
-    {
-      "key": "open_language2",
-      "content": {
-        "mode": "json",
-        "path": "pages/open_language2.json"
-      }
-    },
-    {
-      "key": "language2",
-      "content": {
-        "mode": "json",
-        "path": "pages/language2.json"
-      }
-    },
-    {
-      "key": "auto_warning",
-      "content": {
-        "mode": "json",
-        "path": "pages/auto_warning.json"
-      }
-    },
-    {
-      "key": "cal_warning",
-      "content": {
-        "mode": "json",
-        "path": "pages/cal_warning.json"
-      }
-    },
-    {
-      "key": "re_printing",
-      "content": {
-        "mode": "json",
-        "path": "pages/re_printing.json"
-      }
-    },
-    {
-      "key": "open_moving",
-      "content": {
-        "mode": "json",
-        "path": "pages/open_moving.json"
-      }
-    },
-    {
-      "key": "stop_confirm",
-      "content": {
-        "mode": "json",
-        "path": "pages/stop_confirm.json"
-      }
-    },
-    {
-      "key": "net_saved",
-      "content": {
-        "mode": "json",
-        "path": "pages/net_saved.json"
-      }
-    },
-    {
-      "key": "net_detail",
-      "content": {
-        "mode": "json",
-        "path": "pages/net_detail.json"
-      }
-    },
-    {
-      "key": "net_confirm",
-      "content": {
-        "mode": "json",
-        "path": "pages/net_confirm.json"
-      }
-    },
-    {
-      "key": "net_info",
-      "content": {
-        "mode": "json",
-        "path": "pages/net_info.json"
+        "path": "pages/memory_full.json"
       }
     }
   ],
@@ -2323,3497 +2288,2465 @@
       }
     },
     {
-      "key": "bg_open_language",
+      "key": "new_decor_82x30_a5cf1a3cb85b",
       "source": {
-        "png": "pictures/bg_open_language.png"
+        "png": "pictures/new_decor_82x30_a5cf1a3cb85b.png"
       }
     },
     {
-      "key": "bg_unbox_video",
+      "key": "new_decor_124x30_d4112b1eece6",
       "source": {
-        "png": "pictures/bg_unbox_video.png"
+        "png": "pictures/new_decor_124x30_d4112b1eece6.png"
       }
     },
     {
-      "key": "bg_open_heaterbed",
+      "key": "new_decor_248x324_64ad5a63a057",
       "source": {
-        "png": "pictures/bg_open_heaterbed.png"
+        "png": "pictures/new_decor_248x324_64ad5a63a057.png"
       }
     },
     {
-      "key": "bg_open_warning",
+      "key": "new_ok_104x48_a6c5f30710e3",
       "source": {
-        "png": "pictures/bg_open_warning.png"
+        "png": "pictures/new_ok_104x48_a6c5f30710e3.png"
       }
     },
     {
-      "key": "bg_open_calibrate",
+      "key": "new_ok_press_104x48_0b644f3ff374",
       "source": {
-        "png": "pictures/bg_open_calibrate.png"
+        "png": "pictures/new_ok_press_104x48_0b644f3ff374.png"
       }
     },
     {
-      "key": "bg_filamentVideo2",
+      "key": "new_cancel_104x48_a6ed35b2faaa",
       "source": {
-        "png": "pictures/bg_filamentVideo2.png"
+        "png": "pictures/new_cancel_104x48_a6ed35b2faaa.png"
       }
     },
     {
-      "key": "main_bg_noimg",
+      "key": "new_cancel_press_104x48_21a700ed2bbc",
       "source": {
-        "png": "pictures/main_bg_noimg.png"
+        "png": "pictures/new_cancel_press_104x48_21a700ed2bbc.png"
       }
     },
     {
-      "key": "bg_bed_finish",
+      "key": "new_decor_248x324_378664916c76",
       "source": {
-        "png": "pictures/bg_bed_finish.png"
+        "png": "pictures/new_decor_248x324_378664916c76.png"
       }
     },
     {
-      "key": "files_tab_local",
+      "key": "new_ok_216x48_98f177ea7c14",
       "source": {
-        "png": "pictures/files_tab_local.png"
+        "png": "pictures/new_ok_216x48_98f177ea7c14.png"
       }
     },
     {
-      "key": "preview_press_on",
+      "key": "new_ok_press_216x48_89741e031ee6",
       "source": {
-        "png": "pictures/preview_press_on.png"
+        "png": "pictures/new_ok_press_216x48_89741e031ee6.png"
       }
     },
     {
-      "key": "popup2_bg",
+      "key": "new_ok_104x48_eb78c4d3bdac",
       "source": {
-        "png": "pictures/popup2_bg.png"
+        "png": "pictures/new_ok_104x48_eb78c4d3bdac.png"
       }
     },
     {
-      "key": "bg_printing",
+      "key": "new_ok_press_104x48_fad0b36fe41a",
       "source": {
-        "png": "pictures/bg_printing.png"
+        "png": "pictures/new_ok_press_104x48_fad0b36fe41a.png"
       }
     },
     {
-      "key": "bg_keybdB",
+      "key": "new_decor_248x324_e1dee57f52b3",
       "source": {
-        "png": "pictures/bg_keybdB.png"
+        "png": "pictures/new_decor_248x324_e1dee57f52b3.png"
       }
     },
     {
-      "key": "bg_print_zoffset",
+      "key": "new_decor_248x324_a1ade4a6e243",
       "source": {
-        "png": "pictures/bg_print_zoffset.png"
+        "png": "pictures/new_decor_248x324_a1ade4a6e243.png"
       }
     },
     {
-      "key": "bg_print_filament",
+      "key": "new_lang_cn_120x60_94b5a3676716",
       "source": {
-        "png": "pictures/bg_print_filament.png"
+        "png": "pictures/new_lang_cn_120x60_94b5a3676716.png"
       }
     },
     {
-      "key": "bg_printing_2",
+      "key": "new_lang_cn_press_120x60_659f8b697aab",
       "source": {
-        "png": "pictures/bg_printing_2.png"
+        "png": "pictures/new_lang_cn_press_120x60_659f8b697aab.png"
       }
     },
     {
-      "key": "bg_notice",
+      "key": "new_lang_cn_on_120x60_ddba8d2fa4e4",
       "source": {
-        "png": "pictures/bg_notice.png"
+        "png": "pictures/new_lang_cn_on_120x60_ddba8d2fa4e4.png"
       }
     },
     {
-      "key": "bg_print_stop",
+      "key": "new_lang_cn_on_press_120x60_bfa8d6020cbb",
       "source": {
-        "png": "pictures/bg_print_stop.png"
+        "png": "pictures/new_lang_cn_on_press_120x60_bfa8d6020cbb.png"
       }
     },
     {
-      "key": "bg_print_stopping",
+      "key": "new_prev_page_120x44_34f16dcc6c37",
       "source": {
-        "png": "pictures/bg_print_stopping.png"
+        "png": "pictures/new_prev_page_120x44_34f16dcc6c37.png"
       }
     },
     {
-      "key": "bg_move",
+      "key": "new_prev_page_press_120x44_f1b8f0dd6457",
       "source": {
-        "png": "pictures/bg_move.png"
+        "png": "pictures/new_prev_page_press_120x44_f1b8f0dd6457.png"
       }
     },
     {
-      "key": "popup_ok_bg",
+      "key": "new_next_page_120x44_e1598330d71a",
       "source": {
-        "png": "pictures/popup_ok_bg.png"
+        "png": "pictures/new_next_page_120x44_e1598330d71a.png"
       }
     },
     {
-      "key": "bg_move_pop_2",
+      "key": "new_next_page_press_120x44_dded1f9082ef",
       "source": {
-        "png": "pictures/bg_move_pop_2.png"
+        "png": "pictures/new_next_page_press_120x44_dded1f9082ef.png"
       }
     },
     {
-      "key": "fan_slider_track",
+      "key": "new_skip_120x46_508e558199ed",
       "source": {
-        "png": "pictures/fan_slider_track.png"
+        "png": "pictures/new_skip_120x46_508e558199ed.png"
       }
     },
     {
-      "key": "fan_slider_fill",
+      "key": "new_skip_press_120x46_b1b211c2186d",
       "source": {
-        "png": "pictures/fan_slider_fill.png"
+        "png": "pictures/new_skip_press_120x46_b1b211c2186d.png"
       }
     },
     {
-      "key": "bg_filament_kb",
+      "key": "new_next_120x46_2d72d01e7e45",
       "source": {
-        "png": "pictures/bg_filament_kb.png"
+        "png": "pictures/new_next_120x46_2d72d01e7e45.png"
       }
     },
     {
-      "key": "bg_level_mode",
+      "key": "new_next_press_120x46_c5722c386c99",
       "source": {
-        "png": "pictures/bg_level_mode.png"
+        "png": "pictures/new_next_press_120x46_c5722c386c99.png"
       }
     },
     {
-      "key": "bg_zoffset",
+      "key": "new_prev_page_120x44_154e02d61a80",
       "source": {
-        "png": "pictures/bg_zoffset.png"
+        "png": "pictures/new_prev_page_120x44_154e02d61a80.png"
       }
     },
     {
-      "key": "bg_auto_heaterbed",
+      "key": "new_prev_page_press_120x44_bd43b9a39812",
       "source": {
-        "png": "pictures/bg_auto_heaterbed.png"
+        "png": "pictures/new_prev_page_press_120x44_bd43b9a39812.png"
       }
     },
     {
-      "key": "bg_message",
+      "key": "new_next_page_120x44_dab9008f937f",
       "source": {
-        "png": "pictures/bg_message.png"
+        "png": "pictures/new_next_page_120x44_dab9008f937f.png"
       }
     },
     {
-      "key": "bg_finish",
+      "key": "new_next_page_press_120x44_fd06c1d6d111",
       "source": {
-        "png": "pictures/bg_finish.png"
+        "png": "pictures/new_next_page_press_120x44_fd06c1d6d111.png"
       }
     },
     {
-      "key": "bg_pre_bed_cal",
+      "key": "new_next_64x64_68e82c38829f",
       "source": {
-        "png": "pictures/bg_pre_bed_cal.png"
+        "png": "pictures/new_next_64x64_68e82c38829f.png"
       }
     },
     {
-      "key": "bg_bed_calibrate",
+      "key": "new_next_press_64x64_2d2298f7dcea",
       "source": {
-        "png": "pictures/bg_bed_calibrate.png"
+        "png": "pictures/new_next_press_64x64_2d2298f7dcea.png"
       }
     },
     {
-      "key": "bg_settings_panel",
+      "key": "new_decor_48x48_dacc59b858eb",
       "source": {
-        "png": "pictures/bg_settings_panel.png"
+        "png": "pictures/new_decor_48x48_dacc59b858eb.png"
       }
     },
     {
-      "key": "bg_keyboard",
+      "key": "new_next_248x48_932a8c5a7d4a",
       "source": {
-        "png": "pictures/bg_keyboard.png"
+        "png": "pictures/new_next_248x48_932a8c5a7d4a.png"
       }
     },
     {
-      "key": "bg_common_set",
+      "key": "new_next_press_248x48_abff5fc0d544",
       "source": {
-        "png": "pictures/bg_common_set.png"
+        "png": "pictures/new_next_press_248x48_abff5fc0d544.png"
       }
     },
     {
-      "key": "bg_language",
+      "key": "new_extrude_100x44_3ce096056d8f",
       "source": {
-        "png": "pictures/bg_language.png"
+        "png": "pictures/new_extrude_100x44_3ce096056d8f.png"
       }
     },
     {
-      "key": "bg_sys_ok",
+      "key": "new_extrude_press_100x44_206d761afce5",
       "source": {
-        "png": "pictures/bg_sys_ok.png"
+        "png": "pictures/new_extrude_press_100x44_206d761afce5.png"
       }
     },
     {
-      "key": "bg_sleep_mode",
+      "key": "new_decor_80x80_65eed19b7506",
       "source": {
-        "png": "pictures/bg_sleep_mode.png"
+        "png": "pictures/new_decor_80x80_65eed19b7506.png"
       }
     },
     {
-      "key": "bg_info_popup",
+      "key": "new_finish_248x48_c688012e3455",
       "source": {
-        "png": "pictures/bg_info_popup.png"
+        "png": "pictures/new_finish_248x48_c688012e3455.png"
       }
     },
     {
-      "key": "bg_update_found",
+      "key": "new_finish_press_248x48_2aec95e1565d",
       "source": {
-        "png": "pictures/bg_update_found.png"
+        "png": "pictures/new_finish_press_248x48_2aec95e1565d.png"
       }
     },
     {
-      "key": "popup2_press_alt",
+      "key": "new_manual_btn_248x52_b71840b93298",
       "source": {
-        "png": "pictures/popup2_press_alt.png"
+        "png": "pictures/new_manual_btn_248x52_b71840b93298.png"
       }
     },
     {
-      "key": "bg_filamentVideo1",
+      "key": "new_manual_btn_press_248x52_b1e4d599a974",
       "source": {
-        "png": "pictures/bg_filamentVideo1.png"
+        "png": "pictures/new_manual_btn_press_248x52_b1e4d599a974.png"
       }
     },
     {
-      "key": "bg_filamentVideo3",
+      "key": "new_back_btn_248x46_a9e9a80f0809",
       "source": {
-        "png": "pictures/bg_filamentVideo3.png"
+        "png": "pictures/new_back_btn_248x46_a9e9a80f0809.png"
       }
     },
     {
-      "key": "bg_filament",
+      "key": "new_back_btn_press_248x46_95fe6e6d821d",
       "source": {
-        "png": "pictures/bg_filament.png"
+        "png": "pictures/new_back_btn_press_248x46_95fe6e6d821d.png"
       }
     },
     {
-      "key": "bg_filament_pop_1",
+      "key": "new_ok_248x46_a9eee8d1abab",
       "source": {
-        "png": "pictures/bg_filament_pop_1.png"
+        "png": "pictures/new_ok_248x46_a9eee8d1abab.png"
       }
     },
     {
-      "key": "bg_filament_pop_2",
+      "key": "new_ok_press_248x46_f1ad0aeeba53",
       "source": {
-        "png": "pictures/bg_filament_pop_2.png"
+        "png": "pictures/new_ok_press_248x46_f1ad0aeeba53.png"
       }
     },
     {
-      "key": "bg_fila_set_fan",
+      "key": "new_back_btn_272x48_443a482df0fd",
       "source": {
-        "png": "pictures/bg_fila_set_fan.png"
+        "png": "pictures/new_back_btn_272x48_443a482df0fd.png"
       }
     },
     {
-      "key": "bg_pre_heat",
+      "key": "new_back_btn_press_272x48_aacc05e478c2",
       "source": {
-        "png": "pictures/bg_pre_heat.png"
+        "png": "pictures/new_back_btn_press_272x48_aacc05e478c2.png"
       }
     },
     {
-      "key": "bg_open_finish",
+      "key": "new_decor_272x2_03c1af152625",
       "source": {
-        "png": "pictures/bg_open_finish.png"
+        "png": "pictures/new_decor_272x2_03c1af152625.png"
       }
     },
     {
-      "key": "bg_unload_mode",
+      "key": "new_refresh_btn_40x40_e107dc55e503",
       "source": {
-        "png": "pictures/bg_unload_mode.png"
+        "png": "pictures/new_refresh_btn_40x40_e107dc55e503.png"
       }
     },
     {
-      "key": "bg_auto_unload",
+      "key": "new_refresh_btn_press_40x40_ea49236ef1c7",
       "source": {
-        "png": "pictures/bg_auto_unload.png"
+        "png": "pictures/new_refresh_btn_press_40x40_ea49236ef1c7.png"
       }
     },
     {
-      "key": "net_bg_blank",
+      "key": "new_decor_44x44_bcddff38a775",
       "source": {
-        "png": "pictures/net_bg_blank.png"
+        "png": "pictures/new_decor_44x44_bcddff38a775.png"
       }
     },
     {
-      "key": "net_bg_list",
+      "key": "new_decor_272x56_fbd8d385ac03",
       "source": {
-        "png": "pictures/net_bg_list.png"
+        "png": "pictures/new_decor_272x56_fbd8d385ac03.png"
       }
     },
     {
-      "key": "net_bg_detail",
+      "key": "new_nav_main_68x55_a7ec05fb2a8f",
       "source": {
-        "png": "pictures/net_bg_detail.png"
+        "png": "pictures/new_nav_main_68x55_a7ec05fb2a8f.png"
       }
     },
     {
-      "key": "net_bg_confirm",
+      "key": "new_nav_main_press_68x55_ac1e0014db73",
       "source": {
-        "png": "pictures/net_bg_confirm.png"
+        "png": "pictures/new_nav_main_press_68x55_ac1e0014db73.png"
       }
     },
     {
-      "key": "net_bg_info",
+      "key": "new_nav_adjust_68x55_84872ef307d4",
       "source": {
-        "png": "pictures/net_bg_info.png"
+        "png": "pictures/new_nav_adjust_68x55_84872ef307d4.png"
       }
     },
     {
-      "key": "net_bg_internet",
+      "key": "new_nav_adjust_press_68x55_d8eba7c781fc",
       "source": {
-        "png": "pictures/net_bg_internet.png"
+        "png": "pictures/new_nav_adjust_press_68x55_d8eba7c781fc.png"
       }
     },
     {
-      "key": "filament_nozzle_toggle_on",
+      "key": "new_nav_files_68x55_29788a8c8b67",
       "source": {
-        "png": "pictures/filament_nozzle_toggle_on.png"
+        "png": "pictures/new_nav_files_68x55_29788a8c8b67.png"
       }
     },
     {
-      "key": "filament_nozzle_toggle_on_press",
+      "key": "new_nav_files_press_68x55_ee246681f75f",
       "source": {
-        "png": "pictures/filament_nozzle_toggle_on_press.png"
+        "png": "pictures/new_nav_files_press_68x55_ee246681f75f.png"
       }
     },
     {
-      "key": "filament_nozzle_toggle_off",
+      "key": "new_nav_settings_68x55_1b7ae29f98e7",
       "source": {
-        "png": "pictures/filament_nozzle_toggle_off.png"
+        "png": "pictures/new_nav_settings_68x55_1b7ae29f98e7.png"
       }
     },
     {
-      "key": "filament_nozzle_toggle_off_press",
+      "key": "new_nav_settings_press_68x55_4a24a0833574",
       "source": {
-        "png": "pictures/filament_nozzle_toggle_off_press.png"
+        "png": "pictures/new_nav_settings_press_68x55_4a24a0833574.png"
       }
     },
     {
-      "key": "filament_bed_toggle_on",
+      "key": "new_decor_248x148_1797dd044928",
       "source": {
-        "png": "pictures/filament_bed_toggle_on.png"
+        "png": "pictures/new_decor_248x148_1797dd044928.png"
       }
     },
     {
-      "key": "filament_bed_toggle_on_press",
+      "key": "new_restart_fw_248x46_04516e50b3ed",
       "source": {
-        "png": "pictures/filament_bed_toggle_on_press.png"
+        "png": "pictures/new_restart_fw_248x46_04516e50b3ed.png"
       }
     },
     {
-      "key": "filament_bed_toggle_off",
+      "key": "new_restart_fw_press_248x46_ead644cab0cf",
       "source": {
-        "png": "pictures/filament_bed_toggle_off.png"
+        "png": "pictures/new_restart_fw_press_248x46_ead644cab0cf.png"
       }
     },
     {
-      "key": "filament_bed_toggle_off_press",
+      "key": "new_decor_248x40_c16e33861adf",
       "source": {
-        "png": "pictures/filament_bed_toggle_off_press.png"
+        "png": "pictures/new_decor_248x40_c16e33861adf.png"
       }
     },
     {
-      "key": "filament_chamber_toggle_on",
+      "key": "new_decor_248x148_f5c771586f6a",
       "source": {
-        "png": "pictures/filament_chamber_toggle_on.png"
+        "png": "pictures/new_decor_248x148_f5c771586f6a.png"
       }
     },
     {
-      "key": "filament_chamber_toggle_on_press",
+      "key": "new_auto_level_248x50_0626f40ffa73",
       "source": {
-        "png": "pictures/filament_chamber_toggle_on_press.png"
+        "png": "pictures/new_auto_level_248x50_0626f40ffa73.png"
       }
     },
     {
-      "key": "filament_chamber_toggle_off",
+      "key": "new_auto_level_press_248x50_d2e87e5074f0",
       "source": {
-        "png": "pictures/filament_chamber_toggle_off.png"
+        "png": "pictures/new_auto_level_press_248x50_d2e87e5074f0.png"
       }
     },
     {
-      "key": "filament_chamber_toggle_off_press",
+      "key": "new_decor_248x148_6624073eb140",
       "source": {
-        "png": "pictures/filament_chamber_toggle_off_press.png"
+        "png": "pictures/new_decor_248x148_6624073eb140.png"
       }
     },
     {
-      "key": "filament_row_on_138x40",
+      "key": "new_decor_236x140_f22d0c757819",
       "source": {
-        "png": "pictures/filament_row_on_138x40.png"
+        "png": "pictures/new_decor_236x140_f22d0c757819.png"
       }
     },
     {
-      "key": "filament_row_on_138x40_press",
+      "key": "new_screw3_100x48_3f3f26a814ec",
       "source": {
-        "png": "pictures/filament_row_on_138x40_press.png"
+        "png": "pictures/new_screw3_100x48_3f3f26a814ec.png"
       }
     },
     {
-      "key": "filament_row_off_138x40",
+      "key": "new_screw3_press_100x48_0ddc09f2b2e3",
       "source": {
-        "png": "pictures/filament_row_off_138x40.png"
+        "png": "pictures/new_screw3_press_100x48_0ddc09f2b2e3.png"
       }
     },
     {
-      "key": "filament_row_off_138x40_press",
+      "key": "new_screw1_100x48_3fc38ac04e60",
       "source": {
-        "png": "pictures/filament_row_off_138x40_press.png"
+        "png": "pictures/new_screw1_100x48_3fc38ac04e60.png"
       }
     },
     {
-      "key": "filament_step_10_on",
+      "key": "new_screw1_press_100x48_f6ba8581b1de",
       "source": {
-        "png": "pictures/filament_step_10_on.png"
+        "png": "pictures/new_screw1_press_100x48_f6ba8581b1de.png"
       }
     },
     {
-      "key": "filament_step_10_on_press",
+      "key": "new_cstep_001_on_56x46_2389b6543838",
       "source": {
-        "png": "pictures/filament_step_10_on_press.png"
+        "png": "pictures/new_cstep_001_on_56x46_2389b6543838.png"
       }
     },
     {
-      "key": "filament_step_10_off",
+      "key": "new_cstep_001_on_press_56x46_83924a551b5b",
       "source": {
-        "png": "pictures/filament_step_10_off.png"
+        "png": "pictures/new_cstep_001_on_press_56x46_83924a551b5b.png"
       }
     },
     {
-      "key": "filament_step_10_off_press",
+      "key": "new_cstep_001_56x46_3b7881a1da75",
       "source": {
-        "png": "pictures/filament_step_10_off_press.png"
+        "png": "pictures/new_cstep_001_56x46_3b7881a1da75.png"
       }
     },
     {
-      "key": "filament_step_50_on",
+      "key": "new_cstep_001_press_56x46_82d2a618fd09",
       "source": {
-        "png": "pictures/filament_step_50_on.png"
+        "png": "pictures/new_cstep_001_press_56x46_82d2a618fd09.png"
       }
     },
     {
-      "key": "filament_step_50_on_press",
+      "key": "new_cstep_005_on_56x46_83c6b1fe6810",
       "source": {
-        "png": "pictures/filament_step_50_on_press.png"
+        "png": "pictures/new_cstep_005_on_56x46_83c6b1fe6810.png"
       }
     },
     {
-      "key": "filament_step_50_off",
+      "key": "new_cstep_005_on_press_56x46_ed675f0938a0",
       "source": {
-        "png": "pictures/filament_step_50_off.png"
+        "png": "pictures/new_cstep_005_on_press_56x46_ed675f0938a0.png"
       }
     },
     {
-      "key": "filament_step_50_off_press",
+      "key": "new_cstep_005_56x46_e2b27f95118e",
       "source": {
-        "png": "pictures/filament_step_50_off_press.png"
+        "png": "pictures/new_cstep_005_56x46_e2b27f95118e.png"
       }
     },
     {
-      "key": "filament_step_100_on",
+      "key": "new_cstep_005_press_56x46_b1bc5afa8933",
       "source": {
-        "png": "pictures/filament_step_100_on.png"
+        "png": "pictures/new_cstep_005_press_56x46_b1bc5afa8933.png"
       }
     },
     {
-      "key": "filament_step_100_on_press",
+      "key": "new_cstep_01_on_56x46_eedc639867b5",
       "source": {
-        "png": "pictures/filament_step_100_on_press.png"
+        "png": "pictures/new_cstep_01_on_56x46_eedc639867b5.png"
       }
     },
     {
-      "key": "filament_step_100_off",
+      "key": "new_cstep_01_on_press_56x46_febc45485446",
       "source": {
-        "png": "pictures/filament_step_100_off.png"
+        "png": "pictures/new_cstep_01_on_press_56x46_febc45485446.png"
       }
     },
     {
-      "key": "filament_step_100_off_press",
+      "key": "new_cstep_01_56x46_240a4744abd4",
       "source": {
-        "png": "pictures/filament_step_100_off_press.png"
+        "png": "pictures/new_cstep_01_56x46_240a4744abd4.png"
       }
     },
     {
-      "key": "fila_set_fan_fan1_toggle_on",
+      "key": "new_cstep_01_press_56x46_a1d7f01f76f8",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_toggle_on.png"
+        "png": "pictures/new_cstep_01_press_56x46_a1d7f01f76f8.png"
       }
     },
     {
-      "key": "fila_set_fan_fan1_toggle_on_press",
+      "key": "new_cstep_05_on_56x46_713d36881eab",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_toggle_on_press.png"
+        "png": "pictures/new_cstep_05_on_56x46_713d36881eab.png"
       }
     },
     {
-      "key": "fila_set_fan_fan1_toggle_off",
+      "key": "new_cstep_05_on_press_56x46_f15d2df5e8de",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_toggle_off.png"
+        "png": "pictures/new_cstep_05_on_press_56x46_f15d2df5e8de.png"
       }
     },
     {
-      "key": "fila_set_fan_fan1_toggle_off_press",
+      "key": "new_cstep_05_56x46_a40fbb16738d",
       "source": {
-        "png": "pictures/fila_set_fan_fan1_toggle_off_press.png"
+        "png": "pictures/new_cstep_05_56x46_a40fbb16738d.png"
       }
     },
     {
-      "key": "fila_set_fan_fan2_toggle_on",
+      "key": "new_cstep_05_press_56x46_00eb100d262c",
       "source": {
-        "png": "pictures/fila_set_fan_fan2_toggle_on.png"
+        "png": "pictures/new_cstep_05_press_56x46_00eb100d262c.png"
       }
     },
     {
-      "key": "fila_set_fan_fan2_toggle_on_press",
+      "key": "new_z_up_120x46_f46b662af588",
       "source": {
-        "png": "pictures/fila_set_fan_fan2_toggle_on_press.png"
+        "png": "pictures/new_z_up_120x46_f46b662af588.png"
       }
     },
     {
-      "key": "fila_set_fan_fan2_toggle_off",
+      "key": "new_z_up_press_120x46_6aac21e21faa",
       "source": {
-        "png": "pictures/fila_set_fan_fan2_toggle_off.png"
+        "png": "pictures/new_z_up_press_120x46_6aac21e21faa.png"
       }
     },
     {
-      "key": "fila_set_fan_fan2_toggle_off_press",
+      "key": "new_z_down_120x46_b20035322a4d",
       "source": {
-        "png": "pictures/fila_set_fan_fan2_toggle_off_press.png"
+        "png": "pictures/new_z_down_120x46_b20035322a4d.png"
       }
     },
     {
-      "key": "fila_set_fan_fan3_toggle_on",
+      "key": "new_z_down_press_120x46_adc49f5099e8",
       "source": {
-        "png": "pictures/fila_set_fan_fan3_toggle_on.png"
+        "png": "pictures/new_z_down_press_120x46_adc49f5099e8.png"
       }
     },
     {
-      "key": "fila_set_fan_fan3_toggle_on_press",
+      "key": "new_enter_btn_248x46_af1e344b3e83",
       "source": {
-        "png": "pictures/fila_set_fan_fan3_toggle_on_press.png"
+        "png": "pictures/new_enter_btn_248x46_af1e344b3e83.png"
       }
     },
     {
-      "key": "fila_set_fan_fan3_toggle_off",
+      "key": "new_enter_btn_press_248x46_3c4aff4e996d",
       "source": {
-        "png": "pictures/fila_set_fan_fan3_toggle_off.png"
+        "png": "pictures/new_enter_btn_press_248x46_3c4aff4e996d.png"
       }
     },
     {
-      "key": "fila_set_fan_fan3_toggle_off_press",
+      "key": "new_decor_248x84_89b1e9c503fe",
       "source": {
-        "png": "pictures/fila_set_fan_fan3_toggle_off_press.png"
+        "png": "pictures/new_decor_248x84_89b1e9c503fe.png"
       }
     },
     {
-      "key": "filament_pop_2_steps_load_1",
+      "key": "new_auto_btn_248x46_a4f58387d3ce",
       "source": {
-        "png": "pictures/filament_pop_2_steps_load_1.png"
+        "png": "pictures/new_auto_btn_248x46_a4f58387d3ce.png"
       }
     },
     {
-      "key": "filament_pop_2_steps_load_2",
+      "key": "new_auto_btn_press_248x46_9c973d7723dd",
       "source": {
-        "png": "pictures/filament_pop_2_steps_load_2.png"
+        "png": "pictures/new_auto_btn_press_248x46_9c973d7723dd.png"
       }
     },
     {
-      "key": "filament_pop_2_steps_load_3",
+      "key": "new_decor_248x170_d00ee83162fd",
       "source": {
-        "png": "pictures/filament_pop_2_steps_load_3.png"
+        "png": "pictures/new_decor_248x170_d00ee83162fd.png"
       }
     },
     {
-      "key": "auto_unload_steps_unload_1",
+      "key": "new_forget_btn_120x46_38fc88109d65",
       "source": {
-        "png": "pictures/auto_unload_steps_unload_1.png"
+        "png": "pictures/new_forget_btn_120x46_38fc88109d65.png"
       }
     },
     {
-      "key": "auto_unload_steps_unload_2",
+      "key": "new_forget_btn_press_120x46_e23a72a701c3",
       "source": {
-        "png": "pictures/auto_unload_steps_unload_2.png"
+        "png": "pictures/new_forget_btn_press_120x46_e23a72a701c3.png"
       }
     },
     {
-      "key": "auto_moving_steps_level_1",
+      "key": "new_decor_248x128_176e9a50211f",
       "source": {
-        "png": "pictures/auto_moving_steps_level_1.png"
+        "png": "pictures/new_decor_248x128_176e9a50211f.png"
       }
     },
     {
-      "key": "auto_moving_steps_level_2",
+      "key": "new_decor_248x104_d42964f5a797",
       "source": {
-        "png": "pictures/auto_moving_steps_level_2.png"
+        "png": "pictures/new_decor_248x104_d42964f5a797.png"
       }
     },
     {
-      "key": "auto_moving_steps_level_3",
+      "key": "new_radio_btn_248x50_0b4c99c15aec",
       "source": {
-        "png": "pictures/auto_moving_steps_level_3.png"
+        "png": "pictures/new_radio_btn_248x50_0b4c99c15aec.png"
       }
     },
     {
-      "key": "main_nozzle_btn_on",
+      "key": "new_radio_btn_press_248x50_12f6f35c2b42",
       "source": {
-        "png": "pictures/main_nozzle_btn_on.png"
+        "png": "pictures/new_radio_btn_press_248x50_12f6f35c2b42.png"
       }
     },
     {
-      "key": "main_nozzle_btn_on_press",
+      "key": "new_radio_btn_on_248x50_afe96a18b555",
       "source": {
-        "png": "pictures/main_nozzle_btn_on_press.png"
+        "png": "pictures/new_radio_btn_on_248x50_afe96a18b555.png"
       }
     },
     {
-      "key": "main_nozzle_btn_off",
+      "key": "new_radio_btn_on_press_248x50_68a6e33c1c8c",
       "source": {
-        "png": "pictures/main_nozzle_btn_off.png"
+        "png": "pictures/new_radio_btn_on_press_248x50_68a6e33c1c8c.png"
       }
     },
     {
-      "key": "main_nozzle_btn_off_press",
+      "key": "new_wifi_btn_248x52_9ca562ba78bb",
       "source": {
-        "png": "pictures/main_nozzle_btn_off_press.png"
+        "png": "pictures/new_wifi_btn_248x52_9ca562ba78bb.png"
       }
     },
     {
-      "key": "main_bed_btn_on",
+      "key": "new_wifi_btn_press_248x52_07bf50a97592",
       "source": {
-        "png": "pictures/main_bed_btn_on.png"
+        "png": "pictures/new_wifi_btn_press_248x52_07bf50a97592.png"
       }
     },
     {
-      "key": "main_bed_btn_on_press",
+      "key": "new_opt_5min_248x48_d60cc33a604f",
       "source": {
-        "png": "pictures/main_bed_btn_on_press.png"
+        "png": "pictures/new_opt_5min_248x48_d60cc33a604f.png"
       }
     },
     {
-      "key": "main_bed_btn_off",
+      "key": "new_opt_5min_press_248x48_884c57653a0f",
       "source": {
-        "png": "pictures/main_bed_btn_off.png"
+        "png": "pictures/new_opt_5min_press_248x48_884c57653a0f.png"
       }
     },
     {
-      "key": "main_bed_btn_off_press",
+      "key": "new_opt_5min_on_248x48_b6bcc81a2596",
       "source": {
-        "png": "pictures/main_bed_btn_off_press.png"
+        "png": "pictures/new_opt_5min_on_248x48_b6bcc81a2596.png"
       }
     },
     {
-      "key": "main_chamber_btn_on",
+      "key": "new_opt_5min_on_press_248x48_b64a93257e1b",
       "source": {
-        "png": "pictures/main_chamber_btn_on.png"
+        "png": "pictures/new_opt_5min_on_press_248x48_b64a93257e1b.png"
       }
     },
     {
-      "key": "main_chamber_btn_on_press",
+      "key": "new_decor_18x18_ac99e8959dec",
       "source": {
-        "png": "pictures/main_chamber_btn_on_press.png"
+        "png": "pictures/new_decor_18x18_ac99e8959dec.png"
       }
     },
     {
-      "key": "main_chamber_btn_off",
+      "key": "new_steps_bar_load_0_74x480_677f00e5442d",
       "source": {
-        "png": "pictures/main_chamber_btn_off.png"
+        "png": "pictures/new_steps_bar_load_0_74x480_677f00e5442d.png"
       }
     },
     {
-      "key": "main_chamber_btn_off_press",
+      "key": "new_steps_bar_load_1_74x480_157a1ee62cc9",
       "source": {
-        "png": "pictures/main_chamber_btn_off_press.png"
+        "png": "pictures/new_steps_bar_load_1_74x480_157a1ee62cc9.png"
       }
     },
     {
-      "key": "main_light_btn_on",
+      "key": "new_steps_bar_load_2_74x480_abf2919c4357",
       "source": {
-        "png": "pictures/main_light_btn_on.png"
+        "png": "pictures/new_steps_bar_load_2_74x480_abf2919c4357.png"
       }
     },
     {
-      "key": "main_light_btn_on_press",
+      "key": "new_steps_bar_load_3_74x480_c96d604d7197",
       "source": {
-        "png": "pictures/main_light_btn_on_press.png"
+        "png": "pictures/new_steps_bar_load_3_74x480_c96d604d7197.png"
       }
     },
     {
-      "key": "main_light_btn_off",
+      "key": "new_decor_212x150_7b8e8b557255",
       "source": {
-        "png": "pictures/main_light_btn_off.png"
+        "png": "pictures/new_decor_212x150_7b8e8b557255.png"
       }
     },
     {
-      "key": "main_light_btn_off_press",
+      "key": "new_back_btn_120x40_8777e59b821b",
       "source": {
-        "png": "pictures/main_light_btn_off_press.png"
+        "png": "pictures/new_back_btn_120x40_8777e59b821b.png"
       }
     },
     {
-      "key": "main_beep_btn_on",
+      "key": "new_back_btn_press_120x40_5196ed97f040",
       "source": {
-        "png": "pictures/main_beep_btn_on.png"
+        "png": "pictures/new_back_btn_press_120x40_5196ed97f040.png"
       }
     },
     {
-      "key": "main_beep_btn_on_press",
+      "key": "new_next_btn_120x40_3de50d39bcf1",
       "source": {
-        "png": "pictures/main_beep_btn_on_press.png"
+        "png": "pictures/new_next_btn_120x40_3de50d39bcf1.png"
       }
     },
     {
-      "key": "main_beep_btn_off",
+      "key": "new_next_btn_press_120x40_bff7d34d5686",
       "source": {
-        "png": "pictures/main_beep_btn_off.png"
+        "png": "pictures/new_next_btn_press_120x40_bff7d34d5686.png"
       }
     },
     {
-      "key": "main_beep_btn_off_press",
+      "key": "new_steps_bar_unload_0_74x480_2103240c6960",
       "source": {
-        "png": "pictures/main_beep_btn_off_press.png"
+        "png": "pictures/new_steps_bar_unload_0_74x480_2103240c6960.png"
       }
     },
     {
-      "key": "main_last_file_noimg",
+      "key": "new_steps_bar_unload_1_74x480_5ad268beabcd",
       "source": {
-        "png": "pictures/main_last_file_noimg.png"
+        "png": "pictures/new_steps_bar_unload_1_74x480_5ad268beabcd.png"
       }
     },
     {
-      "key": "main_last_file_noimg_press",
+      "key": "new_steps_bar_unload_2_74x480_608b89d10a13",
       "source": {
-        "png": "pictures/main_last_file_noimg_press.png"
+        "png": "pictures/new_steps_bar_unload_2_74x480_608b89d10a13.png"
       }
     },
     {
-      "key": "main_last_file_photo",
+      "key": "new_steps_bar_level_0_74x480_4c13256d7b3b",
       "source": {
-        "png": "pictures/main_last_file_photo.png"
+        "png": "pictures/new_steps_bar_level_0_74x480_4c13256d7b3b.png"
       }
     },
     {
-      "key": "main_last_file_photo_press",
+      "key": "new_steps_bar_level_1_74x480_1fbbaa1effc8",
       "source": {
-        "png": "pictures/main_last_file_photo_press.png"
+        "png": "pictures/new_steps_bar_level_1_74x480_1fbbaa1effc8.png"
       }
     },
     {
-      "key": "main_usb_icon_on",
+      "key": "new_steps_bar_level_2_74x480_901636eb1dc8",
       "source": {
-        "png": "pictures/main_usb_icon_on.png"
+        "png": "pictures/new_steps_bar_level_2_74x480_901636eb1dc8.png"
       }
     },
     {
-      "key": "main_usb_icon_off",
+      "key": "new_steps_bar_level_3_74x480_e8fcd5f73099",
       "source": {
-        "png": "pictures/main_usb_icon_off.png"
+        "png": "pictures/new_steps_bar_level_3_74x480_e8fcd5f73099.png"
       }
     },
     {
-      "key": "main_wifi_icon_on",
+      "key": "new_saved_btn_96x40_b711dece926e",
       "source": {
-        "png": "pictures/main_wifi_icon_on.png"
+        "png": "pictures/new_saved_btn_96x40_b711dece926e.png"
       }
     },
     {
-      "key": "main_wifi_icon_off",
+      "key": "new_saved_btn_press_96x40_f1ab23a0ab31",
       "source": {
-        "png": "pictures/main_wifi_icon_off.png"
+        "png": "pictures/new_saved_btn_press_96x40_f1ab23a0ab31.png"
       }
     },
     {
-      "key": "printing_nozzle_btn_heat_on",
+      "key": "new_row1_item_248x44_dece58b2706b",
       "source": {
-        "png": "pictures/printing_nozzle_btn_heat_on.png"
+        "png": "pictures/new_row1_item_248x44_dece58b2706b.png"
       }
     },
     {
-      "key": "printing_nozzle_btn_heat_on_press",
+      "key": "new_row1_item_press_248x44_f0f740370466",
       "source": {
-        "png": "pictures/printing_nozzle_btn_heat_on_press.png"
+        "png": "pictures/new_row1_item_press_248x44_f0f740370466.png"
       }
     },
     {
-      "key": "printing_nozzle_btn_heat_off",
+      "key": "new_row1_check_248x44_5eddda8ba354",
       "source": {
-        "png": "pictures/printing_nozzle_btn_heat_off.png"
+        "png": "pictures/new_row1_check_248x44_5eddda8ba354.png"
       }
     },
     {
-      "key": "printing_nozzle_btn_heat_off_press",
+      "key": "new_row1_check_press_248x44_20c843c7f5fc",
       "source": {
-        "png": "pictures/printing_nozzle_btn_heat_off_press.png"
+        "png": "pictures/new_row1_check_press_248x44_20c843c7f5fc.png"
       }
     },
     {
-      "key": "printing_bed_btn_heat_on",
+      "key": "new_row1_blank_248x44_d27be943e8f7",
       "source": {
-        "png": "pictures/printing_bed_btn_heat_on.png"
+        "png": "pictures/new_row1_blank_248x44_d27be943e8f7.png"
       }
     },
     {
-      "key": "printing_bed_btn_heat_on_press",
+      "key": "new_row1_blank_press_248x44_8a47155fa1bb",
       "source": {
-        "png": "pictures/printing_bed_btn_heat_on_press.png"
+        "png": "pictures/new_row1_blank_press_248x44_8a47155fa1bb.png"
       }
     },
     {
-      "key": "printing_bed_btn_heat_off",
+      "key": "new_prev_btn_edge_120x40_449be3e86f1c",
       "source": {
-        "png": "pictures/printing_bed_btn_heat_off.png"
+        "png": "pictures/new_prev_btn_edge_120x40_449be3e86f1c.png"
       }
     },
     {
-      "key": "printing_bed_btn_heat_off_press",
+      "key": "new_prev_btn_edge_press_120x40_a4ff4fcd4563",
       "source": {
-        "png": "pictures/printing_bed_btn_heat_off_press.png"
+        "png": "pictures/new_prev_btn_edge_press_120x40_a4ff4fcd4563.png"
       }
     },
     {
-      "key": "printing_chamber_btn_heat_on",
+      "key": "new_prev_btn_more_120x40_a4f6b5cea3be",
       "source": {
-        "png": "pictures/printing_chamber_btn_heat_on.png"
+        "png": "pictures/new_prev_btn_more_120x40_a4f6b5cea3be.png"
       }
     },
     {
-      "key": "printing_chamber_btn_heat_on_press",
+      "key": "new_prev_btn_more_press_120x40_94728bca9d91",
       "source": {
-        "png": "pictures/printing_chamber_btn_heat_on_press.png"
+        "png": "pictures/new_prev_btn_more_press_120x40_94728bca9d91.png"
       }
     },
     {
-      "key": "printing_chamber_btn_heat_off",
+      "key": "new_next_btn_more_120x40_076c2d18b29d",
       "source": {
-        "png": "pictures/printing_chamber_btn_heat_off.png"
+        "png": "pictures/new_next_btn_more_120x40_076c2d18b29d.png"
       }
     },
     {
-      "key": "printing_chamber_btn_heat_off_press",
+      "key": "new_next_btn_more_press_120x40_ea7927c6d21f",
       "source": {
-        "png": "pictures/printing_chamber_btn_heat_off_press.png"
+        "png": "pictures/new_next_btn_more_press_120x40_ea7927c6d21f.png"
       }
     },
     {
-      "key": "printing_2_light_lamp_on",
+      "key": "new_next_btn_edge_120x40_99c4d24cdcd1",
       "source": {
-        "png": "pictures/printing_2_light_lamp_on.png"
+        "png": "pictures/new_next_btn_edge_120x40_99c4d24cdcd1.png"
       }
     },
     {
-      "key": "printing_2_light_lamp_on_press",
+      "key": "new_next_btn_edge_press_120x40_224a630d5cc3",
       "source": {
-        "png": "pictures/printing_2_light_lamp_on_press.png"
+        "png": "pictures/new_next_btn_edge_press_120x40_224a630d5cc3.png"
       }
     },
     {
-      "key": "printing_2_light_lamp_off",
+      "key": "new_decor_248x40_89e97b0bc3bd",
       "source": {
-        "png": "pictures/printing_2_light_lamp_off.png"
+        "png": "pictures/new_decor_248x40_89e97b0bc3bd.png"
       }
     },
     {
-      "key": "printing_2_light_lamp_off_press",
+      "key": "new_reset_btn_oobe_off_248x52_7d0a565e9d36",
       "source": {
-        "png": "pictures/printing_2_light_lamp_off_press.png"
+        "png": "pictures/new_reset_btn_oobe_off_248x52_7d0a565e9d36.png"
       }
     },
     {
-      "key": "print_filament_heat_on",
+      "key": "new_reset_btn_oobe_off_press_248x52_c11c35ba3518",
       "source": {
-        "png": "pictures/print_filament_heat_on.png"
+        "png": "pictures/new_reset_btn_oobe_off_press_248x52_c11c35ba3518.png"
       }
     },
     {
-      "key": "print_filament_heat_on_press",
+      "key": "new_reset_btn_oobe_on_248x52_8c232eb52717",
       "source": {
-        "png": "pictures/print_filament_heat_on_press.png"
+        "png": "pictures/new_reset_btn_oobe_on_248x52_8c232eb52717.png"
       }
     },
     {
-      "key": "print_filament_heat_off",
+      "key": "new_reset_btn_oobe_on_press_248x52_48c7694baa96",
       "source": {
-        "png": "pictures/print_filament_heat_off.png"
+        "png": "pictures/new_reset_btn_oobe_on_press_248x52_48c7694baa96.png"
       }
     },
     {
-      "key": "print_filament_heat_off_press",
+      "key": "new_decor_248x50_3bfe7cd8781b",
       "source": {
-        "png": "pictures/print_filament_heat_off_press.png"
+        "png": "pictures/new_decor_248x50_3bfe7cd8781b.png"
       }
     },
     {
-      "key": "print_zoffset_step_001_z_on",
+      "key": "new_bed_icon_off_26x26_329068bb28b7",
       "source": {
-        "png": "pictures/print_zoffset_step_001_z_on.png"
+        "png": "pictures/new_bed_icon_off_26x26_329068bb28b7.png"
       }
     },
     {
-      "key": "print_zoffset_step_001_z_on_press",
+      "key": "new_temp_down_120x46_38e4a18ef0c1",
       "source": {
-        "png": "pictures/print_zoffset_step_001_z_on_press.png"
+        "png": "pictures/new_temp_down_120x46_38e4a18ef0c1.png"
       }
     },
     {
-      "key": "print_zoffset_step_001_z_off",
+      "key": "new_temp_down_press_120x46_8fc36c6ba21b",
       "source": {
-        "png": "pictures/print_zoffset_step_001_z_off.png"
+        "png": "pictures/new_temp_down_press_120x46_8fc36c6ba21b.png"
       }
     },
     {
-      "key": "print_zoffset_step_001_z_off_press",
+      "key": "new_temp_up_120x46_5a6d14554834",
       "source": {
-        "png": "pictures/print_zoffset_step_001_z_off_press.png"
+        "png": "pictures/new_temp_up_120x46_5a6d14554834.png"
       }
     },
     {
-      "key": "print_zoffset_step_005_z_on",
+      "key": "new_temp_up_press_120x46_8989fd35a6c4",
       "source": {
-        "png": "pictures/print_zoffset_step_005_z_on.png"
+        "png": "pictures/new_temp_up_press_120x46_8989fd35a6c4.png"
       }
     },
     {
-      "key": "print_zoffset_step_005_z_on_press",
+      "key": "new_decor_82x30_45da8f830601",
       "source": {
-        "png": "pictures/print_zoffset_step_005_z_on_press.png"
+        "png": "pictures/new_decor_82x30_45da8f830601.png"
       }
     },
     {
-      "key": "print_zoffset_step_005_z_off",
+      "key": "new_decor_82x30_74f67880fdc7",
       "source": {
-        "png": "pictures/print_zoffset_step_005_z_off.png"
+        "png": "pictures/new_decor_82x30_74f67880fdc7.png"
       }
     },
     {
-      "key": "print_zoffset_step_005_z_off_press",
+      "key": "new_decor_82x30_50aaab2d6885",
       "source": {
-        "png": "pictures/print_zoffset_step_005_z_off_press.png"
+        "png": "pictures/new_decor_82x30_50aaab2d6885.png"
       }
     },
     {
-      "key": "print_zoffset_step_01_z_on",
+      "key": "new_decor_82x30_2ff569f5d48f",
       "source": {
-        "png": "pictures/print_zoffset_step_01_z_on.png"
+        "png": "pictures/new_decor_82x30_2ff569f5d48f.png"
       }
     },
     {
-      "key": "print_zoffset_step_01_z_on_press",
+      "key": "new_decor_82x30_ae9465fc2592",
       "source": {
-        "png": "pictures/print_zoffset_step_01_z_on_press.png"
+        "png": "pictures/new_decor_82x30_ae9465fc2592.png"
       }
     },
     {
-      "key": "print_zoffset_step_01_z_off",
+      "key": "new_decor_124x30_0dde2ac202ee",
       "source": {
-        "png": "pictures/print_zoffset_step_01_z_off.png"
+        "png": "pictures/new_decor_124x30_0dde2ac202ee.png"
       }
     },
     {
-      "key": "print_zoffset_step_01_z_off_press",
+      "key": "new_decor_124x30_c0ec2d5b07e5",
       "source": {
-        "png": "pictures/print_zoffset_step_01_z_off_press.png"
+        "png": "pictures/new_decor_124x30_c0ec2d5b07e5.png"
       }
     },
     {
-      "key": "print_zoffset_step_05_z_on",
+      "key": "new_decor_124x30_96035bfebb53",
       "source": {
-        "png": "pictures/print_zoffset_step_05_z_on.png"
+        "png": "pictures/new_decor_124x30_96035bfebb53.png"
       }
     },
     {
-      "key": "print_zoffset_step_05_z_on_press",
+      "key": "new_decor_124x30_0f5f4c795fdb",
       "source": {
-        "png": "pictures/print_zoffset_step_05_z_on_press.png"
+        "png": "pictures/new_decor_124x30_0f5f4c795fdb.png"
       }
     },
     {
-      "key": "print_zoffset_step_05_z_off",
+      "key": "new_decor_160x50_7eccb84e9899",
       "source": {
-        "png": "pictures/print_zoffset_step_05_z_off.png"
+        "png": "pictures/new_decor_160x50_7eccb84e9899.png"
       }
     },
     {
-      "key": "print_zoffset_step_05_z_off_press",
+      "key": "new_nozzle_icon_off_26x26_1e39881b8e26",
       "source": {
-        "png": "pictures/print_zoffset_step_05_z_off_press.png"
+        "png": "pictures/new_nozzle_icon_off_26x26_1e39881b8e26.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_001_on",
+      "key": "new_decor_160x50_2979c9d7e4d6",
       "source": {
-        "png": "pictures/pre_bed_cal_step_001_on.png"
+        "png": "pictures/new_decor_160x50_2979c9d7e4d6.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_001_on_press",
+      "key": "new_decor_160x50_45b9f5322e8e",
       "source": {
-        "png": "pictures/pre_bed_cal_step_001_on_press.png"
+        "png": "pictures/new_decor_160x50_45b9f5322e8e.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_001_off",
+      "key": "new_chamber_icon_off_26x26_81ede03393ff",
       "source": {
-        "png": "pictures/pre_bed_cal_step_001_off.png"
+        "png": "pictures/new_chamber_icon_off_26x26_81ede03393ff.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_001_off_press",
+      "key": "new_fan1_btn_80x50_b1adfe94402d",
       "source": {
-        "png": "pictures/pre_bed_cal_step_001_off_press.png"
+        "png": "pictures/new_fan1_btn_80x50_b1adfe94402d.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_005_on",
+      "key": "new_fan1_btn_press_80x50_f6cc2c25b90e",
       "source": {
-        "png": "pictures/pre_bed_cal_step_005_on.png"
+        "png": "pictures/new_fan1_btn_press_80x50_f6cc2c25b90e.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_005_on_press",
+      "key": "new_step_seg_s10_248x40_ba6e7a8fe977",
       "source": {
-        "png": "pictures/pre_bed_cal_step_005_on_press.png"
+        "png": "pictures/new_step_seg_s10_248x40_ba6e7a8fe977.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_005_off",
+      "key": "new_step_seg_s50_248x40_53bdf6513c8e",
       "source": {
-        "png": "pictures/pre_bed_cal_step_005_off.png"
+        "png": "pictures/new_step_seg_s50_248x40_53bdf6513c8e.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_005_off_press",
+      "key": "new_step_seg_s100_248x40_a9778093cb62",
       "source": {
-        "png": "pictures/pre_bed_cal_step_005_off_press.png"
+        "png": "pictures/new_step_seg_s100_248x40_a9778093cb62.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_01_on",
+      "key": "new_extr_up_120x64_05ec455b0894",
       "source": {
-        "png": "pictures/pre_bed_cal_step_01_on.png"
+        "png": "pictures/new_extr_up_120x64_05ec455b0894.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_01_on_press",
+      "key": "new_extr_up_press_120x64_77080efda507",
       "source": {
-        "png": "pictures/pre_bed_cal_step_01_on_press.png"
+        "png": "pictures/new_extr_up_press_120x64_77080efda507.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_01_off",
+      "key": "new_extr_down_120x64_b4288fd222d7",
       "source": {
-        "png": "pictures/pre_bed_cal_step_01_off.png"
+        "png": "pictures/new_extr_down_120x64_b4288fd222d7.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_01_off_press",
+      "key": "new_extr_down_press_120x64_1a2f67fa6175",
       "source": {
-        "png": "pictures/pre_bed_cal_step_01_off_press.png"
+        "png": "pictures/new_extr_down_press_120x64_1a2f67fa6175.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_05_on",
+      "key": "new_nav_adjust_68x55_ef62ad220a47",
       "source": {
-        "png": "pictures/pre_bed_cal_step_05_on.png"
+        "png": "pictures/new_nav_adjust_68x55_ef62ad220a47.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_05_on_press",
+      "key": "new_nav_adjust_press_68x55_3700d7934031",
       "source": {
-        "png": "pictures/pre_bed_cal_step_05_on_press.png"
+        "png": "pictures/new_nav_adjust_press_68x55_3700d7934031.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_05_off",
+      "key": "new_nav_settings_68x55_fc366993d5ec",
       "source": {
-        "png": "pictures/pre_bed_cal_step_05_off.png"
+        "png": "pictures/new_nav_settings_68x55_fc366993d5ec.png"
       }
     },
     {
-      "key": "pre_bed_cal_step_05_off_press",
+      "key": "new_nav_settings_press_68x55_d5e12502cfcf",
       "source": {
-        "png": "pictures/pre_bed_cal_step_05_off_press.png"
+        "png": "pictures/new_nav_settings_press_68x55_d5e12502cfcf.png"
       }
     },
     {
-      "key": "keybdB_mute_off",
+      "key": "new_decor_248x44_7ad5e66629ce",
       "source": {
-        "png": "pictures/keybdB_mute_off.png"
+        "png": "pictures/new_decor_248x44_7ad5e66629ce.png"
       }
     },
     {
-      "key": "keybdB_mute_off_press",
+      "key": "new_decor_120x120_a3e745345026",
       "source": {
-        "png": "pictures/keybdB_mute_off_press.png"
+        "png": "pictures/new_decor_120x120_a3e745345026.png"
       }
     },
     {
-      "key": "keybdB_mute_on",
+      "key": "new_y_up_52x52_2a21515e3850",
       "source": {
-        "png": "pictures/keybdB_mute_on.png"
+        "png": "pictures/new_y_up_52x52_2a21515e3850.png"
       }
     },
     {
-      "key": "keybdB_mute_on_press",
+      "key": "new_y_up_press_52x52_2e003c1d31d7",
       "source": {
-        "png": "pictures/keybdB_mute_on_press.png"
+        "png": "pictures/new_y_up_press_52x52_2e003c1d31d7.png"
       }
     },
     {
-      "key": "preview_check_on",
+      "key": "new_x_down_52x52_d839bc590979",
       "source": {
-        "png": "pictures/preview_check_on.png"
+        "png": "pictures/new_x_down_52x52_d839bc590979.png"
       }
     },
     {
-      "key": "preview_check_on_press",
+      "key": "new_x_down_press_52x52_3fd5cc3cf883",
       "source": {
-        "png": "pictures/preview_check_on_press.png"
+        "png": "pictures/new_x_down_press_52x52_3fd5cc3cf883.png"
       }
     },
     {
-      "key": "preview_level_btn_off",
+      "key": "new_x_up_52x52_2c97398950b7",
       "source": {
-        "png": "pictures/preview_level_btn_off.png"
+        "png": "pictures/new_x_up_52x52_2c97398950b7.png"
       }
     },
     {
-      "key": "preview_level_btn_off_press",
+      "key": "new_x_up_press_52x52_3235e0925e6b",
       "source": {
-        "png": "pictures/preview_level_btn_off_press.png"
+        "png": "pictures/new_x_up_press_52x52_3235e0925e6b.png"
       }
     },
     {
-      "key": "preview_timelapse_btn_off",
+      "key": "new_y_down_52x52_466024d41d4d",
       "source": {
-        "png": "pictures/preview_timelapse_btn_off.png"
+        "png": "pictures/new_y_down_52x52_466024d41d4d.png"
       }
     },
     {
-      "key": "auto_heaterbed_heat_bed_on",
+      "key": "new_y_down_press_52x52_2f5d0dd204cd",
       "source": {
-        "png": "pictures/auto_heaterbed_heat_bed_on.png"
+        "png": "pictures/new_y_down_press_52x52_2f5d0dd204cd.png"
       }
     },
     {
-      "key": "auto_heaterbed_heat_bed_on_press",
+      "key": "new_home_btn_52x52_e796fc9dd061",
       "source": {
-        "png": "pictures/auto_heaterbed_heat_bed_on_press.png"
+        "png": "pictures/new_home_btn_52x52_e796fc9dd061.png"
       }
     },
     {
-      "key": "auto_heaterbed_heat_bed_off",
+      "key": "new_home_btn_press_52x52_9ac7f0fa5903",
       "source": {
-        "png": "pictures/auto_heaterbed_heat_bed_off.png"
+        "png": "pictures/new_home_btn_press_52x52_9ac7f0fa5903.png"
       }
     },
     {
-      "key": "auto_heaterbed_heat_bed_off_press",
+      "key": "new_z_up_52x90_4f5b46aacd49",
       "source": {
-        "png": "pictures/auto_heaterbed_heat_bed_off_press.png"
+        "png": "pictures/new_z_up_52x90_4f5b46aacd49.png"
       }
     },
     {
-      "key": "filamentVideo2_heat_guide_on",
+      "key": "new_z_up_press_52x90_5eb78d61428b",
       "source": {
-        "png": "pictures/filamentVideo2_heat_guide_on.png"
+        "png": "pictures/new_z_up_press_52x90_5eb78d61428b.png"
       }
     },
     {
-      "key": "filamentVideo2_heat_guide_on_press",
+      "key": "new_z_down_52x90_dd427eefb348",
       "source": {
-        "png": "pictures/filamentVideo2_heat_guide_on_press.png"
+        "png": "pictures/new_z_down_52x90_dd427eefb348.png"
       }
     },
     {
-      "key": "filamentVideo2_heat_guide_off",
+      "key": "new_z_down_press_52x90_7d3d2b461eaf",
       "source": {
-        "png": "pictures/filamentVideo2_heat_guide_off.png"
+        "png": "pictures/new_z_down_press_52x90_7d3d2b461eaf.png"
       }
     },
     {
-      "key": "filamentVideo2_heat_guide_off_press",
+      "key": "new_motors_off_248x44_5971f8bc9ed0",
       "source": {
-        "png": "pictures/filamentVideo2_heat_guide_off_press.png"
+        "png": "pictures/new_motors_off_248x44_5971f8bc9ed0.png"
       }
     },
     {
-      "key": "move_dist_01_on",
+      "key": "new_motors_off_press_248x44_579bb52e0a2e",
       "source": {
-        "png": "pictures/move_dist_01_on.png"
+        "png": "pictures/new_motors_off_press_248x44_579bb52e0a2e.png"
       }
     },
     {
-      "key": "move_dist_01_on_press",
+      "key": "new_decor_248x360_764d5941d59d",
       "source": {
-        "png": "pictures/move_dist_01_on_press.png"
+        "png": "pictures/new_decor_248x360_764d5941d59d.png"
       }
     },
     {
-      "key": "move_dist_01_off",
+      "key": "new_temp_opt1_216x44_b787fc538c37",
       "source": {
-        "png": "pictures/move_dist_01_off.png"
+        "png": "pictures/new_temp_opt1_216x44_b787fc538c37.png"
       }
     },
     {
-      "key": "move_dist_01_off_press",
+      "key": "new_temp_opt1_press_216x44_ec4d8913cff8",
       "source": {
-        "png": "pictures/move_dist_01_off_press.png"
+        "png": "pictures/new_temp_opt1_press_216x44_ec4d8913cff8.png"
       }
     },
     {
-      "key": "move_dist_1_on",
+      "key": "new_temp_opt1_on_216x44_f629f66d9e68",
       "source": {
-        "png": "pictures/move_dist_1_on.png"
+        "png": "pictures/new_temp_opt1_on_216x44_f629f66d9e68.png"
       }
     },
     {
-      "key": "move_dist_1_on_press",
+      "key": "new_temp_opt1_on_press_216x44_fe4ae4903b38",
       "source": {
-        "png": "pictures/move_dist_1_on_press.png"
+        "png": "pictures/new_temp_opt1_on_press_216x44_fe4ae4903b38.png"
       }
     },
     {
-      "key": "move_dist_1_off",
+      "key": "new_decor_248x50_4ecda1914429",
       "source": {
-        "png": "pictures/move_dist_1_off.png"
+        "png": "pictures/new_decor_248x50_4ecda1914429.png"
       }
     },
     {
-      "key": "move_dist_1_off_press",
+      "key": "new_decor_248x132_a605d6105bee",
       "source": {
-        "png": "pictures/move_dist_1_off_press.png"
+        "png": "pictures/new_decor_248x132_a605d6105bee.png"
       }
     },
     {
-      "key": "move_dist_10_on",
+      "key": "new_next_wait_64x64_330c015663d3",
       "source": {
-        "png": "pictures/move_dist_10_on.png"
+        "png": "pictures/new_next_wait_64x64_330c015663d3.png"
       }
     },
     {
-      "key": "move_dist_10_on_press",
+      "key": "new_next_wait_press_64x64_01a4d76c61b3",
       "source": {
-        "png": "pictures/move_dist_10_on_press.png"
+        "png": "pictures/new_next_wait_press_64x64_01a4d76c61b3.png"
       }
     },
     {
-      "key": "move_dist_10_off",
+      "key": "new_decor_248x72_cd2f3428e552",
       "source": {
-        "png": "pictures/move_dist_10_off.png"
+        "png": "pictures/new_decor_248x72_cd2f3428e552.png"
       }
     },
     {
-      "key": "move_dist_10_off_press",
+      "key": "new_key_1_77x58_8ba35521ec9d",
       "source": {
-        "png": "pictures/move_dist_10_off_press.png"
+        "png": "pictures/new_key_1_77x58_8ba35521ec9d.png"
       }
     },
     {
-      "key": "wifi_list_row1_check",
+      "key": "new_key_1_press_77x58_f4dabc9354a2",
       "source": {
-        "png": "pictures/wifi_list_row1_check.png"
+        "png": "pictures/new_key_1_press_77x58_f4dabc9354a2.png"
       }
     },
     {
-      "key": "wifi_list_row1_check_press",
+      "key": "new_key_2_78x58_aff38e3b7f83",
       "source": {
-        "png": "pictures/wifi_list_row1_check_press.png"
+        "png": "pictures/new_key_2_78x58_aff38e3b7f83.png"
       }
     },
     {
-      "key": "wifi_list_row2_check",
+      "key": "new_key_2_press_78x58_ac8e3299759f",
       "source": {
-        "png": "pictures/wifi_list_row2_check.png"
+        "png": "pictures/new_key_2_press_78x58_ac8e3299759f.png"
       }
     },
     {
-      "key": "wifi_list_row2_check_press",
+      "key": "new_key_del_77x58_883d1a70a9af",
       "source": {
-        "png": "pictures/wifi_list_row2_check_press.png"
+        "png": "pictures/new_key_del_77x58_883d1a70a9af.png"
       }
     },
     {
-      "key": "blank_244x48",
+      "key": "new_key_del_press_77x58_ad9fc98a38f7",
       "source": {
-        "png": "pictures/blank_244x48.png"
+        "png": "pictures/new_key_del_press_77x58_ad9fc98a38f7.png"
       }
     },
     {
-      "key": "wifi_list_prev_btn_edge",
+      "key": "new_key_ok_77x58_e49312720e0e",
       "source": {
-        "png": "pictures/wifi_list_prev_btn_edge.png"
+        "png": "pictures/new_key_ok_77x58_e49312720e0e.png"
       }
     },
     {
-      "key": "wifi_list_prev_btn_edge_press",
+      "key": "new_key_ok_press_77x58_6cdf12402d4e",
       "source": {
-        "png": "pictures/wifi_list_prev_btn_edge_press.png"
+        "png": "pictures/new_key_ok_press_77x58_6cdf12402d4e.png"
       }
     },
     {
-      "key": "wifi_list_prev_btn_more",
+      "key": "new_decor_72x72_452760b5da70",
       "source": {
-        "png": "pictures/wifi_list_prev_btn_more.png"
+        "png": "pictures/new_decor_72x72_452760b5da70.png"
       }
     },
     {
-      "key": "wifi_list_prev_btn_more_press",
+      "key": "new_pause_btn_80x72_56f5ab84b869",
       "source": {
-        "png": "pictures/wifi_list_prev_btn_more_press.png"
+        "png": "pictures/new_pause_btn_80x72_56f5ab84b869.png"
       }
     },
     {
-      "key": "wifi_list_next_btn_edge",
+      "key": "new_pause_btn_press_80x72_bc51968e4c04",
       "source": {
-        "png": "pictures/wifi_list_next_btn_edge.png"
+        "png": "pictures/new_pause_btn_press_80x72_bc51968e4c04.png"
       }
     },
     {
-      "key": "wifi_list_next_btn_edge_press",
+      "key": "new_stop_btn_80x72_74a009d30850",
       "source": {
-        "png": "pictures/wifi_list_next_btn_edge_press.png"
+        "png": "pictures/new_stop_btn_80x72_74a009d30850.png"
       }
     },
     {
-      "key": "wifi_list_next_btn_more",
+      "key": "new_stop_btn_press_80x72_5773609bcba7",
       "source": {
-        "png": "pictures/wifi_list_next_btn_more.png"
+        "png": "pictures/new_stop_btn_press_80x72_5773609bcba7.png"
       }
     },
     {
-      "key": "wifi_list_next_btn_more_press",
+      "key": "new_decor_248x6_0aee1d8a2eeb",
       "source": {
-        "png": "pictures/wifi_list_next_btn_more_press.png"
+        "png": "pictures/new_decor_248x6_0aee1d8a2eeb.png"
       }
     },
     {
-      "key": "internet_page_source_wired",
+      "key": "new_back_btn_40x40_13675f12cc2e",
       "source": {
-        "png": "pictures/internet_page_source_wired.png"
+        "png": "pictures/new_back_btn_40x40_13675f12cc2e.png"
       }
     },
     {
-      "key": "internet_page_source_wired_press",
+      "key": "new_back_btn_press_40x40_7ddc1abbc148",
       "source": {
-        "png": "pictures/internet_page_source_wired_press.png"
+        "png": "pictures/new_back_btn_press_40x40_7ddc1abbc148.png"
       }
     },
     {
-      "key": "internet_page_source_wifi",
+      "key": "new_mute_btn_40x40_9f308253e7ad",
       "source": {
-        "png": "pictures/internet_page_source_wifi.png"
+        "png": "pictures/new_mute_btn_40x40_9f308253e7ad.png"
       }
     },
     {
-      "key": "internet_page_source_wifi_press",
+      "key": "new_mute_btn_press_40x40_f5ebbd2d9a03",
       "source": {
-        "png": "pictures/internet_page_source_wifi_press.png"
+        "png": "pictures/new_mute_btn_press_40x40_f5ebbd2d9a03.png"
       }
     },
     {
-      "key": "common_set_reset_oobe_on",
+      "key": "new_mute_btn_on_40x40_c5eda691e5e2",
       "source": {
-        "png": "pictures/common_set_reset_oobe_on.png"
+        "png": "pictures/new_mute_btn_on_40x40_c5eda691e5e2.png"
       }
     },
     {
-      "key": "common_set_reset_oobe_on_press",
+      "key": "new_mute_btn_on_press_40x40_aec9cf432919",
       "source": {
-        "png": "pictures/common_set_reset_oobe_on_press.png"
+        "png": "pictures/new_mute_btn_on_press_40x40_aec9cf432919.png"
       }
     },
     {
-      "key": "common_set_reset_oobe_off",
+      "key": "new_decor_248x44_972fbb852831",
       "source": {
-        "png": "pictures/common_set_reset_oobe_off.png"
+        "png": "pictures/new_decor_248x44_972fbb852831.png"
       }
     },
     {
-      "key": "common_set_reset_oobe_off_press",
+      "key": "new_key_1_on_77x44_481e6b90f897",
       "source": {
-        "png": "pictures/common_set_reset_oobe_off_press.png"
+        "png": "pictures/new_key_1_on_77x44_481e6b90f897.png"
       }
     },
     {
-      "key": "filelist_file1_file",
+      "key": "new_key_1_on_press_77x44_07f3e7f76969",
       "source": {
-        "png": "pictures/filelist_file1_file.png"
+        "png": "pictures/new_key_1_on_press_77x44_07f3e7f76969.png"
       }
     },
     {
-      "key": "filelist_file1_file_press",
+      "key": "new_key_1_77x44_a704d5495792",
       "source": {
-        "png": "pictures/filelist_file1_file_press.png"
+        "png": "pictures/new_key_1_77x44_a704d5495792.png"
       }
     },
     {
-      "key": "filelist_file1_dir",
+      "key": "new_key_1_press_77x44_def6079c3957",
       "source": {
-        "png": "pictures/filelist_file1_dir.png"
+        "png": "pictures/new_key_1_press_77x44_def6079c3957.png"
       }
     },
     {
-      "key": "filelist_file1_dir_press",
+      "key": "new_key_2_on_78x44_5b1467886e46",
       "source": {
-        "png": "pictures/filelist_file1_dir_press.png"
+        "png": "pictures/new_key_2_on_78x44_5b1467886e46.png"
       }
     },
     {
-      "key": "blank_120x160",
+      "key": "new_key_2_on_press_78x44_8aed5aef1f2b",
       "source": {
-        "png": "pictures/blank_120x160.png"
+        "png": "pictures/new_key_2_on_press_78x44_8aed5aef1f2b.png"
       }
     },
     {
-      "key": "filelist_file3_file",
+      "key": "new_key_2_78x44_8624ad88e4c8",
       "source": {
-        "png": "pictures/filelist_file3_file.png"
+        "png": "pictures/new_key_2_78x44_8624ad88e4c8.png"
       }
     },
     {
-      "key": "filelist_file3_file_press",
+      "key": "new_key_2_press_78x44_33680760477f",
       "source": {
-        "png": "pictures/filelist_file3_file_press.png"
+        "png": "pictures/new_key_2_press_78x44_33680760477f.png"
       }
     },
     {
-      "key": "filelist_file3_dir",
+      "key": "new_key_del_on_77x44_0e8eb0a1abd8",
       "source": {
-        "png": "pictures/filelist_file3_dir.png"
+        "png": "pictures/new_key_del_on_77x44_0e8eb0a1abd8.png"
       }
     },
     {
-      "key": "filelist_file3_dir_press",
+      "key": "new_key_del_on_press_77x44_f64be7e91338",
       "source": {
-        "png": "pictures/filelist_file3_dir_press.png"
+        "png": "pictures/new_key_del_on_press_77x44_f64be7e91338.png"
       }
     },
     {
-      "key": "filelist_local_tab_local",
+      "key": "new_key_del_77x44_a7f33f5ecdd6",
       "source": {
-        "png": "pictures/filelist_local_tab_local.png"
+        "png": "pictures/new_key_del_77x44_a7f33f5ecdd6.png"
       }
     },
     {
-      "key": "filelist_local_tab_local_press",
+      "key": "new_key_del_press_77x44_27e4d8d65dc8",
       "source": {
-        "png": "pictures/filelist_local_tab_local_press.png"
+        "png": "pictures/new_key_del_press_77x44_27e4d8d65dc8.png"
       }
     },
     {
-      "key": "filelist_local_tab_usb",
+      "key": "new_key_ok_on_77x44_094309c5206c",
       "source": {
-        "png": "pictures/filelist_local_tab_usb.png"
+        "png": "pictures/new_key_ok_on_77x44_094309c5206c.png"
       }
     },
     {
-      "key": "filelist_local_tab_usb_press",
+      "key": "new_key_ok_on_press_77x44_919573e83a47",
       "source": {
-        "png": "pictures/filelist_local_tab_usb_press.png"
+        "png": "pictures/new_key_ok_on_press_77x44_919573e83a47.png"
       }
     },
     {
-      "key": "filelist_usb_tab_local",
+      "key": "new_key_ok_77x44_afc94352e252",
       "source": {
-        "png": "pictures/filelist_usb_tab_local.png"
+        "png": "pictures/new_key_ok_77x44_afc94352e252.png"
       }
     },
     {
-      "key": "filelist_usb_tab_local_press",
+      "key": "new_key_ok_press_77x44_72643d21cac1",
       "source": {
-        "png": "pictures/filelist_usb_tab_local_press.png"
+        "png": "pictures/new_key_ok_press_77x44_72643d21cac1.png"
       }
     },
     {
-      "key": "filelist_usb_tab_usb",
+      "key": "new_decor_132x132_17f9ac8f05ac",
       "source": {
-        "png": "pictures/filelist_usb_tab_usb.png"
+        "png": "pictures/new_decor_132x132_17f9ac8f05ac.png"
       }
     },
     {
-      "key": "filelist_usb_tab_usb_press",
+      "key": "new_pause_btn_108x62_f490646094de",
       "source": {
-        "png": "pictures/filelist_usb_tab_usb_press.png"
+        "png": "pictures/new_pause_btn_108x62_f490646094de.png"
       }
     },
     {
-      "key": "filelist_prev_off",
+      "key": "new_pause_btn_press_108x62_bb2b392dfdd4",
       "source": {
-        "png": "pictures/filelist_prev_off.png"
+        "png": "pictures/new_pause_btn_press_108x62_bb2b392dfdd4.png"
       }
     },
     {
-      "key": "filelist_prev_off_press",
+      "key": "new_stop_btn_108x62_4af0de712f2a",
       "source": {
-        "png": "pictures/filelist_prev_off_press.png"
+        "png": "pictures/new_stop_btn_108x62_4af0de712f2a.png"
       }
     },
     {
-      "key": "filelist_prev_on",
+      "key": "new_stop_btn_press_108x62_653a14b6170c",
       "source": {
-        "png": "pictures/filelist_prev_on.png"
+        "png": "pictures/new_stop_btn_press_108x62_653a14b6170c.png"
       }
     },
     {
-      "key": "filelist_prev_on_press",
+      "key": "new_decor_248x8_e23786edcff3",
       "source": {
-        "png": "pictures/filelist_prev_on_press.png"
+        "png": "pictures/new_decor_248x8_e23786edcff3.png"
       }
     },
     {
-      "key": "filelist_next_off",
+      "key": "new_nozzle_btn_160x58_51ee14667d08",
       "source": {
-        "png": "pictures/filelist_next_off.png"
+        "png": "pictures/new_nozzle_btn_160x58_51ee14667d08.png"
       }
     },
     {
-      "key": "filelist_next_off_press",
+      "key": "new_nozzle_btn_press_160x58_a53c206e0f95",
       "source": {
-        "png": "pictures/filelist_next_off_press.png"
+        "png": "pictures/new_nozzle_btn_press_160x58_a53c206e0f95.png"
       }
     },
     {
-      "key": "filelist_next_on",
+      "key": "new_bed_btn_160x58_1077e74e4c97",
       "source": {
-        "png": "pictures/filelist_next_on.png"
+        "png": "pictures/new_bed_btn_160x58_1077e74e4c97.png"
       }
     },
     {
-      "key": "filelist_next_on_press",
+      "key": "new_bed_btn_press_160x58_181b8206b951",
       "source": {
-        "png": "pictures/filelist_next_on_press.png"
+        "png": "pictures/new_bed_btn_press_160x58_181b8206b951.png"
       }
     },
     {
-      "key": "filelist_up_dir_off",
+      "key": "new_chamber_btn_160x58_f748039d1333",
       "source": {
-        "png": "pictures/filelist_up_dir_off.png"
+        "png": "pictures/new_chamber_btn_160x58_f748039d1333.png"
       }
     },
     {
-      "key": "filelist_up_dir_off_press",
+      "key": "new_chamber_btn_press_160x58_1e617ed95916",
       "source": {
-        "png": "pictures/filelist_up_dir_off_press.png"
+        "png": "pictures/new_chamber_btn_press_160x58_1e617ed95916.png"
       }
     },
     {
-      "key": "filelist_up_dir_on",
+      "key": "new_fan1_btn_80x58_141c52ba2edf",
       "source": {
-        "png": "pictures/filelist_up_dir_on.png"
+        "png": "pictures/new_fan1_btn_80x58_141c52ba2edf.png"
       }
     },
     {
-      "key": "filelist_up_dir_on_press",
+      "key": "new_fan1_btn_press_80x58_096377898444",
       "source": {
-        "png": "pictures/filelist_up_dir_on_press.png"
+        "png": "pictures/new_fan1_btn_press_80x58_096377898444.png"
       }
     },
     {
-      "key": "open_language_lang_cn_btn_selected",
+      "key": "new_speed_btn_120x48_0a6a7e9ba47c",
       "source": {
-        "png": "pictures/open_language_lang_cn_btn_selected.png"
+        "png": "pictures/new_speed_btn_120x48_0a6a7e9ba47c.png"
       }
     },
     {
-      "key": "open_language_lang_cn_btn_selected_press",
+      "key": "new_speed_btn_press_120x48_187f009b9c0f",
       "source": {
-        "png": "pictures/open_language_lang_cn_btn_selected_press.png"
+        "png": "pictures/new_speed_btn_press_120x48_187f009b9c0f.png"
       }
     },
     {
-      "key": "open_language_lang_en_btn_selected",
+      "key": "new_flow_btn_120x48_6a81b395cf00",
       "source": {
-        "png": "pictures/open_language_lang_en_btn_selected.png"
+        "png": "pictures/new_flow_btn_120x48_6a81b395cf00.png"
       }
     },
     {
-      "key": "keybdB_key_1_kb_mute_on",
+      "key": "new_flow_btn_press_120x48_3ec7db172579",
       "source": {
-        "png": "pictures/keybdB_key_1_kb_mute_on.png"
+        "png": "pictures/new_flow_btn_press_120x48_3ec7db172579.png"
       }
     },
     {
-      "key": "keybdB_key_2_kb_mute_on",
+      "key": "new_speed_btn_160x58_0b1677472ff9",
       "source": {
-        "png": "pictures/keybdB_key_2_kb_mute_on.png"
+        "png": "pictures/new_speed_btn_160x58_0b1677472ff9.png"
       }
     },
     {
-      "key": "keybdB_key_3_kb_mute_on",
+      "key": "new_speed_btn_press_160x58_dab6f8401e02",
       "source": {
-        "png": "pictures/keybdB_key_3_kb_mute_on.png"
+        "png": "pictures/new_speed_btn_press_160x58_dab6f8401e02.png"
       }
     },
     {
-      "key": "keybdB_key_4_kb_mute_on",
+      "key": "new_flow_btn_160x58_f23277f22bc0",
       "source": {
-        "png": "pictures/keybdB_key_4_kb_mute_on.png"
+        "png": "pictures/new_flow_btn_160x58_f23277f22bc0.png"
       }
     },
     {
-      "key": "keybdB_key_5_kb_mute_on",
+      "key": "new_flow_btn_press_160x58_0a845953e777",
       "source": {
-        "png": "pictures/keybdB_key_5_kb_mute_on.png"
+        "png": "pictures/new_flow_btn_press_160x58_0a845953e777.png"
       }
     },
     {
-      "key": "keybdB_key_6_kb_mute_on",
+      "key": "new_zoffset_btn_160x58_ce2aa3ca7c28",
       "source": {
-        "png": "pictures/keybdB_key_6_kb_mute_on.png"
+        "png": "pictures/new_zoffset_btn_160x58_ce2aa3ca7c28.png"
       }
     },
     {
-      "key": "keybdB_key_7_kb_mute_on",
+      "key": "new_zoffset_btn_press_160x58_b352f7862025",
       "source": {
-        "png": "pictures/keybdB_key_7_kb_mute_on.png"
+        "png": "pictures/new_zoffset_btn_press_160x58_b352f7862025.png"
       }
     },
     {
-      "key": "keybdB_key_8_kb_mute_on",
+      "key": "new_light2_btn_120x48_427c71fb4219",
       "source": {
-        "png": "pictures/keybdB_key_8_kb_mute_on.png"
+        "png": "pictures/new_light2_btn_120x48_427c71fb4219.png"
       }
     },
     {
-      "key": "keybdB_key_9_kb_mute_on",
+      "key": "new_light2_btn_press_120x48_c7b84ac28707",
       "source": {
-        "png": "pictures/keybdB_key_9_kb_mute_on.png"
+        "png": "pictures/new_light2_btn_press_120x48_c7b84ac28707.png"
       }
     },
     {
-      "key": "keybdB_key_0_kb_mute_on",
+      "key": "new_light2_btn_on_120x48_eeb5013ea8db",
       "source": {
-        "png": "pictures/keybdB_key_0_kb_mute_on.png"
+        "png": "pictures/new_light2_btn_on_120x48_eeb5013ea8db.png"
       }
     },
     {
-      "key": "keybdB_key_del_kb_mute_on",
+      "key": "new_light2_btn_on_press_120x48_98072e387094",
       "source": {
-        "png": "pictures/keybdB_key_del_kb_mute_on.png"
+        "png": "pictures/new_light2_btn_on_press_120x48_98072e387094.png"
       }
     },
     {
-      "key": "keybdB_key_ok_kb_mute_on",
+      "key": "new_back_btn_120x48_589c5be07636",
       "source": {
-        "png": "pictures/keybdB_key_ok_kb_mute_on.png"
+        "png": "pictures/new_back_btn_120x48_589c5be07636.png"
       }
     },
     {
-      "key": "keybdB_key_1",
+      "key": "new_back_btn_press_120x48_ca280ca378f4",
       "source": {
-        "png": "pictures/keybdB_key_1.png"
+        "png": "pictures/new_back_btn_press_120x48_ca280ca378f4.png"
       }
     },
     {
-      "key": "keybdB_key_1_press",
+      "key": "new_pause_btn_108x62_11ba33f66a60",
       "source": {
-        "png": "pictures/keybdB_key_1_press.png"
+        "png": "pictures/new_pause_btn_108x62_11ba33f66a60.png"
       }
     },
     {
-      "key": "keybdB_key_2",
+      "key": "new_pause_btn_press_108x62_f9b005f15631",
       "source": {
-        "png": "pictures/keybdB_key_2.png"
+        "png": "pictures/new_pause_btn_press_108x62_f9b005f15631.png"
       }
     },
     {
-      "key": "keybdB_key_2_press",
+      "key": "new_decor_272x258_aefe81d6cc91",
       "source": {
-        "png": "pictures/keybdB_key_2_press.png"
+        "png": "pictures/new_decor_272x258_aefe81d6cc91.png"
       }
     },
     {
-      "key": "keybdB_key_3",
+      "key": "new_heat_btn_248x50_5f95a95a9982",
       "source": {
-        "png": "pictures/keybdB_key_3.png"
+        "png": "pictures/new_heat_btn_248x50_5f95a95a9982.png"
       }
     },
     {
-      "key": "keybdB_key_3_press",
+      "key": "new_heat_btn_press_248x50_69f14c6f2ace",
       "source": {
-        "png": "pictures/keybdB_key_3_press.png"
+        "png": "pictures/new_heat_btn_press_248x50_69f14c6f2ace.png"
       }
     },
     {
-      "key": "keybdB_key_4",
+      "key": "new_temp_down_120x44_e1808261072f",
       "source": {
-        "png": "pictures/keybdB_key_4.png"
+        "png": "pictures/new_temp_down_120x44_e1808261072f.png"
       }
     },
     {
-      "key": "keybdB_key_4_press",
+      "key": "new_temp_down_press_120x44_10f04da33582",
       "source": {
-        "png": "pictures/keybdB_key_4_press.png"
+        "png": "pictures/new_temp_down_press_120x44_10f04da33582.png"
       }
     },
     {
-      "key": "keybdB_key_5",
+      "key": "new_temp_up_120x44_28eef137ed25",
       "source": {
-        "png": "pictures/keybdB_key_5.png"
+        "png": "pictures/new_temp_up_120x44_28eef137ed25.png"
       }
     },
     {
-      "key": "keybdB_key_5_press",
+      "key": "new_temp_up_press_120x44_ce24eaa9e3d8",
       "source": {
-        "png": "pictures/keybdB_key_5_press.png"
+        "png": "pictures/new_temp_up_press_120x44_ce24eaa9e3d8.png"
       }
     },
     {
-      "key": "keybdB_key_6",
+      "key": "new_retract_btn_56x52_63e3316976a0",
       "source": {
-        "png": "pictures/keybdB_key_6.png"
+        "png": "pictures/new_retract_btn_56x52_63e3316976a0.png"
       }
     },
     {
-      "key": "keybdB_key_6_press",
+      "key": "new_retract_btn_press_56x52_d2c961b1f8ee",
       "source": {
-        "png": "pictures/keybdB_key_6_press.png"
+        "png": "pictures/new_retract_btn_press_56x52_d2c961b1f8ee.png"
       }
     },
     {
-      "key": "keybdB_key_7",
+      "key": "new_extrude_btn_56x52_0b80ab15deed",
       "source": {
-        "png": "pictures/keybdB_key_7.png"
+        "png": "pictures/new_extrude_btn_56x52_0b80ab15deed.png"
       }
     },
     {
-      "key": "keybdB_key_7_press",
+      "key": "new_extrude_btn_press_56x52_fbd1ef6e6433",
       "source": {
-        "png": "pictures/keybdB_key_7_press.png"
+        "png": "pictures/new_extrude_btn_press_56x52_fbd1ef6e6433.png"
       }
     },
     {
-      "key": "keybdB_key_8",
+      "key": "new_replace_btn_120x52_eae41015029a",
       "source": {
-        "png": "pictures/keybdB_key_8.png"
+        "png": "pictures/new_replace_btn_120x52_eae41015029a.png"
       }
     },
     {
-      "key": "keybdB_key_8_press",
+      "key": "new_replace_btn_press_120x52_e5a8ed61b484",
       "source": {
-        "png": "pictures/keybdB_key_8_press.png"
+        "png": "pictures/new_replace_btn_press_120x52_e5a8ed61b484.png"
       }
     },
     {
-      "key": "keybdB_key_9",
+      "key": "new_decor_272x258_c735b77c5184",
       "source": {
-        "png": "pictures/keybdB_key_9.png"
+        "png": "pictures/new_decor_272x258_c735b77c5184.png"
       }
     },
     {
-      "key": "keybdB_key_9_press",
+      "key": "new_back_btn_40x40_ecc897558997",
       "source": {
-        "png": "pictures/keybdB_key_9_press.png"
+        "png": "pictures/new_back_btn_40x40_ecc897558997.png"
       }
     },
     {
-      "key": "keybdB_key_0",
+      "key": "new_back_btn_press_40x40_ed8ecbf61b6e",
       "source": {
-        "png": "pictures/keybdB_key_0.png"
+        "png": "pictures/new_back_btn_press_40x40_ed8ecbf61b6e.png"
       }
     },
     {
-      "key": "keybdB_key_0_press",
+      "key": "new_step_001_z_off_56x40_a2be1bcfdb86",
       "source": {
-        "png": "pictures/keybdB_key_0_press.png"
+        "png": "pictures/new_step_001_z_off_56x40_a2be1bcfdb86.png"
       }
     },
     {
-      "key": "keybdB_key_del",
+      "key": "new_step_001_z_off_press_56x40_4528f8dd0686",
       "source": {
-        "png": "pictures/keybdB_key_del.png"
+        "png": "pictures/new_step_001_z_off_press_56x40_4528f8dd0686.png"
       }
     },
     {
-      "key": "keybdB_key_del_press",
+      "key": "new_step_001_z_on_56x40_74c44c279413",
       "source": {
-        "png": "pictures/keybdB_key_del_press.png"
+        "png": "pictures/new_step_001_z_on_56x40_74c44c279413.png"
       }
     },
     {
-      "key": "keybdB_key_ok",
+      "key": "new_step_001_z_on_press_56x40_d2b0b7294646",
       "source": {
-        "png": "pictures/keybdB_key_ok.png"
+        "png": "pictures/new_step_001_z_on_press_56x40_d2b0b7294646.png"
       }
     },
     {
-      "key": "keybdB_key_ok_press",
+      "key": "new_step_005_z_off_56x40_5c506c4dfdbe",
       "source": {
-        "png": "pictures/keybdB_key_ok_press.png"
+        "png": "pictures/new_step_005_z_off_56x40_5c506c4dfdbe.png"
       }
     },
     {
-      "key": "filament_kb_input_bg_169x53",
+      "key": "new_step_005_z_off_press_56x40_ccef509f0889",
       "source": {
-        "png": "pictures/filament_kb_input_bg_169x53.png"
+        "png": "pictures/new_step_005_z_off_press_56x40_ccef509f0889.png"
       }
     },
     {
-      "key": "filament_kb_input_bg_he_169x53",
+      "key": "new_step_005_z_on_56x40_131ccf19183a",
       "source": {
-        "png": "pictures/filament_kb_input_bg_he_169x53.png"
+        "png": "pictures/new_step_005_z_on_56x40_131ccf19183a.png"
       }
     },
     {
-      "key": "filament_kb_input_bg_he_2_169x53",
+      "key": "new_step_005_z_on_press_56x40_c98b1bac5199",
       "source": {
-        "png": "pictures/filament_kb_input_bg_he_2_169x53.png"
+        "png": "pictures/new_step_005_z_on_press_56x40_c98b1bac5199.png"
       }
     },
     {
-      "key": "wifi_kb_key_shift_off",
+      "key": "new_step_01_z_off_56x40_bc20cc1e6f7a",
       "source": {
-        "png": "pictures/wifi_kb_key_shift_off.png"
+        "png": "pictures/new_step_01_z_off_56x40_bc20cc1e6f7a.png"
       }
     },
     {
-      "key": "wifi_kb_key_shift",
+      "key": "new_step_01_z_off_press_56x40_53be543a9fce",
       "source": {
-        "png": "pictures/wifi_kb_key_shift.png"
+        "png": "pictures/new_step_01_z_off_press_56x40_53be543a9fce.png"
       }
     },
     {
-      "key": "wifi_kb_key_shift_press",
+      "key": "new_step_01_z_on_56x40_f9df29a54ed8",
       "source": {
-        "png": "pictures/wifi_kb_key_shift_press.png"
+        "png": "pictures/new_step_01_z_on_56x40_f9df29a54ed8.png"
       }
     },
     {
-      "key": "wifi_kb_key_shift_press_42x67",
+      "key": "new_step_01_z_on_press_56x40_5078cf084ff5",
       "source": {
-        "png": "pictures/wifi_kb_key_shift_press_42x67.png"
+        "png": "pictures/new_step_01_z_on_press_56x40_5078cf084ff5.png"
       }
     },
     {
-      "key": "wifi_kb_key_shift_sym_page",
+      "key": "new_step_05_z_off_56x40_0c810baadfbe",
       "source": {
-        "png": "pictures/wifi_kb_key_shift_sym_page.png"
+        "png": "pictures/new_step_05_z_off_56x40_0c810baadfbe.png"
       }
     },
     {
-      "key": "wifi_kb_key_sym_press",
+      "key": "new_step_05_z_off_press_56x40_917c1c694025",
       "source": {
-        "png": "pictures/wifi_kb_key_sym_press.png"
+        "png": "pictures/new_step_05_z_off_press_56x40_917c1c694025.png"
       }
     },
     {
-      "key": "wifi_kb_key_ok_press",
+      "key": "new_step_05_z_on_56x40_f07ed077b426",
       "source": {
-        "png": "pictures/wifi_kb_key_ok_press.png"
+        "png": "pictures/new_step_05_z_on_56x40_f07ed077b426.png"
       }
     },
     {
-      "key": "wifi_kb_key_ok",
+      "key": "new_step_05_z_on_press_56x40_15a406be3f6f",
       "source": {
-        "png": "pictures/wifi_kb_key_ok.png"
+        "png": "pictures/new_step_05_z_on_press_56x40_15a406be3f6f.png"
       }
     },
     {
-      "key": "sleep_mode_opt_5min_2_242x48",
+      "key": "new_z_up_120x52_c07d68c5f1c9",
       "source": {
-        "png": "pictures/sleep_mode_opt_5min_2_242x48.png"
+        "png": "pictures/new_z_up_120x52_c07d68c5f1c9.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt1_72x70_2",
+      "key": "new_z_up_press_120x52_da298bd963d0",
       "source": {
-        "png": "pictures/pre_heat_temp_opt1_72x70_2.png"
+        "png": "pictures/new_z_up_press_120x52_da298bd963d0.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt1_press_2_72x70",
+      "key": "new_z_down_120x52_6fe6ac53c700",
       "source": {
-        "png": "pictures/pre_heat_temp_opt1_press_2_72x70.png"
+        "png": "pictures/new_z_down_120x52_6fe6ac53c700.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt2",
+      "key": "new_z_down_press_120x52_75a16c2cdb33",
       "source": {
-        "png": "pictures/pre_heat_temp_opt2.png"
+        "png": "pictures/new_z_down_press_120x52_75a16c2cdb33.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt2_press",
+      "key": "new_file1_none_120x150_e3602a02e6be",
       "source": {
-        "png": "pictures/pre_heat_temp_opt2_press.png"
+        "png": "pictures/new_file1_none_120x150_e3602a02e6be.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt3",
+      "key": "new_file1_none_press_120x150_6d14704c2c3c",
       "source": {
-        "png": "pictures/pre_heat_temp_opt3.png"
+        "png": "pictures/new_file1_none_press_120x150_6d14704c2c3c.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt3_press",
+      "key": "new_file1_file_120x150_e49e970f3e36",
       "source": {
-        "png": "pictures/pre_heat_temp_opt3_press.png"
+        "png": "pictures/new_file1_file_120x150_e49e970f3e36.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt1_72x70",
+      "key": "new_file1_file_press_120x150_8e6696ab55c0",
       "source": {
-        "png": "pictures/pre_heat_temp_opt1_72x70.png"
+        "png": "pictures/new_file1_file_press_120x150_8e6696ab55c0.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt1_72x70_press",
+      "key": "new_file1_dir_120x150_508b7c451b5d",
       "source": {
-        "png": "pictures/pre_heat_temp_opt1_72x70_press.png"
+        "png": "pictures/new_file1_dir_120x150_508b7c451b5d.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt2_opt1",
+      "key": "new_file1_dir_press_120x150_48f0342551d4",
       "source": {
-        "png": "pictures/pre_heat_temp_opt2_opt1.png"
+        "png": "pictures/new_file1_dir_press_120x150_48f0342551d4.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt2_opt1_press_2",
+      "key": "new_thumb_bg_104x104_c0a19028f56e",
       "source": {
-        "png": "pictures/pre_heat_temp_opt2_opt1_press_2.png"
+        "png": "pictures/new_thumb_bg_104x104_c0a19028f56e.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt3_opt1",
+      "key": "new_prev_77x40_b6029754de6e",
       "source": {
-        "png": "pictures/pre_heat_temp_opt3_opt1.png"
+        "png": "pictures/new_prev_77x40_b6029754de6e.png"
       }
     },
     {
-      "key": "pre_heat_temp_opt3_opt1_press_2",
+      "key": "new_prev_press_77x40_c1990e3c051e",
       "source": {
-        "png": "pictures/pre_heat_temp_opt3_opt1_press_2.png"
+        "png": "pictures/new_prev_press_77x40_c1990e3c051e.png"
       }
     },
     {
-      "key": "lang_cn",
+      "key": "new_prev_on_77x40_1cec80659566",
       "source": {
-        "png": "pictures/lang_cn.png"
+        "png": "pictures/new_prev_on_77x40_1cec80659566.png"
       }
     },
     {
-      "key": "lang_cn_press",
+      "key": "new_prev_on_press_77x40_832a2f23ce02",
       "source": {
-        "png": "pictures/lang_cn_press.png"
+        "png": "pictures/new_prev_on_press_77x40_832a2f23ce02.png"
       }
     },
     {
-      "key": "lang_ru",
+      "key": "new_next_on_78x40_0a03c3306fa8",
       "source": {
-        "png": "pictures/lang_ru.png"
+        "png": "pictures/new_next_on_78x40_0a03c3306fa8.png"
       }
     },
     {
-      "key": "open_language_lang_en",
+      "key": "new_next_on_press_78x40_3dd701a5a537",
       "source": {
-        "png": "pictures/open_language_lang_en.png"
+        "png": "pictures/new_next_on_press_78x40_3dd701a5a537.png"
       }
     },
     {
-      "key": "open_language_lang_jp",
+      "key": "new_next_78x40_a0c1a171908c",
       "source": {
-        "png": "pictures/open_language_lang_jp.png"
+        "png": "pictures/new_next_78x40_a0c1a171908c.png"
       }
     },
     {
-      "key": "open_language_next",
+      "key": "new_next_press_78x40_a45a0a654f36",
       "source": {
-        "png": "pictures/open_language_next.png"
+        "png": "pictures/new_next_press_78x40_a45a0a654f36.png"
       }
     },
     {
-      "key": "open_language_next_press",
+      "key": "new_up_dir_on_77x40_998f3319e4fa",
       "source": {
-        "png": "pictures/open_language_next_press.png"
+        "png": "pictures/new_up_dir_on_77x40_998f3319e4fa.png"
       }
     },
     {
-      "key": "prev_page",
+      "key": "new_up_dir_on_press_77x40_f7dbb361c518",
       "source": {
-        "png": "pictures/prev_page.png"
+        "png": "pictures/new_up_dir_on_press_77x40_f7dbb361c518.png"
       }
     },
     {
-      "key": "prev_page_press",
+      "key": "new_up_dir_77x40_335981e38ff9",
       "source": {
-        "png": "pictures/prev_page_press.png"
+        "png": "pictures/new_up_dir_77x40_335981e38ff9.png"
       }
     },
     {
-      "key": "next_page",
+      "key": "new_up_dir_press_77x40_b7aecfba2f3d",
       "source": {
-        "png": "pictures/next_page.png"
+        "png": "pictures/new_up_dir_press_77x40_b7aecfba2f3d.png"
       }
     },
     {
-      "key": "next_page_press",
+      "key": "new_nav_files_68x55_94abd30833ad",
       "source": {
-        "png": "pictures/next_page_press.png"
+        "png": "pictures/new_nav_files_68x55_94abd30833ad.png"
       }
     },
     {
-      "key": "cal_warning_popup_bg",
+      "key": "new_nav_files_press_68x55_1974de2ce988",
       "source": {
-        "png": "pictures/cal_warning_popup_bg.png"
+        "png": "pictures/new_nav_files_press_68x55_1974de2ce988.png"
       }
     },
     {
-      "key": "cal_warning_back_btn",
+      "key": "new_file1_mark_on_24x24_c13cbf2bc6ea",
       "source": {
-        "png": "pictures/cal_warning_back_btn.png"
+        "png": "pictures/new_file1_mark_on_24x24_c13cbf2bc6ea.png"
       }
     },
     {
-      "key": "cal_warning_back_btn_press",
+      "key": "new_decor_152x152_1d3410e11d80",
       "source": {
-        "png": "pictures/cal_warning_back_btn_press.png"
+        "png": "pictures/new_decor_152x152_1d3410e11d80.png"
       }
     },
     {
-      "key": "next",
+      "key": "new_back_btn_88x72_2e57a04b44ee",
       "source": {
-        "png": "pictures/next.png"
+        "png": "pictures/new_back_btn_88x72_2e57a04b44ee.png"
       }
     },
     {
-      "key": "next_press",
+      "key": "new_back_btn_press_88x72_7b7561ba995c",
       "source": {
-        "png": "pictures/next_press.png"
+        "png": "pictures/new_back_btn_press_88x72_7b7561ba995c.png"
       }
     },
     {
-      "key": "open_warning_next_236x40",
+      "key": "new_start_btn_88x72_fff2dba93723",
       "source": {
-        "png": "pictures/open_warning_next_236x40.png"
+        "png": "pictures/new_start_btn_88x72_fff2dba93723.png"
       }
     },
     {
-      "key": "open_warning_next_236x40_press",
+      "key": "new_start_btn_press_88x72_7cfb83ecc25c",
       "source": {
-        "png": "pictures/open_warning_next_236x40_press.png"
+        "png": "pictures/new_start_btn_press_88x72_7cfb83ecc25c.png"
       }
     },
     {
-      "key": "filamentVideo2_temp_down",
+      "key": "new_decor_248x96_675448bb0fc7",
       "source": {
-        "png": "pictures/filamentVideo2_temp_down.png"
+        "png": "pictures/new_decor_248x96_675448bb0fc7.png"
       }
     },
     {
-      "key": "filamentVideo2_temp_down_press",
+      "key": "new_level_btn_248x46_644f9d7d3d31",
       "source": {
-        "png": "pictures/filamentVideo2_temp_down_press.png"
+        "png": "pictures/new_level_btn_248x46_644f9d7d3d31.png"
       }
     },
     {
-      "key": "filamentVideo2_temp_up",
+      "key": "new_level_btn_press_248x46_4136a2b0ea88",
       "source": {
-        "png": "pictures/filamentVideo2_temp_up.png"
+        "png": "pictures/new_level_btn_press_248x46_4136a2b0ea88.png"
       }
     },
     {
-      "key": "filamentVideo2_temp_up_press",
+      "key": "new_level_btn_on_press_248x46_753f6e79c2d3",
       "source": {
-        "png": "pictures/filamentVideo2_temp_up_press.png"
+        "png": "pictures/new_level_btn_on_press_248x46_753f6e79c2d3.png"
       }
     },
     {
-      "key": "filamentVideo3_next_256x40",
+      "key": "new_decor_248x48_a6c024eddd99",
       "source": {
-        "png": "pictures/filamentVideo3_next_256x40.png"
+        "png": "pictures/new_decor_248x48_a6c024eddd99.png"
       }
     },
     {
-      "key": "filamentVideo3_next_256x40_press",
+      "key": "new_key_a_44x40_62221904506c",
       "source": {
-        "png": "pictures/filamentVideo3_next_256x40_press.png"
+        "png": "pictures/new_key_a_44x40_62221904506c.png"
       }
     },
     {
-      "key": "filamentVideo3_extrude",
+      "key": "new_key_a_press_44x40_a350df705695",
       "source": {
-        "png": "pictures/filamentVideo3_extrude.png"
+        "png": "pictures/new_key_a_press_44x40_a350df705695.png"
       }
     },
     {
-      "key": "filamentVideo3_extrude_press",
+      "key": "new_key_space_96x40_45b9adb663f0",
       "source": {
-        "png": "pictures/filamentVideo3_extrude_press.png"
+        "png": "pictures/new_key_space_96x40_45b9adb663f0.png"
       }
     },
     {
-      "key": "auto_unload_load_btn_256x40",
+      "key": "new_key_space_press_96x40_14b33aaa9320",
       "source": {
-        "png": "pictures/auto_unload_load_btn_256x40.png"
+        "png": "pictures/new_key_space_press_96x40_14b33aaa9320.png"
       }
     },
     {
-      "key": "auto_unload_load_btn_256x40_press",
+      "key": "new_key_del_40x88_34a2915056d7",
       "source": {
-        "png": "pictures/auto_unload_load_btn_256x40_press.png"
+        "png": "pictures/new_key_del_40x88_34a2915056d7.png"
       }
     },
     {
-      "key": "main_stop_btn",
+      "key": "new_key_del_press_40x88_aaaf68c0510b",
       "source": {
-        "png": "pictures/main_stop_btn.png"
+        "png": "pictures/new_key_del_press_40x88_aaaf68c0510b.png"
       }
     },
     {
-      "key": "main_stop_btn_press",
+      "key": "new_key_shift_lower_40x88_16e0547c28c7",
       "source": {
-        "png": "pictures/main_stop_btn_press.png"
+        "png": "pictures/new_key_shift_lower_40x88_16e0547c28c7.png"
       }
     },
     {
-      "key": "main_nav_main",
+      "key": "new_key_shift_lower_press_40x88_08c30fe00576",
       "source": {
-        "png": "pictures/main_nav_main.png"
+        "png": "pictures/new_key_shift_lower_press_40x88_08c30fe00576.png"
       }
     },
     {
-      "key": "main_nav_main_press",
+      "key": "new_key_shift_upper_40x88_ad79d81ea6fd",
       "source": {
-        "png": "pictures/main_nav_main_press.png"
+        "png": "pictures/new_key_shift_upper_40x88_ad79d81ea6fd.png"
       }
     },
     {
-      "key": "nav_adjust",
+      "key": "new_key_shift_upper_press_40x88_2117b9ffa691",
       "source": {
-        "png": "pictures/nav_adjust.png"
+        "png": "pictures/new_key_shift_upper_press_40x88_2117b9ffa691.png"
       }
     },
     {
-      "key": "nav_adjust_press",
+      "key": "new_key_shift_sym_40x88_90df07912c0a",
       "source": {
-        "png": "pictures/nav_adjust_press.png"
+        "png": "pictures/new_key_shift_sym_40x88_90df07912c0a.png"
       }
     },
     {
-      "key": "nav_files",
+      "key": "new_key_shift_sym_press_40x88_c9258ff71aa8",
       "source": {
-        "png": "pictures/nav_files.png"
+        "png": "pictures/new_key_shift_sym_press_40x88_c9258ff71aa8.png"
       }
     },
     {
-      "key": "nav_files_press",
+      "key": "new_key_sym_40x40_6a82f67050d1",
       "source": {
-        "png": "pictures/nav_files_press.png"
+        "png": "pictures/new_key_sym_40x40_6a82f67050d1.png"
       }
     },
     {
-      "key": "fila_set_fan_nav_settings",
+      "key": "new_key_sym_press_40x40_71da6a02a910",
       "source": {
-        "png": "pictures/fila_set_fan_nav_settings.png"
+        "png": "pictures/new_key_sym_press_40x40_71da6a02a910.png"
       }
     },
     {
-      "key": "fila_set_fan_nav_settings_press",
+      "key": "new_key_ok_on_40x88_2d2d59cedb3f",
       "source": {
-        "png": "pictures/fila_set_fan_nav_settings_press.png"
+        "png": "pictures/new_key_ok_on_40x88_2d2d59cedb3f.png"
       }
     },
     {
-      "key": "main_ver_warning_256x244",
+      "key": "new_key_ok_on_press_40x88_d4cd49948928",
       "source": {
-        "png": "pictures/main_ver_warning_256x244.png"
+        "png": "pictures/new_key_ok_on_press_40x88_d4cd49948928.png"
       }
     },
     {
-      "key": "nav_main",
+      "key": "new_key_ok_dim_40x88_506e79cd39ba",
       "source": {
-        "png": "pictures/nav_main.png"
+        "png": "pictures/new_key_ok_dim_40x88_506e79cd39ba.png"
       }
     },
     {
-      "key": "filelist_nav_main_64x56_press",
+      "key": "new_key_ok_dim_press_40x88_852cf4d9ba06",
       "source": {
-        "png": "pictures/filelist_nav_main_64x56_press.png"
+        "png": "pictures/new_key_ok_dim_press_40x88_852cf4d9ba06.png"
       }
     },
     {
-      "key": "filelist_nav_adjust_press",
+      "key": "new_static_44x44_38975ab26145",
       "source": {
-        "png": "pictures/filelist_nav_adjust_press.png"
+        "png": "pictures/new_static_44x44_38975ab26145.png"
       }
     },
     {
-      "key": "filelist_nav_files",
+      "key": "new_static_40x40_b724cfd96162",
       "source": {
-        "png": "pictures/filelist_nav_files.png"
+        "png": "pictures/new_static_40x40_b724cfd96162.png"
       }
     },
     {
-      "key": "filelist_nav_files_press",
+      "key": "new_usb_icon_20x20_2c16258c3309",
       "source": {
-        "png": "pictures/filelist_nav_files_press.png"
+        "png": "pictures/new_usb_icon_20x20_2c16258c3309.png"
       }
     },
     {
-      "key": "filelist_file1_mark_44x39",
+      "key": "new_usb_icon_on_20x20_f040434ed8ff",
       "source": {
-        "png": "pictures/filelist_file1_mark_44x39.png"
+        "png": "pictures/new_usb_icon_on_20x20_f040434ed8ff.png"
       }
     },
     {
-      "key": "preview_back_btn_86x75",
+      "key": "new_wifi_icon_20x20_e0856039696a",
       "source": {
-        "png": "pictures/preview_back_btn_86x75.png"
+        "png": "pictures/new_wifi_icon_20x20_e0856039696a.png"
       }
     },
     {
-      "key": "preview_back_btn_86x75_press",
+      "key": "new_wifi_icon_on_20x20_5bd7b255ccca",
       "source": {
-        "png": "pictures/preview_back_btn_86x75_press.png"
+        "png": "pictures/new_wifi_icon_on_20x20_5bd7b255ccca.png"
       }
     },
     {
-      "key": "preview_start_btn",
+      "key": "new_last_file_btn_248x198_eb97f168bed2",
       "source": {
-        "png": "pictures/preview_start_btn.png"
+        "png": "pictures/new_last_file_btn_248x198_eb97f168bed2.png"
       }
     },
     {
-      "key": "preview_start_btn_press",
+      "key": "new_last_file_btn_press_248x198_4bea1fab2e5d",
       "source": {
-        "png": "pictures/preview_start_btn_press.png"
+        "png": "pictures/new_last_file_btn_press_248x198_4bea1fab2e5d.png"
       }
     },
     {
-      "key": "nav_main_press",
+      "key": "new_thumb_empty_140x140_cdc2780dcc90",
       "source": {
-        "png": "pictures/nav_main_press.png"
+        "png": "pictures/new_thumb_empty_140x140_cdc2780dcc90.png"
       }
     },
     {
-      "key": "preview_nav_files_press",
+      "key": "new_nozzle_card_168x52_bb04e305592a",
       "source": {
-        "png": "pictures/preview_nav_files_press.png"
+        "png": "pictures/new_nozzle_card_168x52_bb04e305592a.png"
       }
     },
     {
-      "key": "cancel",
+      "key": "new_bed_icon_on_26x26_9c993bf1b0c5",
       "source": {
-        "png": "pictures/cancel.png"
+        "png": "pictures/new_bed_icon_on_26x26_9c993bf1b0c5.png"
       }
     },
     {
-      "key": "cancel_press",
+      "key": "new_chamber_icon_on_26x26_4fc65af02134",
       "source": {
-        "png": "pictures/cancel_press.png"
+        "png": "pictures/new_chamber_icon_on_26x26_4fc65af02134.png"
       }
     },
     {
-      "key": "printing_fan2_btn",
+      "key": "new_light_btn_72x52_6275a4454071",
       "source": {
-        "png": "pictures/printing_fan2_btn.png"
+        "png": "pictures/new_light_btn_72x52_6275a4454071.png"
       }
     },
     {
-      "key": "printing_fan2_btn_press",
+      "key": "new_light_btn_press_72x52_c421e561a7d0",
       "source": {
-        "png": "pictures/printing_fan2_btn_press.png"
+        "png": "pictures/new_light_btn_press_72x52_c421e561a7d0.png"
       }
     },
     {
-      "key": "printing_fan1_btn",
+      "key": "new_light_btn_on_72x52_51cc5ec24bdf",
       "source": {
-        "png": "pictures/printing_fan1_btn.png"
+        "png": "pictures/new_light_btn_on_72x52_51cc5ec24bdf.png"
       }
     },
     {
-      "key": "printing_fan1_btn_press",
+      "key": "new_light_btn_on_press_72x52_8361c1bb2ce5",
       "source": {
-        "png": "pictures/printing_fan1_btn_press.png"
+        "png": "pictures/new_light_btn_on_press_72x52_8361c1bb2ce5.png"
       }
     },
     {
-      "key": "pause_btn",
+      "key": "new_beep_btn_72x52_3967274e0965",
       "source": {
-        "png": "pictures/pause_btn.png"
+        "png": "pictures/new_beep_btn_72x52_3967274e0965.png"
       }
     },
     {
-      "key": "pause_btn_press",
+      "key": "new_beep_btn_press_72x52_6f25c4ed425b",
       "source": {
-        "png": "pictures/pause_btn_press.png"
+        "png": "pictures/new_beep_btn_press_72x52_6f25c4ed425b.png"
       }
     },
     {
-      "key": "stop_btn",
+      "key": "new_beep_btn_on_72x52_40d008a7bd9c",
       "source": {
-        "png": "pictures/stop_btn.png"
+        "png": "pictures/new_beep_btn_on_72x52_40d008a7bd9c.png"
       }
     },
     {
-      "key": "stop_btn_press",
+      "key": "new_beep_btn_on_press_72x52_f905b2126f04",
       "source": {
-        "png": "pictures/stop_btn_press.png"
+        "png": "pictures/new_beep_btn_on_press_72x52_f905b2126f04.png"
       }
     },
     {
-      "key": "printing_speed_btn",
+      "key": "new_stop_btn_72x52_f17930f80220",
       "source": {
-        "png": "pictures/printing_speed_btn.png"
+        "png": "pictures/new_stop_btn_72x52_f17930f80220.png"
       }
     },
     {
-      "key": "printing_speed_btn_press",
+      "key": "new_stop_btn_press_72x52_00f8429ea267",
       "source": {
-        "png": "pictures/printing_speed_btn_press.png"
+        "png": "pictures/new_stop_btn_press_72x52_00f8429ea267.png"
       }
     },
     {
-      "key": "printing_flow_btn",
+      "key": "new_nav_main_68x56_af482f470706",
       "source": {
-        "png": "pictures/printing_flow_btn.png"
+        "png": "pictures/new_nav_main_68x56_af482f470706.png"
       }
     },
     {
-      "key": "printing_flow_btn_press",
+      "key": "new_nav_main_press_68x56_907cfaa0a4d0",
       "source": {
-        "png": "pictures/printing_flow_btn_press.png"
+        "png": "pictures/new_nav_main_press_68x56_907cfaa0a4d0.png"
       }
     },
     {
-      "key": "printing_fan3_btn",
+      "key": "new_nav_adjust_68x56_0969228c0990",
       "source": {
-        "png": "pictures/printing_fan3_btn.png"
+        "png": "pictures/new_nav_adjust_68x56_0969228c0990.png"
       }
     },
     {
-      "key": "printing_fan3_btn_press",
+      "key": "new_nav_adjust_press_68x56_4d06d7eeefc2",
       "source": {
-        "png": "pictures/printing_fan3_btn_press.png"
+        "png": "pictures/new_nav_adjust_press_68x56_4d06d7eeefc2.png"
       }
     },
     {
-      "key": "keybdB_back_btn",
+      "key": "new_nav_files_68x56_a5cf6f773f5b",
       "source": {
-        "png": "pictures/keybdB_back_btn.png"
+        "png": "pictures/new_nav_files_68x56_a5cf6f773f5b.png"
       }
     },
     {
-      "key": "keybdB_back_btn_press",
+      "key": "new_nav_files_press_68x56_8e87f3c67dee",
       "source": {
-        "png": "pictures/keybdB_back_btn_press.png"
+        "png": "pictures/new_nav_files_press_68x56_8e87f3c67dee.png"
       }
     },
     {
-      "key": "print_zoffset_back_btn",
+      "key": "new_nav_settings_68x56_dd20a6c5be1b",
       "source": {
-        "png": "pictures/print_zoffset_back_btn.png"
+        "png": "pictures/new_nav_settings_68x56_dd20a6c5be1b.png"
       }
     },
     {
-      "key": "print_zoffset_back_btn_press",
+      "key": "new_nav_settings_press_68x56_c92b293260ec",
       "source": {
-        "png": "pictures/print_zoffset_back_btn_press.png"
+        "png": "pictures/new_nav_settings_press_68x56_c92b293260ec.png"
       }
     },
     {
-      "key": "print_zoffset_z_up",
+      "key": "new_ver_panel_256x244_9ae9dc322eae",
       "source": {
-        "png": "pictures/print_zoffset_z_up.png"
+        "png": "pictures/new_ver_panel_256x244_9ae9dc322eae.png"
       }
     },
     {
-      "key": "print_zoffset_z_up_press",
+      "key": "new_decor_248x80_76260655ad71",
       "source": {
-        "png": "pictures/print_zoffset_z_up_press.png"
+        "png": "pictures/new_decor_248x80_76260655ad71.png"
       }
     },
     {
-      "key": "print_zoffset_z_down",
+      "key": "new_decor_120x140_0afd6ba9bf75",
       "source": {
-        "png": "pictures/print_zoffset_z_down.png"
+        "png": "pictures/new_decor_120x140_0afd6ba9bf75.png"
       }
     },
     {
-      "key": "print_zoffset_z_down_press",
+      "key": "new_decor_120x140_0de1462e485c",
       "source": {
-        "png": "pictures/print_zoffset_z_down_press.png"
+        "png": "pictures/new_decor_120x140_0de1462e485c.png"
       }
     },
     {
-      "key": "print_filament_temp_up",
+      "key": "new_decor_248x192_690930749325",
       "source": {
-        "png": "pictures/print_filament_temp_up.png"
+        "png": "pictures/new_decor_248x192_690930749325.png"
       }
     },
     {
-      "key": "print_filament_temp_up_press",
+      "key": "new_nozzle_icon_on_26x26_4c2c1d686ec1",
       "source": {
-        "png": "pictures/print_filament_temp_up_press.png"
-      }
-    },
-    {
-      "key": "print_filament_temp_down",
-      "source": {
-        "png": "pictures/print_filament_temp_down.png"
-      }
-    },
-    {
-      "key": "print_filament_temp_down_press",
-      "source": {
-        "png": "pictures/print_filament_temp_down_press.png"
-      }
-    },
-    {
-      "key": "print_filament_replace_btn",
-      "source": {
-        "png": "pictures/print_filament_replace_btn.png"
-      }
-    },
-    {
-      "key": "print_filament_replace_btn_press",
-      "source": {
-        "png": "pictures/print_filament_replace_btn_press.png"
-      }
-    },
-    {
-      "key": "print_filament_retract_btn",
-      "source": {
-        "png": "pictures/print_filament_retract_btn.png"
-      }
-    },
-    {
-      "key": "print_filament_retract_btn_press",
-      "source": {
-        "png": "pictures/print_filament_retract_btn_press.png"
-      }
-    },
-    {
-      "key": "print_filament_extrude_btn",
-      "source": {
-        "png": "pictures/print_filament_extrude_btn.png"
-      }
-    },
-    {
-      "key": "print_filament_extrude_btn_press",
-      "source": {
-        "png": "pictures/print_filament_extrude_btn_press.png"
-      }
-    },
-    {
-      "key": "printing_2_speed_btn",
-      "source": {
-        "png": "pictures/printing_2_speed_btn.png"
-      }
-    },
-    {
-      "key": "printing_2_speed_btn_press",
-      "source": {
-        "png": "pictures/printing_2_speed_btn_press.png"
-      }
-    },
-    {
-      "key": "printing_2_flow_btn",
-      "source": {
-        "png": "pictures/printing_2_flow_btn.png"
-      }
-    },
-    {
-      "key": "printing_2_flow_btn_press",
-      "source": {
-        "png": "pictures/printing_2_flow_btn_press.png"
-      }
-    },
-    {
-      "key": "printing_2_zoffset_btn",
-      "source": {
-        "png": "pictures/printing_2_zoffset_btn.png"
-      }
-    },
-    {
-      "key": "printing_2_zoffset_btn_press",
-      "source": {
-        "png": "pictures/printing_2_zoffset_btn_press.png"
-      }
-    },
-    {
-      "key": "printing_2_back_btn",
-      "source": {
-        "png": "pictures/printing_2_back_btn.png"
-      }
-    },
-    {
-      "key": "printing_2_back_btn_press",
-      "source": {
-        "png": "pictures/printing_2_back_btn_press.png"
-      }
-    },
-    {
-      "key": "print_finish_ok",
-      "source": {
-        "png": "pictures/print_finish_ok.png"
-      }
-    },
-    {
-      "key": "print_finish_ok_press",
-      "source": {
-        "png": "pictures/print_finish_ok_press.png"
-      }
-    },
-    {
-      "key": "move_pop_1_popup_bg",
-      "source": {
-        "png": "pictures/move_pop_1_popup_bg.png"
-      }
-    },
-    {
-      "key": "move_pop_1_ok",
-      "source": {
-        "png": "pictures/move_pop_1_ok.png"
-      }
-    },
-    {
-      "key": "move_pop_1_ok_press",
-      "source": {
-        "png": "pictures/move_pop_1_ok_press.png"
-      }
-    },
-    {
-      "key": "move_z_up",
-      "source": {
-        "png": "pictures/move_z_up.png"
-      }
-    },
-    {
-      "key": "move_z_up_press",
-      "source": {
-        "png": "pictures/move_z_up_press.png"
-      }
-    },
-    {
-      "key": "move_motors_off",
-      "source": {
-        "png": "pictures/move_motors_off.png"
-      }
-    },
-    {
-      "key": "move_motors_off_press",
-      "source": {
-        "png": "pictures/move_motors_off_press.png"
-      }
-    },
-    {
-      "key": "move_z_down",
-      "source": {
-        "png": "pictures/move_z_down.png"
-      }
-    },
-    {
-      "key": "move_z_down_press",
-      "source": {
-        "png": "pictures/move_z_down_press.png"
-      }
-    },
-    {
-      "key": "move_y_up",
-      "source": {
-        "png": "pictures/move_y_up.png"
-      }
-    },
-    {
-      "key": "move_y_up_press",
-      "source": {
-        "png": "pictures/move_y_up_press.png"
-      }
-    },
-    {
-      "key": "move_x_up",
-      "source": {
-        "png": "pictures/move_x_up.png"
-      }
-    },
-    {
-      "key": "move_x_up_press",
-      "source": {
-        "png": "pictures/move_x_up_press.png"
-      }
-    },
-    {
-      "key": "move_y_down",
-      "source": {
-        "png": "pictures/move_y_down.png"
-      }
-    },
-    {
-      "key": "move_y_down_press",
-      "source": {
-        "png": "pictures/move_y_down_press.png"
-      }
-    },
-    {
-      "key": "move_x_down",
-      "source": {
-        "png": "pictures/move_x_down.png"
-      }
-    },
-    {
-      "key": "move_x_down_press",
-      "source": {
-        "png": "pictures/move_x_down_press.png"
-      }
-    },
-    {
-      "key": "move_home_btn",
-      "source": {
-        "png": "pictures/move_home_btn.png"
-      }
-    },
-    {
-      "key": "move_home_btn_press",
-      "source": {
-        "png": "pictures/move_home_btn_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_nav_adjust",
-      "source": {
-        "png": "pictures/fila_set_fan_nav_adjust.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_nav_adjust_press",
-      "source": {
-        "png": "pictures/fila_set_fan_nav_adjust_press.png"
-      }
-    },
-    {
-      "key": "move_tab_manual",
-      "source": {
-        "png": "pictures/move_tab_manual.png"
-      }
-    },
-    {
-      "key": "move_tab_manual_press",
-      "source": {
-        "png": "pictures/move_tab_manual_press.png"
-      }
-    },
-    {
-      "key": "move_tab_load",
-      "source": {
-        "png": "pictures/move_tab_load.png"
-      }
-    },
-    {
-      "key": "move_tab_load_press",
-      "source": {
-        "png": "pictures/move_tab_load_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan2_toggle_128x48_press",
-      "source": {
-        "png": "pictures/fila_set_fan_fan2_toggle_128x48_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_fan3_toggle_press",
-      "source": {
-        "png": "pictures/fila_set_fan_fan3_toggle_press.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_back_btn_262x43",
-      "source": {
-        "png": "pictures/fila_set_fan_back_btn_262x43.png"
-      }
-    },
-    {
-      "key": "fila_set_fan_back_btn_262x43_press",
-      "source": {
-        "png": "pictures/fila_set_fan_back_btn_262x43_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_0",
-      "source": {
-        "png": "pictures/filament_kb_key_0.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_0_press",
-      "source": {
-        "png": "pictures/filament_kb_key_0_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_ok",
-      "source": {
-        "png": "pictures/filament_kb_key_ok.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_ok_press",
-      "source": {
-        "png": "pictures/filament_kb_key_ok_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_1",
-      "source": {
-        "png": "pictures/filament_kb_key_1.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_1_press",
-      "source": {
-        "png": "pictures/filament_kb_key_1_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_2",
-      "source": {
-        "png": "pictures/filament_kb_key_2.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_2_press",
-      "source": {
-        "png": "pictures/filament_kb_key_2_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_3",
-      "source": {
-        "png": "pictures/filament_kb_key_3.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_3_press",
-      "source": {
-        "png": "pictures/filament_kb_key_3_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_4",
-      "source": {
-        "png": "pictures/filament_kb_key_4.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_4_press",
-      "source": {
-        "png": "pictures/filament_kb_key_4_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_5",
-      "source": {
-        "png": "pictures/filament_kb_key_5.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_5_press",
-      "source": {
-        "png": "pictures/filament_kb_key_5_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_6",
-      "source": {
-        "png": "pictures/filament_kb_key_6.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_6_press",
-      "source": {
-        "png": "pictures/filament_kb_key_6_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_7",
-      "source": {
-        "png": "pictures/filament_kb_key_7.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_7_press",
-      "source": {
-        "png": "pictures/filament_kb_key_7_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_8",
-      "source": {
-        "png": "pictures/filament_kb_key_8.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_8_press",
-      "source": {
-        "png": "pictures/filament_kb_key_8_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_del",
-      "source": {
-        "png": "pictures/filament_kb_key_del.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_del_press",
-      "source": {
-        "png": "pictures/filament_kb_key_del_press.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_9",
-      "source": {
-        "png": "pictures/filament_kb_key_9.png"
-      }
-    },
-    {
-      "key": "filament_kb_key_9_press",
-      "source": {
-        "png": "pictures/filament_kb_key_9_press.png"
-      }
-    },
-    {
-      "key": "filament_pop_1_ok",
-      "source": {
-        "png": "pictures/filament_pop_1_ok.png"
-      }
-    },
-    {
-      "key": "filament_pop_1_ok_press",
-      "source": {
-        "png": "pictures/filament_pop_1_ok_press.png"
-      }
-    },
-    {
-      "key": "steps_bar",
-      "source": {
-        "png": "pictures/steps_bar.png"
-      }
-    },
-    {
-      "key": "alt_btn",
-      "source": {
-        "png": "pictures/alt_btn.png"
-      }
-    },
-    {
-      "key": "alt_btn_press",
-      "source": {
-        "png": "pictures/alt_btn_press.png"
-      }
-    },
-    {
-      "key": "level_mode_tab_settings_130x45",
-      "source": {
-        "png": "pictures/level_mode_tab_settings_130x45.png"
-      }
-    },
-    {
-      "key": "level_mode_tab_settings_130x45_press",
-      "source": {
-        "png": "pictures/level_mode_tab_settings_130x45_press.png"
-      }
-    },
-    {
-      "key": "level_mode_tab_calib",
-      "source": {
-        "png": "pictures/level_mode_tab_calib.png"
-      }
-    },
-    {
-      "key": "level_mode_tab_calib_press",
-      "source": {
-        "png": "pictures/level_mode_tab_calib_press.png"
-      }
-    },
-    {
-      "key": "nav_settings",
-      "source": {
-        "png": "pictures/nav_settings.png"
-      }
-    },
-    {
-      "key": "nav_settings_press",
-      "source": {
-        "png": "pictures/nav_settings_press.png"
-      }
-    },
-    {
-      "key": "level_mode_auto_level",
-      "source": {
-        "png": "pictures/level_mode_auto_level.png"
-      }
-    },
-    {
-      "key": "level_mode_auto_level_press",
-      "source": {
-        "png": "pictures/level_mode_auto_level_press.png"
-      }
-    },
-    {
-      "key": "back_btn",
-      "source": {
-        "png": "pictures/back_btn.png"
-      }
-    },
-    {
-      "key": "back_btn_press",
-      "source": {
-        "png": "pictures/back_btn_press.png"
-      }
-    },
-    {
-      "key": "auto_heaterbed_temp_down",
-      "source": {
-        "png": "pictures/auto_heaterbed_temp_down.png"
-      }
-    },
-    {
-      "key": "auto_heaterbed_temp_down_press",
-      "source": {
-        "png": "pictures/auto_heaterbed_temp_down_press.png"
-      }
-    },
-    {
-      "key": "auto_heaterbed_temp_up",
-      "source": {
-        "png": "pictures/auto_heaterbed_temp_up.png"
-      }
-    },
-    {
-      "key": "auto_heaterbed_temp_up_press",
-      "source": {
-        "png": "pictures/auto_heaterbed_temp_up_press.png"
-      }
-    },
-    {
-      "key": "next_btn",
-      "source": {
-        "png": "pictures/next_btn.png"
-      }
-    },
-    {
-      "key": "next_btn_press",
-      "source": {
-        "png": "pictures/next_btn_press.png"
-      }
-    },
-    {
-      "key": "auto_moving_steps_bar_50x480",
-      "source": {
-        "png": "pictures/auto_moving_steps_bar_50x480.png"
-      }
-    },
-    {
-      "key": "ok",
-      "source": {
-        "png": "pictures/ok.png"
-      }
-    },
-    {
-      "key": "ok_press",
-      "source": {
-        "png": "pictures/ok_press.png"
-      }
-    },
-    {
-      "key": "pre_bed_cal_z_up",
-      "source": {
-        "png": "pictures/pre_bed_cal_z_up.png"
-      }
-    },
-    {
-      "key": "pre_bed_cal_z_up_press",
-      "source": {
-        "png": "pictures/pre_bed_cal_z_up_press.png"
-      }
-    },
-    {
-      "key": "pre_bed_cal_z_down",
-      "source": {
-        "png": "pictures/pre_bed_cal_z_down.png"
-      }
-    },
-    {
-      "key": "pre_bed_cal_z_down_press",
-      "source": {
-        "png": "pictures/pre_bed_cal_z_down_press.png"
-      }
-    },
-    {
-      "key": "bed_finish_screw1",
-      "source": {
-        "png": "pictures/bed_finish_screw1.png"
-      }
-    },
-    {
-      "key": "bed_finish_screw1_press",
-      "source": {
-        "png": "pictures/bed_finish_screw1_press.png"
-      }
-    },
-    {
-      "key": "internet_back_btn",
-      "source": {
-        "png": "pictures/internet_back_btn.png"
-      }
-    },
-    {
-      "key": "internet_back_btn_press",
-      "source": {
-        "png": "pictures/internet_back_btn_press.png"
-      }
-    },
-    {
-      "key": "refresh_btn",
-      "source": {
-        "png": "pictures/refresh_btn.png"
-      }
-    },
-    {
-      "key": "refresh_btn_press",
-      "source": {
-        "png": "pictures/refresh_btn_press.png"
-      }
-    },
-    {
-      "key": "wifi_list_hidden_btn",
-      "source": {
-        "png": "pictures/wifi_list_hidden_btn.png"
-      }
-    },
-    {
-      "key": "wifi_list_hidden_btn_press",
-      "source": {
-        "png": "pictures/wifi_list_hidden_btn_press.png"
-      }
-    },
-    {
-      "key": "wifi_fail_popup_bg",
-      "source": {
-        "png": "pictures/wifi_fail_popup_bg.png"
-      }
-    },
-    {
-      "key": "wifi_fail_ok",
-      "source": {
-        "png": "pictures/wifi_fail_ok.png"
-      }
-    },
-    {
-      "key": "wifi_fail_ok_press",
-      "source": {
-        "png": "pictures/wifi_fail_ok_press.png"
-      }
-    },
-    {
-      "key": "wifi_kb_back_btn",
-      "source": {
-        "png": "pictures/wifi_kb_back_btn.png"
-      }
-    },
-    {
-      "key": "wifi_kb_back_btn_press",
-      "source": {
-        "png": "pictures/wifi_kb_back_btn_press.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_a",
-      "source": {
-        "png": "pictures/wifi_kb_key_a.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_a_press",
-      "source": {
-        "png": "pictures/wifi_kb_key_a_press.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_space",
-      "source": {
-        "png": "pictures/wifi_kb_key_space.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_space_press",
-      "source": {
-        "png": "pictures/wifi_kb_key_space_press.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_del",
-      "source": {
-        "png": "pictures/wifi_kb_key_del.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_del_press",
-      "source": {
-        "png": "pictures/wifi_kb_key_del_press.png"
-      }
-    },
-    {
-      "key": "wifi_kb_key_sym",
-      "source": {
-        "png": "pictures/wifi_kb_key_sym.png"
-      }
-    },
-    {
-      "key": "common_set_tab_settings",
-      "source": {
-        "png": "pictures/common_set_tab_settings.png"
-      }
-    },
-    {
-      "key": "common_set_tab_settings_press",
-      "source": {
-        "png": "pictures/common_set_tab_settings_press.png"
-      }
-    },
-    {
-      "key": "common_set_tab_calib",
-      "source": {
-        "png": "pictures/common_set_tab_calib.png"
-      }
-    },
-    {
-      "key": "common_set_tab_calib_press",
-      "source": {
-        "png": "pictures/common_set_tab_calib_press.png"
-      }
-    },
-    {
-      "key": "common_set_lang_btn",
-      "source": {
-        "png": "pictures/common_set_lang_btn.png"
-      }
-    },
-    {
-      "key": "common_set_lang_btn_press",
-      "source": {
-        "png": "pictures/common_set_lang_btn_press.png"
-      }
-    },
-    {
-      "key": "language_lang_en",
-      "source": {
-        "png": "pictures/language_lang_en.png"
-      }
-    },
-    {
-      "key": "language_back_btn",
-      "source": {
-        "png": "pictures/language_back_btn.png"
-      }
-    },
-    {
-      "key": "language_back_btn_press",
-      "source": {
-        "png": "pictures/language_back_btn_press.png"
-      }
-    },
-    {
-      "key": "export_logs",
-      "source": {
-        "png": "pictures/export_logs.png"
-      }
-    },
-    {
-      "key": "sleep_mode_opt_15min",
-      "source": {
-        "png": "pictures/sleep_mode_opt_15min.png"
-      }
-    },
-    {
-      "key": "sleep_mode_opt_15min_press",
-      "source": {
-        "png": "pictures/sleep_mode_opt_15min_press.png"
-      }
-    },
-    {
-      "key": "popup_bg",
-      "source": {
-        "png": "pictures/popup_bg.png"
-      }
-    },
-    {
-      "key": "auto_warning_ok",
-      "source": {
-        "png": "pictures/auto_warning_ok.png"
-      }
-    },
-    {
-      "key": "auto_warning_ok_press",
-      "source": {
-        "png": "pictures/auto_warning_ok_press.png"
-      }
-    },
-    {
-      "key": "restore_config_cancel",
-      "source": {
-        "png": "pictures/restore_config_cancel.png"
-      }
-    },
-    {
-      "key": "restore_config_cancel_press",
-      "source": {
-        "png": "pictures/restore_config_cancel_press.png"
-      }
-    },
-    {
-      "key": "filamentVideo0_next",
-      "source": {
-        "png": "pictures/filamentVideo0_next.png"
-      }
-    },
-    {
-      "key": "filamentVideo0_next_press",
-      "source": {
-        "png": "pictures/filamentVideo0_next_press.png"
-      }
-    },
-    {
-      "key": "filament_tab_manual",
-      "source": {
-        "png": "pictures/filament_tab_manual.png"
-      }
-    },
-    {
-      "key": "filament_tab_manual_press",
-      "source": {
-        "png": "pictures/filament_tab_manual_press.png"
-      }
-    },
-    {
-      "key": "filament_tab_load",
-      "source": {
-        "png": "pictures/filament_tab_load.png"
-      }
-    },
-    {
-      "key": "filament_tab_load_press",
-      "source": {
-        "png": "pictures/filament_tab_load_press.png"
-      }
-    },
-    {
-      "key": "filament_fan_btn",
-      "source": {
-        "png": "pictures/filament_fan_btn.png"
-      }
-    },
-    {
-      "key": "filament_fan_btn_press",
-      "source": {
-        "png": "pictures/filament_fan_btn_press.png"
-      }
-    },
-    {
-      "key": "filament_load_btn",
-      "source": {
-        "png": "pictures/filament_load_btn.png"
-      }
-    },
-    {
-      "key": "filament_load_btn_press",
-      "source": {
-        "png": "pictures/filament_load_btn_press.png"
-      }
-    },
-    {
-      "key": "filament_extr_up",
-      "source": {
-        "png": "pictures/filament_extr_up.png"
-      }
-    },
-    {
-      "key": "filament_extr_up_press",
-      "source": {
-        "png": "pictures/filament_extr_up_press.png"
-      }
-    },
-    {
-      "key": "filament_extr_down",
-      "source": {
-        "png": "pictures/filament_extr_down.png"
-      }
-    },
-    {
-      "key": "filament_extr_down_press",
-      "source": {
-        "png": "pictures/filament_extr_down_press.png"
-      }
-    },
-    {
-      "key": "memory_warning_ok",
-      "source": {
-        "png": "pictures/memory_warning_ok.png"
-      }
-    },
-    {
-      "key": "memory_warning_ok_press",
-      "source": {
-        "png": "pictures/memory_warning_ok_press.png"
-      }
-    },
-    {
-      "key": "internet_page_ip_box",
-      "source": {
-        "png": "pictures/internet_page_ip_box.png"
-      }
-    },
-    {
-      "key": "internet_page_back_btn_260x40",
-      "source": {
-        "png": "pictures/internet_page_back_btn_260x40.png"
-      }
-    },
-    {
-      "key": "internet_page_back_btn_260x40_press",
-      "source": {
-        "png": "pictures/internet_page_back_btn_260x40_press.png"
-      }
-    },
-    {
-      "key": "internet_page_wifi_btn",
-      "source": {
-        "png": "pictures/internet_page_wifi_btn.png"
-      }
-    },
-    {
-      "key": "internet_page_wifi_btn_press",
-      "source": {
-        "png": "pictures/internet_page_wifi_btn_press.png"
-      }
-    },
-    {
-      "key": "internet_page_hidden_btn",
-      "source": {
-        "png": "pictures/internet_page_hidden_btn.png"
-      }
-    },
-    {
-      "key": "internet_page_saved_btn_press",
-      "source": {
-        "png": "pictures/internet_page_saved_btn_press.png"
-      }
-    },
-    {
-      "key": "internet_page_hidden_btn_press",
-      "source": {
-        "png": "pictures/internet_page_hidden_btn_press.png"
-      }
-    },
-    {
-      "key": "unload_mode_auto_btn",
-      "source": {
-        "png": "pictures/unload_mode_auto_btn.png"
-      }
-    },
-    {
-      "key": "unload_mode_auto_btn_press",
-      "source": {
-        "png": "pictures/unload_mode_auto_btn_press.png"
-      }
-    },
-    {
-      "key": "auto_unload_steps_bar_110x324",
-      "source": {
-        "png": "pictures/auto_unload_steps_bar_110x324.png"
-      }
-    },
-    {
-      "key": "language2_prev_page",
-      "source": {
-        "png": "pictures/language2_prev_page.png"
-      }
-    },
-    {
-      "key": "language2_prev_page_press",
-      "source": {
-        "png": "pictures/language2_prev_page_press.png"
-      }
-    },
-    {
-      "key": "language2_next_page",
-      "source": {
-        "png": "pictures/language2_next_page.png"
-      }
-    },
-    {
-      "key": "language2_next_page_press",
-      "source": {
-        "png": "pictures/language2_next_page_press.png"
-      }
-    },
-    {
-      "key": "net_detail_auto_btn",
-      "source": {
-        "png": "pictures/net_detail_auto_btn.png"
-      }
-    },
-    {
-      "key": "net_detail_auto_btn_press",
-      "source": {
-        "png": "pictures/net_detail_auto_btn_press.png"
-      }
-    },
-    {
-      "key": "net_detail_forget_btn",
-      "source": {
-        "png": "pictures/net_detail_forget_btn.png"
-      }
-    },
-    {
-      "key": "net_detail_forget_btn_press",
-      "source": {
-        "png": "pictures/net_detail_forget_btn_press.png"
-      }
-    },
-    {
-      "key": "net_confirm_forget_btn",
-      "source": {
-        "png": "pictures/net_confirm_forget_btn.png"
-      }
-    },
-    {
-      "key": "net_confirm_forget_btn_press",
-      "source": {
-        "png": "pictures/net_confirm_forget_btn_press.png"
-      }
-    },
-    {
-      "key": "net_confirm_cancel",
-      "source": {
-        "png": "pictures/net_confirm_cancel.png"
-      }
-    },
-    {
-      "key": "net_confirm_cancel_press",
-      "source": {
-        "png": "pictures/net_confirm_cancel_press.png"
+        "png": "pictures/new_nozzle_icon_on_26x26_4c2c1d686ec1.png"
       }
     }
   ],
   "fonts": [
     {
-      "key": "font_title18",
+      "key": "font_t13",
       "source": {
-        "zi": "fonts/font_title18.zi"
+        "zi": "fonts/font_t13.zi"
       }
     },
     {
-      "key": "font_small14",
+      "key": "font_t16",
       "source": {
-        "zi": "fonts/font_small14.zi"
+        "zi": "fonts/font_t16.zi"
       }
     },
     {
-      "key": "font_digits24",
+      "key": "font_t19",
       "source": {
-        "zi": "fonts/font_digits24.zi"
+        "zi": "fonts/font_t19.zi"
+      }
+    },
+    {
+      "key": "font_d20",
+      "source": {
+        "zi": "fonts/font_d20.zi"
+      }
+    },
+    {
+      "key": "font_d28",
+      "source": {
+        "zi": "fonts/font_d28.zi"
+      }
+    },
+    {
+      "key": "font_d32",
+      "source": {
+        "zi": "fonts/font_d32.zi"
       }
     }
   ],
@@ -5969,58 +4902,56 @@
       ]
     },
     {
-      "key": "spin_step1",
+      "key": "spinner",
       "fps": 10,
       "frames": [
         {
-          "png": "animations/spin_step1/000.png",
-          "ms": 500
+          "png": "animations/spinner/000.png",
+          "ms": 80
         },
         {
-          "png": "animations/spin_step1/001.png",
-          "ms": 500
-        }
-      ]
-    },
-    {
-      "key": "spin_step2",
-      "fps": 10,
-      "frames": [
-        {
-          "png": "animations/spin_step2/000.png",
-          "ms": 500
+          "png": "animations/spinner/001.png",
+          "ms": 80
         },
         {
-          "png": "animations/spin_step2/001.png",
-          "ms": 500
-        }
-      ]
-    },
-    {
-      "key": "spin_step3",
-      "fps": 10,
-      "frames": [
-        {
-          "png": "animations/spin_step3/000.png",
-          "ms": 500
+          "png": "animations/spinner/002.png",
+          "ms": 80
         },
         {
-          "png": "animations/spin_step3/001.png",
-          "ms": 500
-        }
-      ]
-    },
-    {
-      "key": "spin_step4",
-      "fps": 10,
-      "frames": [
-        {
-          "png": "animations/spin_step4/000.png",
-          "ms": 500
+          "png": "animations/spinner/003.png",
+          "ms": 80
         },
         {
-          "png": "animations/spin_step4/001.png",
-          "ms": 500
+          "png": "animations/spinner/004.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/005.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/006.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/007.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/008.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/009.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/010.png",
+          "ms": 80
+        },
+        {
+          "png": "animations/spinner/011.png",
+          "ms": 80
         }
       ]
     }
