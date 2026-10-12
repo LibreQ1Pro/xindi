@@ -2912,12 +2912,6 @@
       }
     },
     {
-      "key": "new_thumb_bg_104x104_c0a19028f56e",
-      "source": {
-        "png": "pictures/new_thumb_bg_104x104_c0a19028f56e.png"
-      }
-    },
-    {
       "key": "new_nav_files_68x55_94abd30833ad",
       "source": {
         "png": "pictures/new_nav_files_68x55_94abd30833ad.png"
@@ -2927,12 +2921,6 @@
       "key": "new_nav_files_press_68x55_1974de2ce988",
       "source": {
         "png": "pictures/new_nav_files_press_68x55_1974de2ce988.png"
-      }
-    },
-    {
-      "key": "new_file1_mark_on_24x24_c13cbf2bc6ea",
-      "source": {
-        "png": "pictures/new_file1_mark_on_24x24_c13cbf2bc6ea.png"
       }
     },
     {
@@ -4703,6 +4691,12 @@
       "key": "new_extr_down_press_120x64_7058f29d3297",
       "source": {
         "png": "pictures/new_extr_down_press_120x64_7058f29d3297.png"
+      }
+    },
+    {
+      "key": "new_thumb_bg_96x96_cc6be9c60a35",
+      "source": {
+        "png": "pictures/new_thumb_bg_96x96_cc6be9c60a35.png"
       }
     }
   ],

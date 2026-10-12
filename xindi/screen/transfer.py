@@ -54,7 +54,7 @@ def _send_list_pictures():
                 if isinstance(g.pictures.have_64_png_path[i], thumbnail.GcodeRef):
                     # Python only: jpg made from the thumbnail inside the gcode file
                     log.debug("%s", g.pictures.have_64_png_path[i])
-                    jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], 104)
+                    jpg_data = thumbnail.jpeg(g.pictures.have_64_png_path[i], thumbnail.LIST_SIZE)
                     if jpg_data is not None:
                         sent_jpg_to_tjc(ram_path, jpg_data)
                 else:

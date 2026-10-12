@@ -237,6 +237,9 @@ def colpic(path, size, matte=None, radius=0, background=None):
     return screen_colpic.encode_picture(image, size)
 
 
+LIST_SIZE = 96           # the thumbnails of the slots of the file list: a multiple of 16 (the MCU of a 4:2:0 JPEG)
+
+
 def jpeg(path, size, matte=(41, 40, 41), radius=12, background=(49, 48, 57)):
     """A size x size baseline JPEG of the file's thumbnail for the screen's picture memory (turned like the ``-112x112_QD.jpg`` of the original);
     the card colour and the round corners are in the pixels (JPEG has no alpha); None if the file has no thumbnail."""
@@ -246,8 +249,8 @@ def jpeg(path, size, matte=(41, 40, 41), radius=12, background=(49, 48, 57)):
     try:
         image = prepare_picture(_screen_image(thumb), size, matte, radius, background)
         out = io.BytesIO()
-        # 4:4:4 (no chroma subsampling): the blocks are 8 x 8, so the 104 pixels of the slot are a whole number of them, and the colour edges stay sharp
-        image.save(out, "JPEG", quality=95, subsampling=0, progressive=False, optimize=False)
+        # 4:2:0 like the thumbnails of the original; the size is a multiple of 16 (LIST_SIZE), else the screen draws the rows sheared ("a staircase")
+        image.save(out, "JPEG", quality=95, subsampling=2, progressive=False, optimize=False)
         return out.getvalue()
     except Exception as e:
         _log("%s: %s" % (path, e))

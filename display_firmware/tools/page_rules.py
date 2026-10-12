@@ -161,9 +161,8 @@ RULES["print_zoffset"] = {"drop": ["pct_sign"],
 
 # -- the file list: the slots, the tabs and the three buttons have looks (host: face(slot, "file" / "dir" / "none"), face("tabs_seg", "local" / "usb"), face(button, "on" / "off"))
 _SLOTS = {"file%d" % i: {"none": {"variant": "none"}, "file": {"variant": "mixed"}, "dir": {"variant": "dirs"}} for i in range(1, 5)}
-RULES["filelist"] = {"keep": ["empty_msg"], "patch": patches.patch_filelist, "picture_states": lambda key: "none",
-                     "regions": {**segmented("tabs_seg", [12, 8, 248, 40], {"local": "mixed", "usb": "tab_usb"}, "local"),
-                                 "file1_mark": {"rect": [22, 66, 24, 24], "default": "on", "alpha": "disc", "states": {"on": "mark"}}},
+RULES["filelist"] = {"keep": ["empty_msg"], "drop": ["file1_mark"], "patch": patches.patch_filelist, "picture_states": lambda key: "none",
+                     "regions": {**segmented("tabs_seg", [12, 8, 248, 40], {"local": "mixed", "usb": "tab_usb"}, "local")},
                      "selectable": {**_SLOTS,
                                     "prev": {"off": {"variant": "mixed"}, "on": {"variant": "nav_on"}},
                                     "next": {"on": {"variant": "mixed"}, "off": {"variant": "nav_off"}},

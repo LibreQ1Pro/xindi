@@ -104,10 +104,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "131"
+     "129"
     ],
     "beep_btn.pic2": [
-     "132"
+     "130"
     ],
     "chamber_icon.pic": [
      "75"
@@ -122,10 +122,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "121"
+     "119"
     ],
     "last_file_btn.pic2": [
-     "122"
+     "120"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -148,10 +148,10 @@
      "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "127"
+     "125"
     ],
     "light_btn.pic2": [
-     "128"
+     "126"
     ],
     "nozzle_icon.pic": [
      "72"
@@ -169,14 +169,14 @@
      "0"
     ],
     "usb_icon.pic": [
-     "117"
+     "115"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "119"
+     "117"
     ]
    },
    "page": 17
@@ -217,9 +217,9 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "222",
-     "223",
-     "224"
+     "220",
+     "221",
+     "222"
     ],
     "vis alt_btn": [
      "alt_btn,1"
@@ -260,7 +260,7 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "222"
+     "220"
     ],
     "vis back_btn": [
      "back_btn,0"
@@ -334,7 +334,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "150"
+     "148"
     ],
     "nozzle_set.txt": [
      "\"/ 250\""
@@ -387,8 +387,8 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "230",
-     "231"
+     "228",
+     "229"
     ],
     "vis load_btn": [
      "load_btn,1"
@@ -439,7 +439,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "150"
+     "148"
     ],
     "nozzle_set.txt": [
      "\"/ 250\""
@@ -495,8 +495,8 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "222",
-     "223"
+     "220",
+     "221"
     ],
     "vis back_btn": [
      "back_btn,0"
@@ -556,7 +556,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "150"
+     "148"
     ],
     "nozzle_set.txt": [
      "\"/ 250\""
@@ -645,7 +645,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "150"
+     "148"
     ],
     "nozzle_set.txt": [
      "\"/ 250\""
@@ -726,7 +726,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "150"
+     "148"
     ],
     "nozzle_set.txt": [
      "\"/ 250\""

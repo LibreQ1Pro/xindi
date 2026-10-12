@@ -105,10 +105,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "131"
+     "129"
     ],
     "beep_btn.pic2": [
-     "132"
+     "130"
     ],
     "chamber_icon.pic": [
      "75"
@@ -123,10 +123,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "121"
+     "119"
     ],
     "last_file_btn.pic2": [
-     "122"
+     "120"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -149,10 +149,10 @@
      "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "127"
+     "125"
     ],
     "light_btn.pic2": [
-     "128"
+     "126"
     ],
     "nozzle_icon.pic": [
      "72"
@@ -167,14 +167,14 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "118"
+     "116"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "119"
+     "117"
     ]
    },
    "page": 17
@@ -302,10 +302,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "131"
+     "129"
     ],
     "beep_btn.pic2": [
-     "132"
+     "130"
     ],
     "chamber_icon.pic": [
      "75"
@@ -320,10 +320,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "121"
+     "119"
     ],
     "last_file_btn.pic2": [
-     "122"
+     "120"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -346,10 +346,10 @@
      "18d368fa3f4c3c87:1672"
     ],
     "light_btn.pic": [
-     "127"
+     "125"
     ],
     "light_btn.pic2": [
-     "128"
+     "126"
     ],
     "nozzle_icon.pic": [
      "72"
@@ -364,14 +364,14 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "118"
+     "116"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "119"
+     "117"
     ]
    },
    "page": 17

@@ -7,7 +7,7 @@ from xindi.screen import pageids as ids
 from xindi.util.cpp import f32, to_string
 
 
-UNKNOWN_POSITION = "---.-"
+UNKNOWN_POSITION = "---.--"
 
 
 def move_page():

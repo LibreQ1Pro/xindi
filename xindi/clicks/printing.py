@@ -48,9 +48,9 @@ def main(page_id, widget_id):
         g.files.list_root_path = pages_file_list.DEFAULT_DIR
         g.files.list_path = ""
         pages_file_list.refresh_page_files(g.files.list_current_pages)
-        if g.files.list_list_show_type[0] == "[c]":
+        if g.files.list_last_printed:
             pages_file_list.clear_cp0_image()
-            gcode_files.get_sub_dir_files_list(0)
+            gcode_files.open_last_printed()
             g.screen.file_mode = "Local"
 
 

@@ -236,7 +236,7 @@ def scenario_file_list(h):
     h.touch(PREVIEW, 0x00, settle=6.0)      # back
     h.wait_page(FILE_LIST)
     h.mark("cache")
-    h.touch(FILE_LIST, 0x01, settle=1.0)    # [c] cached file
+    h.touch(FILE_LIST, 0x00, settle=1.0)    # the first file
     h.wait_page(PREVIEW)
     wait_preview_loaded(h)
     h.touch(PREVIEW, ALL_TO_MAIN, settle=3.0)

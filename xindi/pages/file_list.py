@@ -22,7 +22,7 @@ log = logging.getLogger(__name__)
 
 DEFAULT_DIR = "gcodes/"
 NAME_WIDTH = 108            # the width of the name of a file slot of the screen, in pixels of the wide font
-LIST_PICTURE = 104          # the thumbnails of the slots are 104 x 104 (the card colour and the round corners are in the picture)
+LIST_PICTURE = thumbnail.LIST_SIZE          # the thumbnails of the slots are 96 x 96 (the card colour and the round corners are in the picture)
 
 
 def file_name_only(path):
@@ -36,7 +36,6 @@ def name_of(path):
 
 # entry type of the list -> look of its row
 ROW_LOOKS = {
-    "[c]": "file",          # the last printed file
     "[d]": "dir",
     "[f]": "file",
     "[n]": "none",          # no drive
@@ -54,16 +53,12 @@ def queue_list_pictures():
         g.pictures.have_64_jpg[i] = False
         g.pictures.have_64_png_path[i] = ""
         t = g.files.list_list_show_type[i]
-        if t == "[c]" or t == "[f]":
+        if t == "[f]":
             name = g.files.list_list_show_name[i]
             # NOTE: the original sends <dir>/.thumbs/<name>-112x112_QD.jpg (made only
             # by QIDI's slicer / Moonraker) to the screen; the port takes the
             # thumbnail from the gcode file itself (see thumbnail.py).
-            if t == "[c]":
-                picture_path = "/" + g.files.list_last_printed
-            else:
-                picture_path = g.files.list_path + "/" + name
-            picture_path = thumbnail.GcodeRef(substr(picture_path, 1))
+            picture_path = thumbnail.GcodeRef(substr(g.files.list_path + "/" + name, 1))
             log.info("Picture path:%s", picture_path)
             if thumbnail.find(picture_path, LIST_PICTURE, "JPEG") is not None:
                 g.pictures.have_64_jpg[i] = True
@@ -77,19 +72,16 @@ def refresh_files_list():
     # (file_list_refreshed), the folder and page are kept meanwhile
     if not g.screen.file_list_refreshed:
         delete_small_jpg()
-    g.port.vis("file1_mark", "0")
     for i in range(4):
         row = "file" + to_string(i + 1)
         g.port.txt(row + "_name", fit_name(g.files.list_list_show_name[i], NAME_WIDTH, lines=2))
         t = g.files.list_list_show_type[i]
         if t in ROW_LOOKS:
             g.port.face(row, ROW_LOOKS[t])
-        shown = "1" if t in ("[c]", "[f]") else "0"          # the placeholder and the thumbnail belong to a file only
+        shown = "1" if t == "[f]" else "0"          # the placeholder and the thumbnail belong to a file only
         g.port.vis(row + "_pic_bg", shown)
         g.port.vis(row + "_pic", shown)
         g.port.vis(row + "_name", "1" if t != "[n]" else "0")      # the box of a name is the colour of the card: nothing to show without a slot
-        if t == "[c]":
-            g.port.vis("file1_mark", "1")
 
     # 4.4.2 CLL local / USB buttons on the file list page
     mode = "local" if g.screen.file_mode == "Local" else "usb"

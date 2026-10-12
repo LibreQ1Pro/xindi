@@ -1418,7 +1418,7 @@
   ],
   "dropped": [],
   "baked": 15,
-  "sha256": "08795570f9d2a691b9a3620e77aaaca42d64520aa27dbb56f1d4181d28ef3d74"
+  "sha256": "f81b18fcf988102557ab274ca4c604a163b1b742227b7d15f3cb03923101c79a"
  },
  "pre_heat": {
   "design": "preheat",
@@ -1751,9 +1751,14 @@
    "nav_files",
    "nav_settings"
   ],
-  "dropped": [],
+  "dropped": [
+   "file1_mark"
+  ],
   "baked": 16,
-  "sha256": "c2981d28f063ded13febcc7dfbb69bd2d35d7f8605cdfbe78ef0eb3c1bed433e"
+  "stripped": [
+   "vis file1_mark,0"
+  ],
+  "sha256": "57f3af854ded61d6a48379e20cf9057cd74019c622977ae0ac5614d81292dc83"
  },
  "preview": {
   "design": "file_preview",

@@ -36,7 +36,6 @@ HOST_HIDES = {
     "filament_pop_2": {"next_btn", "back_btn", "done_btn", "alt_btn"},
     "filament_pop_3": {"next_btn", "back_btn", "done_btn", "alt_btn"},
     "auto_unload": {"load_btn", "ok"},
-    "filelist": {"file1_mark"},
 }
 
 

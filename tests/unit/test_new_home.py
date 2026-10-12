@@ -46,7 +46,7 @@ class HomeTest(PortRecorder):
         self.assertEqual(home.temperature(0), "0")
 
     def test_no_cached_file_hides_and_clears_the_picture(self):
-        with patch.object(file_list, "refresh_page_files"), patch.object(g.files, "list_list_show_type", ["[f]"]):
+        with patch.object(file_list, "refresh_page_files"), patch.object(g.files, "list_last_printed", ""):
             home.main_last_file_picture()
         self.assertIn("vis last_file_pic,0", self.strings())
         self.assertIn("last_file_pic.close()", self.strings())
@@ -56,13 +56,10 @@ class HomeTest(PortRecorder):
     def test_thumbnail_geometry_and_unshortened_file_name(self):
         name = "very_long_part_name_" * 12 + ".gcode"
         with patch.object(file_list, "refresh_page_files"), \
-             patch.object(g.files, "list_list_show_type", ["[c]"]), \
-             patch.object(g.files, "list_list_show_name", [name]), \
              patch.object(g.files, "list_last_printed", "box/" + name), \
              patch.object(thumbnail, "find", return_value=object()), \
              patch.object(file_list, "send_file_picture", return_value=True) as send:
             home.main_last_file_picture()
-            self.assertEqual(g.files.list_list_show_name[0], name)
         send.assert_called_once_with(thumbnail.GcodeRef("box/" + name), 140, "last_file_pic",
                                      matte=(41, 40, 41), background=(49, 48, 57), radius=12)
         self.assertIn('last_file_name.txt="' + fit_name(name, 224) + '"', self.strings())

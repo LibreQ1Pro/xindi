@@ -45,7 +45,6 @@
     "vis file4_pic,0",
     "vis file4_name,0",
     "vis empty_msg,0",
-    "vis file1_mark,0",
     "if(lang==0)",
     "{",
     "  local_tab_lbl.txt=\"本地文件\"",
@@ -466,10 +465,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -477,7 +476,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_104x104_c0a19028f56e"
+     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
     }
    },
    "events": {
@@ -496,10 +495,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -641,10 +640,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -652,7 +651,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_104x104_c0a19028f56e"
+     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
     }
    },
    "events": {
@@ -671,10 +670,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -816,10 +815,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -827,7 +826,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_104x104_c0a19028f56e"
+     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
     }
    },
    "events": {
@@ -846,10 +845,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -991,10 +990,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1002,7 +1001,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_thumb_bg_104x104_c0a19028f56e"
+     "$ref": "picture:new_thumb_bg_96x96_cc6be9c60a35"
     }
    },
    "events": {
@@ -1021,10 +1020,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1549,36 +1548,6 @@
      "prints 0xff,1",
      "prints 0xff,1"
     ]
-   }
-  },
-  {
-   "key": "file1_mark",
-   "type": "picture",
-   "attributes": {
-    "objname": "file1_mark",
-    "vscope": 0,
-    "drag": 0,
-    "sendkey": 0,
-    "aph": 127,
-    "movex": 0,
-    "movey": 0,
-    "x": 22,
-    "y": 66,
-    "w": 24,
-    "h": 24,
-    "effect": 0,
-    "first": 0,
-    "time": 300,
-    "lockobj": 0,
-    "groupid0": 0,
-    "groupid1": 0,
-    "pic": {
-     "$ref": "picture:new_file1_mark_on_24x24_c13cbf2bc6ea"
-    }
-   },
-   "events": {
-    "codesdown": [],
-    "codesup": []
    }
   },
   {

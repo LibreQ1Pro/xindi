@@ -77,10 +77,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "131"
+     "129"
     ],
     "beep_btn.pic2": [
-     "132"
+     "130"
     ],
     "chamber_icon.pic": [
      "75"
@@ -95,10 +95,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "121"
+     "119"
     ],
     "last_file_btn.pic2": [
-     "122"
+     "120"
     ],
     "last_file_name.txt": [
      "\"\""
@@ -107,10 +107,10 @@
      ""
     ],
     "light_btn.pic": [
-     "127"
+     "125"
     ],
     "light_btn.pic2": [
-     "128"
+     "126"
     ],
     "nozzle_icon.pic": [
      "72"
@@ -125,13 +125,13 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "117"
+     "115"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.pic": [
-     "119"
+     "117"
     ]
    },
    "page": 17
@@ -151,37 +151,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "362"
+     "360"
     ],
     "file1.pic2": [
-     "363"
+     "361"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "360"
+     "358"
     ],
     "file2.pic2": [
-     "361"
+     "359"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\\r.gcode\""
     ],
     "file3.pic": [
-     "360"
+     "358"
     ],
     "file3.pic2": [
-     "361"
+     "359"
     ],
     "file3_name.txt": [
      "\"big_petg\\r.gcode\""
     ],
     "file4.pic": [
-     "360"
+     "358"
     ],
     "file4.pic2": [
-     "361"
+     "359"
     ],
     "file4_name.txt": [
      "\"cube.gcode\""
@@ -190,16 +190,16 @@
      "65535"
     ],
     "next.pic": [
-     "368"
+     "366"
     ],
     "next.pic2": [
-     "369"
+     "367"
     ],
     "prev.pic": [
-     "364"
+     "362"
     ],
     "prev.pic2": [
-     "365"
+     "363"
     ],
     "tabs_seg.pic": [
      "23"
@@ -208,29 +208,26 @@
      "255,1"
     ],
     "twfile": [
-     "\"ram/file1.jpg\",9903",
-     "\"ram/file3.jpg\",9714"
+     "\"ram/file1.jpg\",5575",
+     "\"ram/file3.jpg\",5386"
     ],
     "twfile-data:ram/file1.jpg": [
-     "a81eb5857fdabd15:9903:3"
+     "67a3b956df887385:5575:2"
     ],
     "twfile-data:ram/file3.jpg": [
-     "91b81009a58c62d5:9714:3"
+     "9c9d20e5bd8660e3:5386:2"
     ],
     "up_dir.pic": [
-     "374"
+     "372"
     ],
     "up_dir.pic2": [
-     "375"
+     "373"
     ],
     "usb_tab_lbl.pco": [
      "42294"
     ],
     "vis empty_msg": [
      "empty_msg,0"
-    ],
-    "vis file1_mark": [
-     "file1_mark,0"
     ],
     "vis file1_name": [
      "file1_name,1"

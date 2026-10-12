@@ -84,10 +84,8 @@ def get_page_files_filelist(current_dir):
     g.files.list_modified = {}
     json_temp = None
     result = None
-    # the last printed file (from the history of Moonraker) is the first entry of the first page
+    # the last printed file (from the history of Moonraker) is shown on Home, not in the list
     g.files.list_last_printed = last_printed_file() if g.files.list_folder_layers == 0 else g.files.list_last_printed
-    if g.files.list_folder_layers == 0 and g.files.list_last_printed:
-        g.files.list_dirname_filename_list.add("[c] " + file_name_of(g.files.list_last_printed))
     json_files_directory = send_request("localhost", "7125", "server/files/directory?path=" + current_dir, "GET")
     if json_files_directory != "":
         json_temp = json_parse(json_files_directory)
@@ -128,13 +126,11 @@ def sorted_std(strings):
 
 
 def entry_order(entry):
-    """The order of the list: the last printed file, then the folders A-Z, then the files, the newest first (the time they were added)."""
+    """The order of the list: the folders A-Z, then the files, the newest first (the time they were added)."""
     kind, name = substr(entry, 0, 3), substr(entry, 4)
-    if kind == "[c]":
-        return (0, 0.0, "")
     if kind == "[d]":
-        return (1, 0.0, name.casefold(), name)
-    return (2, -g.files.list_modified.get(name, 0.0), name.casefold(), name)
+        return (0, 0.0, name.casefold(), name)
+    return (1, -g.files.list_modified.get(name, 0.0), name.casefold(), name)
 
 
 def set_page_files_show_list(pages):
@@ -166,20 +162,23 @@ def set_page_files_show_list(pages):
             g.files.list_list_show_name[j] = ""
 
 
+def open_last_printed():
+    """The preview of the file that was printed last (the button of Home)."""
+    from xindi.pages import file_list
+    g.screen.jump_print = False
+    g.screen.show_preview_complete = False
+    g.screen.cache_clicked = True
+    g.files.list_path_stack.append(g.files.list_path)
+    g.files.list_print_files_path = "/" + g.files.list_last_printed
+    g.files.list_folder_layers += 1
+    file_list.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
+    navigation.page_to(ids.PREVIEW)
+
+
 def get_sub_dir_files_list(button):
     from xindi.pages import file_list
     from xindi.printer import job
-    # 4.4.2 CLL show the printed file on the first page of the file list
-    if "[c]" == g.files.list_list_show_type[button]:
-        g.screen.jump_print = False
-        g.screen.show_preview_complete = False
-        g.screen.cache_clicked = True
-        g.files.list_path_stack.append(g.files.list_path)
-        g.files.list_print_files_path = "/" + g.files.list_last_printed
-        g.files.list_folder_layers += 1
-        file_list.get_file_estimated_time(substr(g.files.list_print_files_path, 1))
-        navigation.page_to(ids.PREVIEW)
-    elif "[d]" == g.files.list_list_show_type[button]:
+    if "[d]" == g.files.list_list_show_type[button]:
         g.files.list_path_stack.append(g.files.list_path)
         g.files.list_path = g.files.list_path + "/" + g.files.list_list_show_name[button]
         g.files.list_folder_layers += 1

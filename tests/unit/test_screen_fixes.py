@@ -1,5 +1,6 @@
 """Faults found in use: values that stayed "---", positions of axes that are not homed, a message lost on a page that is shown again."""
 import unittest
+import unittest.mock
 
 from xindi import state as g
 from xindi.pages import move, printing, refresh
@@ -18,7 +19,7 @@ class ScreenFixesTest(PortRecorder):
     def test_nothing_is_homed_yet(self):
         g.klippy.homed_axes = ""
         move.move_page()
-        self.assertEqual([c for c in self.sent() if c.endswith('_pos.txt="%s"' % move.UNKNOWN_POSITION)], ['x_pos.txt="---.-"', 'y_pos.txt="---.-"', 'z_pos.txt="---.-"'])
+        self.assertEqual([c for c in self.sent() if c.endswith('_pos.txt="%s"' % move.UNKNOWN_POSITION)], ['x_pos.txt="---.--"', 'y_pos.txt="---.--"', 'z_pos.txt="---.--"'])
 
     def test_speed_and_flow_are_written_again_on_a_page_that_is_shown_anew(self):
         g.klippy.gcode_move_speed_factor, g.klippy.gcode_move_extrude_factor = 1.0, 0.95
@@ -42,6 +43,24 @@ class ScreenFixesTest(PortRecorder):
         self.commands.clear()
         refresh.show_failure_message()
         self.assertTrue(any(c.startswith("err_msg.txt=") for c in self.sent()))
+
+
+class ListPictureTest(PortRecorder):
+    def test_the_list_thumbnail_is_a_multiple_of_16_and_420(self):
+        # the screen draws the rows of a JPEG whose width is not a multiple of 16 sheared (a staircase)
+        import io
+        from PIL import Image
+        from xindi.screen import thumbnail
+        png = io.BytesIO()
+        Image.new("RGB", (160, 160), (200, 50, 50)).save(png, "PNG")
+        thumb = thumbnail.Thumbnail("PNG", 160, 160, png.getvalue())
+        with unittest.mock.patch.object(thumbnail, "get_thumbnails", return_value=[thumb]):
+            data = thumbnail.jpeg("any.gcode", thumbnail.LIST_SIZE)
+        image = Image.open(io.BytesIO(data))
+        self.assertEqual(image.size, (thumbnail.LIST_SIZE, thumbnail.LIST_SIZE))
+        self.assertEqual(thumbnail.LIST_SIZE % 16, 0)
+        from PIL import JpegImagePlugin
+        self.assertEqual(JpegImagePlugin.get_sampling(image), 2)        # 4:2:0
 
 
 if __name__ == "__main__":

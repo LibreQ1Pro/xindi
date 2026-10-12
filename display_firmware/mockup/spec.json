@@ -21635,10 +21635,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -21724,10 +21724,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "name": "file2_pic",
     "kind": "thumb",
@@ -21813,10 +21813,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "name": "file3_pic",
     "kind": "thumb",
@@ -21902,10 +21902,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "name": "file4_pic",
     "kind": "thumb",
@@ -22124,10 +22124,10 @@
     "owner": "file1"
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "prim": "fill",
     "name": "file1_pic",
@@ -22141,10 +22141,10 @@
     "owner": "file1_pic"
    },
    {
-    "x": 52,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 7,
     "prim": "icon",
     "icon": "image",
@@ -22178,10 +22178,10 @@
     "owner": "file2"
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "prim": "fill",
     "name": "file2_pic",
@@ -22195,10 +22195,10 @@
     "owner": "file2_pic"
    },
    {
-    "x": 180,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 17,
     "prim": "icon",
     "icon": "image",
@@ -22232,10 +22232,10 @@
     "owner": "file3"
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "prim": "fill",
     "name": "file3_pic",
@@ -22249,10 +22249,10 @@
     "owner": "file3_pic"
    },
    {
-    "x": 52,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 26,
     "prim": "icon",
     "icon": "image",
@@ -22286,10 +22286,10 @@
     "owner": "file4"
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "prim": "fill",
     "name": "file4_pic",
@@ -22303,10 +22303,10 @@
     "owner": "file4_pic"
    },
    {
-    "x": 180,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 36,
     "prim": "icon",
     "icon": "image",
@@ -26049,10 +26049,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -26134,10 +26134,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 15,
     "name": "file2_pic",
     "kind": "thumb",
@@ -26219,10 +26219,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 23,
     "name": "file3_pic",
     "kind": "thumb",
@@ -26304,10 +26304,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 32,
     "name": "file4_pic",
     "kind": "thumb",
@@ -30375,10 +30375,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -30429,10 +30429,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 9,
     "name": "file2_pic",
     "kind": "thumb",
@@ -30483,10 +30483,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 12,
     "name": "file3_pic",
     "kind": "thumb",
@@ -30537,10 +30537,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 15,
     "name": "file4_pic",
     "kind": "thumb",
@@ -32933,4457 +32933,6 @@
   "id": "file_list",
   "page": "file_list",
   "old": "filelist",
-  "variant": "mark",
-  "bg": [
-   24,
-   24,
-   24
-  ],
-  "widgets": [
-   {
-    "x": 12,
-    "y": 8,
-    "w": 124,
-    "h": 40,
-    "z": 3,
-    "name": "local_tab",
-    "kind": "hit",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 12,
-      "y": 8,
-      "w": 124,
-      "h": 40,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       255,
-       255,
-       255
-      ],
-      "matte": [
-       49,
-       48,
-       57
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 22,
-      "text": "Local Files",
-      "z": 3.1
-     }
-    ]
-   },
-   {
-    "x": 136,
-    "y": 8,
-    "w": 124,
-    "h": 40,
-    "z": 4,
-    "name": "usb_tab",
-    "kind": "hit",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 136,
-      "y": 8,
-      "w": 124,
-      "h": 40,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       165,
-       166,
-       181
-      ],
-      "matte": [
-       16,
-       16,
-       16
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 22,
-      "text": "USB Files",
-      "z": 4.1
-     }
-    ]
-   },
-   {
-    "x": 12,
-    "y": 56,
-    "w": 120,
-    "h": 150,
-    "z": 5,
-    "name": "file1",
-    "kind": "card",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "labels": []
-   },
-   {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
-    "z": 6,
-    "name": "file1_pic",
-    "kind": "thumb",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "labels": []
-   },
-   {
-    "x": 18,
-    "y": 164,
-    "w": 108,
-    "h": 40,
-    "z": 18,
-    "name": "file1_name",
-    "kind": "t",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 22,
-      "y": 165,
-      "w": 100,
-      "h": 38,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       247,
-       247,
-       247
-      ],
-      "matte": [
-       23,
-       23,
-       26
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 42,
-      "text": "Benchy_PLA\n.gcode",
-      "z": 19,
-      "centered": true
-     }
-    ],
-    "role": "t16",
-    "align": "c",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     23,
-     23,
-     26
-    ],
-    "top": false,
-    "bottom": false,
-    "dyn": true,
-    "scroll": false,
-    "used": 42,
-    "text": "Benchy_PLA\n.gcode"
-   },
-   {
-    "x": 140,
-    "y": 56,
-    "w": 120,
-    "h": 150,
-    "z": 21,
-    "name": "file2",
-    "kind": "card",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "labels": []
-   },
-   {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
-    "z": 22,
-    "name": "file2_pic",
-    "kind": "thumb",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "labels": []
-   },
-   {
-    "x": 146,
-    "y": 164,
-    "w": 108,
-    "h": 40,
-    "z": 28,
-    "name": "file2_name",
-    "kind": "t",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 150,
-      "y": 172,
-      "w": 100,
-      "h": 24,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       247,
-       247,
-       247
-      ],
-      "matte": [
-       23,
-       23,
-       26
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 22,
-      "text": "models",
-      "z": 29,
-      "centered": true
-     }
-    ],
-    "role": "t16",
-    "align": "c",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     23,
-     23,
-     26
-    ],
-    "top": false,
-    "bottom": false,
-    "dyn": true,
-    "scroll": false,
-    "used": 22,
-    "text": "models"
-   },
-   {
-    "x": 12,
-    "y": 214,
-    "w": 120,
-    "h": 150,
-    "z": 30,
-    "name": "file3",
-    "kind": "card",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "labels": []
-   },
-   {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
-    "z": 31,
-    "name": "file3_pic",
-    "kind": "thumb",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "labels": []
-   },
-   {
-    "x": 18,
-    "y": 322,
-    "w": 108,
-    "h": 40,
-    "z": 37,
-    "name": "file3_name",
-    "kind": "t",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 22,
-      "y": 323,
-      "w": 100,
-      "h": 38,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       247,
-       247,
-       247
-      ],
-      "matte": [
-       23,
-       23,
-       26
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 42,
-      "text": "calibration_\ncube.gcode",
-      "z": 38,
-      "centered": true
-     }
-    ],
-    "role": "t16",
-    "align": "c",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     23,
-     23,
-     26
-    ],
-    "top": false,
-    "bottom": false,
-    "dyn": true,
-    "scroll": false,
-    "used": 42,
-    "text": "calibration_\ncube.gcode"
-   },
-   {
-    "x": 140,
-    "y": 214,
-    "w": 120,
-    "h": 150,
-    "z": 40,
-    "name": "file4",
-    "kind": "card",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "labels": []
-   },
-   {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
-    "z": 41,
-    "name": "file4_pic",
-    "kind": "thumb",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "labels": []
-   },
-   {
-    "x": 146,
-    "y": 322,
-    "w": 108,
-    "h": 40,
-    "z": 47,
-    "name": "file4_name",
-    "kind": "t",
-    "bg": null,
-    "radius": 0,
-    "labels": [
-     {
-      "x": 150,
-      "y": 323,
-      "w": 100,
-      "h": 38,
-      "role": "t16",
-      "align": "c",
-      "color": [
-       247,
-       247,
-       247
-      ],
-      "matte": [
-       23,
-       23,
-       26
-      ],
-      "top": false,
-      "bottom": false,
-      "dyn": false,
-      "scroll": false,
-      "used": 42,
-      "text": "part_with_a_\nvery_….gcode",
-      "z": 48,
-      "centered": true
-     }
-    ],
-    "role": "t16",
-    "align": "c",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     23,
-     23,
-     26
-    ],
-    "top": false,
-    "bottom": false,
-    "dyn": true,
-    "scroll": false,
-    "used": 42,
-    "text": "part_with_a_\nvery_….gcode"
-   },
-   {
-    "x": 12,
-    "y": 372,
-    "w": 77,
-    "h": 40,
-    "z": 50,
-    "name": "prev",
-    "kind": "btn",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 10,
-    "labels": []
-   },
-   {
-    "x": 97,
-    "y": 372,
-    "w": 78,
-    "h": 40,
-    "z": 54,
-    "name": "next",
-    "kind": "btn",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 10,
-    "labels": []
-   },
-   {
-    "x": 183,
-    "y": 372,
-    "w": 77,
-    "h": 40,
-    "z": 58,
-    "name": "up_dir",
-    "kind": "btn",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 10,
-    "labels": []
-   },
-   {
-    "x": 0,
-    "y": 425,
-    "w": 68,
-    "h": 55,
-    "z": 64,
-    "name": "nav_main",
-    "kind": "box",
-    "bg": null,
-    "radius": 0,
-    "labels": []
-   },
-   {
-    "x": 68,
-    "y": 425,
-    "w": 68,
-    "h": 55,
-    "z": 70,
-    "name": "nav_adjust",
-    "kind": "box",
-    "bg": null,
-    "radius": 0,
-    "labels": []
-   },
-   {
-    "x": 136,
-    "y": 425,
-    "w": 68,
-    "h": 55,
-    "z": 83,
-    "name": "nav_files",
-    "kind": "box",
-    "bg": null,
-    "radius": 0,
-    "labels": []
-   },
-   {
-    "x": 204,
-    "y": 425,
-    "w": 68,
-    "h": 55,
-    "z": 88,
-    "name": "nav_settings",
-    "kind": "box",
-    "bg": null,
-    "radius": 0,
-    "labels": []
-   }
-  ],
-  "prims": [
-   {
-    "x": 12,
-    "y": 8,
-    "w": 248,
-    "h": 40,
-    "z": 0,
-    "prim": "fill",
-    "name": null,
-    "bg": [
-     16,
-     16,
-     16
-    ],
-    "radius": 12,
-    "cls": "tabs",
-    "owner": null
-   },
-   {
-    "x": 15,
-    "y": 11,
-    "w": 121,
-    "h": 34,
-    "z": 1,
-    "prim": "fill",
-    "name": null,
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 10,
-    "cls": "tab on",
-    "owner": null
-   },
-   {
-    "x": 12,
-    "y": 56,
-    "w": 120,
-    "h": 150,
-    "z": 5,
-    "prim": "fill",
-    "name": "file1",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "cls": "card hi",
-    "owner": "file1"
-   },
-   {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
-    "z": 6,
-    "prim": "fill",
-    "name": "file1_pic",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "cls": "thumb",
-    "owner": "file1_pic"
-   },
-   {
-    "x": 52,
-    "y": 92,
-    "w": 40,
-    "h": 40,
-    "z": 7,
-    "prim": "icon",
-    "icon": "image",
-    "color": [
-     123,
-     121,
-     132
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "file1_pic"
-   },
-   {
-    "x": 22,
-    "y": 66,
-    "w": 24,
-    "h": 24,
-    "z": 12,
-    "prim": "fill",
-    "name": null,
-    "bg": [
-     33,
-     32,
-     33
-    ],
-    "radius": 12,
-    "cls": "",
-    "owner": null
-   },
-   {
-    "x": 25,
-    "y": 69,
-    "w": 18,
-    "h": 18,
-    "z": 14,
-    "prim": "icon",
-    "icon": "clock",
-    "color": [
-     221,
-     221,
-     221
-    ],
-    "matte": [
-     23,
-     23,
-     26
-    ],
-    "owner": null
-   },
-   {
-    "x": 140,
-    "y": 56,
-    "w": 120,
-    "h": 150,
-    "z": 21,
-    "prim": "fill",
-    "name": "file2",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "cls": "card hi",
-    "owner": "file2"
-   },
-   {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
-    "z": 22,
-    "prim": "fill",
-    "name": "file2_pic",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "cls": "thumb",
-    "owner": "file2_pic"
-   },
-   {
-    "x": 180,
-    "y": 92,
-    "w": 40,
-    "h": 40,
-    "z": 23,
-    "prim": "icon",
-    "icon": "image",
-    "color": [
-     123,
-     121,
-     132
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "file2_pic"
-   },
-   {
-    "x": 12,
-    "y": 214,
-    "w": 120,
-    "h": 150,
-    "z": 30,
-    "prim": "fill",
-    "name": "file3",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "cls": "card hi",
-    "owner": "file3"
-   },
-   {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
-    "z": 31,
-    "prim": "fill",
-    "name": "file3_pic",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "cls": "thumb",
-    "owner": "file3_pic"
-   },
-   {
-    "x": 52,
-    "y": 250,
-    "w": 40,
-    "h": 40,
-    "z": 32,
-    "prim": "icon",
-    "icon": "image",
-    "color": [
-     123,
-     121,
-     132
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "file3_pic"
-   },
-   {
-    "x": 140,
-    "y": 214,
-    "w": 120,
-    "h": 150,
-    "z": 40,
-    "prim": "fill",
-    "name": "file4",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 14,
-    "cls": "card hi",
-    "owner": "file4"
-   },
-   {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
-    "z": 41,
-    "prim": "fill",
-    "name": "file4_pic",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 12,
-    "cls": "thumb",
-    "owner": "file4_pic"
-   },
-   {
-    "x": 180,
-    "y": 250,
-    "w": 40,
-    "h": 40,
-    "z": 42,
-    "prim": "icon",
-    "icon": "image",
-    "color": [
-     123,
-     121,
-     132
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "file4_pic"
-   },
-   {
-    "x": 12,
-    "y": 372,
-    "w": 77,
-    "h": 40,
-    "z": 50,
-    "prim": "fill",
-    "name": "prev",
-    "bg": [
-     41,
-     40,
-     41
-    ],
-    "radius": 10,
-    "cls": "btn dim   ",
-    "owner": "prev"
-   },
-   {
-    "x": 39,
-    "y": 380,
-    "w": 24,
-    "h": 24,
-    "z": 51,
-    "prim": "icon",
-    "icon": "chevron-left",
-    "color": [
-     107,
-     109,
-     123
-    ],
-    "matte": [
-     41,
-     40,
-     41
-    ],
-    "owner": "prev"
-   },
-   {
-    "x": 97,
-    "y": 372,
-    "w": 78,
-    "h": 40,
-    "z": 54,
-    "prim": "fill",
-    "name": "next",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 10,
-    "cls": "btn    ",
-    "owner": "next"
-   },
-   {
-    "x": 124,
-    "y": 380,
-    "w": 24,
-    "h": 24,
-    "z": 55,
-    "prim": "icon",
-    "icon": "chevron-right",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "next"
-   },
-   {
-    "x": 183,
-    "y": 372,
-    "w": 77,
-    "h": 40,
-    "z": 58,
-    "prim": "fill",
-    "name": "up_dir",
-    "bg": [
-     49,
-     48,
-     57
-    ],
-    "radius": 10,
-    "cls": "btn    ",
-    "owner": "up_dir"
-   },
-   {
-    "x": 211,
-    "y": 381,
-    "w": 22,
-    "h": 22,
-    "z": 59,
-    "prim": "icon",
-    "icon": "undo-2",
-    "color": [
-     247,
-     247,
-     247
-    ],
-    "matte": [
-     49,
-     48,
-     57
-    ],
-    "owner": "up_dir"
-   },
-   {
-    "x": 0,
-    "y": 424,
-    "w": 272,
-    "h": 56,
-    "z": 63,
-    "prim": "fill",
-    "name": null,
-    "bg": [
-     16,
-     16,
-     16
-    ],
-    "radius": 0,
-    "cls": "nav",
-    "owner": null
-   },
-   {
-    "x": 23,
-    "y": 442,
-    "w": 22,
-    "h": 22,
-    "z": 66,
-    "prim": "icon",
-    "icon": "house",
-    "color": [
-     165,
-     166,
-     181
-    ],
-    "matte": [
-     16,
-     16,
-     16
-    ],
-    "owner": "nav_main"
-   },
-   {
-    "x": 91,
-    "y": 442,
-    "w": 22,
-    "h": 22,
-    "z": 72,
-    "prim": "icon",
-    "icon": "sliders-horizontal",
-    "color": [
-     165,
-     166,
-     181
-    ],
-    "matte": [
-     16,
-     16,
-     16
-    ],
-    "owner": "nav_adjust"
-   },
-   {
-    "x": 146,
-    "y": 437,
-    "w": 48,
-    "h": 32,
-    "z": 84,
-    "prim": "fill",
-    "name": null,
-    "bg": [
-     57,
-     121,
-     255
-    ],
-    "radius": 16,
-    "cls": "pill",
-    "owner": "nav_files"
-   },
-   {
-    "x": 159,
-    "y": 442,
-    "w": 22,
-    "h": 22,
-    "z": 85,
-    "prim": "icon",
-    "icon": "folder-open",
-    "color": [
-     255,
-     255,
-     255
-    ],
-    "matte": [
-     57,
-     121,
-     255
-    ],
-    "owner": "nav_files"
-   },
-   {
-    "x": 227,
-    "y": 442,
-    "w": 22,
-    "h": 22,
-    "z": 90,
-    "prim": "icon",
-    "icon": "settings",
-    "color": [
-     165,
-     166,
-     181
-    ],
-    "matte": [
-     16,
-     16,
-     16
-    ],
-    "owner": "nav_settings"
-   }
-  ],
-  "decor": [],
-  "languages": {
-   "0": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "本地文件",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "U盘文件",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "1": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Локальные",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Файлы USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "2": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Local Files",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "USB Files",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "3": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "ローカル",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "USBファイル",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "4": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Locaux",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Fichiers USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "5": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Lokal",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "USB-Dateien",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "6": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "File locali",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "File USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "7": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Locales",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Archivos USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "8": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "로컬 파일",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "USB 파일",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "9": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Locais",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Arquivos USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "10": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "المحلية",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "ملفات USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "11": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "Yerel dosyalar",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "USB dosyaları",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   },
-   "12": {
-    "widgets": [
-     {
-      "name": "local_tab",
-      "labels": [
-       {
-        "x": 12,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         255,
-         255,
-         255
-        ],
-        "matte": [
-         49,
-         48,
-         57
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "קבצים מקומיים",
-        "z": 3.1
-       }
-      ]
-     },
-     {
-      "name": "usb_tab",
-      "labels": [
-       {
-        "x": 136,
-        "y": 8,
-        "w": 124,
-        "h": 40,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         165,
-         166,
-         181
-        ],
-        "matte": [
-         16,
-         16,
-         16
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "קבצי USB",
-        "z": 4.1
-       }
-      ]
-     },
-     {
-      "name": "file1",
-      "labels": []
-     },
-     {
-      "name": "file1_pic",
-      "labels": []
-     },
-     {
-      "name": "file1_name",
-      "text": "Benchy_PLA\n.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 165,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "Benchy_PLA\n.gcode",
-        "z": 19,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file2",
-      "labels": []
-     },
-     {
-      "name": "file2_pic",
-      "labels": []
-     },
-     {
-      "name": "file2_name",
-      "text": "models",
-      "labels": [
-       {
-        "x": 150,
-        "y": 172,
-        "w": 100,
-        "h": 24,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 22,
-        "text": "models",
-        "z": 29,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 22
-     },
-     {
-      "name": "file3",
-      "labels": []
-     },
-     {
-      "name": "file3_pic",
-      "labels": []
-     },
-     {
-      "name": "file3_name",
-      "text": "calibration_\ncube.gcode",
-      "labels": [
-       {
-        "x": 22,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "calibration_\ncube.gcode",
-        "z": 38,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "file4",
-      "labels": []
-     },
-     {
-      "name": "file4_pic",
-      "labels": []
-     },
-     {
-      "name": "file4_name",
-      "text": "part_with_a_\nvery_….gcode",
-      "labels": [
-       {
-        "x": 150,
-        "y": 323,
-        "w": 100,
-        "h": 38,
-        "role": "t16",
-        "align": "c",
-        "color": [
-         247,
-         247,
-         247
-        ],
-        "matte": [
-         23,
-         23,
-         26
-        ],
-        "top": false,
-        "bottom": false,
-        "dyn": false,
-        "scroll": false,
-        "used": 42,
-        "text": "part_with_a_\nvery_….gcode",
-        "z": 48,
-        "centered": true
-       }
-      ],
-      "role": "t16",
-      "used": 42
-     },
-     {
-      "name": "prev",
-      "labels": []
-     },
-     {
-      "name": "next",
-      "labels": []
-     },
-     {
-      "name": "up_dir",
-      "labels": []
-     },
-     {
-      "name": "nav_main",
-      "labels": []
-     },
-     {
-      "name": "nav_adjust",
-      "labels": []
-     },
-     {
-      "name": "nav_files",
-      "labels": []
-     },
-     {
-      "name": "nav_settings",
-      "labels": []
-     }
-    ],
-    "decor": []
-   }
-  }
- },
- {
-  "id": "file_list",
-  "page": "file_list",
-  "old": "filelist",
   "variant": "tab_usb",
   "bg": [
    24,
@@ -37484,10 +33033,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -37573,10 +33122,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "name": "file2_pic",
     "kind": "thumb",
@@ -37662,10 +33211,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "name": "file3_pic",
     "kind": "thumb",
@@ -37751,10 +33300,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "name": "file4_pic",
     "kind": "thumb",
@@ -37973,10 +33522,10 @@
     "owner": "file1"
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "prim": "fill",
     "name": "file1_pic",
@@ -37990,10 +33539,10 @@
     "owner": "file1_pic"
    },
    {
-    "x": 52,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 7,
     "prim": "icon",
     "icon": "image",
@@ -38027,10 +33576,10 @@
     "owner": "file2"
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "prim": "fill",
     "name": "file2_pic",
@@ -38044,10 +33593,10 @@
     "owner": "file2_pic"
    },
    {
-    "x": 180,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 17,
     "prim": "icon",
     "icon": "image",
@@ -38081,10 +33630,10 @@
     "owner": "file3"
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "prim": "fill",
     "name": "file3_pic",
@@ -38098,10 +33647,10 @@
     "owner": "file3_pic"
    },
    {
-    "x": 52,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 26,
     "prim": "icon",
     "icon": "image",
@@ -38135,10 +33684,10 @@
     "owner": "file4"
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "prim": "fill",
     "name": "file4_pic",
@@ -38152,10 +33701,10 @@
     "owner": "file4_pic"
    },
    {
-    "x": 180,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 36,
     "prim": "icon",
     "icon": "image",
@@ -41898,10 +37447,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -41987,10 +37536,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "name": "file2_pic",
     "kind": "thumb",
@@ -42076,10 +37625,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "name": "file3_pic",
     "kind": "thumb",
@@ -42165,10 +37714,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "name": "file4_pic",
     "kind": "thumb",
@@ -42387,10 +37936,10 @@
     "owner": "file1"
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "prim": "fill",
     "name": "file1_pic",
@@ -42404,10 +37953,10 @@
     "owner": "file1_pic"
    },
    {
-    "x": 52,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 7,
     "prim": "icon",
     "icon": "image",
@@ -42441,10 +37990,10 @@
     "owner": "file2"
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "prim": "fill",
     "name": "file2_pic",
@@ -42458,10 +38007,10 @@
     "owner": "file2_pic"
    },
    {
-    "x": 180,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 17,
     "prim": "icon",
     "icon": "image",
@@ -42495,10 +38044,10 @@
     "owner": "file3"
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "prim": "fill",
     "name": "file3_pic",
@@ -42512,10 +38061,10 @@
     "owner": "file3_pic"
    },
    {
-    "x": 52,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 26,
     "prim": "icon",
     "icon": "image",
@@ -42549,10 +38098,10 @@
     "owner": "file4"
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "prim": "fill",
     "name": "file4_pic",
@@ -42566,10 +38115,10 @@
     "owner": "file4_pic"
    },
    {
-    "x": 180,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 36,
     "prim": "icon",
     "icon": "image",
@@ -46312,10 +41861,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "name": "file1_pic",
     "kind": "thumb",
@@ -46401,10 +41950,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "name": "file2_pic",
     "kind": "thumb",
@@ -46490,10 +42039,10 @@
     "labels": []
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "name": "file3_pic",
     "kind": "thumb",
@@ -46579,10 +42128,10 @@
     "labels": []
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "name": "file4_pic",
     "kind": "thumb",
@@ -46801,10 +42350,10 @@
     "owner": "file1"
    },
    {
-    "x": 20,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 6,
     "prim": "fill",
     "name": "file1_pic",
@@ -46818,10 +42367,10 @@
     "owner": "file1_pic"
    },
    {
-    "x": 52,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 7,
     "prim": "icon",
     "icon": "image",
@@ -46855,10 +42404,10 @@
     "owner": "file2"
    },
    {
-    "x": 148,
-    "y": 60,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 64,
+    "w": 96,
+    "h": 96,
     "z": 16,
     "prim": "fill",
     "name": "file2_pic",
@@ -46872,10 +42421,10 @@
     "owner": "file2_pic"
    },
    {
-    "x": 180,
-    "y": 92,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 94,
+    "w": 36,
+    "h": 36,
     "z": 17,
     "prim": "icon",
     "icon": "image",
@@ -46909,10 +42458,10 @@
     "owner": "file3"
    },
    {
-    "x": 20,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 24,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 25,
     "prim": "fill",
     "name": "file3_pic",
@@ -46926,10 +42475,10 @@
     "owner": "file3_pic"
    },
    {
-    "x": 52,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 54,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 26,
     "prim": "icon",
     "icon": "image",
@@ -46963,10 +42512,10 @@
     "owner": "file4"
    },
    {
-    "x": 148,
-    "y": 218,
-    "w": 104,
-    "h": 104,
+    "x": 152,
+    "y": 222,
+    "w": 96,
+    "h": 96,
     "z": 35,
     "prim": "fill",
     "name": "file4_pic",
@@ -46980,10 +42529,10 @@
     "owner": "file4_pic"
    },
    {
-    "x": 180,
-    "y": 250,
-    "w": 40,
-    "h": 40,
+    "x": 182,
+    "y": 252,
+    "w": 36,
+    "h": 36,
     "z": 36,
     "prim": "icon",
     "icon": "image",

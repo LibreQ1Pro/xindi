@@ -120,17 +120,12 @@ class FileListSlotsTest(Recorder):
         return self.sent()
 
     def test_only_a_file_has_a_placeholder_and_a_thumbnail(self):
-        sent = self.refresh(["[c]", "[d]", "[f]", "[n]"])
+        sent = self.refresh(["[f]", "[d]", "[f]", "[n]"])
         self.assertIn("vis file1_pic,1", sent)
         self.assertIn("vis file2_pic,0", sent)
         self.assertIn("vis file2_pic_bg,0", sent)
         self.assertIn("vis file4_name,0", sent)
         self.assertIn("vis file2_name,1", sent)
-        self.assertIn("vis file1_mark,1", sent)
-
-    def test_the_mark_is_for_the_last_printed_file_only(self):
-        sent = self.refresh(["[f]", "[f]", "[f]", "[f]"])
-        self.assertNotIn("vis file1_mark,1", sent)
 
     def test_no_drive_says_empty_in_the_language_of_the_screen(self):
         sent = self.refresh(["[n]"] * 4, mode="USB", disk=-1)
@@ -265,11 +260,11 @@ class FileOrderTest(IsolatedState):
         with patch.object(g.files, "list_modified", modified):
             return sorted(entries, key=gcode_files.entry_order)
 
-    def test_last_printed_then_folders_a_to_z_then_files_newest_first(self):
-        entries = ["[f] old.gcode", "[d] beta", "[f] new.gcode", "[d] Alpha", "[c] last.gcode", "[f] mid.gcode"]
+    def test_folders_a_to_z_then_files_newest_first(self):
+        entries = ["[f] old.gcode", "[d] beta", "[f] new.gcode", "[d] Alpha", "[f] mid.gcode"]
         modified = {"old.gcode": 100.0, "mid.gcode": 200.0, "new.gcode": 300.0}
         self.assertEqual(self.order(entries, modified),
-                         ["[c] last.gcode", "[d] Alpha", "[d] beta", "[f] new.gcode", "[f] mid.gcode", "[f] old.gcode"])
+                         ["[d] Alpha", "[d] beta", "[f] new.gcode", "[f] mid.gcode", "[f] old.gcode"])
 
     def test_files_added_at_the_same_time_are_by_name(self):
         entries = ["[f] b.gcode", "[f] a.gcode"]

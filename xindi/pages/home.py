@@ -39,12 +39,12 @@ def main_last_file_picture():
     g.port.vis("last_file_pic", "0")
     g.port.cp_close("last_file_pic")
     g.screen.main_picture_detected = False
-    if g.files.list_list_show_type[0] != "[c]":
+    if not g.files.list_last_printed:
         g.port.face("last_file_btn", "noimg")
         g.port.txt("last_file_name", "")
         return
 
-    name = g.files.list_list_show_name[0]
+    name = file_list.file_name_only(g.files.list_last_printed)
     picture_path = thumbnail.GcodeRef(g.files.list_last_printed)
     log.info("Picture path:%s", picture_path)
     thumb = thumbnail.find(picture_path, THUMB_SIZE, "PNG")
