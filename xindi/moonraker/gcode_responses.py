@@ -6,7 +6,7 @@ import time
 
 from xindi import state as g
 from xindi.screen import navigation, pageids as ids
-from xindi.util.cpp import f32, jget, json_dump, jstr, stream_float, substr, to_string
+from xindi.util.cpp import jget, json_dump, jstr, substr
 
 log = logging.getLogger(__name__)
 
@@ -27,19 +27,7 @@ def _on_page(*pages):
     return g.screen.page in pages
 
 
-def _z_offset_babystep(line, prefix, extra_offset=0.0):
-    """Store the z offset the probe reported (inverted, minus ``extra_offset``) as the babystep of the config."""
-    from xindi.config import settings
-    log.info("Got z_offset: %s", line[len(prefix):])
-    temp = -stream_float(line[len(prefix):])
-    if extra_offset:
-        temp = f32(temp - extra_offset)
-    value = to_string(temp)
-    settings.set_babystep(value[:value.find(".") + 4])        # store the babystep in our config file
-
-
 def _klipper_ready(line):
-    from xindi.config import settings
     from xindi.printer import klipper
     g.klippy.idle_timeout_state = "Ready"
     log.info("Klipper restarted and is ready, sending the subscriptions")
@@ -49,7 +37,6 @@ def _klipper_ready(line):
     klipper.sub_object_status()
     time.sleep(2)
     klipper.get_object_status()
-    settings.get_babystep()    # 4.4.22 (was init_mks_status())
     g.levelling.all_level_saving = True
     log.info("State after the restart: %s", g.klippy.webhooks_state)
 
@@ -61,15 +48,6 @@ def _klipper_disconnected(line):
 
 def _pid_parameters(line):
     log.info("// PID parameters: ")
-
-
-def _probe_z_offset(line):
-    # subtract 0.15mm as required
-    _z_offset_babystep(line, "// probe: z_offset: ", 0.15)
-
-
-def _bltouch_z_offset(line):
-    _z_offset_babystep(line, "// bltouch: z_offset: ")
 
 
 def _shaper_result(attr):
@@ -150,8 +128,6 @@ RULES = [
     (_equals("// Klipper state: Ready"), _klipper_ready),
     (_equals("// Klipper state: Disconnect"), _klipper_disconnected),
     (_starts("// PID parameters: "), _pid_parameters),
-    (_starts("// probe: z_offset: "), _probe_z_offset),
-    (_starts("// bltouch: z_offset: "), _bltouch_z_offset),
     (_equals("// action:cancel"), None),
     (_starts("!! Must home axis first"), _move_home_tips),
     (_starts("!! Extrude below minimum temp"), _filament_tips),

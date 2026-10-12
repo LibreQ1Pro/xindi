@@ -109,7 +109,6 @@ def start_screen(fd, frames):
 
         klipper.get_object_status()       # query the required values
         time.sleep(2)
-        settings.init()     # 4.4.22 (was init_mks_status())
         get_wlan0_status()
         mks_wpa_scan_scanresults()
         get_ssid_list_pages()

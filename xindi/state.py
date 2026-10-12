@@ -315,7 +315,6 @@ class Config(object):
         self.extruder_target = 0
         self.heater_bed_target = 0
         self.hot_target = 0
-        self.babystep_value = ""
         self.serial_by_id = ""
 
 

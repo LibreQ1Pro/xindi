@@ -26,10 +26,6 @@ heaterbed                      = 60
 hot                            = 55
 
 
-[babystep]
-value                          = 0.000
-
-
 [oobe]
 enable                         = %(oobe)d
 

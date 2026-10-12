@@ -4,7 +4,6 @@ import logging
 import os
 
 from xindi import state as g
-from xindi.config import settings
 from xindi.pages import file_list, navigation
 from xindi.printer import calibration, heating, klipper
 from xindi.screen import pageids as ids
@@ -129,7 +128,6 @@ def syntony_finish(page_id, widget_id):
     if widget_id == ids.SYNTONY_FINISH_YES:
         page_to(ids.LEVEL_MODE)
         os.sync()
-        settings.get_babystep()           # 4.4.22 (was init_mks_status())
         klipper.sub_object_status()
         klipper.get_object_status()
 

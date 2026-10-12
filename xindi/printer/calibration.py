@@ -42,7 +42,6 @@ def go_to_syntony_move():
 
 
 def open_more_level_finish():
-    settings.get_babystep()      # 4.4.22 (was init_mks_status())
     settings.set_oobe_enabled(False)     # turn the out-of-box guide off
     get_object_status()
     page_to(ids.MAIN)
@@ -91,7 +90,6 @@ def bed_calibrate():
     elif g.screen.manual_count == 0:
         g.ep.run_gcode("ACCEPT\n")
         g.ep.run_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
-        settings.get_babystep()      # 4.4.22 (was init_mks_status())
         page_to(ids.BED_FINISH)
     else:
         g.ep.run_gcode("G1 Z10 F600\n")

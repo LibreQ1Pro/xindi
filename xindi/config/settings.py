@@ -52,20 +52,6 @@ def set_hot_target(target):
     save_setting("target", "hot", to_string(target))
 
 
-def set_babystep(value):
-    save_setting("babystep", "value", value)
-
-
-def get_babystep():
-    ini = open_settings()
-    g.config.babystep_value = ini.get_string("babystep", "value", "0.000")
-
-
-def init():
-    """4.4.22 start-up settings (the QIDI Link part is not implemented)."""
-    get_babystep()
-
-
 def get_total_time():
     g.ep.send(json_get_job_totals())
 

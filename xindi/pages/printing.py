@@ -4,11 +4,10 @@ import logging
 import time
 
 from xindi import state as g
-from xindi.config import settings
 from xindi.moonraker.printer_status import get_cal_printing_time
 from xindi.pages import file_list
 from xindi.pages.widgets import cut_after_point, face_group, fan_values, heater_row
-from xindi.printer import job, motion
+from xindi.printer import job
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import c_int, c_round, f32, to_string
@@ -22,7 +21,6 @@ def stopping():
     if g.klippy.idle_timeout_state in ("Ready", "Idle"):         # Idle too: the page has no buttons, it must not wait for a state that came and went
         job.clear_previous_data()
         time.sleep(5)
-        motion.save_current_zoffset()
         page_to(ids.MAIN)
 
 
@@ -86,9 +84,6 @@ def printing_zoffset():
     z_offset = cut_after_point(z_offset, 4)
     show_gcode_z = cut_after_point(show_gcode_z, 4)
     g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
-    if z_offset != g.config.babystep_value:
-        g.config.babystep_value = z_offset
-        settings.set_babystep(g.config.babystep_value)
     g.port.txt("gcode_z", show_gcode_z)
     g.port.txt("z_offset", z_offset)
     g.port.txt("time_elapsed", job.show_time(c_int(g.klippy.print_stats_print_duration)))
@@ -129,7 +124,6 @@ def printing_zoffset():
         job.complete_print()
         job.clear_previous_data()
         time.sleep(5)
-        motion.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
         g.port.txt("time_txt", time_duration)
 
@@ -189,7 +183,6 @@ def printing_state_changes():
         job.complete_print()
         job.clear_previous_data()
         time.sleep(5)
-        motion.save_current_zoffset()
         page_to(ids.PRINT_FINISH)
         g.port.txt("time_txt", time_duration)
     elif state == "paused":

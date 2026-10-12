@@ -28,7 +28,6 @@ def syntony_finish():
         os.sync()      # make sure the config file is saved
 
         g.levelling.all_level_saving = False
-        settings.get_babystep()  # 4.4.22 (was init_mks_status())
         klipper.sub_object_status()
         klipper.get_object_status()
         time.sleep(10)

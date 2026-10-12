@@ -28,9 +28,6 @@ extruder = 200
 heaterbed = 40
 hot = 40
 
-[babystep]
-value = 0.000
-
 [oobe]
 enable = 1
 """

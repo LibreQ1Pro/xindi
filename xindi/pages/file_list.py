@@ -127,7 +127,6 @@ def clear_cp0_image():
     g.files.meta_parse_finished = False
     g.files.meta_simage = ""
     g.files.meta_gimage = ""
-    # the z-offset is no longer set by xindi (printer_set_babystep() not called)
 
 
 def is_mounted(path):
