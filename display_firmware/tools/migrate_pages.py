@@ -586,16 +586,7 @@ class Migration:
             if o["type"] in ("text", "button") and a.get("isbr") == 1 and role_of(a) in Metrics.CELL and a.get("w"):
                 boxes[a["objname"]] = (role_of(a), a["w"], a)
 
-        def padded(role, lines, xcen):
-            """The screen puts a text as a block (as wide as its widest line) where ``xcen`` says and starts every line at the left edge of the block. A shorter
-            line is moved to the middle (or to the right) of the block with spaces in front of it, as QIDI did in the stock texts."""
-            if xcen not in (1, 2) or len(lines) < 2:
-                return lines
-            widths = [sum(METRICS.advance(role, c) for c in line) for line in lines]
-            top, space = max(widths), METRICS.advance(role, " ")
-            return [" " * round((top - w) / (2 if xcen == 1 else 1) / space) + line for line, w in zip(lines, widths)]
-
-        def broken(role, width, text, height=None, xcen=0):
+        def broken(role, width, text, height=None):
             lines = METRICS.wrap(role, text, width)
             allowed = max(1, height // Metrics.CELL[role]) if height else None
             if allowed and len(lines) > allowed:
@@ -607,11 +598,11 @@ class Migration:
                     if len(METRICS.wrap(role, " ".join(words), width)) <= allowed:
                         break
                 lines = METRICS.wrap(role, " ".join(words), width)
-            return "\\r".join(padded(role, lines, xcen))
+            return "\\r".join(lines)
 
         for name, (role, width, a) in boxes.items():
             if a.get("txt"):
-                a["txt"] = broken(role, width, a["txt"], a.get("h"), a.get("xcen"))
+                a["txt"] = broken(role, width, a["txt"], a.get("h"))
                 a["txt_maxl"] = max(a.get("txt_maxl", 10), len(a["txt"].encode()) + 8)
         pattern = re.compile(r'^(\s*)([A-Za-z_][A-Za-z0-9_]*)\.txt="(.*)"(\s*)$')
 
@@ -621,8 +612,8 @@ class Migration:
                 m = pattern.match(line)
                 if m and m.group(2) in boxes:
                     role, width, a = boxes[m.group(2)]
-                    line = '%s%s.txt="%s"%s' % (m.group(1), m.group(2), broken(role, width, m.group(3), a.get("h"), a.get("xcen")), m.group(4))
-                    a["txt_maxl"] = max(a.get("txt_maxl", 10), len(m.group(3).encode()) * 3 + 8 + 16)
+                    line = '%s%s.txt="%s"%s' % (m.group(1), m.group(2), broken(role, width, m.group(3), a.get("h")), m.group(4))
+                    a["txt_maxl"] = max(a.get("txt_maxl", 10), len(m.group(3).encode()) * 3 + 8)
                 out.append(line)
             return out
 

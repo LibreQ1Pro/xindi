@@ -492,7 +492,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Load",
-    "txt_maxl": 78,
+    "txt_maxl": 62,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -553,7 +553,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "OK",
-    "txt_maxl": 54,
+    "txt_maxl": 38,
     "isbr": 1,
     "spax": 0,
     "spay": 0

@@ -488,7 +488,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Disconnect",
-    "txt_maxl": 90,
+    "txt_maxl": 74,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -549,7 +549,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Change Password",
-    "txt_maxl": 120,
+    "txt_maxl": 104,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -722,7 +722,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Forget Network",
-    "txt_maxl": 105,
+    "txt_maxl": 89,
     "isbr": 1,
     "spax": 0,
     "spay": 0

@@ -74,7 +74,7 @@ def refresh_files_list():
         delete_small_jpg()
     for i in range(4):
         row = "file" + to_string(i + 1)
-        g.port.txt(row + "_name", fit_name(g.files.list_list_show_name[i], NAME_WIDTH, lines=2, center=True))
+        g.port.txt(row + "_name", fit_name(g.files.list_list_show_name[i], NAME_WIDTH, lines=2))
         t = g.files.list_list_show_type[i]
         if t in ROW_LOOKS:
             g.port.face(row, ROW_LOOKS[t])

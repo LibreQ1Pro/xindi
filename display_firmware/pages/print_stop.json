@@ -227,7 +227,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "Yes",
-    "txt_maxl": 42,
+    "txt_maxl": 26,
     "isbr": 1,
     "spax": 0,
     "spay": 0
@@ -288,7 +288,7 @@
     "ycen": 1,
     "val": 0,
     "txt": "No",
-    "txt_maxl": 51,
+    "txt_maxl": 35,
     "isbr": 1,
     "spax": 0,
     "spay": 0
