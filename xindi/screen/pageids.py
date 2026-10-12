@@ -61,6 +61,9 @@ MAIN_SET_TEMP = 0x03
 MAIN_SET_TEMP_2 = 0x04          # 4.4.24: three buttons open the filament page
 MAIN_SET_TEMP_3 = 0x05
 MAIN_CACHE = 0x06
+MAIN_TOGGLE_NOZZLE = 0x07         # the icon of a heater card switches the heater (the rest of the card opens the keyboard)
+MAIN_TOGGLE_BED = 0x08
+MAIN_TOGGLE_CHAMBER = 0x09
 
 FILE_LIST = 32
 FILE_LIST_BACK = 0x00

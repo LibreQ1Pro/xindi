@@ -24,6 +24,9 @@ HOT = (255, 121, 90)
 PANEL = (41, 40, 41)
 
 
+TOGGLE = {"nozzle": 7, "bed": 8, "chamber": 9}         # xindi/screen/pageids.py MAIN_TOGGLE_*
+
+
 def slashed(image, ink, background):
     """The icon crossed out (the network or the drive is not there): a diagonal line with a gap of the background on each side of it."""
     from PIL import ImageDraw
@@ -129,9 +132,13 @@ def main():
         # Main-specific old looks must not survive with their old geometry; print looks are retained.
         for state in ("on", "off"):
             faces.get(name, {}).pop(state, None)
-        hotspot = component("touch_hotspot", name, rect["x"], rect["y"], rect["w"], rect["h"])
+        # the icon (the left 50 px of the card) switches the heater, the rest opens the keyboard: two hotspots that do not overlap
+        hotspot = component("touch_hotspot", name, rect["x"] + 50, rect["y"], rect["w"] - 50, rect["h"])
         hotspot["events"] = copy.deepcopy(old[name]["events"])
         objects.append(hotspot)
+        toggle = component("touch_hotspot", heater + "_toggle", rect["x"], rect["y"], 50, rect["h"])
+        toggle["events"] = {"codesdown": [], "codesup": ["prints 0x65,1", "prints dp,1", "prints %d,1" % TOGGLE[heater], "prints 0xff,1", "prints 0xff,1", "prints 0xff,1"]}
+        objects.append(toggle)
         handled.add(name)
 
     for name in ("light_btn", "beep_btn", "stop_btn"):

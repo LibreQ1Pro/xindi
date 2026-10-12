@@ -13,12 +13,12 @@ function heatEdit(x,y,w,glyph,cur,tar,on,name,o){
   return box(x,y,w,50,'card hi','',name+'_card') +
     `<div style="${st(x+12,y+12,26,26)}color:${lit(on)?HOT:'var(--text2)'}">${hico(glyph,26)}</div>` +
     heatValue(x+44,y,w-50,50,{cur:cur,tar:tar,on:on,name:name,big:false,mid:true}) +
-    (o.whole ? hit(x,y,w,50,name+'_toggle') : o.keyboard ? hit(x,y,w,50,name+'_row') : hit(x,y,50,50,name+'_toggle') + hit(x+50,y,w-50,50,name+'_row'));
+    (o.whole ? hit(x,y,w,50,name+'_toggle') : hit(x,y,50,50,name+'_toggle') + hit(x+50,y,w-50,50,name+'_row'));
 }
 S('filament','Filament and movement','Filament',()=>{
   CUR='filament';
   let s = tabs('l','r','l',['tab_load','tab_manual']);
-  s += heatEdit(12,56,160,'nozzle',220,220,true,'nozzle',{keyboard:1})+heatEdit(12,114,160,'bed',60,60,true,'bed',{keyboard:1})+heatEdit(12,172,160,'chamber',35,0,false,'chamber',{keyboard:1});
+  s += heatEdit(12,56,160,'nozzle',220,220,true,'nozzle')+heatEdit(12,114,160,'bed',60,60,true,'bed')+heatEdit(12,172,160,'chamber',35,0,false,'chamber');
   // the fans, as on the print page: three tiles (icon, number, speed); a tap opens the fans page
   s += [100,0,60].map((v,i)=>fanTile(180,56+58*i,80,50,i+1,v,'fan'+(i+1)+'_btn')).join('');
   s += tb(12,230,120,46,'load_btn',{},'load_btn')+tb(140,230,120,46,'replace_btn',{wrap:1},'replace_btn');
@@ -26,7 +26,7 @@ S('filament','Filament and movement','Filament',()=>{
   s += btn(12,332,120,64,esc(caption('retract')),{icon:'arrow-up',is:24,col:1},'extr_up')+btn(140,332,120,64,esc(caption('extrude')),{icon:'arrow-down',is:24,col:1},'extr_down');
   s += nav('adjust');
   return screen('filament', s);
-}, 'A heater is one card, as on the print page: a tap anywhere on the card opens the number keyboard for the target (as on Home); orange = heating. The fans are three tiles, as on the print page; a tap opens the number keyboard for that fan (there is no separate fans page any more).',
+}, 'A heater is one card, as on the print page: tap the icon to switch it on or off (orange = heating), tap the value to set the temperature. The fans are three tiles, as on the print page; a tap opens the number keyboard for that fan (there is no separate fans page any more).',
  {variants:[{id:'normal',label:'Values'},{id:'no_values',label:'No values yet (---)'},{id:'heat_on',label:'All heaters on'},{id:'heat_off',label:'All heaters off'},{id:'seg10',label:'10 mm'},{id:'seg50',label:'50 mm'},{id:'seg100',label:'100 mm'}]});
 
 S('move','Filament and movement','Move',()=>{

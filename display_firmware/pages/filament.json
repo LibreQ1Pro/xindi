@@ -676,6 +676,40 @@
    }
   },
   {
+   "key": "nozzle_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "nozzle_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 56,
+    "w": 50,
+    "h": 50,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 2,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
    "key": "nozzle_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -686,9 +720,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 56,
-    "w": 160,
+    "w": 110,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -705,10 +739,10 @@
    }
   },
   {
-   "key": "bg18",
+   "key": "bg19",
    "type": "picture",
    "attributes": {
-    "objname": "bg18",
+    "objname": "bg19",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -950,6 +984,40 @@
    }
   },
   {
+   "key": "bed_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "bed_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 114,
+    "w": 50,
+    "h": 50,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 3,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
    "key": "bed_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -960,9 +1028,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 114,
-    "w": 160,
+    "w": 110,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -979,10 +1047,10 @@
    }
   },
   {
-   "key": "bg32",
+   "key": "bg34",
    "type": "picture",
    "attributes": {
-    "objname": "bg32",
+    "objname": "bg34",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1224,6 +1292,40 @@
    }
   },
   {
+   "key": "chamber_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "chamber_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 172,
+    "w": 50,
+    "h": 50,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 15,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
    "key": "chamber_row",
    "type": "touch_hotspot",
    "attributes": {
@@ -1234,9 +1336,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 172,
-    "w": 160,
+    "w": 110,
     "h": 50,
     "effect": 0,
     "first": 0,
@@ -1315,10 +1417,10 @@
    }
   },
   {
-   "key": "lbl52",
+   "key": "lbl55",
    "type": "text",
    "attributes": {
-    "objname": "lbl52",
+    "objname": "lbl55",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1475,10 +1577,10 @@
    }
   },
   {
-   "key": "lbl62",
+   "key": "lbl65",
    "type": "text",
    "attributes": {
-    "objname": "lbl62",
+    "objname": "lbl65",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -1635,10 +1737,10 @@
    }
   },
   {
-   "key": "lbl72",
+   "key": "lbl75",
    "type": "text",
    "attributes": {
-    "objname": "lbl72",
+    "objname": "lbl75",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,
@@ -2366,10 +2468,10 @@
    }
   },
   {
-   "key": "bg99",
+   "key": "bg102",
    "type": "picture",
    "attributes": {
-    "objname": "bg99",
+    "objname": "bg102",
     "vscope": 0,
     "drag": 0,
     "sendkey": 0,

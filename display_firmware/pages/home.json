@@ -394,9 +394,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 244,
-    "w": 168,
+    "w": 118,
     "h": 52,
     "effect": 0,
     "first": 0,
@@ -411,6 +411,40 @@
      "prints 0x65,1",
      "prints dp,1",
      "prints 3,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
+   "key": "nozzle_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "nozzle_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 244,
+    "w": 50,
+    "h": 52,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 7,1",
      "prints 0xff,1",
      "prints 0xff,1",
      "prints 0xff,1"
@@ -488,9 +522,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 304,
-    "w": 168,
+    "w": 118,
     "h": 52,
     "effect": 0,
     "first": 0,
@@ -505,6 +539,40 @@
      "prints 0x65,1",
      "prints dp,1",
      "prints 4,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
+   "key": "bed_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "bed_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 304,
+    "w": 50,
+    "h": 52,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 8,1",
      "prints 0xff,1",
      "prints 0xff,1",
      "prints 0xff,1"
@@ -582,9 +650,9 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 12,
+    "x": 62,
     "y": 364,
-    "w": 168,
+    "w": 118,
     "h": 52,
     "effect": 0,
     "first": 0,
@@ -599,6 +667,40 @@
      "prints 0x65,1",
      "prints dp,1",
      "prints 5,1",
+     "prints 0xff,1",
+     "prints 0xff,1",
+     "prints 0xff,1"
+    ]
+   }
+  },
+  {
+   "key": "chamber_toggle",
+   "type": "touch_hotspot",
+   "attributes": {
+    "objname": "chamber_toggle",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 12,
+    "y": 364,
+    "w": 50,
+    "h": 52,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": [
+     "prints 0x65,1",
+     "prints dp,1",
+     "prints 9,1",
      "prints 0xff,1",
      "prints 0xff,1",
      "prints 0xff,1"

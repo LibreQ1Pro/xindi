@@ -34,6 +34,12 @@ def main(page_id, widget_id):
         g.screen.temperature_from_main = True
         g.port.raw("sys1=%d" % (widget_id - ids.MAIN_SET_TEMP))
         page_to(ids.FILAMENT_KB)
+    elif widget_id == ids.MAIN_TOGGLE_NOZZLE:
+        heating.filament_extruder_target()
+    elif widget_id == ids.MAIN_TOGGLE_BED:
+        heating.filament_heater_bed_target()
+    elif widget_id == ids.MAIN_TOGGLE_CHAMBER:
+        heating.filament_hot_target()
     elif widget_id == ids.MAIN_CACHE:
         g.files.list_pages = 0
         g.files.list_current_pages = 0

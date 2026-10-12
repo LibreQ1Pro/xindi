@@ -58,20 +58,23 @@
    "bed_card",
    "bed_icon",
    "bed_set",
+   "bed_toggle",
    "bed_unit",
    "chamber_card",
    "chamber_icon",
    "chamber_set",
+   "chamber_toggle",
    "chamber_unit",
    "nozzle_card",
    "nozzle_icon",
    "nozzle_set",
+   "nozzle_toggle",
    "nozzle_unit",
    "thumb_empty",
    "ui_ver",
    "ver_panel"
   ],
-  "sha256": "e666748dcdf4974e4376df2cf8f3e09e8f1a62ee6673f2e724f500ead977115a"
+  "sha256": "daaeeec4b6ca1cf49313105375e5fbbb7b82c6e9d68eff1dca4c71b3e44632a3"
  },
  "open_pop": {
   "design": "setup_skip_confirm",
@@ -1330,13 +1333,13 @@
    "chamber_card",
    "chamber_unit",
    "fan1_btn",
-   "lbl52",
+   "lbl55",
    "fan1_val",
    "fan2_btn",
-   "lbl62",
+   "lbl65",
    "fan2_val",
    "fan3_btn",
-   "lbl72",
+   "lbl75",
    "fan3_val",
    "step_10_lbl",
    "step_50_lbl",
@@ -1349,12 +1352,15 @@
    "tab_manual",
    "nozzle_temp",
    "nozzle_set",
+   "nozzle_toggle",
    "nozzle_row",
    "bed_temp",
    "bed_set",
+   "bed_toggle",
    "bed_row",
    "chamber_temp",
    "chamber_set",
+   "chamber_toggle",
    "chamber_row",
    "load_btn",
    "replace_btn",
@@ -1369,13 +1375,10 @@
    "nav_settings"
   ],
   "dropped": [
-   "fan_btn",
-   "nozzle_toggle",
-   "bed_toggle",
-   "chamber_toggle"
+   "fan_btn"
   ],
   "baked": 11,
-  "sha256": "64a7e6a85adff9be30e4fed2d1934a93edf5a9a8253d756a922f9e0ba2038c4c"
+  "sha256": "c1977250c10d046c074b4402f3d591609b17126f505584ae20b1bdaab4a240f3"
  },
  "move": {
   "design": "move",
