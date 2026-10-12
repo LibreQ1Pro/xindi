@@ -193,7 +193,7 @@
   "setup_load_extrude": "setup_extrude",
   "emergency_stop_confirm": "emergency_stop",
   "filament_nozzle_cold": "filament_cold",
-  "set_temperature_warning": "set_temp_warn",
+  "set_temperature_warning": "level_cold",
   "move_out_of_range": "move_range",
   "move_home_confirm": "move_unhomed",
   "closed_chamber_warning": "closed_chamber",

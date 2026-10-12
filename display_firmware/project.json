@@ -1853,10 +1853,10 @@
       }
     },
     {
-      "key": "set_temp_warn",
+      "key": "level_cold",
       "content": {
         "mode": "json",
-        "path": "pages/set_temp_warn.json"
+        "path": "pages/level_cold.json"
       }
     },
     {
