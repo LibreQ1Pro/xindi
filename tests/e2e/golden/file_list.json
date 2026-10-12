@@ -1735,13 +1735,13 @@
      "\"0h0m\""
     ],
     "fil_length.txt": [
-     "\"-\""
+     "\"---\""
     ],
     "fil_type.txt": [
      "\"Generic ABS\""
     ],
     "fil_weight.txt": [
-     "\"-\""
+     "\"---\""
     ],
     "file_name.txt": [
      "\"Benchy PLA.gcode\""
@@ -2550,7 +2550,7 @@
      "\"h00<820PnbSP82108410820P820P@60P8210820P@210@210@20P840P8210820P80070000\""
     ],
     "est_time.txt": [
-     "\"-\""
+     "\"---\""
     ],
     "fil_length.txt": [
      "\"15.0 m\""
