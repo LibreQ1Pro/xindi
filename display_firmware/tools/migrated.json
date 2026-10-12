@@ -1055,7 +1055,7 @@
    "vis spin3,0",
    "vis spin4,0"
   ],
-  "sha256": "deafe4f47ab2979b085b8a1c29c4fbfb38e4bc8091ca247f219a34dd2d7bf7a1"
+  "sha256": "f83c92b863df7b2c5859a6ab74b808c590375f0c8d66fbde4b5517dba30459d3"
  },
  "filament_pop_3": {
   "design": "load_steps",
@@ -1090,7 +1090,7 @@
    "vis spin3,0",
    "vis spin4,0"
   ],
-  "sha256": "87906650da10e61b8c962e7b6f4f14536f5781f50d27d64e3618f6c47e95b0b5"
+  "sha256": "1cd757f797dbcf768c30c53140e7c60e2f755e4b2379c1e533f783a636bf2fdd"
  },
  "auto_unload": {
   "design": "unload_auto",
@@ -1118,7 +1118,7 @@
    "vis spin2,0",
    "vis spin3,0"
   ],
-  "sha256": "e27c5b2244a917d44c452b7aaa7a5ffd39c2219fa33f916da2ddda13cbe3d2c7"
+  "sha256": "12600e3040fd5fef1e17b9c7aaa2768d69612edfaea1799c16b394d869e62f43"
  },
  "auto_moving": {
   "design": "auto_level_progress",
@@ -1160,7 +1160,7 @@
    "bed_lbl.txt=\"Tabla sıcaklığı:\"",
    "bed_lbl.txt=\"טמפ' מיטה:\""
   ],
-  "sha256": "d1749ed16e2872cfcf94ff68802a98031ba0324b901579a0e3822e5de08248d6"
+  "sha256": "06f6f6a61061f05391dd8d7cb032fb11f8a9bd474980b2f67ab302308347c7f8"
  },
  "wifi_list": {
   "design": "wifi_list",
@@ -1275,7 +1275,7 @@
    "temp_target"
   ],
   "baked": 4,
-  "sha256": "fa88bace3c790bb6d698d1127edd57df55bf6b643eb2980470828d644d76c973"
+  "sha256": "e5eeaaa2dc8d7f3972708c285972529cd056bd2d3966ac29cc43f192d0706c1b"
  },
  "zoffset": {
   "design": "z_offset_table",
@@ -1378,7 +1378,7 @@
    "fan_btn"
   ],
   "baked": 11,
-  "sha256": "d33eb3d41a39e2efbf76bf56c20c190722fa899843bb45db6af589c6f38e6258"
+  "sha256": "df0e23c150e2c679db8902f71b5868901d8ce5220440d9c52b668b924a5c8825"
  },
  "move": {
   "design": "move",
@@ -1485,7 +1485,7 @@
    "spstr temp_now.txt,cur_str.txt,\"/\",0",
    "if(temp_target.val>0&&cur_val.val>=temp_target.val&&cur_val.val>=185)"
   ],
-  "sha256": "06920ab6e68b88a617a7a90818e914c5684c3aa1d567b6c96c127e80f6ba822f"
+  "sha256": "8a8c9b4dd0c679d0fd97ab824e40290f30b8d8e5d703a88cdb0cbaa12be9ad2d"
  },
  "filament_kb": {
   "design": "keypad",
@@ -1685,7 +1685,7 @@
    "pct_sign"
   ],
   "baked": 15,
-  "sha256": "cbf097cc6a519560688ff26d60f73bafb25fe494c849c547792dd3a3e1f01cce"
+  "sha256": "1309a13e84f8345ebb52a733fa613138ec24304120173bf626340d6dd83aae67"
  },
  "print_zoffset": {
   "design": "print_z_offset",

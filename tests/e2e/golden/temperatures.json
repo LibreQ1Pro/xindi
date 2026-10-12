@@ -79,7 +79,7 @@
      "115200"
     ],
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -91,13 +91,13 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "397"
+     "385"
     ],
     "beep_btn.pic2": [
-     "398"
+     "386"
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -109,10 +109,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "395"
+     "383"
     ],
     "last_file_btn.pic2": [
-     "396"
+     "384"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -135,13 +135,13 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "353"
+     "341"
     ],
     "light_btn.pic2": [
-     "354"
+     "342"
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -156,14 +156,14 @@
      "0"
     ],
     "usb_icon.pic": [
-     "85"
+     "75"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "87"
+     "77"
     ]
    },
    "page": 17
@@ -183,7 +183,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -195,13 +195,13 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "397"
+     "385"
     ],
     "beep_btn.pic2": [
-     "398"
+     "386"
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -213,13 +213,13 @@
      "\"26\""
     ],
     "light_btn.pic": [
-     "353"
+     "341"
     ],
     "light_btn.pic2": [
-     "354"
+     "342"
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -231,13 +231,13 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "85"
+     "75"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "87"
+     "77"
     ]
    },
    "page": 17
@@ -245,7 +245,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -257,7 +257,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -278,7 +278,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -299,7 +299,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19
@@ -307,7 +307,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -319,7 +319,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -340,7 +340,7 @@
      "\"0\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -361,7 +361,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19
@@ -369,9 +369,9 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38",
-     "91",
-     "38"
+     "33",
+     "81",
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\"",
@@ -387,9 +387,9 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52",
-     "92",
-     "52"
+     "44",
+     "82",
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\"",
@@ -417,9 +417,9 @@
      "\"100\""
     ],
     "nozzle_icon.pic": [
-     "49",
-     "106",
-     "49"
+     "43",
+     "96",
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\"",
@@ -450,10 +450,10 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54",
-     "53",
-     "55",
-     "54"
+     "46",
+     "45",
+     "47",
+     "46"
     ]
    },
    "page": 19
@@ -465,7 +465,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -477,7 +477,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -498,7 +498,7 @@
      "\"100\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -519,7 +519,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19
@@ -531,7 +531,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -543,7 +543,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -564,7 +564,7 @@
      "\"100\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -585,7 +585,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19
@@ -600,7 +600,7 @@
      "printing keyboard"
     ],
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\"",
@@ -614,7 +614,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -639,7 +639,7 @@
      "\"99\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\"",
@@ -665,7 +665,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19
@@ -677,7 +677,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -689,7 +689,7 @@
      "\"25\""
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -710,7 +710,7 @@
      "\"100\""
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -731,7 +731,7 @@
      "65535"
     ],
     "step_seg.pic": [
-     "54"
+     "46"
     ]
    },
    "page": 19

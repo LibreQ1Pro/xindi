@@ -250,7 +250,8 @@ class Migration:
         self.layer_names = [w["name"] for w in self.base["widgets"] if w["name"]]          # the widgets whose shape the layer of the buttons holds (the cards that are buttons too)
         # the decor holds what lies under the widgets that are components of their own (buttons, and the cards that are buttons too): not their pieces
         self.decor_shot = gp.screenshot(self.base["id"], self.base["variant"], 2, nobtn=True,
-                                        hide=[w["name"] for w in self.base["widgets"] if w["name"] and self.is_interactive(w)])       # without the buttons: decor holds what lies under them
+                                        hide=[w["name"] for w in self.base["widgets"] if w["name"] and self.is_interactive(w)],
+                                        hidebox=[tuple(r["rect"]) for r in rules.get("regions", {}).values()])        # the regions are pictures of their own       # without the buttons: decor holds what lies under them
         self.chain = {}
         for line in self.stock["root"]["events"].get("codesload", []):
             m = re.match(r'^\s*(\w+)\.txt="(.*)"\s*$', line)

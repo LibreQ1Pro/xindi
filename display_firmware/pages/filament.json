@@ -452,7 +452,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_3"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {
@@ -482,7 +482,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_3"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {
@@ -760,7 +760,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_1"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {
@@ -790,7 +790,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_1"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {
@@ -1068,7 +1068,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_2"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {
@@ -1098,7 +1098,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:filament_decor_2"
+     "$ref": "picture:filament_decor"
     }
    },
    "events": {

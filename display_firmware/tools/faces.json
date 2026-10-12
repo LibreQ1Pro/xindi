@@ -507,35 +507,35 @@
  },
  "steps_bar": {
   "level_0": [
-   "level_progress_steps_bar_level_0",
+   "auto_level_progress_steps_bar_level_0",
    null
   ],
   "level_1": [
-   "level_progress_steps_bar_level_1",
+   "auto_level_progress_steps_bar_level_1",
    null
   ],
   "level_2": [
-   "level_progress_steps_bar_level_2",
+   "auto_level_progress_steps_bar_level_2",
    null
   ],
   "level_3": [
-   "level_progress_steps_bar_level_3",
+   "auto_level_progress_steps_bar_level_3",
    null
   ],
   "load_0": [
-   "unload_steps_steps_bar_load_0",
+   "load_steps_steps_bar_load_0",
    null
   ],
   "load_1": [
-   "unload_steps_steps_bar_load_1",
+   "load_steps_steps_bar_load_1",
    null
   ],
   "load_2": [
-   "unload_steps_steps_bar_load_2",
+   "load_steps_steps_bar_load_2",
    null
   ],
   "load_3": [
-   "unload_steps_steps_bar_load_3",
+   "load_steps_steps_bar_load_3",
    null
   ],
   "unload_0": [
@@ -543,7 +543,7 @@
    null
   ],
   "unload_1": [
-   "unload_steps_steps_bar_unload_1",
+   "unload_auto_steps_bar_unload_1",
    null
   ],
   "unload_2": [

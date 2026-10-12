@@ -149,7 +149,7 @@
     "movey": 0,
     "x": 0,
     "y": 0,
-    "w": 74,
+    "w": 48,
     "h": 424,
     "effect": 0,
     "first": 0,
@@ -301,6 +301,36 @@
     "isbr": 1,
     "spax": 0,
     "spay": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": []
+   }
+  },
+  {
+   "key": "bg12",
+   "type": "picture",
+   "attributes": {
+    "objname": "bg12",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 50,
+    "y": 53,
+    "w": 18,
+    "h": 18,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0,
+    "pic": {
+     "$ref": "picture:unload_auto_decor"
+    }
    },
    "events": {
     "codesdown": [],

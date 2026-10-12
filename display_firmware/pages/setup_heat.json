@@ -207,7 +207,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:setup_heat_decor_2"
+     "$ref": "picture:auto_level_preheat_decor"
     }
    },
    "events": {
@@ -237,7 +237,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:setup_heat_decor_2"
+     "$ref": "picture:auto_level_preheat_decor"
     }
    },
    "events": {

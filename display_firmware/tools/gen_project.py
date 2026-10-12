@@ -181,14 +181,15 @@ class Tiles:
         return self.add(name, image.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])))
 
 
-def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, names=(), hide=()):
+def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, names=(), hide=(), hidebox=()):
     """The static rendering of a screen of the mockup (RGB, quantized to RGB565). ``layer=True``: only the buttons, on a transparent background (RGBA, as the browser
-    draws it): the alpha of the anti-aliased corners comes from the HTML itself; ``names`` = widgets of the page that belong to the layer besides the buttons; ``hide`` = widgets that are left out of the rendering (components of their own)."""
+    draws it): the alpha of the anti-aliased corners comes from the HTML itself; ``names`` = widgets of the page that belong to the layer besides the buttons; ``hide`` = widgets that are left out of the rendering (components of their own), ``hidebox`` = rectangles (x, y, w, h) whose contents are left out
+    (pictures of their own on the page: an icon on a card, the bar of the steps)."""
     directory = ROOT / "out/static"
     directory.mkdir(parents=True, exist_ok=True)
     tag = "_layer" + (("_" + hashlib.sha1(",".join(sorted(names)).encode()).hexdigest()[:8]) if names else "") if layer else ""
-    if hide:
-        tag += "_hide_" + hashlib.sha1(",".join(sorted(hide)).encode()).hexdigest()[:8]
+    if hide or hidebox:
+        tag += "_hide_" + hashlib.sha1((",".join(sorted(hide)) + repr(sorted(hidebox))).encode()).hexdigest()[:8]
     out = directory / ("gen_%s_%s_%d%s%s.png" % (sid, variant, lang, "_nobtn" if nobtn else "", tag))
     query = "bare=%s&lang=%d" % (sid, lang)
     if static:
@@ -197,6 +198,8 @@ def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, n
         query += "&nobtn=1"
     if hide:
         query += "&hide=" + ",".join(sorted(hide))
+    if hidebox:
+        query += "&hidebox=" + ";".join(",".join(str(v) for v in box) for box in sorted(hidebox))
     if layer:
         query += "&onlybtn=1"
         if names:

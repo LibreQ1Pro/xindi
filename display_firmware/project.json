@@ -2474,39 +2474,9 @@
       }
     },
     {
-      "key": "level_progress_steps_bar_level_0",
-      "source": {
-        "png": "pictures/level_progress_steps_bar_level_0.png"
-      }
-    },
-    {
-      "key": "level_progress_steps_bar_level_1",
-      "source": {
-        "png": "pictures/level_progress_steps_bar_level_1.png"
-      }
-    },
-    {
-      "key": "level_progress_steps_bar_level_2",
-      "source": {
-        "png": "pictures/level_progress_steps_bar_level_2.png"
-      }
-    },
-    {
-      "key": "level_progress_steps_bar_level_3",
-      "source": {
-        "png": "pictures/level_progress_steps_bar_level_3.png"
-      }
-    },
-    {
       "key": "move_decor_2",
       "source": {
         "png": "pictures/move_decor_2.png"
-      }
-    },
-    {
-      "key": "level_preheat_decor",
-      "source": {
-        "png": "pictures/level_preheat_decor.png"
       }
     },
     {
@@ -2570,27 +2540,9 @@
       }
     },
     {
-      "key": "filament_decor_3",
-      "source": {
-        "png": "pictures/filament_decor_3.png"
-      }
-    },
-    {
       "key": "setup_heat_nozzle_icon_off",
       "source": {
         "png": "pictures/setup_heat_nozzle_icon_off.png"
-      }
-    },
-    {
-      "key": "filament_decor_1",
-      "source": {
-        "png": "pictures/filament_decor_1.png"
-      }
-    },
-    {
-      "key": "filament_decor_2",
-      "source": {
-        "png": "pictures/filament_decor_2.png"
       }
     },
     {
@@ -2660,12 +2612,6 @@
       }
     },
     {
-      "key": "setup_heat_decor_2",
-      "source": {
-        "png": "pictures/setup_heat_decor_2.png"
-      }
-    },
-    {
       "key": "setup_heat_decor_1",
       "source": {
         "png": "pictures/setup_heat_decor_1.png"
@@ -2723,12 +2669,6 @@
       "key": "print_adjust_fan1_btn",
       "source": {
         "png": "pictures/print_adjust_fan1_btn.png"
-      }
-    },
-    {
-      "key": "print_filament_decor",
-      "source": {
-        "png": "pictures/print_filament_decor.png"
       }
     },
     {
@@ -2924,21 +2864,9 @@
       }
     },
     {
-      "key": "unload_steps_steps_bar_load_0",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_load_0.png"
-      }
-    },
-    {
       "key": "unload_auto_steps_bar_unload_0",
       "source": {
         "png": "pictures/unload_auto_steps_bar_unload_0.png"
-      }
-    },
-    {
-      "key": "unload_steps_steps_bar_unload_1",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_unload_1.png"
       }
     },
     {
@@ -4700,24 +4628,6 @@
       }
     },
     {
-      "key": "unload_steps_steps_bar_load_1",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_load_1.png"
-      }
-    },
-    {
-      "key": "unload_steps_steps_bar_load_2",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_load_2.png"
-      }
-    },
-    {
-      "key": "unload_steps_steps_bar_load_3",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_load_3.png"
-      }
-    },
-    {
       "key": "unload_auto_steps_bar_unload_2",
       "source": {
         "png": "pictures/unload_auto_steps_bar_unload_2.png"
@@ -4745,6 +4655,84 @@
       "key": "print_filament_nozzle_icon_off",
       "source": {
         "png": "pictures/print_filament_nozzle_icon_off.png"
+      }
+    },
+    {
+      "key": "load_steps_steps_bar_load_0",
+      "source": {
+        "png": "pictures/load_steps_steps_bar_load_0.png"
+      }
+    },
+    {
+      "key": "load_steps_steps_bar_load_1",
+      "source": {
+        "png": "pictures/load_steps_steps_bar_load_1.png"
+      }
+    },
+    {
+      "key": "load_steps_steps_bar_load_2",
+      "source": {
+        "png": "pictures/load_steps_steps_bar_load_2.png"
+      }
+    },
+    {
+      "key": "load_steps_steps_bar_load_3",
+      "source": {
+        "png": "pictures/load_steps_steps_bar_load_3.png"
+      }
+    },
+    {
+      "key": "unload_auto_steps_bar_unload_1",
+      "source": {
+        "png": "pictures/unload_auto_steps_bar_unload_1.png"
+      }
+    },
+    {
+      "key": "unload_auto_decor",
+      "source": {
+        "png": "pictures/unload_auto_decor.png"
+      }
+    },
+    {
+      "key": "auto_level_progress_steps_bar_level_0",
+      "source": {
+        "png": "pictures/auto_level_progress_steps_bar_level_0.png"
+      }
+    },
+    {
+      "key": "auto_level_progress_steps_bar_level_1",
+      "source": {
+        "png": "pictures/auto_level_progress_steps_bar_level_1.png"
+      }
+    },
+    {
+      "key": "auto_level_progress_steps_bar_level_2",
+      "source": {
+        "png": "pictures/auto_level_progress_steps_bar_level_2.png"
+      }
+    },
+    {
+      "key": "auto_level_progress_steps_bar_level_3",
+      "source": {
+        "png": "pictures/auto_level_progress_steps_bar_level_3.png"
+      }
+    },
+    {
+      "key": "auto_level_progress_decor",
+      "source": {
+        "png": "pictures/auto_level_progress_decor.png"
+      }
+    },
+    {
+      "key": "auto_level_preheat_decor",
+      "source": {
+        "png": "pictures/auto_level_preheat_decor.png"
+      }
+    },
+    {
+      "key": "filament_decor",
+      "source": {
+        "png": "pictures/filament_decor.png"
       }
     }
   ],

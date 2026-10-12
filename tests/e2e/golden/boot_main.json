@@ -71,7 +71,7 @@
      "115200"
     ],
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -84,16 +84,16 @@
      "\"40\""
     ],
     "beep_btn.pic": [
-     "397",
-     "399"
+     "385",
+     "387"
     ],
     "beep_btn.pic2": [
-     "398",
-     "400"
+     "386",
+     "388"
     ],
     "chamber_icon.pic": [
-     "52",
-     "92"
+     "44",
+     "82"
     ],
     "chamber_set.txt": [
      "\"/ 0\"",
@@ -108,10 +108,10 @@
      "\"31\""
     ],
     "last_file_btn.pic": [
-     "395"
+     "383"
     ],
     "last_file_btn.pic2": [
-     "396"
+     "384"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -134,18 +134,18 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "353",
-     "355",
-     "353"
+     "341",
+     "343",
+     "341"
     ],
     "light_btn.pic2": [
-     "354",
-     "356",
-     "354"
+     "342",
+     "344",
+     "342"
     ],
     "nozzle_icon.pic": [
-     "49",
-     "106"
+     "43",
+     "96"
     ],
     "nozzle_set.txt": [
      "\"/ 0\"",
@@ -160,14 +160,14 @@
      "\"32\""
     ],
     "usb_icon.pic": [
-     "85"
+     "75"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "87"
+     "77"
     ]
    },
    "page": 17

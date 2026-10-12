@@ -1552,6 +1552,11 @@ function init(){
     const sc = findScreen(q.get('bare')); if (q.has('variant') && sc.variants) VSTATE[sc.id] = q.get('variant');
     const run = () => { document.body.style.cssText='margin:0;background:'+(q.has('onlybtn')?'transparent':'#181818'); document.documentElement.style.background=q.has('onlybtn')?'transparent':''; document.body.classList.toggle('static', q.has('static')); document.body.classList.toggle('nobtn', q.has('nobtn')); document.body.classList.toggle('onlybtn', q.has('onlybtn'));
       const m = document.getElementById('main'); m.style.cssText='padding:0;margin:0;position:absolute;left:0;top:0'; m.innerHTML = renderScreen(sc);
+      if (q.has('hidebox')) {      // elements that lie inside one of these rectangles (x,y,w,h;...) are left out: pieces that are pictures of their own on the page (an icon on a card, the bar of the steps)
+        const sc = m.querySelector('.scr'), o = sc.getBoundingClientRect(), boxes = q.get('hidebox').split(';').map(b => b.split(',').map(Number));
+        sc.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (!r.width || !r.height) return;
+          const x = r.left - o.left, y = r.top - o.top;
+          if (boxes.some(([bx, by, bw, bh]) => x >= bx - 2 && y >= by - 2 && x + r.width <= bx + bw + 2 && y + r.height <= by + bh + 2)) e.classList.add('hid'); }); }
       if (q.has('hide')) { const gone = new Set(q.get('hide').split(',')); m.querySelectorAll('[data-w]').forEach(e => { if (gone.has(e.dataset.w.split('.').pop())) e.classList.add('hid'); }); }
       if (q.has('lyr')) { const names = new Set(q.get('lyr').split(',')); m.querySelectorAll('[data-w]').forEach(e => { if (names.has(e.dataset.w.split('.').pop())) e.classList.add('lyr'); }); } };
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();

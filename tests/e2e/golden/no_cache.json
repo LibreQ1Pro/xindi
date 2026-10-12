@@ -65,7 +65,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "38"
+     "33"
     ],
     "bed_set.txt": [
      "\"/ 0\""
@@ -77,13 +77,13 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "397"
+     "385"
     ],
     "beep_btn.pic2": [
-     "398"
+     "386"
     ],
     "chamber_icon.pic": [
-     "52"
+     "44"
     ],
     "chamber_set.txt": [
      "\"/ 0\""
@@ -95,10 +95,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "395"
+     "383"
     ],
     "last_file_btn.pic2": [
-     "396"
+     "384"
     ],
     "last_file_name.txt": [
      "\"\""
@@ -107,13 +107,13 @@
      ""
     ],
     "light_btn.pic": [
-     "353"
+     "341"
     ],
     "light_btn.pic2": [
-     "354"
+     "342"
     ],
     "nozzle_icon.pic": [
-     "49"
+     "43"
     ],
     "nozzle_set.txt": [
      "\"/ 0\""
@@ -125,13 +125,13 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "85"
+     "75"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.pic": [
-     "87"
+     "77"
     ]
    },
    "page": 17
@@ -151,37 +151,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "393"
+     "381"
     ],
     "file1.pic2": [
-     "394"
+     "382"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "391"
+     "379"
     ],
     "file2.pic2": [
-     "392"
+     "380"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "391"
+     "379"
     ],
     "file3.pic2": [
-     "392"
+     "380"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "391"
+     "379"
     ],
     "file4.pic2": [
-     "392"
+     "380"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -190,16 +190,16 @@
      "65535"
     ],
     "next.pic": [
-     "323"
+     "311"
     ],
     "next.pic2": [
-     "324"
+     "312"
     ],
     "prev.pic": [
-     "319"
+     "307"
     ],
     "prev.pic2": [
-     "320"
+     "308"
     ],
     "tabs_seg.pic": [
      "23"
@@ -218,10 +218,10 @@
      "c6ff27a57d22b7c6:10590:3"
     ],
     "up_dir.pic": [
-     "329"
+     "317"
     ],
     "up_dir.pic2": [
-     "330"
+     "318"
     ],
     "usb_tab_lbl.pco": [
      "42294"

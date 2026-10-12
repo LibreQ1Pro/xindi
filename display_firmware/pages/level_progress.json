@@ -132,7 +132,7 @@
     "movey": 0,
     "x": 0,
     "y": 0,
-    "w": 74,
+    "w": 48,
     "h": 480,
     "effect": 0,
     "first": 0,
@@ -141,7 +141,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:level_progress_steps_bar_level_0"
+     "$ref": "picture:auto_level_progress_steps_bar_level_0"
     }
    },
    "events": {
@@ -331,6 +331,36 @@
     "isbr": 1,
     "spax": 0,
     "spay": 0
+   },
+   "events": {
+    "codesdown": [],
+    "codesup": []
+   }
+  },
+  {
+   "key": "bg16",
+   "type": "picture",
+   "attributes": {
+    "objname": "bg16",
+    "vscope": 0,
+    "drag": 0,
+    "sendkey": 0,
+    "aph": 127,
+    "movex": 0,
+    "movey": 0,
+    "x": 50,
+    "y": 182,
+    "w": 18,
+    "h": 18,
+    "effect": 0,
+    "first": 0,
+    "time": 300,
+    "lockobj": 0,
+    "groupid0": 0,
+    "groupid1": 0,
+    "pic": {
+     "$ref": "picture:auto_level_progress_decor"
+    }
    },
    "events": {
     "codesdown": [],

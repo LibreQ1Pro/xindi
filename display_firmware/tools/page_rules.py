@@ -46,7 +46,7 @@ RULES["sleep_mode"] = {"selectable": {n: {"off": {"variant": "opt_5min" if n != 
 def steps(prefix, variants, height=424):
     # The bar is drawn over the page again every time its look changes (a picture that is redrawn covers what lies on it): it must stop above the
     # buttons of the page (the first row starts at y=428), else it wipes the left half of the buttons.
-    return {"steps_bar": {"rect": [0, 0, 74, height], "default": prefix + "_0", "states": {"%s_%d" % (prefix, i): v for i, v in enumerate(variants)}}}
+    return {"steps_bar": {"rect": [0, 0, 48, height], "default": prefix + "_0", "states": {"%s_%d" % (prefix, i): v for i, v in enumerate(variants)}}}
 
 
 SPINNERS = ["spin1", "spin2", "spin3", "spin4"]

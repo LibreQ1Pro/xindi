@@ -642,7 +642,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:print_filament_decor"
+     "$ref": "picture:print_z_offset_decor"
     }
    },
    "events": {
