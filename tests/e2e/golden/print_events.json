@@ -96,10 +96,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -114,10 +114,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -140,10 +140,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -225,16 +225,16 @@
      "\"\""
     ],
     "level_btn.pic": [
-     "182"
+     "178"
     ],
     "level_btn.pic2": [
-     "183"
+     "179"
     ],
     "timelapse_btn.pic": [
-     "180"
+     "176"
     ],
     "timelapse_btn.pic2": [
-     "181"
+     "177"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -591,10 +591,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -609,10 +609,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -635,10 +635,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"

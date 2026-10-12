@@ -104,10 +104,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -122,10 +122,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -148,10 +148,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -217,9 +217,9 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "108",
-     "109",
-     "110"
+     "403",
+     "404",
+     "405"
     ],
     "vis alt_btn": [
      "alt_btn,1"
@@ -260,7 +260,7 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "108"
+     "403"
     ],
     "vis back_btn": [
      "back_btn,0"
@@ -387,8 +387,8 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "112",
-     "113"
+     "109",
+     "406"
     ],
     "vis load_btn": [
      "load_btn,1"
@@ -495,8 +495,8 @@
      "65535"
     ],
     "steps_bar.pic": [
-     "108",
-     "109"
+     "403",
+     "404"
     ],
     "vis back_btn": [
      "back_btn,0"

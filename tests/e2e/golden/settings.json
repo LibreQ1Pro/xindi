@@ -105,10 +105,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -123,10 +123,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -149,10 +149,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -186,10 +186,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62
@@ -201,10 +201,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62
@@ -224,10 +224,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62
@@ -239,12 +239,12 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118",
-     "120"
+     "114",
+     "116"
     ],
     "reset_btn.pic2": [
-     "119",
-     "121"
+     "115",
+     "117"
     ]
    },
    "page": 62
@@ -252,10 +252,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62
@@ -267,10 +267,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62
@@ -302,10 +302,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -320,10 +320,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -346,10 +346,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -379,10 +379,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "118"
+     "114"
     ],
     "reset_btn.pic2": [
-     "119"
+     "115"
     ]
    },
    "page": 62

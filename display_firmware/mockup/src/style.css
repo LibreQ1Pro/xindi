@@ -150,3 +150,5 @@ body.onlybtn .scr *{visibility:hidden !important}
 body.onlybtn .scr .btn, body.onlybtn .scr .btn *, body.onlybtn .scr .key, body.onlybtn .scr .key *, body.onlybtn .scr .rowhit, body.onlybtn .scr .rowhit *,
 body.onlybtn .scr .nav .it, body.onlybtn .scr .nav .it *, body.onlybtn .scr .lyr, body.onlybtn .scr .lyr *{visibility:visible !important}
 body.onlybtn.static .scr .t, body.onlybtn.static .scr .btn > span:not(.ico), body.onlybtn.static .scr .rowhit .t, body.onlybtn.static .scr .lyr .t{visibility:hidden !important}
+/* ?hide=a,b: widgets of the screen that are left out of a rendering (they are components of their own on the page; their pieces must not be in the picture of the decor) */
+body .hid, body .hid *{visibility:hidden !important}

@@ -91,10 +91,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -109,10 +109,10 @@
      "\"26\""
     ],
     "last_file_btn.pic": [
-     "399"
+     "395"
     ],
     "last_file_btn.pic2": [
-     "400"
+     "396"
     ],
     "last_file_name.txt": [
      "\"last_print.gcode\""
@@ -135,12 +135,12 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "357",
-     "359"
+     "353",
+     "355"
     ],
     "light_btn.pic2": [
-     "358",
-     "360"
+     "354",
+     "356"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -190,10 +190,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -208,12 +208,12 @@
      "\"26\""
     ],
     "light_btn.pic": [
-     "357",
-     "359"
+     "353",
+     "355"
     ],
     "light_btn.pic2": [
-     "358",
-     "360"
+     "354",
+     "356"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -262,10 +262,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "401"
+     "397"
     ],
     "beep_btn.pic2": [
-     "402"
+     "398"
     ],
     "chamber_icon.pic": [
      "52"
@@ -280,10 +280,10 @@
      "\"26\""
     ],
     "light_btn.pic": [
-     "357"
+     "353"
     ],
     "light_btn.pic2": [
-     "358"
+     "354"
     ],
     "nozzle_icon.pic": [
      "49"
@@ -324,37 +324,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "397"
+     "393"
     ],
     "file1.pic2": [
-     "398"
+     "394"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "395"
+     "391"
     ],
     "file2.pic2": [
-     "396"
+     "392"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "395"
+     "391"
     ],
     "file3.pic2": [
-     "396"
+     "392"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "395"
+     "391"
     ],
     "file4.pic2": [
-     "396"
+     "392"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -363,16 +363,16 @@
      "65535"
     ],
     "next.pic": [
-     "327"
-    ],
-    "next.pic2": [
-     "328"
-    ],
-    "prev.pic": [
      "323"
     ],
-    "prev.pic2": [
+    "next.pic2": [
      "324"
+    ],
+    "prev.pic": [
+     "319"
+    ],
+    "prev.pic2": [
+     "320"
     ],
     "tabs_seg.pic": [
      "23"
@@ -391,10 +391,10 @@
      "c6ff27a57d22b7c6:10590:3"
     ],
     "up_dir.pic": [
-     "333"
+     "329"
     ],
     "up_dir.pic2": [
-     "334"
+     "330"
     ],
     "usb_tab_lbl.pco": [
      "42294"
@@ -448,37 +448,37 @@
   {
    "attrs": {
     "file1.pic": [
-     "397"
+     "393"
     ],
     "file1.pic2": [
-     "398"
+     "394"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "395"
+     "391"
     ],
     "file2.pic2": [
-     "396"
+     "392"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "395"
+     "391"
     ],
     "file3.pic2": [
-     "396"
+     "392"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "395"
+     "391"
     ],
     "file4.pic2": [
-     "396"
+     "392"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -487,16 +487,16 @@
      "65535"
     ],
     "next.pic": [
-     "327"
-    ],
-    "next.pic2": [
-     "328"
-    ],
-    "prev.pic": [
      "323"
     ],
-    "prev.pic2": [
+    "next.pic2": [
      "324"
+    ],
+    "prev.pic": [
+     "319"
+    ],
+    "prev.pic2": [
+     "320"
     ],
     "tabs_seg.pic": [
      "23"
@@ -505,10 +505,10 @@
      "255,1"
     ],
     "up_dir.pic": [
-     "333"
+     "329"
     ],
     "up_dir.pic2": [
-     "334"
+     "330"
     ],
     "usb_tab_lbl.pco": [
      "42294"

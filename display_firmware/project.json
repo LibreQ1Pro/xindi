@@ -2930,24 +2930,6 @@
       }
     },
     {
-      "key": "load_steps_steps_bar_load_1",
-      "source": {
-        "png": "pictures/load_steps_steps_bar_load_1.png"
-      }
-    },
-    {
-      "key": "load_steps_steps_bar_load_2",
-      "source": {
-        "png": "pictures/load_steps_steps_bar_load_2.png"
-      }
-    },
-    {
-      "key": "load_steps_steps_bar_load_3",
-      "source": {
-        "png": "pictures/load_steps_steps_bar_load_3.png"
-      }
-    },
-    {
       "key": "unload_auto_steps_bar_unload_0",
       "source": {
         "png": "pictures/unload_auto_steps_bar_unload_0.png"
@@ -2957,12 +2939,6 @@
       "key": "unload_steps_steps_bar_unload_1",
       "source": {
         "png": "pictures/unload_steps_steps_bar_unload_1.png"
-      }
-    },
-    {
-      "key": "unload_steps_steps_bar_unload_2",
-      "source": {
-        "png": "pictures/unload_steps_steps_bar_unload_2.png"
       }
     },
     {
@@ -4721,6 +4697,54 @@
       "key": "home_stop_btn_press",
       "source": {
         "png": "pictures/home_stop_btn_press.png"
+      }
+    },
+    {
+      "key": "unload_steps_steps_bar_load_1",
+      "source": {
+        "png": "pictures/unload_steps_steps_bar_load_1.png"
+      }
+    },
+    {
+      "key": "unload_steps_steps_bar_load_2",
+      "source": {
+        "png": "pictures/unload_steps_steps_bar_load_2.png"
+      }
+    },
+    {
+      "key": "unload_steps_steps_bar_load_3",
+      "source": {
+        "png": "pictures/unload_steps_steps_bar_load_3.png"
+      }
+    },
+    {
+      "key": "unload_auto_steps_bar_unload_2",
+      "source": {
+        "png": "pictures/unload_auto_steps_bar_unload_2.png"
+      }
+    },
+    {
+      "key": "auto_level_preheat_bed_icon_off",
+      "source": {
+        "png": "pictures/auto_level_preheat_bed_icon_off.png"
+      }
+    },
+    {
+      "key": "filament_nozzle_icon_off",
+      "source": {
+        "png": "pictures/filament_nozzle_icon_off.png"
+      }
+    },
+    {
+      "key": "filament_chamber_icon_off",
+      "source": {
+        "png": "pictures/filament_chamber_icon_off.png"
+      }
+    },
+    {
+      "key": "print_filament_nozzle_icon_off",
+      "source": {
+        "png": "pictures/print_filament_nozzle_icon_off.png"
       }
     }
   ],

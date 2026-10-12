@@ -164,9 +164,12 @@ class Tiles:
                 self.known.add(key)
             return key
         key = name if not self.page or name.startswith(self.page) else "%s_%s" % (self.page, name)
-        if key in self.known:               # the name is taken by another look (the old one of this widget, or a widget of another page that is called the same)
-            key = "%s_%s" % (key, hashlib.sha256(image.tobytes()).hexdigest()[:6])
         path = ROOT / "pictures" / (key + ".png")
+        if key in self.known:
+            # the name is taken by the old look of this widget (the names have the page in them): the new look replaces it under the same name
+            for stale in [p for p, k in self.by_pixels.items() if k == key]:
+                del self.by_pixels[stale]
+            print("picture %s: new look" % key)
         image.save(path)
         if key not in self.known:
             self.project["pictures"].append({"key": key, "source": {"png": "pictures/%s.png" % key}})
@@ -178,18 +181,22 @@ class Tiles:
         return self.add(name, image.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])))
 
 
-def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, names=()):
+def screenshot(sid, variant="", lang=2, static=True, nobtn=False, layer=False, names=(), hide=()):
     """The static rendering of a screen of the mockup (RGB, quantized to RGB565). ``layer=True``: only the buttons, on a transparent background (RGBA, as the browser
-    draws it): the alpha of the anti-aliased corners comes from the HTML itself; ``names`` = widgets of the page that belong to the layer besides the buttons."""
+    draws it): the alpha of the anti-aliased corners comes from the HTML itself; ``names`` = widgets of the page that belong to the layer besides the buttons; ``hide`` = widgets that are left out of the rendering (components of their own)."""
     directory = ROOT / "out/static"
     directory.mkdir(parents=True, exist_ok=True)
     tag = "_layer" + (("_" + hashlib.sha1(",".join(sorted(names)).encode()).hexdigest()[:8]) if names else "") if layer else ""
+    if hide:
+        tag += "_hide_" + hashlib.sha1(",".join(sorted(hide)).encode()).hexdigest()[:8]
     out = directory / ("gen_%s_%s_%d%s%s.png" % (sid, variant, lang, "_nobtn" if nobtn else "", tag))
     query = "bare=%s&lang=%d" % (sid, lang)
     if static:
         query += "&static=1"
     if nobtn:
         query += "&nobtn=1"
+    if hide:
+        query += "&hide=" + ",".join(sorted(hide))
     if layer:
         query += "&onlybtn=1"
         if names:

@@ -248,7 +248,9 @@ class Migration:
         self.looks = {}                          # selectable widget -> {"on"/"off": (released, pressed)}
         self.shot = gp.screenshot(self.base["id"], self.base["variant"], 2)
         self.layer_names = [w["name"] for w in self.base["widgets"] if w["name"]]          # the widgets whose shape the layer of the buttons holds (the cards that are buttons too)
-        self.decor_shot = gp.screenshot(self.base["id"], self.base["variant"], 2, nobtn=True)       # without the buttons: decor holds what lies under them
+        # the decor holds what lies under the widgets that are components of their own (buttons, and the cards that are buttons too): not their pieces
+        self.decor_shot = gp.screenshot(self.base["id"], self.base["variant"], 2, nobtn=True,
+                                        hide=[w["name"] for w in self.base["widgets"] if w["name"] and self.is_interactive(w)])       # without the buttons: decor holds what lies under them
         self.chain = {}
         for line in self.stock["root"]["events"].get("codesload", []):
             m = re.match(r'^\s*(\w+)\.txt="(.*)"\s*$', line)
@@ -628,16 +630,21 @@ class Migration:
         """One picture for a part of the page that the mockup draws as several pieces and changes by state (the steps of a wizard)."""
         x, y, w, h = entry["rect"]
         rect = {"x": x, "y": y, "w": w, "h": h}
-        self.state_pictures(name, rect, entry)
+        self.state_pictures(name, rect, entry, isolate=True)
         first = next(iter(entry["states"]))
         default = self.faces[name][entry.get("default", first)][0]
         return gp.component("picture", name, x, y, w, h, pic=gp.pic_ref(default))
 
-    def state_pictures(self, name, rect, entry):
-        """The looks of a picture the host or the screen switches (``face(name, state)``): the same rectangle of another variant of the screen."""
+    def state_pictures(self, name, rect, entry, isolate=False):
+        """The looks of a picture the host or the screen switches (``face(name, state)``): the same rectangle of another variant of the screen.
+        ``isolate``: a region (the steps of a wizard) holds only its own pieces, not what the widgets beside it draw into the same rectangle."""
         looks = {}
         for state, variant in entry["states"].items():
-            shot = gp.screenshot(self.base["id"], variant, 2)
+            hide = []
+            if isolate:
+                shown = next((s for s in self.spec if s["variant"] == variant), self.base)
+                hide = [w["name"] for w in shown["widgets"] if w["name"]]
+            shot = gp.screenshot(self.base["id"], variant, 2, hide=hide)
             image = shot.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
             if entry.get("alpha"):
                 image = gp.to_alpha(image, entry["alpha"])          # an icon over a button or a card: no background of its own
