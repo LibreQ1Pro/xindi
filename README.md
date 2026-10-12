@@ -1,52 +1,31 @@
-# xindi – Python port of the QIDI Q1 Pro screen backend
+# xindi – screen backend for the QIDI Q1 Pro on Klipper and Moonraker
 
-This is a line-by-line port of the C++ screen backend (`main.cpp` + `src/` +
-`include/`, the program that runs as `/root/xindi/build/xindi` on the printer)
-to Python 3. It talks to the TJC (USART HMI) display on `/dev/ttyS1`, to
-Moonraker on `ws://<host>:7125/websocket` and its HTTP API, and to
-NetworkManager (`nmcli`) for Wi-Fi and LAN. It also runs the same shell commands as the
-original.
+xindi drives the TJC (USART HMI) touch screen of the QIDI Q1 Pro (272 × 480) from any Klipper + Moonraker installation:
+Armbian and KIAUH, no QIDI system image needed. It shows the printer (temperatures, the file list with thumbnails, printing,
+filament, movement, levelling, Wi-Fi and LAN) and takes the touches. LAN only: no cloud, no accounts.
 
-## Original source
+The repository has two parts:
 
-The C++ original is QIDI's [QIDI_Q1_Pro](https://github.com/QIDITECH/QIDI_Q1_Pro)
-repository at commit
-[`8aaa970c1a7175d0ffc0ca5a29cac92617d5733c`](https://github.com/QIDITECH/QIDI_Q1_Pro/tree/8aaa970c1a7175d0ffc0ca5a29cac92617d5733c).
-The port is based on exactly this commit: the following commits of the upstream
-repository removed the source code.
+* **the host program** (`xindi/`, Python, no packages except Pillow): the serial port of the screen, Moonraker's websocket and
+  HTTP API, NetworkManager (`nmcli`);
+* **the screen firmware** (`display_firmware/`): the project of the screen with a new design (mockup in HTML, 13 languages), made by
+  generators and built into a `.HMI` file; the `.tft` is made from it in the USART HMI editor (see `RELEASING.md`).
 
-## Screen firmware 4.4.24
+Status: 0.1.0. See `CHANGELOG.md`; what is not yet checked on a real screen is listed there too.
 
-The port works with the screen firmware (TJC project) **V4.4.24**. The sources
-above belong to the firmware V4.4.19; the changes for V4.4.24 follow QIDI's
-xindi **V4.4.22** binary, for which there are no sources (it was decompiled;
-functions changed in it are marked "4.4.22" in the code). The main changes:
+## Origin
 
-* the screen checks the version as `major * 10000 + minor * 100 + patch` (`logo.version`; 0.1.0 is 100, see `ui.VERSION`),
-* page 81 (QR code) became the network page: IP address, ethernet / Wi-Fi,
-* new pages: 94 (the bed is moving, start-up guide), 95 (emergency stop
-  confirmation from the printing page); the case light moved to the second
-  printing page, the printing keyboard has a silent mode (50 % speed), the
-  preview page a timelapse switch (Moonraker's timelapse plugin),
-* the main page opens the filament page with three buttons, Wi-Fi connection
-  timeout, shorter start-up guide (pages 8..10 are no longer used),
-* the file list keeps its folder and page and only sends the pictures again
-  when the list changed; the picture transfer pauses the page refresh,
-* the screen sleep no longer switches the case light, the total print time is
-  no longer counted in QIDI's `config.mksini`.
+xindi began as a line-by-line Python port of QIDI's C++ screen backend,
+[QIDI_Q1_Pro](https://github.com/QIDITECH/QIDI_Q1_Pro) at commit
+[`8aaa970c1a7175d0ffc0ca5a29cac92617d5733c`](https://github.com/QIDITECH/QIDI_Q1_Pro/tree/8aaa970c1a7175d0ffc0ca5a29cac92617d5733c)
+(the later commits of that repository removed the source code), brought to the behaviour of QIDI's screen firmware **V4.4.24**
+(QIDI's xindi 4.4.22 binary has no sources; it was decompiled, and the functions changed in it are marked "4.4.22" in the code).
+It has been refactored since: the code is organised by what it does (see Structure) and the screen has a new design.
+The result is a separate project and keeps no compatibility with QIDI's system image, files or names.
 
-**QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
-binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
-from the screen firmware (their pages are removed, so the page numbers of the screen firmware differ from QIDI's).
-The screen firmware is flashed on request with `python3 main.py --flash-screen FILE.tft` (`xindi/screen/flash.py`), no longer
-by a file left in `/root`. The start-up cleanup of the binary (`clear_deprecated_services()`, which deletes
-`/root/auto_update` and QIDI's frpc service), the recovery files of the USB drive (`mksscreen.recovery`, `mksclient.recovery`),
-the factory mode script and the `c_helper.so` repair of QIDI's image are gone: the port targets any Klipper + Moonraker
-installation (Armbian, KIAUH), not QIDI's image.
-
-The port began as a line-by-line translation of the C++ program and has been refactored since. The code is
-organised by what it does, no longer by the C++ files it came from (see Structure below). What the screen is sent
-is unchanged and checked by the golden traces of `tests/e2e`.
+Not part of xindi: QIDI Link (accounts, QR code login, device binding, the frpc tunnel), updates from a USB drive or online,
+the factory mode, QIDI's recovery files. The pages for them are removed from the screen firmware, so its page numbers differ from QIDI's.
+What the screen is sent is checked by the golden traces of `tests/e2e`.
 
 ## Installation (Armbian, KIAUH)
 
