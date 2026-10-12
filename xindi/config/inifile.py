@@ -1,4 +1,4 @@
-"""Access to config.mksini (the settings of the screen backend)."""
+"""Access to settings.ini (the settings of the screen backend)."""
 
 import logging
 import os
@@ -10,14 +10,14 @@ from xindi.util.cpp import i32, strtol
 log = logging.getLogger(__name__)
 
 def _inipath():
-    """config.mksini in the data directory of the configuration (see runtime.py)"""
-    return runtime.cfg.data_path("config.mksini")
+    """settings.ini in the data directory of the configuration (see runtime.py)"""
+    return runtime.cfg.data_path("settings.ini")
 
 
 # Python only: written when the file does not exist (QIDI's system image comes
 # with one, other systems do not, and the settings could not be saved).  The
 # values are the defaults the program uses when a key is missing.
-DEFAULT_MKSINI = """[led]
+DEFAULT_SETTINGS = """[led]
 enable = 0
 
 [beep]
@@ -32,41 +32,21 @@ hot = 40
 value = 0.000
 adxl_offset = 0.000
 
-[fila]
-enable = 0
-
-[total]
-time = 0
-
 [oobe]
 enable = 1
 
-[mks_ethernet]
+[ethernet]
 enable = 0
-
-[app_connection]
-method = 0
-
-[app_server]
-name =
-
-[app]
-device_code =
-subdomain =
-token =
-username =
-avatar =
-bind_status =
 """
 
 
-def _create_default_mksini(path):
+def _create_default_settings(path):
     try:
         fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
     except OSError:
         return          # exists already (or the directory is missing)
     with os.fdopen(fd, "w") as ini:
-        ini.write(DEFAULT_MKSINI)
+        ini.write(DEFAULT_SETTINGS)
     log.debug("%s", "Created " + path + " with the default settings")
 
 
@@ -147,7 +127,7 @@ class IniFile:
         try:
             ini = open(self.path, "wb")
         except OSError:
-            print("[error] open mksini failed", end="")
+            print("[error] open settings.ini failed", end="")
             return
         with ini:
             for section, entries in self.values.items():
@@ -167,22 +147,22 @@ _KEY_VALUE = re.compile(r"([^=]+?)\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\"']*?))\s
 
 
 def reset_settings():
-    """Back to the defaults (the factory config.mksini of the original)."""
+    """Back to the defaults (what a new installation starts with)."""
     with open(_inipath(), "w") as ini:
-        ini.write(DEFAULT_MKSINI)
+        ini.write(DEFAULT_SETTINGS)
         ini.flush()
         os.fsync(ini.fileno())
 
 
 def open_settings():
-    """config.mksini, created with the defaults when it does not exist."""
+    """settings.ini, created with the defaults when it does not exist."""
     if not os.path.exists(_inipath()):
-        _create_default_mksini(_inipath())
+        _create_default_settings(_inipath())
     return IniFile(_inipath())
 
 
 def save_setting(section, key, value):
-    """Change one value of config.mksini and write the file."""
+    """Change one value of settings.ini and write the file."""
     ini = open_settings()
     ini.set(section, key, value)
     ini.save()

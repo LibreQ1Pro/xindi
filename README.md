@@ -33,7 +33,7 @@ functions changed in it are marked "4.4.22" in the code). The main changes:
 * the file list keeps its folder and page and only sends the pictures again
   when the list changed; the picture transfer pauses the page refresh,
 * the screen sleep no longer switches the case light, the total print time is
-  no longer counted in `config.mksini`.
+  no longer counted in QIDI's `config.mksini`.
 
 **QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
 binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
@@ -66,7 +66,7 @@ Run by hand: `python3 main.py [--config FILE] [moonraker_host]` (or `python3 -m 
 
 **Configuration.** An ini file, looked up in `--config`, `$XINDI_CONFIG`, `~/.config/xindi/xindi.ini`, `/etc/xindi/xindi.ini`
 (`contrib/xindi.ini.example` lists all keys; the defaults suit a usual KIAUH installation). It sets the serial port and
-speeds, Moonraker's address, the data directory (`config.mksini`, the settings the screen saves; default
+speeds, Moonraker's address, the data directory (`settings.ini`, the settings the screen saves; default
 `~/.local/share/xindi`) and, when Moonraker's own answer is not wanted, the gcode, config and log directories.
 
 **Screen firmware.** `.tft` files are built in `display_firmware/`. With the service stopped:
@@ -75,8 +75,8 @@ speeds, Moonraker's address, the data directory (`config.mksini`, the settings t
 **USB drive.** xindi expects the drive mounted in the gcode directory as `sda1`; `contrib/usb-automount` has the udev rule,
 systemd unit and mount script (see its README). Without it the USB tab of the file list stays empty.
 
-**Settings reset** (Settings → Reset) clears the print history of Moonraker, writes the default `config.mksini` (the setup
-guide runs again) and restores `saved_variables.cfg` from `saved_variables.cfg.bak` when there is one.
+**Settings reset** (Settings → Reset) clears the print history of Moonraker, writes the default `settings.ini` (the setup
+guide runs again) and sets the z offset to 0.
 
 ## Helper binaries that are now built in
 
@@ -107,7 +107,7 @@ xindi/
   pages/             what every page shows: refresh.py (the page that is open), home.py, printing.py, preview.py,
                      move.py, filament.py, leveling.py, guide.py, system.py, file_list.py, wifi.py, connections.py
   clicks/            what a touch does: a table of handlers per page
-  config/            inifile.py (config.mksini), settings.py
+  config/            inifile.py (settings.ini), settings.py
   system/            network.py (NetworkManager)
   util/              cpp.py (C/C++ semantics), paths.py, netstrings.py
 ```
@@ -173,7 +173,7 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   configuration file or asked from Moonraker (`/server/files/roots`); while it
   does not answer, `~/printer_data/{gcodes,config,logs}` are used. USB drives are
   expected at `<gcodes>/sda1` (`contrib/usb-automount`).
-* `config.mksini` lives in the data directory of the configuration (not in
+* `settings.ini` lives in the data directory of the configuration (not in
   `/root` or the Klipper configuration), and is created with the defaults of
   the program when it does not exist.
 * `sent_jpg_to_tjc()` closes the file when the screen reports a full buffer

@@ -39,7 +39,7 @@ class RuntimeConfigTest(unittest.TestCase):
         cfg = runtime.load(path)
         self.assertEqual((cfg.moonraker_host, cfg.moonraker_port, cfg.screen_port), ("printer.lan", "7126", "/dev/ttyUSB0"))
         self.assertEqual(cfg.gcodes, os.path.expanduser("~/gc"))
-        self.assertTrue(cfg.data_path("config.mksini").startswith(self.dir.name + "/data/"))
+        self.assertTrue(cfg.data_path("settings.ini").startswith(self.dir.name + "/data/"))
         self.assertTrue(os.path.isdir(self.dir.name + "/data"))
 
     def test_the_host_of_the_command_line_wins(self):

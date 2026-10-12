@@ -14,7 +14,7 @@ Armbian / KIAUH installation::
     transfer_baud = 921600      ; speed of the firmware download (--flash-screen)
 
     [paths]
-    data_dir = ~/.local/share/xindi     ; config.mksini (the saved settings of the screen)
+    data_dir = ~/.local/share/xindi     ; settings.ini (the saved settings of the screen)
     gcodes =                            ; empty: asked from Moonraker, then ~/printer_data/gcodes
     config =                            ; the same for the Klipper configuration (saved_variables.cfg)
     logs =                              ; and for the logs

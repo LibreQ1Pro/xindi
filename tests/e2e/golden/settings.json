@@ -29,9 +29,8 @@
   "/home/mks/gcode_files/sda1/usb_two.gcode": "sha1:6d807b2db29596cb:4",
   "/home/mks/gcode_files/z_last.gcode": "sha1:57539c0d633d7184:25",
   "/home/mks/klipper_config/saved_variables.cfg": "[Variables]\nbed_temp = 80.0\nfilepath = ''\nhot_temp = 0.0\nlast_file = ''\npower_resume_z = 0.8\nprint_temp = 245.0\nprofile_name = 'kamp'\nwas_interrupted = False\nz_offset = 0.0\n",
-  "/home/mks/klipper_config/saved_variables.cfg.bak": "sha1:6848972cc3e85599:173",
   "/tmp/screen.tft": null,
-  "/var/lib/xindi/config.mksini": "[led]\nenable = 0\n\n[beep]\nenable = 0\n\n[target]\nextruder = 200\nheaterbed = 40\nhot = 40\n\n[babystep]\nvalue = 0.000\nadxl_offset = 0.000\n\n[fila]\nenable = 0\n\n[total]\ntime = 0\n\n[oobe]\nenable = 1\n\n[mks_ethernet]\nenable = 0\n\n[app_connection]\nmethod = 0\n\n[app_server]\nname =\n\n[app]\ndevice_code =\nsubdomain =\ntoken =\nusername =\navatar =\nbind_status =\n"
+  "/var/lib/xindi/settings.ini": "[led]\nenable = 0\n\n[beep]\nenable = 0\n\n[target]\nextruder = 200\nheaterbed = 40\nhot = 40\n\n[babystep]\nvalue = 0.000\nadxl_offset = 0.000\n\n[oobe]\nenable = 1\n\n[ethernet]\nenable = 0\n"
  },
  "http": [
   "GET /server/history/list?limit=20&order=desc",

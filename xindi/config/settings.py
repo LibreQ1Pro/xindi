@@ -1,8 +1,6 @@
-"""The saved settings (config.mksini): reading and writing them, and loading the versions."""
+"""The saved settings (settings.ini): reading and writing them, and loading the versions."""
 
 import logging
-import os
-import shutil
 
 from xindi import state as g
 from xindi.config.inifile import open_settings, reset_settings, save_setting
@@ -90,14 +88,11 @@ def restore_config():
     rest.request("POST", "server/history/reset_totals")
     rest.request("DELETE", "server/history/job?all=true")
     reset_settings()
-    variables = paths.klipper_config() + "/saved_variables.cfg"
-    if os.path.exists(variables + ".bak"):      # QIDI's image keeps the factory copy
-        shutil.copyfile(variables + ".bak", variables)
     g.ep.run_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0")
     page_to(ids.MAIN)
 
 
 def get_ethernet():
     ini = open_settings()
-    g.config.ethernet = int(ini.get_bool("mks_ethernet", "enable", 0))
+    g.config.ethernet = int(ini.get_bool("ethernet", "enable", 0))
     return g.config.ethernet

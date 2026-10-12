@@ -19,11 +19,7 @@ config = /home/mks/klipper_config
 logs = /home/mks/klipper_logs
 """ % (DATA_DIR, GCODES)
 
-CONFIG_MKSINI = """
-[fila]
-enable                         = 1
-
-
+SETTINGS_INI = """
 [target]
 extruder                       = 220
 heaterbed                      = 60
@@ -39,24 +35,8 @@ adxl_offset                    = 0.15
 enable                         = %(oobe)d
 
 
-[mks_ethernet]
+[ethernet]
 enable                         = 0
-
-
-[app_connection]
-method                         = %(method)d
-
-
-[app_server]
-name                           = aws
-
-[app]
-device_code                    =
-subdomain                      =
-token                          =
-username                       =
-avatar                         =
-bind_status                    =
 
 """
 
@@ -204,12 +184,10 @@ class Fixture(object):
     def install(self):
         o = self.o
         _write("/etc/xindi/xindi.ini", XINDI_INI)
-        _write(DATA_DIR + "/config.mksini", CONFIG_MKSINI % {"oobe": o["oobe"], "method": o["method"]})
-        _write("/dev_info.txt", "QIDI@Q1 Pro")
+        _write(DATA_DIR + "/settings.ini", SETTINGS_INI % {"oobe": o["oobe"]})
         sv = SAVED_VARIABLES % {"interrupted": o["interrupted"],
                                 "filepath": "/home/mks/gcode_files/cube.gcode" if o["interrupted"] == "True" else ""}
         _write("/home/mks/klipper_config/saved_variables.cfg", sv)
-        _write("/home/mks/klipper_config/saved_variables.cfg.bak", SAVED_VARIABLES % {"interrupted": "False", "filepath": ""})
         _write("/home/mks/klipper_logs/klippy.log", "klippy log\n")
         _write("/home/mks/klipper_logs/moonraker.log", "moonraker log\n")
 
@@ -401,7 +379,7 @@ class Fixture(object):
             except OSError:
                 result[p] = None
                 continue
-            if p.endswith((".mksini", ".toml", ".cfg", ".txt")) and len(data) < 20000:
+            if p.endswith((".ini", ".toml", ".cfg", ".txt")) and len(data) < 20000:
                 result[p] = data.decode("utf-8", "replace")
             else:
                 result[p] = "sha1:%s:%d" % (hashlib.sha1(data).hexdigest()[:16], len(data))

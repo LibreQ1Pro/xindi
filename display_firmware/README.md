@@ -127,7 +127,7 @@ checks the NetworkManager part of xindi. `tools/preview_page.py OUT.png page...`
 ## Languages
 
 The language is stored in one place, the screen: `lang` lives in its EEPROM (address 100, `Program.s` reads it, the language pages
-write it with `wepo`). The host keeps no copy on disk (`config.mksini` has no language): it asks for the value at
+write it with `wepo`). The host keeps no copy on disk (`settings.ini` has no language): it asks for the value at
 start-up and when the screen powers up (`prints 0xa0,1`, `prints lang,1`, terminator) and the language buttons report every change
 with the frame `a0 lang ff ff ff`; the host only caches the number to pick the texts it sends itself (`util/netstrings.py`).
 

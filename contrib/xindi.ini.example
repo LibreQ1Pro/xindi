@@ -11,7 +11,7 @@ baud = 115200
 transfer_baud = 921600      ; speed of the firmware download (--flash-screen)
 
 [paths]
-data_dir = ~/.local/share/xindi     ; config.mksini: the settings the screen saves
+data_dir = ~/.local/share/xindi     ; settings.ini: the settings the screen saves
 ; Empty: asked from Moonraker, then ~/printer_data/{gcodes,config,logs}
 gcodes =
 config =

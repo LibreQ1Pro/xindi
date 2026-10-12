@@ -18,7 +18,7 @@ architecture, one minute). It holds only the test support: a `/bin/sh` wrapper t
   (`0x70`) events and implements the firmware download (`whmi-wri`) and file transfer (`twfile`) protocols;
 * a **fake Moonraker** (aiohttp): websocket JSON-RPC plus the HTTP API, backed by a fixture file tree;
   the scenarios push status updates, gcode responses and notifications through it;
-* deterministic **fixtures** (`harness/fixtures.py`): `config.mksini`, gcode files with thumbnails, a USB
+* deterministic **fixtures** (`harness/fixtures.py`): `settings.ini`, gcode files with thumbnails, a USB
   drive, update packages, a screen firmware file.
 
 Each scenario of `harness/scenarios.py` drives the port like a user would. The trace has every page visit

@@ -299,7 +299,7 @@ class Net(object):
 
 
 class Config(object):
-    """Saved settings (config.mksini), versions and the files read from the printer configuration."""
+    """Saved settings (settings.ini), versions and the files read from the printer configuration."""
 
     def __init__(self):
         # 800 hours
