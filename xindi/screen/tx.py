@@ -11,6 +11,7 @@ import select
 import termios
 import time
 
+from xindi.config import runtime
 from xindi.screen import faces
 from xindi.screen.serial import set_option
 from xindi.util.cpp import s2b, to_string
@@ -40,8 +41,10 @@ class ScreenPort:
         self._sent = {}             # "object.attribute" -> the last instruction that set it
         self._sent_since = time.monotonic()
 
-    def open(self, path="/dev/ttyS1", baud=115200):
-        """Open the port; returns False when it cannot be opened."""
+    def open(self, path=None, baud=None):
+        """Open the port (the one of the configuration); returns False when it cannot be opened."""
+        path = path or runtime.cfg.screen_port
+        baud = baud or runtime.cfg.screen_baud
         try:
             self.fd = os.open(path, os.O_RDWR | os.O_NDELAY | os.O_NOCTTY)
         except OSError:

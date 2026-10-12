@@ -6,7 +6,7 @@ import time
 from xindi import state as g
 from xindi.clicks.common import nav_guarded
 from xindi.config import settings
-from xindi.pages import connections, file_list, navigation, wifi
+from xindi.pages import connections, file_list, wifi
 from xindi.printer import job, klipper
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
@@ -151,7 +151,6 @@ def language_or_sleep_mode(page_id, widget_id):
 
 def update_success(page_id, widget_id):
     if widget_id == ids.UPDATE_SUCCESS_YES:
-        navigation.finish_screen_update()
         page_to(ids.MAIN)
 
 

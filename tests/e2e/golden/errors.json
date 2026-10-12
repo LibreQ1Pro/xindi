@@ -20,19 +20,12 @@
   "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
   "/home/mks/gcode_files/part_abs.gcode": "sha1:3a0314247caa6391:44801",
   "/home/mks/gcode_files/z_last.gcode": "sha1:57539c0d633d7184:25",
-  "/home/mks/klipper/klippy/chelper/c_helper.so": "sha1:acdb4c096d16ce95:20004",
-  "/home/mks/klipper_config/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
   "/home/mks/klipper_config/saved_variables.cfg": "[Variables]\nbed_temp = 80.0\nfilepath = ''\nhot_temp = 0.0\nlast_file = ''\npower_resume_z = 0.8\nprint_temp = 245.0\nprofile_name = 'kamp'\nwas_interrupted = False\nz_offset = 0.0\n",
   "/home/mks/klipper_config/saved_variables.cfg.bak": "sha1:6848972cc3e85599:173",
-  "/root/800_480.tft": null,
-  "/root/800_480.tft.bak": null,
-  "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/klipper.bin": null,
-  "/root/mcu_shutdown.txt": null,
-  "/root/xindi/version": "sha1:a26a542db586bd9c:88"
+  "/tmp/screen.tft": null,
+  "/var/lib/xindi/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n"
  },
  "http": [
-  "GET /server/files/roots",
   "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/gcodes/last_print.gcode"
@@ -153,7 +146,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
@@ -255,7 +248,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
@@ -340,7 +333,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
@@ -410,7 +403,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"
@@ -515,7 +508,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,1"

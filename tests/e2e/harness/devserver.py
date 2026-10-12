@@ -435,7 +435,7 @@ def main():
         os.unlink("/tmp/fake_nm.json")
 
     env = dict(os.environ, PYTHONUNBUFFERED="1", PYTHONDONTWRITEBYTECODE="1", XINDI_SHELL_LOG="/tmp/xindi_shell.log")
-    sut = subprocess.Popen(["python3", "/opt/src_py/main.py", "localhost"], env=env, cwd="/root")
+    sut = subprocess.Popen(["python3", "/opt/src_py/main.py", "localhost"], env=env, cwd="/")
     print("xindi started; web UI of the screen on port %s, control on 7125 (/emu/...)" % args.http.rsplit(":", 1)[-1],
           flush=True)
 

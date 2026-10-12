@@ -1,14 +1,17 @@
 """The saved settings (config.mksini): reading and writing them, and loading the versions."""
 
 import logging
+import os
+import shutil
 
 from xindi import state as g
-from xindi.config.inifile import open_settings, open_version_file, save_setting
+from xindi.config.inifile import open_settings, reset_settings, save_setting
+from xindi.moonraker import rest
 from xindi.moonraker.rpc_requests import json_get_job_totals
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util import paths
-from xindi.util.cpp import system, to_string
+from xindi.util.cpp import to_string
 
 log = logging.getLogger(__name__)
 
@@ -19,7 +22,6 @@ def set_led_status():
 
 def set_beep_status():
     save_setting("beep", "enable", to_string(g.config.beep_status))
-    system("sync")
 
 
 def get_extruder_target():
@@ -30,8 +32,7 @@ def get_extruder_target():
 def set_extruder_target(target):
     if target != 0:
         save_setting("target", "extruder", to_string(target))
-        system("sync")
-
+    
 
 def get_heater_bed_target():
     ini = open_settings()
@@ -42,8 +43,7 @@ def set_heater_bed_target(target):
     if target != 0:
         log.debug("######## %s", target)
         save_setting("target", "heaterbed", to_string(target))
-        system("sync")
-
+    
 
 def get_hot_target():
     ini = open_settings()
@@ -53,12 +53,10 @@ def get_hot_target():
 def set_hot_target(target):
     log.debug("######## %s", target)
     save_setting("target", "hot", to_string(target))
-    system("sync")
 
 
 def set_babystep(value):
     save_setting("babystep", "value", value)
-    system("sync")
 
 
 def get_babystep():
@@ -73,13 +71,6 @@ def init():
     get_ethernet()
 
 
-def load_versions():
-    ini = open_version_file()
-    g.config.version_soc = ini.get_string("version", "soc", "V1.1.1")
-    g.config.version_mcu = ini.get_string("version", "mcu", "V0.10.0")
-    g.config.version_ui = ini.get_string("version", "ui", "V1.1.1")
-
-
 def get_total_time():
     g.ep.send(json_get_job_totals())
 
@@ -92,15 +83,16 @@ def get_oobe_enabled():
 
 def set_oobe_enabled(enable):
     save_setting("oobe", "enable", to_string(bool(enable)))
-    system("sync")
 
 
 def restore_config():
     g.screen.main_picture_refreshed = False
-    system("curl -X POST http://127.0.0.1:7125/server/history/reset_totals")
-    system("curl -X DELETE 'http://127.0.0.1:7125/server/history/job?all=true'")
-    system("cp /root/config.mksini " + paths.klipper_config() + "/config.mksini")
-    system("cp " + paths.klipper_config() + "/saved_variables.cfg.bak " + paths.klipper_config() + "/saved_variables.cfg")
+    rest.request("POST", "server/history/reset_totals")
+    rest.request("DELETE", "server/history/job?all=true")
+    reset_settings()
+    variables = paths.klipper_config() + "/saved_variables.cfg"
+    if os.path.exists(variables + ".bak"):      # QIDI's image keeps the factory copy
+        shutil.copyfile(variables + ".bak", variables)
     g.ep.run_gcode("SAVE_VARIABLE VARIABLE=z_offset VALUE=0")
     page_to(ids.MAIN)
 

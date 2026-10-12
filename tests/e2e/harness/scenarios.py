@@ -179,9 +179,9 @@ def scenario_boot_oobe(h):
     h.settle(3.0)
 
 
-def scenario_boot_tft_update(h):
-    """Screen firmware file present at start-up: built-in /root/uart flashing."""
-    boot(h, UPDATE_SUCCESS)
+def scenario_screen_update(h):
+    """The screen firmware was downloaded with --flash-screen (see harness.start_sut), the service starts afterwards."""
+    boot(h)
     h.screen.send(b"\x91" + b"\xff\xff\xff")    # screen reports "update finished"
     h.settle(1.5)
     h.touch(UPDATE_SUCCESS, 0x00, settle=2.0)   # finish_tjc_update()

@@ -27,8 +27,9 @@ import threading
 import time
 import urllib.request
 
+from xindi.config import runtime
 
-MOONRAKER_URL = "http://localhost:7125"
+
 CHUNK_SIZE = 256 * 1024             # bytes downloaded per request
 READ_LIMIT = 4 * 1024 * 1024        # thumbnails further into the file are ignored
 CACHE_SECONDS = 10.0                # one page refresh looks up and then converts
@@ -66,7 +67,7 @@ def _log(text):
 
 def _fetch(path, start, end):
     """Bytes start..end (inclusive) of a gcode file; b"" past the end, None on error."""
-    url = MOONRAKER_URL + "/server/files/gcodes/" + urllib.parse.quote(path)
+    url = runtime.cfg.moonraker_url("server/files/gcodes/" + urllib.parse.quote(path))
     req = urllib.request.Request(url, headers={"Range": "bytes=%d-%d" % (start, end)})
     try:
         with urllib.request.urlopen(req, timeout=5) as resp:

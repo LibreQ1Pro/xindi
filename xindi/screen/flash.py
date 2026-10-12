@@ -2,7 +2,9 @@
 
 On the printer the C++ program runs ``/root/uart; mv /root/800_480.tft
 /root/800_480.tft.bak`` at start-up when a screen firmware file is present.
-This module is built in instead and called as ``screen_flash.main()``.
+The port does it on request instead: ``python3 main.py --flash-screen FILE.tft``
+(with the service stopped, the serial port has one user).  The device and the
+speeds come from the configuration (``[screen]``, see ``xindi/config/runtime.py``).
 
 The port follows a copy of uart.cpp recovered from the printer's eMMC.  That
 copy is a development variant: SEND_FILE_NAME is "UI/MATE_272_480.tft" and
@@ -18,12 +20,13 @@ import os
 import termios
 import time
 
+from xindi.config import runtime
 from xindi.screen.serial import cfmakeraw_zeroed
 from xindi.util.cpp import substr, to_string
 
 
-SEND_FILE_NAME = "/root/800_480.tft"     # uart.cpp: "UI/MATE_272_480.tft"
-UART_DEV = "/dev/ttyS1"
+SEND_FILE_NAME = ""                      # uart.cpp: "UI/MATE_272_480.tft"; set by main()
+UART_DEV = "/dev/ttyS1"                  # the three below too
 INIT_BAUD = 115200
 TRANSFER_BAUD = 921600                   # uart.cpp: 115200
 
@@ -82,8 +85,13 @@ def _close(fd):
 
 # first_ack = 0
 
-def main():
-    global fd
+def main(tft_file):
+    """Download ``tft_file`` into the screen; returns 0 (like the original, see the messages printed for the result)."""
+    global fd, SEND_FILE_NAME, UART_DEV, INIT_BAUD, TRANSFER_BAUD
+    SEND_FILE_NAME = tft_file
+    UART_DEV = runtime.cfg.screen_port
+    INIT_BAUD = runtime.cfg.screen_baud
+    TRANSFER_BAUD = runtime.cfg.transfer_baud
     _init_globals()
 
     count = 0

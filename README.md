@@ -38,45 +38,58 @@ functions changed in it are marked "4.4.22" in the code). The main changes:
 **QIDI's cloud and the updates are not part of the port** (LAN only): QIDI Link (accounts, QR code login, device
 binding, the frpc tunnel, server selection) and the updates from a USB drive and online are gone from the host and
 from the screen firmware (their pages are removed, so the page numbers of the screen firmware differ from QIDI's).
-The screen firmware itself is still flashed from `/root/800_480.tft` at start-up (`xindi/screen/flash.py`). The start-up cleanup
-of the binary (`clear_deprecated_services()`, which deletes `/root/auto_update` and QIDI's frpc service) is not done.
+The screen firmware is flashed on request with `python3 main.py --flash-screen FILE.tft` (`xindi/screen/flash.py`), no longer
+by a file left in `/root`. The start-up cleanup of the binary (`clear_deprecated_services()`, which deletes
+`/root/auto_update` and QIDI's frpc service), the recovery files of the USB drive (`mksscreen.recovery`, `mksclient.recovery`),
+the factory mode script and the `c_helper.so` repair of QIDI's image are gone: the port targets any Klipper + Moonraker
+installation (Armbian, KIAUH), not QIDI's image.
 
 The port began as a line-by-line translation of the C++ program and has been refactored since. The code is
 organised by what it does, no longer by the C++ files it came from (see Structure below). What the screen is sent
 is unchanged and checked by the golden traces of `tests/e2e`.
 
-## Running
+## Installation (Armbian, KIAUH)
+
+Requirements: Python ≥ 3.7, Pillow and NetworkManager (`nmcli`, for Wi-Fi and LAN). Nothing else; the websocket and HTTP
+clients are built in. The screen is on a serial port (`/dev/ttyS1` by default); the user that runs xindi needs the group
+`dialout` (or whatever owns the port) and the right to change connections with `nmcli` (NetworkManager's polkit rules).
 
 ```sh
-python3 main.py localhost        # same arguments as the C++ binary
-# or
-python3 -m xindi localhost
+sudo mkdir -p /opt/xindi && sudo cp -r main.py xindi /opt/xindi/
+sudo install -D -m 644 contrib/xindi.ini.example /etc/xindi/xindi.ini     # optional, every key has a default
+sudo install -m 644 contrib/systemd/xindi.service /etc/systemd/system/    # edit User= first
+sudo systemctl daemon-reload && sudo systemctl enable --now xindi
 ```
 
-Requirements: Python ≥ 3.7 (the printer ships Debian buster's 3.7) and Pillow
-(already installed on the printer; it was used by the original `gene4.py`). No
-other third-party packages are needed. The websocket client, the HTTP client
-are implemented inline. Wi-Fi and LAN need NetworkManager (`nmcli`).
+Run by hand: `python3 main.py [--config FILE] [moonraker_host]` (or `python3 -m xindi`).
 
-To use it on the printer instead of the C++ binary, change the last line of
-`/root/xindi/build/start.sh` from `/root/xindi/build/xindi localhost` to
-`python3 /path/to/main.py localhost`.
+**Configuration.** An ini file, looked up in `--config`, `$XINDI_CONFIG`, `~/.config/xindi/xindi.ini`, `/etc/xindi/xindi.ini`
+(`contrib/xindi.ini.example` lists all keys; the defaults suit a usual KIAUH installation). It sets the serial port and
+speeds, Moonraker's address, the data directory (`config.mksini`, the settings the screen saves; default
+`~/.local/share/xindi`) and, when Moonraker's own answer is not wanted, the gcode, config and log directories.
+
+**Screen firmware.** `.tft` files are built in `display_firmware/`. With the service stopped:
+`python3 main.py --flash-screen out/firmware.tft`.
+
+**USB drive.** xindi expects the drive mounted in the gcode directory as `sda1`; `contrib/usb-automount` has the udev rule,
+systemd unit and mount script (see its README). Without it the USB tab of the file list stays empty.
+
+**Settings reset** (Settings → Reset) clears the print history of Moonraker, writes the default `config.mksini` (the setup
+guide runs again) and restores `saved_variables.cfg` from `saved_variables.cfg.bak` when there is one.
 
 ## Helper binaries that are now built in
 
 | Original | Replacement | Notes |
 |---|---|---|
-| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen/flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes `/root/800_480.tft` into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py` calls it instead of `system("/root/uart; mv …")`. The `mv` is still a shell command. |
+| `/root/uart` (aarch64 ELF, built from `uart.cpp`) | `xindi/screen/flash.py` | Reverse engineered from the disassembly and checked against a development copy of `uart.cpp` (which differs only in the file name and baud rate). Flashes a `.tft` file into the screen with `whmi-wri <size>,921600,0`, sending a 4096 byte block for every `0x05` the screen returns, written in 2048 byte pieces. `main.py --flash-screen FILE` calls it. |
 | `/home/mks/gene4.py` | `xindi/screen/colpic.py` | The same Pillow code (resize, `ImageOps.pad`, RGB565). It is called directly instead of through `python3 …`, and the result stays in memory instead of `/home/mks/tjc`. |
 | `/home/mks/libColPic.so` (aarch64) | `xindi/screen/colpic.py` (`col_pic_encode_str` …) | Reverse engineered (`ad_list0`, `byte8bit_encode`, `col_pic_encode`, `col_pic_encode_str`). Output is byte-identical to the original library, including its quirks. |
 | wpa_supplicant control socket (`mks_wpa_cli.cpp`, libwpa_client) | `xindi/system/network.py` | Not ported: Wi-Fi scan / connect / status and the addresses of the Wi-Fi and LAN interfaces go through NetworkManager (`nmcli`), so the screen, KlipperScreen and `nmcli` share one state. The interfaces are looked up, not assumed to be `wlan0` / `eth0`. The status keeps the wpa_supplicant words the screen code uses (`wpa_state` is `COMPLETED` when connected). |
 | websocketpp | `xindi/moonraker/ws_client.py` | Minimal RFC 6455 client with the same connection-state semantics. |
 | HTTPRequest.hpp | `xindi/moonraker/http_client.py` | Includes the library's quirk of returning an empty body when the first `recv()` does not contain the whole header. |
 
-Scripts that are not part of this repository and are not present on the printer
-image and real
-system tools (`cp`, `mv`, `systemctl`, `dpkg`, `curl`, `hid-flash`, …)
-are still run through the shell exactly like before.
+The shell commands of the original (`cp`, `mv`, `mkdir`, `curl`, `sync`, `systemctl` for the USB drive) are replaced by Python
+(`shutil`, `os`, `urllib`); the port starts no shell command of its own, only `nmcli`.
 
 ## Structure
 
@@ -155,15 +168,13 @@ code has undefined behaviour that cannot be reproduced in a meaningful way:
   flag is reset; the port handles every message.
 * The directories of the gcode files, the Klipper configuration and the logs
   are not fixed to QIDI's `/home/mks/gcode_files`, `/home/mks/klipper_config`
-  and `/home/mks/klipper_logs` (`xindi/util/paths.py`). They are asked from
-  Moonraker (`/server/files/roots`); while it does not answer,
-  `/home/mks/printer_data/{gcodes,config,logs}` are used when they exist, QIDI's
-  otherwise. USB drives are still expected at `<gcodes>/sda1`; systems
-  without QIDI's `makerbase-automount@.service` can install the one in
-  `contrib/usb-automount`.
-* When `config.mksini` does not exist it is created with the defaults of the
-  program (QIDI's system image ships one, other systems do not, and the
-  settings of the screen could not be saved).
+  and `/home/mks/klipper_logs` (`xindi/util/paths.py`). They are given in the
+  configuration file or asked from Moonraker (`/server/files/roots`); while it
+  does not answer, `~/printer_data/{gcodes,config,logs}` are used. USB drives are
+  expected at `<gcodes>/sda1` (`contrib/usb-automount`).
+* `config.mksini` lives in the data directory of the configuration (not in
+  `/root` or the Klipper configuration), and is created with the defaults of
+  the program when it does not exist.
 * `sent_jpg_to_tjc()` closes the file when the screen reports a full buffer
   (0x24); the original leaks it.
 * For tiny thumbnails `libColPic.so` writes past the end of its output buffer.

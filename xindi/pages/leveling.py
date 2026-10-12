@@ -1,6 +1,7 @@
 """The pages of the automatic levelling, input shaping and bed calibration."""
 
 import logging
+import os
 import time
 
 from xindi import state as g
@@ -9,7 +10,7 @@ from xindi.pages.widgets import cut_after_point, face_group, heat_readout, heate
 from xindi.printer import heating, klipper
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
-from xindi.util.cpp import f32, system, to_string
+from xindi.util.cpp import f32, to_string
 
 log = logging.getLogger(__name__)
 
@@ -24,7 +25,7 @@ def syntony_finish():
     if g.klippy.idle_timeout_state == "Ready" and g.klippy.webhooks_state == "ready":
         log.debug("Printer webhooks state: %s", g.klippy.webhooks_state)
         time.sleep(10)
-        system("sync")      # make sure the config file is saved
+        os.sync()      # make sure the config file is saved
 
         g.levelling.all_level_saving = False
         settings.get_babystep()  # 4.4.22 (was init_mks_status())

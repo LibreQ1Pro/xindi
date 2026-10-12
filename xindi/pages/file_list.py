@@ -1,7 +1,9 @@
 """The file list pages and their pictures, the USB drive."""
 
+import glob
 import logging
 import os
+import shutil
 import time
 
 from xindi import state as g
@@ -15,7 +17,7 @@ from xindi.screen.text import fit_name
 from xindi.screen.navigation import page_to
 from xindi.screen.transfer import delete_small_jpg
 from xindi.util import paths
-from xindi.util.cpp import substr, system, to_string
+from xindi.util.cpp import substr, to_string
 
 log = logging.getLogger(__name__)
 
@@ -150,14 +152,8 @@ def detect_disk_2():
 
 
 def detect_disk():
-    if os.path.exists("/dev/sda"):
-        if os.path.exists("/dev/sda1"):
-            if not os.path.exists(paths.gcode_files() + "/sda1"):
-                system("/usr/bin/systemctl --no-block restart makerbase-automount@sda1.service")
-                time.sleep(1)
-        return 0
-    else:
-        return -1
+    """0 if a USB drive is mounted in the gcode directory (``sda1``, see contrib/usb-automount), -1 if not."""
+    return 0 if is_mounted(paths.gcode_files() + "/sda1") == 1 else -1
 
 
 def go_to_file_list():
@@ -194,10 +190,14 @@ def print_log():
     if detect_disk() == -1:
         page_to(ids.PRINT_LOG_F)    # CLL no USB drive: tell the user the export failed
     else:
-        system("mkdir " + paths.gcode_files() + "/sda1/QD_Log")
-        system("bash -c 'cp " + paths.klipper_logs() + "/klippy.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
-        system("bash -c 'cp " + paths.klipper_logs() + "/moonraker.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
-        system("bash -c 'cp " + paths.klipper_logs() + "/auto_update.log* " + paths.gcode_files() + "/sda1/QD_Log/'")
+        target = paths.gcode_files() + "/sda1/QD_Log"
+        os.makedirs(target, exist_ok=True)
+        for name in ("klippy.log", "moonraker.log"):       # and the rotated ones (klippy.log.2024-01-01)
+            for source in glob.glob(glob.escape(paths.klipper_logs() + "/" + name) + "*"):
+                try:
+                    shutil.copy(source, target)
+                except OSError as e:
+                    log.error("%s: %s", source, e)
         page_to(ids.PRINT_LOG_S)
 
 

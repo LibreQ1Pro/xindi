@@ -1,0 +1,18 @@
+# /etc/systemd/system/xindi.service
+# Edit User= and the paths, then: sudo systemctl enable --now xindi
+[Unit]
+Description=xindi: TJC screen backend for Klipper / Moonraker
+After=moonraker.service
+Wants=moonraker.service
+
+[Service]
+User=pi
+# the user needs the serial port of the screen (and the rights of nmcli for Wi-Fi, see the README)
+SupplementaryGroups=dialout
+WorkingDirectory=/opt/xindi
+ExecStart=/usr/bin/python3 /opt/xindi/main.py --config /etc/xindi/xindi.ini
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

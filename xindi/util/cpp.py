@@ -284,11 +284,6 @@ def stream_float(s):
 # libc wrappers
 # ---------------------------------------------------------------------------
 
-def system(command):
-    """system(3)"""
-    return os.system(command)
-
-
 def read_file_bytes(path):
     """``std::ifstream f(path); std::stringstream ss; ss << f.rdbuf();`` - None if the file can't be opened."""
     try:

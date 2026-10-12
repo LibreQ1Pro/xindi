@@ -10,6 +10,14 @@ import hashlib
 import os
 
 GCODES = "/home/mks/gcode_files"
+DATA_DIR = "/var/lib/xindi"
+TFT_FILE = "/tmp/screen.tft"
+XINDI_INI = """[paths]
+data_dir = %s
+gcodes = %s
+config = /home/mks/klipper_config
+logs = /home/mks/klipper_logs
+""" % (DATA_DIR, GCODES)
 
 CONFIG_MKSINI = """
 [fila]
@@ -52,12 +60,6 @@ bind_status                    =
 
 """
 
-VERSION = """[version]
-mcu             = V0.10.0
-ui              = V4.4.21
-soc             = V4.4.21
-"""
-
 SAVED_VARIABLES = """[Variables]
 bed_temp = 80.0
 filepath = '%(filepath)s'
@@ -75,10 +77,9 @@ DEFAULTS = {
     "oobe": 0,
     "method": 1,
     "interrupted": "False",
-    "tft_update": False,
+    "flash": False,
     "usb": False,
     "wifi": False,
-    "small_chelper": False,
     "cache_file": True,
     "state": {},
 }
@@ -87,7 +88,7 @@ OPTIONS = {
     "boot_main": {},
     "boot_oobe": {"oobe": 1},
     "oobe_calibrate": {"oobe": 1},
-    "boot_tft_update": {"tft_update": True, "small_chelper": True},
+    "screen_update": {"flash": True},
     "boot_interrupted": {"interrupted": "True"},
     "file_list": {"usb": True},
     "print_flow": {},
@@ -202,9 +203,8 @@ class Fixture(object):
     # -- files -------------------------------------------------------------
     def install(self):
         o = self.o
-        _write("/home/mks/klipper_config/config.mksini", CONFIG_MKSINI % {"oobe": o["oobe"], "method": o["method"]}, 0o666)
-        _write("/root/config.mksini", CONFIG_MKSINI % {"oobe": 0, "method": 1})
-        _write("/root/xindi/version", VERSION)
+        _write("/etc/xindi/xindi.ini", XINDI_INI)
+        _write(DATA_DIR + "/config.mksini", CONFIG_MKSINI % {"oobe": o["oobe"], "method": o["method"]})
         _write("/dev_info.txt", "QIDI@Q1 Pro")
         sv = SAVED_VARIABLES % {"interrupted": o["interrupted"],
                                 "filepath": "/home/mks/gcode_files/cube.gcode" if o["interrupted"] == "True" else ""}
@@ -212,10 +212,6 @@ class Fixture(object):
         _write("/home/mks/klipper_config/saved_variables.cfg.bak", SAVED_VARIABLES % {"interrupted": "False", "filepath": ""})
         _write("/home/mks/klipper_logs/klippy.log", "klippy log\n")
         _write("/home/mks/klipper_logs/moonraker.log", "moonraker log\n")
-
-        chelper = "/home/mks/klipper/klippy/chelper/c_helper.so"
-        _write(chelper, (b"\x7fELF" + b"\x01" * 100) if o["small_chelper"] else (b"\x7fELF" + b"\x02" * 20000))
-        _write("/root/etc/c_helper.so", b"\x7fELF" + bytes(range(256)) * 120)
 
         # gcode files and thumbnails
         for name in ("cube.gcode", "Benchy PLA.gcode", "part_abs.gcode", "notes.txt", ".hidden.gcode",
@@ -243,17 +239,15 @@ class Fixture(object):
             _embed_thumbnails(os.path.join(GCODES, "last_print.gcode"), [".thumbs/last_print-160x160.png"], 7)
 
         if o["usb"]:
-            _write("/dev/sda", b"")
-            _write("/dev/sda1", b"")
             usb = os.path.join(GCODES, "sda1")
             for name in ("usb_one.gcode", "usb_two.gcode", "usb_three.gcode", "usb_four.gcode", "usb_five.gcode"):
                 _write(os.path.join(usb, name), "G28\n")
             _write(os.path.join(usb, "folder/usb_inner.gcode"), "G28\n")
             os.makedirs(os.path.join(usb, "System Volume Information"), exist_ok=True)
-        if o["tft_update"]:
+        if o["flash"]:
             # screen firmware file (not a multiple of 4096 bytes)
             data = bytes((i * 7 + 3) & 0xFF for i in range(3 * 4096 + 1234))
-            _write("/root/800_480.tft", data)
+            _write(TFT_FILE, data)
 
         os.makedirs("/home/mks/gcode_files/.cache", exist_ok=True)
 
@@ -389,12 +383,10 @@ class Fixture(object):
     # -- result ----------------------------------------------------------------
     def snapshot(self):
         result = {}
-        roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", "/root/xindi",
-                 "/home/mks/klipper/klippy/chelper"]
+        roots = ["/home/mks/klipper_config", "/home/mks/gcode_files", DATA_DIR]
         # (/home/mks/tjc is not compared: the port keeps the converted picture in
         # memory; the picture data sent to the screen is part of the screen trace)
-        singles = ["/root/800_480.tft", "/root/800_480.tft.bak", "/root/mcu_shutdown.txt",
-                   "/root/klipper.bin", "/root/config.mksini"]
+        singles = [TFT_FILE]
         paths = []
         for root in roots:
             for dirpath, dirnames, filenames in os.walk(root):

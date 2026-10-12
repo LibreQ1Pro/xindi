@@ -1,24 +1,17 @@
-"""Access to config.mksini (the settings of the screen backend) and the version file."""
+"""Access to config.mksini (the settings of the screen backend)."""
 
 import logging
 import os
 import re
 
-from xindi.util import paths
+from xindi.config import runtime
 from xindi.util.cpp import i32, strtol
 
 log = logging.getLogger(__name__)
 
-# INIPATH = "/root/config.mksini"
-# INIPATH = "/home/mks/klipper_config/config.mksini"
-
-
 def _inipath():
-    """INIPATH (the config directory is found at run time, see paths.py)"""
-    return paths.klipper_config() + "/config.mksini"
-
-
-VERSION_PATH = "/root/xindi/version"
+    """config.mksini in the data directory of the configuration (see runtime.py)"""
+    return runtime.cfg.data_path("config.mksini")
 
 
 # Python only: written when the file does not exist (QIDI's system image comes
@@ -46,7 +39,7 @@ enable = 0
 time = 0
 
 [oobe]
-enable = 0
+enable = 1
 
 [mks_ethernet]
 enable = 0
@@ -69,18 +62,11 @@ bind_status =
 
 def _create_default_mksini(path):
     try:
-        fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o666)
+        fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
     except OSError:
         return          # exists already (or the directory is missing)
     with os.fdopen(fd, "w") as ini:
         ini.write(DEFAULT_MKSINI)
-    try:
-        # owned like the directory, so that it can be edited in the web UI
-        st = os.stat(os.path.dirname(path))
-        os.chown(path, st.st_uid, st.st_gid)
-        os.chmod(path, 0o666)
-    except OSError:
-        pass
     log.debug("%s", "Created " + path + " with the default settings")
 
 
@@ -172,10 +158,20 @@ class IniFile:
                     ini.write(("%-30s = %s\n" % (key, value)).encode())
                 ini.write(b"\n")
             ini.write(b"\n")
+            ini.flush()
+            os.fsync(ini.fileno())          # the original runs sync(1) after it
 
 
 # key = "value" | key = 'value' | key = value ; comment | key = (empty)
 _KEY_VALUE = re.compile(r"([^=]+?)\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\"']*?))\s*$")
+
+
+def reset_settings():
+    """Back to the defaults (the factory config.mksini of the original)."""
+    with open(_inipath(), "w") as ini:
+        ini.write(DEFAULT_MKSINI)
+        ini.flush()
+        os.fsync(ini.fileno())
 
 
 def open_settings():
@@ -190,7 +186,3 @@ def save_setting(section, key, value):
     ini = open_settings()
     ini.set(section, key, value)
     ini.save()
-
-
-def open_version_file():
-    return IniFile(VERSION_PATH)

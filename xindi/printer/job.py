@@ -6,12 +6,14 @@ import time
 import urllib.request
 
 from xindi import state as g
+from xindi.config import runtime
+from xindi.moonraker import rest
 from xindi.moonraker.rpc_requests import json_print_a_file
 from xindi.pages import file_list, preview
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util import paths
-from xindi.util.cpp import cdiv, cmod, read_file, stof, str_lower_ascii, substr, system, to_string
+from xindi.util.cpp import cdiv, cmod, read_file, stof, str_lower_ascii, substr, to_string
 
 log = logging.getLogger(__name__)
 
@@ -47,8 +49,8 @@ def set_print_resume():
 
 def cancel_print():
     g.klippy.print_stats_filename = ""
-    system("curl -X POST http://127.0.0.1:7125/printer/breakmacro")
-    system("curl -X POST http://127.0.0.1:7125/printer/breakheater")
+    rest.request("POST", "printer/breakmacro")
+    rest.request("POST", "printer/breakheater")
     g.ep.run_gcode("CANCEL_PRINT")
     # 4.4.22: the total print time is no longer kept in config.mksini
     time.sleep(0.01)
@@ -131,13 +133,13 @@ def check_filament_width():
         g.klippy.filament_detected = False
 
 
-TIMELAPSE_URL = "http://127.0.0.1:7125/machine/timelapse/settings"
+TIMELAPSE_PATH = "machine/timelapse/settings"
 
 
 def check_timelapse_state():
     """4.4.22: state of Moonraker's timelapse plugin (off when it is not installed)."""
     try:
-        with urllib.request.urlopen(TIMELAPSE_URL, timeout=2) as resp:
+        with urllib.request.urlopen(runtime.cfg.moonraker_url(TIMELAPSE_PATH), timeout=2) as resp:
             g.screen.timelapse_enabled = bool(_json.loads(resp.read().decode("utf-8"))["result"]["enabled"])
     except Exception as e:
         log.error("Timelapse state: %s", str(e))
@@ -147,7 +149,7 @@ def check_timelapse_state():
 
 def switch_timelapse_state():
     """4.4.22: turn Moonraker's timelapse on / off (preview page)."""
-    url = TIMELAPSE_URL + ("?enabled=False" if g.screen.timelapse_enabled else "?enabled=True")
+    url = runtime.cfg.moonraker_url(TIMELAPSE_PATH) + ("?enabled=False" if g.screen.timelapse_enabled else "?enabled=True")
     try:
         urllib.request.urlopen(urllib.request.Request(url, data=b"", method="POST"), timeout=2).close()
         g.screen.timelapse_enabled = not g.screen.timelapse_enabled

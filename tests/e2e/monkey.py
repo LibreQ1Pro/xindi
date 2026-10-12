@@ -24,7 +24,7 @@ IMAGE = "xindi-port-test:latest"
 
 def run_seed(seed, steps, hostile, out_dir, timeout):
     os.makedirs(out_dir, exist_ok=True)
-    cmd = ["docker", "run", "--rm", "-v", "%s:/opt/src_py:ro" % ROOT, "-v", "%s:/opt/e2e:ro" % HERE, "-v", "%s:/out" % out_dir,
+    cmd = ["docker", "run", "--rm", "--tmpfs", "/home/mks/gcode_files/sda1", "-v", "%s:/opt/src_py:ro" % ROOT, "-v", "%s:/opt/e2e:ro" % HERE, "-v", "%s:/out" % out_dir,
            IMAGE, "python3", "/opt/e2e/harness/harness.py", "--scenario", "monkey", "--seed", str(seed), "--steps", str(steps), "--out", "/out"]
     if hostile:
         cmd.append("--hostile")

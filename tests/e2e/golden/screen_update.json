@@ -20,25 +20,18 @@
   "/home/mks/gcode_files/notes.txt": "; gcode notes.txt\nG28\n",
   "/home/mks/gcode_files/part_abs.gcode": "sha1:3a0314247caa6391:44801",
   "/home/mks/gcode_files/z_last.gcode": "sha1:57539c0d633d7184:25",
-  "/home/mks/klipper/klippy/chelper/c_helper.so": "sha1:265133d3c7fa7b18:30724",
-  "/home/mks/klipper_config/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
   "/home/mks/klipper_config/saved_variables.cfg": "[Variables]\nbed_temp = 80.0\nfilepath = ''\nhot_temp = 0.0\nlast_file = ''\npower_resume_z = 0.8\nprint_temp = 245.0\nprofile_name = 'kamp'\nwas_interrupted = False\nz_offset = 0.0\n",
   "/home/mks/klipper_config/saved_variables.cfg.bak": "sha1:6848972cc3e85599:173",
-  "/root/800_480.tft": null,
-  "/root/800_480.tft.bak": "sha1:cb65954e4af81fe9:13522",
-  "/root/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n",
-  "/root/klipper.bin": null,
-  "/root/mcu_shutdown.txt": null,
-  "/root/xindi/version": "sha1:a26a542db586bd9c:88"
+  "/tmp/screen.tft": "sha1:cb65954e4af81fe9:13522",
+  "/var/lib/xindi/config.mksini": "\n[fila]\nenable                         = 1\n\n\n[target]\nextruder                       = 220\nheaterbed                      = 60\nhot                            = 55\n\n\n[babystep]\nvalue                          = 0.000\nadxl_offset                    = 0.15\n\n\n[oobe]\nenable                         = 0\n\n\n[mks_ethernet]\nenable                         = 0\n\n\n[app_connection]\nmethod                         = 1\n\n\n[app_server]\nname                           = aws\n\n[app]\ndevice_code                    =\nsubdomain                      =\ntoken                          =\nusername                       =\navatar                         =\nbind_status                    =\n\n"
  },
  "http": [
-  "GET /server/files/roots",
   "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/gcodes/last_print.gcode"
  ],
  "pages": [
-  1,
+  17,
   1,
   17
  ],
@@ -65,18 +58,6 @@
     ]
    },
    "page": null
-  },
-  {
-   "attrs": {},
-   "page": 1
-  },
-  {
-   "attrs": {
-    "boot_logo.version.val": [
-     "100"
-    ]
-   },
-   "page": 1
   },
   {
    "attrs": {
@@ -159,7 +140,7 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "75"
+     "76"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
@@ -170,11 +151,79 @@
     ]
    },
    "page": 17
+  },
+  {
+   "attrs": {
+    "boot_logo.version.val": [
+     "100"
+    ]
+   },
+   "page": 1
+  },
+  {
+   "attrs": {
+    "bed_icon.pic": [
+     "33"
+    ],
+    "bed_set.txt": [
+     "\"/ 0\""
+    ],
+    "bed_temp.pco": [
+     "63422"
+    ],
+    "bed_temp.txt": [
+     "\"25\""
+    ],
+    "beep_btn.pic": [
+     "385"
+    ],
+    "beep_btn.pic2": [
+     "386"
+    ],
+    "chamber_icon.pic": [
+     "44"
+    ],
+    "chamber_set.txt": [
+     "\"/ 0\""
+    ],
+    "chamber_temp.pco": [
+     "63422"
+    ],
+    "chamber_temp.txt": [
+     "\"26\""
+    ],
+    "light_btn.pic": [
+     "341"
+    ],
+    "light_btn.pic2": [
+     "342"
+    ],
+    "nozzle_icon.pic": [
+     "43"
+    ],
+    "nozzle_set.txt": [
+     "\"/ 0\""
+    ],
+    "nozzle_temp.pco": [
+     "63422"
+    ],
+    "nozzle_temp.txt": [
+     "\"25\""
+    ],
+    "usb_icon.pic": [
+     "76"
+    ],
+    "vis last_file_pic": [
+     "last_file_pic,1"
+    ],
+    "wifi_icon.pic": [
+     "77"
+    ]
+   },
+   "page": 17
   }
  ],
- "shell": [
-  "mv /root/800_480.tft /root/800_480.tft.bak"
- ],
+ "shell": [],
  "wpa": [],
  "ws": [
   "{\"id\":5656,\"jsonrpc\":\"2.0\",\"method\":\"server.history.totals\"}",

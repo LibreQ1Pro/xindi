@@ -45,7 +45,7 @@ def main():
     args = ap.parse_args()
     builder = args.builder or find_builder()
     cmd = ["docker", "run", "--rm", "--init"] + (["-it"] if sys.stdin.isatty() else []) + [
-           "-p", "127.0.0.1:%d:8765" % args.port, "-p", "127.0.0.1:7125:7125",
+           "--tmpfs", "/home/mks/gcode_files/sda1", "-p", "127.0.0.1:%d:8765" % args.port, "-p", "127.0.0.1:7125:7125",
            "-v", "%s:/opt/src_py:ro" % ROOT,
            "-v", "%s:/opt/e2e:ro" % HERE,
            "-v", "%s:/opt/display_firmware:ro" % PROJECT,

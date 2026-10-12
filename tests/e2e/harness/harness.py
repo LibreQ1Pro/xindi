@@ -726,8 +726,13 @@ class Harness(object):
         # lower priority than the harness so that the virtual screen keeps up
         cmd = ["nice", "-n", "10"] + cmd
         self.sut_log = open(os.path.join(self.out_dir, "%s_%s.log" % (self.impl, self.scenario_name)), "wb")
+        if self.fixture.o["flash"]:
+            # the screen firmware goes in first, with the service not running (--flash-screen)
+            import fixtures
+            flash_cmd = ["nice", "-n", "10", "python3", "/opt/src_py/main.py", "--flash-screen", fixtures.TFT_FILE]
+            subprocess.run(flash_cmd, stdout=self.sut_log, stderr=subprocess.STDOUT, env=env, cwd="/", timeout=120)
         self.proc = subprocess.Popen(cmd, stdout=self.sut_log, stderr=subprocess.STDOUT, env=env,
-                                     cwd="/root", start_new_session=True)
+                                     cwd="/", start_new_session=True)
 
     def stop_sut(self):
         if self.proc is None:

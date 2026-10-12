@@ -4,6 +4,7 @@ import logging
 import sys
 
 from xindi import state as g
+from xindi.config import runtime
 from xindi.moonraker.http_client import send_request
 from xindi.moonraker.json_fields import read_fields
 from xindi.screen import navigation, pageids as ids
@@ -60,7 +61,7 @@ def last_printed_file():
     """The file that was printed last, from the print history of Moonraker: its path under gcodes/ (``dir/name.gcode``), or "" when there is none (the
     newest job whose file still exists; a cancelled or a failed print counts as well)."""
     import json
-    response = send_request("localhost", "7125", "server/history/list?limit=20&order=desc", "GET")
+    response = send_request(runtime.cfg.moonraker_host, runtime.cfg.moonraker_port, "server/history/list?limit=20&order=desc", "GET")
     try:
         jobs = json.loads(response)["result"]["jobs"]
     except (ValueError, KeyError, TypeError):
@@ -86,7 +87,7 @@ def get_page_files_filelist(current_dir):
     result = None
     # the last printed file (from the history of Moonraker) is shown on Home, not in the list
     g.files.list_last_printed = last_printed_file() if g.files.list_folder_layers == 0 else g.files.list_last_printed
-    json_files_directory = send_request("localhost", "7125", "server/files/directory?path=" + current_dir, "GET")
+    json_files_directory = send_request(runtime.cfg.moonraker_host, runtime.cfg.moonraker_port, "server/files/directory?path=" + current_dir, "GET")
     if json_files_directory != "":
         json_temp = json_parse(json_files_directory)
         result = jget(json_temp, "result")
@@ -297,10 +298,8 @@ def parent_directory(path):
 def output_imgdata(thumbpath, size):
     """Converts a thumbnail into the screen's ColPic text format.
 
-    The original runs ``python3 /home/mks/colpic.py "<path>" /home/mks/tjc <size>``
-    which uses /home/mks/libColPic.so; both are re-implemented in colpic.py of
-    this package and called directly.  The result is kept in memory
-    (``g.pictures.tjc_data``) instead of the file /home/mks/tjc.  A failed conversion
+    The original runs QIDI's colpic.py and libColPic.so; both are re-implemented in
+    colpic.py of this package.  The result is kept in memory (``g.pictures.tjc_data``).  A failed conversion
     leaves None there (the original keeps the previous file and shows the
     picture of another file).
     """
@@ -319,8 +318,7 @@ def output_imgdata(thumbpath, size):
         path = paths.gcode_files() + "/" + thumbpath
     else:
         path = thumbpath
-    temp = "python3 /home/mks/colpic.py \"" + path + "\" /home/mks/tjc " + to_string(size)
-    log.debug("%s", temp)
+    log.debug("Converting the thumbnail %s (%s)", path, to_string(size))
     try:
         g.pictures.tjc_data = colpic.encode_picture(path, size)
     except Exception as e:

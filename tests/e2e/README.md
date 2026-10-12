@@ -117,7 +117,7 @@ the other system tools are stubs; the sleeps are the real ones.
 | boot_main | start-up sequence, subscriptions, main page refresh, cached file picture (ColPic), LED / beeper / emergency stop |
 | boot_oobe | out-of-box guide pages, filament steps, `switch` fall-through 72 → 11 → 12 |
 | oobe_calibrate | guide heater bed page, automatic calibration steps (gcode `echo:` responses) |
-| boot_tft_update | screen firmware flashing with the built-in uart (whmi-wri protocol), c_helper.so recovery |
+| screen_update | firmware download with `--flash-screen` (whmi-wri protocol), then the update-finished page of the screen |
 | boot_interrupted | power loss recovery question |
 | no_cache | start without a cached file |
 | file_list | file list pages, folders, USB / local, 112×112 thumbnails via `twfile`, preview pictures, back navigation |

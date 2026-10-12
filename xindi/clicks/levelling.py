@@ -1,6 +1,7 @@
 """Clicks on the levelling, z-offset, bed calibration and input shaping pages. Each function gets the page id and the widget id the screen sent; HANDLERS maps pages to them."""
 
 import logging
+import os
 
 from xindi import state as g
 from xindi.config import settings
@@ -8,7 +9,6 @@ from xindi.pages import file_list, navigation
 from xindi.printer import calibration, heating, klipper
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
-from xindi.util.cpp import system
 
 log = logging.getLogger(__name__)
 
@@ -128,7 +128,7 @@ def syntony_move(page_id, widget_id):
 def syntony_finish(page_id, widget_id):
     if widget_id == ids.SYNTONY_FINISH_YES:
         page_to(ids.LEVEL_MODE)
-        system("sync")
+        os.sync()
         settings.get_babystep()           # 4.4.22 (was init_mks_status())
         klipper.sub_object_status()
         klipper.get_object_status()

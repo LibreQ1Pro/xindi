@@ -317,9 +317,6 @@ class Config(object):
         self.hot_target = 0
         self.babystep_value = ""
         self.adxl_offset = ""
-        self.version_soc = ""
-        self.version_mcu = ""
-        self.version_ui = ""
         self.serial_by_id = ""
 
 
@@ -327,7 +324,6 @@ class Update(object):
     """The screen firmware file at start-up, and the answers of the screen to the picture / firmware transfers."""
 
     def __init__(self):
-        self.find_screen_tft_file = False
         self.get_0xfe = False
         self.get_0x06 = False
         self.get_0x05 = False

@@ -1,0 +1,5 @@
+# /etc/default/xindi-usb: settings of xindi-usb-mount
+# the user that runs Klipper and Moonraker (the files of the drive belong to it)
+XINDI_USER=pi
+# the gcode directory; leave it out to ask Moonraker (else ~/printer_data/gcodes)
+#GCODES=/home/pi/printer_data/gcodes

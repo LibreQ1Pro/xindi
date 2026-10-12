@@ -38,6 +38,7 @@ def all_scenarios():
 
 def run_one(scenario, out_dir, timeout):
     cmd = ["docker", "run", "--rm",
+           "--tmpfs", "/home/mks/gcode_files/sda1",         # the USB drive: a mount point of its own
            "-v", "%s:/opt/src_py:ro" % ROOT,
            "-v", "%s:/opt/e2e:ro" % HERE,
            "-v", "%s:/out" % out_dir,
