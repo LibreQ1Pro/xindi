@@ -19,7 +19,7 @@ function iconTile(x,y,w,h,glyph,on,name,o){
 S('home','Home and files','Home',()=>{
   CUR='main';
   let s = '';
-  s += `<div style="${st(176,10,22,22)}color:var(--text2)">${ico('ethernet-port',20)}</div><div style="${st(204,10,22,22)}color:var(--text2)">${ico('usb',20)}</div><div style="${st(232,10,22,22)}color:var(--text2)">${ico('wifi',20)}</div>`;
+  s += `<div style="${st(176,10,22,22)}color:var(--text2)">${ico('usb',20)}</div><div style="${st(204,10,22,22)}color:var(--text2)">${ico('ethernet-port',20)}</div><div style="${st(232,10,22,22)}color:var(--text2)">${ico('wifi',20)}</div>`;
   s += box(12,38,248,198,'card hi','','last_file_btn');
   s += thumb(66,48,140,140,'last_file_pic');
   s += `<div style="${st(26,48,26,26)}background:#212021;border-radius:13px;opacity:.9"></div><div style="${st(30,52,18,18)}color:#ddd">${ico('clock',18)}</div>`;

@@ -75,7 +75,7 @@
    "ui_ver",
    "ver_panel"
   ],
-  "sha256": "e6824f966bb0c2a4a127888de7c8ac9d7c87cd22f54fae5c87f5c086ce0484d9"
+  "sha256": "c0d51e506191c0b0d103ef039e50bac96b075f2982b1f20baa15ccc04d86af28"
  },
  "open_pop": {
   "design": "setup_skip_confirm",

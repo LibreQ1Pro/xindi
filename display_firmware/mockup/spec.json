@@ -765,7 +765,7 @@
     "h": 20,
     "z": 1,
     "prim": "icon",
-    "icon": "ethernet-port",
+    "icon": "usb",
     "color": [
      165,
      166,
@@ -783,9 +783,9 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 9,
+    "z": 11,
     "prim": "icon",
-    "icon": "usb",
+    "icon": "ethernet-port",
     "color": [
      165,
      166,
@@ -7125,7 +7125,7 @@
     "h": 20,
     "z": 1,
     "prim": "icon",
-    "icon": "ethernet-port",
+    "icon": "usb",
     "color": [
      165,
      166,
@@ -7143,9 +7143,9 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 9,
+    "z": 11,
     "prim": "icon",
-    "icon": "usb",
+    "icon": "ethernet-port",
     "color": [
      165,
      166,
@@ -13770,7 +13770,7 @@
     "h": 20,
     "z": 1,
     "prim": "icon",
-    "icon": "ethernet-port",
+    "icon": "usb",
     "color": [
      165,
      166,
@@ -13788,9 +13788,9 @@
     "y": 10,
     "w": 20,
     "h": 20,
-    "z": 9,
+    "z": 11,
     "prim": "icon",
-    "icon": "usb",
+    "icon": "ethernet-port",
     "color": [
      165,
      166,
