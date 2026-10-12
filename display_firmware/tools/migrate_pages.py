@@ -47,9 +47,6 @@ INVISIBLE = ("timer", "variable", "touch_capture")
 BG = (0x17, 0x17, 0x1a)
 
 
-MAX_SPACES = 56       # per instruction; the compiler's limit is 60 (measured: 60 compiles, 61 does not)
-
-
 class Metrics:
     """The wrapping of the screen: the glyph widths of the fonts of the project (the emulator wraps the same way), so a text box can be given
     the height its longest translation needs."""
@@ -624,20 +621,8 @@ class Migration:
                 m = pattern.match(line)
                 if m and m.group(2) in boxes:
                     role, width, a = boxes[m.group(2)]
-                    text = broken(role, width, m.group(3), a.get("h"), a.get("xcen"))
+                    line = '%s%s.txt="%s"%s' % (m.group(1), m.group(2), broken(role, width, m.group(3), a.get("h"), a.get("xcen")), m.group(4))
                     a["txt_maxl"] = max(a.get("txt_maxl", 10), len(m.group(3).encode()) * 3 + 8 + 16)
-                    # the compiler refuses an instruction with more than 60 spaces ("extra space after the instruction"): a longer text is put in
-                    # by several instructions, at the line breaks (``txt+=`` appends)
-                    chunks, op = [], "="
-                    for piece in text.split("\\r"):
-                        if chunks and (chunks[-1] + piece).count(" ") + 1 <= MAX_SPACES:
-                            chunks[-1] += "\\r" + piece
-                        else:
-                            chunks.append(("\\r" if chunks else "") + piece)
-                    for chunk in chunks:
-                        out.append('%s%s.txt%s"%s"%s' % (m.group(1), m.group(2), op, chunk, m.group(4)))
-                        op = "+="
-                    continue
                 out.append(line)
             return out
 
