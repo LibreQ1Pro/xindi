@@ -200,7 +200,7 @@
    },
    "events": {
     "codestimer": [
-     "if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_50f3f8b07493})",
+     "if(reset_btn.pic==${picture:settings_reset_btn_oobe_on})",
      "{",
      "  reset_lbl.txt=guide_txt.txt",
      "  reset_lbl.pco=63422",
@@ -259,7 +259,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_decor_248x40_89e97b0bc3bd"
+     "$ref": "picture:move_decor_2"
     }
    },
    "events": {
@@ -471,12 +471,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_lang_btn_248x52_1efce77f7464"
+     "$ref": "picture:settings_lang_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_lang_btn_press_248x52_40f8b59b1d75"
+     "$ref": "picture:settings_lang_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -583,12 +583,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_lang_btn_248x52_1efce77f7464"
+     "$ref": "picture:settings_lang_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_lang_btn_press_248x52_40f8b59b1d75"
+     "$ref": "picture:settings_lang_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -695,12 +695,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
+     "$ref": "picture:settings_sysinfo_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
+     "$ref": "picture:settings_sysinfo_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -807,12 +807,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
+     "$ref": "picture:settings_sysinfo_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
+     "$ref": "picture:settings_sysinfo_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -919,12 +919,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_sysinfo_btn_248x52_0d7405c7fc4b"
+     "$ref": "picture:settings_sysinfo_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_sysinfo_btn_press_248x52_9fba55906507"
+     "$ref": "picture:settings_sysinfo_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1024,12 +1024,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_reset_btn_oobe_off_248x52_cff4c6ffb2f5"
+     "$ref": "picture:settings_reset_btn_oobe_off"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_reset_btn_oobe_off_press_248x52_d63c20a90b95"
+     "$ref": "picture:settings_reset_btn_oobe_off_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1047,7 +1047,7 @@
    "events": {
     "codesdown": [],
     "codesup": [
-     "if(reset_btn.pic==${picture:new_reset_btn_oobe_off_248x52_cff4c6ffb2f5})",
+     "if(reset_btn.pic==${picture:settings_reset_btn_oobe_off})",
      "{",
      "  prints 0x65,1",
      "  prints dp,1",
@@ -1055,7 +1055,7 @@
      "  prints 0xff,1",
      "  prints 0xff,1",
      "  prints 0xff,1",
-     "}else if(reset_btn.pic==${picture:new_reset_btn_oobe_on_248x52_50f3f8b07493})",
+     "}else if(reset_btn.pic==${picture:settings_reset_btn_oobe_on})",
      "{",
      "  prints 0x65,1",
      "  prints dp,1",
@@ -1141,7 +1141,7 @@
     "groupid0": 0,
     "groupid1": 0,
     "pic": {
-     "$ref": "picture:new_decor_272x56_fbd8d385ac03"
+     "$ref": "picture:filament_decor_5"
     }
    },
    "events": {
@@ -1178,12 +1178,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_nav_main_68x55_a7ec05fb2a8f"
+     "$ref": "picture:filament_nav_main"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_nav_main_press_68x55_ac1e0014db73"
+     "$ref": "picture:filament_nav_main_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1239,12 +1239,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_nav_adjust_68x55_84872ef307d4"
+     "$ref": "picture:file_list_nav_adjust"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_nav_adjust_press_68x55_d8eba7c781fc"
+     "$ref": "picture:file_list_nav_adjust_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1300,12 +1300,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_nav_files_68x55_29788a8c8b67"
+     "$ref": "picture:filament_nav_files"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_nav_files_press_68x55_ee246681f75f"
+     "$ref": "picture:filament_nav_files_press"
     },
     "picc2": 65535,
     "bco2": 1024,
@@ -1361,12 +1361,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:new_nav_settings_68x55_1b7ae29f98e7"
+     "$ref": "picture:calibration_nav_settings"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:new_nav_settings_press_68x55_4a24a0833574"
+     "$ref": "picture:calibration_nav_settings_press"
     },
     "picc2": 65535,
     "bco2": 1024,

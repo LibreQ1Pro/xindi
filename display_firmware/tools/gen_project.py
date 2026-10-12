@@ -132,17 +132,19 @@ def record(old, report):
 
 
 class Tiles:
-    """Opaque, RGB565 tiles. A picture is made once: the same pixels (and size) under any name are the one picture that was made first."""
+    """Opaque (or RGBA) RGB565 tiles. A picture is made once: the same pixels (and size) under any name are the one picture that was made first.
+    The key of a picture is ``PAGE_WIDGET`` (``settings_lang_btn``, ``file_list_file1_press``): ``page`` is the page that is being made."""
+    page = ""
+
     def __init__(self, project):
         self.project = project
         self.known = {p["key"] for p in project["pictures"]}
         self.by_pixels = {}
         for key in sorted(self.known):
-            if key.startswith("new_"):
-                path = ROOT / "pictures" / (key + ".png")
-                if path.exists():
-                    with Image.open(path) as previous:
-                        self.by_pixels.setdefault(self.pixels(previous if previous.mode == "RGBA" else previous.convert("RGB")), key)
+            path = ROOT / "pictures" / (key + ".png")
+            if key != "boot_logo" and path.exists():
+                with Image.open(path) as previous:
+                    self.by_pixels.setdefault(self.pixels(previous if previous.mode == "RGBA" else previous.convert("RGB")), key)
 
     @staticmethod
     def pixels(image):
@@ -161,8 +163,9 @@ class Tiles:
                 self.project["pictures"].append({"key": key, "source": {"png": "pictures/%s.png" % key}})
                 self.known.add(key)
             return key
-        size = "%dx%d" % image.size
-        key = "new_%s_%s_%s" % (name, size, hashlib.sha256(image.tobytes()).hexdigest()[:12])
+        key = name if not self.page or name.startswith(self.page) else "%s_%s" % (self.page, name)
+        if key in self.known:               # the name is taken by another look (the old one of this widget, or a widget of another page that is called the same)
+            key = "%s_%s" % (key, hashlib.sha256(image.tobytes()).hexdigest()[:6])
         path = ROOT / "pictures" / (key + ".png")
         image.save(path)
         if key not in self.known:

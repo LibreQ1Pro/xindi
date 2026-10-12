@@ -72,6 +72,7 @@ def main():
     widgets = {w["name"]: w for w in normal["widgets"]}
     warn_widgets = {w["name"]: w for w in warning["widgets"]}
     tiles, faces = Tiles(project), load("tools/faces.json")
+    tiles.page = "home"
     shot = screenshot("home", "no_values")
     full = screenshot("home", "normal", static=False)
     objects = [copy.deepcopy(obj) for obj in stock["objects"] if obj["type"] in ("timer", "touch_capture")]

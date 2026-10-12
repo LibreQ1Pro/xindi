@@ -236,6 +236,7 @@ class Migration:
         self.old, self.project, self.tiles, self.rules = old, project, tiles, rules
         self.spec = spec_pages()[old]
         self.base = self.spec[0]
+        self.tiles.page = self.base["page"]          # the pictures are named after the page
         self.stock = gp.source_page(old)
         self.original = {o["attributes"]["objname"]: o for o in self.stock["objects"]}
         self.alias = rules.get("aliases", {})
