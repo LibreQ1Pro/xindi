@@ -14,12 +14,14 @@ import copy
 import glob
 import hashlib
 import json
+import re
 import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
 import page_names
+import wrap_static
 
 ROOT = Path(__file__).resolve().parent.parent
 MOCK = ROOT / "mockup"
@@ -258,6 +260,20 @@ def unbreak(lines):
     return [line.replace("\\r\\n", " ").replace("\\r", " ") if ".txt=" in line else line for line in lines]
 
 
+def wrap_fixed_texts(lines, texts):
+    """The fixed texts (``name.txt="..."``) of a passive page with the line breaks at the ends of the words (tools/wrap_static.py)."""
+    result = []
+    for line in lines:
+        match = re.match(r'^(\s*)(\w+)\.txt="((?:[^"\\]|\\.)*)"$', line)
+        widget = texts.get(match.group(2)) if match else None
+        if widget is None or widget.get("dyn"):
+            result.append(line)
+            continue
+        wrapped, _ = wrap_static.wrap(match.group(3), widget["role"], widget["w"] - 4)
+        result.append('%s%s.txt="%s"' % (match.group(1), match.group(2), wrapped))
+    return result
+
+
 def add_fonts(project):
     have = {font["key"] for font in project["fonts"]}
     for role in ("t13", "t16", "t19", "d20", "d28", "d32"):
@@ -283,6 +299,8 @@ def generate(old, scr, project, tiles):
         objects.append(component("picture", "bg%d" % prim["z"], prim["x"], prim["y"], prim["w"], prim["h"], pic=pic_ref(key)))
     for name, widget in texts.items():
         comp = text_component(widget, name)
+        if not widget.get("dyn"):
+            comp["attributes"]["txt"], _ = wrap_static.wrap(comp["attributes"]["txt"], widget["role"], widget["w"] - 4)
         if old == "logo":
             comp["attributes"].update(sta=3)             # over the picture of the logo
         if name in original:
@@ -292,7 +310,7 @@ def generate(old, scr, project, tiles):
     if old != "logo":
         stock["root"]["attributes"].update(sta=1, bco=rgb565(scr["bg"]), pic=65535)
     for event, lines in stock["root"]["events"].items():
-        stock["root"]["events"][event] = unbreak(lines)
+        stock["root"]["events"][event] = wrap_fixed_texts(unbreak(lines), texts)
     save(page_names.page_file(old), stock)
     record(old, {"design": scr["page"], "adapter": "passive", "kept": sorted(set(texts) & set(original)), "new": sorted(set(texts) - set(original))})
 

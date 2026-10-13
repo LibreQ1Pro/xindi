@@ -7,7 +7,7 @@
    "title"
   ],
   "new": [],
-  "sha256": "a6a96f49c014155f331f8b39d8b324aa5bec62f680c175e20f44d00042a4fc1c"
+  "sha256": "cb59a66f83ddaf1f26f430ea30dab791930c71b79874d4592b79627df77c4414"
  },
  "shutdown": {
   "design": "shutting_down",
@@ -16,7 +16,7 @@
    "msg"
   ],
   "new": [],
-  "sha256": "cd81b53b07cd52bb228e72fae3bd1eddfad9884b562914d0556dc89cf2352046"
+  "sha256": "71bb871ce8cadbe7d4beb72f3b35b0902b627252828f7e9407f947719abfc1fc"
  },
  "logo": {
   "design": "boot_logo",
@@ -25,7 +25,7 @@
    "boot_msg"
   ],
   "new": [],
-  "sha256": "cb85622a45bf9465710bbf60e6412bcd6dda21921a55ef23752a9b2dfc163aba"
+  "sha256": "8569a92f2e3916e13ef2d4470d93c234b4b5f418a24c9db4cffc345a1b2bbd8d"
  },
  "main": {
   "design": "home",
