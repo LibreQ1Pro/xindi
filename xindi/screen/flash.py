@@ -263,6 +263,8 @@ def download_to_screen():
             tft_start = tft_end
             tft_end = tft_end + tft_buff
             send_cmd_download_data(fd, tft_s)
+            if (tft_start // tft_buff) % 128 == 0:      # a line every 512 KB (with the time: the progress can be matched with the logs of the system)
+                print("%s %d / %d bytes (%d%%)" % (time.strftime("%H:%M:%S"), tft_start, tft_len, 100 * tft_start // max(1, tft_len)), flush=True)
 
 
 def send_cmd_download_data(fd, data):
