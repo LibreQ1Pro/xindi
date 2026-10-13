@@ -62,7 +62,9 @@ class HomeTest(PortRecorder):
             home.main_last_file_picture()
         send.assert_called_once_with(thumbnail.GcodeRef("box/" + name), 140, "last_file_pic",
                                      matte=(41, 40, 41), background=(49, 48, 57), radius=12)
-        self.assertIn('last_file_name.txt="' + fit_name(name, 224) + '"', self.strings())
+        shown = file_list.shown_name(name)           # without ".gcode"
+        self.assertFalse(shown.endswith(".gcode"))
+        self.assertIn('last_file_name.txt="' + fit_name(shown, 224, lines=2) + '"', self.strings())
         self.assertTrue(g.screen.main_picture_detected)
 
     def test_baud_is_restored_if_thumbnail_write_raises(self):

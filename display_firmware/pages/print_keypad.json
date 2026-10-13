@@ -1199,10 +1199,10 @@
     "aph": 127,
     "movex": 0,
     "movey": 0,
-    "x": 4,
-    "y": 168,
-    "w": 40,
-    "h": 40,
+    "x": 0,
+    "y": 162,
+    "w": 272,
+    "h": 52,
     "effect": 0,
     "first": 0,
     "time": 300,
@@ -1217,12 +1217,12 @@
      "$ref": "font:font_t16"
     },
     "pic": {
-     "$ref": "picture:keybdB_back_btn"
+     "$ref": "picture:print_keypad_back_btn"
     },
     "picc": 65535,
     "bco": 50712,
     "pic2": {
-     "$ref": "picture:keybdB_back_btn_press"
+     "$ref": "picture:print_keypad_back_btn_press"
     },
     "picc2": 65535,
     "bco2": 1024,

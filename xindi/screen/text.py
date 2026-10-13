@@ -7,6 +7,9 @@ are replaced by '?' and controls by spaces, so neither a name nor an SSID can in
 import unicodedata
 from pathlib import Path
 
+ERR_MSG_WIDTH, ERR_MSG_LINES = 190, 6          # klipper_error: err_msg is 190 x 132 px, the wide font has a 20 px line
+POPUP_MSG_WIDTH, POPUP_MSG_LINES = 216, 8      # error / gcode_error: msg is 216 x 170 px
+
 WIDTHS = (Path(__file__).with_name("font_t16.widths")).read_bytes()
 if len(WIDTHS) != 65536:
     raise ValueError("invalid screen font width table")
@@ -57,4 +60,41 @@ def fit_name(value, pixels, lines=2, extension=True):
             stem = stem[:-1]
         rest = stem + "…" + ext
     result.append(rest)
+    return "\\r".join(result)
+
+
+def _hard_split(word, pixels):
+    """A word wider than a line: cut into pieces that fit."""
+    pieces, piece, used = [], "", 0
+    for ch in word:
+        size = width(ch)
+        if used + size > pixels and piece:
+            pieces.append(piece)
+            piece, used = "", 0
+        piece, used = piece + ch, used + size
+    return pieces + [piece]
+
+
+def wrap_text(value, pixels, lines):
+    """A message of the host in the lines of a text box: wrapped at the spaces (a word is never cut, unless it is wider than the line),
+    a new line of the message stays one, and what does not fit into ``lines`` ends with an ellipsis.  The lines are joined with ``\\r`` (the screen's line break)."""
+    result = []
+    for paragraph in str(value).replace("\r", "\n").split("\n"):
+        current = ""
+        for word in clean(paragraph).split():
+            for piece in (_hard_split(word, pixels) if width(word) > pixels else [word]):
+                candidate = piece if not current else current + " " + piece
+                if width(candidate) <= pixels:
+                    current = candidate
+                else:
+                    result.append(current)
+                    current = piece
+        if current or not result:
+            result.append(current)
+    result = [line for line in result if line] or [""]
+    if len(result) > lines:
+        last = result[lines - 1]
+        while last and width(last + "…") > pixels:
+            last = last[:-1]
+        result = result[:lines - 1] + [last.rstrip() + "…"]
     return "\\r".join(result)

@@ -2636,18 +2636,6 @@
       }
     },
     {
-      "key": "keybdB_back_btn",
-      "source": {
-        "png": "pictures/keybdB_back_btn.png"
-      }
-    },
-    {
-      "key": "keybdB_back_btn_press",
-      "source": {
-        "png": "pictures/keybdB_back_btn_press.png"
-      }
-    },
-    {
       "key": "keybdB_decor_1",
       "source": {
         "png": "pictures/keybdB_decor_1.png"
@@ -4745,6 +4733,18 @@
       "key": "home_lan_icon_on",
       "source": {
         "png": "pictures/home_lan_icon_on.png"
+      }
+    },
+    {
+      "key": "print_keypad_back_btn",
+      "source": {
+        "png": "pictures/print_keypad_back_btn.png"
+      }
+    },
+    {
+      "key": "print_keypad_back_btn_press",
+      "source": {
+        "png": "pictures/print_keypad_back_btn_press.png"
       }
     }
   ],

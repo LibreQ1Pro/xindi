@@ -114,10 +114,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "385"
+     "383"
     ],
     "beep_btn.pic2": [
-     "386"
+     "384"
     ],
     "chamber_icon.pic": [
      "44"
@@ -132,16 +132,16 @@
      "\"26\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "last_file_pic.close()": [
      ""
@@ -161,10 +161,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "341"
+     "339"
     ],
     "light_btn.pic2": [
-     "342"
+     "340"
     ],
     "nozzle_icon.pic": [
      "43"
@@ -179,14 +179,14 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17
@@ -206,37 +206,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "381"
+     "379"
     ],
     "file1.pic2": [
-     "382"
+     "380"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "379"
+     "377"
     ],
     "file2.pic2": [
-     "380"
+     "378"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "379"
+     "377"
     ],
     "file3.pic2": [
-     "380"
+     "378"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "379"
+     "377"
     ],
     "file4.pic2": [
-     "380"
+     "378"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -245,16 +245,16 @@
      "65535"
     ],
     "next.pic": [
-     "311"
+     "309"
     ],
     "next.pic2": [
-     "312"
+     "310"
     ],
     "prev.pic": [
-     "307"
+     "305"
     ],
     "prev.pic2": [
-     "308"
+     "306"
     ],
     "tabs_seg.pic": [
      "23"
@@ -273,10 +273,10 @@
      "c6ff27a57d22b7c6:10590:3"
     ],
     "up_dir.pic": [
-     "317"
+     "315"
     ],
     "up_dir.pic2": [
-     "318"
+     "316"
     ],
     "usb_tab_lbl.pco": [
      "42294"
@@ -338,37 +338,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "379"
+     "377"
     ],
     "file1.pic2": [
-     "380"
+     "378"
     ],
     "file1_name.txt": [
      "\"last_print\""
     ],
     "file2.pic": [
-     "379"
+     "377"
     ],
     "file2.pic2": [
-     "380"
+     "378"
     ],
     "file2_name.txt": [
      "\"part_abs\""
     ],
     "file3.pic": [
-     "379"
+     "377"
     ],
     "file3.pic2": [
-     "380"
+     "378"
     ],
     "file3_name.txt": [
      "\"z_last\""
     ],
     "file4.pic": [
-     "304"
+     "302"
     ],
     "file4.pic2": [
-     "305"
+     "303"
     ],
     "file4_name.txt": [
      "\"\""
@@ -389,16 +389,16 @@
      "65535"
     ],
     "next.pic": [
-     "313"
+     "311"
     ],
     "next.pic2": [
-     "314"
+     "312"
     ],
     "prev.pic": [
-     "309"
+     "307"
     ],
     "prev.pic2": [
-     "310"
+     "308"
     ],
     "tabs_seg.pic": [
      "23"
@@ -418,10 +418,10 @@
      "b257f4a09c431eae:7420:2"
     ],
     "up_dir.pic": [
-     "317"
+     "315"
     ],
     "up_dir.pic2": [
-     "318"
+     "316"
     ],
     "usb_tab_lbl.pco": [
      "42294"
@@ -515,7 +515,7 @@
      "\"7.2 g\""
     ],
     "file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "file_preview.cp_data.txt": [
      "\"\""
@@ -530,10 +530,10 @@
      ""
     ],
     "level_btn.pic": [
-     "166"
+     "164"
     ],
     "level_btn.pic2": [
-     "167"
+     "165"
     ],
     "preview_pic.write": [
      "4eb28e7ff1e70132:2048",
@@ -552,10 +552,10 @@
      "e0b13aec28d5d6c6:224"
     ],
     "timelapse_btn.pic": [
-     "164"
+     "162"
     ],
     "timelapse_btn.pic2": [
-     "165"
+     "163"
     ],
     "vis preview_pic": [
      "preview_pic,1"
@@ -571,7 +571,7 @@
    "attrs": {
     "bed_icon.pic": [
      "33",
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 0\"",
@@ -608,11 +608,11 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "nozzle_icon.pic": [
      "43",
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 0\"",
@@ -676,17 +676,17 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "flow_val.txt": [
      "\"100\"",
      "\"95\""
     ],
     "light2_btn.pic": [
-     "268"
+     "266"
     ],
     "light2_btn.pic2": [
-     "269"
+     "267"
     ],
     "progress.val": [
      "45"
@@ -714,7 +714,7 @@
   {
    "attrs": {
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "gcode_z.txt": [
      "\"0.000\"",
@@ -727,44 +727,44 @@
      "\"45\""
     ],
     "step_001.pic": [
-     "286",
      "284",
-     "286"
+     "282",
+     "284"
     ],
     "step_001.pic2": [
-     "287",
      "285",
-     "287"
+     "283",
+     "285"
     ],
     "step_005.pic": [
+     "286",
      "288",
-     "290",
-     "288"
+     "286"
     ],
     "step_005.pic2": [
+     "287",
      "289",
-     "291",
-     "289"
+     "287"
     ],
     "step_01.pic": [
+     "290",
      "292",
-     "294",
-     "292"
+     "290"
     ],
     "step_01.pic2": [
+     "291",
      "293",
-     "295",
-     "293"
+     "291"
     ],
     "step_05.pic": [
+     "294",
      "296",
-     "298",
-     "296"
+     "294"
     ],
     "step_05.pic2": [
+     "295",
      "297",
-     "299",
-     "297"
+     "295"
     ],
     "time_elapsed.txt": [
      "\"0h41m\""
@@ -791,16 +791,16 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "flow_val.txt": [
      "\"95\""
     ],
     "light2_btn.pic": [
-     "268"
+     "266"
     ],
     "light2_btn.pic2": [
-     "269"
+     "267"
     ],
     "progress.val": [
      "45"
@@ -829,7 +829,7 @@
      "pause"
     ],
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -862,10 +862,10 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -900,10 +900,10 @@
   {
    "attrs": {
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -935,7 +935,7 @@
      "stop"
     ],
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -968,10 +968,10 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1010,7 +1010,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -1043,10 +1043,10 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"cube.gcode\""
+     "\"cube\""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1112,7 +1112,7 @@
      "115200"
     ],
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -1124,10 +1124,10 @@
      "\"60\""
     ],
     "beep_btn.pic": [
-     "385"
+     "383"
     ],
     "beep_btn.pic2": [
-     "386"
+     "384"
     ],
     "chamber_icon.pic": [
      "44"
@@ -1142,16 +1142,16 @@
      "\"26\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "last_file_pic.close()": [
      ""
@@ -1171,13 +1171,13 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "343"
+     "341"
     ],
     "light_btn.pic2": [
-     "344"
+     "342"
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1189,14 +1189,14 @@
      "\"220\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17
@@ -1204,37 +1204,37 @@
   {
    "attrs": {
     "file1.pic": [
-     "381"
+     "379"
     ],
     "file1.pic2": [
-     "382"
+     "380"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "379"
+     "377"
     ],
     "file2.pic2": [
-     "380"
+     "378"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "379"
+     "377"
     ],
     "file3.pic2": [
-     "380"
+     "378"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "379"
+     "377"
     ],
     "file4.pic2": [
-     "380"
+     "378"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -1255,16 +1255,16 @@
      "65535"
     ],
     "next.pic": [
-     "311"
+     "309"
     ],
     "next.pic2": [
-     "312"
+     "310"
     ],
     "prev.pic": [
-     "307"
+     "305"
     ],
     "prev.pic2": [
-     "308"
+     "306"
     ],
     "tabs_seg.pic": [
      "23"
@@ -1273,10 +1273,10 @@
      "255,1"
     ],
     "up_dir.pic": [
-     "317"
+     "315"
     ],
     "up_dir.pic2": [
-     "318"
+     "316"
     ],
     "usb_tab_lbl.pco": [
      "42294"
@@ -1338,19 +1338,19 @@
      "\"123.4 g\""
     ],
     "file_name.txt": [
-     "\"big_petg.gcode\""
+     "\"big_petg\""
     ],
     "level_btn.pic": [
-     "166"
-    ],
-    "level_btn.pic2": [
-     "167"
-    ],
-    "timelapse_btn.pic": [
      "164"
     ],
-    "timelapse_btn.pic2": [
+    "level_btn.pic2": [
      "165"
+    ],
+    "timelapse_btn.pic": [
+     "162"
+    ],
+    "timelapse_btn.pic2": [
+     "163"
     ],
     "vis preview_pic": [
      "preview_pic,0"
@@ -1361,7 +1361,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -1394,10 +1394,10 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"Benchy PLA.gcode\""
+     "\"Benchy PLA\""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1432,7 +1432,7 @@
   {
    "attrs": {
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -1465,7 +1465,7 @@
      "\"0\""
     ],
     "file_name.txt": [
-     "\"Benchy PLA.gcode\""
+     "\"Benchy PLA\""
     ],
     "file_preview.cp_data.txt": [
      "\"\""
@@ -1480,7 +1480,7 @@
      ""
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1547,7 +1547,7 @@
      "115200"
     ],
     "bed_icon.pic": [
-     "81"
+     "79"
     ],
     "bed_set.txt": [
      "\"/ 60\""
@@ -1559,10 +1559,10 @@
      "\"60\""
     ],
     "beep_btn.pic": [
-     "385"
+     "383"
     ],
     "beep_btn.pic2": [
-     "386"
+     "384"
     ],
     "chamber_icon.pic": [
      "44"
@@ -1577,16 +1577,16 @@
      "\"26\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "last_file_pic.close()": [
      ""
@@ -1606,13 +1606,13 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "343"
+     "341"
     ],
     "light_btn.pic2": [
-     "344"
+     "342"
     ],
     "nozzle_icon.pic": [
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 220\""
@@ -1624,14 +1624,14 @@
      "\"220\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17

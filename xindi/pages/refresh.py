@@ -20,16 +20,10 @@ from xindi.pages.preview import preview, preview_pop
 from xindi.pages.printing import print_filament, printing, printing_zoffset, stopping
 from xindi.pages.system import common_setting
 from xindi.screen import pageids as ids
+from xindi.screen.text import ERR_MSG_LINES, ERR_MSG_WIDTH, POPUP_MSG_LINES, POPUP_MSG_WIDTH, wrap_text
 from xindi.screen.navigation import page_to
 
 log = logging.getLogger(__name__)
-
-
-def replace_for_screen(text):
-    text = text.replace("\n", ".")
-    text = text.replace("'", " ")
-    text = text.replace("\"", " ")
-    return text
 
 
 # pages that stay where they are when a print starts
@@ -74,7 +68,7 @@ def unhomed_move_pop():
 
 def detect_error_pop():
     jump_to("jump_detect_error", ids.DETECT_ERROR)
-    g.port.txt("msg", g.screen.error_message)
+    g.port.txt("msg", wrap_text(g.screen.error_message, POPUP_MSG_WIDTH, POPUP_MSG_LINES))
 
 
 def requested_jumps():
@@ -121,7 +115,7 @@ def open_print_page_when_printing():
 
 def show_failure_message():
     # every refresh: the sender skips what the screen has, and writes it again to a page that is shown anew (a page forgets its text)
-    g.port.txt("err_msg", replace_for_screen(g.klippy.webhooks_state_message))
+    g.port.txt("err_msg", wrap_text(g.klippy.webhooks_state_message, ERR_MSG_WIDTH, ERR_MSG_LINES))
 
 
 def open_reset_page_on_failure():

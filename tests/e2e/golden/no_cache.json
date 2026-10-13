@@ -69,10 +69,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "385"
+     "383"
     ],
     "beep_btn.pic2": [
-     "386"
+     "384"
     ],
     "chamber_icon.pic": [
      "44"
@@ -87,13 +87,13 @@
      "\"26\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
      "\"\""
@@ -102,10 +102,10 @@
      ""
     ],
     "light_btn.pic": [
-     "341"
+     "339"
     ],
     "light_btn.pic2": [
-     "342"
+     "340"
     ],
     "nozzle_icon.pic": [
      "43"
@@ -120,13 +120,13 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17
@@ -146,37 +146,37 @@
      "\"ram/file3.jpg\""
     ],
     "file1.pic": [
-     "381"
+     "379"
     ],
     "file1.pic2": [
-     "382"
+     "380"
     ],
     "file1_name.txt": [
      "\"models\""
     ],
     "file2.pic": [
-     "379"
+     "377"
     ],
     "file2.pic2": [
-     "380"
+     "378"
     ],
     "file2_name.txt": [
      "\"Benchy PLA\""
     ],
     "file3.pic": [
-     "379"
+     "377"
     ],
     "file3.pic2": [
-     "380"
+     "378"
     ],
     "file3_name.txt": [
      "\"big_petg\""
     ],
     "file4.pic": [
-     "379"
+     "377"
     ],
     "file4.pic2": [
-     "380"
+     "378"
     ],
     "file4_name.txt": [
      "\"cube\""
@@ -185,16 +185,16 @@
      "65535"
     ],
     "next.pic": [
-     "311"
+     "309"
     ],
     "next.pic2": [
-     "312"
+     "310"
     ],
     "prev.pic": [
-     "307"
+     "305"
     ],
     "prev.pic2": [
-     "308"
+     "306"
     ],
     "tabs_seg.pic": [
      "23"
@@ -213,10 +213,10 @@
      "c6ff27a57d22b7c6:10590:3"
     ],
     "up_dir.pic": [
-     "317"
+     "315"
     ],
     "up_dir.pic2": [
-     "318"
+     "316"
     ],
     "usb_tab_lbl.pco": [
      "42294"

@@ -9,6 +9,7 @@ from xindi.pages import file_list
 from xindi.pages.widgets import cut_after_point, face_group, fan_values, heater_row
 from xindi.printer import job
 from xindi.screen import pageids as ids
+from xindi.screen.text import POPUP_MSG_LINES, POPUP_MSG_WIDTH, wrap_text
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import c_int, c_round, f32, to_string
 
@@ -25,7 +26,7 @@ def stopping():
 
 
 def print_filament():
-    g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", file_list.shown_name(file_list.file_name_only(g.klippy.print_stats_filename)))
     heater_row("nozzle", g.klippy.extruder_temperature, g.klippy.extruder_target)
 
     g.port.val("progress", to_string(g.klippy.display_status_progress))
@@ -57,7 +58,7 @@ def print_filament():
         page_to(ids.GCODE_ERROR)
         job.cancel_print()
         job.clear_previous_data()
-        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", wrap_text("G-code error: " + g.screen.error_message, POPUP_MSG_WIDTH, POPUP_MSG_LINES))
 
     # 4.4.2 CLL a long pause that stops the print switches the page
     if g.klippy.idle_timeout_state == "Idle":
@@ -83,7 +84,7 @@ def printing_zoffset():
     show_gcode_z = to_string(g.klippy.gcode_z_position)
     z_offset = cut_after_point(z_offset, 4)
     show_gcode_z = cut_after_point(show_gcode_z, 4)
-    g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", file_list.shown_name(file_list.file_name_only(g.klippy.print_stats_filename)))
     g.port.txt("gcode_z", show_gcode_z)
     g.port.txt("z_offset", z_offset)
     g.port.txt("time_elapsed", job.show_time(c_int(g.klippy.print_stats_print_duration)))
@@ -131,7 +132,7 @@ def printing_zoffset():
         page_to(ids.GCODE_ERROR)
         job.cancel_print()
         job.clear_previous_data()
-        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", wrap_text("G-code error: " + g.screen.error_message, POPUP_MSG_WIDTH, POPUP_MSG_LINES))
 
 
 def printing_keyboard_mute_button():
@@ -195,7 +196,7 @@ def printing_state_changes():
         page_to(ids.GCODE_ERROR)
         job.cancel_print()
         job.clear_previous_data()
-        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", wrap_text("G-code error: " + g.screen.error_message, POPUP_MSG_WIDTH, POPUP_MSG_LINES))
 
 
 def printing():
@@ -208,7 +209,7 @@ def printing():
     g.port.txt("time_left", job.show_time(get_cal_printing_time(c_int(g.klippy.print_stats_print_duration),
                                                                  g.files.meta_estimated_time,
                                                                  g.klippy.display_status_progress)))
-    g.port.txt("file_name", file_list.file_name_only(g.klippy.print_stats_filename))
+    g.port.txt("file_name", file_list.shown_name(file_list.file_name_only(g.klippy.print_stats_filename)))
 
     # While the keyboard (keybdB) is shown the page behind it is not on the screen: its objects (zoffset_val, ...)
     # do not exist there and every instruction for them is answered with "invalid variable name".

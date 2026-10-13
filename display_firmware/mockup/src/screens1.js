@@ -169,7 +169,7 @@ S('print_keypad','Printing','Number keyboard (print)',()=>{
   s += progress(12,146,248,6,35,'progress');
   s += rect(0,160,272,1,'var(--line)');
   // the silent mode button sits in the title row of the speed keyboard (the status block above does not change between the modes)
-  s += btn(4,168,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(48,168,m.mute?170:212,40,Tx('title@sys0='+m.sys,'keybdB'),{role:'t16',num:0},'title');
+  s += btn(0,162,272,52,'',{icon:'chevron-left',is:26,css:'background:transparent;justify-content:flex-start;padding-left:11px;border-radius:0'},'back_btn') + txt(48,168,m.mute?170:212,40,Tx('title@sys0='+m.sys,'keybdB'),{role:'t16',num:0},'title');
   if (m.mute) s += btn(220,168,40,40,'',{icon:m.muted?'volume-x':'volume-2',is:22,v:m.muted?'primary':''},'mute_btn');
   s += numberInput(216,m.val,m.unit);
   ['1','2','3','4','5','6','7','8','9','del','0','ok'].forEach((k,i)=>{
@@ -185,7 +185,7 @@ S('print_keypad','Printing','Number keyboard (print)',()=>{
 S('print_z_offset','Printing','Z offset while printing',()=>{
   let s = printTop('print_zoffset');
   s += rect(0,222,272,258,'#212021')+rect(0,222,272,1,'var(--line)');
-  s += btn(8,226,40,40,'',{icon:'chevron-left',is:26,css:'background:transparent'},'back_btn') + txt(52,226,200,40,T('title'),{role:'t19'},'title');
+  s += btn(0,223,272,46,'',{icon:'chevron-left',is:26,css:'background:transparent;justify-content:flex-start;padding-left:11px;border-radius:0'},'back_btn') + txt(52,226,200,40,T('title'),{role:'t19'},'title');
   const steps=['0.01','0.05','0.1','0.5'], zi = {zs001:0, zs005:1, zs01:2, zs05:3}[VARIANT];
   steps.forEach((v,i)=>{ s += `<div class="btn${i===(zi==null?1:zi)?' primary':''}"${nm('step_'+v.replace('.',''))} title="${tip('step_'+v.replace('.',''),12+64*i,274,56,40)}" style="${st(12+64*i,274,56,40)}">${v}</div>`; });
   s += btn(12,322,120,52,'',{icon:'chevron-up',is:26},'z_up')+btn(140,322,120,52,'',{icon:'chevron-down',is:26},'z_down');

@@ -302,7 +302,7 @@ class Migration:
                     image = Image.new("RGB", (rect["w"], rect["h"]), tuple(source["blank"]))
                 else:
                     image = gp.screenshot(self.base["id"], variant, lang).crop(box)
-                mask = alpha(variant, lang)
+                mask = None if source.get("blank") else alpha(variant, lang)       # a blank look is opaque: it has to wipe the corners of the look it replaces
                 suffix = "" if state == "off" else "_" + state
                 looks[state] = (self.tiles.add(widget["name"] + suffix, rounded(image, mask)),
                                 self.tiles.add(widget["name"] + suffix + "_press", rounded(darkened(image), mask)))
@@ -792,6 +792,7 @@ class Migration:
         if patch:
             patch(self)
         patches.explicit_keypad(self)
+        patches.title_touches_back(self)
 
 
 def merge_faces(faces):

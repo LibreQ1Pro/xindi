@@ -8,7 +8,7 @@ from xindi.pages import file_list
 from xindi.pages.widgets import cut_after_point, fast_screen_link, send_chunks_cp, send_chunks_txt, two_state_button
 from xindi.printer import calibration, job
 from xindi.screen import pageids as ids, thumbnail
-from xindi.screen.text import fit_name
+from xindi.screen.text import POPUP_MSG_LINES, POPUP_MSG_WIDTH, fit_name, wrap_text
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import f32, substr, to_string
 
@@ -29,7 +29,7 @@ def picture_data(path, size):
 
 def preview_details():
     # 4.4.2 CLL only the file name is shown on the preview page (cut to a line of the slot)
-    g.port.txt("file_name", fit_name(file_list.file_name_only(g.files.meta_filename), 248, lines=1))
+    g.port.txt("file_name", fit_name(file_list.shown_name(file_list.file_name_only(g.files.meta_filename)), 248, lines=1))
     if g.files.meta_estimated_time:
         g.port.txt("est_time", job.show_time(g.files.meta_estimated_time))
     else:
@@ -150,4 +150,4 @@ def preview_pop():
         page_to(ids.GCODE_ERROR)
         job.cancel_print()
         job.clear_previous_data()
-        g.port.txt("msg", "G-code error: " + g.screen.error_message)
+        g.port.txt("msg", wrap_text("G-code error: " + g.screen.error_message, POPUP_MSG_WIDTH, POPUP_MSG_LINES))

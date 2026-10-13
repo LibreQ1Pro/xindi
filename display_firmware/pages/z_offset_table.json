@@ -143,8 +143,12 @@
     "spay": 0
    },
    "events": {
-    "codesdown": [],
-    "codesup": []
+    "codesdown": [
+     "click back_btn,1"
+    ],
+    "codesup": [
+     "click back_btn,0"
+    ]
    }
   },
   {

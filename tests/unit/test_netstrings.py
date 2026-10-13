@@ -36,3 +36,18 @@ class NetStringsTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HostTextsExistTest(unittest.TestCase):
+    def test_every_text_the_host_asks_for_is_in_the_table(self):
+        """A key that is missing raises KeyError in the handler of a touch, the button does nothing (it was the "Hidden" button of the Wi-Fi list)."""
+        import re
+        root = os.path.join(os.path.dirname(__file__), "..", "..", "xindi")
+        asked = set()
+        for folder, _dirs, files in os.walk(root):
+            for name in files:
+                if name.endswith(".py"):
+                    with open(os.path.join(folder, name), encoding="utf-8") as f:
+                        asked.update(re.findall(r'\btr\("([a-z_]+)"\)', f.read()))
+        self.assertTrue(asked)
+        self.assertEqual(sorted(asked - set(netstrings.TEXT)), [])

@@ -44,7 +44,7 @@ def main_last_file_picture():
         g.port.txt("last_file_name", "")
         return
 
-    name = file_list.file_name_only(g.files.list_last_printed)
+    name = file_list.shown_name(file_list.file_name_only(g.files.list_last_printed))
     picture_path = thumbnail.GcodeRef(g.files.list_last_printed)
     log.info("Picture path:%s", picture_path)
     thumb = thumbnail.find(picture_path, THUMB_SIZE, "PNG")

@@ -34,6 +34,7 @@ TEXT = {
     # short labels of the two buttons over the list of scanned networks
     "saved_short": ("已保存", "Сохр.", "Saved", "保存済み", "Enreg.", "Gespeich.", "Salvate", "Guardadas", "저장됨",
                     "Salvas", "المحفوظة", "Kayıtlı", "שמורות"),
+    "network_name": ("网络名称 (SSID)", "Имя сети (SSID)", "Network name (SSID)", "ネットワーク名 (SSID)", "Nom du réseau (SSID)", "Netzwerkname (SSID)", "Nome rete (SSID)", "Nombre de red (SSID)", "네트워크 이름 (SSID)", "Nome da rede (SSID)", "اسم الشبكة (SSID)", "Ağ adı (SSID)", "שם הרשת (SSID)"),
     "hidden_short": ("隐藏", "Скрытая", "Hidden", "非公開", "Masqué", "Versteckt", "Nascosta", "Oculta", "숨김",
                      "Oculta", "مخفية", "Gizli", "מוסתרת"),
     # the row of the general settings that turns the setup guide (the first-start walkthrough) on, hidden (5 taps on "General")

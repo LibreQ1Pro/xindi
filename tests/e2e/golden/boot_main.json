@@ -76,16 +76,16 @@
      "\"40\""
     ],
     "beep_btn.pic": [
-     "385",
-     "387"
+     "383",
+     "385"
     ],
     "beep_btn.pic2": [
-     "386",
-     "388"
+     "384",
+     "386"
     ],
     "chamber_icon.pic": [
      "44",
-     "82"
+     "80"
     ],
     "chamber_set.txt": [
      "\"/ 0\"",
@@ -100,16 +100,16 @@
      "\"31\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "last_file_pic.close()": [
      ""
@@ -129,18 +129,18 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
+     "339",
      "341",
-     "343",
-     "341"
+     "339"
     ],
     "light_btn.pic2": [
+     "340",
      "342",
-     "344",
-     "342"
+     "340"
     ],
     "nozzle_icon.pic": [
      "43",
-     "96"
+     "94"
     ],
     "nozzle_set.txt": [
      "\"/ 0\"",
@@ -155,14 +155,14 @@
      "\"32\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17

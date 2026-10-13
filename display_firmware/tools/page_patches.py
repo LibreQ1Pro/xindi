@@ -127,6 +127,15 @@ def explicit_keypad(m):
         up[first:first] = [indent(first) + "%s.loadpageid.val=dp" % keypad]
 
 
+def title_touches_back(m):
+    """A touch on the title of a header goes to the back button (the title lies over it and takes the touch): the header is lit as a whole and goes back."""
+    objects = {o["attributes"]["objname"]: o for o in m.stock["objects"]}
+    back, title = objects.get("back_btn"), objects.get("title")
+    if back and title and title["type"] == "text" and not title["events"].get("codesdown") and not title["events"].get("codesup"):
+        title["events"]["codesdown"] = ["click back_btn,1"]
+        title["events"]["codesup"] = ["click back_btn,0"]
+
+
 def patch_preview(m):
     """``cp_data_s`` holds the ColPic of the thumbnail for the number keyboard of the print pages (72 x 72), like ``cp_data`` does for the print pages (132 x 132);
     it is a hidden text beside ``cp_data`` (the pages of a print write them into their ``thumb``)."""

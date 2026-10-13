@@ -83,10 +83,10 @@
      "\"25\""
     ],
     "beep_btn.pic": [
-     "385"
+     "383"
     ],
     "beep_btn.pic2": [
-     "386"
+     "384"
     ],
     "chamber_icon.pic": [
      "44"
@@ -101,16 +101,16 @@
      "\"26\""
     ],
     "lan_icon.pic": [
-     "409"
+     "407"
     ],
     "last_file_btn.pic": [
-     "383"
+     "381"
     ],
     "last_file_btn.pic2": [
-     "384"
+     "382"
     ],
     "last_file_name.txt": [
-     "\"last_print.gcode\""
+     "\"last_print\""
     ],
     "last_file_pic.close()": [
      ""
@@ -130,10 +130,10 @@
      "a82e7513326abacd:1724"
     ],
     "light_btn.pic": [
-     "341"
+     "339"
     ],
     "light_btn.pic2": [
-     "342"
+     "340"
     ],
     "nozzle_icon.pic": [
      "43"
@@ -148,14 +148,14 @@
      "\"25\""
     ],
     "usb_icon.pic": [
-     "76"
+     "74"
     ],
     "vis last_file_pic": [
      "last_file_pic,0",
      "last_file_pic,1"
     ],
     "wifi_icon.pic": [
-     "77"
+     "75"
     ]
    },
    "page": 17
@@ -167,10 +167,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "102"
+     "100"
     ],
     "reset_btn.pic2": [
-     "103"
+     "101"
     ]
    },
    "page": 62
@@ -187,10 +187,10 @@
      "\"---\""
     ],
     "radio_btn.pic": [
-     "170"
+     "168"
     ],
     "radio_btn.pic2": [
-     "171"
+     "169"
     ],
     "wifi_gw.txt": [
      "\"---\""
@@ -217,58 +217,58 @@
      "japanese"
     ],
     "next_btn.pic": [
-     "192"
+     "190"
     ],
     "next_btn.pic2": [
-     "193"
+     "191"
     ],
     "prev_btn.pic": [
-     "194"
+     "192"
     ],
     "prev_btn.pic2": [
-     "195"
+     "193"
     ],
     "row1.pic": [
-     "188"
+     "186"
     ],
     "row1.pic2": [
-     "189"
+     "187"
     ],
     "row1_txt.txt": [
      "\"\""
     ],
     "row2.pic": [
-     "188"
+     "186"
     ],
     "row2.pic2": [
-     "189"
+     "187"
     ],
     "row2_txt.txt": [
      "\"\""
     ],
     "row3.pic": [
-     "188"
+     "186"
     ],
     "row3.pic2": [
-     "189"
+     "187"
     ],
     "row3_txt.txt": [
      "\"\""
     ],
     "row4.pic": [
-     "188"
+     "186"
     ],
     "row4.pic2": [
-     "189"
+     "187"
     ],
     "row4_txt.txt": [
      "\"\""
     ],
     "row5.pic": [
-     "188"
+     "186"
     ],
     "row5.pic2": [
-     "189"
+     "187"
     ],
     "row5_txt.txt": [
      "\"\""
@@ -307,10 +307,10 @@
      "\"---\""
     ],
     "radio_btn.pic": [
-     "170"
+     "168"
     ],
     "radio_btn.pic2": [
-     "171"
+     "169"
     ],
     "wifi_gw.txt": [
      "\"---\""
@@ -330,10 +330,10 @@
   {
    "attrs": {
     "reset_btn.pic": [
-     "102"
+     "100"
     ],
     "reset_btn.pic2": [
-     "103"
+     "101"
     ]
    },
    "page": 62
@@ -350,10 +350,10 @@
      "\"---\""
     ],
     "radio_btn.pic": [
-     "170"
+     "168"
     ],
     "radio_btn.pic2": [
-     "171"
+     "169"
     ],
     "wifi_gw.txt": [
      "\"---\""
@@ -377,58 +377,58 @@
   {
    "attrs": {
     "next_btn.pic": [
-     "192"
+     "190"
     ],
     "next_btn.pic2": [
-     "193"
+     "191"
     ],
     "prev_btn.pic": [
-     "194"
+     "192"
     ],
     "prev_btn.pic2": [
-     "195"
+     "193"
     ],
     "row1.pic": [
-     "188"
+     "186"
     ],
     "row1.pic2": [
-     "189"
+     "187"
     ],
     "row1_txt.txt": [
      "\"\""
     ],
     "row2.pic": [
-     "188"
+     "186"
     ],
     "row2.pic2": [
-     "189"
+     "187"
     ],
     "row2_txt.txt": [
      "\"\""
     ],
     "row3.pic": [
-     "188"
+     "186"
     ],
     "row3.pic2": [
-     "189"
+     "187"
     ],
     "row3_txt.txt": [
      "\"\""
     ],
     "row4.pic": [
-     "188"
+     "186"
     ],
     "row4.pic2": [
-     "189"
+     "187"
     ],
     "row4_txt.txt": [
      "\"\""
     ],
     "row5.pic": [
-     "188"
+     "186"
     ],
     "row5.pic2": [
-     "189"
+     "187"
     ],
     "row5_txt.txt": [
      "\"\""
