@@ -204,6 +204,8 @@ class Levelling(object):
         self.print_extruder_target = 0
         self.print_heater_bed_target = 0
         self.str_manual_level_offset = ""
+        # x, y of the 3 screws of the bed screws pages: [bed_screws] screw1..3 of the Klipper config
+        self.bed_screws = [(10.0, 10.0), (230.0, 10.0), (125.0, 240.0)]
         # input shaping results
         self.shaper_freq_x = ""
         self.shaper_freq_y = ""

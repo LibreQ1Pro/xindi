@@ -16,3 +16,5 @@
   state is the `enabled` variable of `gcode_macro _SOUND` instead of `output_pin sound`.
 - Bed screws: the last of the 3 screws of the display ends the Klipper session with `ABORT`, so that more screws in
   `[bed_screws]` are skipped (with `ACCEPT` the session stayed open: "Already in bed_screws helper").
+- Bed screws finish page: the SCREW1..3 buttons go to `screw1..3` of `[bed_screws]` (from `configfile.settings`, queried
+  with the printer status) instead of the hard-coded stock positions.

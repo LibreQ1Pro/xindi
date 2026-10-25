@@ -12,7 +12,10 @@ def sub_object_status():
 
 
 def get_object_status():
-    g.ep.send(json_query_printer_object_status(subscribe_objects_status()))
+    objects = subscribe_objects_status()
+    # Not subscribed: the settings of the config only change with a restart of Klipper
+    objects["configfile"] = ["settings"]
+    g.ep.send(json_query_printer_object_status(objects))
 
 
 def reset_klipper():

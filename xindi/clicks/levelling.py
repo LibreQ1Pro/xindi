@@ -6,6 +6,7 @@ import os
 from xindi import state as g
 from xindi.pages import file_list, navigation
 from xindi.printer import calibration, heating, klipper
+from xindi.util.cpp import to_string
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 
@@ -86,30 +87,25 @@ def bed_calibration(page_id, widget_id):
         calibration.bed_calibrate()
 
 
+def go_to_screw(i):
+    x, y = g.levelling.bed_screws[i]
+    g.klippy.idle_timeout_state = "Printing"
+    klipper.send_gcode("G1 Z10 F600\n")
+    klipper.send_gcode("G1 X" + to_string(x) + " Y" + to_string(y) + " F9000\n")
+    klipper.send_gcode("G1 Z0 F600\n")
+    g.screen.manual_count = -1
+    page_to(ids.BED_MOVING)
+
+
 def bed_finish(page_id, widget_id):
     if widget_id == ids.BED_FINISH_OK:
         page_to(ids.LEVEL_MODE)
     elif widget_id == ids.BED_FINISH_SCREW1:
-        g.klippy.idle_timeout_state = "Printing"
-        klipper.send_gcode("G1 Z10 F600\n")
-        klipper.send_gcode("G1 X10 Y10 F9000\n")
-        klipper.send_gcode("G1 Z0 F600\n")
-        g.screen.manual_count = -1
-        page_to(ids.BED_MOVING)
+        go_to_screw(0)
     elif widget_id == ids.BED_FINISH_SCREW2:
-        g.klippy.idle_timeout_state = "Printing"
-        klipper.send_gcode("G1 Z10 F600\n")
-        klipper.send_gcode("G1 X230 Y10 F9000\n")
-        klipper.send_gcode("G1 Z0 F600\n")
-        g.screen.manual_count = -1
-        page_to(ids.BED_MOVING)
+        go_to_screw(1)
     elif widget_id == ids.BED_FINISH_SCREW3:
-        g.klippy.idle_timeout_state = "Printing"
-        klipper.send_gcode("G1 Z10 F600\n")
-        klipper.send_gcode("G1 X125 Y240 F9000\n")
-        klipper.send_gcode("G1 Z0 F600\n")
-        g.screen.manual_count = -1
-        page_to(ids.BED_MOVING)
+        go_to_screw(2)
     elif widget_id == ids.BED_FINISH_Z_TILT:
         g.klippy.idle_timeout_state = "Printing"
         klipper.send_gcode("G28\nZ_TILT_ADJUST\n")

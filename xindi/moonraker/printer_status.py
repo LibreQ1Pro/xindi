@@ -166,6 +166,21 @@ def parse_pause_resume(pause_resume):
 
 
 # object of the "status" of a subscription -> its parser
+def parse_configfile(configfile):
+    """The screws of the bed screws pages from [bed_screws] (screw1..3: x, y)"""
+    screws = jpath(configfile, "settings", "bed_screws")
+    if not isinstance(screws, dict):
+        return
+    for i in range(len(g.levelling.bed_screws)):
+        xy = screws.get("screw%d" % (i + 1))
+        if isinstance(xy, str):
+            xy = xy.split(",")
+        try:
+            g.levelling.bed_screws[i] = (float(xy[0]), float(xy[1]))
+        except (TypeError, ValueError, IndexError):
+            log.warning("[bed_screws] screw%d: %s", i + 1, xy)
+
+
 STATUS_PARSERS = {
     "idle_timeout": parse_idle_timeout,
     "bed_mesh": parse_bed_mesh,
@@ -188,6 +203,7 @@ STATUS_PARSERS = {
     "output_pin caselight": parse_printer_caselight,
     "gcode_macro _SOUND": parse_printer_beep,
     "probe": parse_printer_probe,
+    "configfile": parse_configfile,
 }
 
 

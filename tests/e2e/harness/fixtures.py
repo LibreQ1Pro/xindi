@@ -254,6 +254,9 @@ class Fixture(object):
             "fan_generic chamber_circulation_fan": {"speed": 0.0, "rpm": None},
             "output_pin caselight": {"value": 0.0},
             "gcode_macro _SOUND": {"enabled": 0},
+            # not the stock positions: the bed screws pages take them from the config
+            "configfile": {"settings": {"bed_screws": {"screw1": [12.0, 11.0], "screw2": [228.0, 11.0],
+                                                        "screw3": [125.0, 238.0]}}},
             "probe": {"name": "probe", "x_offset": 25.0, "y_offset": 1.3, "z_offset": 0.0},
             "firmware_retraction": {"retract_length": 0.8, "retract_speed": 35.0,
                                     "unretract_extra_length": 0.0, "unretract_speed": 35.0},
