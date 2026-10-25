@@ -122,7 +122,6 @@ def printing_zoffset():
 
     if g.klippy.print_stats_state == "complete":
         time_duration = job.show_time(c_int(g.klippy.print_stats_print_duration))
-        job.complete_print()
         job.clear_previous_data()
         time.sleep(5)
         page_to(ids.PRINT_FINISH)
@@ -181,7 +180,6 @@ def printing_state_changes():
     state = g.klippy.print_stats_state
     if state == "complete":
         time_duration = job.show_time(c_int(g.klippy.print_stats_print_duration))
-        job.complete_print()
         job.clear_previous_data()
         time.sleep(5)
         page_to(ids.PRINT_FINISH)

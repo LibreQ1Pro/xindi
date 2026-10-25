@@ -191,7 +191,7 @@ class Monkey(object):
             lambda: {"fan_generic auxiliary_cooling_fan": {"speed": round(rng.random(), 2)}},
             lambda: {"fan_generic chamber_circulation_fan": {"speed": round(rng.random(), 2)}},
             lambda: {"output_pin caselight": {"value": float(rng.randrange(2))}},
-            lambda: {"output_pin sound": {"value": float(rng.randrange(2))}},
+            lambda: {"gcode_macro _SOUND": {"enabled": rng.randrange(2)}},
             lambda: {"filament_switch_sensor fila": {"filament_detected": rng.random() < 0.5}},
             lambda: {"probe": {"z_offset": round(rng.uniform(-3, 3), 3)}},
         ]

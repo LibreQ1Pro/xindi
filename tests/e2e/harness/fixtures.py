@@ -253,7 +253,7 @@ class Fixture(object):
             "fan_generic auxiliary_cooling_fan": {"speed": 0.0, "rpm": None},
             "fan_generic chamber_circulation_fan": {"speed": 0.0, "rpm": None},
             "output_pin caselight": {"value": 0.0},
-            "output_pin sound": {"value": 0.0},
+            "gcode_macro _SOUND": {"enabled": 0},
             "probe": {"name": "probe", "x_offset": 25.0, "y_offset": 1.3, "z_offset": 0.0},
             "firmware_retraction": {"retract_length": 0.8, "retract_speed": 35.0,
                                     "unretract_extra_length": 0.0, "unretract_speed": 35.0},

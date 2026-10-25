@@ -66,11 +66,12 @@ HEATERS = {
 AMBIENT = 25.0
 TICK = 1.0
 
-# Macros of QIDI's Klipper configuration (config/gcode_macro.cfg) that the port starts; they report with M118.
+# Macros of the LibreQ1Pro Klipper configuration (config/qidi-q1-pro/gcode_macro.cfg) that the port starts;
+# they report the "// action:xindi <event>" events with _XINDI.
 MACROS = {
-    "M604": ["M118 Heat up complete", "M83", "G1 E80 F400", "M400", "M118 Load finish"],
-    "M603": ["M118 Heat up complete", "G92 E0", "G0 E15 F400", "G4 P1000", "G92 E0", "G1 E-90 F800", "M400",
-             "M118 Unload finish"],
+    "M604": ["_XINDI EVENT=filament_heated", "M83", "G1 E80 F400", "M400", "_XINDI EVENT=filament_loaded"],
+    "M603": ["_XINDI EVENT=filament_heated", "G92 E0", "G0 E15 F400", "G4 P1000", "G92 E0", "G1 E-90 F800", "M400",
+             "_XINDI EVENT=filament_unloaded"],
 }
 FANS = {"0": "cooling_fan", "2": "auxiliary_cooling_fan", "3": "chamber_circulation_fan"}      # M106 P<n>
 TARGET_CMD = {"M104": "extruder", "M109": "extruder", "M140": "heater_bed", "M190": "heater_bed",
@@ -269,6 +270,8 @@ class Moonraker(harness.Moonraker):
                 self.execute(sub)
         elif cmd == "M118":
             self.push_gcode("echo: " + line[4:].strip())
+        elif cmd == "_XINDI":
+            self.push_gcode("// action:xindi " + params["EVENT"])
         elif cmd in ("M104", "M140", "M141") and "S" in params:
             self.set_target(TARGET_CMD[cmd], params["S"])
         elif cmd in ("M109", "M190", "M191") and "S" in params:

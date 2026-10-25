@@ -67,13 +67,6 @@ def finish_print():
     page_to(ids.MAIN)
 
 
-def complete_print():
-    if not g.screen.shutdown_after_print:
-        g.ep.run_gcode("PRINT_END")
-    else:
-        g.ep.run_gcode("PRINT_END_POWEROFF")
-
-
 def detect_error():
     if g.screen.page in (ids.PRINTING, ids.PRINT_ZOFFSET, ids.PRINT_FILAMENT,
                              ids.PRINTING_2, ids.GCODE_ERROR, ids.LEVEL_ERROR,
@@ -97,9 +90,9 @@ def clear_previous_data():
 
 def print_start():
     if g.screen.bed_leveling:
-        g.ep.run_gcode("G31\n")
+        g.ep.run_gcode("_XINDI_MESH_ADAPTIVE\n")
     else:
-        g.ep.run_gcode("G32\n")
+        g.ep.run_gcode("_XINDI_MESH_SAVED\n")
 
 
 def check_filament_type():
@@ -127,7 +120,7 @@ def check_filament_width():
             g.klippy.filament_detected = False
         else:
             g.klippy.filament_detected = True
-    elif g.files.filament_message.find("// Filament NOT present") != -1 or g.files.filament_message.find("echo: Filament run out") != -1:
+    elif g.files.filament_message.find("// Filament NOT present") != -1:
         g.klippy.filament_detected = False
 
 
@@ -162,5 +155,5 @@ def check_print_interrupted():
         return
     print_interrupted_status = substr(printer_variables, printer_variables.find("was_interrupted =") + 18, 5)
     if print_interrupted_status != "False":
-        g.ep.run_gcode("DETECT_INTERRUPTION\n")
+        g.ep.run_gcode("_XINDI_DETECT_INTERRUPTION\n")
         g.screen.jump_resume_print = True

@@ -94,7 +94,8 @@ The printer is played through the fake Moonraker (`harness/devserver.py`), which
 `M141`/`M191`, `SET_HEATER_TEMPERATURE`, `TURN_OFF_HEATERS`) are approached every second (extruder 6 °C/s up and 3 down, bed
 1.5 / 0.3, chamber 0.5 / 0.1, ambient 25 °C) and reported like `notify_status_update`. `M109`, `M190`, `M191` and
 `TEMPERATURE_WAIT` wait for the temperature, `G1` with `E` takes as long as the extrusion, `M603` / `M604` (unload / load
-filament) run the macros of QIDI's configuration with their `M118` messages (`echo: Heat up complete`, `echo: Load finish`),
+filament) run the macros of the LibreQ1Pro Klipper configuration with their events (`// action:xindi filament_heated`,
+`// action:xindi filament_loaded`),
 `G0`/`G1` move the toolhead (absolute or relative with `G90`/`G91`, as long as the distance takes) and answer like Klipper when
 an axis is not homed (`!! Must home axis first: x y z [e]`, the rest of the script is dropped and a `G91` stays in force), when
 the target is out of range (`!! Move out of range`) or when extruding below 170 °C (`!! Extrude below minimum temp`); `G28`
@@ -116,7 +117,7 @@ the other system tools are stubs; the sleeps are the real ones.
 |---|---|
 | boot_main | start-up sequence, subscriptions, main page refresh, cached file picture (ColPic), LED / beeper / emergency stop |
 | boot_oobe | out-of-box guide pages, filament steps, `switch` fall-through 72 → 11 → 12 |
-| oobe_calibrate | guide heater bed page, automatic calibration steps (gcode `echo:` responses) |
+| oobe_calibrate | guide heater bed page, automatic calibration steps (`// action:xindi` events) |
 | screen_update | firmware download with `--flash-screen` (whmi-wri protocol), then the update-finished page of the screen |
 | boot_interrupted | power loss recovery question |
 | no_cache | start without a cached file |

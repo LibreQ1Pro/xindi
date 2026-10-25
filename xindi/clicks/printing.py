@@ -361,10 +361,10 @@ def print_log(page_id, widget_id):
 def resume_print(page_id, widget_id):
     if widget_id == ids.RESUME_PRINT_YES:
         page_to(ids.RE_PRINTING)
-        klipper.send_gcode("RESUME_INTERRUPTED\n")
+        klipper.send_gcode("_XINDI_RESUME_INTERRUPTED\n")
     elif widget_id == ids.RESUME_PRINT_NO:
         page_to(ids.MAIN)
-        klipper.send_gcode("CLEAR_LAST_FILE")
+        klipper.send_gcode("_XINDI_CLEAR_LAST_FILE")
     elif widget_id == ids.RESUME_PRINT_LOADED:
         g.screen.jump_resume_print = False      # 4.4.24: the page reports that it is shown
 

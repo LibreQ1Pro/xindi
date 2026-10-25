@@ -27,7 +27,7 @@ def parse_printer_probe(probe):
 
 
 def parse_printer_beep(beep):
-    read_fields(g.klippy, beep, [("out_pin_beep_value", "value", jfloat)])
+    read_fields(g.klippy, beep, [("out_pin_beep_value", "enabled", jfloat)])
 
 
 def parse_printer_caselight(caselight):
@@ -186,7 +186,7 @@ STATUS_PARSERS = {
     "fan_generic chamber_circulation_fan": parse_printer_out_pin_fan3,
     "filament_switch_sensor fila": parse_filament_switch_sensor_fila,
     "output_pin caselight": parse_printer_caselight,
-    "output_pin sound": parse_printer_beep,
+    "gcode_macro _SOUND": parse_printer_beep,
     "probe": parse_printer_probe,
 }
 
@@ -222,7 +222,7 @@ def subscribe_objects_status():
     objects["fan_generic auxiliary_cooling_fan"] = ["speed", "rpm"]
     objects["fan_generic chamber_circulation_fan"] = ["speed", "rpm"]
     objects["output_pin caselight"] = None
-    objects["output_pin sound"] = None
+    objects["gcode_macro _SOUND"] = ["enabled"]
     objects["probe"] = None
     return objects
 

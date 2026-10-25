@@ -72,7 +72,6 @@ class Screen(object):
         self.timelapse_enabled = False  # state of Moonraker's timelapse plugin, shown on the preview page
         self.file_list_refreshed = False  # the file list (and its pictures) is up to date: keep the position
         # power off after the print
-        self.shutdown_after_print = False
         self.about_succeeded = False
         self.temp_idle_state = ""
         self.jump_print = False

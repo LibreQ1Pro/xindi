@@ -123,12 +123,42 @@ def _load_finished(line):
         log.debug("load / unload filament success, step_2=%d", 1)
 
 
+def _filament_runout(line):
+    g.klippy.filament_detected = False
+
+
+# Events of the LibreQ1Pro Klipper macros: "// action:xindi <event>"
+EVENT_PREFIX = "// action:xindi "
+EVENTS = {
+    "homed": _level_step([((ids.AUTO_MOVING,), "step_1")]),
+    "nozzle_cleared": _level_step([((ids.AUTO_MOVING,), "step_2")]),
+    "nozzle_cooled": _level_step([((ids.AUTO_MOVING,), "step_3")]),
+    "bed_mesh_done": _bed_mesh_complete,
+    "input_shaping_done": _level_step([((ids.SYNTONY_MOVE,), "step_1")]),
+    "filament_heated": _level_step([((ids.FILAMENT_POP_2, ids.FILAMENT_POP_3, ids.AUTO_UNLOAD), "step_1")]),
+    "filament_loaded": _load_finished,
+    "filament_unloaded": _load_finished,
+    "filament_runout": _filament_runout,
+    # The print pauses: the printing pages show the pause from the print state
+    "filament_tangle": None,
+}
+
+
+def _event(line):
+    name = line[len(EVENT_PREFIX):].strip()
+    if name not in EVENTS:
+        log.warning("Unknown event: %s", name)
+    elif EVENTS[name]:
+        EVENTS[name](line)
+
+
 # (does the line match, what to do); the first rule that matches wins, a rule without an action ignores the line
 RULES = [
     (_equals("// Klipper state: Ready"), _klipper_ready),
     (_equals("// Klipper state: Disconnect"), _klipper_disconnected),
     (_starts("// PID parameters: "), _pid_parameters),
     (_equals("// action:cancel"), None),
+    (_starts(EVENT_PREFIX), _event),
     (_starts("!! Must home axis first"), _move_home_tips),
     (_starts("!! Extrude below minimum temp"), _filament_tips),
     (_starts("// Recommended shaper_type_x = "), _shaper_result("shaper_freq_x")),
@@ -143,24 +173,10 @@ RULES = [
     (_equals("!! Insufficient disk space, unable to read the file."), _out_of_memory),
     (_contains("!! Printer is not ready"), None),
     (_starts("!!"), _error),
-    (_contains("// Filament dia (measured mm):", "// Filament NOT present", "echo: Filament run out"),
-     _filament_sensor),
+    (_contains("// Filament dia (measured mm):", "// Filament NOT present"), _filament_sensor),
     (_starts("// metadata="), None),     # 4.1.7 CLL web print information subscription (deprecated)
-    # CLL messages prefixed with "echo:" are custom responses
-    (_contains("echo: Position init complete"),
-     _level_step([((ids.AUTO_MOVING,), "step_1")])),
-    (_contains("echo: Bed mesh calibrate complete"), _bed_mesh_complete),
-    (_contains("echo: Input shaping complete"),
-     _level_step([((ids.SYNTONY_MOVE,), "step_1")])),
-    (_contains("echo: Nozzle cleared"), _level_step([((ids.AUTO_MOVING,), "step_2")])),
-    (_contains("echo: Nozzle cooled"), _level_step([((ids.AUTO_MOVING,), "step_3")])),
-    (_contains("echo: Heat up complete"),
-     _level_step([((ids.FILAMENT_POP_2, ids.FILAMENT_POP_3, ids.AUTO_UNLOAD), "step_1")])),
     (_contains("echo: Detected unexpected interruption during the last print.", "echo: Yes: RESUME_INTERRUPTED",
                "echo: No: CLEAR_LAST_FILE"), None),
-    # 4.4.22: any of the load / unload messages on any of the three pages
-    (_contains("echo: Load finish", "echo: Unload finish", "echo: Filament loaded", "echo: Filament unloaded"),
-     _load_finished),
 ]
 
 

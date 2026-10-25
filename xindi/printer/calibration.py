@@ -57,10 +57,10 @@ def open_heater_bed_up():
 
 def bed_leveling_switch(positive):
     if positive:
-        g.ep.run_gcode("G31")
+        g.ep.run_gcode("_XINDI_MESH_ADAPTIVE")
         g.screen.bed_leveling = True
     else:
-        g.ep.run_gcode("G32")
+        g.ep.run_gcode("_XINDI_MESH_SAVED")
         g.screen.bed_leveling = False
 
 
