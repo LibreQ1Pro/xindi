@@ -334,7 +334,7 @@
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G1 Z-0.100000 F600\\n\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"ACCEPT\\n\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G1 Z-0.100000 F600\\n\"}}",
-  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"ACCEPT\\n\"}}",
+  "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"ABORT\\n\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G1 Z10 F600\\nG1 X0 Y0 F9000\\n\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G1 Z10 F600\\n\"}}",
   "{\"id\":7466,\"jsonrpc\":\"2.0\",\"method\":\"printer.gcode.script\",\"params\":{\"script\":\"G1 X10 Y10 F9000\\n\"}}",

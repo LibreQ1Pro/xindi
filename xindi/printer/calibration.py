@@ -84,7 +84,8 @@ def bed_calibrate():
         g.ep.run_gcode("G1 Z" + to_string(g.levelling.bed_offset) + " F600\n")
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 0:
-        g.ep.run_gcode("ACCEPT\n")
+        # The last of the 3 screws of the display: ABORT also ends the session when [bed_screws] has more screws
+        g.ep.run_gcode("ABORT\n")
         g.ep.run_gcode("G1 Z10 F600\nG1 X0 Y0 F9000\n")
         page_to(ids.BED_FINISH)
     else:

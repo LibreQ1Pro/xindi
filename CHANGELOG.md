@@ -14,3 +14,5 @@
 - The display-only macros are hidden from Mainsail / Fluidd: `_XINDI_MESH_ADAPTIVE` / `_XINDI_MESH_SAVED` instead of
   `G31` / `G32`, `_XINDI_DETECT_INTERRUPTION`, `_XINDI_RESUME_INTERRUPTED`, `_XINDI_CLEAR_LAST_FILE`; the sound button
   state is the `enabled` variable of `gcode_macro _SOUND` instead of `output_pin sound`.
+- Bed screws: the last of the 3 screws of the display ends the Klipper session with `ABORT`, so that more screws in
+  `[bed_screws]` are skipped (with `ACCEPT` the session stayed open: "Already in bed_screws helper").
