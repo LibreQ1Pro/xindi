@@ -7,7 +7,6 @@ import urllib.request
 
 from xindi import state as g
 from xindi.config import runtime
-from xindi.moonraker import rest
 from xindi.moonraker.rpc_requests import json_print_a_file
 from xindi.pages import file_list, preview
 from xindi.screen import pageids as ids
@@ -49,8 +48,7 @@ def set_print_resume():
 
 def cancel_print():
     g.klippy.print_stats_filename = ""
-    rest.request("POST", "printer/breakmacro")
-    rest.request("POST", "printer/breakheater")
+    # as in mainline Klipper, CANCEL_PRINT waits until a running M109/M190 ends
     g.ep.run_gcode("CANCEL_PRINT")
     # 4.4.22: the total print time is no longer kept in config.mksini
     time.sleep(0.01)

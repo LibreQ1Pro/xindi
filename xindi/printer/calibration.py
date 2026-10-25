@@ -27,7 +27,8 @@ def start_auto_level():
         g.klippy.idle_timeout_state = "Printing"
     page_to(ids.AUTO_MOVING)
     set_heater_bed_target(g.config.heater_bed_target)
-    g.ep.run_gcode("M4029")
+    # the steps of the page follow the messages of AUTO_CALIBRATE
+    g.ep.run_gcode("AUTO_CALIBRATE BED=" + to_string(g.config.heater_bed_target))
 
 
     # 4.4.22: the total print time is no longer kept in config.mksini
@@ -38,7 +39,7 @@ def go_to_syntony_move():
     g.levelling.syntony_finished = False
     g.klippy.idle_timeout_state = "Printing"
     page_to(ids.SYNTONY_MOVE)
-    g.ep.run_gcode("M901\n")
+    g.ep.run_gcode("INPUT_SHAPER_CALIBRATE\n")
 
 
 def open_more_level_finish():
@@ -49,13 +50,9 @@ def open_more_level_finish():
 
 def open_heater_bed_up():
     # 4.4.22: the caller shows the "moving" page, which waits until Klipper is idle
-    # again (refresh_page_open_moving()); the bed is homed and moved up and down
+    # again (refresh_page_open_moving()); the bed is homed and aligned with the frame
     g.klippy.idle_timeout_state = "Printing"
-    g.ep.run_gcode("SET_KINEMATIC_POSITION Z=150\nSET_KINEMATIC_POSITION X=150\nSET_KINEMATIC_POSITION Y=150\n")
-    g.ep.run_gcode("G91\nG1 Z-30 F600\nG1 X-30 Y-30 F1200\nG90\nM84\n")
-    g.ep.run_gcode("M4031\n")
-    g.ep.run_gcode("G28\n")
-    g.ep.run_gcode("G1 Z240 F600\nG1 Z10 F600\n G1 Z240 F600\n G1 Z20 F600\n")
+    g.ep.run_gcode("UNBOXING_PREPARE\n")
 
 
 def bed_leveling_switch(positive):
@@ -72,8 +69,7 @@ def bed_calibrate():
         g.levelling.bed_offset = 0.0
         g.klippy.idle_timeout_state = "Printing"
         g.ep.run_gcode("ABORT\n")
-        g.ep.run_gcode("M4031\n")     # 4.4.22
-        g.ep.run_gcode("M4030\n")
+        g.ep.run_gcode("BED_SCREWS_PREPARE\n")
         page_to(ids.BED_MOVING)
     elif g.screen.manual_count == 3:
         g.klippy.idle_timeout_state = "Printing"

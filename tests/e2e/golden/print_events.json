@@ -29,8 +29,6 @@
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/gcodes/last_print.gcode",
   "GET /server/files/gcodes/part_abs.gcode",
-  "POST /printer/breakmacro",
-  "POST /printer/breakheater",
   "GET /server/history/list?limit=20&order=desc",
   "GET /server/files/directory?path=gcodes/",
   "GET /server/files/gcodes/last_print.gcode"

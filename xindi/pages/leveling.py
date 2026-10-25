@@ -5,9 +5,8 @@ import os
 import time
 
 from xindi import state as g
-from xindi.config import settings
 from xindi.pages.widgets import cut_after_point, face_group, heat_readout, heater_row
-from xindi.printer import heating, klipper
+from xindi.printer import klipper
 from xindi.screen import pageids as ids
 from xindi.screen.navigation import page_to
 from xindi.util.cpp import f32, to_string
@@ -77,11 +76,6 @@ def auto_moving():
         g.port.pco("step3_txt", "42294")
         g.levelling.step_3 = False
         g.klippy.idle_timeout_state = "Printing"
-        settings.get_heater_bed_target()
-        heating.set_heater_bed_target(g.config.heater_bed_target)
-        g.ep.run_gcode("M190 S" + to_string(g.config.heater_bed_target) + "\n")
-        time.sleep(1)
-        g.ep.run_gcode("M4027\n")
     if g.levelling.step_4:
         time.sleep(15)
         page_to(ids.AUTO_FINISH)
