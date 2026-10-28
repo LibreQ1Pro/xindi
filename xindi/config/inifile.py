@@ -17,19 +17,13 @@ def _inipath():
 # Python only: written when the file does not exist (QIDI's system image comes
 # with one, other systems do not, and the settings could not be saved).  The
 # values are the defaults the program uses when a key is missing.
-DEFAULT_SETTINGS = """[led]
-enable = 0
-
-[beep]
-enable = 0
-
-[target]
+DEFAULT_SETTINGS = """[target]
 extruder = 200
 heaterbed = 40
 hot = 40
 
 [oobe]
-enable = 1
+enable = 0
 """
 
 

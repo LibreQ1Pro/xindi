@@ -55,7 +55,7 @@ speeds, Moonraker's address, the data directory (`settings.ini`, the settings th
 systemd unit and mount script (see its README). Without it the USB tab of the file list stays empty.
 
 **Settings reset** (Settings → Reset) clears the print history of Moonraker, writes the default `settings.ini` (the setup
-guide runs again) and sets the z offset to 0.
+guide stays off; Settings has a switch to run it again) and sets the z offset to 0.
 
 ## Helper binaries that are now built in
 

@@ -13,14 +13,6 @@ from xindi.util.cpp import to_string
 log = logging.getLogger(__name__)
 
 
-def set_led_status():
-    save_setting("led", "enable", to_string(g.config.led_status))
-
-
-def set_beep_status():
-    save_setting("beep", "enable", to_string(g.config.beep_status))
-
-
 def get_extruder_target():
     ini = open_settings()
     g.config.extruder_target = ini.get_int("target", "extruder", 200)

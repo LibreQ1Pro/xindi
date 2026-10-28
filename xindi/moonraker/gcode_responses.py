@@ -181,7 +181,6 @@ RULES = [
 
 
 def parse_gcode_response(params):
-    from xindi.printer import heating
     log.debug("%s", json_dump(params))
     if params is None:
         return
@@ -190,9 +189,6 @@ def parse_gcode_response(params):
     # 4.4.2 CLL screen sleep feature
     if g.screen.page == ids.SCREEN_SLEEP:   # SCREEN_SLEEP has no refresh function, switching pages here can't conflict
         navigation.page_to(g.screen.previous_page)
-        if g.screen.previous_caselight_value:
-            heating.led_on_off()
-            g.screen.previous_caselight_value = False
 
     for matches, handle in RULES:
         if matches(line):

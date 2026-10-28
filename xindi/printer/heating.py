@@ -73,27 +73,11 @@ def set_filament_extruder_target(positive):
 
 
 def beep_on_off():
-    if g.klippy.out_pin_beep_value == 0:
-        g.ep.run_gcode("beep_on")
-        g.config.beep_status = True
-        settings.set_beep_status()
-    else:
-        g.ep.run_gcode("beep_off")
-        g.config.beep_status = False
-        settings.set_beep_status()
+    g.ep.run_gcode("beep_off" if g.klippy.out_pin_beep_value else "beep_on")
 
 
 def led_on_off():
-    if g.klippy.caselight_value == 0:
-        g.ep.run_gcode("SET_PIN PIN=caselight VALUE=1")
-        if g.screen.page != ids.SCREEN_SLEEP:
-            g.config.led_status = True
-            settings.set_led_status()
-    else:
-        g.ep.run_gcode("SET_PIN PIN=caselight VALUE=0")
-        if g.screen.page != ids.SCREEN_SLEEP:
-            g.config.led_status = False
-            settings.set_led_status()
+    g.ep.run_gcode("light_toggle")
 
 
 def filament_extruder_target():

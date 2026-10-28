@@ -58,8 +58,6 @@ class Screen(object):
         # 4.4.1 CLL "do not show again" button on the filament confirmation pop-ups
         self.preview_pop_1_on = True
         self.preview_pop_2_on = True
-        # 4.4.2 CLL screen sleep feature
-        self.previous_caselight_value = False
         # 4.4.2 CLL local / USB buttons on the file list page
         self.file_mode = "Local"
         self.manual_count = 0
@@ -309,8 +307,6 @@ class Config(object):
         # out-of-box experience (first start guide)
         self.oobe_enabled = False
         # mks ini data
-        self.led_status = False
-        self.beep_status = False
         self.fila_status = False
         self.language_status = 2        # the screen's language (index of netstrings), reported by the screen
         self.extruder_target = 0
